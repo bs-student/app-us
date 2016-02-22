@@ -56,7 +56,7 @@
                                 iconClass: 'toast-error'+' ' + 'bg-error'
                             });
                             openedToasts.push(toast);
-                            
+
                         }
                         if(response.data.success!=undefined){
                             var toast = toastr[$scope.options.type](response.data.success.successBody, response.data.success.successTitle, {
