@@ -2,11 +2,11 @@
     'use strict';
 
     app
-        .controller('ForgotPasswordCtrl', ForgotPasswordCtrl);
+        .controller('ResetPasswordCtrl', ResetPasswordCtrl);
 
-    ForgotPasswordCtrl.$inject = ['$scope', '$state', 'toastr', 'toastrConfig', 'securityService'];
+    ResetPasswordCtrl.$inject = ['$scope', '$state', 'toastr', 'toastrConfig', 'securityService','$stateParams'];
 
-    function ForgotPasswordCtrl($scope, $state, toastr, toastrConfig, securityService) {
+    function ResetPasswordCtrl($scope, $state, toastr, toastrConfig, securityService,$stateParams) {
 
         $scope.resetPassword = _resetPassword;
         $scope.clearLastToast = _clearLastToast;
@@ -38,27 +38,39 @@
             toastr.clear();
         }
         function _resetPassword() {
+//            console.log($stateParams);
 
             if ($scope.user != undefined) {
-                var data = {'username':$scope.user.email}
-                securityService.resetPassword(data).then(function(response){
 
-                    if(response.data.error!=undefined){
-                        var toast = toastr[$scope.options.type](response.data.error.errorBody, response.data.error.errorTitle, {
-                            iconClass: 'toast-error'+' ' + 'bg-error'
-                        });
-                        openedToasts.push(toast);
-//                        $state.go('security.signup');
+                if($scope.user.password==$scope.user.passwordConfirm){
+
+                    var data={
+                        'password':$scope.user.password,
+                        'passwordConfirm':$scope.user.passwordConfirm,
+                        'token':$stateParams.code
                     }
-                    if(response.data.success!=undefined){
-                        var toast = toastr[$scope.options.type](response.data.success.successBody, response.data.success.successTitle, {
-                            iconClass: 'toast-success'+' ' + 'bg-success'
-                        });
-                        openedToasts.push(toast);
-//                        $state.go('security.login');
-                    }
-                    console.log(response.data);
-                });
+                    securityService.resetPassword(data).then(function(response){
+
+                        if(response.data.error!=undefined){
+                            var toast = toastr[$scope.options.type](response.data.error.errorBody, response.data.error.errorTitle, {
+                                iconClass: 'toast-error'+' ' + 'bg-error'
+                            });
+                            openedToasts.push(toast);
+                            
+                        }
+                        if(response.data.success!=undefined){
+                            var toast = toastr[$scope.options.type](response.data.success.successBody, response.data.success.successTitle, {
+                                iconClass: 'toast-success'+' ' + 'bg-success'
+                            });
+                            openedToasts.push(toast);
+                            $state.go('security.login');
+                        }
+
+                        console.log(response.data);
+                    });
+
+                }
+
             }
 
         }

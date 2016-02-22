@@ -154,7 +154,7 @@ var app = angular
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
 //            .when('/access_token=:accessToken','')
-            .otherwise('/app/dashboard');
+//            .otherwise('/app/dashboard');
         $stateProvider
 //            .state('code', {
 //                abstract: true,
@@ -244,14 +244,14 @@ var app = angular
 
             })
 
-            .state('core', {
+            .state('security', {
                 abstract: true,
-                url: '/core',
+                url: '/security',
 //                controller: 'StartCtrl',
                 template: '<div ui-view></div>'
             })
             //login
-            .state('core.login', {
+            .state('security.login', {
                 url: '/login',
                 controller: 'LoginCtrl',
                 templateUrl: 'views/security/login.html',
@@ -267,21 +267,26 @@ var app = angular
                 }
             })
             //signup
-            .state('core.signup', {
+            .state('security.signup', {
                 url: '/signup',
                 controller: 'SignupCtrl',
                 templateUrl: 'views/registration/signup.html'
             })
-            .state('core.signup.confirm', {
-                url: '/confirm',
+            .state('security.confirm', {
+                url: '/confirm/:code',
                 controller: 'SignupConfirmCtrl'
 //                templateUrl: 'views/registration/signup.html'
             })
             //forgot password
-            .state('core.forgotpass', {
-                url: '/forgotpass',
+            .state('security.forgotpassword', {
+                url: '/forgotpassword',
                 controller: 'ForgotPasswordCtrl',
-                templateUrl: 'views/tmpl/pages/forgotpass.html'
+                templateUrl: 'views/security/forgotpassword.html'
+            })
+            .state('security.reset', {
+                url: '/reset/:code',
+                controller: 'ResetPasswordCtrl',
+                templateUrl: 'views/security/resetpassword.html'
             })
 
 

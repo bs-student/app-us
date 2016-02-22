@@ -3,6 +3,9 @@
     'use strict';
 
     app
+        .constant("SERVER_CONSTANT",{
+            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php"
+        })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
             "CLIENT_SECRET": "3pcvjgjoqekgwgkoc0gss4cggkoo000o40ggc8ok44ksc4ckk0"
@@ -14,9 +17,7 @@
             "SOCIAL_PLUGIN_GRANT_TYPE":"http://platform.local/grants/social_plugin",
             "OAUTH_TOKEN_URL":"/oauth/v2/token"
         })
-        .constant("SERVER_CONSTANT",{
-            "HOST":"http://localhost:8080/SymfonyReal2/web/app_dev.php"
-        })
+
         .constant("USER_CONSTANT", {
             "CURRENT_USER_SHORT_DETAILS": "/api/current_user_short_details",
             "CURRENT_USER_FULL_DETAILS": "/api/current_user_full_details",
@@ -46,8 +47,11 @@
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",
             "REGISTER":"/register",
+            "CONFIRM_REGISTRATION":"/confirm/",
             "CHECK_IF_USERNAME_EXIST":"/check_if_username_exist",
-            "CHECK_IF_EMAIL_EXIST":"/check_if_email_exist"
+            "CHECK_IF_EMAIL_EXIST":"/check_if_email_exist",
+            "FORGOT_PASSWORD":"/resetting/send-email",
+            "RESET_PASSWORD":"/resetting/reset/"
         })
 
         .constant("LOGIN_CONSTANT", {

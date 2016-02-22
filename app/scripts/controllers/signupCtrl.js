@@ -143,9 +143,11 @@
             securityService.registerUser(data).then(function (response){
                 if(response.data.success!=undefined){
                     openSuccessToast(response.data.success);
+
                 }
                 if(response.data.children!=undefined){
-
+                    $scope.user.password=null;
+                    $scope.user.passwordConfirm=null;
                     if(response.data.children.campus.errors!=undefined){
                         $scope.campusFieldError= true;
                     }
@@ -162,6 +164,7 @@
                     iconClass: 'toast-'+$scope.options.iconClass.name + ' ' + 'bg-'+$scope.options.iconClass.name
                 });
                 openedToasts.push(toast);
+                $state.go('app.dashboard');
         }
         function _clearLastToast(){
             var toast = openedToasts.pop();

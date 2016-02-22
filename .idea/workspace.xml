@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b137f36b-ad1f-411a-a21f-1620c88f597f" name="Default" comment="" />
-    <ignored path="SymfonyClient.iws" />
+    <list default="true" id="08e4fe9d-8ad8-453c-8eb3-c4d8c5941b60" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Student2StudentApp.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/forgotPasswordCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security/forgotpassword.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/security/resetpassword.html" />
+      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\.idea\SymfonyClient.iml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\header.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\nav.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\rightbar.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/constants/constants.js" afterPath="$PROJECT_DIR$/app/scripts/constants/constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security/login.html" afterPath="$PROJECT_DIR$/app/views/security/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/nav.html" afterPath="$PROJECT_DIR$/app/views/web/nav.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/securityService.js" afterPath="$PROJECT_DIR$/app/scripts/services/securityService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/registration/signup.html" afterPath="$PROJECT_DIR$/app/views/registration/signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="Student2StudentApp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,68 +42,41 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="SymfonyClient" />
+    <favorites_list name="Student2StudentApp" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/registration/signup.html">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="4844" selection-end="4844" vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="2924">
+            <state line="287" column="42" selection-start="9138" selection-end="9138" vertical-scroll-proportion="0.0" vertical-offset="4284" max-vertical-offset="17799">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="valEmail.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/validators/valEmail.js">
+      <file leaf-file-name="resetpassword.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/security/resetpassword.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="47" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="561">
+            <state line="61" column="42" selection-start="2720" selection-end="2733" vertical-scroll-proportion="-28.115385" vertical-offset="306" max-vertical-offset="1309">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="valUsername.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/validators/valUsername.js">
+      <file leaf-file-name="forgotpassword.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/security/forgotpassword.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="47" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="561">
+            <state line="33" column="45" selection-start="1341" selection-end="1355" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="850">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tokenService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/tokenService.js">
+      <file leaf-file-name="forgotPasswordCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/forgotPasswordCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="50" selection-start="1570" selection-end="1585" vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1190">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="securityService.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/securityService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="161" selection-start="408" selection-end="440" vertical-scroll-proportion="0.16594361" vertical-offset="0" max-vertical-offset="2686">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signupCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="19" selection-start="5981" selection-end="5981" vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="5253">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="complete_registration.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/registration/complete_registration.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="32" selection-start="2432" selection-end="3786" vertical-scroll-proportion="0.0" vertical-offset="1212" max-vertical-offset="2567">
+            <state line="43" column="46" selection-start="1351" selection-end="1351" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1258">
               <folding />
             </state>
           </provider>
@@ -89,16 +85,16 @@
       <file leaf-file-name="signupConfirmCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="510">
+            <state line="39" column="32" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="identityService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/identityService.js">
+      <file leaf-file-name="securityService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/securityService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="25" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1802">
+            <state line="106" column="107" selection-start="4093" selection-end="4093" vertical-scroll-proportion="0.0" vertical-offset="1376" max-vertical-offset="2907">
               <folding />
             </state>
           </provider>
@@ -107,7 +103,34 @@
       <file leaf-file-name="constants.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="40" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="1581">
+            <state line="53" column="47" selection-start="2424" selection-end="2424" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1649">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="353" column="57" selection-start="24843" selection-end="24843" vertical-scroll-proportion="-37.23077" vertical-offset="5033" max-vertical-offset="6256">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resetPasswordCtrl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="28" selection-start="2076" selection-end="2076" vertical-scroll-proportion="0.6127983" vertical-offset="421" max-vertical-offset="1462">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/registration/signup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="146" column="27" selection-start="9194" selection-end="9194" vertical-scroll-proportion="-16.961538" vertical-offset="2041" max-vertical-offset="2924">
               <folding />
             </state>
           </provider>
@@ -120,60 +143,26 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/controllers/dashboard.js" />
-        <option value="$PROJECT_DIR$/app/scripts/factory/getService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/service/getService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/service/requestService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/factory/dataFactory.js" />
-        <option value="$PROJECT_DIR$/app/scripts/service/apiService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/service/loginService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/constants/constants.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/apiService.js" />
-        <option value="$PROJECT_DIR$/app/views/tmpl/dashboard.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/sharedService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/app/views/tmpl/tables/user_list.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/userManagementCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/tmpl/tables/university_list.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/testCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/nav.html" />
-        <option value="$PROJECT_DIR$/app/languages/en.json" />
-        <option value="$PROJECT_DIR$/app/scripts/services/referralService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/countryService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/stateService.js" />
-        <option value="$PROJECT_DIR$/app/views/admin/university/new_university.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/universityCreateCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/universityService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/universityViewCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/admin/university/university_list.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/universityManagementCtrl.js" />
-        <option value="$PROJECT_DIR$/OauthClientTest/index.html" />
-        <option value="$PROJECT_DIR$/app/views/tmpl/pages/login.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/tokenService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/identityService.js" />
-        <option value="$PROJECT_DIR$/app/views/tmpl/material/autocomplete.html" />
-        <option value="$PROJECT_DIR$/app/views/registration/complete_registration.html" />
-        <option value="$PROJECT_DIR$/app/views/web/app.html" />
-        <option value="$PROJECT_DIR$/app/views/header.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/userService.js" />
-        <option value="$PROJECT_DIR$/app/views/web/header.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/loginService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/oAuthCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/startCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/dashboardCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/loginCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
-        <option value="$PROJECT_DIR$/app/scripts/validators/valEmail.js" />
-        <option value="$PROJECT_DIR$/app/scripts/validators/valUsername.js" />
-        <option value="$PROJECT_DIR$/app/views/registration/signup.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/views/nav.html" />
+        <option value="$PROJECT_DIR$/app/views/web/nav.html" />
+        <option value="$PROJECT_DIR$/app/views/security/login.html" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/views/registration/signup.html" />
+        <option value="$PROJECT_DIR$/app/views/security/forgotpassword.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/forgotPasswordCtrl.js" />
+        <option value="$PROJECT_DIR$/app/views/security/resetpassword.html" />
+        <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/securityService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js" />
       </list>
     </option>
   </component>
@@ -210,46 +199,31 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OauthClientTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -259,29 +233,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -299,11 +255,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -325,11 +281,33 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -347,11 +325,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -369,11 +347,29 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -387,33 +383,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="validators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -431,11 +405,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -453,11 +427,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -475,11 +449,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SymfonyClient" />
+              <option name="myItemId" value="Student2StudentApp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -493,79 +467,53 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test" />
-    <property name="FullScreen" value="false" />
-    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
-    <property name="SearchEverywhereHistory" value="index&#10;app.js&#10;dashboa&#10;app&#10;main.&#10;index.ht&#10;header" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\SymfonyClient\app\scripts\controllers" />
-      <recent name="C:\wamp\www\SymfonyClient\app\scripts\validators" />
-      <recent name="C:\wamp\www\SymfonyClient\app\views\registration" />
-      <recent name="C:\wamp\www\SymfonyClient\app\scripts\services" />
-      <recent name="C:\wamp\www\SymfonyClient\app\views\security" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\SymfonyClient\app\views\admin\user" />
-      <recent name="C:\wamp\www\SymfonyClient\app\views" />
-      <recent name="C:\wamp\www\SymfonyClient\app\views\admin\university" />
-      <recent name="C:\wamp\www\SymfonyClient\app\scripts" />
-      <recent name="C:\wamp\www\SymfonyClient\app\scripts\service" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\controllers" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\security" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b137f36b-ad1f-411a-a21f-1620c88f597f" name="Default" comment="" />
-      <created>1453467772163</created>
-      <updated>1453467772163</updated>
+      <changelist id="08e4fe9d-8ad8-453c-8eb3-c4d8c5941b60" name="Default" comment="" />
+      <created>1456130874141</created>
+      <updated>1456130874141</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -587,277 +535,112 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/scripts/services/userService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="37" selection-start="365" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/startCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="27" selection-start="343" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1241" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/loginCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="457" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="2533" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/universityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="93" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="816" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/securityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="78" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2465">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OauthClientTest/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="607" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="527" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="347" column="49" selection-start="24452" selection-end="24452" vertical-scroll-proportion="0.0" vertical-offset="5899" max-vertical-offset="6103" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="25" selection-start="6156" selection-end="6156" vertical-scroll-proportion="0.0" vertical-offset="3366" max-vertical-offset="17612" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/rightbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="12" selection-start="246" selection-end="248" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="6766" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="490127" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="16" selection-start="2425" selection-end="2425" vertical-scroll-proportion="0.3329718" vertical-offset="1920" max-vertical-offset="3247" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/material/autocomplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="52" selection-start="1576" selection-end="1576" vertical-scroll-proportion="-23.12" vertical-offset="255" max-vertical-offset="3621" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/ng-table/dist/ng-table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1289" column="16" selection-start="51761" selection-end="51761" vertical-scroll-proportion="0.33333334" vertical-offset="21610" max-vertical-offset="39168" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/ng-table/test/tableSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="56" selection-start="15794" selection-end="15794" vertical-scroll-proportion="0.3329718" vertical-offset="6476" max-vertical-offset="20587" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/languages/en.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="149" selection-end="149" vertical-scroll-proportion="-1.6666666" vertical-offset="0" max-vertical-offset="1564" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/userManagementCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="200" column="115" selection-start="7287" selection-end="7287" vertical-scroll-proportion="3.4339623" vertical-offset="306" max-vertical-offset="3842" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/universityCreateCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="0" selection-start="8304" selection-end="8304" vertical-scroll-proportion="0.0" vertical-offset="1101" max-vertical-offset="2278" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/universityViewCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/university/university_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3077" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/university/university_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="97" selection-start="7755" selection-end="7776" vertical-scroll-proportion="0.0" vertical-offset="1992" max-vertical-offset="3077" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/lodash/test/saucelabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="566" column="6" selection-start="15892" selection-end="15892" vertical-scroll-proportion="0.664859" vertical-offset="9009" max-vertical-offset="15759" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/universityManagementCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="0" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4794" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/referralService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="40" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/university/new_university.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="96" selection-start="2196" selection-end="2205" vertical-scroll-proportion="-12.884615" vertical-offset="413" max-vertical-offset="1598" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="25" selection-start="1041" selection-end="1041" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="8891" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="6701" selection-end="6701" vertical-scroll-proportion="0.34151787" vertical-offset="1598" max-vertical-offset="3604" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.092634" vertical-offset="1875" max-vertical-offset="2771" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/testCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="167" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OauthClientTest/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="607" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="527" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="6" selection-start="552" selection-end="552" vertical-scroll-proportion="0.42407808" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/navbar-chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/dashboardCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="4" selection-start="209" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/startCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1258" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/universityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="93" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/oAuthCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="40" selection-start="3963" selection-end="3987" vertical-scroll-proportion="0.3308026" vertical-offset="766" max-vertical-offset="2023" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/userService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="78" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.51626897" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/registration/complete_registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="32" selection-start="2432" selection-end="3786" vertical-scroll-proportion="0.0" vertical-offset="1212" max-vertical-offset="2567">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/apiService.js">
+    <entry file="file://$PROJECT_DIR$/app/views/web/nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="47" selection-start="490" selection-end="496" vertical-scroll-proportion="0.44251627" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/validators/valUsername.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+        <state line="15" column="56" selection-start="751" selection-end="751" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="8891">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/validators/valEmail.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/loginCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+        <state line="183" column="0" selection-start="6326" selection-end="6331" vertical-scroll-proportion="0.0" vertical-offset="2308" max-vertical-offset="3230">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/registration/signup.html">
+    <entry file="file://$PROJECT_DIR$/app/views/security/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="4844" selection-end="4844" vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="2924">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="57" selection-start="24704" selection-end="24704" vertical-scroll-proportion="0.8369196" vertical-offset="5228" max-vertical-offset="6222" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="22" selection-start="4658" selection-end="4658" vertical-scroll-proportion="0.0" vertical-offset="3281" max-vertical-offset="17714" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/identityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="25" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.0" vertical-offset="101" max-vertical-offset="1802">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="29" column="43" selection-start="1191" selection-end="1191" vertical-scroll-proportion="-3.0784314" vertical-offset="336" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="19" selection-start="5981" selection-end="5981" vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="5253">
+        <state line="16" column="150" selection-start="210" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="353" column="57" selection-start="24843" selection-end="24843" vertical-scroll-proportion="-37.23077" vertical-offset="5033" max-vertical-offset="6256">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/registration/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="27" selection-start="9194" selection-end="9194" vertical-scroll-proportion="-16.961538" vertical-offset="2041" max-vertical-offset="2924">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/forgotPasswordCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="46" selection-start="1351" selection-end="1351" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1258">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="40" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="1581">
+        <state line="53" column="47" selection-start="2424" selection-end="2424" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1649">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/tokenService.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="50" selection-start="1570" selection-end="1585" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1190">
+        <state line="287" column="42" selection-start="9138" selection-end="9138" vertical-scroll-proportion="0.0" vertical-offset="4284" max-vertical-offset="17799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/loginCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/views/security/forgotpassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="39" selection-start="4629" selection-end="4629" vertical-scroll-proportion="0.52386117" vertical-offset="1846" max-vertical-offset="3230" />
+        <state line="33" column="45" selection-start="1341" selection-end="1355" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security/resetpassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="42" selection-start="2720" selection-end="2733" vertical-scroll-proportion="-28.115385" vertical-offset="306" max-vertical-offset="1309">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/securityService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="161" selection-start="408" selection-end="440" vertical-scroll-proportion="0.16594361" vertical-offset="0" max-vertical-offset="2686">
+        <state line="106" column="107" selection-start="4093" selection-end="4093" vertical-scroll-proportion="0.0" vertical-offset="1376" max-vertical-offset="2907">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupConfirmCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="32" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="28" selection-start="2076" selection-end="2076" vertical-scroll-proportion="0.6127983" vertical-offset="421" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>

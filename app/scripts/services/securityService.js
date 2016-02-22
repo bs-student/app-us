@@ -20,8 +20,11 @@
             fetchFacebookAccessToken: _fetchFacebookAccessToken,
             fetchFacebookUserData: _fetchFacebookUserData,
             registerUser:_registerUser,
+            confirmRegistration:_confirmRegistration,
             checkIfUsernameExist: _checkIfUsernameExist,
-            checkIfEmailExist:_checkIfEmailExist
+            checkIfEmailExist:_checkIfEmailExist,
+            forgotPassword: _forgotPassword,
+            resetPassword: _resetPassword
 
         };
 
@@ -92,6 +95,16 @@
 
         function _checkIfEmailExist(query){
             return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CHECK_IF_EMAIL_EXIST, query);
+        }
+
+        function _confirmRegistration(code){
+            return apiService.get(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CONFIRM_REGISTRATION+code);
+        }
+        function _forgotPassword(email){
+            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.FORGOT_PASSWORD, email);
+        }
+        function _resetPassword(data){
+            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.RESET_PASSWORD+data.token,data);
         }
        /* function _loginUserViaFacebook(){
             return apiService.post(SERVER_CONSTANT.HOST + LOGIN_CONSTANT.LOGIN_WITH_GOOGLE_LINK, data);
