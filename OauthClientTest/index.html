@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="https://apis.google.com/js/client.js"></script>
+    <script>
+      function auth() {
+        var config = {
+          'client_id': '338870697590-1f65buklbq4obeo964r9e9bd0hsodbcp.apps.googleusercontent.com',
+          'scope': 'email profile',
+		  "response_type" : "token"
+//           "redirect_uri": "http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google"
+
+//		  "redirect_uri": "http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google"
+        };
+        gapi.auth.authorize(config, function(response) {
+          console.log('login complete');
+		  
+          console.log(gapi.auth.getToken());
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <button onclick="auth();">Authorize</button>
+  </body>
+</html>
