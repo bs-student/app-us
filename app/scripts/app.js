@@ -154,7 +154,7 @@ var app = angular
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
 //            .when('/access_token=:accessToken','')
-//            .otherwise('/app/dashboard');
+            .otherwise('/app/dashboard');
         $stateProvider
 //            .state('code', {
 //                abstract: true,
@@ -232,14 +232,22 @@ var app = angular
                     }
                 }
             })
-            .state('admin.university.view', {
-                url: '/view',
-                views: {
-                    'universityUtilityView@admin.university': {
-                        templateUrl: 'views/admin/university/university_view.html',
-                        controller: 'UniversityViewCtrl'
-                    }
+            .state('admin.view_university', {
+                url: '/view_university',
+                templateUrl: 'views/admin/university/university_view.html',
+                controller: 'UniversityViewCtrl',
+                params: {
+                    obj: null
+                }
 
+            })
+            .state('admin.view_university.add_campus', {
+                url: '/add_campus',
+                views:{
+                    'campusUtilityView@admin.view_university':{
+                        template: '<p>Adding Campus</p>',
+                        controller: 'CampusCreateCtrl'
+                    }
                 }
 
             })
@@ -287,6 +295,19 @@ var app = angular
                 url: '/reset/:code',
                 controller: 'ResetPasswordCtrl',
                 templateUrl: 'views/security/resetpassword.html'
+            })
+
+            //University
+            .state('university', {
+                abstract: true,
+                url: '/university',
+//                controller: 'StartCtrl',
+                template: '<div ui-view></div>'
+            })
+            .state('university.add', {
+                url: '/add',
+                controller: 'UniversityCtrl',
+                templateUrl: 'views/university/university.html'
             })
 
 

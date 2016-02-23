@@ -2,27 +2,24 @@
 
     'use strict';
 
-    /**
-     * @ngdoc function
-     * @name minovateApp.controller:PagesLoginCtrl
-     * @description
-     * # PagesLoginCtrl
-     * Controller of the minovateApp
-     */
+
     app
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','toastr', 'toastrConfig'];
+    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','toastr'];
 
-    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,toastr,toastrConfig) {
+    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,toastr) {
 
 
         checkIfUserLoggedIn();
         var clientCredentialAccessToken = null;
         $scope.referralFieldError = false;
         $scope.campusFieldError= false;
+        $scope.showCreateNewUniversity = _showCreateNewUniversity;
+        $scope.createUniversityCampusName=false;
         $scope.clearLastToast = _clearLastToast;
         $scope.clearToasts = _clearToasts;
+//        $scope.fetchStates = _fetchStates;
         var openedToasts = [];
         $scope.toast = {
             colors: [
@@ -124,20 +121,28 @@
 
 
         function _register(){
+
             $scope.referralFieldError = false;
             $scope.campusFieldError= false;
             campusValue = null;
-            if($scope.selectedItem!=null)var campusValue = $scope.selectedItem;
             var data =
             {
                 'fullName': $scope.user.fullName,
                 'username':$scope.user.username,
                 'email': $scope.user.email,
                 'referral':$scope.user.referral,
-                'campus':campusValue.value,
                 'new_password': $scope.user.password,
                 'confirm_password': $scope.user.passwordConfirm
             };
+            if(!$scope.createUniversityCampusName && $scope.selectedItem!=null){
+                var campusValue = $scope.selectedItem;
+                data['campus']=campusValue.value;
+            }else{
+                data['campusName']=$scope.user.campusName;
+                data['state']=$scope.user.state;
+                data['university']=$scope.user.university;
+            }
+
 
             var json = JSON.stringify(data);
             securityService.registerUser(data).then(function (response){
@@ -175,129 +180,10 @@
             toastr.clear();
         };
 
+        function _showCreateNewUniversity(){
+            $state.go('university.add');
 
-//
-//
-//
-//        var vm = this;
-//
-//        $scope.loginViaGoogle = _loginViaGoogle;
-//        $scope.loginViaFacebook = _loginViaFacebook;
-//
-//
-//        /*if (identityService.getAccessToken() != null) {
-//         $state.go('app.dashboard');
-//         }*/
-//        $scope.login = loginUser;
-//
-//        securityService.getLoginPage().then(setLoginPage);
-//
-//
-//        function loginUser() {
-//            vm.user._username = $scope.user._username;
-//            vm.user._password = $scope.user._password;
-//            vm.user._submit = "Login";
-//            securityService.loginUser(vm.user).then(showDashboardPage);
-//        }
-//
-//
-//        function setLoginPage(response) {
-//            vm.user = {};
-//            vm.user._csrf_token = response.data.page_data.csrf_token;
-//        }
-//
-//
-//        function showDashboardPage(response) {
-//
-//            $scope.credential_error = null;
-//            if (typeof response.data.page_data != "undefined") {
-//                $scope.credential_error = response.data.page_data.error;
-//            } else if (typeof response.data.user != "undefined") {
-//                if (response.data.user.message = "Login Successful") {
-//                    identityService.getInitialAccessToken(vm.user).then(getAuthorizedUserData);
-//
-//                }
-//
-//            }
-//        }
-//
-//        function getAuthorizedUserData(response) {
-//            identityService.setAccessToken(response.data);
-//            userService.getAuthorizedUserData(response.data.access_token).then(setAuthorizedUserData);
-//
-//        }
-//
-//        function setAuthorizedUserData(response) {
-//            identityService.setAuthorizedUserData(response.data.user);
-//            $state.go('app.dashboard');
-//        }
-//
-//        function _loginViaGoogle() {
-//
-//            securityService.fetchGoogleAccessToken().then(function(token_response){
-//                securityService.fetchGoogleUserData(token_response.access_token).then(function(response){
-//
-//                    var requestData={
-//                        'socialService':'google',
-//                        'email':response.data.email,
-//                        'googleId':response.data.id,
-//                        'username':response.data.given_name+response.data.family_name+Math.floor(Math.random() * 100000) + 1,
-//                        'fullName': response.data.name,
-//                        'googleEmail':response.data.email,
-//                        'googleToken': token_response.access_token
-//                    }
-//
-//                    securityService.loginUserViaSocialService(requestData).then(loginViaSocialServiceNextStep);
-//
-//                });
-//
-//            });
-//
-//
-//        }
-//
-//        function _loginViaFacebook(){
-//            securityService.fetchFacebookAccessToken().then(function(token_response) {
-//                    console.log(token_response.authResponse);
-//                    securityService.fetchFacebookUserData(token_response.authResponse.userID).then(function(response){
-//
-//                        var requestData={
-//                            'socialService':'facebook',
-//                            'email':response.email,
-//                            'facebookId':response.id,
-//                            'username':response.first_name+response.last_name+Math.floor(Math.random() * 100000) + 1,
-//                            'fullName': response.name,
-//                            'facebookEmail':response.email,
-//                            'facebookToken': token_response.authResponse.accessToken
-//                        }
-//
-//                        console.log(response);
-//                        securityService.loginUserViaSocialService(requestData).then(loginViaSocialServiceNextStep);
-//                    });
-//
-//                }
-//            );
-//        }
-//
-//        function loginViaSocialServiceNextStep(response){
-//
-//            if(response.data.userData!=undefined){
-//                identityService.getSocialPluginAccessToken(response.data.userData.userId).then(function(tokenResponse){
-//                    identityService.setAccessToken(tokenResponse.data);
-//                    identityService.setAuthorizedUserData(response.data.userData);
-//
-//                    if(response.data.userData.registrationStatus=="incomplete"){
-//                        $state.go('registration.complete');
-//                    }else{
-//                        $state.go('app.dashboard');
-//                    }
-//
-//                });
-//            }
-//
-//
-//
-//        }
+        }
 
 
     }

@@ -43,7 +43,7 @@
 
                     <!-- tile header -->
                     <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font"><strong>Editable</strong></h1>
+                        <h1 class="custom-font"><strong>{{universityName}}</strong></h1>
                         <ul class="controls">
                             <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
 
@@ -83,63 +83,76 @@
                     <div class="tile-body">
 
                         <button ng-click="tableParams.sorting({})" class="btn btn-default">Clear sorting</button>
-                        <button ng-if="!selected_edit" ng-click="editSelectedUniversities()"
+                        <!--<button ng-if="!selected_edit" ng-click="editSelectedUniversities()"
                                 class="btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Edit Universities <i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-click="activateSelectedUniversities()" class="btn btn-primary btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10"> Activate <i class="fa fa-arrow-right"></i></button>
-                        <button ng-if="selected_edit" ng-click="saveEditedSelectedUniversities()"
+                                class="fa fa-arrow-right"></i></button>-->
+                        <!--<button ng-click="activateSelectedUniversities()" class="btn btn-primary btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10"> Activate <i class="fa fa-arrow-right"></i></button>-->
+                        <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUniversities()"
                                 class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save universities <i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-click="showAddUniversityPage()"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Add University <i
+                                class="fa fa-arrow-right"></i></button>-->
+                        <button ng-click="showAddCampusPage()"
+                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Add Campus<i
                                 class="fa fa-arrow-right"></i></button>
 
                         {{checkboxes.items}}
 
-                        <div ui-view="universityUtilityView" ></div>
+
+                        <div ui-view="campusUtilityView" ></div>
+
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>University Name</th>
+                                <td>{{universityName}}</td>
+                            </tr>
+                            <tr>
+                                <th>University Url</th>
+                                <td>{{universityUrl}}</td>
+                            </tr>
+                            <tr>
+                                <th>Activation Status</th>
+                                <td>{{universityStatus}}</td>
+                            </tr>
+                        </table>
+<br/><br/>
                         <table  ng-table="tableParams" class="table table-custom ng-table-rowselected">
                             <tr ng-repeat="row in $data">
-                                <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
-                                    <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input
-                                            type="checkbox" ng-click="addOrRemoveSelectedUniversities(row)"
-                                            ng-model="checkboxes.items[row.universityId]"><i></i></label>
-                                </td>
-                                <td data-title="'University Name'" width="200" sortable="'universityName'"
-                                    filter="{ 'universityName': 'text' }">
-                                    <span ng-if="!row.$edit">{{row.universityName}}</span>
+                                <!--<td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">-->
+                                    <!--<label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input-->
+                                            <!--type="checkbox" ng-click="addOrRemoveSelectedUniversities(row)"-->
+                                            <!--ng-model="checkboxes.items[row.universityId]"><i></i></label>-->
+                                <!--</td>-->
+                                <td data-title="'Campus Name'" width="200" >
+                                    <span ng-if="!row.$edit">{{row.campusName}}</span>
 
                                     <div ng-if="row.$edit"><input class="input-sm form-control" type="text" required
-                                                                  ng-model="row.universityName"/></div>
-                                    <p ng-if="!row.$edit" class="{{row.university_name_message_class}}">
-                                        {{row.university_name_message}}</p>
+                                                                  ng-model="row.campusName"/></div>
+                                    <p ng-if="!row.$edit" class="{{row.campus_name_message_class}}">
+                                        {{row.campus_name_message}}</p>
                                 </td>
 
-                                <td data-title="'URL'" width="100">
-                                    <span ng-if="!row.$edit">{{row.universityUrl}}</span>
-
-                                    <div ng-if="row.$edit"><input class="form-control input-sm" type="text"
-                                                                  ng-model="row.universityUrl"/></div>
-                                    <p ng-if="!row.$edit" class="{{row.university_url_message_class}}">
-                                        {{row.university_url_message}}</p>
+                                <td data-title="'State'" width="100">
+                                    <span >{{row.stateName}}({{row.stateShortName}})</span>
                                 </td>
-                                <td data-title="'Status'" width="100" sortable="'universityStatus'">
-                                    <span ng-if="!row.$edit">{{row.universityStatus}}</span>
+                                <td data-title="'Country'" width="100">
+                                    <span>{{row.countryName}}</span>
+                                </td>
+                                <td data-title="'Status'" width="100" sortable="'campusStatus'">
+                                    <span ng-if="!row.$edit">{{row.campusStatus}}</span>
                                     <div ng-if="row.$edit">
-                                        <select ng-model="row.universityStatus" class="form-control mb-10">
-                                            <option ng-selected="row.universityStatus=='Activated'" value="Activated">Activated</option>
-                                            <option ng-selected="row.universityStatus=='Deactivated'" value="Deactivated" >Deactivated</option>
+                                        <select ng-model="row.campusStatus" class="form-control mb-10">
+                                            <option ng-selected="row.campusStatus=='Activated'" value="Activated">Activated</option>
+                                            <option ng-selected="row.campusStatus=='Deactivated'" value="Deactivated" >Deactivated</option>
                                         </select>
                                         <!--<input class="form-control input-sm" type="number" ng-model="user.money" />--></div>
                                 </td>
                                 <td data-title="'Actions'" width="200">
                                     <a ng-if="!row.$edit" href="" ng-click="row.$edit = true"
                                        class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                                    <a ng-if="row.$edit" href="" ng-click="saveSingleUniversity(row)"
+                                    <a ng-if="row.$edit" href="" ng-click="saveSingleCampus(row)"
                                        class="text-success text-uppercase text-strong text-sm mr-10 inline-block"
                                        style="margin-top: 7px">Save</a>
-                                    <a ng-if="!row.$edit" href=""
-                                       class="text-primary text-uppercase text-strong text-sm mr-10">View</a>
-                                    <a ng-if="!row.$edit" href="" ng-click="deleteUniversity(row)"
+
+                                    <a ng-if="!row.$edit" href="" ng-click="deleteCampus(row)"
                                        class="text-primary text-uppercase text-strong text-sm mr-10">Delete</a>
 
                                 </td>

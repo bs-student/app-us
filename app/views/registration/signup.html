@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
-                    <label>University: </label>
+                    <label>University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>
 
                     <md-autocomplete required
 
@@ -89,7 +89,7 @@
                         </md-item-template>
                         <md-not-found>
                             No matches found for "{{searchText}}".
-                            <a ng-click="newState(searchText)">Create a new one!</a>
+
                         </md-not-found>
 
                         <div ng-messages="registrationCompleteForm.autocompleteField.$error" ng-if="registrationCompleteForm.autocompleteField.$touched">
@@ -104,12 +104,60 @@
                     </p>
                 </div>
 
+                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.university.$invalid && !userForm.university.$pristine, 'has-success' : userForm.university.$valid && !userForm.university.$pristine}">-->
+                    <!--<label for="university">University Name: </label>-->
+                    <!--<input type="text" name="university" id="university" class="form-control" ng-model="user.university" required>-->
+                    <!--<p class="help-block">-->
+                        <!--<span ng-show="userForm.university.$invalid && !userForm.university.$pristine">University Name is required.</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+
+                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.universityUrl.$invalid && !userForm.universityUrl.$pristine, 'has-success' : userForm.universityUrl.$valid && !userForm.universityUrl.$pristine}">-->
+                    <!--<label for="universityUrl">University Url: </label>-->
+                    <!--<input type="text" name="universityUrl" id="universityUrl" class="form-control" ng-model="user.universityUrl">-->
+                    <!---->
+                <!--</div>-->
+
+                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.campusName.$invalid && !userForm.campusName.$pristine, 'has-success' : userForm.campusName.$valid && !userForm.campusName.$pristine}">-->
+                    <!--<label for="campusName">Campus Name: </label>-->
+                    <!--<input type="text" name="campusName" id="campusName" class="form-control" ng-model="user.campusName" required>-->
+                    <!--<p class="help-block">-->
+                        <!--<span ng-show="userForm.campusName.$invalid && !userForm.campusName.$pristine">Campus Name is required.</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+
+                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && !userForm.country.$pristine, 'has-success' : userForm.country.$valid && !userForm.country.$pristine}">-->
+                    <!--<label for="country">Country: </label>-->
+
+                    <!--<select id="country"  ng-model="user.country"  class="form-control mb-10"-->
+                            <!--data-ng-options="country.id as country.country_name for country in countries" ng-change="fetchStates(user.country)" required>-->
+                        <!--<option value="">---Select Country---</option>-->
+                    <!--</select>-->
+                    <!--<p class="help-block">-->
+                        <!--<span ng-show="userForm.country.$invalid && !userForm.country.$pristine">Country is required.</span>-->
+
+                    <!--</p>-->
+                <!--</div>-->
+
+                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.state.$invalid && !userForm.state.$pristine, 'has-success' : userForm.state.$valid && !userForm.state.$pristine}">-->
+                    <!--<label for="referral">State: </label>-->
+                    <!--&lt;!&ndash;<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>&ndash;&gt;-->
+                    <!--<select id="state"  ng-model="user.state"  class="form-control mb-10"-->
+                            <!--data-ng-options="state.id as state.state_name for state in states" required>-->
+                        <!--<option value="">---Select State---</option>-->
+                    <!--</select>-->
+                    <!--<p class="help-block">-->
+                        <!--<span ng-show="userForm.state.$invalid && !userForm.state.$pristine">State is required.</span>-->
+                        <!---->
+                    <!--</p>-->
+                <!--</div>-->
+
                 <div class="form-group" ng-class="{ 'has-error' : userForm.referral.$invalid && !userForm.referral.$pristine, 'has-success' : userForm.referral.$valid && !userForm.referral.$pristine}">
                     <label for="referral">Referral: </label>
                     <!--<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>-->
                     <select id="referral"  ng-model="user.referral"  class="form-control mb-10"
                              data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
-                        <option value="">---Select State---</option>
+                        <option value="">---Select Referral---</option>
                     </select>
                     <p class="help-block">
                         <span ng-show="userForm.referral.$invalid && !userForm.referral.$pristine">Referral is required.</span>

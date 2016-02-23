@@ -205,7 +205,7 @@
         }
 
         function _viewUniversityDetails(university){
-
+            $state.go('admin.view_university',{obj:university})
         }
 
         function saveEditedUniversity(university) {

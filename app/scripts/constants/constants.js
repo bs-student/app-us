@@ -35,6 +35,17 @@
             "DELETE_UNIVERSITY": "/api/university/delete"
         })
 
+        .constant("CAMPUS_CONSTANT", {
+//            "AUTOCOMPLETE_SEARCH_LIST": "/api/university/autocomplete_activated_search_list",
+//            "AUTOCOMPLETE_NAME_SEARCH_LIST":"/api/university/autocomplete_university_name_search_list",
+//            "UNIVERSITY_LIST": "/api/university/list",
+//            "UPDATE_UNIVERSITY": "/api/university/update_university",
+            "CAMPUS_LIST_BY_UNIVERSITY": "/api/campus/list",
+            "UPDATE_CAMPUS": "/api/campus/update"
+//            "SAVE_NEW_UNIVERSITY": "/api/university/save_new_university",
+//            "DELETE_UNIVERSITY": "/api/university/delete"
+        })
+
         .constant("REFERRAL_CONSTANT", {
             "REFERRAL_LIST": "/api/referral/list"
         })
