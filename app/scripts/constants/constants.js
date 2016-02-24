@@ -41,7 +41,8 @@
 //            "UNIVERSITY_LIST": "/api/university/list",
 //            "UPDATE_UNIVERSITY": "/api/university/update_university",
             "CAMPUS_LIST_BY_UNIVERSITY": "/api/campus/list",
-            "UPDATE_CAMPUS": "/api/campus/update"
+            "UPDATE_CAMPUS": "/api/campus/update",
+            "ADD_CAMPUS":"/api/campus/add"
 //            "SAVE_NEW_UNIVERSITY": "/api/university/save_new_university",
 //            "DELETE_UNIVERSITY": "/api/university/delete"
         })

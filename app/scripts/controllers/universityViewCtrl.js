@@ -5,45 +5,20 @@
     app
         .controller('UniversityViewCtrl', UniversityViewCtrl);
 
-    UniversityViewCtrl.$inject = ['$scope','$stateParams','campusService','identityService','ngTableParams','$filter','toastr','$state'];
+    UniversityViewCtrl.$inject = ['$scope','$stateParams','campusService','identityService','ngTableParams','$filter','$state','responseService'];
 
-    function UniversityViewCtrl($scope,$stateParams,campusService,identityService,ngTableParams,$filter,toastr,$state) {
+    function UniversityViewCtrl($scope,$stateParams,campusService,identityService,ngTableParams,$filter,$state,responseService) {
 
 
         $scope.universityName=$stateParams.obj.universityName;
         $scope.universityUrl=$stateParams.obj.universityUrl;
         $scope.universityStatus=$stateParams.obj.universityStatus;
+        $scope.universityId=$stateParams.obj.universityId;
         $scope.saveSingleCampus = _saveSingleCampus;
         $scope.showAddCampusPage = _showAddCampusPage;
-        var data = [];
-        $scope.clearLastToast = _clearLastToast;
-        $scope.clearToasts = _clearToasts;
-        var openedToasts = [];
-        $scope.toast = {
-            colors: [
-                {name:'success'},
-                {name:'error'}
-            ]
-        };
-        $scope.options = {
-            position: 'toast-top-right',
-            type: 'success',
-            iconClass: $scope.toast.colors[0],
-            timeout: '5000',
-            extendedTimeout: '2000',
-            html: false,
-            closeButton: true,
-            tapToDismiss: true,
-            closeHtml: '<i class="fa fa-times"></i>'
-        };
-        function _clearLastToast(){
-            var toast = openedToasts.pop();
-            toastr.clear(toast);
-        }
+        $scope.data = [];
 
-        function _clearToasts () {
-            toastr.clear();
-        }
+
 
         $scope.tableParams = new ngTableParams(
             {
@@ -55,13 +30,13 @@
             },
 
             {
-                total: data.length, // length of data
+                total: $scope.data.length, // length of data
                 getData: function ($defer, params) {
                     var universityId = {'universityId':$stateParams.obj.universityId}
                     campusService.getCampusesByUniversity(identityService.getAccessToken(),universityId).then(function (response){
-                        data = response.data.campuses;
-                        $scope.campuses = data;
-                        $defer.resolve(params.sorting() ?  $filter('orderBy')(data, params.orderBy()) : data);
+                        $scope.data = response.data.campuses;
+                        $scope.campuses = $scope.data;
+                        $defer.resolve(params.sorting() ?  $filter('orderBy')($scope.data, params.orderBy()) : $scope.data);
                     });
                 }
             });
@@ -71,16 +46,11 @@
 
             campusService.updateCampus(identityService.getAccessToken(),campus).then(function(response){
                 if(response.data.success!=undefined){
-                    var toast = toastr[$scope.options.type](response.data.success.successBody, response.data.success.successTitle, {
-                        iconClass: 'toast-success'+' ' + 'bg-success'
-                    });
-                    openedToasts.push(toast);
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successBody);
 
                 }else{
-                    var toast = toastr[$scope.options.type](response.data.error.errorBody, response.data.error.errorTitle, {
-                        iconClass: 'toast-error'+' ' + 'bg-error'
-                    });
-                    openedToasts.push(toast);
+                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorBody);
+
                     angular.forEach($scope.campuses, function(campus){
                         if(campus.id==response.data.error.campusId){
                             campus.campusName = response.data.error.campusName;

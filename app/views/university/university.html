@@ -77,7 +77,7 @@
                                     <label for="country">Country: </label>
                                     <select id="country" ng-model="campus.country" class="form-control mb-10"
                                             ng-change="fetchStates(university,campus)"
-                                            data-ng-options="country.id as country.country_name for country in countries">
+                                            data-ng-options="country.id as country.countryName for country in countries">
                                         <option value="">---Select Country---</option>
                                     </select>
 
@@ -92,7 +92,7 @@
                                     <label for="state">State: </label>
 
                                     <select id="state" ng-model="campus.state" class="form-control mb-10"
-                                            data-ng-options="state.id as state.state_name for state in campus.stateList">
+                                            data-ng-options="state.id as state.stateName for state in campus.stateList">
                                         <option value="">---Select State---</option>
                                     </select>
 

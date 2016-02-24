@@ -17,7 +17,8 @@
 //            saveNewUniversities: _saveNewUniversities,
 //            deleteUniversity: _deleteUniversity
             getCampusesByUniversity:_getCampusesByUniversity,
-            updateCampus:_updateCampus
+            updateCampus:_updateCampus,
+            addCampus: _addCampus
         }
 
 //        function _getUniversitiesNameForAutocomplete(query){
@@ -45,6 +46,9 @@
         }
         function _updateCampus(access_token,data){
             return apiService.post(SERVER_CONSTANT.HOST+CAMPUS_CONSTANT.UPDATE_CAMPUS+"?access_token="+access_token,data);
+        }
+        function _addCampus(access_token,data){
+            return apiService.post(SERVER_CONSTANT.HOST+CAMPUS_CONSTANT.ADD_CAMPUS+"?access_token="+access_token,data);
         }
 
     }

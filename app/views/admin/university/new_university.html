@@ -37,12 +37,12 @@
             <p ng-if="campus.response" class="{{campus.university_campus_message_class}}">
                 {{campus.university_campus_message}}</p>
             <select  ng-model="campus.country"  class="form-control mb-10" ng-change="fetchStates(university,campus)"
-                     data-ng-options="country.id as country.country_name for country in countries">
+                     data-ng-options="country.id as country.countryName for country in countries">
                 <option value="">---Select Country---</option>
             </select>
 
             <select  ng-model="campus.state"  class="form-control mb-10"
-                     data-ng-options="state.id as state.state_name for state in campus.stateList">
+                     data-ng-options="state.id as state.stateName for state in campus.stateList">
                 <option value="">---Select State---</option>
             </select>
             <p ng-if="campus.response" class="{{campus.university_state_message_class}}">

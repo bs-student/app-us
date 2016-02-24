@@ -245,7 +245,7 @@ var app = angular
                 url: '/add_campus',
                 views:{
                     'campusUtilityView@admin.view_university':{
-                        template: '<p>Adding Campus</p>',
+                        templateUrl: 'views/admin/campus/new_campus.html',
                         controller: 'CampusCreateCtrl'
                     }
                 }
