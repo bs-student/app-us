@@ -184,7 +184,11 @@ var app = angular
                     }]
                 }
             })
-
+            .state('app.profile', {
+                url: '/profile',
+                controller: 'ProfileCtrl',
+                templateUrl: 'views/account/profile.html'
+            })
             .state('registration', {
                 abstract: true,
                 url: '/registration',
@@ -296,6 +300,7 @@ var app = angular
                 controller: 'ResetPasswordCtrl',
                 templateUrl: 'views/security/resetpassword.html'
             })
+
 
             //University
             .state('university', {
