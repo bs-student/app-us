@@ -21,6 +21,9 @@
         .constant("USER_CONSTANT", {
             "CURRENT_USER_SHORT_DETAILS": "/api/current_user_short_details",
             "CURRENT_USER_FULL_DETAILS": "/api/current_user_full_details",
+            "UPDATE_FULL_NAME": "/api/update_user_full_name",
+            "UPDATE_USER_UNIVERSITY_CAMPUS": "/api/update_user_university_campus",
+            "CHANGE_PASSWORD": "/profile/change-password",
             "UPDATE_SOCIAL_USER": "/api/user/update_created_profile",
             "ADMIN_ALL_USER_DATA" :"/api/admin/all_users",
             "ADMIN_UPDATE_USER_DATA": "/api/admin/update_user_data"

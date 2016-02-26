@@ -189,6 +189,11 @@ var app = angular
                 controller: 'ProfileCtrl',
                 templateUrl: 'views/account/profile.html'
             })
+            .state('app.change_password', {
+                url: '/change_password',
+                controller: 'ChangePasswordCtrl',
+                templateUrl: 'views/account/change_password.html'
+            })
             .state('registration', {
                 abstract: true,
                 url: '/registration',
@@ -295,6 +300,7 @@ var app = angular
                 controller: 'ForgotPasswordCtrl',
                 templateUrl: 'views/security/forgotpassword.html'
             })
+
             .state('security.reset', {
                 url: '/reset/:code',
                 controller: 'ResetPasswordCtrl',
