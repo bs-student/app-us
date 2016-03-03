@@ -154,7 +154,7 @@ var app = angular
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
 //            .when('/access_token=:accessToken','')
-            .otherwise('/app/dashboard');
+//            .otherwise('/app/dashboard');
         $stateProvider
 //            .state('code', {
 //                abstract: true,
@@ -321,6 +321,36 @@ var app = angular
                 templateUrl: 'views/university/university.html'
             })
 
+            .state('book', {
+                abstract: true,
+                url: '/book',
+                controller: 'StartCtrl',
+                templateUrl: 'views/web/app.html'
+            })
+            .state('book.search', {
+                url: '/search',
+                controller: 'BookSearchCtrl',
+                templateUrl: 'views/book/search.html'
+            })
+            .state('book.compare', {
+                url: '/compare',
+                controller: 'BookCompareCtrl',
+                templateUrl: 'views/book/compare.html',
+                params: {
+                    "asin": null,
+                    "isbn": null,
+                    "eisbn": null,
+                    "ean": null
+                }
+            })
+            .state('book.buy_from_amazon', {
+                url: '/buy_from_amazon:bookOfferId',
+                controller: 'BookBuyFromAmazonCtrl'
+//                templateUrl: 'views/book/compare.html',
+//                params: {
+//                    "bookOfferId": null
+//                }
+            })
 
 //            .state('app.mail', {
 //                abstract: true,

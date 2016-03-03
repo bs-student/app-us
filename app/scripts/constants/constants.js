@@ -75,6 +75,15 @@
             "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
 
         })
+        .constant("BOOK_CONSTANT", {
+            "SEARCH_AMAZON": "/api/book/search_by_keyword_amazon",
+            "GET_BOOK_BY_ASIN_AMAZON":"/api/book/search_by_asin_amazon",
+            "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/api/book/search_by_isbn_campus_books",
+            "GET_AMAZON_CART_CREATE_URL":"/api/book/get_amazon_cart_create_url"
+//            "SUBMIT": "/login_check",
+//            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
+
+        })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
             "GOOGLE_APP_NAME":"Student2Student",
             "GOOGLE_CLIENT_ID":"799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com",
