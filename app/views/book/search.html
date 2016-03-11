@@ -169,7 +169,7 @@
                                     <img class="media-object" src="{{book.bookMediumImageUrl}}" alt="">
                                 </div>
                                 <div class="media-body">
-                                    <a ui-sref="book.compare({asin: '{{book.bookAsin}}',isbn: '{{book.bookIsbn}}',eisbn: '{{book.bookEisbn}}',ean: '{{book.bookEan}}'})"><h4 class="media-heading mb-0">{{book.bookTitle}}</h4></a>
+                                    <a ui-sref="book.compare({asin: '{{book.bookAsin}}',isbn: '{{book.bookIsbn}}',ean: '{{book.bookEan}}'})"><h4 class="media-heading mb-0">{{book.bookTitle}}</h4></a>
                                     <small class="text-lightred">{{book.bookDirectorAuthorArtist}}</small>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                             <div class="row">
                                 <!-- col -->
                                 <div class="col-md-4 text-center">
-                                    <span class="text-greensea"><i class="fa fa-money"></i> {{book.bookPrice}}</span>
+                                    <span class="text-greensea"><i class="fa fa-money"></i> {{book.bookPriceAmazon}}</span>
                                 </div>
                                 <!-- /col -->
                                 <!-- col -->
@@ -199,8 +199,6 @@
                             <dl class="dl-horizontal text-sm">
                                 <dt style="width: 100px;">ISBN: </dt>
                                 <dd style="margin-left: 70px;">{{book.bookIsbn}}</dd>
-                                <dt style="width: 100px;">EISBN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEisbn}}</dd>
                                 <dt style="width: 100px;">EAN: </dt>
                                 <dd style="margin-left: 70px;">{{book.bookEan}}</dd>
                                 <dt style="width: 100px;">Published By: </dt>
@@ -211,6 +209,8 @@
                                 <dd style="margin-left: 70px;">{{book.bookEdition}}</dd>
                                 <dt style="width: 100px;">Book Binding: </dt>
                                 <dd style="margin-left: 70px;">{{book.bookBinding}}</dd>
+                                <dt style="width: 100px;">Language: </dt>
+                                <dd style="margin-left: 70px;">{{book.bookLanguage}}</dd>
                                 <!--<dt style="width: 60px;">Rating: </dt>-->
                                 <!--<dd  style="margin-left: 70px;" class="text-lightred"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></dd>-->
                             </dl>

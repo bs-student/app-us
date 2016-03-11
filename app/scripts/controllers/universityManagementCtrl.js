@@ -174,7 +174,7 @@
             } else {
                 if (selectedUniversityList.length) {
                     angular.forEach(selectedUniversityList, function (item) {
-                        item.universityStatus="Activated"
+                        item.universityStatus="Activated";
                         data.push(item);
                     });
                 }

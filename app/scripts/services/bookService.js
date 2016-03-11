@@ -12,8 +12,10 @@
         return {
             searchBooks:_searchBooks,
             getSingleBookByAsinAmazon:_getSingleBookByAsinAmazon,
+            searchBooksByIsbnAmazon:_searchBooksByIsbnAmazon,
             getSingleBookByIsbnCampusBooks:_getSingleBookByIsbnCampusBooks,
-            getAmazonCartCreateUrl:_getAmazonCartCreateUrl
+            getAmazonCartCreateUrl:_getAmazonCartCreateUrl,
+            addSellBook:_addSellBook
 //            getUniversitiesForAutocomplete : _getUniversitiesForAutocomplete,
 //            getUniversitiesNameForAutocomplete : _getUniversitiesNameForAutocomplete,
 //            getSearchUniversities: _getSearchUniversities,
@@ -25,6 +27,11 @@
         function _searchBooks(data){
              return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON+"?access_token="+data.accessToken,data);
         }
+
+        function _searchBooksByIsbnAmazon(data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ISBN_AMAZON+"?access_token="+data.accessToken,data);
+        }
+
         function _getSingleBookByAsinAmazon(data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ASIN_AMAZON+"?access_token="+data.accessToken,data);
         }
@@ -34,6 +41,16 @@
         function _getAmazonCartCreateUrl(data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_AMAZON_CART_CREATE_URL+"?access_token="+data.accessToken,data);
         }
+        function _addSellBook(accessToken,data){
+
+            var config = {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            }
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_NEW_SELL_BOOK+"?access_token="+accessToken,data,config);
+
+        }
+
 //        function _getUniversitiesNameForAutocomplete(query){
 //            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.AUTOCOMPLETE_NAME_SEARCH_LIST+"?access_token="+query.access_token,query);
 //        }

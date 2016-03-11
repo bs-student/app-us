@@ -339,17 +339,24 @@ var app = angular
                 params: {
                     "asin": null,
                     "isbn": null,
-                    "eisbn": null,
                     "ean": null
                 }
             })
             .state('book.buy_from_amazon', {
                 url: '/buy_from_amazon:bookOfferId',
                 controller: 'BookBuyFromAmazonCtrl'
-//                templateUrl: 'views/book/compare.html',
-//                params: {
-//                    "bookOfferId": null
-//                }
+            })
+            .state('book.sell', {
+                url: '/sell',
+                controller: 'BookSellCtrl',
+                templateUrl: 'views/book/sell.html',
+                resolve: {
+                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
+                        ]);
+                    }]
+                }
             })
 
 //            .state('app.mail', {

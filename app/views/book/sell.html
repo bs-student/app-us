@@ -1,248 +1,653 @@
 <div class="page page-ng-table">
 
 
-    <!-- page header -->
-    <div class="pageheader">
+<!-- page header -->
+<div class="pageheader">
 
-        <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
+    <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
 
-        <div class="page-bar">
+    <div class="page-bar">
 
-            <ul class="page-breadcrumb">
-                <li>
-                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
-                </li>
-                <li>
-                    <a href="javascript:;">Tables</a>
-                </li>
-                <li>
-                    <a ui-sref="app.tables.ng-table">{{page.title}}</a>
-                </li>
-            </ul>
-
-        </div>
+        <ul class="page-breadcrumb">
+            <li>
+                <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+            </li>
+            <li>
+                <a href="javascript:;">Tables</a>
+            </li>
+            <li>
+                <a ui-sref="app.tables.ng-table">{{page.title}}</a>
+            </li>
+        </ul>
 
     </div>
-    <!-- /page header -->
+
+</div>
+<!-- /page header -->
 
 
-    <!-- page content -->
-    <div class="pagecontent">
+<!-- page content -->
+<div class="pagecontent">
 
 
-        <!-- row -->
-        <div class="row">
+<!-- row -->
+<div class="row">
 
 
-            <!-- col -->
-            <div class="col-md-12">
+<!-- col -->
+<div class="col-md-12">
 
 
-                <!-- tile -->
-                <section class="tile" fullscreen="isFullscreen03">
+<!-- tile -->
+<section class="tile" fullscreen="isFullscreen03">
 
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font"><strong>{{user.fullName}}</strong></h1>
-                        <ul class="controls">
-                            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+    <!-- tile header -->
+    <div class="tile-header dvd dvd-btm">
+        <h1 class="custom-font"><strong>{{user.fullName}}</strong></h1>
+        <ul class="controls">
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
 
-                                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i
-                                        class="fa fa-cog"></i></a>
+                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i
+                        class="fa fa-cog"></i></a>
 
-                                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                    <li>
-                                        <a href tile-control-toggle>
-                                            <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                    <li>
+                        <a href tile-control-toggle>
+                            <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
                                             <span class="expand"><fa
                                                     name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-refresh ng-click="ajaxFaker()">
-                                            <fa name="refresh"></fa>
-                                            Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-fullscreen ng-click="isFullscreen03 = !isFullscreen03">
-                                            <fa name="expand"></fa>
-                                            Fullscreen
-                                        </a>
-                                    </li>
+                        </a>
+                    </li>
+                    <li>
+                        <a href tile-control-refresh ng-click="ajaxFaker()">
+                            <fa name="refresh"></fa>
+                            Refresh
+                        </a>
+                    </li>
+                    <li>
+                        <a href tile-control-fullscreen ng-click="isFullscreen03 = !isFullscreen03">
+                            <fa name="expand"></fa>
+                            Fullscreen
+                        </a>
+                    </li>
 
-                                </ul>
+                </ul>
 
-                            </li>
-                            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /tile header -->
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+        </ul>
+    </div>
+    <!-- /tile header -->
 
-                    <!-- tile body -->
-                    <div class="tile-body">
-
-
+    <!-- tile body -->
+    <div class="tile-body">
 
 
-                        <!--<div ui-view="campusUtilityView" ></div>-->
-                        <form name="bookSearchForm" novalidate ng-submit="submitForm(bookSearchForm.$valid)" role="form">
-                            <div class="row">
+        <!--<div ui-view="campusUtilityView" ></div>-->
+        <form name="bookSearchForm" novalidate ng-submit="submitForm(bookSearchForm.$valid)" role="form">
+            <div class="row">
 
-                                <div class="form-group col-md-12" ng-class="{ 'has-error' : bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine, 'has-success' : bookSearchForm.searchText.$valid && !bookSearchForm.searchText.$pristine}">
-                                    <label for="searchText">Search Books: </label>
-                                    <input type="text" name="searchText" id="searchText" class="form-control" ng-model="searchText" ng-minlength="3" required>
-                                    <p class="help-block">
-                                        <span ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
-                                        <span ng-show="bookSearchForm.searchText.$error.minlength">Text is too short.</span>
-                                    </p>
-                                </div>
+                <div class="form-group col-md-12"
+                     ng-class="{ 'has-error' : bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine, 'has-success' : bookSearchForm.searchText.$valid && !bookSearchForm.searchText.$pristine}">
+                    <label for="isbn">Search Books: </label>
+                    <input type="text" name="isbn" id="isbn" class="form-control" ng-model="isbn" ng-minlength="10"
+                           required>
 
-
-
-                                <button  ng-click="search()"
-                                        class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Search Books<i
-                                        class="fa fa-arrow-right"></i></button>
-
-                            </div>
-                        </form>
-                        <br/><br/>
-
-                        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
-                            <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox"
-                                                                                                  ng-model="checkboxes.checked"
-                                                                                                  id="select_all"
-                                                                                                  name="filter-checkbox"
-                                                                                                  value=""><i></i></label>
-                        </script>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-                <!-- /tile -->
-                <section class="tile" fullscreen="isFullscreen07">
-
-                <!-- tile header -->
-                <div class="tile-header dvd dvd-btm">
-                    <h1 class="custom-font">Searching for <strong>{{searchText}} </strong>Books</h1>
-                    <ul class="controls">
-                        <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-                            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                <li>
-                                    <a href tile-control-toggle>
-                                        <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                        <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-refresh ng-click="ajaxFaker()">
-                                        <fa name="refresh"></fa> Refresh
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-fullscreen ng-click="isFullscreen07 = !isFullscreen07">
-                                        <fa name="expand"></fa> Fullscreen
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                        <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                    </ul>
+                    <p class="help-block">
+                        <span ng-show="bookSearchForm.isbn.$invalid && !bookSearchForm.isbn.$pristine">ISBN Field is Required.</span>
+                        <span ng-show="bookSearchForm.isbn.$error.minlength">Text is too short.</span>
+                    </p>
                 </div>
-                <!-- /tile header -->
-
-                <!-- tile widget -->
-                <div class="tile-widget">
-
-                    <!-- row -->
-                    <div style="border-bottom: 1px solid;margin-top: 10px;" class="row" ng-repeat="book in bookSearchResult">
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <div class="media mb-20">
-                                <div class="pull-left thumb">
-                                    <img class="media-object" src="{{book.bookMediumImageUrl}}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a ui-sref="book.compare({asin: '{{book.bookAsin}}',isbn: '{{book.bookIsbn}}',eisbn: '{{book.bookEisbn}}',ean: '{{book.bookEan}}'})"><h4 class="media-heading mb-0">{{book.bookTitle}}</h4></a>
-                                    <small class="text-lightred">{{book.bookDirectorAuthorArtist}}</small>
-                                </div>
-                            </div>
-                            <!-- row -->
-                            <div class="row">
-                                <!-- col -->
-                                <div class="col-md-4 text-center">
-                                    <span class="text-greensea"><i class="fa fa-money"></i> {{book.bookPrice}}</span>
-                                </div>
-                                <!-- /col -->
-                                <!-- col -->
-                                <!--<div class="col-md-4 text-center b-r b-solid">-->
-                                    <!--<span class="text-greensea"><i class="fa fa-star-o"></i> 67</span>-->
-                                <!--</div>-->
-                                <!--&lt;!&ndash; /col &ndash;&gt;-->
-                                <!--&lt;!&ndash; col &ndash;&gt;-->
-                                <!--<div class="col-md-4 text-center">-->
-                                    <!--<span class="text-blue"><i class="fa fa-comment-o"></i> 26</span>-->
-                                <!--</div>-->
-                                <!-- /col -->
-                            </div>
-                            <!-- /row -->
-                        </div>
-                        <!-- /col -->
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <dl class="dl-horizontal text-sm">
-                                <dt style="width: 100px;">ISBN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookIsbn}}</dd>
-                                <dt style="width: 100px;">EISBN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEisbn}}</dd>
-                                <dt style="width: 100px;">EAN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEan}}</dd>
-                                <dt style="width: 100px;">Published By: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublisher}}</dd>
-                                <dt style="width: 100px;">Publish Date: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublisherDate}}</dd>
-                                <dt style="width: 100px;">Book Edition: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEdition}}</dd>
-                                <dt style="width: 100px;">Book Binding: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookBinding}}</dd>
-                                <!--<dt style="width: 60px;">Rating: </dt>-->
-                                <!--<dd  style="margin-left: 70px;" class="text-lightred"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></dd>-->
-                            </dl>
-                        </div>
-                        <!-- /col -->
-                    </div>
 
 
-                    <!-- /row -->
-
-                </div>
-                <!-- /tile widget -->
-
-
-                <!-- /tile body -->
-                    <h4 class="custom-font"><strong>Limit the maximum</strong> visible buttons</h4>
-
-                    <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize" ng-change="changePage(currentPage)" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></uib-pagination>
-                    <pre>Page: {{currentPage}} / {{numPages}}</pre>
-                </section>
-                <!-- /tile -->
+                <button ng-click="searchByIsbn()"
+                        class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Enter ISBN Number<i
+                        class="fa fa-arrow-right"></i></button>
 
             </div>
-            <!-- /col -->
+        </form>
+        <br/><br/>
+
+        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+            <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox"
+                                                                                  ng-model="checkboxes.checked"
+                                                                                  id="select_all"
+                                                                                  name="filter-checkbox"
+                                                                                  value=""><i></i></label>
+        </script>
+
+    </div>
+    <!-- /tile body -->
+
+</section>
+<!-- /tile -->
+<section class="tile" fullscreen="isFullscreen07">
+
+<!-- tile header -->
+<div class="tile-header dvd dvd-btm">
+    <h1 class="custom-font">Searching for <strong>{{isbn}} </strong>Books</h1>
+    <ul class="controls">
+        <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                    <a href tile-control-toggle>
+                        <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                        <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                    </a>
+                </li>
+                <li>
+                    <a href tile-control-refresh ng-click="ajaxFaker()">
+                        <fa name="refresh"></fa>
+                        Refresh
+                    </a>
+                </li>
+                <li>
+                    <a href tile-control-fullscreen ng-click="isFullscreen07 = !isFullscreen07">
+                        <fa name="expand"></fa>
+                        Fullscreen
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+        <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+    </ul>
+</div>
+<!-- /tile header -->
+
+<!-- tile widget -->
+<div class="tile-widget">
+
+    <!-- row -->
+    <div ng-show="addNewSellBook" style="border-bottom: 1px solid;margin-top: 10px;" class="row">
+        <!-- col -->
+        <form name="sellBookForm" class="form-horizontal" submit-validate ng-submit="sellBook(sellBookForm.$valid)" role="form" novalidate>
+        <div class="col-md-6">
+            <div class="media mb-20">
+                <div class="pull-left thumb">
+                    <img class="media-object" src="{{book.bookMediumImageUrl}}" alt="">
+                </div>
+                <div class="media-body">
+
+                        <h4 class="media-heading mb-0">{{book.bookTitle}}</h4></a>
+                    <small class="text-lightred">{{book.bookDirectorAuthorArtist}}</small>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row">
+                <!-- col -->
+                <div class="col-md-12 text-center">
+                    Market Price On Amazon:
+                    <span class="text-greensea"> {{book.bookPriceAmazon}}</span>
+                </div>
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /col -->
+        <!-- col -->
+        <div class="col-md-6">
+            <dl class="dl-horizontal text-sm">
+                <dt style="width: 100px;">ISBN:</dt>
+                <dd style="margin-left: 70px;">{{book.bookIsbn}}</dd>
+
+                <dt style="width: 100px;">EAN:</dt>
+                <dd style="margin-left: 70px;">{{book.bookEan}}</dd>
+                <dt style="width: 100px;">Published By:</dt>
+                <dd style="margin-left: 70px;">{{book.bookPublisher}}</dd>
+                <dt style="width: 100px;">Publish Date:</dt>
+                <dd style="margin-left: 70px;">{{book.bookPublisherDate}}</dd>
+                <dt style="width: 100px;">Book Edition:</dt>
+                <dd style="margin-left: 70px;">{{book.bookEdition}}</dd>
+                <dt style="width: 100px;">Book Binding:</dt>
+                <dd style="margin-left: 70px;">{{book.bookBinding}}</dd>
+                <dt style="width: 100px;">Pages:</dt>
+                <dd style="margin-left: 70px;">{{book.bookPages}}</dd>
+                <dt style="width: 100px;">Language:</dt>
+                <dd style="margin-left: 70px;">{{book.bookLanguage}}</dd>
+
+
+            </dl>
+        </div>
+
+        <!-- /col -->
+
+        <div class="col-md-4" ng-class="{ 'has-error' : sellBookForm.bookCondition.$invalid && !sellBookForm.bookCondition.$pristine, 'has-success' : sellBookForm.bookCondition.$valid && !contactForm.bookCondition.$pristine}">
+            Condition of Book:
+            <label class="checkbox checkbox-custom">
+                <input name="bookCondition" ng-model="book.bookCondition" value="New"  type="radio" required><i></i> New
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="bookCondition" ng-model="book.bookCondition" value="Barely Used" type="radio" required><i></i> Barely Used
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="bookCondition" ng-model="book.bookCondition" value="Used" type="radio" required><i></i> Used
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="bookCondition" ng-model="book.bookCondition" value="Heavily Used"  type="radio" required><i></i> Heavily Used
+            </label>
+            <p class="help-block">
+                <span  ng-show="sellBookForm.bookCondition.$invalid && !sellBookForm.bookCondition.$pristine">Book Condition is required.</span>
+
+            </p>
+        </div>
+        <div class="col-md-4" ng-class="{ 'has-error' : sellBookForm.textHighlighted.$invalid && !sellBookForm.textHighlighted.$pristine, 'has-success' : sellBookForm.textHighlighted.$valid && !contactForm.textHighlighted.$pristine}">
+            Text Highlighted:
+            <label class="checkbox checkbox-custom">
+                <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="Yes" required><i></i> Yes
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="No" required><i></i> No
+            </label>
+            <p class="help-block">
+                <span  ng-show="sellBookForm.textHighlighted.$invalid && !sellBookForm.textHighlighted.$pristine">Select Text Highlighted or Not.</span>
+
+            </p>
+
+        </div>
+        <div class="col-md-4" ng-class="{ 'has-error' : sellBookForm.notesOnTextbook.$invalid && !sellBookForm.notesOnTextbook.$pristine, 'has-success' : sellBookForm.notesOnTextbook.$valid && !contactForm.notesOnTextbook.$pristine}">
+            Notes in the Textbook:
+            <label class="checkbox checkbox-custom">
+                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="Yes" required><i></i> Yes
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="No" required><i></i> No
+            </label>
+            <p class="help-block">
+                <span  ng-show="sellBookForm.notesOnTextbook.$invalid && !sellBookForm.notesOnTextbook.$pristine">Select if there are notes on textbook.</span>
+
+            </p>
+
+        </div>
+        <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.comment.$invalid && !sellBookForm.comment.$pristine, 'has-success' : sellBookForm.comment.$valid && !contactForm.comment.$pristine}">
+            Comment:
+            <textarea class="form-control"
+                      rows="5" name="comment"  ng-model="book.comment"
+                      on-blur-validation="" required aria-multiline="true"></textarea>
+
+            <p class="help-block">
+                <span  ng-show="sellBookForm.comment.$invalid && !sellBookForm.comment.$pristine">Comment is Required.</span>
+
+            </p>
+        </div>
+
+        <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.contactMethod.$invalid && !sellBookForm.contactMethod.$pristine, 'has-success' : sellBookForm.contactMethod.$valid && !contactForm.contactMethod.$pristine}">
+            <h3>Contact Method:</h3>
+            Define if you want to contact buyer or if buyer needs to contact you
+            <label class="checkbox checkbox-custom">
+                <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="sellerToBuyer" required><i></i> <strong>Seller Contact Buyer</strong>
+            </label>
+
+            With this method, the buyer will not get your information. The buyer needs to send you their information
+            when reserving
+            the book. The system will send the buyer's message to the following email address:
+            <strong>{{user.email}}</strong>
+            <br/>
+            <label class="checkbox checkbox-custom">
+                <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="buyerToSeller" required><i></i> <strong>Buyer Contact Seller</strong>
+            </label>
+            With this method, the buyer will get your information through email. Define which contact information the
+            buyer can request.
+            <div ng-show="book.contactMethod=='buyerToSeller'">
+                <label>
+                    Home Phone
+                </label>
+                <input type="text" name="contactInfoHomePhone" ng-model="book.contactInfoHomePhone" class="form-control" ng-required="!book.contactInfoHomePhone"/>
+                <label >
+                     Cell Phone
+                </label>
+                <input type="text" name="contactInfoCellPhone" ng-model="book.contactInfoCellPhone" class="form-control" ng-required="!book.contactInfoCellPhone"/>
+                <label >
+                     Email
+                </label>
+                <input type="text" name="contactInfoEmail" ng-model="book.contactInfoEmail" class="form-control" value="{{userDetails.email}}" ng-required="!book.contactInfoEmail"/>
+            </div>
+            <!--<p class="help-block">-->
+                <!--<span  ng-show="sellBookForm.contactInfo.$invalid && !sellBookForm.contactInfo.$pristine">You have to give at least one contact information.</span>-->
+
+            <!--</p>-->
+
+            <p class="help-block">
+                <span  ng-show="sellBookForm.contactMethod.$invalid && !sellBookForm.contactMethod.$pristine">Set Contact Method.</span>
+
+            </p>
+
+        </div>
+
+        <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.publicAvailable.$invalid && !sellBookForm.publicAvailable.$pristine, 'has-success' : sellBookForm.publicAvailable.$valid && !contactForm.publicAvailable.$pristine}">
+            <h3>Deal Terms:</h3>
+            Define the sale conditions<br/><br/>
+            Textbook Available in Public:
+
+            <label class="checkbox checkbox-custom">
+                <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="Yes" required><i></i> Yes
+            </label>
+            <label class="checkbox checkbox-custom">
+                <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="No" required><i></i> No
+            </label>
+            <p class="help-block">
+                <span  ng-show="sellBookForm.publicAvailable.$invalid && !sellBookForm.publicAvailable.$pristine">Set if the book is available for public or not.</span>
+
+            </p>
+
+            </div>
+        <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.sellingPrice.$invalid && !sellBookForm.sellingPrice.$pristine, 'has-success' : sellBookForm.sellingPrice.$valid && !contactForm.sellingPrice.$pristine}">
+            <label >
+                Selling Price (Ex: 10.00):
+            </label>
+            <input type="text" name="sellingPrice" ng-model="book.sellingPrice" class="form-control"  required/>
+            <p class="help-block">
+                <span  ng-show="sellBookForm.sellingPrice.$invalid && !sellBookForm.sellingPrice.$pristine">You have to set the selling price.</span>
+
+            </p>
+        </div>
+        <div class="col-md-12">
+            Textbook available date:
+            <div>
+                <div class="input-group w-md">
+                    <input type="text"
+                           class="form-control ng-isolate-scope ng-valid-date ng-dirty ng-touched ng-valid ng-valid-required"
+                           uib-datepicker-popup="dd-MMMM-yyyy" ng-model="book.availableDate" is-open="opened"
+                           datepicker-options="dateOptions" ng-required="true" close-text="Close" required="required"
+                           aria-required="false" aria-invalid="false">
+
+                    <div uib-datepicker-popup-wrap="" ng-model="date" ng-model-options="ngModelOptions"
+                         ng-change="dateSelection(date)" template-url="uib/template/datepicker/popup.html"
+                         class="ng-valid ng-valid-date-disabled ng-dirty" aria-invalid="false">
+                        <!-- ngIf: isOpen -->
+                    </div>
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="open($event)"><i
+                              class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.paymentMethod.$invalid && !sellBookForm.paymentMethod.$pristine, 'has-success' : sellBookForm.paymentMethod.$valid && !contactForm.paymentMethod.$pristine}">
+            <br/>
+            Payment Method:
+            <div>
+                <label class="checkbox checkbox-custom">
+                    <input type="checkbox" ng-required="!book.cashPaymentMethod" name="cashPaymentMethod" ng-model="book.paymentMethodCashOnExchange" ><i></i> Cash on Exchange
+                </label>
+
+                <label class="checkbox checkbox-custom">
+                    <input type="checkbox" ng-required="!book.chequePaymentMethod" name="chequePaymentMethod" ng-model="book.paymentMethodCheque" ><i></i> Cheque
+                </label>
+                <p class="help-block">
+                    <span ng-show="sellBookForm.paymentMethod.$invalid && !sellBookForm.paymentMethod.$pristine">You have to choose at least one payment method.</span>
+
+                </p>
+
+
+            </div>
+        </div>
+        <div class="col-md-12 mb-0" ng-class="{ 'has-error' : sellBookForm.agreedOnTermsAndConditions.$invalid && !sellBookForm.agreedOnTermsAndConditions.$pristine, 'has-success' : sellBookForm.agreedOnTermsAndConditions.$valid && !contactForm.agreedOnTermsAndConditions.$pristine}">
+
+            <label class="checkbox checkbox-custom">
+                <input type="checkbox" name="agreedOnTermsAndConditions" ng-model="book.agreedOnTermsAndConditions" required><i></i> I do hereby swear that I am the rightful owner of the book I am selling.
+                I am aware that other students may get my contact information depending
+                upon the contact method I chose.
+            </label>
+                <!--{{sellBookForm}}-->
+            <!--{{sellBookForm.agreedOnTermsAndConditions.$invalid}}-->
+            <p class="help-block">
+                <span ng-show="sellBookForm.agreedOnTermsAndConditions.$invalid && !sellBookForm.agreedOnTermsAndConditions.$pristine">You have to agree.</span>
+
+            </p>
+
+            <!--<ul><li data-ng-repeat="file in files"><img src="{{image.name}}"/>{{file.name}}<button ng-click="removeImage(image)">Remove</button></li></ul>-->
+            <!--<button ng-disabled="sellBookForm.$invalid" type="submit" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10"> Sell Book Now <i class="fa fa-arrow-right"></i></button>-->
+            <button type="submit" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10"> Sell Book Now <i class="fa fa-arrow-right"></i></button>
+        </div>
+        </form>
+    </div>
+    <!--<div class="row">-->
+    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label">Add Additional Book Image</label>
+        <input file-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select file',
+            iconName: 'fa fa-inbox'
+          }"  multiple>
+    </div>
+    <!--<input type="file" file-input="files" file-data="fileData" file-identifier="fileId" multiple/>-->
+
+    <!--<li data-ng-repeat="file in files"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/>{{file.name}}<button ng-click="removeFile(file)">Remove</button></li>-->
+
+
+    <div class="tcol">
+        <div class="p-15 bg-white">
+
+
+            <h4 class="custom-font text-default m-0">Additional Images</h4>
+
+        </div>
+
+        <div class="p-15">
+
+            <table class="table b-a b-solid bg-white">
+                <thead>
+                <tr>
+                    <th>Image</th>
+                    <th width="50%">Name</th>
+                    <th >Size</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="file in files" class="text-sm">
+                    <td style="text-align: center"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
+                    <td><strong>{{ file.name }}</strong></td>
+                    <td nowrap>{{ file.size/1024/1024|number:2 }} MB</td>
+
+                    <td nowrap>
+
+
+                        <button type="button" class="btn btn-default btn-xs" ng-click="removeFile(file)">
+                            <span class="fa fa-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
 
 
         </div>
-        <!-- /row -->
-
 
     </div>
-    <!-- /page content -->
+
+
+
+
+
+    <!-- /row -->
+
+</div>
+<!-- /tile widget -->
+
+
+<!-- /tile body -->
+
+</section>
+<!-- /tile -->
+
+
+
+
+
+
+
+
+
+<!--<div class="page page-full page-upload" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">-->
+
+
+    <!--<div class="tbox tbox-sm">-->
+
+
+        <!--<div class="tcol w-lg bg-tr-white lt">-->
+
+            <!--<div class="p-15 bg-white b-r">-->
+                <!--<h4 class="custom-font text-default m-0">Add New Book Files</h4>-->
+            <!--</div>-->
+
+            <!--<div class="p-15">-->
+                <!--&lt;!&ndash;<div ng-show="uploader.isHTML5">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;&lt;!&ndash; 3. nv-file-over uploader="link" over-class="className" &ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="well text-center p-30 b-dashed b-2x bg-white" nv-file-over="" uploader="uploader">&ndash;&gt;-->
+                        <!--&lt;!&ndash;Base drop zone&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;&lt;!&ndash; Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" &ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well text-center p-30 b-dashed b-2x">&ndash;&gt;-->
+                            <!--&lt;!&ndash;Another drop zone with its own settings&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<hr class="b-0 b-b"/>-->
+
+                <!--&lt;!&ndash; Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" &ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<label class="control-label">Multiple</label>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input ui-jq="filestyle" type="file" class="filestyle" ui-options="{ buttonText: 'Select files', iconName: 'fa fa-inbox'}" nv-file-select="" uploader="uploader" multiple>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label">Select File</label>-->
+                    <!--<input ui-jq="filestyle" type="file" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox' }" nv-file-select="" uploader="uploader">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+
+        <!--<div class="tcol">-->
+            <!--<div class="p-15 bg-white">-->
+
+                <!--<span class="pull-right">Queue length: <b class="badge bg-lightred">{{ uploader.queue.length }}</b></span>-->
+                <!--<h4 class="custom-font text-default m-0">Upload queue (only images)</h4>-->
+
+            <!--</div>-->
+
+            <!--<div class="p-15">-->
+
+                <!--<table class="table b-a b-solid bg-white">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th width="50%">Name</th>-->
+                        <!--<th ng-show="uploader.isHTML5">Size</th>-->
+                        <!--<th ng-show="uploader.isHTML5">Progress</th>-->
+                        <!--<th>Status</th>-->
+                        <!--<th>Actions</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr ng-repeat="item in uploader.queue" class="text-sm">-->
+                        <!--<td><strong>{{ item.file.name }}</strong></td>-->
+                        <!--<td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>-->
+                        <!--<td ng-show="uploader.isHTML5">-->
+                            <!--<div class="progress progress-xs not-rounded" style="margin-top: 7px;margin-bottom: 0">-->
+                                <!--<div class="progress-bar bg-cyan" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--<td class="text-center">-->
+                            <!--<span ng-show="item.isSuccess" class="text-success"><i class="fa fa-check"></i></span>-->
+                            <!--&lt;!&ndash;<span ng-show="item.isCancel" class="text-warning"><i class="fa fa-ban"></i></span>&ndash;&gt;-->
+                            <!--<span ng-show="item.isError" class="text-danger"><i class="fa fa-times"></i></span>-->
+                        <!--</td>-->
+                        <!--<td nowrap>-->
+                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">-->
+                                <!--<span class="fa fa-upload"></span> Upload-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">-->
+                                <!--<span class="fa fa-ban"></span> Cancel-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.remove()">-->
+                                <!--<span class="fa fa-trash"></span> Remove-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+
+                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<p>Queue progress:</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="progress progress-sm progress-striped active bg-tr-black lt" style="">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="progress-bar bg-cyan" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--<button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">-->
+                        <!--<i class="fa fa-upload"></i> <span>Upload all</span>-->
+                    <!--</button>-->
+                    <!--&lt;!&ndash;<button class="btn btn-warning btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<i class="fa fa-ban"></i> <span>Cancel all</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button class="btn btn-danger btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<i class="fa fa-trash"></i> <span>Remove all</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
+<!-- /col -->
+
+
+</div>
+<!-- /row -->
+
+
+</div>
+<!-- /page content -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
