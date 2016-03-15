@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08e4fe9d-8ad8-453c-8eb3-c4d8c5941b60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/book/sell.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/bookService.js" afterPath="$PROJECT_DIR$/app/scripts/services/bookService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/compare.html" afterPath="$PROJECT_DIR$/app/views/book/compare.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/constants/constants.js" afterPath="$PROJECT_DIR$/app/scripts/constants/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/languages/en.json" afterPath="$PROJECT_DIR$/app/languages/en.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/nav.html" afterPath="$PROJECT_DIR$/app/views/web/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/search.html" afterPath="$PROJECT_DIR$/app/views/book/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/universityManagementCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/universityManagementCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/fileInput.js" afterPath="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -40,7 +30,7 @@
       <file leaf-file-name="bookSellCtrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="117" selection-start="4863" selection-end="4863" vertical-scroll-proportion="0.41694537" vertical-offset="2142" max-vertical-offset="4573">
+            <state line="139" column="0" selection-start="4492" selection-end="4492" vertical-scroll-proportion="0.6822126" vertical-offset="1734" max-vertical-offset="4590">
               <folding />
             </state>
           </provider>
@@ -49,10 +39,8 @@
       <file leaf-file-name="search.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/book/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="71" selection-start="10901" selection-end="10901" vertical-scroll-proportion="-22.76923" vertical-offset="3012" max-vertical-offset="4318">
+            <state line="212" column="71" selection-start="10901" selection-end="10901" vertical-scroll-proportion="0.0" vertical-offset="3012" max-vertical-offset="4318">
               <folding>
-                <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <marker date="1457678526546" expanded="true" signature="4804:5312" placeholder="..." />
                 <marker date="1457678526546" expanded="true" signature="4827:5297" placeholder="..." />
               </folding>
@@ -63,11 +51,8 @@
       <file leaf-file-name="compare.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/book/compare.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="36" selection-start="9788" selection-end="9788" vertical-scroll-proportion="-4.4615383" vertical-offset="3114" max-vertical-offset="8976">
-              <folding>
-                <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="190" column="36" selection-start="9788" selection-end="9788" vertical-scroll-proportion="0.0" vertical-offset="3114" max-vertical-offset="8976">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,27 +69,8 @@
       <file leaf-file-name="sell.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/book/sell.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="353" column="91" selection-start="16423" selection-end="16436" vertical-scroll-proportion="-4.27451" vertical-offset="5783" max-vertical-offset="11203">
+            <state line="353" column="91" selection-start="16423" selection-end="16436" vertical-scroll-proportion="0.0" vertical-offset="5783" max-vertical-offset="11203">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#1;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#1;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#2;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#2;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#3;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#3;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#4;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#4;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#5;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#5;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#6;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#6;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dt#7;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#dd#7;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <marker date="1457683530419" expanded="true" signature="3835:4279" placeholder="..." />
                 <marker date="1457683530419" expanded="true" signature="3858:4264" placeholder="..." />
               </folding>
@@ -142,7 +108,7 @@
       <file leaf-file-name="fileInput.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/directives/fileInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="49" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+            <state line="40" column="0" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
@@ -213,10 +179,10 @@
         <option value="$PROJECT_DIR$/app/scripts/directives/daterangepicker.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/universityManagementCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
         <option value="$PROJECT_DIR$/app/views/book/compare.html" />
         <option value="$PROJECT_DIR$/app/views/book/search.html" />
         <option value="$PROJECT_DIR$/app/views/book/sell.html" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
       </list>
     </option>
@@ -816,14 +782,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1042,23 +1008,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/offcanvas-sidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/onblurvalidation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/pageloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/slimscroll.js">
@@ -1089,26 +1049,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/fileInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="49" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2043" column="0" selection-start="36213" selection-end="36213" vertical-scroll-proportion="0.3329718" vertical-offset="34424" max-vertical-offset="37060">
-          <folding />
-        </state>
+        <state line="2043" column="0" selection-start="36213" selection-end="36213" vertical-scroll-proportion="0.3329718" vertical-offset="34424" max-vertical-offset="37060" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="71" selection-start="10901" selection-end="10901" vertical-scroll-proportion="-22.76923" vertical-offset="3012" max-vertical-offset="4318">
+        <state line="212" column="71" selection-start="10901" selection-end="10901" vertical-scroll-proportion="0.0" vertical-offset="3012" max-vertical-offset="4318">
           <folding>
-            <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <marker date="1457678526546" expanded="true" signature="4804:5312" placeholder="..." />
             <marker date="1457678526546" expanded="true" signature="4827:5297" placeholder="..." />
           </folding>
@@ -1117,11 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/compare.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="36" selection-start="9788" selection-end="9788" vertical-scroll-proportion="-4.4615383" vertical-offset="3114" max-vertical-offset="8976">
-          <folding>
-            <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#div#0;n#div#1;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="190" column="36" selection-start="9788" selection-end="9788" vertical-scroll-proportion="0.0" vertical-offset="3114" max-vertical-offset="8976">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,36 +1080,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="91" selection-start="16423" selection-end="16436" vertical-scroll-proportion="-4.27451" vertical-offset="5783" max-vertical-offset="11203">
+        <state line="353" column="91" selection-start="16423" selection-end="16436" vertical-scroll-proportion="0.0" vertical-offset="5783" max-vertical-offset="11203">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#0;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#0;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#1;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#1;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#2;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#2;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#3;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#3;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#4;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#4;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#5;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#5;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#6;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#6;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dt#7;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#dd#7;n#dl#0;n#div#1;n#form#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#2;n#div#1;n#section#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <marker date="1457683530419" expanded="true" signature="3835:4279" placeholder="..." />
             <marker date="1457683530419" expanded="true" signature="3858:4264" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/fileInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1374" selection-end="1374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="117" selection-start="4863" selection-end="4863" vertical-scroll-proportion="0.41694537" vertical-offset="2142" max-vertical-offset="4573">
+        <state line="139" column="0" selection-start="4492" selection-end="4492" vertical-scroll-proportion="0.6822126" vertical-offset="1734" max-vertical-offset="4590">
           <folding />
         </state>
       </provider>

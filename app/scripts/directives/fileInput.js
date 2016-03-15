@@ -28,14 +28,17 @@ app
                             reader.onload = function ( loadEvent ) {
                                 file[fileDataModel]=loadEvent.target.result;
                                 file[fileIdModel] = Math.floor((Math.random() * 1000000) + 1);
+
+
+                                scope.$apply(function(){
+                                    scope.model.push(file);
+                                });
                             };
                             reader.readAsDataURL(file);
-                            scope.model.push(file);
+
                         });
                         $parse(model).assign(scope, scope.model);
-                        scope.$apply();
 
-                        console.log(scope.model);
                     });
 
 

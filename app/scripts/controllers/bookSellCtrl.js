@@ -135,7 +135,8 @@
             bookData.bookAvailableDate = $scope.book.availableDate;
 
             bookData.bookMediumImageUrl = $scope.book.bookMediumImageUrl;
-
+            bookData.bookLargeImageUrl = $scope.book.bookLargeImageUrl ;
+            bookData.bookTitleImage = null;
 
 
 
