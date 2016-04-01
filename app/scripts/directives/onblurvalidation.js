@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:onBlurValidation
- * @description
- * # onBlurValidation
- */
 app
   .directive('onBlurValidation', function () {
     return {

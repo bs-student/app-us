@@ -1,18 +1,11 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name minovateApp
- * @description
- * # minovateApp
- *
- * Main module of the application.
- */
+
 
 /*jshint -W079 */
 
 var app = angular
-    .module('minovateApp', [
+    .module('student2studentApp', [
 
 //        'satellizer',
 
@@ -59,13 +52,17 @@ var app = angular
 //        'ui.calendar',
 //        'ngTagsInput',
         'pascalprecht.translate',
-        'ngMaterial'
+        'ngMaterial',
 //        'localytics.directives',
 //        'leaflet-directive',
 //        'wu.masonry',
 //        'ipsum',
 //        'angular-intro',
 //        'dragularModule'
+
+//        'angular-parallax'
+        'ngParallax'
+
     ])
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -154,7 +151,7 @@ var app = angular
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
 //            .when('/access_token=:accessToken','')
-//            .otherwise('/app/dashboard');
+            .otherwise('/');
         $stateProvider
 //            .state('code', {
 //                abstract: true,
@@ -165,25 +162,84 @@ var app = angular
 
             .state('app', {
                 abstract: true,
-                url: '/app',
+                url: '/',
                 controller: 'StartCtrl',
                 templateUrl: 'views/web/app.html'
             })
             //dashboard
             .state('app.dashboard', {
-                url: '/dashboard',
+                url: '^/',
                 controller: 'DashboardCtrl',
-//                parent: 'app',
-                templateUrl: 'views/web/dashboard.html',
-                resolve: {
-                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            'scripts/vendor/datatables/datatables.bootstrap.min.css',
-                            'scripts/vendor/datatables/datatables.bootstrap.min.css'
-                        ]);
-                    }]
-                }
+                templateUrl: 'views/web/dashboard.html'
             })
+
+
+            //login
+            .state('app.login', {
+                url: '^/login',
+                controller: 'LoginCtrl',
+                templateUrl: 'views/security/login.html'
+
+//                resolve: {
+//                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
+//                        return $ocLazyLoad.load([
+//                            'https://apis.google.com/js/client.js'
+//                        ]);
+//                    }]
+//                }
+            })
+
+            //Registration
+            .state('app.signup', {
+                url: '^/signup',
+                controller: 'SignupCtrl',
+                templateUrl: 'views/security/signup.html'
+            })
+            //Registration Confirm
+            .state('app.confirm', {
+                url: '^/confirmRegistration/:code',
+                controller: 'SignupConfirmCtrl'
+            })
+            //forgot password
+            .state('app.forgotPassword', {
+                url: '^/forgotPassword',
+                controller: 'ForgotPasswordCtrl',
+                templateUrl: 'views/security/forgotpassword.html'
+            })
+
+            .state('app.resetPassword', {
+                url: '^/resetPassword/:code',
+                controller: 'ResetPasswordCtrl',
+                templateUrl: 'views/security/resetpassword.html'
+            })
+            //book Search
+            .state('app.bookSearch', {
+                url: '^/bookSearch',
+                controller: 'BookSearchCtrl',
+                templateUrl: 'views/book/search.html'
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             .state('app.profile', {
                 url: '/profile',
                 controller: 'ProfileCtrl',
@@ -261,34 +317,19 @@ var app = angular
 
             })
 
-            .state('security', {
-                abstract: true,
-                url: '/security',
-//                controller: 'StartCtrl',
-                template: '<div ui-view></div>'
-            })
-            //login
-            .state('security.login', {
-                url: '/login',
-                controller: 'LoginCtrl',
-                templateUrl: 'views/security/login.html',
-                /*resolve:{
-                    load: 'https://apis.google.com/js/client.js'
-                }*/
-                resolve: {
-                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            'https://apis.google.com/js/client.js'
-                        ]);
-                    }]
-                }
-            })
+//            .state('security', {
+//                abstract: true,
+//                url: '/security',
+////                controller: 'StartCtrl',
+//                template: '<div ui-view></div>'
+//            })
+
             //signup
-            .state('security.signup', {
-                url: '/signup',
-                controller: 'SignupCtrl',
-                templateUrl: 'views/registration/signup.html'
-            })
+//            .state('app.signup', {
+//                url: '/signup',
+//                controller: 'SignupCtrl',
+//                templateUrl: 'views/registration/signup.html'
+//            })
             .state('security.confirm', {
                 url: '/confirm/:code',
                 controller: 'SignupConfirmCtrl'
@@ -353,7 +394,7 @@ var app = angular
                 resolve: {
                     plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load([
-                            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
+                            '../vendor/filestyle/bootstrap-filestyle.min.js'
                         ]);
                     }]
                 }

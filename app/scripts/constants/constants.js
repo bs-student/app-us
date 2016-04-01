@@ -29,7 +29,7 @@
             "ADMIN_UPDATE_USER_DATA": "/api/admin/update_user_data"
         })
         .constant("UNIVERSITY_CONSTANT", {
-            "AUTOCOMPLETE_SEARCH_LIST": "/api/university/autocomplete_activated_search_list",
+            "AUTOCOMPLETE_SEARCH_LIST": "/university/autocomplete_activated_search_list",
             "AUTOCOMPLETE_NAME_SEARCH_LIST":"/api/university/autocomplete_university_name_search_list",
 //            "UNIVERSITY_LIST": "/api/university/list",
             "UPDATE_UNIVERSITY": "/api/university/update_university",
@@ -51,7 +51,7 @@
         })
 
         .constant("REFERRAL_CONSTANT", {
-            "REFERRAL_LIST": "/api/referral/list"
+            "REFERRAL_LIST": "/referral/list"
         })
         .constant("STATE_CONSTANT", {
             "STATE_LIST_BY_COUNTRY": "/api/state/list_by_country"
@@ -62,11 +62,11 @@
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",
             "REGISTER":"/register",
-            "CONFIRM_REGISTRATION":"/confirm/",
+            "CONFIRM_REGISTRATION":"/confirm",
             "CHECK_IF_USERNAME_EXIST":"/check_if_username_exist",
             "CHECK_IF_EMAIL_EXIST":"/check_if_email_exist",
             "FORGOT_PASSWORD":"/resetting/send-email",
-            "RESET_PASSWORD":"/resetting/reset/"
+            "RESET_PASSWORD":"/resetting/reset"
         })
 
         .constant("LOGIN_CONSTANT", {

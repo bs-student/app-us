@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:daterangepicker
- * @description
- * # daterangepicker
- */
 app
     .directive("fileInput", ["$parse",
         function ($parse) {

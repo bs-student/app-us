@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:nativeTab
- * @description
- * # nativeTab
- */
+
 app
   .directive('nativeTab', function () {
     return {

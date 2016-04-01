@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:ripple
- * @description
- * # ripple
- */
+
 app
   .directive('ripple', function () {
     return {

@@ -1,14 +1,73 @@
-<section ng-include="'views/web/header.html'" id="header" class="{{main.settings.navbarHeaderColor}}"></section>
 
-<div id="controls">
 
-  <aside ng-include="'views/web/nav.html'" id="sidebar" class="{{main.settings.sidebarColor}}" ng-class="{'aside-fixed':main.settings.asideFixed}"></aside>
+<header top-header id="header" headerStyle="{{headerStyle}}"  class="transparent-header"  ng-class="{light:'light', dark:'dark'}[headerStyle]" >
 
-  <!--<aside ng-include="'views/web/rightbar.html'" id="rightbar"></aside>-->
 
-</div>
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="main-navbar-toggle"><i class="fa fa-bars"></i></div>
+
+
+            <!-- ============================================
+            =================== Branding ====================
+            ============================================= -->
+            <div id="branding">
+
+                <a ui-sref="app.dashboard" class="brand-normal" data-light-logo="assets/images/logo.png"><img
+                        src="assets/images/logo-dark.png" alt="Student2Student"></a>
+                <a ui-sref="app.dashboard" class="brand-retina" data-light-logo="assets/images/logo@2x.png"><img
+                        src="assets/images/logo@2x-dark.png" alt="Student2Student"></a>
+            </div>
+            <!-- #branding end -->
+
+
+            <!-- ============================================
+            ================= Main Navbar ===================
+            ============================================= -->
+
+            <nav id="main-navbar">
+
+                <ul>
+                    <li ng-class="{home:'active'}[activePage]"><a ui-sref="app.dashboard">Home</a></li>
+                    <li ng-class="{buyBook:'active'}[activePage]"><a ui-sref="app.bookSearch">Buy Books</a>
+                    <li ng-class="{sellBook:'active'}[activePage]"><a href="#">Sell Books</a>
+
+                    <li ng-show="!loggedIn" ng-class="{login:'active'}[activePage]"><a ui-sref="app.login">Log In</a>
+                    <li ng-show="!loggedIn" ng-class="{signup:'active'}[activePage]"><a ui-sref="app.signup">Sign Up</a>
+                    <li ng-show="loggedIn"  ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
+                        <ul class="menu-right-position">
+                            <li><a ui-sref="app.dashboard"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a></li>
+                            <li><a ui-sref="app.dashboard"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Change University</a></li>
+                            <li><a ui-sref="app.dashboard"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
+                            <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+                <!-- ==============================================
+                ================= Search Toggle ===================
+                =============================================== -->
+
+                <!--<div id="search-toggle"> <span>|</span> <a href="#"><i class="fa fa-search"></i></a> </div>-->
+
+
+            </nav>
+            <!-- #main-navbar end -->
+
+        </div>
+
+    </div>
+
+</header>
+
 
 <div class="view-container" ui-view-container>
 
-  <section ui-view id="content" autoscroll="false"></section>
+    <section ui-view autoscroll="false"></section>
 </div>
+
+<section ng-include="'views/web/footer.html'" id="footer" class="{{main.settings.navbarHeaderColor}}"></section>

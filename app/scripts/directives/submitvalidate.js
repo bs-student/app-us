@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:submitValidate
- * @description
- * # submitValidate
- */
+
 app
   .directive('submitValidate', function () {
     return {

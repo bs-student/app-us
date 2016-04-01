@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:sparkline
- * @description
- * # sparkline
- */
 app
   .directive('sparkline', [
   function() {

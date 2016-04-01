@@ -1,12 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name minovateApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the minovateApp
- */
+
 app
   .controller('MainCtrl', function ($scope, $http, $translate) {
 

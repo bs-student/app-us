@@ -1,12 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name minovateApp.controller:UiWidgetsCtrl
- * @description
- * # UiWidgetsCtrl
- * Controller of the minovateApp
- */
+
 app
   .controller('WidgetsCtrl', function ($scope) {
     $scope.page = {

@@ -2,64 +2,21 @@
 
     'use strict';
 
-    /**
-     * @ngdoc function
-     * @name minovateApp.controller:PagesLoginCtrl
-     * @description
-     * # PagesLoginCtrl
-     * Controller of the minovateApp
-     */
+
     app
         .controller('SignupConfirmCtrl', SignupConfirmCtrl);
 
-    SignupConfirmCtrl.$inject = ['$state','$scope','toastr', 'toastrConfig','$stateParams','securityService'];
+    SignupConfirmCtrl.$inject = ['$state','$stateParams','securityService','responseService'];
 
-    function SignupConfirmCtrl($state,$scope,toastr,toastrConfig,$stateParams,securityService) {
-        $scope.clearLastToast = _clearLastToast;
-        $scope.clearToasts = _clearToasts;
-        var openedToasts = [];
-        $scope.toast = {
-            colors: [
-                {name:'success'},
-                {name:'error'}
-            ]
-        };
-        $scope.options = {
-            position: 'toast-top-right',
-            type: 'success',
-            iconClass: $scope.toast.colors[0],
-            timeout: '5000',
-            extendedTimeout: '2000',
-            html: false,
-            closeButton: true,
-            tapToDismiss: true,
-            closeHtml: '<i class="fa fa-times"></i>'
-        };
-        function _clearLastToast(){
-            var toast = openedToasts.pop();
-            toastr.clear(toast);
-        }
+    function SignupConfirmCtrl($state,$stateParams,securityService,responseService) {
 
-        function _clearToasts () {
-            toastr.clear();
-        }
         securityService.confirmRegistration($stateParams.code).then(function(response){
-            console.log(response.data);
-            if(response.data.error!=undefined){
-                var toast = toastr[$scope.options.type](response.data.error.errorBody, response.data.error.errorTitle, {
-                    iconClass: 'toast-error'+' ' + 'bg-error'
-                });
-                openedToasts.push(toast);
-                $state.go('security.signup');
-            }
-            if(response.data.success!=undefined){
-                var toast = toastr[$scope.options.type](response.data.success.successBody, response.data.success.successTitle, {
-                    iconClass: 'toast-success'+' ' + 'bg-success'
-                });
-                openedToasts.push(toast);
-                $state.go('security.login');
-            }
 
+            responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+            $state.go('app.login');
+
+        }).catch(function(response){
+            responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
         });
 
 

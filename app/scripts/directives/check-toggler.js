@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:checkToggler
- * @description
- * # checkToggler
- */
+
 app
   .directive('checkToggler', function () {
     return {

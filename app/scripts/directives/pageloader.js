@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:pageLoader
- * @description
- * # pageLoader
- */
 app
   .directive('pageLoader', [
     '$timeout',

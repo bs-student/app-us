@@ -2,13 +2,7 @@
 
     'use strict';
 
-    /**
-     * @ngdoc function
-     * @name minovateApp.controller:PagesLoginCtrl
-     * @description
-     * # PagesLoginCtrl
-     * Controller of the minovateApp
-     */
+
     app
         .controller('OAuthCtrl', OAuthCtrl);
 

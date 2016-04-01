@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:anchorScroll
- * @description
- * # anchorScroll
- */
+
 app
   .directive('anchorScroll', ['$location', '$anchorScroll', function($location, $anchorScroll) {
     return {

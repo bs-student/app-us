@@ -13,8 +13,8 @@
             getReferralList: _getReferralList
         };
 
-        function _getReferralList(access_token){
-            return apiService.post(SERVER_CONSTANT.HOST+REFERRAL_CONSTANT.REFERRAL_LIST+"?access_token="+access_token);
+        function _getReferralList(){
+            return apiService.post(SERVER_CONSTANT.HOST+REFERRAL_CONSTANT.REFERRAL_LIST);
         }
 
 

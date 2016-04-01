@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:slimScroll
- * @description
- * # slimScroll
- */
+
 app
   .directive('slimscroll', function () {
     return {

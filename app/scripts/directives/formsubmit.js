@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:formSubmit
- * @description
- * # formSubmit
- */
+
 app
   .directive('submit', function() {
     return {

@@ -39,8 +39,8 @@
                 'accessToken': identityService.getAccessToken()
             }
             bookService.searchBooks(data).then(function(response){
-                $scope.bookSearchResult = response.data.result.books;
-                $scope.totalSearchResults= parseInt(response.data.result.totalSearchResults, 10);
+                $scope.bookSearchResult = response.data.success.successData.books;
+                $scope.totalSearchResults= parseInt(response.data.success.successData.totalSearchResults, 10);
             });
         }
 

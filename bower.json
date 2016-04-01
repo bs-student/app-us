@@ -1,6 +1,6 @@
 {
-  "name": "minovate",
-  "version": "1.2.0",
+  "name": "student2student",
+  "version": "1.0.0",
   "dependencies": {
     "angular": "~1.4.6",
     "angular-animate": "1.4.6",
@@ -73,7 +73,8 @@
     "simple-line-icons": "~2.2.1",
     "textAngular": "latest",
     "weather-icons": "~2.0.10",
-    "dragular": "latest"
+    "dragular": "latest",
+    "parallax.js": "~1.4.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

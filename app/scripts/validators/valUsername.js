@@ -25,4 +25,4 @@
             }
         };
     });
-})(angular.module('minovateApp'));
+})(angular.module('student2studentApp'));

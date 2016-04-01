@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name minovateApp.directive:offcanvasSidebar
- * @description
- * # offcanvasSidebar
- */
 app
   .directive('offcanvasSidebar', function () {
     return {
