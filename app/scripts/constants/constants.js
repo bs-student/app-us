@@ -5,6 +5,7 @@
     app
         .constant("SERVER_CONSTANT",{
             "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php"
+//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",

@@ -112,7 +112,10 @@ var assets = {
         "app/scripts/services/stateService.js",
         "app/scripts/services/tokenService.js",
         "app/scripts/services/universityService.js",
-        "app/scripts/services/userService.js"
+        "app/scripts/services/userService.js",
+
+        "app/scripts/validators/valEmail.js",
+        "app/scripts/validators/valUsername.js"
     ],
 
     css_library: [
