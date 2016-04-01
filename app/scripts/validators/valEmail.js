@@ -15,7 +15,7 @@
                     var def = $q.defer();
 
                     securityService.checkIfEmailExist({'query':modelValue}).then(function(response){
-                        if(response.data.emailExist)def.reject();
+                        if(response.data.success.emailExist)def.reject();
                             else def.resolve();
                     });
 

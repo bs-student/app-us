@@ -15,7 +15,7 @@
                     var def = $q.defer();
 
                     securityService.checkIfUsernameExist({'query':modelValue}).then(function(response){
-                        if(response.data.usernameExist)def.reject();
+                        if(response.data.success.usernameExist)def.reject();
                             else def.resolve();
                     });
 

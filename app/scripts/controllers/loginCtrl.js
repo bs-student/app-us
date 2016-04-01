@@ -67,8 +67,8 @@
             $state.go('app.dashboard');
         }*/
         $scope.login = loginUser;
-
-        securityService.getLoginPage().then(setLoginPage);
+        vm.user = {};
+//        securityService.getLoginPage().then(setLoginPage);
 
 
         function loginUser() {
@@ -79,10 +79,10 @@
         }
 
 
-        function setLoginPage(response) {
-            vm.user = {};
-            vm.user._csrf_token = response.data.page_data.csrf_token;
-        }
+//        function setLoginPage(response) {
+//
+//            vm.user._csrf_token = response.data.page_data.csrf_token;
+//        }
 
 
         function showDashboardPage(response) {
