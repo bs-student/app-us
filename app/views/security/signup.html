@@ -1,214 +1,241 @@
-<div class="page page-core page-login">
+<div ng-parallax pattern="'assets/images/parallax/login_parallax.png'" offset="0"  speed="5"  class="parallax-box dark" >
 
-  <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred">STDENT2</span>STUDENT</h3></div>
-
-  <div class="container w-420 p-15 bg-white mt-40 text-center">
-
-    <h2 class="text-light text-greensea">Sign Up</h2>
+    <div class="container clearfix">
 
 
-    <form name="userForm" submit-validate ng-submit="register(userForm.$valid)" role="form" novalidate>
+        <div class="row">
 
-        <!-- tile -->
-        <section class="tile text-left" fullscreen="isFullscreen01">
-
-
-            <!-- tile body -->
-            <div class="tile-body">
+            <div class="col-md-12">
 
 
-                <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
-                    <label for="fullName">Full Name: </label>
-                    <input type="text" name="fullName" id="fullName" class="form-control" ng-model="user.fullName" ng-minlength="3"  required>
-                    <p class="help-block">
-                        <span ng-show="userForm.fullName.$invalid && !userForm.fullName.$pristine">Full Name is required.</span>
-                        <span ng-show="userForm.fullName.$error.minlength">Full Name is too short.</span>
+                <p class="text-white mid-two-header">Sign Up</p>
 
 
-                    </p>
-                </div>
 
-                <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
-                    <label for="username">Username: </label>
-                    <input data-val-username type="text" name="username" id="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
-                    <p class="help-block">
-                        <span ng-show="userForm.username.$invalid && !userForm.username.$pristine">Username is required.</span>
-                        <span ng-show="userForm.username.$error.minlength">Username is too short.</span>
-                        <span ng-show="userForm.username.$error.maxlength">Username is too long.</span>
-                        <span ng-show="userForm.username.$error.valUsername">Username Already Exist.</span>
-                    </p>
-                </div>
 
-                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine, 'has-success' : userForm.email.$valid && !userForm.email.$pristine}">
-                    <label for="email">Email: </label>
-                    <input data-val-email type="email" name="email" id="email" class="form-control" ng-model="user.email" required>
-                    <p class="help-block">
-                        <span ng-show="userForm.email.$invalid && !userForm.email.$pristine">Email is required.</span>
-                        <span ng-show="userForm.email.$error.valEmail">Email Already Exist.</span>
-                    </p>
-                </div>
 
-                <div class="row">
+            </div>
 
-                    <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine, 'has-success' : userForm.password.$valid && !userForm.password.$pristine}">
-                        <label for="password">Password: </label>
-                        <input type="password" name="password" id="password" class="form-control" ng-model="user.password" ng-minlength="6" required>
-                        <p class="help-block">
-                            <span ng-show="userForm.password.$invalid && !userForm.password.$pristine">Password is required.</span>
-                            <span ng-show="userForm.password.$error.minlength">Password is too short.</span>
-                        </p>
-                    </div>
 
-                    <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine, 'has-success' : userForm.passwordConfirm.$valid && !userForm.passwordConfirm.$pristine}">
-                        <label for="passwordConfirm">Password confirmation: </label>
-                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control" ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required>
-                        <p class="help-block">
-                            <span ng-show='userForm.passwordConfirm.$error.validator'>Passwords do not match!</span>
-                        </p>
-                    </div>
 
-                </div>
+        </div>
+        <div class="row reg-page-dark-div">
+            <form name="userForm" submit-validate ng-submit="register(userForm.$valid)" role="form" novalidate>
+            <div class="col-md-6 reg-page-col-div">
 
-                <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
-                    <label>University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>
+                <div class="reg-page-form">
 
-                    <md-autocomplete required
-                            md-input-class="form-control"
-                            md-input-name="campus"
-                            md-selected-item="selectedItem"
-                            md-search-text-change="searchTextChange(searchText)"
-                            md-search-text="searchText"
-                            md-selected-item-change="selectedItemChange(item)"
-                            md-items="item in querySearch(searchText)"
-                            md-item-text="item.display"
-                            md-min-length="0"
-                            placeholder="What is your University Campus?">
-                        <md-item-template>
 
-                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                        </md-item-template>
-                        <md-not-found>
-                            No matches found for "{{searchText}}".
 
-                        </md-not-found>
+                    <!-- tile -->
+                    <section class="tile text-left" fullscreen="isFullscreen01">
 
-                        <div ng-messages="registrationCompleteForm.autocompleteField.$error" ng-if="registrationCompleteForm.autocompleteField.$touched">
-                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                            <div ng-message="minlength">Your entry is not long enough.</div>
-                            <div ng-message="maxlength">Your entry is too long.</div>
+
+                        <!-- tile body -->
+                        <div class="tile-body">
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
+                                <!--<label class="white-text" for="fullName">Full Name: </label>-->
+                                <p class="white-text" for="fullName">Full Name: </p>
+                                <input type="text" name="fullName" id="fullName" class="form-control input-style" ng-model="user.fullName" ng-minlength="3"  required>
+                                <p class="help-block">
+                                    <span ng-show="userForm.fullName.$invalid && !userForm.fullName.$pristine">Full Name is required.</span>
+                                    <span ng-show="userForm.fullName.$error.minlength">Full Name is too short.</span>
+
+
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
+                                <!--<label class="white-text" for="username">Username: </label>-->
+                                <p class="white-text" for="fullName">Username: </p>
+                                <input data-val-username type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
+                                <p class="help-block">
+                                    <span ng-show="userForm.username.$invalid && !userForm.username.$pristine">Username is required.</span>
+                                    <span ng-show="userForm.username.$error.minlength">Username is too short.</span>
+                                    <span ng-show="userForm.username.$error.maxlength">Username is too long.</span>
+                                    <span ng-show="userForm.username.$error.valUsername">Username Already Exist.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine, 'has-success' : userForm.email.$valid && !userForm.email.$pristine}">
+                                <!--<label class="white-text" for="email">Email: </label>-->
+                                <p class="white-text" for="fullName">Email: </p>
+                                <input data-val-email type="email" name="email" id="email" class="form-control input-style" ng-model="user.email" required>
+                                <p class="help-block">
+                                    <span ng-show="userForm.email.$invalid && !userForm.email.$pristine">Email is required.</span>
+                                    <span ng-show="userForm.email.$error.valEmail">Email Already Exist.</span>
+                                </p>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine, 'has-success' : userForm.password.$valid && !userForm.password.$pristine}">
+                                    <!--<label class="white-text" for="password">Password: </label>-->
+                                    <p class="white-text" for="fullName">Password: </p>
+                                    <input type="password" name="password" id="password" class="form-control input-style" ng-model="user.password" ng-minlength="6" required>
+                                    <p class="help-block">
+                                        <span ng-show="userForm.password.$invalid && !userForm.password.$pristine">Password is required.</span>
+                                        <span ng-show="userForm.password.$error.minlength">Password is too short.</span>
+                                    </p>
+                                </div>
+
+                                <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine, 'has-success' : userForm.passwordConfirm.$valid && !userForm.passwordConfirm.$pristine}">
+                                    <!--<label class="white-text" for="passwordConfirm">Password confirmation: </label>-->
+                                    <p class="white-text" for="fullName">Password Confirmation: </p>
+                                    <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-style" ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required>
+                                    <p class="help-block">
+                                        <span ng-show='userForm.passwordConfirm.$error.validator'>Passwords do not match!</span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
                         </div>
 
-                    </md-autocomplete>
-                    <p class="help-block">
-                        <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
-                    </p>
-                </div>
 
-                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.university.$invalid && !userForm.university.$pristine, 'has-success' : userForm.university.$valid && !userForm.university.$pristine}">-->
-                    <!--<label for="university">University Name: </label>-->
-                    <!--<input type="text" name="university" id="university" class="form-control" ng-model="user.university" required>-->
-                    <!--<p class="help-block">-->
-                        <!--<span ng-show="userForm.university.$invalid && !userForm.university.$pristine">University Name is required.</span>-->
-                    <!--</p>-->
-                <!--</div>-->
+                    </section>
 
-                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.universityUrl.$invalid && !userForm.universityUrl.$pristine, 'has-success' : userForm.universityUrl.$valid && !userForm.universityUrl.$pristine}">-->
-                    <!--<label for="universityUrl">University Url: </label>-->
-                    <!--<input type="text" name="universityUrl" id="universityUrl" class="form-control" ng-model="user.universityUrl">-->
-                    <!---->
-                <!--</div>-->
-
-                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.campusName.$invalid && !userForm.campusName.$pristine, 'has-success' : userForm.campusName.$valid && !userForm.campusName.$pristine}">-->
-                    <!--<label for="campusName">Campus Name: </label>-->
-                    <!--<input type="text" name="campusName" id="campusName" class="form-control" ng-model="user.campusName" required>-->
-                    <!--<p class="help-block">-->
-                        <!--<span ng-show="userForm.campusName.$invalid && !userForm.campusName.$pristine">Campus Name is required.</span>-->
-                    <!--</p>-->
-                <!--</div>-->
-
-                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && !userForm.country.$pristine, 'has-success' : userForm.country.$valid && !userForm.country.$pristine}">-->
-                    <!--<label for="country">Country: </label>-->
-
-                    <!--<select id="country"  ng-model="user.country"  class="form-control mb-10"-->
-                            <!--data-ng-options="country.id as country.countryName for country in countries" ng-change="fetchStates(user.country)" required>-->
-                        <!--<option value="">---Select Country---</option>-->
-                    <!--</select>-->
-                    <!--<p class="help-block">-->
-                        <!--<span ng-show="userForm.country.$invalid && !userForm.country.$pristine">Country is required.</span>-->
-
-                    <!--</p>-->
-                <!--</div>-->
-
-                <!--<div ng-show="createUniversityCampusName" class="form-group" ng-class="{ 'has-error' : userForm.state.$invalid && !userForm.state.$pristine, 'has-success' : userForm.state.$valid && !userForm.state.$pristine}">-->
-                    <!--<label for="referral">State: </label>-->
-                    <!--&lt;!&ndash;<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>&ndash;&gt;-->
-                    <!--<select id="state"  ng-model="user.state"  class="form-control mb-10"-->
-                            <!--data-ng-options="state.id as state.stateName for state in states" required>-->
-                        <!--<option value="">---Select State---</option>-->
-                    <!--</select>-->
-                    <!--<p class="help-block">-->
-                        <!--<span ng-show="userForm.state.$invalid && !userForm.state.$pristine">State is required.</span>-->
-                        <!---->
-                    <!--</p>-->
-                <!--</div>-->
-
-                <div class="form-group" ng-class="{ 'has-error' : userForm.referral.$invalid && !userForm.referral.$pristine, 'has-success' : userForm.referral.$valid && !userForm.referral.$pristine}">
-                    <label for="referral">Referral: </label>
-                    <!--<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>-->
-                    <select name="referral" id="referral"  ng-model="user.referral"  class="form-control mb-10"
-                             data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
-                        <option value="">---Select Referral---</option>
-                    </select>
-                    <p class="help-block">
-                        <span ng-show="userForm.referral.$invalid && !userForm.referral.$pristine">Referral is required.</span>
-                        <!--<span ng-show="userForm.username.$error.minlength">Username is too short.</span>
-                        <span ng-show="userForm.username.$error.maxlength">Username is too long.</span>-->
-                    </p>
                 </div>
 
 
 
-               <!-- <div class="form-group" ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine, 'has-success' : userForm.phone.$valid && !userForm.phone.$pristine}">
-                    <label for="phone">Phone: </label>
-                    <input type="text" name="phone" id="phone" class="form-control" ng-model="user.phone" placeholder="(XXX) XXXX XXX" ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/">
-                    <p class="help-block">
-                        <span ng-show="userForm.phone.$invalid && !userForm.phone.$pristine">Phone in bad format.</span>
-                    </p>
-                </div>-->
 
-                <div class="checkbox" ng-class="{ 'has-error' : userForm.agree.$invalid && !userForm.agree.$pristine, 'has-success' : userForm.agree.$valid && !userForm.agree.$pristine}">
-                    <label class="checkbox checkbox-custom">
-                        <input type="checkbox" name="agree" id="agree" ng-model="user.agree" required><i></i> I agree to the <a href class="text-info">Terms of Service</a>
-                    </label>
-                    <p class="help-block">
-                        <span ng-show="userForm.agree.$invalid && !userForm.agree.$pristine">You must accept Terms of Service.</span>
-                    </p>
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-md-6 reg-page-col-div ">
+
+                <div class=" reg-page-form">
+
+
+
+
+
+
+
+
+
+
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
+                        <!--<label class="white-text">University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>-->
+                        <p class="white-text">University: </p> <p class="white-text">If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></p>
+
+                        <md-autocomplete required
+                                         md-input-id="input-style"
+
+                                         md-input-name="campus"
+                                         md-selected-item="selectedItem"
+                                         md-search-text-change="searchTextChange(searchText)"
+                                         md-search-text="searchText"
+                                         md-selected-item-change="selectedItemChange(item)"
+                                         md-items="item in querySearch(searchText)"
+                                         md-item-text="item.display"
+                                         md-min-length="0"
+                                         placeholder="What is your University Campus?">
+                            <md-item-template>
+
+                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No matches found for "{{searchText}}".
+
+                            </md-not-found>
+
+                            <div ng-messages="registrationCompleteForm.autocompleteField.$error" ng-if="registrationCompleteForm.autocompleteField.$touched">
+                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                <div ng-message="maxlength">Your entry is too long.</div>
+                            </div>
+
+                        </md-autocomplete>
+                        <p class="help-block">
+                            <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
+                        </p>
+                    </div>
+
+
+
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.referral.$invalid && !userForm.referral.$pristine, 'has-success' : userForm.referral.$valid && !userForm.referral.$pristine}">
+                        <!--<label class="white-text" for="referral">Referral: </label>-->
+                        <p class="white-text" for="fullName">Referral: </p>
+                        <!--<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>-->
+                        <select name="referral" id="referral"  ng-model="user.referral"  class="form-control mb-10 input-style"
+                                data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
+                            <option value="">---Select Referral---</option>
+                        </select>
+                        <p class="help-block">
+                            <span ng-show="userForm.referral.$invalid && !userForm.referral.$pristine">Referral is required.</span>
+
+                        </p>
+                    </div>
+
+
+
+
+
+                    <div class="checkbox reg-confirm-checkbox" ng-class="{ 'has-error' : userForm.agree.$invalid && !userForm.agree.$pristine, 'has-success' : userForm.agree.$valid && !userForm.agree.$pristine}">
+                        <label  class="checkbox checkbox-custom white-text">
+                            <input type="checkbox" name="agree" id="agree" ng-model="user.agree" required><i></i> I agree to the <a href class="text-info">Terms of Service</a>
+                        </label>
+                        <p class="help-block">
+                            <span ng-show="userForm.agree.$invalid && !userForm.agree.$pristine">You must accept Terms of Service.</span>
+                        </p>
+                    </div>
+
+                    <no-captcha class="reg-captcha"
+                            g-recaptcha-response="gRecaptchaResponse"
+                            control="noCaptchaControl"
+                            ></no-captcha>
+                    <div class="form-group" ng-class="{'has-error':captchaNeeded}">
+                        <p class="help-block">
+                            <span  ng-show="captchaNeeded">Captcha is required.</span>
+                        </p>
+                    </div>
+
+
+
+                    <div class="form-group text-left mt-20">
+                        <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Sign Up</button>
+
+
+                    </div>
+                    <br/><br/>
+                    <div class="text-center white-text">
+                        Already have an account ? <a ui-sref="app.login">Login Now</a>
+                    </div>
+
+
+
+
                 </div>
 
 
             </div>
-            <!-- /tile body -->
-
-
-            <!-- tile footer -->
-            <!--<div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
-                &lt;!&ndash; SUBMIT BUTTON &ndash;&gt;
-                <button type="submit" class="btn btn-success" ng-disabled="userForm.$invalid">Submit</button>
-            </div>-->
-            <!-- /tile footer -->
-
-        </section>
-        <!-- /tile -->
-
-        <div class="bg-slategray lt wrap-reset mt-20 text-left">
-            <p class="m-0">
-                <button  type="submit"  class="btn btn-greensea b-0 text-uppercase pull-right" >Submit</button>
-                <a ui-sref="app.login" class="btn btn-lightred b-0 text-uppercase">Back</a>
-            </p>
+            </form>
         </div>
-    </form>
 
 
-  </div>
+    </div>
+
 
 </div>
+
+
+<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
+
+
+<!--</div>-->
+
+
+
+

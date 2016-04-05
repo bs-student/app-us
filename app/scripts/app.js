@@ -61,7 +61,8 @@ var app = angular
 //        'dragularModule'
 
 //        'angular-parallax'
-        'ngParallax'
+        'ngParallax',
+        'noCAPTCHA'
 
     ])
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
@@ -97,6 +98,10 @@ var app = angular
 //    }])
     .config(['uiSelectConfig', function (uiSelectConfig) {
         uiSelectConfig.theme = 'bootstrap';
+    }])
+    .config(['noCAPTCHAProvider', function (noCaptchaProvider) {
+        noCaptchaProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw');
+        noCaptchaProvider.setTheme('dark');
     }])
 
 
@@ -218,7 +223,12 @@ var app = angular
                 controller: 'BookSearchCtrl',
                 templateUrl: 'views/book/search.html'
             })
-
+            // Add University Public
+            .state('app.addUniversity', {
+                url: '/addUniversity',
+                controller: 'UniversityCtrl',
+                templateUrl: 'views/university/university.html'
+            })
 
 
 

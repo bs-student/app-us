@@ -18,6 +18,15 @@
         $scope.register=_register;
         $scope.createUniversityCampusName=false;
 
+        $scope.peopleQuoteItems = [
+            {id: 1, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
+            {id: 2, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
+            {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
+        ];
+
+        $scope.gRecaptchaResponse = '';
+        $scope.captchaNeeded= false;
+
 
 
         function setUpForm(){
@@ -62,8 +71,15 @@
 
         function _register(valid){
 
+            if($scope.gRecaptchaResponse ==""){
+                $scope.captchaNeeded=true;
+                console.log($scope.gRecaptchaResponse);
+            }
 
-            if(valid){
+            if(valid && $scope.gRecaptchaResponse !=""){
+
+                $scope.captchaNeeded=false;
+                console.log($scope.gRecaptchaResponse);
 
                 campusValue = null;
                 var data =
@@ -73,7 +89,9 @@
                     'email': $scope.user.email,
                     'referral':$scope.user.referral,
                     'new_password': $scope.user.password,
-                    'confirm_password': $scope.user.passwordConfirm
+                    'confirm_password': $scope.user.passwordConfirm,
+                    'key': $scope.gRecaptchaResponse
+
                 };
                 if(!$scope.createUniversityCampusName && $scope.selectedItem!=null){
                     var campusValue = $scope.selectedItem;
@@ -99,8 +117,9 @@
         }
 
         function showError(response){
+
             var errorDescription="";
-            if(response.data.error.errorData.children!=undefined){
+            if(response.data.error.errorData!=undefined){
                 $scope.user.password=null;
                 $scope.user.passwordConfirm=null;
                 if(response.data.error.errorData.children.username.errors!=undefined){

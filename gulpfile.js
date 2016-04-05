@@ -32,6 +32,7 @@ var assets = {
         "bower_components/morrisjs/morris.js",
         "bower_components/ng-table/dist/ng-table.js",
         "bower_components/oclazyload/dist/ocLazyLoad.js",
+        "bower_components/angular-no-captcha/src/angular-no-captcha.js",
 
         "vendor/superfish/js/superfish.js",
         "vendor/jRespond/jRespond.js",

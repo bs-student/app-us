@@ -21,6 +21,9 @@
         $scope.loginUser = _loginUser;
 
 
+
+
+
         /*$scope.loginViaGoogle = _loginViaGoogle;
         $scope.loginViaFacebook = _loginViaFacebook;*/
 
@@ -29,7 +32,9 @@
 
 
         function _loginUser(valid) {
+
             if(valid){
+
                 securityService.loginUser($scope.user).then(showDashboardPage).catch(showLoginUnsuccessful);
             }
         }

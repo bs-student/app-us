@@ -583,6 +583,8 @@
 .input-style{
     background-color: #979797;
 }
+
+
 .white-text{
     color: #fff;
 }
@@ -625,4 +627,65 @@
     .login-page-student-img{
      margin-top: 0px;
     }
+}
+
+/********************************************/
+/*             Registration Page             */
+/*********************************************/
+
+#input-style{
+    border-radius: 4px;
+    color: #000000;
+    background-color: #979797;
+}
+
+#input-style::-webkit-input-placeholder {
+    color: #000;
+    font-weight: 400;
+    /*font-family:"Raleway" ;*/
+}
+
+#input-style:-moz-placeholder { /* Firefox 18- */
+    color: #000;
+    font-weight: 400;
+    /*font-family:"Raleway" ;*/
+}
+
+#input-style::-moz-placeholder {  /* Firefox 19+ */
+    color: #000;
+    font-weight: 400;
+    /*font-family:"Raleway" ;*/
+}
+
+#input-style:-ms-input-placeholder {
+    color: #000;
+    font-weight: 400;
+}
+.reg-page-form{
+    padding: 40px 70px;
+}
+
+.reg-page-dark-div{
+    background: rgba(0,0,0,0.4);
+    margin-top: 30px;
+}
+.reg-confirm-checkbox{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+
+/********************************************/
+/*             Forgot Password Page          */
+/*********************************************/
+
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.forgot-password-page-dark-div{
+    min-height: 280px;
+    background: rgba(0,0,0,0.4);
 }
