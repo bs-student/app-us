@@ -128,7 +128,7 @@
 
                     <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
                         <!--<label class="white-text">University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>-->
-                        <p class="white-text">University: </p> <p class="white-text">If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></p>
+                        <p class="white-text">University: </p> <p class="white-text">If not found then <a ui-sref="app.addUniversity">Create a new university!</a></p>
 
                         <md-autocomplete required
                                          md-input-id="input-style"
@@ -192,13 +192,16 @@
                         </p>
                     </div>
 
-                    <no-captcha class="reg-captcha"
-                            g-recaptcha-response="gRecaptchaResponse"
-                            control="noCaptchaControl"
-                            ></no-captcha>
-                    <div class="form-group" ng-class="{'has-error':captchaNeeded}">
+
+
+                    <div class="form-group" ng-class="{'has-error':userForm.recaptcha.$invalid && !userForm.recaptcha.$pristine}">
+                        <div    name="recaptcha"
+                                vc-recaptcha
+                                ng-model="user.key"
+                                required
+                                ></div>
                         <p class="help-block">
-                            <span  ng-show="captchaNeeded">Captcha is required.</span>
+                            <span  ng-show="userForm.recaptcha.$invalid && !userForm.recaptcha.$pristine">Captcha is required.</span>
                         </p>
                     </div>
 

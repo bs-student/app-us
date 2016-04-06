@@ -8,6 +8,9 @@
 
     function ForgotPasswordCtrl($scope, securityService,responseService) {
 
+        $scope.$parent.headerStyle = "dark";
+
+
         $scope.forgotPassword = _forgotPassword;
 
         function _forgotPassword(valid) {

@@ -8,6 +8,8 @@
 
     function ResetPasswordCtrl($scope, $state, securityService,$stateParams,responseService) {
 
+        $scope.$parent.headerStyle = "dark";
+
         $scope.resetPassword = _resetPassword;
 
         function _resetPassword(valid) {

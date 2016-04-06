@@ -1,150 +1,359 @@
-<div class="page page-core page-login">
+<div ng-parallax pattern="'assets/images/parallax/login_parallax.png'" offset="0" speed="5" class="parallax-box dark">
 
-    <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred">STDENT2</span>STUDENT</h3>
-    </div>
-
-    <div class="container w-420 p-15 bg-white mt-40 text-center">
-
-        <h2 class="text-light text-greensea">Add University</h2>
+<div class="container clearfix">
 
 
-        <form name="universityCreateForm" ng-submit="submitForm(universityCreateForm.$valid)" role="form" novalidate>
+<div class="row">
 
-            <!-- tile -->
-            <section class="tile text-left" fullscreen="isFullscreen01">
-
-
-                <!-- tile body -->
-                <div class="tile-body">
+    <div class="col-md-12">
 
 
-                    <div class="row" data-ng-repeat="university in universities">
-
-
-                        <div class="form-group col-md-12"
-                             ng-class="{ 'has-error' : universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine, 'has-success' : universityCreateForm.universityName.$valid && !universityCreateForm.universityName.$pristine}">
-                            <label for="universityName">University Name: </label>
-                            <input type="text" name="universityName" id="universityName" class="form-control"
-                                   ng-model="university.universityName" required>
-
-                            <p class="help-block">
-                                <span ng-show="universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine">University Name is required.</span>
-
-                            </p>
-                        </div>
-
-                        <div class="form-group col-md-12"
-                             ng-class="{ 'has-error' : universityCreateForm.universityUrl.$invalid && !universityCreateForm.universityUrl.$pristine, 'has-success' : universityCreateForm.universityUrl.$valid && !universityCreateForm.universityUrl.$pristine}">
-                            <label for="universityUrl">University Url: </label>
-                            <input type="text" name="universityUrl" id="universityUrl" class="form-control"
-                                   ng-model="university.universityUrl">
-
-                        </div>
-
-                        <div class="form-group col-md-12"
-                             ng-class="{ 'has-error' : universityCreateForm.referral.$invalid && !universityCreateForm.referral.$pristine, 'has-success' : universityCreateForm.referral.$valid && !universityCreateForm.referral.$pristine}">
-                            <label for="referral">Referral: </label>
-                            <select ng-model="university.referral" class="form-control mb-10" id="referral"
-                                    data-ng-options="referral.id as referral.referral_name for referral in referrals">
-                                <option value="">---Select Referral---</option>
-                            </select>
-
-                            <p class="help-block">
-                                <span ng-show="universityCreateForm.referral.$invalid && !universityCreateForm.referral.$pristine">Referral is required.</span>
-
-                            </p>
-                        </div>
-
-
-                        <div data-ng-repeat="campus in university.campuses">
-                            <div class="row">
-                                <div class="form-group col-md-6"
-                                     ng-class="{ 'has-error' : universityCreateForm.campus.campusName.$invalid && !universityCreateForm.campus.campusName.$pristine, 'has-success' : universityCreateForm.campus.campusName.$valid && !universityCreateForm.campus.campusName.$pristine}">
-                                    <label for="referral">Campus Name: </label>
-
-                                    <input type="text" class="form-control" name="campus" id="campus"
-                                           placeholder="Enter Campus Name"
-                                           ng-model="campus.campusName" required>
-
-                                    <p class="help-block">
-                                        <span ng-show="universityCreateForm.campus.campusName.$invalid && !universityCreateForm.campus.referral.$pristine">Campus name is required.</span>
-
-                                    </p>
-                                </div>
-
-                                <div class="form-group col-md-6"
-                                     ng-class="{ 'has-error' : universityCreateForm.campus.country.$invalid && !universityCreateForm.campus.country.$pristine, 'has-success' : universityCreateForm.campus.country.$valid && !universityCreateForm.campus.country.$pristine}">
-                                    <label for="country">Country: </label>
-                                    <select id="country" ng-model="campus.country" class="form-control mb-10"
-                                            ng-change="fetchStates(university,campus)"
-                                            data-ng-options="country.id as country.countryName for country in countries">
-                                        <option value="">---Select Country---</option>
-                                    </select>
-
-                                    <p class="help-block">
-                                        <span ng-show="universityCreateForm.campus.country.$invalid && !universityCreateForm.campus.country.$pristine">Country is required.</span>
-
-                                    </p>
-                                </div>
-
-                                <div class="form-group col-md-6"
-                                     ng-class="{ 'has-error' : universityCreateForm.campus.state.$invalid && !universityCreateForm.campus.state.$pristine, 'has-success' : universityCreateForm.campus.state.$valid && !universityCreateForm.campus.state.$pristine}">
-                                    <label for="state">State: </label>
-
-                                    <select id="state" ng-model="campus.state" class="form-control mb-10"
-                                            data-ng-options="state.id as state.stateName for state in campus.stateList">
-                                        <option value="">---Select State---</option>
-                                    </select>
-
-                                    <p class="help-block">
-                                        <span ng-show="universityCreateForm.campus.state.$invalid && !universityCreateForm.campus.state.$pristine">State is required.</span>
-
-                                    </p>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <button ng-if="university.campusRemove"
-                                            class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10"
-                                            ng-click="removeCampus(university,campus)"><i class="fa fa-trash"></i> <span>Delete Campus Row</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <hr/>
-
-
-                        </div>
-
-
-                        <button class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10"
-                                ng-click="addNewCampus(university)"><i
-                                class="fa fa-plus"></i> <span>Add Campus Row</span></button>
-
-
-                        <div class="tile-header dvd dvd-btm">
-                            <p ng-if="university.response" class="{{university.university_message_class}}">
-                                {{university.university_message}}</p>
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <!-- /tile body -->
-
-
-            </section>
-            <!-- /tile -->
-
-            <div class="bg-slategray lt wrap-reset mt-20 text-left">
-                <p class="m-0">
-                    <a ng-click="saveNewUniversities()" class="btn btn-greensea b-0 text-uppercase pull-right"
-                       ng-disabled='userForm.$invalid'>Submit</a>
-                    <a ui-sref="security.signup" class="btn btn-lightred b-0 text-uppercase">Back</a>
-                </p>
-            </div>
-        </form>
-
+        <p class="text-white mid-two-header">Add New University</p>
 
     </div>
 
 </div>
+<div class="row">
+<div class="col-md-7 login-page-col-div">
+
+<div class="login-page-dark-div add-university-page-form">
+
+
+<form class="addUniversityForm" name="universityCreateForm" submit-validate
+      ng-submit="saveNewUniversity(universityCreateForm.$valid)" role="form" novalidate>
+
+<!-- tile -->
+<section class="tile text-left" fullscreen="isFullscreen01">
+
+
+<!-- tile body -->
+<div class="tile-body">
+
+
+<div class="row" data-ng-repeat="university in universities">
+
+
+<div class="form-group col-md-12"
+     ng-class="{ 'has-error' : universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine, 'has-success' : universityCreateForm.universityName.$valid && !universityCreateForm.universityName.$pristine}">
+    <p class="white-text" for="universityName">University Name: </p>
+    <input type="text" name="universityName" id="universityName" class="form-control input-style"
+           ng-model="university.universityName" required>
+
+    <p class="help-block">
+        <span ng-show="universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine">University Name is required.</span>
+
+    </p>
+</div>
+
+<div class="form-group col-md-12"
+     ng-class="{ 'has-error' : universityCreateForm.universityUrl.$invalid && !universityCreateForm.universityUrl.$pristine, 'has-success' : universityCreateForm.universityUrl.$valid && !universityCreateForm.universityUrl.$pristine}">
+    <p class="white-text" for="universityUrl">University Url: </p>
+    <input type="text" name="universityUrl" id="universityUrl" class="form-control input-style"
+           ng-model="university.universityUrl">
+
+</div>
+<div class="col-md-12">
+    <div class="col-md-6"><p>
+        <hr/>
+        </p></div>
+    <div class="col-md-6 green-text">
+        <p style="padding-top: 10px;
+    text-align: right;">Main Campus:</p>
+
+
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="form-group col-md-4"
+         ng-class="{ 'has-error' : universityCreateForm.mainCampusName.$invalid && !universityCreateForm.mainCampusName.$pristine, 'has-success' : universityCreateForm.mainCampusName.$valid && !universityCreateForm.mainCampusName.$pristine}">
+        <p class="white-text">Main Campus Name: </p>
+
+        <input type="text" class="form-control input-style" name="mainCampusName"
+
+               ng-model="university.mainCampusName" required>
+
+        <p class="help-block">
+            <span ng-show="universityCreateForm.mainCampusName.$invalid && !universityCreateForm.mainCampusName.$pristine">Main Campus name is required.</span>
+
+        </p>
+    </div>
+
+
+    <div class="form-group col-md-4"
+         ng-class="{ 'has-error' : universityCreateForm.mainCampusCountry.$invalid && !universityCreateForm.mainCampusCountry.$pristine, 'has-success' : universityCreateForm.mainCampusCountry.$valid && !universityCreateForm.mainCampusCountry.$pristine}">
+        <p class="white-text">Country: </p>
+
+        <select name="mainCampusCountry" ng-model="university.mainCampusCountry" class="form-control mb-10 input-style"
+                required
+                ng-change="fetchStatesByCountry(university.mainCampusCountry)"
+                data-ng-options="country.id as country.countryName for country in countries">
+            <option value="">-Select Country-</option>
+        </select>
+
+        <p class="help-block">
+            <span ng-show="universityCreateForm.mainCampusCountry.$invalid && !universityCreateForm.mainCampusCountry.$pristine">Main Campus Country is required.</span>
+
+        </p>
+    </div>
+
+
+    <div class="form-group col-md-4"
+         ng-class="{ 'has-error' : universityCreateForm.mainCampusState.$invalid && !universityCreateForm.mainCampusState.$pristine, 'has-success' : universityCreateForm.mainCampusState.$valid && !universityCreateForm.mainCampusState.$pristine}">
+        <p class="white-text">State: </p>
+
+        <select name="mainCampusState" ng-model="university.mainCampusState" class="form-control mb-10 input-style"
+                required
+
+                data-ng-options="state.id as state.stateName for state in states">
+            <option value="">-Select State-</option>
+        </select>
+
+        <p class="help-block">
+            <span ng-show="universityCreateForm.mainCampusState.$invalid && !universityCreateForm.mainCampusState.$pristine">Main Campus State is required.</span>
+
+        </p>
+    </div>
+
+
+</div>
+
+
+<!--<div class="col-md-12">
+    <hr/>
+</div>-->
+
+
+<div class="col-md-6">
+    <p class="green-text">
+    <hr/>
+    </p>
+</div>
+<div class="col-md-6">
+    <p class="green-text">Click "Add Campus Row" to add Other Campuses(location – City) :</p>
+</div>
+
+
+<div data-ng-repeat="campus in university.campuses" ng-form="addRowForm">
+
+    <div class="row">
+
+        <div class="form-group col-md-4"
+             ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||
+                                                        (addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.campusName.$valid && !addRowForm.campusName.$pristine}">
+            <p class="white-text">Campus Name: </p>
+
+            <input type="text" class="form-control input-style" name="campusName"
+
+                   ng-model="campus.campusName" required>
+
+            <p class="help-block">
+                <span ng-show="(universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||(addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine)">Campus name is required.</span>
+
+            </p>
+        </div>
+
+
+        <div class="form-group col-md-4"
+             ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                        (addRowForm.country.$invalid && !addRowForm.country.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.country.$valid && !addRowForm.country.$pristine}">
+            <p class="white-text">Country: </p>
+
+            <select name="country" ng-model="campus.country" class="form-control mb-10 input-style" required
+                    ng-change="fetchStates(university,campus)"
+                    data-ng-options="country.id as country.countryName for country in countries">
+                <option value="">-Select Country-</option>
+            </select>
+
+            <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                    (addRowForm.country.$invalid && !addRowForm.country.$pristine)">Country is required.</span>
+
+            </p>
+        </div>
+
+
+        <div class="form-group col-md-4"
+             ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                        (addRowForm.state.$invalid && !addRowForm.state.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.state.$valid && !addRowForm.state.$pristine}">
+            <p class="white-text">State: </p>
+
+            <select name="state" id="state" ng-model="campus.state" class="form-control mb-10 input-style" required
+                    data-ng-options="state.id as state.stateName for state in campus.stateList">
+                <option value="">-Select State-</option>
+            </select>
+
+
+            <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                    (addRowForm.state.$invalid && !addRowForm.state.$pristine)">State is required.</span>
+
+            </p>
+        </div>
+
+
+        <div ng-if="university.campusRemove" class="form-group col-md-6 float-right">
+            <p class="white-text text-right" for="state">Press to Remove Campus : </p>
+            <button type="button"
+                    class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                    ng-click="removeCampus(university,campus)"><i class="fa fa-trash"></i>
+                <span>Remove Campus Row</span>
+            </button>
+        </div>
+    </div>
+    <hr/>
+
+
+</div>
+
+
+<div class="form-group col-md-12">
+    <button type="button" class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+            ng-click="addNewCampus(university)"><i
+            class="fa fa-plus"></i> <span>Add Campus Row</span></button>
+</div>
+
+<div class="form-group col-md-12"
+     ng-class="{ 'has-error' : universityCreateForm.referral.$invalid && !universityCreateForm.referral.$pristine, 'has-success' : universityCreateForm.referral.$valid && !universityCreateForm.referral.$pristine}">
+
+    <p class="white-text" for="fullName">Referral: </p>
+
+    <select name="referral" id="referral" ng-model="university.referral" class="form-control mb-10 input-style"
+            data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
+        <option value="">---Select Referral---</option>
+    </select>
+
+    <p class="help-block">
+        <span ng-show="universityCreateForm.referral.$invalid && !universityCreateForm.referral.$pristine">Referral is required.</span>
+
+    </p>
+</div>
+
+<div class="col-md-12"
+     ng-class="{ 'has-error' : universityCreateForm.agree.$invalid && !universityCreateForm.agree.$pristine, 'has-success' : universityCreateForm.agree.$valid && !universityCreateForm.agree.$pristine}">
+    <br/><label class="checkbox checkbox-custom white-text">
+    <input type="checkbox" name="agree" id="agree" ng-model="university.agree" required><i></i> I agree to the <a href
+                                                                                                                  class="text-info">Terms
+    of Service</a>
+</label>
+
+    <p class="help-block">
+        <span ng-show="universityCreateForm.agree.$invalid && !universityCreateForm.agree.$pristine">You must accept Terms of Service.</span>
+    </p></br></br>
+
+</div>
+<br/>
+
+<div class="col-md-12">
+    <div class="form-group"
+         ng-class="{'has-error':universityCreateForm.recaptcha.$invalid && !universityCreateForm.recaptcha.$pristine}">
+        <div name="recaptcha"
+             vc-recaptcha
+             ng-model="university.key"
+             required
+                ></div>
+        <p class="help-block">
+            <span ng-show="universityCreateForm.recaptcha.$invalid && !universityCreateForm.recaptcha.$pristine">Captcha is required.</span>
+        </p>
+    </div>
+
+</div>
+
+
+<div class="col-md-12">
+    <button type="submit" class="myBtn orange-btn max-large-btn save-new-university-button">Add New university</button>
+</div>
+
+
+</div>
+
+
+</div>
+<!-- /tile body -->
+
+
+</section>
+<!-- /tile -->
+
+
+</form>
+
+
+</div>
+
+
+</div>
+<div class="col-md-4 col-md-offset-1 login-page-col-div">
+
+    <div class="login-page-dark-div login-page-quotation add-university-help-text white-text">
+
+        <h4 class="white-text">What is this?</h4>
+
+        <p>Here you can create your University if it does not exist on Student 2 Student.<br>You can check
+            this easily by going to the Site Map. Click <a ui-sref="app.universityMap"
+                                                           class="link_link_4 hover_link_4 visited_link_4">here</a></p>
+        <br/><br/>
+        <h4 class="white-text">University Name</h4>
+
+        <p>Type in the University name<br><b>Ex: University of Madison</b></p><br/><br/>
+
+        <h4 class="white-text">University URL</h4>
+
+        <p>Type in the University's Web Address.<br><b>Ex: www.wisc.edu</b></p><br/><br/>
+
+        <h4 class="white-text">University Country</h4>
+
+        <p>Select the country where the university campus is</p><br/><br/>
+
+        <h4 class="white-text">University State</h4>
+
+        <p>Choose the State where the University has its headquarter (main location).<br><b>Ex: WI</b> for Wisconsin</p>
+        <br/><br/>
+
+        <h4 class="white-text">University Campuses (Location - City)</h4>
+
+        <p>Type in all Campuses the University has. If the University only has 1 location type in that campus. Type in
+            the Name and State of the campus.<br><b>Ex: Madison WI</b></p><br/><br/>
+
+
+        <h4 class="white-text">I am not Robot</h4>
+
+        <p>To check if you are a human ;)</p>
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
+
+
+<!--</div>-->
+
+
+
+

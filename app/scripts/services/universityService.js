@@ -30,8 +30,8 @@
         function _getSearchUniversities(access_token, data){
             return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.LIST_BY_SEARCH_UNIVERSITY+"?access_token="+access_token,data);
         }
-        function _saveNewUniversities(access_token,data){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY+"?access_token="+access_token,data);
+        function _saveNewUniversities(data){
+            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY,data);
         }
         function _deleteUniversity(access_token,data){
             return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.DELETE_UNIVERSITY+"?access_token="+access_token,data);

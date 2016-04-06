@@ -129,6 +129,10 @@
     <script src="../bower_components/es5-shim/es5-shim.js"></script>
     <script src="../bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+
+    <!-- Include the JS ReCaptcha API -->
+    <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+
     <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -163,8 +167,7 @@
     <script src="../bower_components/morrisjs/morris.js"></script>
     <script src="../bower_components/ng-table/dist/ng-table.js"></script>
     <script src="../bower_components/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="../bower_components/angular-no-captcha/src/angular-no-captcha.js"></script>
-
+    <script src="../bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
 
 
 
@@ -215,6 +218,7 @@
     <script src="scripts/controllers/universityManagementCtrl.js"></script>
     <script src="scripts/controllers/universityViewCtrl.js"></script>
     <script src="scripts/controllers/userManagementCtrl.js"></script>
+    <script src="scripts/controllers/universityMapCtrl.js"></script>
 
 
 

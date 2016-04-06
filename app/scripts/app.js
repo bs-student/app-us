@@ -62,8 +62,8 @@ var app = angular
 
 //        'angular-parallax'
         'ngParallax',
-        'noCAPTCHA'
-
+//        'noCAPTCHA'
+        'vcRecaptcha'
     ])
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -99,10 +99,14 @@ var app = angular
     .config(['uiSelectConfig', function (uiSelectConfig) {
         uiSelectConfig.theme = 'bootstrap';
     }])
-    .config(['noCAPTCHAProvider', function (noCaptchaProvider) {
+    .config(['vcRecaptchaServiceProvider',function(vcRecaptchaServiceProvider){
+        vcRecaptchaServiceProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw')
+        vcRecaptchaServiceProvider.setTheme('dark')
+    }])
+    /*.config(['noCAPTCHAProvider', function (noCaptchaProvider) {
         noCaptchaProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw');
         noCaptchaProvider.setTheme('dark');
-    }])
+    }])*/
 
 
     //angular-language
@@ -194,6 +198,19 @@ var app = angular
 //                }
             })
 
+            // Add University Public
+            .state('app.addUniversity', {
+                url: '^/addUniversity',
+                controller: 'UniversityCtrl',
+                templateUrl: 'views/university/university.html'
+            })
+            // University Map
+            .state('app.universityMap', {
+                url: '^/universityMap',
+                controller: 'UniversityMapCtrl',
+                templateUrl: 'views/university/university_map.html'
+            })
+
             //Registration
             .state('app.signup', {
                 url: '^/signup',
@@ -223,12 +240,7 @@ var app = angular
                 controller: 'BookSearchCtrl',
                 templateUrl: 'views/book/search.html'
             })
-            // Add University Public
-            .state('app.addUniversity', {
-                url: '/addUniversity',
-                controller: 'UniversityCtrl',
-                templateUrl: 'views/university/university.html'
-            })
+
 
 
 
@@ -292,13 +304,13 @@ var app = angular
 
 
 
-            .state('admin.university', {
-                url: '/university',
+            .state('app.university', {
+                url: '^/university',
                 controller: 'UniversityManagementCtrl',
                 templateUrl: 'views/admin/university/university_list.html'
 
             })
-            .state('admin.university.new', {
+            .state('app.university.new', {
                 url: '/new',
                 views: {
                     'universityUtilityView@admin.university': {
@@ -360,17 +372,17 @@ var app = angular
 
 
             //University
-            .state('university', {
-                abstract: true,
-                url: '/university',
-//                controller: 'StartCtrl',
-                template: '<div ui-view></div>'
-            })
-            .state('university.add', {
-                url: '/add',
-                controller: 'UniversityCtrl',
-                templateUrl: 'views/university/university.html'
-            })
+//            .state('university', {
+//                abstract: true,
+//                url: '/university',
+////                controller: 'StartCtrl',
+//                template: '<div ui-view></div>'
+//            })
+//            .state('university.add', {
+//                url: '/add',
+//                controller: 'UniversityCtrl',
+//                templateUrl: 'views/university/university.html'
+//            })
 
             .state('book', {
                 abstract: true,

@@ -13,8 +13,8 @@
             getCountryList: _getCountryList
         };
 
-        function _getCountryList(access_token){
-            return apiService.post(SERVER_CONSTANT.HOST+COUNTRY_CONSTANT.COUNTRY_LIST+"?access_token="+access_token);
+        function _getCountryList(){
+            return apiService.post(SERVER_CONSTANT.HOST+COUNTRY_CONSTANT.COUNTRY_LIST);
         }
 
 

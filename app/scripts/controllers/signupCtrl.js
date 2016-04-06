@@ -14,7 +14,6 @@
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "signup";
         setUpForm();
-        $scope.showCreateNewUniversity = _showCreateNewUniversity;
         $scope.register=_register;
         $scope.createUniversityCampusName=false;
 
@@ -23,10 +22,6 @@
             {id: 2, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
             {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
         ];
-
-        $scope.gRecaptchaResponse = '';
-        $scope.captchaNeeded= false;
-
 
 
         function setUpForm(){
@@ -71,15 +66,8 @@
 
         function _register(valid){
 
-            if($scope.gRecaptchaResponse ==""){
-                $scope.captchaNeeded=true;
-                console.log($scope.gRecaptchaResponse);
-            }
 
-            if(valid && $scope.gRecaptchaResponse !=""){
-
-                $scope.captchaNeeded=false;
-                console.log($scope.gRecaptchaResponse);
+            if(valid){
 
                 campusValue = null;
                 var data =
@@ -90,7 +78,7 @@
                     'referral':$scope.user.referral,
                     'new_password': $scope.user.password,
                     'confirm_password': $scope.user.passwordConfirm,
-                    'key': $scope.gRecaptchaResponse
+                    'key': $scope.user.key
 
                 };
                 if(!$scope.createUniversityCampusName && $scope.selectedItem!=null){
@@ -133,10 +121,7 @@
             responseService.showErrorToast(response.data.error.errorTitle,errorDescription+". "+response.data.error.errorDescription);
         }
 
-        function _showCreateNewUniversity(){
-            $state.go('university.add');
 
-        }
 
 
     }

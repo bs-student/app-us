@@ -35,7 +35,7 @@
 //            "UNIVERSITY_LIST": "/api/university/list",
             "UPDATE_UNIVERSITY": "/api/university/update_university",
             "LIST_BY_SEARCH_UNIVERSITY": "/api/university/search",
-            "SAVE_NEW_UNIVERSITY": "/api/university/save_new_university",
+            "SAVE_NEW_UNIVERSITY": "/university/save_new_university",
             "DELETE_UNIVERSITY": "/api/university/delete"
         })
 
@@ -46,7 +46,8 @@
 //            "UPDATE_UNIVERSITY": "/api/university/update_university",
             "CAMPUS_LIST_BY_UNIVERSITY": "/api/campus/list",
             "UPDATE_CAMPUS": "/api/campus/update",
-            "ADD_CAMPUS":"/api/campus/add"
+            "ADD_CAMPUS":"/api/campus/add",
+            "CAMPUS_DETAILS_WITH_UNIVERSITY_AND_STATE": "/campus/details_with_university_and_state"
 //            "SAVE_NEW_UNIVERSITY": "/api/university/save_new_university",
 //            "DELETE_UNIVERSITY": "/api/university/delete"
         })
@@ -55,10 +56,10 @@
             "REFERRAL_LIST": "/referral/list"
         })
         .constant("STATE_CONSTANT", {
-            "STATE_LIST_BY_COUNTRY": "/api/state/list_by_country"
+            "STATE_LIST_BY_COUNTRY": "/state/list_by_country"
         })
         .constant("COUNTRY_CONSTANT", {
-            "COUNTRY_LIST": "/api/country/list"
+            "COUNTRY_LIST": "/country/list"
         })
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",

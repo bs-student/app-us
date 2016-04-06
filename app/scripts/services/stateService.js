@@ -13,8 +13,8 @@
             getStateListByCountry: _getStateListByCountry
         };
 
-        function _getStateListByCountry(access_token,data){
-            return apiService.post(SERVER_CONSTANT.HOST+STATE_CONSTANT.STATE_LIST_BY_COUNTRY+"?access_token="+access_token,data);
+        function _getStateListByCountry(data){
+            return apiService.post(SERVER_CONSTANT.HOST+STATE_CONSTANT.STATE_LIST_BY_COUNTRY,data);
         }
 
 

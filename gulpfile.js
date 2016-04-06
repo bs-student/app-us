@@ -32,7 +32,7 @@ var assets = {
         "bower_components/morrisjs/morris.js",
         "bower_components/ng-table/dist/ng-table.js",
         "bower_components/oclazyload/dist/ocLazyLoad.js",
-        "bower_components/angular-no-captcha/src/angular-no-captcha.js",
+        "bower_components/angular-recaptcha/release/angular-recaptcha.js",
 
         "vendor/superfish/js/superfish.js",
         "vendor/jRespond/jRespond.js",
@@ -78,7 +78,7 @@ var assets = {
         "app/scripts/controllers/universityManagementCtrl.js",
         "app/scripts/controllers/universityViewCtrl.js",
         "app/scripts/controllers/userManagementCtrl.js",
-
+        "app/scripts/controllers/universityMapCtrl.js",
 
 
         "app/scripts/directives/anchor-scroll.js",
