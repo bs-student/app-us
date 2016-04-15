@@ -79,6 +79,9 @@ var assets = {
         "app/scripts/controllers/universityViewCtrl.js",
         "app/scripts/controllers/userManagementCtrl.js",
         "app/scripts/controllers/universityMapCtrl.js",
+        "app/scripts/controllers/modalInstanceCtrl.js",
+        "app/scripts/controllers/howItWorksCtrl.js",
+        "app/scripts/controllers/conceptVideoCtrl.js",
 
 
         "app/scripts/directives/anchor-scroll.js",
@@ -114,6 +117,7 @@ var assets = {
         "app/scripts/services/tokenService.js",
         "app/scripts/services/universityService.js",
         "app/scripts/services/userService.js",
+        "app/scripts/services/imageModalService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

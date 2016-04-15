@@ -78,7 +78,7 @@
 
         })
         .constant("BOOK_CONSTANT", {
-            "SEARCH_AMAZON": "/api/book/search_by_keyword_amazon",
+            "SEARCH_AMAZON": "/book/search_by_keyword_amazon",
             "GET_BOOK_BY_ASIN_AMAZON":"/api/book/search_by_asin_amazon",
             "GET_BOOK_BY_ISBN_AMAZON":"/api/book/search_by_isbn_amazon",
             "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/api/book/search_by_isbn_campus_books",

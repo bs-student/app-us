@@ -31,11 +31,29 @@
 
                 <ul>
                     <li ng-class="{home:'active'}[activePage]"><a ui-sref="app.dashboard">Home</a></li>
-                    <li ng-class="{buyBook:'active'}[activePage]"><a ui-sref="app.bookSearch">Buy Books</a>
+                    <li ng-class="{howItWorks:'active'}[activePage]"><a ui-sref="app.howItWorks">How It Works</a>
+                        <ul class="menu-right-position">
+                            <li><a ui-sref="app.conceptVideo"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;&nbsp;Concept Video</a></li>
+                            <li><a ui-sref="app.dashboard"><i class="fa  fa-user-plus"></i>&nbsp;&nbsp;&nbsp;Tell A Friend</a></li>
+                        </ul>
+                    </li>
                     <li ng-class="{sellBook:'active'}[activePage]"><a href="#">Sell Books</a>
+                    <li ng-class="{buyBook:'active'}[activePage]"><a ui-sref="app.bookSearch">Buy Books</a>
 
-                    <li ng-show="!loggedIn" ng-class="{login:'active'}[activePage]"><a ui-sref="app.login">Log In</a>
-                    <li ng-show="!loggedIn" ng-class="{signup:'active'}[activePage]"><a ui-sref="app.signup">Sign Up</a>
+
+                    <li ng-show="!loggedIn" ng-class="{signup:'active'}[activePage]"><a ui-sref="app.signup">Join</a>
+                    <li ng-show="!loggedIn" ng-class="{login:'active'}[activePage]"><a ui-sref="app.login">Sign In</a>
+                    <li ng-class="{news:'active'}[activePage]"><a ui-sref="app.dashboard">News</a></li>
+
+                    <li ng-class="{helpAndSafety:'active'}[activePage]"><a ui-sref="app.dashboard">Help & Safety</a>
+                        <ul class="menu-right-position">
+                            <li><a ui-sref="app.concept"><i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;Contact Us</a></li>
+                            <li><a ui-sref="app.dashboard"><i class="fa  fa-user-times"></i>&nbsp;&nbsp;&nbsp;Scam & Fraud</a></li>
+                            <li><a ui-sref="app.concept"><i class="fa fa-question"></i>&nbsp;&nbsp;&nbsp;FAQ</a></li>
+                            <li><a ui-sref="app.dashboard"><i class="fa  fa-check-square-o"></i>&nbsp;&nbsp;&nbsp;Safety First</a></li>
+                        </ul>
+                    </li>
+
                     <li ng-show="loggedIn"  ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
                         <ul class="menu-right-position">
                             <li><a ui-sref="app.dashboard"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a></li>

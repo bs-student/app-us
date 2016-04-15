@@ -25,7 +25,7 @@
         }
 
         function _searchBooks(data){
-             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON+"?access_token="+data.accessToken,data);
+             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON,data);
         }
 
         function _searchBooksByIsbnAmazon(data){

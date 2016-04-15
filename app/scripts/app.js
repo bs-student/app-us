@@ -181,7 +181,19 @@ var app = angular
                 controller: 'DashboardCtrl',
                 templateUrl: 'views/web/dashboard.html'
             })
+            //how It Work page
+            .state('app.howItWorks', {
+                url: '^/howItWorks',
+                controller: 'HowItWorksCtrl',
+                templateUrl: 'views/web/howItWorks.html'
+            })
 
+            //concept Video page
+            .state('app.conceptVideo', {
+                url: '^/conceptVideo',
+                controller: 'ConceptVideoCtrl',
+                templateUrl: 'views/web/conceptVideo.html'
+            })
 
             //login
             .state('app.login', {
