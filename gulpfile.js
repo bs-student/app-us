@@ -33,6 +33,7 @@ var assets = {
         "bower_components/ng-table/dist/ng-table.js",
         "bower_components/oclazyload/dist/ocLazyLoad.js",
         "bower_components/angular-recaptcha/release/angular-recaptcha.js",
+        "bower_components/angular-busy/dist/angular-busy.js",
 
         "vendor/superfish/js/superfish.js",
         "vendor/jRespond/jRespond.js",
@@ -82,7 +83,7 @@ var assets = {
         "app/scripts/controllers/modalInstanceCtrl.js",
         "app/scripts/controllers/howItWorksCtrl.js",
         "app/scripts/controllers/conceptVideoCtrl.js",
-
+        "app/scripts/controllers/bookBuyCtrl.js",
 
         "app/scripts/directives/anchor-scroll.js",
         "app/scripts/directives/angular.flexslider.js",
@@ -101,6 +102,7 @@ var assets = {
         "app/scripts/directives/sparkline.js",
         "app/scripts/directives/submitvalidate.js",
         "app/scripts/directives/topHeader.js",
+        "app/scripts/directives/textOverflow.js",
 
 
 
@@ -144,7 +146,8 @@ var assets = {
         "bower_components/weather-icons/css/weather-icons.css",
         "bower_components/weather-icons/css/weather-icons.css",
         "bower_components/weather-icons/css/weather-icons-wind.css",
-        "bower_components/weather-icons/css/weather-icons-wind.css"
+        "bower_components/weather-icons/css/weather-icons-wind.css",
+        "bower_components/angular-busy/dist/angular-busy.css"
 
 
     ],

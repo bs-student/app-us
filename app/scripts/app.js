@@ -63,7 +63,8 @@ var app = angular
 //        'angular-parallax'
         'ngParallax',
 //        'noCAPTCHA'
-        'vcRecaptcha'
+        'vcRecaptcha',
+        'cgBusy'
     ])
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -240,19 +241,40 @@ var app = angular
                 controller: 'ForgotPasswordCtrl',
                 templateUrl: 'views/security/forgotpassword.html'
             })
-
+            //reset Password password
             .state('app.resetPassword', {
                 url: '^/resetPassword/:code',
                 controller: 'ResetPasswordCtrl',
                 templateUrl: 'views/security/resetpassword.html'
             })
-            //book Search
-            .state('app.bookSearch', {
-                url: '^/bookSearch',
-                controller: 'BookSearchCtrl',
-                templateUrl: 'views/book/search.html'
-            })
 
+            //book Buy
+            .state('app.bookBuy', {
+                url: '^/bookBuy',
+                controller: 'BookBuyCtrl',
+                templateUrl: 'views/book/buy_book.html'
+            })
+            //book Search
+            .state('app.bookBuy.bookSearch', {
+                url: '^/bookSearch/:searchQuery?pageNumber',
+                views:{
+                    'searchResultView@app.bookBuy':{
+                        templateUrl: 'views/book/search_result.html',
+                        controller: 'BookSearchCtrl'
+                    }
+                }
+            })
+            //compare page
+            .state('app.bookComparePrice', {
+                url: '^/bookComparePrice',
+                controller: 'BookCompareCtrl',
+                templateUrl: 'views/book/compare.html',
+                params: {
+                    "asin": null,
+                    "isbn": null,
+                    "ean": null
+                }
+            })
 
 
 

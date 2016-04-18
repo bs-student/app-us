@@ -79,10 +79,11 @@
         })
         .constant("BOOK_CONSTANT", {
             "SEARCH_AMAZON": "/book/search_by_keyword_amazon",
-            "GET_BOOK_BY_ASIN_AMAZON":"/api/book/search_by_asin_amazon",
-            "GET_BOOK_BY_ISBN_AMAZON":"/api/book/search_by_isbn_amazon",
-            "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/api/book/search_by_isbn_campus_books",
-            "GET_AMAZON_CART_CREATE_URL":"/api/book/get_amazon_cart_create_url",
+            "GET_LOWEST_ONLINE_PRICE": "/book/get_lowest_price_by_isbn_campus_books",
+            "GET_BOOK_BY_ASIN_AMAZON":"/book/search_by_asin_amazon",
+            "GET_BOOK_BY_ISBN_AMAZON":"/book/search_by_isbn_amazon",
+            "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/book/search_by_isbn_campus_books",
+            "GET_AMAZON_CART_CREATE_URL":"/book/get_amazon_cart_create_url",
             "ADD_NEW_SELL_BOOK":"/api/book/add_new_sell_book"
 //            "SUBMIT": "/login_check",
 //            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"

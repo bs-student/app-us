@@ -76,7 +76,7 @@
                 $state.go('registration.complete');
             }else if(identityService.getAuthorizedUserData().registrationStatus=="complete"){
                 userLoggedIn();
-                $state.go('app.dashboard');
+//                $state.go('app.dashboard');
             }
 
         }

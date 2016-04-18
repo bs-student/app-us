@@ -11,6 +11,7 @@
 
         return {
             searchBooks:_searchBooks,
+            getLowestOnlinePrice:_getLowestOnlinePrice,
             getSingleBookByAsinAmazon:_getSingleBookByAsinAmazon,
             searchBooksByIsbnAmazon:_searchBooksByIsbnAmazon,
             getSingleBookByIsbnCampusBooks:_getSingleBookByIsbnCampusBooks,
@@ -25,7 +26,17 @@
         }
 
         function _searchBooks(data){
-             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON,data);
+            if(data.access_token!=null){
+                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON+"?access_token="+data.access_token,data);
+            }else{
+                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON,data);
+            }
+
+        }
+
+        function _getLowestOnlinePrice(isbn){
+            return apiService.get(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_LOWEST_ONLINE_PRICE+"?isbn="+isbn);
+
         }
 
         function _searchBooksByIsbnAmazon(data){

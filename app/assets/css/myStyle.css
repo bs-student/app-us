@@ -751,6 +751,16 @@
 /********************************************/
 /*             Search Result Page          */
 /*********************************************/
+
+
+.cg-busy-default-text{
+    color: #0072AE;
+    font-family: "Lato", "Arial", sans-serif;
+}
+.cg-busy-default-spinner div{
+    background: #0072AE;;
+}
+
 .girl-image img{
     position: relative;
     bottom: -25px;
@@ -1000,7 +1010,7 @@
     margin-top: 20px;
     padding: 30px;
     background: #f8f8f8;
-    min-height: 710px;
+    min-height: 730px;
 }
 .blue-btn{
     background: #0072AE;
@@ -1058,7 +1068,17 @@
     margin-top: 0px;
 }
 
+.search-result-loading-template{
+    padding-top:50px !important;
+}
+.searching-on-progress-div{
+    height: 150px;
+}
+.searching-error-div h3,.searching-error-div h4
+{
+    color: #BD362F;
 
+}
 /********************************************/
 /*    Concept Page (How it Works Page)      */
 /*********************************************/

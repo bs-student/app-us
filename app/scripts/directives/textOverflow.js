@@ -33,7 +33,7 @@ app
                 '',
             link: function (scope, element, attrs) {
 
-                console.log(scope.elementType);
+
 
                 if (scope.elementType == "h3") {
                     scope.showH3 = true;
