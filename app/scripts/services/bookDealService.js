@@ -3,25 +3,25 @@
     'use strict';
 
     app
-        .factory('contactService', contactService);
+        .factory('bookDealService', bookDealService);
 
-    contactService.$inject=['SERVER_CONSTANT','CONTACT_CONSTANT','apiService'];
+    bookDealService.$inject=['SERVER_CONSTANT','BOOK_DEAL_CONSTANT','apiService'];
 
-    function contactService(SERVER_CONSTANT,CONTACT_CONSTANT,apiService) {
+    function bookDealService(SERVER_CONSTANT,BOOK_DEAL_CONSTANT,apiService) {
 
         return {
-            addContact:_addContact
+            getBookDealsIhaveContactedFor:_getBookDealsIhaveContactedFor,
+            getBookDealsOfMine:_getBookDealsOfMine
 
         };
 
 
-        function _addContact(data){
-            if(data.access_token!=null){
-                return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.ADD_CONTACT_API+"?access_token="+data.access_token,data);
-            }else{
-                return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.ADD_CONTACT,data);
-            }
+        function _getBookDealsIhaveContactedFor(accessToken){
+            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR+"?access_token="+accessToken);
+        }
 
+        function _getBookDealsOfMine(accessToken){
+            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED+"?access_token="+accessToken);
         }
 
     }

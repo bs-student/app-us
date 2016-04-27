@@ -5,19 +5,28 @@
     app
         .controller('BookSellCtrl', BookSellCtrl);
 
-    BookSellCtrl.$inject = ['$scope','bookService','identityService','responseService'];
+    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService'];
 
-    function BookSellCtrl($scope,bookService,identityService,responseService) {
+    function BookSellCtrl($state,$scope,bookService,identityService,responseService) {
+
+        if(!$scope.$parent.loggedIn){
+            $state.go("app.login");
+
+        }
+
+
+        $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "sellBook";
 
         $scope.searchByIsbn = _searchByIsbn;
         $scope.book = null;
 
         $scope.addNewSellBook =false;
         $scope.addCustomNewSellBook =false;
-        $scope.user = identityService.getAuthorizedUserData();
+//        $scope.user = identityService.getAuthorizedUserData();
         $scope.sellBook = _sellBook;
-        $scope.sellCustomBook = _sellCustomBook;
-        $scope.userDetails = identityService.getAuthorizedUserData();
+//        $scope.sellCustomBook = _sellCustomBook;
+//        $scope.userDetails = identityService.getAuthorizedUserData();
         $scope.removeFile = _removeFile;
 
 
@@ -64,156 +73,202 @@
         $scope.format = $scope.formats[0];
 
 
-//        $scope.changePage =_changePage;
-//        $scope.bookSearchResult = null;
-//
-//        $scope.maxSize = 10;
-//        $scope.totalSearchResults = 0;
-//        $scope.currentPage = 1;
-//
-//
-//
-//        function _changePage(currentPage){
-//            console.log(currentPage);
-//            var data = {
-//                'keyword':$scope.searchText,
-//                'page':currentPage,
-//                'accessToken': identityService.getAccessToken()
-//            }
-//            bookService.searchBooks(data).then(function(response){
-//                $scope.bookSearchResult = response.data.result.books;
-////                $scope.totalSearchResults= parseInt(response.data.result.totalSearchResults, 10);
-//            });
-//        }
 
         function _sellBook(valid){
 
-//            console.log($scope.book);
+            if(valid){
+                var formData = new FormData();
 
+                var i=0;
+                angular.forEach($scope.files, function (file) {
+                    formData.append("file"+ i.toString(),file);
+                    i++;
+                });
 
-            var formData = new FormData();
+                var bookData={};
 
-            var i=0;
-            angular.forEach($scope.files, function (file) {
-                formData.append("file"+ i.toString(),file);
-                i++;
-            });
-
-
-            var bookData={};
-
-            bookData.bookTitle = $scope.book.bookTitle;
-            bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
-            bookData.bookEdition = $scope.book.bookEdition;
-            bookData.bookIsbn10 = $scope.book.bookIsbn;
-            bookData.bookIsbn13 = $scope.book.bookEan;
-            bookData.bookPublisher = $scope.book.bookPublisher;
-            bookData.bookPublishDate = $scope.book.bookPublisherDate;
-            bookData.bookBinding = $scope.book.bookBinding;
-            bookData.bookPage = $scope.book.bookPages;
-            bookData.bookPriceSell = $scope.book.sellingPrice;
-            bookData.bookLanguage = $scope.book.bookLanguage;
-            bookData.bookDescription = $scope.book.bookDescription;
-            bookData.bookCondition = $scope.book.bookCondition;
-            bookData.bookIsHighlighted = $scope.book.textHighlighted;
-            bookData.bookHasNotes = $scope.book.notesOnTextbook;
-            bookData.bookComment = $scope.book.comment;
-            bookData.bookContactMethod = $scope.book.contactMethod;
-            bookData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
-            bookData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
-            bookData.bookContactEmail = $scope.book.contactInfoEmail;
-
-            bookData.bookIsAvailablePublic = $scope.book.availablePublic;
-            bookData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
-            bookData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
-            bookData.bookAvailableDate = $scope.book.availableDate;
-
-            bookData.bookMediumImageUrl = $scope.book.bookMediumImageUrl;
-            bookData.bookLargeImageUrl = $scope.book.bookLargeImageUrl ;
-            bookData.bookTitleImage = null;
+                bookData.bookTitle = $scope.book.bookTitle;
+                bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
+                bookData.bookEdition = $scope.book.bookEdition;
+                bookData.bookIsbn10 = $scope.book.bookIsbn;
+                bookData.bookIsbn13 = $scope.book.bookEan;
+                bookData.bookPublisher = $scope.book.bookPublisher;
+                bookData.bookPublishDate = $scope.book.bookPublishDate;
+                bookData.bookBinding = $scope.book.bookBinding;
+                bookData.bookPage = $scope.book.bookPages;
+                bookData.bookLanguage = $scope.book.bookLanguage;
+                bookData.bookDescription = $scope.book.bookDescription;
+                if($scope.addNewSellBook){
+                    bookData.bookImage = $scope.book.bookImages[0].image;
+                    bookData.bookType = "newSellBook";
+                }
+                if($scope.addCustomNewSellBook){
+                    bookData.bookType = "newSellCustomBook";
+                }
 
 
 
-            formData.append("book",JSON.stringify(bookData));
+
+                var bookDealData={};
+
+                bookDealData.bookPriceSell = $scope.book.sellingPrice;
+                bookDealData.bookCondition = $scope.book.bookCondition;
+                bookDealData.bookIsHighlighted = $scope.book.textHighlighted;
+                bookDealData.bookHasNotes = $scope.book.notesOnTextbook;
+                bookDealData.bookComment = $scope.book.comment;
+                bookDealData.bookContactMethod = $scope.book.contactMethod;
+                bookDealData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
+                bookDealData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
+                bookDealData.bookContactEmail = $scope.book.contactInfoEmail;
+                bookDealData.bookIsAvailablePublic = $scope.book.availablePublic;
+                bookDealData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
+                bookDealData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
+                bookDealData.bookAvailableDate = $scope.book.availableDate;
 
 
-            bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
-               if(response.data.success!=undefined){
-                   responseService.showSuccessToast(response.data.success.successTitle);
-               }else if(response.data.error!=undefined){
-                   responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
-               }
-            });
+                var data={
+                    bookData:bookData,
+                    bookDealData:bookDealData
+                };
 
 
+                formData.append("data",JSON.stringify(data));
+
+
+                bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
+
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+
+                }).catch(function(response){
+                    if (response.data.error_description == "The access token provided is invalid.") {
+
+                    } else if (response.data.error_description == "The access token provided has expired.") {
+                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                            identityService.setAccessToken(response.data);
+                            _sellBook(valid);
+                        });
+                    } else if (response.data.error != undefined) {
+                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                    } else {
+                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                    }
+                });
+            }
         }
 
 
-        function _sellCustomBook(valid){
-
-//            console.log($scope.book);
-            var formData = new FormData();
-
-            var bookData={};
-
-            var i=0;
-            angular.forEach($scope.files, function (file) {
-
-                if(file.fileId  == parseInt($scope.book.titleImage,10)){
-                    bookData.bookTitleImage = i;
-                }
-                formData.append("file"+ i.toString(),file);
-                i++;
-            });
-
-
-
-
-            bookData.bookTitle = $scope.book.bookTitle;
-            bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
-            bookData.bookEdition = $scope.book.bookEdition;
-            bookData.bookIsbn10 = $scope.book.bookIsbn;
-            bookData.bookIsbn13 = $scope.book.bookEan;
-            bookData.bookPublisher = $scope.book.bookPublisher;
-            bookData.bookPublishDate = $scope.book.bookPublishDate;
-            bookData.bookBinding = $scope.book.bookBinding;
-            bookData.bookPage = $scope.book.bookPages;
-            bookData.bookPriceSell = $scope.book.sellingPrice;
-            bookData.bookLanguage = $scope.book.bookLanguage;
-            bookData.bookDescription = $scope.book.bookDescription;
-            bookData.bookCondition = $scope.book.bookCondition;
-            bookData.bookIsHighlighted = $scope.book.textHighlighted;
-            bookData.bookHasNotes = $scope.book.notesOnTextbook;
-            bookData.bookComment = $scope.book.comment;
-            bookData.bookContactMethod = $scope.book.contactMethod;
-            bookData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
-            bookData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
-            bookData.bookContactEmail = $scope.book.contactInfoEmail;
-
-            bookData.bookIsAvailablePublic = $scope.book.availablePublic;
-            bookData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
-            bookData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
-            bookData.bookAvailableDate = $scope.book.availableDate;
-
-            bookData.bookMediumImageUrl = $scope.book.bookMediumImageUrl;
-            bookData.bookLargeImageUrl = $scope.book.bookLargeImageUrl ;
-
-
-
-
-            formData.append("book",JSON.stringify(bookData));
-
-//            console.log(bookData);
-
-            bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
-                if(response.data.success!=undefined){
-                    responseService.showSuccessToast(response.data.success.successTitle);
-                }else if(response.data.error!=undefined){
-                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
-                }
-            });
-
-        }
+//        function _sellCustomBook(valid){
+//
+//            var formData = new FormData();
+//
+//            var bookData={};
+//
+//            var i=0;
+//            angular.forEach($scope.files, function (file) {
+//
+//                if(file.fileId  == parseInt($scope.book.titleImage,10)){
+//                    bookData.bookTitleImage = i;
+//                }
+//                formData.append("file"+ i.toString(),file);
+//                i++;
+//            });
+//
+//            var bookData={};
+//
+//            bookData.bookTitle = $scope.book.bookTitle;
+//            bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
+//            bookData.bookEdition = $scope.book.bookEdition;
+//            bookData.bookIsbn10 = $scope.book.bookIsbn;
+//            bookData.bookIsbn13 = $scope.book.bookEan;
+//            bookData.bookPublisher = $scope.book.bookPublisher;
+//            bookData.bookPublishDate = $scope.book.bookPublishDate;
+//            bookData.bookBinding = $scope.book.bookBinding;
+//            bookData.bookPage = $scope.book.bookPages;
+//            bookData.bookLanguage = $scope.book.bookLanguage;
+//            bookData.bookDescription = $scope.book.bookDescription;
+//
+//
+//            var bookDealData={};
+//
+//            bookDealData.bookPriceSell = $scope.book.sellingPrice;
+//            bookDealData.bookCondition = $scope.book.bookCondition;
+//            bookDealData.bookIsHighlighted = $scope.book.textHighlighted;
+//            bookDealData.bookHasNotes = $scope.book.notesOnTextbook;
+//            bookDealData.bookComment = $scope.book.comment;
+//            bookDealData.bookContactMethod = $scope.book.contactMethod;
+//            bookDealData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
+//            bookDealData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
+//            bookDealData.bookContactEmail = $scope.book.contactInfoEmail;
+//            bookDealData.bookIsAvailablePublic = $scope.book.availablePublic;
+//            bookDealData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
+//            bookDealData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
+//            bookDealData.bookAvailableDate = $scope.book.availableDate;
+//
+//            var data={
+//                bookData:bookData,
+//                bookDealData:bookDealData
+//            };
+//
+//
+//            formData.append("data",JSON.stringify(data));
+//
+//
+//
+////            bookData.bookTitle = $scope.book.bookTitle;
+////            bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
+////            bookData.bookEdition = $scope.book.bookEdition;
+////            bookData.bookIsbn10 = $scope.book.bookIsbn;
+////            bookData.bookIsbn13 = $scope.book.bookEan;
+////            bookData.bookPublisher = $scope.book.bookPublisher;
+////            bookData.bookPublishDate = $scope.book.bookPublishDate;
+////            bookData.bookBinding = $scope.book.bookBinding;
+////            bookData.bookPage = $scope.book.bookPages;
+////            bookData.bookPriceSell = $scope.book.sellingPrice;
+////            bookData.bookLanguage = $scope.book.bookLanguage;
+////            bookData.bookDescription = $scope.book.bookDescription;
+////            bookData.bookCondition = $scope.book.bookCondition;
+////            bookData.bookIsHighlighted = $scope.book.textHighlighted;
+////            bookData.bookHasNotes = $scope.book.notesOnTextbook;
+////            bookData.bookComment = $scope.book.comment;
+////            bookData.bookContactMethod = $scope.book.contactMethod;
+////            bookData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
+////            bookData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
+////            bookData.bookContactEmail = $scope.book.contactInfoEmail;
+////
+////            bookData.bookIsAvailablePublic = $scope.book.availablePublic;
+////            bookData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
+////            bookData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
+////            bookData.bookAvailableDate = $scope.book.availableDate;
+////
+////            bookData.bookMediumImageUrl = $scope.book.bookMediumImageUrl;
+////            bookData.bookLargeImageUrl = $scope.book.bookLargeImageUrl ;
+//
+//
+//
+//
+////            formData.append("book",JSON.stringify(bookData));
+//
+////            console.log(bookData);
+//
+//            bookService.addCustomSellBook(identityService.getAccessToken(),formData).then(function(response){
+//                responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+//
+//            }).catch(function(response){
+//                if (response.data.error_description == "The access token provided is invalid.") {
+//
+//                } else if (response.data.error_description == "The access token provided has expired.") {
+//                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+//                        identityService.setAccessToken(response.data);
+//                        _sellCustomBook(valid);
+//                    });
+//                } else if (response.data.error != undefined) {
+//                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+//                } else {
+//                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+//                }
+//            });;
+//
+//        }
 
 
         function _searchByIsbn(){
@@ -221,18 +276,32 @@
             var data = {
                 'isbn':$scope.isbn,
                 'accessToken': identityService.getAccessToken()
-            }
+            };
             bookService.searchBooksByIsbnAmazon(data).then(function(response){
-                $scope.book = response.data.result.books[0];
 
-                if(response.data.result.books.length==1){
+                $scope.book = response.data.success.successData.books[0];
+
+                if(response.data.success.successData.books.length==1){
                     $scope.addNewSellBook =true;
+                    $scope.addCustomNewSellBook =false;
                 }else{
+                    $scope.addNewSellBook =false;
                     $scope.addCustomNewSellBook =true;
                 }
-                console.log($scope.addNewSellBook);
-//                $scope.totalSearchResults= parseInt(response.data.result.totalSearchResults, 10);
-//                console.log(response.data.result.books.length);
+
+            }).catch(function(response){
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _searchByIsbn();
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
             });
 
         }

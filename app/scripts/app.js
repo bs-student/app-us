@@ -12,7 +12,7 @@ var app = angular
         'ngAnimate',
         'ngCookies',
         'ngResource',
-//        'ngSanitize',
+        'ngSanitize',
 //        'ngTouch',
 //        'ngMessages',
         'picardy.fontawesome',
@@ -256,25 +256,94 @@ var app = angular
             })
             //book Search
             .state('app.bookBuy.bookSearch', {
-                url: '^/bookSearch/:searchQuery?pageNumber',
+                url: '^/bookSearch/:searchQuery?pageNumber&campus',
                 views:{
                     'searchResultView@app.bookBuy':{
                         templateUrl: 'views/book/search_result.html',
                         controller: 'BookSearchCtrl'
                     }
                 }
+
             })
             //compare page
             .state('app.bookComparePrice', {
-                url: '^/bookComparePrice',
+                url: '^/bookComparePrice/:asin?isbn',
                 controller: 'BookCompareCtrl',
-                templateUrl: 'views/book/compare.html',
+                templateUrl: 'views/book/compare.html'
+            })
+            //If Buy From Amazon
+            .state('app.buyFromAmazon', {
+                url: '^/buyFromAmazon/:bookOfferId',
+                controller: 'BookBuyFromAmazonCtrl'
+            })
+            //Contact BuyerToSeller
+            .state('app.contact', {
+                url: '^/contact',
+                controller: 'ContactCtrl',
+                templateUrl: 'views/contact/contact.html',
                 params: {
-                    "asin": null,
-                    "isbn": null,
-                    "ean": null
+                    "deal": null
                 }
             })
+            //Contacted Book List
+            .state('app.contactedBookList', {
+                url: '^/contactedBookList',
+                controller: 'ContactedBookListCtrl',
+                templateUrl: 'views/book/contacted_book_list.html'
+            })
+            //Selling Book List
+            .state('app.sellingBookList', {
+                url: '^/sellingBookList',
+                controller: 'SellingBookListCtrl',
+                templateUrl: 'views/book/selling_book_list.html'
+            })
+
+            //Sell Book
+            .state('app.sellBook', {
+                url: '^/sellBook',
+                controller: 'BookSellCtrl',
+                templateUrl: 'views/book/sell.html',
+                resolve: {
+                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            '../vendor/filestyle/bootstrap-filestyle.min.js'/*,
+                            '../vendor/slider/bootstrap-slider.js',
+                            '../vendor/touchspin/jquery.bootstrap-touchspin.js',
+                            '../vendor/touchspin/jquery.bootstrap-touchspin.css'*/
+
+                        ]);
+                    }]
+                }
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

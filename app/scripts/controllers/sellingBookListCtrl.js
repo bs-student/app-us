@@ -3,15 +3,15 @@
     'use strict';
 
     app
-        .controller('ContactedBookListCtrl', ContactedBookListCtrl);
+        .controller('SellingBookListCtrl', SellingBookListCtrl);
 
-    ContactedBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService'];
+    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService'];
 
-    function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService) {
+    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService) {
 
 
         $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "contactedBook";
+        $scope.$parent.activePage = "sellingBook";
         $scope.campusBookDeals=[];
 //        $scope.campusBookDeals.sellerToBuyer=[];
 //        $scope.campusBookDeals.buyerToSeller.messages=[];
@@ -19,10 +19,11 @@
 
         $scope.getMessages= _getMessages;
         $scope.sendMessage= _sendMessage;
+        $scope.markUserAsBuyerOfThatDeal = _markUserAsBuyerOfThatDeal;
         init();
 
         function init(){
-            bookDealService.getBookDealsIhaveContactedFor(identityService.getAccessToken()).then(function(response){
+            bookDealService.getBookDealsOfMine(identityService.getAccessToken()).then(function(response){
                 $scope.campusBookDeals = response.data.success.successData;
 
             }).catch(function (response) {
@@ -50,14 +51,14 @@
 
         }
 
-        function _getMessages(deal){
+        function _getMessages(contact){
 
             var data={
                 accessToken:identityService.getAccessToken(),
-                contactId:deal.contactId
+                contactId:contact.contactId
             }
             contactService.getMessages(data).then(function(response){
-                deal.messages = response.data.success.successData;
+                contact.messages = response.data.success.successData;
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided is invalid.") {
@@ -75,19 +76,19 @@
 
             });
         }
-        function _sendMessage(valid,deal){
+        function _sendMessage(valid,contact){
 
             if(valid){
                 var data={
-                    message: deal.message,
+                    message: contact.message,
                     accessToken:identityService.getAccessToken(),
-                    contactId:deal.contactId
+                    contactId:contact.contactId
                 }
                 contactService.sendMessages(data).then(function(response){
-                    if(deal.messages!=undefined){
-                        deal.messages.push(response.data.success.successData);
+                    if(contact.messages!=undefined){
+                        contact.messages.push(response.data.success.successData);
                     }
-                    deal.sendMessageForm=false;
+                    contact.sendMessageForm=false;
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {
@@ -106,6 +107,10 @@
                 });
             }
 
+        }
+
+        function _markUserAsBuyerOfThatDeal(contact){
+            //TODO MARK USER AS BUYER OF THAT DEAL AND CHANGE STATUS AS SOLD TO SEND IT TO BUY & SOLD ARCHIVE
         }
 
 //        function _contactSeller(valid){

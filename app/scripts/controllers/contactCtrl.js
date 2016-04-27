@@ -3,56 +3,48 @@
     'use strict';
 
     app
-        .controller('BookBuyCtrl', BookBuyCtrl);
+        .controller('ContactCtrl', ContactCtrl);
 
-    BookBuyCtrl.$inject = ['$scope', 'identityService','$stateParams','$state'];
+    ContactCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService'];
 
-    function BookBuyCtrl($scope, identityService,$stateParams,$state) {
+    function ContactCtrl($scope,$stateParams,$state, identityService,contactService,responseService) {
 
+        $scope.contactSeller = _contactSeller;
 
+        init();
 
-        $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "buyBook";
+        function init(){
+            if($stateParams.deal==undefined){
+                $state.go("app.dashboard");
+            }else{
+                $scope.deal =$stateParams.deal;
+            }
 
-        $scope.searchingError = false;
-        $scope.searchingProgress=true;
-        $scope.searchBook = _searchBook;
-        $scope.changePage = _changePage;
-
-        $scope.bookSearchResult = null;
-
-        $scope.maxSize = 10;
-        $scope.totalSearchResults = 0;
-
-        $scope.currentPage = 1;
-
-        $scope.viewType = 'List';
-        $scope.showResult = false;
-        $scope.sortType = "bookTitle";
-
-
-
-        function _changePage(currentPage) {
-            $scope.searchingError=false;
-
-            $state.go('app.bookBuy.bookSearch',{searchQuery: $scope.searchText,pageNumber:currentPage});
-
-        }
-
-        function _searchBook(valid) {
-
-            if (valid) {
-
-                $scope.showResult = true;
-                $scope.searchingError=false;
-
-
-                $state.go('app.bookBuy.bookSearch',{searchQuery: $scope.searchText,pageNumber:1});
-
+            $scope.contact={};
+            $scope.contact.messages=[];
+            if($scope.$parent.loggedIn){
+                $scope.contact.buyerEmail = identityService.getAuthorizedUserData().email;
             }
 
         }
 
+        function _contactSeller(valid){
+            if(valid){
+                $scope.contact.bookDeal =$scope.deal.bookDealId;
+                var data={
+                    contact: $scope.contact,
+                    access_token : identityService.getAccessToken()
+                }
+
+
+                contactService.addContact(data).then(function (response){
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                }).catch(function (response){
+                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+                });
+
+            }
+        }
 
 
     }

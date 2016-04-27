@@ -16,7 +16,10 @@
             searchBooksByIsbnAmazon:_searchBooksByIsbnAmazon,
             getSingleBookByIsbnCampusBooks:_getSingleBookByIsbnCampusBooks,
             getAmazonCartCreateUrl:_getAmazonCartCreateUrl,
-            addSellBook:_addSellBook
+            getCampusDealsByIsbn: _getCampusDealsByIsbn,
+//            getOnCampusDealsByIsbn:_getOnCampusDealsByIsbn,
+            addSellBook:_addSellBook,
+            addCustomSellBook:_addCustomSellBook
 //            getUniversitiesForAutocomplete : _getUniversitiesForAutocomplete,
 //            getUniversitiesNameForAutocomplete : _getUniversitiesNameForAutocomplete,
 //            getSearchUniversities: _getSearchUniversities,
@@ -27,7 +30,7 @@
 
         function _searchBooks(data){
             if(data.access_token!=null){
-                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON+"?access_token="+data.access_token,data);
+                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON_API+"?access_token="+data.access_token,data);
             }else{
                 return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.SEARCH_AMAZON,data);
             }
@@ -44,14 +47,29 @@
         }
 
         function _getSingleBookByAsinAmazon(data){
-            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ASIN_AMAZON+"?access_token="+data.accessToken,data);
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ASIN_AMAZON,data);
         }
+
         function _getSingleBookByIsbnCampusBooks(data){
-            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ISBN_CAMPUS_BOOKS+"?access_token="+data.accessToken,data);
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_BOOK_BY_ISBN_CAMPUS_BOOKS,data);
         }
+
         function _getAmazonCartCreateUrl(data){
-            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_AMAZON_CART_CREATE_URL+"?access_token="+data.accessToken,data);
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_AMAZON_CART_CREATE_URL,data);
         }
+
+        function _getCampusDealsByIsbn(data){
+
+            if(data.access_token!=null){
+                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_CAMPUS_DEALS_BY_ISBN_API+"?access_token="+data.access_token,data);
+            }else{
+                return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_CAMPUS_DEALS_BY_ISBN,data);
+            }
+
+        }
+        /*function _getOnCampusDealsByIsbn(data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_ON_CAMPUS_DEALS_BY_ISBN+"?access_token="+data.access_token,data);
+        }*/
         function _addSellBook(accessToken,data){
 
             var config = {
@@ -59,6 +77,15 @@
                 headers: { 'Content-Type': undefined }
             }
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_NEW_SELL_BOOK+"?access_token="+accessToken,data,config);
+
+        }
+        function _addCustomSellBook(accessToken,data){
+
+            var config = {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            }
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_NEW_CUSTOM_SELL_BOOK+"?access_token="+accessToken,data,config);
 
         }
 

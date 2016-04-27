@@ -5,9 +5,9 @@
     app
         .factory('apiService', apiService);
 
-    apiService.$inject = ['$http'];
+    apiService.$inject = ['$http','$q'];
 
-    function apiService($http) {
+    function apiService($http,$q) {
 
         return {
             get: _get,
@@ -17,27 +17,89 @@
             remove: _remove
         };
 
+
         function _get(url, config) {
-            return $http.get(url, config);
+            var defer = $q.defer();
+
+            if(config!=undefined){
+                config["timeout"]=defer.promise;
+            }else{
+                config={timeout:defer.promise}
+            }
+
+            var promise = $http.get(url, config);
+
+            promise.abort = function(reason){
+                defer.resolve(reason);
+            };
+
+            return  promise;
         }
 
         function _post(url, data, config) {
-            return $http.post(url, data, config);
+            var defer = $q.defer();
+
+            if(config!=undefined){
+                config["timeout"]=defer.promise;
+            }else{
+                config={timeout:defer.promise}
+            }
+
+            var promise= $http.post(url, data, config);
+
+            promise.abort = function(reason){
+                defer.resolve(reason);
+            };
+
+            return promise;
         }
 
+
         function _put(url, data, config) {
-            return  $http.put(url, data, config);
+            var defer = $q.defer();
+            if(config!=undefined){
+                config["timeout"]=defer.promise;
+            }else{
+                config={timeout:defer.promise}
+            }
+            var promise= $http.put(url, data, config);
+            promise.abort = function(reason){
+                defer.resolve(reason);
+            };
+
+            return  promise;
         }
 
         function _patch(url, data, config) {
-            return $http.patch(url, data, config);
+            var defer = $q.defer();
+            if(config!=undefined){
+                config["timeout"]=defer.promise;
+            }else{
+                config={timeout:defer.promise}
+            }
+            var promise= $http.patch(url, data, config);
+            promise.abort = function(reason){
+                defer.resolve(reason);
+            };
+
+            return  promise;
         }
 
         function _remove(url, config) {
-            return  $http.delete(url, config);
+            var defer = $q.defer();
+            if(config!=undefined){
+                config["timeout"]=defer.promise;
+            }else{
+                config={timeout:defer.promise}
+            }
+            var promise= $http.delete(url, config);
+            promise.abort = function(reason){
+                defer.resolve(reason);
+            };
+
+            return  promise;
         }
 
     }
-
 
 })();

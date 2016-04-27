@@ -84,7 +84,7 @@
 
 
         <!--<div ui-view="campusUtilityView" ></div>-->
-        <form name="bookSearchForm" novalidate ng-submit="submitForm(bookSearchForm.$valid)" role="form">
+        <form name="bookSearchForm" novalidate ng-submit="searchByIsbn(bookSearchForm.$valid)" role="form">
             <div class="row">
 
                 <div class="form-group col-md-12"
@@ -100,7 +100,7 @@
                 </div>
 
 
-                <button ng-click="searchByIsbn()"
+                <button type="submit"
                         class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Enter ISBN Number<i
                         class="fa fa-arrow-right"></i></button>
 
@@ -168,8 +168,9 @@
         <form name="sellBookForm" class="form-horizontal" submit-validate ng-submit="sellBook(sellBookForm.$valid)" role="form" novalidate>
         <div class="col-md-6">
             <div class="media mb-20">
-                <div class="pull-left thumb">
-                    <img class="media-object" src="{{book.bookMediumImageUrl}}" alt="">
+                <div class="pull-left thumb" data-ng-repeat="imageRow in book.bookImages">
+                    <img class="media-object" src="{{imageRow.image}}" alt="">
+
                 </div>
                 <div class="media-body">
 
@@ -471,7 +472,7 @@
 
         <h3>Add Custom Book</h3>
 
-        <form name="sellCustomBookForm" class="form-horizontal" submit-validate ng-submit="sellCustomBook(sellCustomBookForm.$valid)" role="form" novalidate>
+        <form name="sellCustomBookForm" class="form-horizontal" submit-validate ng-submit="sellBook(sellCustomBookForm.$valid)" role="form" novalidate>
 
         <div class="col-md-12" ng-class="{ 'has-error' : sellCustomBookForm.bookTitle.$invalid && !sellCustomBookForm.bookTitle.$pristine, 'has-success' : sellCustomBookForm.bookTitle.$valid && !contactForm.bookTitle.$pristine}">
             Book Title:
@@ -639,7 +640,7 @@
                     <table class="table b-a b-solid bg-white">
                         <thead>
                         <tr>
-                            <th>Title Image</th>
+                            <!--<th>Title Image</th>-->
                             <th>Image</th>
                             <th width="50%">Name</th>
                             <th >Size</th>
@@ -650,11 +651,11 @@
 
                         <tr ng-repeat="file in files" class="text-sm">
 
-                            <td>
-                                <label class="checkbox checkbox-custom">
-                                    <input name="titleImage" ng-model="book.titleImage" type="radio" value={{file.fileId}} required /><i></i>
-                                </label>
-                            </td>
+                            <!--<td>-->
+                                <!--<label class="checkbox checkbox-custom">-->
+                                    <!--<input name="titleImage" ng-model="book.titleImage" type="radio" value={{file.fileId}} required /><i></i>-->
+                                <!--</label>-->
+                            <!--</td>-->
 
 
                             <td style="text-align: center"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
@@ -895,142 +896,6 @@
 
 </section>
 <!-- /tile -->
-
-
-
-
-
-
-
-
-
-<!--<div class="page page-full page-upload" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">-->
-
-
-    <!--<div class="tbox tbox-sm">-->
-
-
-        <!--<div class="tcol w-lg bg-tr-white lt">-->
-
-            <!--<div class="p-15 bg-white b-r">-->
-                <!--<h4 class="custom-font text-default m-0">Add New Book Files</h4>-->
-            <!--</div>-->
-
-            <!--<div class="p-15">-->
-                <!--&lt;!&ndash;<div ng-show="uploader.isHTML5">&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;&lt;!&ndash; 3. nv-file-over uploader="link" over-class="className" &ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="well text-center p-30 b-dashed b-2x bg-white" nv-file-over="" uploader="uploader">&ndash;&gt;-->
-                        <!--&lt;!&ndash;Base drop zone&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;&lt;!&ndash; Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" &ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well text-center p-30 b-dashed b-2x">&ndash;&gt;-->
-                            <!--&lt;!&ndash;Another drop zone with its own settings&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                <!--<hr class="b-0 b-b"/>-->
-
-                <!--&lt;!&ndash; Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" &ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<label class="control-label">Multiple</label>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<input ui-jq="filestyle" type="file" class="filestyle" ui-options="{ buttonText: 'Select files', iconName: 'fa fa-inbox'}" nv-file-select="" uploader="uploader" multiple>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                <!--<div class="form-group">-->
-                    <!--<label class="control-label">Select File</label>-->
-                    <!--<input ui-jq="filestyle" type="file" class="filestyle" ui-options="{ buttonText: 'Select file', iconName: 'fa fa-inbox' }" nv-file-select="" uploader="uploader">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-
-
-        <!--<div class="tcol">-->
-            <!--<div class="p-15 bg-white">-->
-
-                <!--<span class="pull-right">Queue length: <b class="badge bg-lightred">{{ uploader.queue.length }}</b></span>-->
-                <!--<h4 class="custom-font text-default m-0">Upload queue (only images)</h4>-->
-
-            <!--</div>-->
-
-            <!--<div class="p-15">-->
-
-                <!--<table class="table b-a b-solid bg-white">-->
-                    <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th width="50%">Name</th>-->
-                        <!--<th ng-show="uploader.isHTML5">Size</th>-->
-                        <!--<th ng-show="uploader.isHTML5">Progress</th>-->
-                        <!--<th>Status</th>-->
-                        <!--<th>Actions</th>-->
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody>-->
-                    <!--<tr ng-repeat="item in uploader.queue" class="text-sm">-->
-                        <!--<td><strong>{{ item.file.name }}</strong></td>-->
-                        <!--<td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>-->
-                        <!--<td ng-show="uploader.isHTML5">-->
-                            <!--<div class="progress progress-xs not-rounded" style="margin-top: 7px;margin-bottom: 0">-->
-                                <!--<div class="progress-bar bg-cyan" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>-->
-                            <!--</div>-->
-                        <!--</td>-->
-                        <!--<td class="text-center">-->
-                            <!--<span ng-show="item.isSuccess" class="text-success"><i class="fa fa-check"></i></span>-->
-                            <!--&lt;!&ndash;<span ng-show="item.isCancel" class="text-warning"><i class="fa fa-ban"></i></span>&ndash;&gt;-->
-                            <!--<span ng-show="item.isError" class="text-danger"><i class="fa fa-times"></i></span>-->
-                        <!--</td>-->
-                        <!--<td nowrap>-->
-                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">-->
-                                <!--<span class="fa fa-upload"></span> Upload-->
-                            <!--</button>-->
-                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">-->
-                                <!--<span class="fa fa-ban"></span> Cancel-->
-                            <!--</button>-->
-                            <!--<button type="button" class="btn btn-default btn-xs" ng-click="item.remove()">-->
-                                <!--<span class="fa fa-trash"></span> Remove-->
-                            <!--</button>-->
-                        <!--</td>-->
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
-
-                <!--&lt;!&ndash;<div>&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;<p>Queue progress:</p>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="progress progress-sm progress-striped active bg-tr-black lt" style="">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="progress-bar bg-cyan" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                    <!--<button class="btn btn-success btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">-->
-                        <!--<i class="fa fa-upload"></i> <span>Upload all</span>-->
-                    <!--</button>-->
-                    <!--&lt;!&ndash;<button class="btn btn-warning btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<i class="fa fa-ban"></i> <span>Cancel all</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<button class="btn btn-danger btn-ef btn-ef-5 btn-ef-5a" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<i class="fa fa-trash"></i> <span>Remove all</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-            <!--</div>-->
-
-        <!--</div>-->
-
-    <!--</div>-->
-
-
-<!--</div>-->
-
-
-
-
-
 
 
 

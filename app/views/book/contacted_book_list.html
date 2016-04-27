@@ -1,90 +1,9 @@
 <!--<div  ng-parallax offset="0"  speed="5"  class="parallax-box dark" pattern="'assets/images/parallax/search-result-banner.png'" class="search-page-head-banner">-->
-<div class="search-page-head-banner">
-    <div class="container clearfix">
 
 
-        <div class="row search-banner-row">
+<section id="content">
 
-            <div class="col-md-12">
-
-
-                <p class="text-white mid-two-header search-page-big-text">Search your books by<br/>
-                    title / Author / isbn / keywords</p>
-            </div>
-            <form name="bookSearchForm" submit-validate ng-submit="searchBook(bookSearchForm.$valid)" role="form"
-                  novalidate>
-                <div class="col-md-12 search-banner-input-col">
-                    <div class="search-page-input-div">
-                        <div ng-if="!$parent.loggedIn" class="form-group">
-                            <md-autocomplete
-                                             md-input-id="search-university-search-page"
-
-                                             md-input-name="campus"
-                                             md-selected-item="selectedItem"
-                                             md-search-text-change="searchTextChange(searchUniversity)"
-                                             md-search-text="searchUniversity"
-                                             md-selected-item-change="selectedItemChange(item)"
-                                             md-items="item in querySearch(searchUniversity)"
-                                             md-item-text="item.display"
-                                             md-min-length="0"
-                                             placeholder="What is your University Campus?">
-                                <md-item-template>
-
-                                    <span md-highlight-text="searchUniversity" md-highlight-flags="^i">{{item.display}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                    No matches found for "{{searchUniversity}}".
-
-                                </md-not-found>
-
-
-
-                            </md-autocomplete>
-                            <!--<p class="help-block">
-                                <span ng-show="bookSearchForm.campus.$invalid && !bookSearchForm.campus.$pristine">Choose your University.</span>
-                            </p>-->
-                        </div>
-                            <br/><br/>
-
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search fa-2x"></i></span>
-                            <input  required name="searchText" id="searchText" ng-model="searchText"
-                                   type="text" class="form-control search-page-input"
-                                   placeholder="Principles of Marketing By Philip Kotler...">
-
-                           <span class="input-group-btn">
-                              <button class="btn btn-default" type="submit">
-                                  go
-                              </button>
-                           </span>
-
-                        </div>
-
-
-                    </div>
-                    <!--<code>{{bookSearchForm}}</code>-->
-
-                    <p class="help-block">
-                        <span class="orange-text"
-                              ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
-
-                    </p>
-
-                </div>
-            </form>
-
-
-        </div>
-
-
-    </div>
-
-
-</div>
-
-<section id="content" ng-show="showResult">
-
-
+<h1>Books I Have Contacted FOR</h1>
 
 <!-- ============ section ============ -->
 
@@ -93,114 +12,168 @@
 
 <div class="content-wrap mid-section">
 
-<div class="section m-0 pt-0 search-result-section">
-    <div class="container clearfix quote-container-homepage">
-        <div class="row">
-            <div class="col-md-9 mid-three-people-quote-col">
-                <div class="">
-                    <p class="mid-three-header text-center">
-                        <text class="orange-text uppercase lato italic">Search</text>
-                        <text class="blue-text uppercase lato italic">Result</text>
-                    </p>
-                </div>
-                <div class="search-result-bar-info-div">
 
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Total Results:</text>
-                        <text class="blue-text lato">{{totalSearchResultsText}}</text>
-                        <br/>
-
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Pages:</text>
-                        <text class="blue-text lato">{{numPages}}</text>
-                        <br/>
-
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Showing Page:</text>
-                        <text class="blue-text lato">{{currentPage}} of {{numPages}}</text>
-                    </div>
-
-                    <div class="col-md-6 text-center">
-                        <div class="search-page-options">Sort By:
-
-                            <select ng-model="sortType">
-                                <option value="bookTitle" ng-selected="true">Title</option>
-                                <option value="bookDirectorAuthorArtist">Author</option>
-                                <option value="bookIsbn">ISBN</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <div class="search-page-options">
-                            <span>Select View:</span>
-                                <span class="btn-group">
-
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'List'"><i
-                                            class="fa fa-th-list"></i></label>
-
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'Grid'"><i
-                                            class="fa fa-th-large"></i></label>
-                                </span>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-                <div class="col-md-12">
-                    <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
-                                    ng-change="changePage(currentPage)" class="search-page-pagination"
-                                    boundary-links="true"
-                                    rotate="false" num-pages="numPages"></uib-pagination>
-
-                </div>
-            </div>
-            <div class="col-md-3 girl-image">
-                <img src="dist/images/sections/girl.png">
-            </div>
-
-        </div>
-
-    </div>
-</div>
 
 <div class="section mid-section">
 <div class="container clearfix">
 
-<div class="row" cg-busy="{promise:searchPromise,templateUrl:'views/template/search_result_loading_template.html'}">
-
-    <div ng-show="searchingProgress" class="searching-on-progress-div"></div>
-    <div ng-show="searchingError" class="searching-error-div text-center">
-        <h3>
-            Sorry No Books Were Found
-        </h3>
-        <h4>
-            Please Refine your search query and try again.
-        </h4>
-    </div>
-
-
-    <div ui-view="searchResultView" ></div>
-
-
-
-
-</div>
-
-
 <div class="row">
-    <div class="col-md-12 text-center">
-        <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
-                        ng-change="changePage(currentPage)" class="search-page-pagination"
-                        boundary-links="true"
-                        rotate="false" num-pages="numPages"></uib-pagination>
+
+    <div class="searching-on-progress-div"></div>
+
+    <h1>buyer To Seller</h1>
+    <div  data-ng-repeat="deal in campusBookDeals.buyerToSeller">
+
+
+        <div class="item-box" >
+
+            <div>
+                <h4 class="">{{deal.bookTitle}}</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                    : Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} ::
+                    ({{deal.bookBinding}}) ISBN:
+                    <text class="blue-text">{{deal.bookIsbn}}</text>
+                </h5>
+            </div>
+            <div>
+                <h4 class="">Deal Information</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    :: Price : ${{deal.bookPriceSell}} <br/>:: Condition: {{deal.bookCondition}}
+                    <br/>::Book Highligted: {{deal.bookIsHighlighted}} ,
+                    Book Has Note: {{deal.bookHasNotes}}
+                    <br/> Comment: {{deal.bookComment}}
+
+                    <br/> COE : {{deal.bookPaymentMethodCaShOnExchange}}, Cheque: {{deal.bookPaymentMethodCheque}}
+                    <br/> Available Date: {{deal.bookAvailableDate}}
+                    <br/> Campus: {{deal.universityName}}, {{deal.campusName}},{{deal.stateName}},
+                    {{deal.countryName}}
+
+                </h5>
+                <h4>Contact Information</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    <text class="blue-text">Seller Email: {{deal.sellerEmail}}</text><br/>
+                    <text class="blue-text">Seller HomeNumber: {{deal.sellerHomeNumber}}</text><br/>
+                    <text class="blue-text">Seller CellNumber: {{deal.sellerCellNumber}}</text><br/>
+                    Contact Date::: {{deal.contactDateTime}} <br/>
+
+                </h5>
+                <h4>Messages</h4>
+                <h5 data-ng-repeat="message in deal.messages">
+                    <text class="orange-text">{{message.messageDateTime}}</text>
+                    <text class="blue-text">{{message.sender}}</text>
+                    <text class="grey-text">{{message.messageBody}}</text>
+                </h5>
+                <button ng-click="getMessages(deal)">See Messages</button>
+                <button ng-click="deal.sendMessageForm=true">Send Message</button>
+                <form ng-show="deal.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,deal)" role="form" novalidate>
+
+                    <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                        <p class="white-text ">Message :</p>
+
+                        <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="deal.message" required></textarea>
+
+                        <p class="help-block">
+                            <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                        </p>
+                    </div>
+
+                    <div class="form-group text-left mt-20">
+                        <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                        <button type="button" ng-click="deal.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <hr/>
+
+
+    </div>
+
+
+
+    <h1>seller To Buyer</h1>
+    <div  data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
+
+
+
+
+            <div class="item-box" >
+
+                <div>
+                    <h4 class="">{{deal.bookTitle}}</h4>
+                    <h5 class="lato grey-text">By
+                        <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                        : Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} ::
+                        ({{deal.bookBinding}}) ISBN:
+                        <text class="blue-text">{{deal.bookIsbn}}</text>
+                    </h5>
+                </div>
+                <div>
+                    <h4 class="">Deal Information</h4>
+                    <h5 class="lato grey-text">By
+                        <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                        :: Price : ${{deal.bookPriceSell}} <br/>:: Condition: {{deal.bookCondition}}
+                        <br/>::Book Highligted: {{deal.bookIsHighlighted}} ,
+                        Book Has Note: {{deal.bookHasNotes}}
+                        <br/> Comment: {{deal.bookComment}}
+
+                        <br/> COE : {{deal.bookPaymentMethodCaShOnExchange}}, Cheque: {{deal.bookPaymentMethodCheque}}
+                        <br/> Available Date: {{deal.bookAvailableDate}}
+                        <br/> Campus: {{deal.universityName}}, {{deal.campusName}},{{deal.stateName}},
+                        {{deal.countryName}}
+
+                    </h5>
+
+                    <h4>Contact Information</h4>
+                    <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    Contact Date::: {{deal.contactDateTime}} <br/>
+
+                    </h5>
+                    <h4>Messages</h4>
+                    <h5 data-ng-repeat="message in deal.messages">
+                        <text class="orange-text">{{message.messageDateTime}}</text>
+                        <text class="blue-text">{{message.sender}}</text>
+                        <text class="grey-text">{{message.messageBody}}</text>
+                    </h5>
+                    <button ng-click="getMessages(deal)">See Messages</button>
+                    <button ng-click="deal.sendMessageForm=true">Send Message</button>
+                    <form ng-show="deal.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,deal)" role="form" novalidate>
+
+                        <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                            <p class="white-text ">Message :</p>
+
+                            <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="deal.message" required></textarea>
+
+                            <p class="help-block">
+                                <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group text-left mt-20">
+                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                            <button type="button" ng-click="deal.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        <hr/>
+
 
     </div>
 </div>
+
+
+</div>
+
+
 
 </div>
 </div>

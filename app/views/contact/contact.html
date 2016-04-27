@@ -41,514 +41,153 @@
 
                 <section class="tile" fullscreen="isFullscreen07">
 
-                <!-- tile header -->
-                <div class="tile-header dvd dvd-btm">
-                    <h1 class="custom-font">Book Details</h1>
-                    <ul class="controls">
-                        <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
 
-                            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
 
-                            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                <li>
-                                    <a href tile-control-toggle>
-                                        <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                        <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-refresh ng-click="ajaxFaker()">
-                                        <fa name="refresh"></fa> Refresh
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-fullscreen ng-click="isFullscreen07 = !isFullscreen07">
-                                        <fa name="expand"></fa> Fullscreen
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                        <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /tile header -->
-
-                <!-- tile widget -->
                 <div class="tile-widget">
 
                     <!-- row -->
-                    <div style="border-bottom: 1px solid;margin-top: 10px;" class="row" ng-repeat="book in bookSearchResult">
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <div class="media mb-20">
-                                <div class="pull-left" data-ng-repeat="bookImage in book.bookImages">
-                                    <img class="media-object" ng-src="{{bookImage.image}}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading mb-0">{{book.bookTitle}}</h4>
-                                    <small class="text-lightred">{{book.bookDirectorAuthorArtist}}</small>
-                                </div>
-                            </div>
-                            <!-- row -->
-                            <div class="row">
-                                <!-- col -->
-                                <div class="col-md-4 text-center">
-                                    <span class="text-greensea"><i class="fa fa-money"></i> {{book.bookPriceAmazon}}</span>
-                                </div>
+                    <div style="border-bottom: 1px solid;margin-top: 10px;" class="row" >
+
+                        <div ng-if="deal.bookContactMethod=='buyerToSeller'" class="col-md-12">
+
+                            <h1>You (Buyer) need to contact Seller ( {{deal.username}} )</h1>
+                            Buying Textbooks directly from other Students can be so simple<br/><br/>
+
+                            Hello,<br/>
+                            The Seller of this textbook wants <strong>You to contact {{deal.username}}</strong>.<br/>
+                            Please provide your Email below so we can send you the Seller's Contact Information.<br/>
+                            You also have the option to send a message to the Seller.<br/>
+
+                        </div>
+
+                        <div ng-if="deal.bookContactMethod=='sellerToBuyer'" class="col-md-12">
+                        <h1>Seller ( {{deal.username}} ) will contact You ( Buyer )</h1>
+                        Buying Textbooks directly from other Students can be so simple<br/>
+                        Hello,<br/>
+                        The Seller of this textbook wants to contact you. Please provide your Contact information below.<br/>
+                        We will send the information to the seller who then will contact you.<br/>
+                        You also have the option to send a message to the Seller.<br/>
+                        </div>
+                        <div class="col-md-12 reg-page-col-div">
+
+                            <div class="reg-page-form">
+
+
+
+                                <!-- tile -->
+                                <section class="tile text-left" fullscreen="isFullscreen01">
+                                    <form name="contactForm" submit-validate ng-submit="contactSeller(contactForm.$valid)" role="form" novalidate>
+
+                                    <!-- tile body -->
+                                    <div class="tile-body">
+
+                                        <div>
+                                            Seller:
+                                           {{deal.username}}
+                                        </div>
+
+
+
+
+                                        <div ng-show="!$parent.loggedIn" class="form-group">
+
+                                            <p class="" for="username">Name: </p>
+                                            <input type="text" name="username" id="username" class="form-control " ng-model="contact.buyerNickName">
+
+                                        </div>
+
+                                        <div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine, 'has-success' : contactForm.email.$valid && !contactForm.email.$pristine}">
+
+                                            <p class="" for="email">Email: </p>
+                                            <input type="email" name="email" id="email" class="form-control " ng-model="contact.buyerEmail" required>
+                                            <p class="help-block">
+                                                <span ng-show="contactForm.email.$invalid && !contactForm.email.$pristine">Email is required.</span>
+                                            </p>
+                                        </div>
+
+                                        <div ng-if="deal.bookContactMethod=='sellerToBuyer'" class="form-group">
+
+                                            <p class="" for="cellNumber">Cell Number: </p>
+                                            <input type="text" name="cellNumber" id="cellNumber" class="form-control " ng-model="contact.buyerCellPhone">
+
+                                        </div>
+
+                                        <div ng-if="deal.bookContactMethod=='sellerToBuyer'" class="form-group">
+
+                                            <p class="" for="homeNumber">Home Number: </p>
+                                            <input type="text" name="homeNumber" id="homeNumber" class="form-control " ng-model="contact.buyerHomePhone">
+
+                                        </div>
+
+
+                                        <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine, 'has-success' : contactForm.message.$valid && !contactForm.message.$pristine}">
+
+                                            <p class="" for="message">Message: </p>
+                                            <textarea type="text" name="message" id="message" class="form-control " ng-model="contact.messages[0].messageBody"   required></textarea>
+                                            <p class="help-block">
+                                                <span ng-show="contactForm.message.$invalid && !contactForm.message.$pristine">Message is required.</span>
+                                                
+                                            </p>
+                                        </div>
+
+                                        <!--<div class="form-group" ng-class="{'has-error':contactForm.recaptcha.$invalid && !contactForm.recaptcha.$pristine}">
+                                            <div    name="recaptcha"
+                                                    vc-recaptcha
+                                                    ng-model="contact.key"
+                                                    required
+                                                    ></div>
+                                            <p class="help-block">
+                                                <span  ng-show="contactForm.recaptcha.$invalid && !contactForm.recaptcha.$pristine">Captcha is required.</span>
+                                            </p>
+                                        </div>-->
+
+                                        <div class="form-group text-left mt-20">
+                                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Get Seller Details</button>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                                </section>
 
                             </div>
-                            <!-- /row -->
-                        </div>
-                        <!-- /col -->
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <dl class="dl-horizontal text-sm">
-                                <dt style="width: 100px;">ISBN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookIsbn}}</dd>
 
-                                <dt style="width: 100px;">EAN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEan}}</dd>
-                                <dt style="width: 100px;">Published By: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublisher}}</dd>
-                                <dt style="width: 100px;">Publish Date: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublishDate}}</dd>
-                                <dt style="width: 100px;">Book Edition: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEdition}}</dd>
-                                <dt style="width: 100px;">Book Binding: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookBinding}}</dd>
-                                <dt style="width: 100px;">Language: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookLanguage}}</dd>
-                                <dt style="width: 100px;">Pages: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPages}}</dd>
 
-                                <!--<dt style="width: 60px;">Rating: </dt>-->
-                                <!--<dd  style="margin-left: 70px;" class="text-lightred"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></dd>-->
-                            </dl>
-                            <a target="_blank"  ui-sref="book.buy_from_amazon({bookOfferId: '{{book.bookOfferId}}'})"  class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Buy From Amazon <i class="fa fa-arrow-right"></i></a>
+
+
+
+
+
+
+
+
+
+
+
                         </div>
-                        <div class="col-md-12">
-                            <h4>Description:</h4>
-                            <p ng-bind-html="book.bookDescription"></p>
-                        </div>
-                        <!-- /col -->
+
+
                     </div>
 
 
-                    <!-- /row -->
+
 
                 </div>
-                <!-- /tile widget -->
 
-
-                <!-- /tile body -->
 
                 </section>
 
-                <section class="tile bg-greensea" fullscreen="isFullscreen06">
 
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of Buyer To Seller</h1>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Condition</th>
-                                    <th>TextBook Highlighted</th>
-                                    <th>Notes IN TextBook</th>
-                                    <th>Available</th>
-                                    <th>Comment</th>
-                                    <th>Campus</th>
-                                    <th>Price</th>
-                                    <th>Contact</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr  data-ng-repeat="deal in campusBookDeals.buyerToSeller">
-
-                                    <td>{{deal.username}}</td>
-                                    <td>{{deal.bookCondition}}</td>
-                                    <td>{{deal.bookIsHighlighted}}</td>
-                                    <td>{{deal.bookHasNotes}}</td>
-                                    <td>{{deal.bookAvailableDate}}</td>
-                                    <td>{{deal.bookComment}}</td>
-                                    <td>{{deal.universityName}}, {{deal.campusName}}, {{deal.stateName}}, {{deal.countryName}}</td>
-                                    <td>${{deal.bookPriceSell}}</td>
-                                    <td>
-
-                                        <div ng-show="loggedIn">
-                                            <a class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">logged IN so direct contact</a>
-                                        </div>
-                                        <div ng-show="!loggedIn">
-
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                            <a ng-if="deal.bookIsAvailablePublic=='Yes'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</a>
-                                        </div>
-                                    </td>
-
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-
-                <section class="tile bg-greensea" fullscreen="isFullscreen06">
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of Seller To Buyer</h1>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Condition</th>
-                                    <th>TextBook Highlighted</th>
-                                    <th>Notes IN TextBook</th>
-                                    <th>Available</th>
-                                    <th>Comment</th>
-                                    <th>Campus</th>
-                                    <th>Price</th>
-                                    <th>Contact</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr  data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
-
-                                    <td>{{deal.username}}</td>
-                                    <td>{{deal.bookCondition}}</td>
-                                    <td>{{deal.bookIsHighlighted}}</td>
-                                    <td>{{deal.bookHasNotes}}</td>
-                                    <td>{{deal.bookAvailableDate}}</td>
-                                    <td>{{deal.bookComment}}</td>
-                                    <td>{{deal.universityName}}, {{deal.campusName}}, {{deal.stateName}}, {{deal.countryName}}</td>
-                                    <td>${{deal.bookPriceSell}}</td>
-                                    <td>
-                                        <div ng-show="loggedIn">
-                                            <a class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</a>
-                                        </div>
-                                        <div ng-show="!loggedIn">
-
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                            <a ng-if="deal.bookIsAvailablePublic=='Yes'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</a>
-                                        </div>
-                                    </td>
-
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-
-                <section data-ng-repeat="table in bookConditions" class="tile bg-greensea" fullscreen="isFullscreen06">
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of <strong>{{table["@attributes"].name}}</strong> condition</h1>
-                        <ul class="controls">
-                            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-                                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                    <li>
-                                        <a href tile-control-toggle>
-                                            <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                            <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-refresh ng-click="ajaxFaker()">
-                                            <fa name="refresh"></fa> Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
-                                            <fa name="expand"></fa> Fullscreen
-                                        </a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Online Store</th>
-                                    <th>Available</th>
-                                    <th>Comments</th>
-                                    <th>Shipping</th>
-                                    <th>Price</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr data-ng-repeat="store in table.offer">
-                                    <td> <img class="media-object" ng-src="{{store.merchant_image}}" alt="{{store.merchant_name}}"></td>
-                                    <td>{{store.availability_text}}</td>
-                                    <td>{{store.comments}}</td>
-                                    <td>${{store.shipping_ground}}</td>
-                                    <td>${{store.price}}</td>
-                                    <td>${{store.total_price}}</td>
-                                    <td><a target="_blank" href="{{store.link}}" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Buy Now <i class="fa fa-arrow-right"></i></a></td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-                <!--<section class="tile bg-lightred" fullscreen="isFullscreen06">-->
-
-                    <!--&lt;!&ndash; tile header &ndash;&gt;-->
-                    <!--<div class="tile-header dvd dvd-btm">-->
-                        <!--<h1 class="custom-font"><strong>Responsive </strong>Table</h1>-->
-                        <!--<ul class="controls">-->
-                            <!--<li class="dropdown" uib-dropdown on-toggle="toggled(open)">-->
-
-                                <!--<a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>-->
-
-                                <!--<ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-toggle>-->
-                                            <!--<span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>-->
-                                            <!--<span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-refresh ng-click="ajaxFaker()">-->
-                                            <!--<fa name="refresh"></fa> Refresh-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">-->
-                                            <!--<fa name="expand"></fa> Fullscreen-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-
-                                <!--</ul>-->
-
-                            <!--</li>-->
-                            <!--<li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile header &ndash;&gt;-->
-
-                    <!--&lt;!&ndash; tile body &ndash;&gt;-->
-                    <!--<div class="tile-body p-0">-->
-
-                        <!--<div class="table-responsive">-->
-                            <!--<table class="table">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
-                                    <!--<th>Online Store</th>-->
-                                    <!--<th>Available</th>-->
-                                    <!--<th>Comments</th>-->
-                                    <!--<th>Shipping</th>-->
-                                    <!--<th>Price</th>-->
-                                    <!--<th>Total</th>-->
-                                    <!--<th>Action</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-
-                                <!--</tbody>-->
-                            <!--</table>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile body &ndash;&gt;-->
-
-                <!--</section>-->
-                <!--<section class="tile bg-default" fullscreen="isFullscreen06">-->
-
-                    <!--&lt;!&ndash; tile header &ndash;&gt;-->
-                    <!--<div class="tile-header dvd dvd-btm">-->
-                        <!--<h1 class="custom-font"><strong>Responsive </strong>Table</h1>-->
-                        <!--<ul class="controls">-->
-                            <!--<li class="dropdown" uib-dropdown on-toggle="toggled(open)">-->
-
-                                <!--<a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>-->
-
-                                <!--<ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-toggle>-->
-                                            <!--<span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>-->
-                                            <!--<span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-refresh ng-click="ajaxFaker()">-->
-                                            <!--<fa name="refresh"></fa> Refresh-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">-->
-                                            <!--<fa name="expand"></fa> Fullscreen-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-
-                                <!--</ul>-->
-
-                            <!--</li>-->
-                            <!--<li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile header &ndash;&gt;-->
-
-                    <!--&lt;!&ndash; tile body &ndash;&gt;-->
-                    <!--<div class="tile-body p-0">-->
-
-                        <!--<div class="table-responsive">-->
-                            <!--<table class="table">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
-                                    <!--<th>Online Store</th>-->
-                                    <!--<th>Available</th>-->
-                                    <!--<th>Comments</th>-->
-                                    <!--<th>Shipping</th>-->
-                                    <!--<th>Price</th>-->
-                                    <!--<th>Total</th>-->
-                                    <!--<th>Action</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-
-                                <!--</tbody>-->
-                            <!--</table>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile body &ndash;&gt;-->
-
-                <!--</section>-->
-                <!-- /tile -->
 
             </div>
-            <!-- /col -->
-
 
         </div>
-        <!-- /row -->
+
 
 
     </div>
-    <!-- /page content -->
 
 
 </div>

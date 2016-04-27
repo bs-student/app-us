@@ -5,9 +5,9 @@
     app
         .controller('BookSearchCtrl', BookSearchCtrl);
 
-    BookSearchCtrl.$inject = ['$scope', 'bookService', 'identityService', 'imageModalService','responseService','$stateParams','$state'];
+    BookSearchCtrl.$inject = ['$scope', 'bookService', 'identityService', 'imageModalService','responseService','$stateParams','$state','storageService'];
 
-    function BookSearchCtrl($scope, bookService, identityService, imageModalService,responseService,$stateParams,$state) {
+    function BookSearchCtrl($scope, bookService, identityService, imageModalService,responseService,$stateParams,$state,storageService) {
 
 
 
@@ -16,6 +16,8 @@
         $scope.$parent.showResult = true;
 
         $scope.$parent.searchingProgress=true;
+
+        $scope.goToComparePage=_goToComparePage;
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
@@ -29,19 +31,19 @@
 
 
         function init(){
-
+            $scope.university = storageService.getValue("universityCampusDisplay");
             if($stateParams.searchQuery!=undefined && $stateParams.pageNumber!=undefined){
-                console.log($scope.$parent);
+
                 pageNumber= parseInt($stateParams.pageNumber,10);
                 if(typeof $stateParams.searchQuery == "string" && (pageNumber<100 || 0>pageNumber)){
 
                     var data={
                         'keyword': $stateParams.searchQuery,
                         'page': pageNumber,
+                        'campus':$stateParams.campus,
                         'access_token':identityService.getAccessToken()
                     }
                     $scope.$parent.showResult = true;
-//                    $scope.$parent.currentPage = pageNumber;
                     $scope.$parent.searchText = $stateParams.searchQuery;
                     $scope.$parent.searchingError=false;
                     doSearch(data);
@@ -123,11 +125,14 @@
                 $scope.$parent.currentPage = pageNumber;
                 $scope.bookSearchResult = response.data.success.successData.books;
 
+
                 angular.forEach($scope.bookSearchResult,function(book){
-                    book.lowestOnlinePricePromise = bookService.getLowestOnlinePrice(book.bookIsbn).then(function(response){
-                        book.lowestOnlinePrice = response.data.success.successData.lowestOnlinePrice;
+                    (book.lowestOnlinePricePromise = bookService.getLowestOnlinePrice(book.bookIsbn)).then(function(response){
+                        book.bookPriceOnlineLowest = response.data.success.successData.bookPriceOnlineLowest;
+//                        calculateLowestPrice(book);
                     }).catch(function(response){
-                        book.lowestOnlinePrice = "Not Found";
+                        book.bookPriceOnlineLowest = "Not Found";
+
                     });
                 });
 
@@ -149,6 +154,55 @@
             });
         }
 
+
+        function _goToComparePage(book){
+
+            angular.forEach($scope.bookSearchResult,function(resultBook){
+                resultBook.lowestOnlinePricePromise.abort("Changing State");
+            });
+
+            $state.go("app.bookComparePrice",{asin:book.bookAsin,isbn:book.bookIsbn});
+        }
+        //todo Calculate Lowest Price and change the color to blue "BELOW FUNCTION IS NEEDED"
+        /*function calculateLowestPrice(book){
+
+            var lowestPrice = [];
+            if(book.bookPriceAmazon!=undefined){
+                var amazonPrice = (book.bookPriceAmazon).slice(1);
+                lowestPrice['amazon']=amazonPrice;
+            }
+
+            if(book.bookPriceStudentLowest!=undefined){
+                var studentPrice = (book.bookPriceStudentLowest).slice(1);
+                lowestPrice['student']=studentPrice;
+            }
+
+            if(book.bookPriceOnlineLowest!=undefined){
+                var onlinePrice = (book.bookPriceOnlineLowest).slice(1);
+                lowestPrice['online']=onlinePrice;
+            }
+
+
+
+
+            var min = Math.min.apply(null,
+                Object.keys(lowestPrice).map(function(e) {
+                    return lowestPrice[e];
+                }));
+
+
+            Object.prototype.getKeyByValue = function( value ) {
+                for( var prop in this ) {
+                    if( this.hasOwnProperty( prop ) ) {
+                        if( this[ prop ] == value )
+                            return prop;
+                    }
+                }
+            }
+
+            book.lowestPriceType=lowestPrice.getKeyByValue(min);
+
+        }*/
 
     }
 

@@ -3,7 +3,7 @@
 
 <section id="content">
 
-
+    <h1>Books I AM SELLING</h1>
 
 <!-- ============ section ============ -->
 
@@ -52,19 +52,41 @@
 
                 </h5>
                 <h4>Contact Information</h4>
-                <!--<h5 class="lato grey-text">By-->
-                    <!--<text class="blue-text">Buyer: {{deal.sellerUsername}}</text><br/>-->
-                    <!--:: Price : ${{deal.bookPriceSell}} <br/>:: Condition: {{deal.bookCondition}}-->
-                    <!--<br/>::Book Highligted: {{deal.bookIsHighlighted}} ,-->
-                    <!--Book Has Note: {{deal.bookHasNotes}}-->
-                    <!--<br/> Comment: {{deal.bookComment}}-->
+                <div data-ng-repeat="contact in deal.contacts">
+                    <h5 class="lato grey-text">By
+                        <text class="blue-text">Buyer: {{contact.buyerNickName}}</text><br/>
+                        <text class="blue-text">Buyer Email: {{contact.buyerEmail}}</text><br/>
+                        Contact Date::: {{contact.contactDateTime}} <br/>
 
-                    <!--<br/> COE : {{deal.bookPaymentMethodCaShOnExchange}}, Cheque: {{deal.bookPaymentMethodCheque}}-->
-                    <!--<br/> Available Date: {{deal.bookAvailableDate}}-->
-                    <!--<br/> Campus: {{deal.universityName}}, {{deal.campusName}},{{deal.stateName}},-->
-                    <!--{{deal.countryName}}-->
+                    </h5>
+                    <h4>Messages</h4>
+                    <h5 data-ng-repeat="message in contact.messages">
+                        <text class="orange-text">{{message.messageDateTime}}</text>
+                        <text class="blue-text">{{message.sender}}</text>
+                        <text class="grey-text">{{message.messageBody}}</text>
+                    </h5>
+                    <button ng-click="getMessages(contact)">See Messages</button>
+                    <button ng-click="contact.sendMessageForm=true">Send Message</button>
+                    <form ng-show="contact.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
 
-                <!--</h5>-->
+                        <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                            <p class="white-text ">Message :</p>
+
+                            <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
+
+                            <p class="help-block">
+                                <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group text-left mt-20">
+                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                            <button type="button" ng-click="contact.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                        </div>
+
+                    </form>
+                    <hr/>
+                </div>
             </div>
 
         </div>
@@ -109,37 +131,44 @@
                     </h5>
 
                     <h4>Contact Information</h4>
-                    <h5 class="lato grey-text">By
-                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
-                    Contact Date::: {{deal.contactDateTime}} <br/>
+                    <div data-ng-repeat="contact in deal.contacts">
+                        <h5 class="lato grey-text">By
+                            <text class="blue-text">Buyer: {{contact.buyerNickName}}</text><br/>
+                            <text class="blue-text">Buyer Email: {{contact.buyerEmail}}</text><br/>
+                            <text class="blue-text">Buyer Cell Phone: {{contact.buyerCellPhone}}</text><br/>
+                            <text class="blue-text">Buyer Home Phone: {{contact.buyerHomePhone}}</text><br/>
+                            Contact Date::: {{contact.contactDateTime}} <br/>
 
-                    </h5>
-                    <h4>Messages</h4>
-                    <h5 data-ng-repeat="message in deal.messages">
-                        <text class="orange-text">{{message.messageDateTime}}</text>
-                        <text class="blue-text">{{message.sender}}</text>
-                        <text class="grey-text">{{message.messageBody}}</text>
-                    </h5>
-                    <button ng-click="getMessages(deal)">See Messages</button>
-                    <button ng-click="deal.sendMessageForm=true">Send Message</button>
-                    <form ng-show="deal.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,deal)" role="form" novalidate>
+                        </h5>
+                        <h4>Messages</h4>
+                        <h5 data-ng-repeat="message in contact.messages">
+                            <text class="orange-text">{{message.messageDateTime}}</text>
+                            <text class="blue-text">{{message.sender}}</text>
+                            <text class="grey-text">{{message.messageBody}}</text>
+                        </h5>
+                        <button ng-click="getMessages(contact)">See Messages</button>
+                        <button ng-click="contact.sendMessageForm=true">Send Message</button>
+                        <button ng-click="markUserAsBuyerOfThatDeal(contact)">Send Message</button>
+                        <form ng-show="contact.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
 
-                        <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-                            <p class="white-text ">Message :</p>
+                            <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                                <p class="white-text ">Message :</p>
 
-                            <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="deal.message" required></textarea>
+                                <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
 
-                            <p class="help-block">
-                                <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                            </p>
-                        </div>
+                                <p class="help-block">
+                                    <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                                </p>
+                            </div>
 
-                        <div class="form-group text-left mt-20">
-                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
-                            <button type="button" ng-click="deal.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
-                        </div>
+                            <div class="form-group text-left mt-20">
+                                <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                                <button type="button" ng-click="contact.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                            </div>
 
-                    </form>
+                        </form>
+                        <hr/>
+                    </div>
                 </div>
 
             </div>

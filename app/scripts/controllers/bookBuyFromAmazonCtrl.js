@@ -9,14 +9,14 @@
 
     function BookBuyFromAmazonCtrl($stateParams,$scope,bookService,identityService) {
 
-//        alert($stateParams.bookOfferId);
+        $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "buyBook";
+
         var data={
-            'accessToken': identityService.getAccessToken(),
             'bookOfferId':$stateParams.bookOfferId
-        }
+        };
         bookService.getAmazonCartCreateUrl(data).then(function(response){
-            window.location.replace(response.data.cartUrl);
-//            console.log(response.data.cartUrl);
+            window.location.replace(response.data.success.successData.cartUrl);
         });
 
 //        $scope.bookSearchResult=null;

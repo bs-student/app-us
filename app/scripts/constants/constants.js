@@ -79,14 +79,31 @@
         })
         .constant("BOOK_CONSTANT", {
             "SEARCH_AMAZON": "/book/search_by_keyword_amazon",
+            "SEARCH_AMAZON_API": "/api/book/search_by_keyword_amazon_api",
             "GET_LOWEST_ONLINE_PRICE": "/book/get_lowest_price_by_isbn_campus_books",
             "GET_BOOK_BY_ASIN_AMAZON":"/book/search_by_asin_amazon",
             "GET_BOOK_BY_ISBN_AMAZON":"/book/search_by_isbn_amazon",
             "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/book/search_by_isbn_campus_books",
             "GET_AMAZON_CART_CREATE_URL":"/book/get_amazon_cart_create_url",
-            "ADD_NEW_SELL_BOOK":"/api/book/add_new_sell_book"
+            "GET_CAMPUS_DEALS_BY_ISBN_API":"/api/book/get_campus_deals_by_isbn_api",
+            "GET_CAMPUS_DEALS_BY_ISBN":"/book/get_campus_deals_by_isbn",
+//            "GET_ON_CAMPUS_DEALS_BY_ISBN":"/api/book/get_on_campus_deals_by_isbn",
+            "ADD_NEW_SELL_BOOK":"/api/book/add_new_sell_book",
+            "ADD_NEW_CUSTOM_SELL_BOOK": "/api/book/add_new_custom_sell_book"
 //            "SUBMIT": "/login_check",
 //            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
+
+        })
+        .constant("CONTACT_CONSTANT", {
+            "ADD_CONTACT": "/contact/add_contact",
+            "ADD_CONTACT_API": "/api/contact/add_contact_api",
+            "GET_MESSAGES": "/api/contact/get_messages",
+            "SEND_MESSAGES": "/api/contact/send_messages"
+
+        })
+        .constant("BOOK_DEAL_CONSTANT", {
+            "GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR": "/api/book_deal/get_book_deals_i_have_contacted_for",
+            "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created"
 
         })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{

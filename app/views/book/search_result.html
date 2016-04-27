@@ -68,7 +68,7 @@
                     <div class="price-details" ng-class="{Grid:'', List:'col-md-4'}[viewType]">
                         <p class="orange-text italic lato price-title">Lowest Price Online</p>
 
-                        <h3 cg-busy="{promise:book.lowestOnlinePricePromise}" class="orange-text small-price lato">{{book.lowestOnlinePrice}}</h3>
+                        <h3 cg-busy="{promise:book.lowestOnlinePricePromise}" class="orange-text small-price lato">{{book.bookPriceOnlineLowest}}</h3>
                     </div>
                     <div class="price-details border-left-grey"
                          ng-class="{Grid:'', List:'col-md-4 listing-price'}[viewType]">
@@ -77,10 +77,12 @@
                         <h3 ng-show="book.bookPriceStudentLowestFound" class="lato orange-text small-price student-price">{{book.bookPriceStudentLowest}}
                         </h3>
 
-                        <p class="lato grey-text no-price-found">{{book.bookPriceStudentLowest ? "" : 'No student at
-                            "University of Wisconsin
-                            Parkside - Kenosha (WI)" is selling this
-                            textbook on-campus. '}}</p>
+                        <p ng-show="!book.bookPriceStudentLowestFound" class="lato grey-text no-price-found">
+                            <text ng-show="!noUniversitySelected">'No student at
+                                "{{university}}" is selling this
+                                textbook on-campus. '</text>
+                            <text ng-show="noUniversitySelected">'No Students is selling that book on Campus'</text>
+                            </p>
                     </div>
 
                 </div>
@@ -89,7 +91,7 @@
                 <div ng-show="viewType=='List'" class="row lowest-price-row">
 
                     <div class="col-md-12 text-center">
-                        <a ui-sref="app.bookComparePrice" class="myBtn blue-btn details-view-button">View Book Deal Details</a>
+                        <button ng-click="goToComparePage(book)" class="myBtn blue-btn details-view-button">View Book Deal Details</button>
                     </div>
                 </div>
 
@@ -100,7 +102,7 @@
         <div ng-show="viewType=='Grid'" class="row lowest-price-row">
 
             <div class="col-md-12 text-center">
-                <a ui-sref="app.bookComparePrice" class="myBtn blue-btn details-view-button">View Book Deal Details</a>
+                <button ng-click="goToComparePage(book)" class="myBtn blue-btn details-view-button">View Book Deal Details</button>
             </div>
         </div>
 
