@@ -34,6 +34,7 @@ var assets = {
         "bower_components/oclazyload/dist/ocLazyLoad.js",
         "bower_components/angular-recaptcha/release/angular-recaptcha.js",
         "bower_components/angular-busy/dist/angular-busy.js",
+        "bower_components/angular-sanitize/angular-sanitize.js",
 
         "vendor/superfish/js/superfish.js",
         "vendor/jRespond/jRespond.js",
@@ -84,6 +85,12 @@ var assets = {
         "app/scripts/controllers/howItWorksCtrl.js",
         "app/scripts/controllers/conceptVideoCtrl.js",
         "app/scripts/controllers/bookBuyCtrl.js",
+        "app/scripts/controllers/contactCtrl.js",
+        "app/scripts/controllers/contactedBookListCtrl.js",
+        "app/scripts/controllers/sellingBookListCtrl.js",
+
+
+
 
         "app/scripts/directives/anchor-scroll.js",
         "app/scripts/directives/angular.flexslider.js",
@@ -120,6 +127,10 @@ var assets = {
         "app/scripts/services/universityService.js",
         "app/scripts/services/userService.js",
         "app/scripts/services/imageModalService.js",
+        "app/scripts/services/contactService.js",
+        "app/scripts/services/storageService.js",
+        "app/scripts/services/bookDealService.js",
+        "app/scripts/services/wishlistService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

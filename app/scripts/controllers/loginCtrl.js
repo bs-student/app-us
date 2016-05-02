@@ -6,9 +6,9 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', 'identityService', '$state', "securityService", 'userService','responseService'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishlistService','storageService'];
 
-    function LoginCtrl($scope, identityService, $state, securityService, userService,responseService) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishlistService,storageService) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
@@ -18,6 +18,7 @@
             {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
         ];
 
+        $scope.bookId = $stateParams.bookId;
         $scope.loginUser = _loginUser;
 
 
@@ -80,7 +81,16 @@
             responseService.showSuccessToast("Login Successful");
             $scope.$parent.loggedIn = true;
             $scope.$parent.username = response.data.success.successData.username;
+//            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);
+            if($scope.bookId!=undefined){
+                wishlistService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.bookId}).then(function(response){
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                }).catch(function(response){
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                });
+            }
             $state.go('app.dashboard');
+
         }
 
         /*function _loginViaGoogle() {

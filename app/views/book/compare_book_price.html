@@ -1,573 +1,499 @@
-<div class="page page-ng-table">
+<div class="compare-page-head-banner">
+
+</div>
 
 
-    <!-- page header -->
-    <div class="pageheader">
-
-        <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
-
-        <div class="page-bar">
-
-            <ul class="page-breadcrumb">
-                <li>
-                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
-                </li>
-                <li>
-                    <a href="javascript:;">Tables</a>
-                </li>
-                <li>
-                    <a ui-sref="app.tables.ng-table">{{page.title}}</a>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
-    <!-- /page header -->
+<section class="compare-page" id="content">
 
 
-    <!-- page content -->
-    <div class="pagecontent">
+<div class="content-wrap mid-section">
 
 
-        <!-- row -->
+<div class="section m-0 pt-0 mid-one">
+    <div class="container clearfix quote-container-homepage">
         <div class="row">
 
+            <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-right-none">
+                <div class="compare-page-top-button first-button border-right-none">
+                    <a ng-click="saveToWishList()">
+                        <div class="wishlist-icon-div"></div>
 
-            <!-- col -->
-            <div class="col-md-12">
-
-
-
-                <section class="tile" fullscreen="isFullscreen07">
-
-                <!-- tile header -->
-                <div class="tile-header dvd dvd-btm">
-                    <h1 class="custom-font">Book Details</h1>
-                    <ul class="controls">
-                        <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-                            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                <li>
-                                    <a href tile-control-toggle>
-                                        <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                        <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-refresh ng-click="ajaxFaker()">
-                                        <fa name="refresh"></fa> Refresh
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href tile-control-fullscreen ng-click="isFullscreen07 = !isFullscreen07">
-                                        <fa name="expand"></fa> Fullscreen
-                                    </a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                        <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                    </ul>
+                        Save To Wishlist
+                    </a>
                 </div>
-                <!-- /tile header -->
-
-                <!-- tile widget -->
-                <div class="tile-widget">
-
-                    <!-- row -->
-                    <div style="border-bottom: 1px solid;margin-top: 10px;" class="row" ng-repeat="book in bookSearchResult">
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <div class="media mb-20">
-                                <div class="pull-left" data-ng-repeat="bookImage in book.bookImages">
-                                    <img class="media-object" ng-src="{{bookImage.image}}" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading mb-0">{{book.bookTitle}}</h4>
-                                    <small class="text-lightred">{{book.bookDirectorAuthorArtist}}</small>
-                                </div>
-                            </div>
-                            <!-- row -->
-                            <div class="row">
-                                <!-- col -->
-                                <div class="col-md-4 text-center">
-                                    <span class="text-greensea"><i class="fa fa-money"></i> {{book.bookPriceAmazon}}</span>
-                                </div>
-
-                            </div>
-                            <!-- /row -->
-                        </div>
-                        <!-- /col -->
-                        <!-- col -->
-                        <div class="col-md-6">
-                            <dl class="dl-horizontal text-sm">
-                                <dt style="width: 100px;">ISBN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookIsbn}}</dd>
-
-                                <dt style="width: 100px;">EAN: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEan}}</dd>
-                                <dt style="width: 100px;">Published By: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublisher}}</dd>
-                                <dt style="width: 100px;">Publish Date: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPublishDate}}</dd>
-                                <dt style="width: 100px;">Book Edition: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookEdition}}</dd>
-                                <dt style="width: 100px;">Book Binding: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookBinding}}</dd>
-                                <dt style="width: 100px;">Language: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookLanguage}}</dd>
-                                <dt style="width: 100px;">Pages: </dt>
-                                <dd style="margin-left: 70px;">{{book.bookPages}}</dd>
-
-                                <!--<dt style="width: 60px;">Rating: </dt>-->
-                                <!--<dd  style="margin-left: 70px;" class="text-lightred"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></dd>-->
-                            </dl>
-                            <a target="_blank"  ui-sref="book.buy_from_amazon({bookOfferId: '{{book.bookOfferId}}'})"  class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Buy From Amazon <i class="fa fa-arrow-right"></i></a>
-                        </div>
-                        <div class="col-md-12">
-                            <h4>Description:</h4>
-                            <p ng-bind-html="book.bookDescription"></p>
-                        </div>
-                        <!-- /col -->
-                    </div>
-
-
-                    <!-- /row -->
-
-                </div>
-                <!-- /tile widget -->
-
-
-                <!-- /tile body -->
-
-                </section>
-
-                <section class="tile bg-greensea" fullscreen="isFullscreen06" >
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of Buyer To Seller</h1>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Condition</th>
-                                    <th>TextBook Highlighted</th>
-                                    <th>Notes IN TextBook</th>
-                                    <th>Available</th>
-                                    <th>Comment</th>
-                                    <!--<th>Campus</th>-->
-                                    <th>Price</th>
-                                    <th>Contact</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr  data-ng-repeat="deal in campusBookDeals.buyerToSeller">
-
-                                    <td>{{deal.username}}</td>
-                                    <td>{{deal.bookCondition}}</td>
-                                    <td>{{deal.bookIsHighlighted}}</td>
-                                    <td>{{deal.bookHasNotes}}</td>
-                                    <td>{{deal.bookAvailableDate}}</td>
-                                    <td>{{deal.bookComment}}</td>
-                                    <!--<td>{{deal.universityName}}, {{deal.campusName}}, {{deal.stateName}}, {{deal.countryName}}</td>-->
-                                    <td>${{deal.bookPriceSell}}</td>
-                                    <td>
-
-                                        <!--<div ng-show="$parent.loggedIn">
-                                            <button ng-click="contact(deal)" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-
-                                        <div ng-show="!$parent.loggedIn">
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                        </div>-->
-
-
-
-                                        <div ng-show="$parent.loggedIn">
-                                            <button ng-click="contact(deal)" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-                                        <div ng-show="!$parent.loggedIn">
-
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                            <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-
-                <section class="tile bg-greensea" fullscreen="isFullscreen06">
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of Seller To Buyer</h1>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Condition</th>
-                                    <th>TextBook Highlighted</th>
-                                    <th>Notes IN TextBook</th>
-                                    <th>Available</th>
-                                    <th>Comment</th>
-                                    <!--<th>Campus</th>-->
-                                    <th>Price</th>
-                                    <th>Contact</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr  data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
-
-                                    <td>{{deal.username}}</td>
-                                    <td>{{deal.bookCondition}}</td>
-                                    <td>{{deal.bookIsHighlighted}}</td>
-                                    <td>{{deal.bookHasNotes}}</td>
-                                    <td>{{deal.bookAvailableDate}}</td>
-                                    <td>{{deal.bookComment}}</td>
-                                    <!--<td>{{deal.universityName}}, {{deal.campusName}}, {{deal.stateName}}, {{deal.countryName}}</td>-->
-                                    <td>${{deal.bookPriceSell}}</td>
-                                    <td>
-
-                                        <!--<div ng-show="$parent.loggedIn">
-                                            <button ng-click="contact(deal)" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-
-                                        <div ng-show="!$parent.loggedIn">
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                        </div>-->
-
-                                        <div ng-show="$parent.loggedIn">
-                                            <button ng-click="contact(deal)" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-                                        <div ng-show="!$parent.loggedIn">
-
-                                            <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Sign In</a>
-                                            <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Contact</button>
-                                        </div>
-                                    </td>
-
-
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-
-                <section data-ng-repeat="table in bookConditions" class="tile bg-greensea" fullscreen="isFullscreen06">
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font">Books of <strong>{{table["@attributes"].name}}</strong> condition</h1>
-                        <ul class="controls">
-                            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-                                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                    <li>
-                                        <a href tile-control-toggle>
-                                            <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                            <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-refresh ng-click="ajaxFaker()">
-                                            <fa name="refresh"></fa> Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
-                                            <fa name="expand"></fa> Fullscreen
-                                        </a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body p-0">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Online Store</th>
-                                    <th>Available</th>
-                                    <th>Comments</th>
-                                    <th>Shipping</th>
-                                    <th>Price</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr data-ng-repeat="store in table.offer">
-                                    <td> <img class="media-object" ng-src="{{store.merchant_image}}" alt="{{store.merchant_name}}"></td>
-                                    <td>{{store.availability_text}}</td>
-                                    <td>{{store.comments}}</td>
-                                    <td>${{store.shipping_ground}}</td>
-                                    <td>${{store.price}}</td>
-                                    <td>${{store.total_price}}</td>
-                                    <td><a target="_blank" href="{{store.link}}" class="btn btn-success btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10">Buy Now <i class="fa fa-arrow-right"></i></a></td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-                <!--<section class="tile bg-lightred" fullscreen="isFullscreen06">-->
-
-                    <!--&lt;!&ndash; tile header &ndash;&gt;-->
-                    <!--<div class="tile-header dvd dvd-btm">-->
-                        <!--<h1 class="custom-font"><strong>Responsive </strong>Table</h1>-->
-                        <!--<ul class="controls">-->
-                            <!--<li class="dropdown" uib-dropdown on-toggle="toggled(open)">-->
-
-                                <!--<a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>-->
-
-                                <!--<ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-toggle>-->
-                                            <!--<span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>-->
-                                            <!--<span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-refresh ng-click="ajaxFaker()">-->
-                                            <!--<fa name="refresh"></fa> Refresh-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">-->
-                                            <!--<fa name="expand"></fa> Fullscreen-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-
-                                <!--</ul>-->
-
-                            <!--</li>-->
-                            <!--<li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile header &ndash;&gt;-->
-
-                    <!--&lt;!&ndash; tile body &ndash;&gt;-->
-                    <!--<div class="tile-body p-0">-->
-
-                        <!--<div class="table-responsive">-->
-                            <!--<table class="table">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
-                                    <!--<th>Online Store</th>-->
-                                    <!--<th>Available</th>-->
-                                    <!--<th>Comments</th>-->
-                                    <!--<th>Shipping</th>-->
-                                    <!--<th>Price</th>-->
-                                    <!--<th>Total</th>-->
-                                    <!--<th>Action</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-
-                                <!--</tbody>-->
-                            <!--</table>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile body &ndash;&gt;-->
-
-                <!--</section>-->
-                <!--<section class="tile bg-default" fullscreen="isFullscreen06">-->
-
-                    <!--&lt;!&ndash; tile header &ndash;&gt;-->
-                    <!--<div class="tile-header dvd dvd-btm">-->
-                        <!--<h1 class="custom-font"><strong>Responsive </strong>Table</h1>-->
-                        <!--<ul class="controls">-->
-                            <!--<li class="dropdown" uib-dropdown on-toggle="toggled(open)">-->
-
-                                <!--<a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>-->
-
-                                <!--<ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-toggle>-->
-                                            <!--<span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>-->
-                                            <!--<span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-refresh ng-click="ajaxFaker()">-->
-                                            <!--<fa name="refresh"></fa> Refresh-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">-->
-                                            <!--<fa name="expand"></fa> Fullscreen-->
-                                        <!--</a>-->
-                                    <!--</li>-->
-
-                                <!--</ul>-->
-
-                            <!--</li>-->
-                            <!--<li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile header &ndash;&gt;-->
-
-                    <!--&lt;!&ndash; tile body &ndash;&gt;-->
-                    <!--<div class="tile-body p-0">-->
-
-                        <!--<div class="table-responsive">-->
-                            <!--<table class="table">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
-                                    <!--<th>Online Store</th>-->
-                                    <!--<th>Available</th>-->
-                                    <!--<th>Comments</th>-->
-                                    <!--<th>Shipping</th>-->
-                                    <!--<th>Price</th>-->
-                                    <!--<th>Total</th>-->
-                                    <!--<th>Action</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                    <!--<td>1</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                    <!--<td>Mark</td>-->
-                                    <!--<td>Otto</td>-->
-                                    <!--<td>@mdo</td>-->
-                                <!--</tr>-->
-
-                                <!--</tbody>-->
-                            <!--</table>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /tile body &ndash;&gt;-->
-
-                <!--</section>-->
-                <!-- /tile -->
-
             </div>
-            <!-- /col -->
+            <div cg-busy="{promise:campusPromise}"
+                 class="col-md-3 padding-right-none padding-left-none border-right-none">
+                <div class="compare-page-top-button middle-button">
+                    <a ng-click="contact(cheapestCampusDeal)" ng-show="$parent.loggedIn">
+                        <div class="phone-icon-div"></div>
+
+                        Contact Cheapest Seller Locally
+                    </a>
+                    <a ui-sref="app.login" ng-show="!$parent.loggedIn">
+                        <div class="phone-icon-div"></div>
+
+                        Sign In to Contact Cheapest Seller Locally
+                    </a>
+                </div>
+            </div>
+            <div cg-busy="{promise:onlinePromise}"
+                 class="col-md-3 padding-right-none padding-left-none border-right-none">
+                <div class="compare-page-top-button middle-button border-left-none">
+                    <a target="_blank" href="{{cheapestOnlineBook.link}}">
+                        <div class="cart-icon-div"></div>
+                        Go To Cheapest Online Store
+                    </a>
+                </div>
+            </div>
+            <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-left-none">
+                <div class="compare-page-top-button last-button">
+                    <a target="_blank" ui-sref="app.buy_from_amazon({bookOfferId: amazonBook.bookOfferId })">
+                        <div class="amazon-icon-div"></div>
+                        Buy From Amazon
+                    </a>
+                </div>
+            </div>
 
 
         </div>
-        <!-- /row -->
+
+    </div>
+</div>
+
+
+<div class="section mid-section compare-page-header-section">
+    <div cg-busy="{promise:amazonPromise}" class="container clearfix">
+
+        <div class="row" ng-repeat="book in bookSearchResult">
+
+            <div class="col-md-10">
+                <div class="book-title-header">
+                    <h1 class="uppercase"><strong>{{book.bookTitle}}</strong></h1>
+                    <hr/>
+                </div>
+                <div>
+                    <p class="book-subtitle-header">{{book.bookSubTitle}}</p>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="big-price"><h1 class="big-price-number orange-text lato">
+                    <strong>${{lowestPrice.toFixed(2)}}</strong></h1></div>
+            </div>
+
+
+        </div>
 
 
     </div>
-    <!-- /page content -->
+</div>
+
+
+<div class="section mid-section specification-section" ng-repeat="book in bookSearchResult">
+    <div class="container clearfix">
+
+        <div class="row specification-row">
+
+            <div class="col-md-6">
+                <div class="row">
+
+
+                    <div class="col-md-offset-3 col-md-6 main-image text-right">
+                        <div class="search-book-image-carousel book-details-page">
+                            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+
+                                <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
+                                    <img class="main-pic" ng-click="viewImage($event)"
+                                         data-options="splash-2 splash-primary splash-ef-2"
+                                         class="big-images" ng-src="{{host}}{{slide.image}}">
+
+                                </uib-slide>
+                            </uib-carousel>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="book.showThumb">
+                        <div class="row text-center thumb-controller">
+                            <span><a class="thumb-control-left" ng-click="prevPage(book)"><i
+                                    class="fa fa-angle-up fa-3x"></i></a></span>
+                        </div>
+                        <div class="row" >
+                            <div
+                                 ng-repeat="thumb in book.showThumbnails">
+                                <img class="thumb-pics" ng-class="{true:'active',false:'not-active'}[thumb.active]" ng-src="{{host}}{{thumb.image}}"
+                                     ng-click="setActive(book,thumb.imageId)"/>
+                            </div>
+                        </div>
+                        <div class="row text-center thumb-controller">
+                            <span><a class="thumb-control-right" ng-click="nextPage(book)"><i
+                                    class="fa fa-angle-down fa-3x"></i></a></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Edition</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <strong>{{book.bookEdition}}</strong></div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Author</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookDirectorAuthorArtist}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-10</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookIsbn}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-13</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookEan}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Publisher</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <strong>{{book.bookPublisher}}</strong></div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Publish Date</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <strong>{{book.bookPublishDate}}</strong></div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Page</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookPages}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Binding</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <strong>{{book.bookBinding}}</strong></div>
+                    </div>
+                </div>
+
+                <div class="row attribute-row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>List Price</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <strong>{{book.bookPriceAmazon}}</strong></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="orange-text lato attribute-name-field text-left"><strong>Details</strong></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blue-text lato attribute-name-field text-right">
+                            <button ng-click="book.showTotalDescription=!book.showTotalDescription"
+                                    class="myBtn app-btn buy-now-button view-more-button compare-page"><i
+                                    class="fa fa-angle-down"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div ng-show="book.showTotalDescription"
+                             class="blue-text lato attribute-details-field text-left">{{book.bookDescription}}
+                        </div>
+                        <div ng-show="!book.showTotalDescription"
+                             class="blue-text lato attribute-details-field text-left">
+                            {{book.bookDescription.substring(0, 300)}} ...
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="section m-0 pt-0 mid-one compare-result-section">
+<div class="container clearfix quote-container-homepage">
+<div class="row">
+
+<div class="col-md-12">
+
+<uib-tabset justified="true" type="pills">
+<uib-tab class="first-tab">
+    <uib-tab-heading>
+        <div class="people-icon-div"></div>
+        <text>Student On Campus</text>
+    </uib-tab-heading>
+    <div cg-busy="{promise:campusPromise}">
+        <table class="table table-striped campus-result-table">
+            <thead>
+            <tr>
+                <th>Seller (Student)</th>
+                <th>Condition / Details</th>
+                <th>Contact Method</th>
+                <th>Available</th>
+                <th>Payment</th>
+                <th>Price</th>
+                <th>Contact</th>
+            </tr>
+            </thead>
+            <tbody ng-show="noUniversitySelected">
+            <tr>
+                <td colspan="7" class="text text-danger">You need to choose your University before
+                    you can see on-campus textbooks.
+                </td>
+            </tr>
+            </tbody>
+            <tbody ng-show="!noUniversitySelected">
+
+            <tr data-ng-repeat="deal in campusBookDeals.buyerToSeller">
+                <td>{{deal.username}}</td>
+                <td>{{deal.bookCondition}}
+                    <button class="myBtn app-btn buy-now-button view-more-button"
+                            ng-click="deal.showDetails=!deal.showDetails"><i
+                            class="fa fa-angle-down fa-2x"></i></button>
+                    <div class="transition-view" ng-show="deal.showDetails">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                        Comment by Seller: {{deal.bookComment}}
+                    </div>
+
+                </td>
+                <td>Buyer Contacts Seller</td>
+
+                <td>{{deal.bookAvailableDate}}</td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                    Cash
+                </td>
+                <td ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cheque
+                </td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cash, Cheque
+                </td>
+                <td>${{deal.bookPriceSell}}</td>
+                <td>
+                    <div ng-show="$parent.loggedIn">
+                        <button ng-click="contact(deal)" class="myBtn app-btn buy-now-button ">
+                            Contact
+                        </button>
+                    </div>
+                    <div ng-show="!$parent.loggedIn">
+
+                        <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
+                           class="myBtn app-btn buy-now-button ">Sign In</a>
+                        <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
+                                class="myBtn app-btn buy-now-button ">Contact
+                        </button>
+                    </div>
+
+                    <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->
+                </td>
+            </tr>
+            <tr ng-if="noBuyerToSeller">
+                <td class="text text-danger" colspan="7">There is no deal on-campus where Buyer
+                    contacts Seller
+                </td>
+            </tr>
+            <tr data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
+                <td>{{deal.username}}</td>
+                <td>{{deal.bookCondition}}
+                    <button class="myBtn app-btn buy-now-button view-more-button"
+                            ng-click="deal.showDetails=!deal.showDetails"><i
+                            class="fa fa-angle-down fa-2x"></i></button>
+                    <div class="transition-view" ng-show="deal.showDetails">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                        Comment by Seller: {{deal.bookComment}}
+                    </div>
+
+                </td>
+                <td>Seller Contacts Buyer</td>
+                <td>{{deal.bookAvailableDate}}</td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                    Cash
+                </td>
+                <td ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cheque
+                </td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cash, Cheque
+                </td>
+                <td>${{deal.bookPriceSell}}</td>
+                <td>
+                    <div ng-show="$parent.loggedIn">
+                        <button ng-click="contact(deal)" class="myBtn app-btn buy-now-button ">
+                            Contact
+                        </button>
+                    </div>
+                    <div ng-show="!$parent.loggedIn">
+
+                        <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
+                           class="myBtn app-btn buy-now-button ">Sign In</a>
+                        <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
+                                class="myBtn app-btn buy-now-button ">Contact
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="noSellerToBuyer">
+                <td class="text text-danger" colspan="7">There is no deal on-campus where Seller
+                    contacts Buyer
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</uib-tab>
+<uib-tab class="mid-tab">
+    <uib-tab-heading>
+        <div class="book-close-icon-div"></div>
+        <text>Online Stores: New</text>
+    </uib-tab-heading>
+    <div cg-busy="{promise:onlinePromise}">
+
+
+        <table class="table table-striped campus-result-table">
+            <thead>
+            <tr>
+                <th>Online Store</th>
+                <th>Available</th>
+                <th style="width: 20%">Comments</th>
+                <th>Shipping</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="book in newBooks">
+                <td class="store-image-td"><img ng-src="{{book.merchant_image}}"
+                                                alt="{{book.merchant_name}}"></td>
+                <td>{{book.availability_text}}</td>
+                <td>{{book.comments}}</td>
+                <td>${{book.shipping_ground}}</td>
+                <td>${{book.price}}</td>
+
+                <td>
+                    ${{book.total_price}} &nbsp;
+                    <a target="_blank" href="{{book.link}}" class="myBtn app-btn buy-now-button ">Buy
+                        Now</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</uib-tab>
+<uib-tab class="last-tab">
+    <uib-tab-heading>
+        <div class="book-open-icon-div"></div>
+        <text>Online Stores: Used</text>
+    </uib-tab-heading>
+    <div cg-busy="{promise:onlinePromise}">
+        <table class="table table-striped campus-result-table">
+            <thead>
+            <tr>
+                <th>Online Store</th>
+                <th>Available</th>
+                <th style="width: 20%;">Comments</th>
+                <th>Shipping</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="book in usedBooks">
+                <td class="store-image-td"><img ng-src="{{book.merchant_image}}"
+                                                alt="{{book.merchant_name}}"></td>
+                <td>{{book.availability_text}}</td>
+                <td>{{book.comments}}</td>
+                <td>${{book.shipping_ground}}</td>
+                <td>${{book.price}}</td>
+
+                <td>
+                    ${{book.total_price}} &nbsp;
+                    <a target="_blank" href="{{book.link}}" class="myBtn app-btn buy-now-button ">Buy
+                        Now</a>
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</uib-tab>
+
+
+</uib-tabset>
+</div>
+
+</div>
+
+</div>
+</div>
 
 
 </div>
+</div>
+
+</section>
+
+
+<script type="text/ng-template" id="myModalContent">
+   <!-- <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">{{title}}</h3>
+    </div>-->
+    <div class="modal-body">
+
+        <div class="modal-images">
+            <img style="width: 100%;" data-ng-src="{{src}}"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-arrow-right"></i> Ok
+        </button>
+    </div>
+</script>

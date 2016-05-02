@@ -19,7 +19,8 @@
             getCampusDealsByIsbn: _getCampusDealsByIsbn,
 //            getOnCampusDealsByIsbn:_getOnCampusDealsByIsbn,
             addSellBook:_addSellBook,
-            addCustomSellBook:_addCustomSellBook
+            addCustomSellBook:_addCustomSellBook,
+            addBookToWishList:_addBookToWishList
 //            getUniversitiesForAutocomplete : _getUniversitiesForAutocomplete,
 //            getUniversitiesNameForAutocomplete : _getUniversitiesNameForAutocomplete,
 //            getSearchUniversities: _getSearchUniversities,
@@ -87,6 +88,10 @@
             }
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_NEW_CUSTOM_SELL_BOOK+"?access_token="+accessToken,data,config);
 
+        }
+
+        function _addBookToWishList(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_BOOK_TO_WISH_LIST+"?access_token="+accessToken,data);
         }
 
 //        function _getUniversitiesNameForAutocomplete(query){

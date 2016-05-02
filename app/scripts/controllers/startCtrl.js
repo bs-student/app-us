@@ -5,10 +5,10 @@
     app
         .controller('StartCtrl', StartCtrl)
 
-    StartCtrl.$inject = ['$state','$rootScope','$scope', 'identityService', 'userService','securityService','responseService'];
+    StartCtrl.$inject = ['$state','$rootScope','$scope', 'identityService', 'userService','securityService','responseService','storageService'];
 
 
-    function StartCtrl($state,$rootScope,$scope, identityService, userService,securityService,responseService) {
+    function StartCtrl($state,$rootScope,$scope, identityService, userService,securityService,responseService,storageService) {
 
 
 //        $scope.homePage = null;
@@ -69,7 +69,7 @@
         }
 
         function setUserData (response) {
-
+//            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);
             identityService.setAuthorizedUserData(response.data.success.successData);
             if(identityService.getAuthorizedUserData().registrationStatus=="incomplete"){
                 userLoggedIn();

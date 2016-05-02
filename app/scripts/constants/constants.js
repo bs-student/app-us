@@ -4,8 +4,10 @@
 
     app
         .constant("SERVER_CONSTANT",{
-            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php"
+            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
+            "DOMAIN_HOST":"http://localhost:8080/Student2StudentApi/web"
+//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php",
+//            "DOMAIN_HOST":"http:/168.61.173.224:8080/Student2Student/api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
@@ -90,8 +92,13 @@
 //            "GET_ON_CAMPUS_DEALS_BY_ISBN":"/api/book/get_on_campus_deals_by_isbn",
             "ADD_NEW_SELL_BOOK":"/api/book/add_new_sell_book",
             "ADD_NEW_CUSTOM_SELL_BOOK": "/api/book/add_new_custom_sell_book"
+
 //            "SUBMIT": "/login_check",
 //            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
+
+        })
+        .constant("WISHLIST_CONSTANT", {
+            "ADD_BOOK_TO_WISH_LIST": "/api/wishlist/add_book_to_wish_list"
 
         })
         .constant("CONTACT_CONSTANT", {
@@ -103,7 +110,8 @@
         })
         .constant("BOOK_DEAL_CONSTANT", {
             "GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR": "/api/book_deal/get_book_deals_i_have_contacted_for",
-            "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created"
+            "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created",
+            "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user"
 
         })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{

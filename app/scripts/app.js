@@ -200,8 +200,10 @@ var app = angular
             .state('app.login', {
                 url: '^/login',
                 controller: 'LoginCtrl',
-                templateUrl: 'views/security/login.html'
-
+                templateUrl: 'views/security/login.html',
+                params: {
+                    "bookId": null
+                }
 //                resolve: {
 //                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
 //                        return $ocLazyLoad.load([
@@ -269,7 +271,8 @@ var app = angular
             .state('app.bookComparePrice', {
                 url: '^/bookComparePrice/:asin?isbn',
                 controller: 'BookCompareCtrl',
-                templateUrl: 'views/book/compare.html'
+//                templateUrl: 'views/book/compare.html'
+                templateUrl: 'views/book/compare_book_price.html'
             })
             //If Buy From Amazon
             .state('app.buyFromAmazon', {
@@ -315,7 +318,11 @@ var app = angular
                     }]
                 }
             })
-
+            //BUY FROM AMAZON
+            .state('app.buy_from_amazon', {
+                url: '^/buy_from_amazon:bookOfferId',
+                controller: 'BookBuyFromAmazonCtrl'
+            })
 
 
 

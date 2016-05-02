@@ -85,6 +85,7 @@
                     contactId:contact.contactId
                 }
                 contactService.sendMessages(data).then(function(response){
+                    responseService.showSuccessToast("Message is Sent");
                     if(contact.messages!=undefined){
                         contact.messages.push(response.data.success.successData);
                     }
@@ -109,8 +110,30 @@
 
         }
 
-        function _markUserAsBuyerOfThatDeal(contact){
-            //TODO MARK USER AS BUYER OF THAT DEAL AND CHANGE STATUS AS SOLD TO SEND IT TO BUY & SOLD ARCHIVE
+        function _markUserAsBuyerOfThatDeal(allDeals,deal,contact){
+            var data = {
+                'contactId':contact.contactId
+            }
+            bookDealService.sellBookToUser(identityService.getAccessToken(),data).then(function(response){
+                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+                allDeals.splice(allDeals.indexOf(deal),1);
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _markUserAsBuyerOfThatDeal(contact);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+
         }
 
 //        function _contactSeller(valid){

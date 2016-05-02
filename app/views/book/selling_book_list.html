@@ -67,6 +67,7 @@
                     </h5>
                     <button ng-click="getMessages(contact)">See Messages</button>
                     <button ng-click="contact.sendMessageForm=true">Send Message</button>
+                    <button ng-click="markUserAsBuyerOfThatDeal(campusBookDeals.buyerToSeller,deal,contact)">Mark as Sold to this user</button>
                     <form ng-show="contact.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
 
                         <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
@@ -148,7 +149,7 @@
                         </h5>
                         <button ng-click="getMessages(contact)">See Messages</button>
                         <button ng-click="contact.sendMessageForm=true">Send Message</button>
-                        <button ng-click="markUserAsBuyerOfThatDeal(contact)">Send Message</button>
+                        <button ng-click="markUserAsBuyerOfThatDeal(campusBookDeals.buyerToSeller,deal,contact)">Mark as Sold to this user</button>
                         <form ng-show="contact.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
 
                             <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
