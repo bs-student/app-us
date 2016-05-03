@@ -1677,6 +1677,9 @@
 .thumb-controller.row{
     height: 30px;
 }
+.row.thumb-row{
+    text-align: center;
+}
 /*.specification-row .thumb-control-left,.specification-row .thumb-control-right{*/
     /**/
 /*}*/

@@ -106,7 +106,7 @@
                                 <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
                                     <img class="main-pic" ng-click="viewImage($event)"
                                          data-options="splash-2 splash-primary splash-ef-2"
-                                         class="big-images" ng-src="{{host}}{{slide.image}}">
+                                         class="big-images" ng-src="{{imageHostPath}}{{slide.image}}">
 
                                 </uib-slide>
                             </uib-carousel>
@@ -115,19 +115,21 @@
                     </div>
                     <div class="col-md-2" ng-show="book.showThumb">
                         <div class="row text-center thumb-controller">
-                            <span><a class="thumb-control-left" ng-click="prevPage(book)"><i
-                                    class="fa fa-angle-up fa-3x"></i></a></span>
+                            <a class="thumb-control-left" ng-click="prevPage(book)">
+                                <i class="fa fa-angle-up fa-3x"></i>
+                            </a>
                         </div>
-                        <div class="row" >
+                        <div class="row thumb-row" >
                             <div
                                  ng-repeat="thumb in book.showThumbnails">
-                                <img class="thumb-pics" ng-class="{true:'active',false:'not-active'}[thumb.active]" ng-src="{{host}}{{thumb.image}}"
+                                <img class="thumb-pics" ng-class="{true:'active',false:'not-active'}[thumb.active]" ng-src="{{imageHostPath}}{{thumb.image}}"
                                      ng-click="setActive(book,thumb.imageId)"/>
                             </div>
                         </div>
                         <div class="row text-center thumb-controller">
-                            <span><a class="thumb-control-right" ng-click="nextPage(book)"><i
-                                    class="fa fa-angle-down fa-3x"></i></a></span>
+                            <a class="thumb-control-right" ng-click="nextPage(book)">
+                                <i class="fa fa-angle-down fa-3x"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -276,14 +278,14 @@
                 <th>Contact</th>
             </tr>
             </thead>
-            <tbody ng-show="noUniversitySelected">
+            <tbody ng-show="noUniversitySelected && !$parent.loggedIn">
             <tr>
                 <td colspan="7" class="text text-danger">You need to choose your University before
                     you can see on-campus textbooks.
                 </td>
             </tr>
             </tbody>
-            <tbody ng-show="!noUniversitySelected">
+            <tbody ng-show="!noUniversitySelected || $parent.loggedIn">
 
             <tr data-ng-repeat="deal in campusBookDeals.buyerToSeller">
                 <td>{{deal.username}}</td>

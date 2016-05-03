@@ -31,16 +31,14 @@
         $scope.campusId = storageService.getValue("universityCampusValue");
         $scope.noUniversitySelected=false;
 
-        $scope.host = SERVER_CONSTANT.DOMAIN_HOST;
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
 
-        if($scope.campusId==undefined){
-            $scope.noUniversitySelected=true;
-        }
+
         init();
 
 
@@ -102,6 +100,11 @@
                 $scope.campusBookDeals = response.data.success.successData;
                 if($scope.campusBookDeals.buyerToSeller.length==0)$scope.noBuyerToSeller=true;
                 if($scope.campusBookDeals.sellerToBuyer.length==0)$scope.noSellerToBuyer=true;
+
+                if($scope.campusId==undefined && identityService.getAuthorizedUserData()==undefined){
+                    $scope.noUniversitySelected=true;
+                }
+
                 //GET CHEAPEST CAMPUS DEAL
                 getCheapestBookDeal($scope.campusBookDeals);
             }).catch(function (response) {
