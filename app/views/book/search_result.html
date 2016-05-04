@@ -21,7 +21,7 @@
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
                         <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
-                            <img  ng-click="viewImage($event)" data-options="splash-2 splash-primary splash-ef-2"
+                            <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
                                   class="big-images" ng-src="{{slide.image}}" style="margin:auto;">
 
                         </uib-slide>
@@ -111,12 +111,12 @@
 </div>
 <script type="text/ng-template" id="myModalContent">
     <div class="modal-header">
-        <h3 class="modal-title custom-font white-text">Picture!</h3>
+        <h3 class="modal-title custom-font white-text">{{src.title}}</h3>
     </div>
     <div class="modal-body">
 
         <div class="modal-images">
-            <img data-ng-src="{{src}}"/>
+            <img data-ng-src="{{src.src}}"/>
         </div>
 
     </div>

@@ -112,8 +112,8 @@
 
 
         // Set View Image
-        function _viewImage(event, size) {
-            imageModalService.showModal(event, size);
+        function _viewImage(event, title) {
+            imageModalService.showModal(event, title);
         }
 
 

@@ -1683,3 +1683,114 @@
 /*.specification-row .thumb-control-left,.specification-row .thumb-control-right{*/
     /**/
 /*}*/
+
+/********************************************/
+/*              Selling Books Page          */
+/*********************************************/
+
+.archive-page-sections{
+    background-color: #F8F8F8;
+    margin-bottom: 10px !important;
+}
+.archive-page-head-banner{
+    text-align: center;
+    background: url("../images/archive_pages/banner.png") no-repeat;
+    background-size: cover;
+    height: 300px;
+    border-bottom:10px solid #9DB63D;
+}
+.archive-page-head-banner  .header-title{
+    font-size: 56px;
+    font-weight: 600;
+}
+.archive-page-headers .book-title{
+    margin-bottom: 0px;
+}
+.archive-page-headers .book-sub-title{
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.archive-page-headers .book-description{
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.archive-page-deal-information .box-title{
+    font-size: 16px;
+}
+.archive-page-deal-information .deal-information-box{
+    border: 1px solid #FF530E;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+.deal-information-box .icons{
+    margin-right: 20px;
+}
+.deal-information-box p{
+    line-height: 1em !important;
+    margin-bottom: 15px;
+}
+.archive-page-side{
+    text-align: right;
+}
+.archive-page-side .price-header{
+    font-size: 45px;
+}
+.archive-page-side .share-images span {
+    margin-left: 15px;
+}
+.archive-page-side .buttons{
+    margin-top: 20px;
+}
+.archive-page-side .buttons button{
+    width: 100%;
+    border-radius: 0px;
+    margin-top: 10px;
+}
+.view-and-contact{
+    margin-top: 20px;
+    text-align: left;
+}
+.contact-history-box .contact-history-table{
+    border: 1px solid #FF530E;
+
+}
+.contact-history-box .contact-history-table thead > tr > th{
+    border-bottom:1px solid #FF530E ;
+    background: #FFFFFF;
+    text-align: center;
+}
+.contact-history-box .contact-history-table thead > tr > td{
+
+    text-align: center;
+}
+.contact-history-table .contact-btn{
+    margin-top: 5px;
+    padding: 0 3px;
+    font-size: 12px;
+    height: 30px;
+    line-height: 15px;
+    border-radius: 0px;
+}
+.archive-page-contact-history{
+    margin-top: 40px;
+}
+
+.archive-page-sections .back-button,.archive-page-sections .back-button:hover,.archive-page-sections .back-button:active{
+    background: transparent;
+    color: #444;
+    float: right;
+}
+.archive-page-contact-history .box-title{
+    font-size: 16px;
+}
+.archive-page-side .view-and-contact{
+    font-size: 16px;
+}
+.archive-page-deal-information .view-more-info-btn{
+    border-radius: 0px;
+}
+.view-more-info-btn-div{
+    text-align: center;
+    margin-top: 80px;
+}
