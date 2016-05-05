@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I am selling</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I already sold</text></h1>
 
             </div>
         </div>
@@ -66,12 +66,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text"> : You(Seller) Contact Buyer</text><br/></p>
+                                                <text class="grey-text"> : You (Seller) Contacted Buyer</text><br/></p>
 
                                             <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
                                             <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
                                             <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
                                             <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
                                         </div>
                                         <div class="col-md-6">
                                             <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
@@ -103,14 +104,9 @@
                     <div class="col-md-3">
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-                            <div class="share-images">
-                                <span><img src="./dist/images/archive_pages/share.png"/></span>
-                                <span><img src="./dist/images/archive_pages/skype.png"/></span>
-                                <span><img src="./dist/images/archive_pages/fb.png"/></span>
-                            </div>
+
                             <div class="buttons">
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</button>
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
+
                                 <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
                             </div>
                             <div class="view-and-contact">
@@ -149,9 +145,7 @@
                                         <td>
                                             <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
                                             <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-                                            <button  ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true" class="myBtn app-btn orange-btn contact-btn">Send Messages</button>
-                                            <button data-options="splash-2 splash-primary splash-ef-2" class="myBtn app-btn orange-btn contact-btn"
-                                                    ng-click="showMarkAsSoldModal($event,'sellingModalContent',{deal:deal,contact:contact,allDeals:campusBookDeals.buyerToSeller})">Mark as Sold to this buyer</button>
+
                                         </td>
                                     </tr>
 
@@ -276,12 +270,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                    <text class="grey-text"> : Buyer Contacts You(Seller)</text><br/></p>
+                                                    <text class="grey-text"> : Buyer Contacted You(Seller)</text><br/></p>
 
                                                 <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerHomeNumber}}</strong></text><br/></p>
                                                 <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerCellNumber}}</strong></text><br/></p>
                                                 <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
                                                 <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
+                                                <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
@@ -311,14 +306,9 @@
                         </div>
                         <div class="col-md-3"><div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-                            <div class="share-images">
-                                <span><img src="./dist/images/archive_pages/share.png"/></span>
-                                <span><img src="./dist/images/archive_pages/skype.png"/></span>
-                                <span><img src="./dist/images/archive_pages/fb.png"/></span>
-                            </div>
+
                             <div class="buttons">
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</button>
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
+
                                 <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
                             </div>
                             <div class="view-and-contact">
@@ -352,8 +342,7 @@
                                             <td>
                                                 <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
                                                 <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-                                                <button  ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true" class="myBtn app-btn orange-btn contact-btn">Send Messages</button>
-                                                <button data-options="splash-2 splash-primary splash-ef-2" class="myBtn app-btn orange-btn contact-btn" ng-click="showMarkAsSoldModal($event,'sellingModalContent',{deal:deal,contact:contact,allDeals:campusBookDeals.buyerToSeller})">Mark as Sold to this buyer</button>
+
                                             </td>
                                         </tr>
 

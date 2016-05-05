@@ -4,10 +4,10 @@
 
     app
         .constant("SERVER_CONSTANT",{
-            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
-            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php",
-//            "IMAGE_HOST_PATH":"./api/web"
+//            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
+//            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
+              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php",
+            "IMAGE_HOST_PATH":"./api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
@@ -111,7 +111,8 @@
         .constant("BOOK_DEAL_CONSTANT", {
             "GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR": "/api/book_deal/get_book_deals_i_have_contacted_for",
             "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created",
-            "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user"
+            "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user",
+            "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD": "/api/book_deal/get_book_deals_i_have_created_and_sold"
 
         })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{

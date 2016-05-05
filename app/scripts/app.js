@@ -349,7 +349,12 @@ var app = angular
 
 
 
-
+//Sell Archive
+            .state('app.sellArchive', {
+                url: '^/sellArchive',
+                controller: 'SellArchiveCtrl',
+                templateUrl: 'views/book/sell_archive.html'
+            })
 
 
 
