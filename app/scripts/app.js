@@ -306,6 +306,12 @@ var app = angular
                 controller: 'SellArchiveCtrl',
                 templateUrl: 'views/book/sell_archive.html'
             })
+            //Buy Archive
+            .state('app.buyArchive', {
+                url: '^/buyArchive',
+                controller: 'BuyArchiveCtrl',
+                templateUrl: 'views/book/buy_archive.html'
+            })
             //Sell Book
             .state('app.sellBook', {
                 url: '^/sellBook',
@@ -328,34 +334,59 @@ var app = angular
                 url: '^/buy_from_amazon:bookOfferId',
                 controller: 'BookBuyFromAmazonCtrl'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //Sell Archive
-            .state('app.buyArchive', {
-                url: '^/buyArchive',
-                controller: 'BuyArchiveCtrl',
-                templateUrl: 'views/book/buy_archive.html'
+            //Safety First
+            .state('app.safetyFirst', {
+                url: '^/safetyFirst',
+                controller: 'SafetyFirstCtrl',
+                templateUrl: 'views/web/safety_first.html'
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Scam & Fraud
+            .state('app.scamAndFraud', {
+                url: '^/scamAndFraud',
+                controller: 'ScamFraudCtrl',
+                templateUrl: 'views/web/scam_fraud.html'
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

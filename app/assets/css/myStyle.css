@@ -1794,3 +1794,60 @@
     text-align: center;
     margin-top: 80px;
 }
+/********************************************/
+/*              Safety First Page           */
+/*********************************************/
+.guard-image img{
+    height: 245px;
+}
+.safety-first-page-head-banner{
+    background: url("../images/safety_first/banner.png") no-repeat;
+    background-size: cover;
+}
+.safety-first-section .page-text-side{
+    font-size: 16px;
+    font-family: Lato;
+    font-weight: 600;
+}
+.safety-first-section .page-text-side .heading-text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 40px;
+}
+.safety-first-section .page-text-side .sub-heading-text{
+    font-weight: 600;
+}
+a.orange-link{
+    color: #FF530E;
+}
+
+a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
+    color: #0072AE;
+}
+
+.safety-first-section .first-style{
+    margin-top: 20px;
+}
+
+.safety-first-section .page-text-side ul.text-list{
+    margin-left: 0px;
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+.safety-first-section .page-text-side ul.text-list li{
+    color:#FF530E;
+    line-height: 3em;
+}
+.safety-first-section .page-text-side ul.text-list li span{
+    color: #555;
+}
+
+/********************************************/
+/*              Scam Fraud Page           */
+/*********************************************/
+
+.safety-first-section.scam-fraud-section ul.text-list li{
+    line-height: 1em;
+    margin-top: 25px;
+}

@@ -3,11 +3,11 @@
     'use strict';
 
     app
-        .controller('SafetyFirstCtrl', SafetyFirstCtrl);
+        .controller('ScamFraudCtrl', ScamFraudCtrl);
 
-    SafetyFirstCtrl.$inject = ['$scope'];
+    ScamFraudCtrl.$inject = ['$scope'];
 
-    function SafetyFirstCtrl($scope) {
+    function ScamFraudCtrl($scope) {
 
 
         $scope.$parent.headerStyle = "dark";
