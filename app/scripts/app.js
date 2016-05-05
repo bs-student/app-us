@@ -300,7 +300,12 @@ var app = angular
                 controller: 'SellingBookListCtrl',
                 templateUrl: 'views/book/selling_book_list.html'
             })
-
+            //Sell Archive
+            .state('app.sellArchive', {
+                url: '^/sellArchive',
+                controller: 'SellArchiveCtrl',
+                templateUrl: 'views/book/sell_archive.html'
+            })
             //Sell Book
             .state('app.sellBook', {
                 url: '^/sellBook',
@@ -345,16 +350,16 @@ var app = angular
 
 
 
-
-
-
-
-//Sell Archive
-            .state('app.sellArchive', {
-                url: '^/sellArchive',
-                controller: 'SellArchiveCtrl',
-                templateUrl: 'views/book/sell_archive.html'
+            //Sell Archive
+            .state('app.buyArchive', {
+                url: '^/buyArchive',
+                controller: 'BuyArchiveCtrl',
+                templateUrl: 'views/book/buy_archive.html'
             })
+
+
+
+
 
 
 

@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I already sold</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I have bought</text></h1>
 
             </div>
         </div>
@@ -66,13 +66,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text"> : You (Seller) Contacted Buyer</text><br/></p>
+                                                <text class="grey-text"> : Seller Contacted You (Buyer)</text><br/></p>
 
                                             <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
                                             <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-                                            <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
+
                                             <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
+
                                         </div>
                                         <div class="col-md-6">
                                             <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
@@ -105,14 +105,7 @@
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
-                            <div class="buttons">
 
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
-                            </div>
-                            <div class="view-and-contact">
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong></text> <text class="grey-text"> : {{deal.bookViewCount}}</text><br/></p>
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong></text> <text class="grey-text"> : {{deal.contacts.length}}</text><br/></p>
-                            </div>
 
                         </div>
                     </div>
@@ -126,22 +119,17 @@
                                 <table class="table contact-history-table">
                                     <thead>
                                     <tr>
-                                        <th style="width: 13%;">Date</th>
-                                        <th style="width: 13%;">Nickname</th>
-                                        <th style="width: 15%;">Email</th>
-                                        <th style="width: 13%;">CellPhone</th>
-                                        <th style="width: 13%;">HomePhone</th>
-                                        <th style="width: 33%;">Action</th>
+                                        <th style="width: 20%;">Date</th>
+                                        <th style="width: 20%;">Seller Nickname</th>
+                                        <th style="width: 60%;">Action</th>
                                     </tr>
                                     </thead>
 
                                     <tbody data-ng-repeat="contact in deal.contacts">
                                     <tr>
                                         <td>{{contact.contactDateTime}}</td>
-                                        <td>{{contact.buyerNickName}}</td>
-                                        <td>{{contact.buyerEmail}}</td>
-                                        <td>{{contact.buyerCellPhone}}</td>
-                                        <td>{{contact.buyerHomePhone}}</td>
+                                        <td>{{deal.sellerUsername}}</td>
+
                                         <td>
                                             <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
                                             <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
@@ -151,40 +139,18 @@
 
 
                                     <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                        <th colspan="2">Date</th>
+                                        <th>Date</th>
                                         <th>Nickname</th>
-                                        <th colspan="3">Message</th>
+                                        <th>Message</th>
                                     </tr>
 
                                     <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                        <td colspan="2">{{message.messageDateTime}}</td>
+                                        <td>{{message.messageDateTime}}</td>
                                         <td>{{message.sender}}</td>
-                                        <td colspan="3">{{message.messageBody}}</td>
+                                        <td >{{message.messageBody}}</td>
                                     </tr>
 
-                                    <tr ng-show="contact.sendingMessages">
 
-                                        <td colspan="6" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-
-                                            <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
-
-
-
-                                                <textarea name="message" class="form-control" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
-
-                                                <p class="help-block">
-                                                    <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                                                </p>
-
-
-
-                                                <button type="submit" class="myBtn app-btn orange-btn contact-btn">SEND</button>
-                                                <button type="button" ng-click="contact.sendingMessages=false" class="myBtn app-btn orange-btn contact-btn">Cancel</button>
-
-                                            </form>
-
-                                        </td>
-                                    </tr>
 
                                     </tbody>
 
@@ -270,13 +236,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                    <text class="grey-text"> : Buyer Contacted You(Seller)</text><br/></p>
+                                                    <text class="grey-text"> : You (Buyer) Contacted Seller</text><br/></p>
 
                                                 <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerHomeNumber}}</strong></text><br/></p>
                                                 <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerCellNumber}}</strong></text><br/></p>
                                                 <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
                                                 <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
-                                                <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
@@ -307,14 +273,7 @@
                         <div class="col-md-3"><div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
-                            <div class="buttons">
 
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
-                            </div>
-                            <div class="view-and-contact">
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong></text> <text class="grey-text"> : {{deal.bookViewCount}}</text><br/></p>
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong></text> <text class="grey-text"> : {{deal.contacts.length}}</text><br/></p>
-                            </div>
 
                         </div>
                         </div>
@@ -327,18 +286,23 @@
                                     <table class="table contact-history-table">
                                         <thead>
                                         <tr>
-                                            <th style="width: 26%;">Date</th>
-                                            <th style="width: 26%;">Nickname</th>
+                                            <th style="width: 15%;">Date</th>
+                                            <th style="width: 15%;">Nickname</th>
                                             <th style="width: 15%;">Email</th>
+                                            <th style="width: 15%;">HomePhone</th>
+                                            <th style="width: 15%;">CellPhone</th>
 
-                                            <th style="width: 33%;">Action</th>
+                                            <th style="width: 25%;">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody data-ng-repeat="contact in deal.contacts">
                                         <tr>
                                             <td>{{contact.contactDateTime}}</td>
-                                            <td>{{contact.buyerNickName}}</td>
-                                            <td>{{contact.buyerEmail}}</td>
+                                            <td>{{deal.sellerUsername}}</td>
+                                            <td>{{deal.sellerEmail}}</td>
+                                            <td>{{deal.sellerHomeNumber}}</td>
+                                            <td>{{deal.sellerCellNumber}}</td>
+
                                             <td>
                                                 <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
                                                 <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
@@ -348,40 +312,18 @@
 
 
                                         <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                            <th>Date</th>
+                                            <th colspan="2">Date</th>
                                             <th>Nickname</th>
-                                            <th colspan="2">Message</th>
+                                            <th colspan="3">Message</th>
                                         </tr>
 
                                         <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                            <td>{{message.messageDateTime}}</td>
+                                            <td colspan="2">{{message.messageDateTime}}</td>
                                             <td>{{message.sender}}</td>
-                                            <td colspan="2">{{message.messageBody}}</td>
+                                            <td colspan="3">{{message.messageBody}}</td>
                                         </tr>
 
-                                        <tr ng-show="contact.sendingMessages">
 
-                                            <td colspan="4" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-
-                                                <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
-
-
-
-                                                        <textarea name="message" class="form-control" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
-
-                                                        <p class="help-block">
-                                                            <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                                                        </p>
-
-
-
-                                                        <button type="submit" class="myBtn app-btn orange-btn contact-btn">SEND</button>
-                                                        <button type="button" ng-click="contact.sendingMessages=false" class="myBtn app-btn orange-btn contact-btn">Cancel</button>
-
-                                                </form>
-
-                                            </td>
-                                        </tr>
 
                                         </tbody>
                                     </table>

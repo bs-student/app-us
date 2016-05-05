@@ -162,29 +162,7 @@
                                         <td colspan="3">{{message.messageBody}}</td>
                                     </tr>
 
-                                    <tr ng-show="contact.sendingMessages">
 
-                                        <td colspan="6" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-
-                                            <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
-
-
-
-                                                <textarea name="message" class="form-control" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
-
-                                                <p class="help-block">
-                                                    <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                                                </p>
-
-
-
-                                                <button type="submit" class="myBtn app-btn orange-btn contact-btn">SEND</button>
-                                                <button type="button" ng-click="contact.sendingMessages=false" class="myBtn app-btn orange-btn contact-btn">Cancel</button>
-
-                                            </form>
-
-                                        </td>
-                                    </tr>
 
                                     </tbody>
 
@@ -359,29 +337,7 @@
                                             <td colspan="2">{{message.messageBody}}</td>
                                         </tr>
 
-                                        <tr ng-show="contact.sendingMessages">
 
-                                            <td colspan="4" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-
-                                                <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
-
-
-
-                                                        <textarea name="message" class="form-control" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
-
-                                                        <p class="help-block">
-                                                            <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                                                        </p>
-
-
-
-                                                        <button type="submit" class="myBtn app-btn orange-btn contact-btn">SEND</button>
-                                                        <button type="button" ng-click="contact.sendingMessages=false" class="myBtn app-btn orange-btn contact-btn">Cancel</button>
-
-                                                </form>
-
-                                            </td>
-                                        </tr>
 
                                         </tbody>
                                     </table>

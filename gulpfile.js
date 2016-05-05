@@ -89,6 +89,7 @@ var assets = {
         "app/scripts/controllers/contactedBookListCtrl.js",
         "app/scripts/controllers/sellingBookListCtrl.js",
         "app/scripts/controllers/sellArchiveCtrl.js",
+        "app/scripts/controllers/buyArchiveCtrl.js",
 
 
 

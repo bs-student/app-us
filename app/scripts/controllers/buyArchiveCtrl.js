@@ -3,11 +3,11 @@
     'use strict';
 
     app
-        .controller('SellArchiveCtrl', SellArchiveCtrl);
+        .controller('BuyArchiveCtrl', BuyArchiveCtrl);
 
-    SellArchiveCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT'];
+    BuyArchiveCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT'];
 
-    function SellArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
+    function BuyArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
 
         $scope.$parent.headerStyle = "dark";
@@ -97,7 +97,7 @@
 
 
         function init(){
-            bookDealService.getBookDealsOfMineWhichAreSold(identityService.getAccessToken()).then(function(response){
+            bookDealService.getBookDealsOfMineWhichAreBought(identityService.getAccessToken()).then(function(response){
                 $scope.campusBookDeals = response.data.success.successData;
                 setCarousel();
 

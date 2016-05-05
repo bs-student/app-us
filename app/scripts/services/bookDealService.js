@@ -13,7 +13,8 @@
             getBookDealsIhaveContactedFor:_getBookDealsIhaveContactedFor,
             getBookDealsOfMine:_getBookDealsOfMine,
             sellBookToUser: _sellBookToUser,
-            getBookDealsOfMineWhichAreSold:_getBookDealsOfMineWhichAreSold
+            getBookDealsOfMineWhichAreSold:_getBookDealsOfMineWhichAreSold,
+            getBookDealsOfMineWhichAreBought: _getBookDealsOfMineWhichAreBought
 
         };
 
@@ -32,6 +33,10 @@
 
         function _getBookDealsOfMineWhichAreSold(accessToken){
             return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD+"?access_token="+accessToken);
+        }
+
+        function _getBookDealsOfMineWhichAreBought(accessToken){
+            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_BOUGHT+"?access_token="+accessToken);
         }
 
     }

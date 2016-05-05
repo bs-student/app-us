@@ -112,8 +112,8 @@
             "GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR": "/api/book_deal/get_book_deals_i_have_contacted_for",
             "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created",
             "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user",
-            "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD": "/api/book_deal/get_book_deals_i_have_created_and_sold"
-
+            "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD": "/api/book_deal/get_book_deals_i_have_created_and_sold",
+            "GET_BOOK_DEALS_I_HAVE_BOUGHT": "/api/book_deal/get_book_deals_i_have_bought"
         })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
             "GOOGLE_APP_NAME":"Student2Student",
