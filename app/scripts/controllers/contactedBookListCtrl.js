@@ -5,26 +5,104 @@
     app
         .controller('ContactedBookListCtrl', ContactedBookListCtrl);
 
-    ContactedBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService'];
+    ContactedBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','SERVER_CONSTANT','imageModalService'];
 
-    function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService) {
+    function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,SERVER_CONSTANT,imageModalService) {
 
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "contactedBook";
         $scope.campusBookDeals=[];
-//        $scope.campusBookDeals.sellerToBuyer=[];
-//        $scope.campusBookDeals.buyerToSeller.messages=[];
-//        $scope.campusBookDeals.buyerToSeller.messages=[];
+
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
+
 
         $scope.getMessages= _getMessages;
         $scope.sendMessage= _sendMessage;
+
+        $scope.prevPage = _prevPage;
+        $scope.nextPage = _nextPage;
+        $scope.setActive = _setActive;
+        $scope.viewImage = _viewImage;
+
         init();
+
+
+        // Set Carousel
+        function setCarousel() {
+
+            $scope.thumbnailSize = 3;
+            $scope.thumbnailPage = 1;
+            $scope.myInterval = 5000;
+            $scope.noWrapSlides = false;
+
+            angular.forEach($scope.campusBookDeals.buyerToSeller, function (book) {
+                if (book.bookImages.length == 1) {
+                    book.showThumb = false;
+                } else {
+                    book.showThumb = true;
+                }
+
+                book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+
+            });
+            angular.forEach($scope.campusBookDeals.sellerToBuyer, function (book) {
+                if (book.bookImages.length == 1) {
+                    book.showThumb = false;
+                } else {
+                    book.showThumb = true;
+                }
+
+                book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+            });
+        }
+
+        function _prevPage(book) {
+            if ($scope.thumbnailPage > 1) {
+                $scope.thumbnailPage--;
+            }
+            book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+        }
+
+        function _nextPage(book) {
+
+            if ($scope.thumbnailPage <= Math.floor(book.bookImages.length / $scope.thumbnailSize)) {
+                $scope.thumbnailPage++;
+
+            }
+            book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+        }
+
+        function _setActive(book, idx) {
+
+            angular.forEach(book.showThumbnails, function (slide) {
+
+
+                if (slide.imageId == idx) {
+                    slide.active = true;
+                }
+                else {
+                    slide.active = false;
+                }
+
+            });
+        }
+
+
+        // Set View Image
+        function _viewImage(event, title) {
+            imageModalService.showModal(event, title);
+        }
+
 
         function init(){
             bookDealService.getBookDealsIhaveContactedFor(identityService.getAccessToken()).then(function(response){
                 $scope.campusBookDeals = response.data.success.successData;
-
+                setCarousel();
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided is invalid.") {
@@ -50,14 +128,15 @@
 
         }
 
-        function _getMessages(deal){
+        function _getMessages(contact){
 
             var data={
                 accessToken:identityService.getAccessToken(),
-                contactId:deal.contactId
+                contactId:contact.contactId
             }
             contactService.getMessages(data).then(function(response){
-                deal.messages = response.data.success.successData;
+                contact.messages = response.data.success.successData;
+                contact.showingMessages = true;
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided is invalid.") {
@@ -65,7 +144,7 @@
                 } else if (response.data.error_description == "The access token provided has expired.") {
                     identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                         identityService.setAccessToken(response.data);
-                        _getMessages(deal);
+                        _getMessages(contact);
                     });
                 } else if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
@@ -75,19 +154,19 @@
 
             });
         }
-        function _sendMessage(valid,deal){
+        function _sendMessage(valid,contact){
 
             if(valid){
                 var data={
-                    message: deal.message,
+                    message: contact.message,
                     accessToken:identityService.getAccessToken(),
-                    contactId:deal.contactId
+                    contactId:contact.contactId
                 }
                 contactService.sendMessages(data).then(function(response){
-                    if(deal.messages!=undefined){
-                        deal.messages.push(response.data.success.successData);
+                    if(contact.messages!=undefined){
+                        contact.messages.push(response.data.success.successData);
                     }
-                    deal.sendMessageForm=false;
+                    contact.sendingMessages=false;
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {
@@ -95,7 +174,7 @@
                     } else if (response.data.error_description == "The access token provided has expired.") {
                         identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                             identityService.setAccessToken(response.data);
-                            _sendMessage(valid,deal);
+                            _sendMessage(valid,contact);
                         });
                     } else if (response.data.error != undefined) {
                         responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
