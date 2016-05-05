@@ -1,0 +1,189 @@
+<!--<div  ng-parallax offset="0"  speed="5"  class="parallax-box dark" pattern="'assets/images/parallax/search-result-banner.png'" class="search-page-head-banner">-->
+
+
+<section id="content">
+
+<h1>Books I Have Contacted FOR</h1>
+
+<!-- ============ section ============ -->
+
+<!-- /section -->
+
+
+<div class="content-wrap mid-section">
+
+
+
+<div class="section mid-section">
+<div class="container clearfix">
+
+<div class="row">
+
+    <div class="searching-on-progress-div"></div>
+
+    <h1>buyer To Seller</h1>
+    <div  data-ng-repeat="deal in campusBookDeals.buyerToSeller">
+
+
+        <div class="item-box" >
+
+            <div>
+                <h4 class="">{{deal.bookTitle}}</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                    : Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} ::
+                    ({{deal.bookBinding}}) ISBN:
+                    <text class="blue-text">{{deal.bookIsbn}}</text>
+                </h5>
+            </div>
+            <div>
+                <h4 class="">Deal Information</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    :: Price : ${{deal.bookPriceSell}} <br/>:: Condition: {{deal.bookCondition}}
+                    <br/>::Book Highligted: {{deal.bookIsHighlighted}} ,
+                    Book Has Note: {{deal.bookHasNotes}}
+                    <br/> Comment: {{deal.bookComment}}
+
+                    <br/> COE : {{deal.bookPaymentMethodCaShOnExchange}}, Cheque: {{deal.bookPaymentMethodCheque}}
+                    <br/> Available Date: {{deal.bookAvailableDate}}
+                    <br/> Campus: {{deal.universityName}}, {{deal.campusName}},{{deal.stateName}},
+                    {{deal.countryName}}
+
+                </h5>
+                <h4>Contact Information</h4>
+                <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    <text class="blue-text">Seller Email: {{deal.sellerEmail}}</text><br/>
+                    <text class="blue-text">Seller HomeNumber: {{deal.sellerHomeNumber}}</text><br/>
+                    <text class="blue-text">Seller CellNumber: {{deal.sellerCellNumber}}</text><br/>
+                    Contact Date::: {{deal.contactDateTime}} <br/>
+
+                </h5>
+                <h4>Messages</h4>
+                <h5 data-ng-repeat="message in deal.messages">
+                    <text class="orange-text">{{message.messageDateTime}}</text>
+                    <text class="blue-text">{{message.sender}}</text>
+                    <text class="grey-text">{{message.messageBody}}</text>
+                </h5>
+                <button ng-click="getMessages(deal)">See Messages</button>
+                <button ng-click="deal.sendMessageForm=true">Send Message</button>
+                <form ng-show="deal.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,deal)" role="form" novalidate>
+
+                    <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                        <p class="white-text ">Message :</p>
+
+                        <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="deal.message" required></textarea>
+
+                        <p class="help-block">
+                            <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                        </p>
+                    </div>
+
+                    <div class="form-group text-left mt-20">
+                        <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                        <button type="button" ng-click="deal.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <hr/>
+
+
+    </div>
+
+
+
+    <h1>seller To Buyer</h1>
+    <div  data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
+
+
+
+
+            <div class="item-box" >
+
+                <div>
+                    <h4 class="">{{deal.bookTitle}}</h4>
+                    <h5 class="lato grey-text">By
+                        <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                        : Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} ::
+                        ({{deal.bookBinding}}) ISBN:
+                        <text class="blue-text">{{deal.bookIsbn}}</text>
+                    </h5>
+                </div>
+                <div>
+                    <h4 class="">Deal Information</h4>
+                    <h5 class="lato grey-text">By
+                        <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                        :: Price : ${{deal.bookPriceSell}} <br/>:: Condition: {{deal.bookCondition}}
+                        <br/>::Book Highligted: {{deal.bookIsHighlighted}} ,
+                        Book Has Note: {{deal.bookHasNotes}}
+                        <br/> Comment: {{deal.bookComment}}
+
+                        <br/> COE : {{deal.bookPaymentMethodCaShOnExchange}}, Cheque: {{deal.bookPaymentMethodCheque}}
+                        <br/> Available Date: {{deal.bookAvailableDate}}
+                        <br/> Campus: {{deal.universityName}}, {{deal.campusName}},{{deal.stateName}},
+                        {{deal.countryName}}
+
+                    </h5>
+
+                    <h4>Contact Information</h4>
+                    <h5 class="lato grey-text">By
+                    <text class="blue-text">Seller: {{deal.sellerUsername}}</text><br/>
+                    Contact Date::: {{deal.contactDateTime}} <br/>
+
+                    </h5>
+                    <h4>Messages</h4>
+                    <h5 data-ng-repeat="message in deal.messages">
+                        <text class="orange-text">{{message.messageDateTime}}</text>
+                        <text class="blue-text">{{message.sender}}</text>
+                        <text class="grey-text">{{message.messageBody}}</text>
+                    </h5>
+                    <button ng-click="getMessages(deal)">See Messages</button>
+                    <button ng-click="deal.sendMessageForm=true">Send Message</button>
+                    <form ng-show="deal.sendMessageForm" name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,deal)" role="form" novalidate>
+
+                        <div class="form-group" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+                            <p class="white-text ">Message :</p>
+
+                            <textarea name="message" class="form-control input-style" placeholder="Write Down Your Message" ng-model="deal.message" required></textarea>
+
+                            <p class="help-block">
+                                <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group text-left mt-20">
+                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">SEND</button>
+                            <button type="button" ng-click="deal.sendMessageForm=false" class="myBtn app-btn orange-btn max-large-btn">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        <hr/>
+
+
+    </div>
+</div>
+
+
+</div>
+
+
+
+</div>
+</div>
+
+
+</div>
+</section>
+
+
+
+
+
+
