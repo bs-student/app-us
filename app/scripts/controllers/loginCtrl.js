@@ -6,9 +6,9 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishlistService','storageService'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','storageService'];
 
-    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishlistService,storageService) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,storageService) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
@@ -83,7 +83,7 @@
             $scope.$parent.username = response.data.success.successData.username;
 //            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);
             if($scope.bookId!=undefined){
-                wishlistService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.bookId}).then(function(response){
+                wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.bookId}).then(function(response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                 }).catch(function(response){
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);

@@ -92,6 +92,7 @@ var assets = {
         "app/scripts/controllers/buyArchiveCtrl.js",
         "app/scripts/controllers/safetyFirstCtrl.js",
         "app/scripts/controllers/scamFraudCtrl.js",
+        "app/scripts/controllers/wishListCtrl.js",
 
 
 
@@ -134,7 +135,7 @@ var assets = {
         "app/scripts/services/contactService.js",
         "app/scripts/services/storageService.js",
         "app/scripts/services/bookDealService.js",
-        "app/scripts/services/wishlistService.js",
+        "app/scripts/services/wishListService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

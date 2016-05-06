@@ -5,9 +5,9 @@
     app
         .controller('BookCompareCtrl', BookCompareCtrl);
 
-    BookCompareCtrl.$inject = ['$state','$stateParams','$scope','bookService','identityService','responseService','storageService','wishlistService','SERVER_CONSTANT','imageModalService'];
+    BookCompareCtrl.$inject = ['$state','$stateParams','$scope','bookService','identityService','responseService','storageService','wishListService','SERVER_CONSTANT','imageModalService'];
 
-    function BookCompareCtrl($state,$stateParams,$scope,bookService,identityService,responseService,storageService, wishlistService,SERVER_CONSTANT,imageModalService) {
+    function BookCompareCtrl($state,$stateParams,$scope,bookService,identityService,responseService,storageService, wishListService,SERVER_CONSTANT,imageModalService) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
@@ -134,7 +134,7 @@
 
         function _saveToWishList(){
             if($scope.$parent.loggedIn){
-                wishlistService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.amazonBook.bookId}).then(function(response){
+                wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.amazonBook.bookId}).then(function(response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                 }).catch(function (response) {
 

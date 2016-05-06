@@ -340,25 +340,6 @@ var app = angular
                 controller: 'SafetyFirstCtrl',
                 templateUrl: 'views/web/safety_first.html'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Scam & Fraud
             .state('app.scamAndFraud', {
                 url: '^/scamAndFraud',
@@ -376,6 +357,30 @@ var app = angular
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Wishlist
+            .state('app.wishList', {
+                url: '^/wishList',
+                controller: 'WishListCtrl',
+                templateUrl: 'views/book/wishlist.html'
+            })
 
 
 

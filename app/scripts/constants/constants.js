@@ -6,7 +6,7 @@
         .constant("SERVER_CONSTANT",{
             "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
             "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web/app_dev.php",
+//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
 //            "IMAGE_HOST_PATH":"./api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
@@ -98,7 +98,9 @@
 
         })
         .constant("WISHLIST_CONSTANT", {
-            "ADD_BOOK_TO_WISH_LIST": "/api/wishlist/add_book_to_wish_list"
+            "ADD_BOOK_TO_WISH_LIST": "/api/wishlist/add_book_to_wish_list",
+            "GET_MY_WISHLIST": "/api/wishlist/get_my_wishlist",
+            "REMOVE_WISHLIST_ITEM": "/api/wishlist/remove_wishlist_item"
 
         })
         .constant("CONTACT_CONSTANT", {
