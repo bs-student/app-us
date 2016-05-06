@@ -1,8 +1,14 @@
+(function () {
+
 'use strict';
 
 
 app
-  .controller('MainCtrl', function ($scope, $http, $translate) {
+  .controller('MainCtrl',MainCtrl);
+
+    MainCtrl.$inject=['$scope','$http','$translate'];
+
+    function MainCtrl($scope, $http, $translate) {
 
     $scope.main = {
       title: 'Student2Student',
@@ -32,4 +38,6 @@ app
       $scope.currentLanguage = langKey;
     };
     $scope.currentLanguage = $translate.proposedLanguage() || $translate.use();
-  });
+  }
+
+})();
