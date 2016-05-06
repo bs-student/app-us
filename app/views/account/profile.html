@@ -1,197 +1,187 @@
-<div class="page page-ng-table">
+<div class="safety-first-page-head-banner">
+    <div class="container clearfix">
 
 
-    <!-- page header -->
-    <div class="pageheader">
+        <div class="row concept-banner-row">
 
-        <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
+            <div class="col-md-7">
+                <div class="concept-page-banner-text"><p
+                        class=" open-sans concept-page-banner-first-text  text-white uppercase"><strong>profile</strong>
+                </p>
 
-        <div class="page-bar">
-
-            <ul class="page-breadcrumb">
-                <li>
-                    <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
-                </li>
-                <li>
-                    <a href="javascript:;">Tables</a>
-                </li>
-                <li>
-                    <a ui-sref="app.tables.ng-table">{{page.title}}</a>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
-    <!-- /page header -->
-
-
-    <!-- page content -->
-    <div class="pagecontent">
-
-
-        <!-- row -->
-        <div class="row">
-
-
-            <!-- col -->
-            <div class="col-md-12">
-
-
-                <!-- tile -->
-                <section class="tile" fullscreen="isFullscreen03">
-
-                    <!-- tile header -->
-                    <div class="tile-header dvd dvd-btm">
-                        <h1 class="custom-font"><strong>{{fullName}}</strong></h1>
-                        <ul class="controls">
-                            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i
-                                        class="fa fa-cog"></i></a>
-
-                                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                    <li>
-                                        <a href tile-control-toggle>
-                                            <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                            <span class="expand"><fa
-                                                    name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-refresh ng-click="ajaxFaker()">
-                                            <fa name="refresh"></fa>
-                                            Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href tile-control-fullscreen ng-click="isFullscreen03 = !isFullscreen03">
-                                            <fa name="expand"></fa>
-                                            Fullscreen
-                                        </a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /tile header -->
-
-                    <!-- tile body -->
-                    <div class="tile-body">
-
-                        <!--<button ng-click="tableParams.sorting({})" class="btn btn-default">Clear sorting</button>-->
-                        <!--<button ng-if="!selected_edit" ng-click="editSelectedUniversities()"
-                                class="btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Edit Universities <i
-                                class="fa fa-arrow-right"></i></button>-->
-                        <!--<button ng-click="activateSelectedUniversities()" class="btn btn-primary btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10"> Activate <i class="fa fa-arrow-right"></i></button>-->
-                        <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUniversities()"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save universities <i
-                                class="fa fa-arrow-right"></i></button>-->
-                        <button  ng-show="!editFullName"  ng-click="editFullName = true"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change Full Name<i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-show="editFullName"  ng-click="updateFullName(user)"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save New Full Name<i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-click="editFullName=false" ng-show="editFullName"
-                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
-                                class="fa fa-times"></i></button>
-
-                        <br/>
-                        <button ng-show="!editUniversityCampus" ng-click="editUniversityCampus = true"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change University<i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-show="editUniversityCampus"  ng-click="updateUniversity()"
-                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save University<i
-                                class="fa fa-arrow-right"></i></button>
-                        <button ng-click="editUniversityCampus=false" ng-show="editUniversityCampus"
-                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
-                                class="fa fa-times"></i></button>
-                        <!--{{checkboxes.items}}-->
-
-
-                        <!--<div ui-view="campusUtilityView" ></div>-->
-<form name="updateProfileForm" novalidate="" ng-submit="$event.preventDefault()">
-                        <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>Full Name</th>
-                                <td ng-if="!editFullName">{{user.fullName}}</td>
-                                <td ng-if="editFullName">
-                                    <input class="form-control input-sm" type="text"
-                                           ng-model="user.fullName"/>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <th>Username</th>
-                                <td>{{user.username}}</td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td>{{user.email}}</td>
-                            </tr>
-                            <tr>
-                                <th>University</th>
-                                <td ng-if="!editUniversityCampus">{{user.universityName}}, {{user.campusName}}, {{user.stateShortName}}, {{user.countryName}}</td>
-                                <td ng-if="editUniversityCampus">
-                                    <md-autocomplete
-
-
-                                            md-selected-item="selectedItem"
-                                            md-search-text-change="searchTextChange(searchText)"
-                                            md-search-text="searchText"
-                                            md-selected-item-change="selectedItemChange(item)"
-                                            md-items="item in querySearch(searchText)"
-                                            md-item-text="item.display"
-                                            md-min-length="0"
-                                            placeholder="What is your University Campus?">
-                                        <md-item-template>
-
-                                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                        </md-item-template>
-                                        <md-not-found>
-                                            No matches found for "{{searchText}}".
-                                        </md-not-found>
-
-                                        <div ng-messages="updateProfileForm.autocompleteField.$error" ng-if="updateProfileForm.autocompleteField.$touched">
-                                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                            <div ng-message="minlength">Your entry is not long enough.</div>
-                                            <div ng-message="maxlength">Your entry is too long.</div>
-                                        </div>
-
-                                    </md-autocomplete>
-                                </td>
-                            </tr>
-                        </table></form>
-<br/><br/>
-
-                        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
-                            <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox"
-                                                                                                  ng-model="checkboxes.checked"
-                                                                                                  id="select_all"
-                                                                                                  name="filter-checkbox"
-                                                                                                  value=""><i></i></label>
-                        </script>
-
-                    </div>
-                    <!-- /tile body -->
-
-                </section>
-                <!-- /tile -->
-
+                    <!--<p class="open-sans concept-page-banner-second-text text-right"><strong>
+                        <text class="uppercase navy-blue-text ">&nbsp;&nbsp;fight</text>
+                        <text class="uppercase orange-text">them</text>
+                    </strong></p>-->
+                </div>
 
             </div>
-            <!-- /col -->
+
+
+            <div class="col-md-5 text-right">
+                <div class="guard-image">
+                    <img src="dist/images/parallax/conceptpageHeaderLogo.png"/>
+                </div>
+            </div>
 
 
         </div>
-        <!-- /row -->
 
 
     </div>
-    <!-- /page content -->
 
 
 </div>
+
+
+<section class="concept-page" id="content">
+
+
+    <div class="content-wrap mid-section">
+
+
+        <div class="section m-0 pt-0 mid-one safety-first-section scam-fraud-section">
+            <div class="container clearfix quote-container-homepage">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+
+                        <br/>
+
+                        <br/><br/>
+
+
+
+                        <form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
+                            <table class="table table-bordered table-striped">
+
+                                <tr>
+
+                                    <th >Full Name</th>
+                                    <td ng-if="!editingFullName">{{user.fullName}}</td>
+                                    <td ng-if="editingFullName" ng-class="{ 'has-error' : updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine, 'has-success' : updateProfileForm.fullName.$valid && !updateProfileForm.fullName.$pristine}">
+
+                                        <input type="text" name="fullName" id="fullName" class="form-control" ng-model="user.fullName"  required>
+                                        <p class="help-block">
+                                            <span ng-show="updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine">Full Name is required.</span>
+                                        </p>
+
+                                    </td>
+                                    <td>
+                                        <button type="button"  ng-show="!editingFullName"  ng-click="editFullName(user)"
+                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change Full Name<i
+                                                class="fa fa-arrow-right"></i></button>
+                                        <button ng-show="editingFullName"  type="submit"
+                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save New Full Name<i
+                                                class="fa fa-arrow-right"></i></button>
+                                        <button type="button" ng-click="cancelEditFullName()" ng-show="editingFullName"
+                                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
+                                                class="fa fa-times"></i></button>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <th>Username</th>
+                                    <td colspan="2">{{user.username}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td colspan="2">{{user.email}}</td>
+                                </tr>
+                                <tr>
+                                    <th>University</th>
+                                    <td>{{user.universityName}}, {{user.campusName}}, {{user.stateShortName}}, {{user.countryName}}<br/>
+                                    <span ng-if="editingUniversityCampus">
+
+
+
+                                        <!--<md-autocomplete required
+                                                         md-input-id="input-style"
+
+                                                         md-input-name="campus"
+                                                         md-selected-item="selectedItem"
+                                                         md-search-text-change="searchTextChange(searchText)"
+                                                         md-search-text="searchText"
+                                                         md-selected-item-change="selectedItemChange(item)"
+                                                         md-items="item in querySearch(searchText)"
+                                                         md-item-text="item.display"
+                                                         md-min-length="0"
+                                                         placeholder="What is your University Campus?">
+                                            <md-item-template>
+
+                                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                            </md-item-template>
+                                            <md-not-found>
+                                                No matches found for "{{searchText}}".
+
+                                            </md-not-found>
+
+                                            <div ng-messages="updateProfileForm.autocompleteField.$error" ng-if="updateProfileForm.autocompleteField.$touched">
+                                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                                <div ng-message="maxlength">Your entry is too long.</div>
+                                            </div>
+
+                                        </md-autocomplete>-->
+
+
+
+
+                                        <md-autocomplete
+
+
+                                                md-selected-item="selectedItem"
+                                                md-search-text-change="searchTextChange(searchText)"
+                                                md-search-text="searchText"
+                                                md-selected-item-change="selectedItemChange(item)"
+                                                md-items="item in querySearch(searchText)"
+                                                md-item-text="item.display"
+                                                md-min-length="0"
+                                                placeholder="What is your University Campus?">
+                                            <md-item-template>
+
+                                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                            </md-item-template>
+                                            <md-not-found>
+                                                No matches found for "{{searchText}}".
+                                            </md-not-found>
+
+                                            <div ng-messages="updateProfileForm.autocompleteField.$error" ng-if="updateProfileForm.autocompleteField.$touched">
+                                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                                <div ng-message="maxlength">Your entry is too long.</div>
+                                            </div>
+
+                                        </md-autocomplete>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button type="button" ng-show="!editingUniversityCampus" ng-click="editingUniversityCampus=true"
+                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change University<i
+                                                class="fa fa-arrow-right"></i></button>
+                                        <button type="submit" ng-show="editingUniversityCampus"
+                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save University<i
+                                                class="fa fa-arrow-right"></i></button>
+                                        <button type="button" ng-click="editingUniversityCampus=false" ng-show="editingUniversityCampus"
+                                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
+                                                class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+

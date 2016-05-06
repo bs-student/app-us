@@ -1,5 +1,10 @@
-﻿(function(app){
-    app.directive("valUsername", function($q, $timeout, securityService) {
+﻿(function () {
+
+    'use strict';
+
+    app.directive("valUsername", valUsername);
+    valUsername.$inject=['$q','$timeout','securityService'];
+    function valUsername($q, $timeout, securityService) {
         return {
             restrict: "A",
             require: "ngModel",
@@ -24,5 +29,6 @@
                 };
             }
         };
-    });
-})(angular.module('student2studentApp'));
+    }
+
+})();

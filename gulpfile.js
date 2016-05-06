@@ -36,6 +36,7 @@ var assets = {
         "bower_components/angular-busy/dist/angular-busy.js",
         "bower_components/angular-sanitize/angular-sanitize.js",
 
+
         "vendor/superfish/js/superfish.js",
         "vendor/jRespond/jRespond.js",
         "vendor/smoothscroll/SmoothScroll.js",
@@ -58,7 +59,7 @@ var assets = {
 
         "app/scripts/constants/constants.js",
 
-        "app/scripts/controllers/main.js",
+        "app/scripts/controllers/mainCtrl.js",
         "app/scripts/controllers/bookBuyFromAmazonCtrl.js",
         "app/scripts/controllers/bookCompareCtrl.js",
         "app/scripts/controllers/bookSearchCtrl.js",
@@ -137,6 +138,7 @@ var assets = {
         "app/scripts/services/bookDealService.js",
         "app/scripts/services/wishListService.js",
 
+
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"
     ],
@@ -160,8 +162,6 @@ var assets = {
         "bower_components/ng-table/dist/ng-table.css",
         "bower_components/simple-line-icons/css/simple-line-icons.css",
         "bower_components/weather-icons/css/weather-icons.css",
-        "bower_components/weather-icons/css/weather-icons.css",
-        "bower_components/weather-icons/css/weather-icons-wind.css",
         "bower_components/weather-icons/css/weather-icons-wind.css",
         "bower_components/angular-busy/dist/angular-busy.css"
 
@@ -200,7 +200,7 @@ gulp.task("js_library", function (done) {
     return gulp.src(assets.js_library)
         .pipe(plugins.print())
         .pipe(plugins.uglify({
-            mangle: false
+            mangle: true
         }))
         .pipe(plugins.concat('app.library.min.js'))
         .pipe(gulp.dest('app/dist/js'));
@@ -212,7 +212,7 @@ gulp.task("js_app", function (done) {
     return gulp.src(assets.js_app)
         .pipe(plugins.print())
         .pipe(plugins.uglify({
-            mangle: false
+            mangle: true
         }))
         .pipe(plugins.concat('app.min.js'))
         .pipe(gulp.dest('app/dist/js'));

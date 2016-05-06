@@ -1,5 +1,11 @@
-﻿(function(app){
-    app.directive("valEmail", function($q, $timeout, securityService) {
+﻿(function () {
+
+    'use strict';
+    app.directive("valEmail",valEmail);
+
+    valEmail.$inject=['$q','$timeout','securityService'];
+
+    function valEmail ($q, $timeout, securityService) {
         return {
             restrict: "A",
             require: "ngModel",
@@ -24,5 +30,6 @@
                 };
             }
         };
-    });
-})(angular.module('student2studentApp'));
+    }
+
+})();

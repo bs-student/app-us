@@ -346,35 +346,6 @@ var app = angular
                 controller: 'ScamFraudCtrl',
                 templateUrl: 'views/web/scam_fraud.html'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Wishlist
             .state('app.wishList', {
                 url: '^/wishList',
@@ -391,38 +362,67 @@ var app = angular
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //Profile
             .state('app.profile', {
-                url: '/profile',
+                url: '^/profile',
                 controller: 'ProfileCtrl',
                 templateUrl: 'views/account/profile.html'
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             .state('app.change_password', {
                 url: '/change_password',
                 controller: 'ChangePasswordCtrl',
