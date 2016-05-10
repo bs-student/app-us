@@ -3,42 +3,20 @@
     'use strict';
 
     app
-        .factory('bookDealService', bookDealService);
+        .factory('adminBookDealService', adminBookDealService);
 
-    bookDealService.$inject=['SERVER_CONSTANT','BOOK_DEAL_CONSTANT','apiService'];
+    adminBookDealService.$inject=['SERVER_CONSTANT','ADMIN_CONSTANT','apiService'];
 
-    function bookDealService(SERVER_CONSTANT,BOOK_DEAL_CONSTANT,apiService) {
+    function adminBookDealService(SERVER_CONSTANT,ADMIN_CONSTANT,apiService) {
 
         return {
-            getBookDealsIhaveContactedFor:_getBookDealsIhaveContactedFor,
-            getBookDealsOfMine:_getBookDealsOfMine,
-            sellBookToUser: _sellBookToUser,
-            getBookDealsOfMineWhichAreSold:_getBookDealsOfMineWhichAreSold,
-            getBookDealsOfMineWhichAreBought: _getBookDealsOfMineWhichAreBought
+            getAllBookDeals:_getAllBookDeals
 
         };
 
-
-        function _getBookDealsIhaveContactedFor(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR+"?access_token="+accessToken);
+        function _getAllBookDeals(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_BOOK_DEALS+"?access_token="+accessToken,data);
         }
-
-        function _getBookDealsOfMine(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED+"?access_token="+accessToken);
-        }
-
-        function _sellBookToUser(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.SELL_BOOK_TO_USER+"?access_token="+accessToken,data);
-        }
-
-        function _getBookDealsOfMineWhichAreSold(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD+"?access_token="+accessToken);
-        }
-
-        function _getBookDealsOfMineWhichAreBought(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_BOUGHT+"?access_token="+accessToken);
-        }
-
     }
 
 })();

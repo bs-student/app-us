@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">All </text><text class="uppercase orange-text lato">Book Deals</text></h1>
 
             </div>
         </div>
@@ -20,196 +20,126 @@
 
 
 <div class="section m-0 pt-0 mid-one compare-result-section user-management-sections">
-<div class="container clearfix quote-container-homepage">
+<div class="container clearfix">
 <div class="row">
 
 <div class="col-md-12">
 
-<uib-tabset justified="true" type="pills">
-    <uib-tab class="first-tab">
-    <uib-tab-heading>
-        <div class="people-icon-div"></div>
-        <text>Pending Users</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:campusPromise}">
-
-
-        <div class="button-panel">
-            <button ng-click="approveSelectedUsers()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Users</button>
-            <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
-        </div>
+    <table ng-table="bookDealTableParams" class="table table-striped campus-result-table all-book-deal-result ">
 
 
 
+            <tr ng-repeat="deal in $data" >
+                <td data-title="'Search By Book Title'" style="width: 100%" filter="{ 'bookTitle': 'text' }">
+                <div class="row">
 
-        <table ng-table="tableParams" class="table table-striped campus-result-table ">
+                    <div class="col-md-3">
+                        <div class="search-book-image-carousel">
+                            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
-            <form name="userEditForm" submit-validate >
+                                <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
+                                    <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
+                                          class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
 
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
-                    <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
-                    </td>
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span ng-if="!user.$edit">{{user.username}}</span>
+                                </uib-slide>
+                            </uib-carousel>
+                            <div class="btn-group" ng-show="deal.showThumb">
+                                <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
+
+                                    <span class="search-thumb-image"
+                                          ng-repeat="thumb in deal.showThumbnails"
+                                          ng-class="{true:'active',false:'not-active'}[thumb.active]">
+                                        <img ng-src="{{imageHostPath}}{{thumb.image}}" ng-click="setActive(deal,thumb.imageId)"/>
+                                    </span>
+
+                        <span><a class="thumb-control-right" ng-click="nextPage(deal)"><i
+                                class="fa fa-angle-right fa-3x"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="archive-page-headers">
+                                    <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
+                                    <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
+                                    <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
+                                        ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
+                                </div>
+                                <div class="archive-page-deal-information">
+                                    <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                                        <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
+                                    </div>
+                                    <div ng-show="deal.viewMoreInfo">
+                                        <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
+                                        <div class="deal-information-box">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p><text class="blue-text"><strong>Contact Method</strong></text>
+                                                        <text class="grey-text"> : {{deal.bookContactMethod}}</text><br/></p>
+
+                                                    <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
+                                                    <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
+                                                    <p><text class="blue-text"><strong>Seller</strong></text> <text class="grey-text"> : {{deal.sellerUsername}}</text><br/></p>
+                                                    <p><text class="blue-text"><strong>University</strong></text> <text class="grey-text"> : {{deal.universityName}},{{deal.campusName}},{{deal.stateShortName}},{{deal.countryName}}</text><br/></p>
+                                                    <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
+
+                                                        <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                                                            Cash
+                                                        </text>
+                                                        <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                                            Cheque
+                                                        </text>
+                                                        <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                                            Cash, Cheque
+                                                        </text>
+
+                                                    </text><br/></p>
+                                                    <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
+                                                    <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
+                                                    <p><text class="blue-text"><strong>Book Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
+                                                    <p><text class="blue-text"><strong>Book Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
 
 
-                        <div ng-if="user.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="user.username"/>
-                            <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                            </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="archive-page-side">
+                                    <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
+
+
+
+                                </div>
+                            </div>
                         </div>
 
-                    </td>
-                    <td data-title="'Full Name'" width="200" >
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" width="200">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'Actions'" width="200">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
-            <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
-        </script>
+                        <div class="row" ng-show="deal.viewMoreInfo">
+                            <div class="col-md-12 text-right">
 
-
-
-    </div>
-</uib-tab>
-    <uib-tab class="mid-tab">
-    <uib-tab-heading>
-        <div class="book-close-icon-div"></div>
-        <text>Approved Users</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:onlinePromise}">
-
-
-        <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
-
-            <form name="userEditForm" submit-validate >
-
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
-
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span>{{user.username}}</span>
-
-                    </td>
-                    <td data-title="'Full Name'" width="200" >
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" width="200">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'University'" width="200">
-                        <span>{{user.universityName}}</span>
-                    </td>
-                    <td data-title="'Campus'" width="200">
-                        <span>{{user.campusName}}</span>
-                    </td>
-                    <td data-title="'Status'" width="200">
-                        <div ng-if="!user.$edit">
-                            <span ng-if="user.enabled">Activated</span>
-                            <span ng-if="!user.enabled">Deactivated</span>
-
-                        </div>
-
-                        <div ng-if="user.$edit">
-                            <select ng-model="user.enabled" class="form-control mb-10">
-                                <option ng-selected="user.enabled==true"
-                                        value="true">Activated
-                                </option>
-                                <option ng-selected="user.enabled==false"
-                                        value="false">Deactivated
-                                </option>
-                            </select>
-                        </div>
-
-                    </td>
-
-                    <td data-title="'Actions'" width="200">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-    </div>
-</uib-tab>
-    <uib-tab class="last-tab">
-        <uib-tab-heading>
-            <div class="book-open-icon-div"></div>
-            <text>Admin Users</text>
-        </uib-tab-heading>
-        <div cg-busy="{promise:onlinePromise}">
-
-            <div class="button-panel">
-                <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>
-                <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
-            </div>
-
-            <div ui-view="addUserView" ></div>
-
-            <table ng-table="adminTableParams" class="table table-striped campus-result-table ">
-
-                <form name="userEditForm" submit-validate >
-
-                    <tr ng-repeat="user in $data" ng-form="editRowForm">
-
-                        <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                            <span>{{user.username}}</span>
-
-                        </td>
-                        <td data-title="'Full Name'" width="200" >
-                            <span>{{user.fullName}}</span>
-                        </td>
-                        <td data-title="'Email'" width="200">
-                            <span>{{user.email}}</span>
-                        </td>
-
-                        <td data-title="'Status'" width="200">
-                            <div ng-if="!user.$edit">
-                                <span ng-if="user.enabled">Activated</span>
-                                <span ng-if="!user.enabled">Deactivated</span>
+                                <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>
 
                             </div>
+                        </div>
 
-                            <div ng-if="user.$edit">
-                                <select ng-model="user.enabled" class="form-control mb-10">
-                                    <option ng-selected="user.enabled==true"
-                                            value="true">Activated
-                                    </option>
-                                    <option ng-selected="user.enabled==false"
-                                            value="false">Deactivated
-                                    </option>
-                                </select>
-                            </div>
 
-                        </td>
+                    </div>
 
-                        <td data-title="'Actions'" width="200">
-                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                        </td>
-                    </tr>
-                </form>
-            </table>
-        </div>
-    </uib-tab>
 
-</uib-tabset>
+                </div>
+                </td>
+            </tr>
+
+    </table>
 </div>
 
 </div>

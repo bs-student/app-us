@@ -37,7 +37,8 @@
             "GET_ALL_ADMIN_USER": "/api/admin/get_all_admin_user",
             "ADMIN_UPDATE_USER_DATA": "/api/admin/update_user_data",
             "APPROVE_USERS": "/api/admin/approve_users",
-            "ADD_ADMIN_USER": "/api/admin/add_admin_user"
+            "ADD_ADMIN_USER": "/api/admin/add_admin_user",
+            "GET_ALL_BOOK_DEALS": "/api/admin/get_all_book_deals"
         })
         .constant("UNIVERSITY_CONSTANT", {
             "AUTOCOMPLETE_SEARCH_LIST": "/university/autocomplete_activated_search_list",

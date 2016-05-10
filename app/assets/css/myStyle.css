@@ -1863,3 +1863,24 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     background: none;
 
 }
+
+/********************************************/
+/*         All Book Deal Result              */
+/*********************************************/
+
+.campus-result-table.all-book-deal-result td{
+    text-align: left;
+    font-style: normal;
+}
+.campus-result-table.all-book-deal-result.table-striped > thead > tr> th:nth-of-type(odd){
+    line-height: 1.5em;
+}
+
+.campus-result-table.all-book-deal-result.table-striped > thead > tr>td:nth-of-type(odd),
+.campus-result-table.all-book-deal-result.table-striped > thead > tr>td:nth-of-type(even){
+    background: #F8F8F8;
+}
+.all-book-deal-result .back-button{
+    background: transparent;
+    color: #444;
+}

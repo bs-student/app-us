@@ -15,7 +15,7 @@
         }
 
         $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "admin";
+        $scope.$parent.activePage = "user";
 
         $scope.editRow=_editRow;
         $scope.cancelEditRow=_cancelEditRow;

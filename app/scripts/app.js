@@ -370,36 +370,6 @@ var app = angular
                 controller: 'UserManagementCtrl',
                 templateUrl: 'views/admin/user/user_list.html'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Add User
             .state('app.userList.addUser', {
                 url: '^/addUser',
@@ -415,6 +385,41 @@ var app = angular
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Admin All Book Deals
+            .state('app.allBookDeals', {
+                url: '^/allBookDeals',
+                controller: 'BookDealCtrl',
+                templateUrl: 'views/admin/book/book_deals.html'
+            })
 
 
 
