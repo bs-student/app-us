@@ -14,7 +14,7 @@
             getAuthorizedUserFullData: _getAuthorizedUserFullData,
             setUpdatedSocialUserData:_setUpdatedSocialUserData,
             getAllUserData: _getAllUserData,
-            saveUpdatedUserDataAdmin: _saveUpdatedUserDataAdmin,
+//            saveUpdatedUserDataAdmin: _saveUpdatedUserDataAdmin,
 //            updateFullName:_updateFullName,
 //            updateUserUniversityCampus:_updateUserUniversityCampus,
             updateUserProfile: _updateUserProfile,
@@ -38,9 +38,9 @@
             return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_ALL_USER_DATA+"?access_token="+accessToken);
         }
 
-        function _saveUpdatedUserDataAdmin(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_UPDATE_USER_DATA+"?access_token="+accessToken,data);
-        }
+//        function _saveUpdatedUserDataAdmin(accessToken,data){
+//            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_UPDATE_USER_DATA+"?access_token="+accessToken,data);
+//        }
 
 //        function _updateFullName(accessToken,data){
 //            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_FULL_NAME+"?access_token="+accessToken,data);

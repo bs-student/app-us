@@ -29,8 +29,15 @@
             "CHANGE_PASSWORD": "/profile/change-password",
             "UPDATE_SOCIAL_USER": "/api/user/update_created_profile",
             "ADMIN_ALL_USER_DATA" :"/api/admin/all_users",
-            "ADMIN_UPDATE_USER_DATA": "/api/admin/update_user_data",
             "UPDATE_PROFILE" : "/api/update_user_profile"
+        })
+        .constant("ADMIN_CONSTANT", {
+            "GET_ALL_NON_APPROVED_USER": "/api/admin/get_all_non_approved_user",
+            "GET_ALL_APPROVED_USER":"/api/admin/get_all_approved_user",
+            "GET_ALL_ADMIN_USER": "/api/admin/get_all_admin_user",
+            "ADMIN_UPDATE_USER_DATA": "/api/admin/update_user_data",
+            "APPROVE_USERS": "/api/admin/approve_users",
+            "ADD_ADMIN_USER": "/api/admin/add_admin_user"
         })
         .constant("UNIVERSITY_CONSTANT", {
             "AUTOCOMPLETE_SEARCH_LIST": "/university/autocomplete_activated_search_list",

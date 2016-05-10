@@ -79,6 +79,12 @@
         function setAuthorizedUserData(response) {
             identityService.setAuthorizedUserData(response.data.success.successData);
             responseService.showSuccessToast("Login Successful");
+
+            if(response.data.success.successData.role.indexOf("ROLE_ADMIN_USER")>=0){
+                $scope.$parent.adminUser=true;
+            }else{
+                $scope.$parent.adminUser=false;
+            }
             $scope.$parent.loggedIn = true;
             $scope.$parent.username = response.data.success.successData.username;
 //            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);

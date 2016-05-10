@@ -1,6 +1,14 @@
-<div class="compare-page-head-banner">
+<div class="archive-page-head-banner">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="header-title"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
 
+            </div>
+        </div>
+    </div>
 </div>
+
 
 
 <section class="compare-page" id="content">
@@ -9,463 +17,197 @@
 <div class="content-wrap mid-section">
 
 
-<div class="section m-0 pt-0 mid-one">
-    <div class="container clearfix quote-container-homepage">
-        <div class="row">
-
-            <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-right-none">
-                <div class="compare-page-top-button first-button border-right-none">
-                    <a ng-click="saveToWishList()">
-                        <div class="wishlist-icon-div"></div>
-
-                        Save To Wishlist
-                    </a>
-                </div>
-            </div>
-            <div cg-busy="{promise:campusPromise}"
-                 class="col-md-3 padding-right-none padding-left-none border-right-none">
-                <div class="compare-page-top-button middle-button">
-                    <a ng-click="contact(cheapestCampusDeal)" ng-show="$parent.loggedIn">
-                        <div class="phone-icon-div"></div>
-
-                        Contact Cheapest Seller Locally
-                    </a>
-                    <a ui-sref="app.login" ng-show="!$parent.loggedIn">
-                        <div class="phone-icon-div"></div>
-
-                        Sign In to Contact Cheapest Seller Locally
-                    </a>
-                </div>
-            </div>
-            <div cg-busy="{promise:onlinePromise}"
-                 class="col-md-3 padding-right-none padding-left-none border-right-none">
-                <div class="compare-page-top-button middle-button border-left-none">
-                    <a target="_blank" href="{{cheapestOnlineBook.link}}">
-                        <div class="cart-icon-div"></div>
-                        Go To Cheapest Online Store
-                    </a>
-                </div>
-            </div>
-            <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-left-none">
-                <div class="compare-page-top-button last-button">
-                    <a target="_blank" ui-sref="app.buy_from_amazon({bookOfferId: amazonBook.bookOfferId })">
-                        <div class="amazon-icon-div"></div>
-                        Buy From Amazon
-                    </a>
-                </div>
-            </div>
 
 
-        </div>
-
-    </div>
-</div>
-
-
-<div class="section mid-section compare-page-header-section">
-    <div cg-busy="{promise:amazonPromise}" class="container clearfix">
-
-        <div class="row" ng-repeat="book in bookSearchResult">
-
-            <div class="col-md-10">
-                <div class="book-title-header">
-                    <h1 class="uppercase"><strong>{{book.bookTitle}}</strong></h1>
-                    <hr/>
-                </div>
-                <div>
-                    <p class="book-subtitle-header">{{book.bookSubTitle}}</p>
-                </div>
-
-            </div>
-            <div class="col-md-2">
-                <div class="big-price"><h1 class="big-price-number orange-text lato">
-                    <strong>${{lowestPrice.toFixed(2)}}</strong></h1></div>
-            </div>
-
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<div class="section mid-section specification-section" ng-repeat="book in bookSearchResult">
-    <div class="container clearfix">
-
-        <div class="row specification-row">
-
-            <div class="col-md-6">
-                <div class="row">
-
-
-                    <div class="col-md-offset-3 col-md-6 main-image text-right">
-                        <div class="search-book-image-carousel book-details-page">
-                            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-
-                                <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
-                                    <img class="main-pic" ng-click="viewImage($event)"
-                                         data-options="splash-2 splash-primary splash-ef-2"
-                                         class="big-images" ng-src="{{imageHostPath}}{{slide.image}}">
-
-                                </uib-slide>
-                            </uib-carousel>
-
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-show="book.showThumb">
-                        <div class="row text-center thumb-controller">
-                            <a class="thumb-control-left" ng-click="prevPage(book)">
-                                <i class="fa fa-angle-up fa-3x"></i>
-                            </a>
-                        </div>
-                        <div class="row thumb-row" >
-                            <div
-                                 ng-repeat="thumb in book.showThumbnails">
-                                <img class="thumb-pics" ng-class="{true:'active',false:'not-active'}[thumb.active]" ng-src="{{imageHostPath}}{{thumb.image}}"
-                                     ng-click="setActive(book,thumb.imageId)"/>
-                            </div>
-                        </div>
-                        <div class="row text-center thumb-controller">
-                            <a class="thumb-control-right" ng-click="nextPage(book)">
-                                <i class="fa fa-angle-down fa-3x"></i>
-                            </a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-md-4">
-
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Edition</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <strong>{{book.bookEdition}}</strong></div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Author</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookDirectorAuthorArtist}}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-10</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookIsbn}}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-13</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookEan}}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Publisher</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <strong>{{book.bookPublisher}}</strong></div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Publish Date</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <strong>{{book.bookPublishDate}}</strong></div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Page</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookPages}}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Binding</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <strong>{{book.bookBinding}}</strong></div>
-                    </div>
-                </div>
-
-                <div class="row attribute-row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>List Price</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <strong>{{book.bookPriceAmazon}}</strong></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="orange-text lato attribute-name-field text-left"><strong>Details</strong></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="blue-text lato attribute-name-field text-right">
-                            <button ng-click="book.showTotalDescription=!book.showTotalDescription"
-                                    class="myBtn app-btn buy-now-button view-more-button compare-page"><i
-                                    class="fa fa-angle-down"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div ng-show="book.showTotalDescription"
-                             class="blue-text lato attribute-details-field text-left">{{book.bookDescription}}
-                        </div>
-                        <div ng-show="!book.showTotalDescription"
-                             class="blue-text lato attribute-details-field text-left">
-                            {{book.bookDescription.substring(0, 300)}} ...
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<div class="section m-0 pt-0 mid-one compare-result-section">
+<div class="section m-0 pt-0 mid-one compare-result-section user-management-sections">
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
 <div class="col-md-12">
 
 <uib-tabset justified="true" type="pills">
-<uib-tab class="first-tab">
+    <uib-tab class="first-tab">
     <uib-tab-heading>
         <div class="people-icon-div"></div>
-        <text>Student On Campus</text>
+        <text>Pending Users</text>
     </uib-tab-heading>
     <div cg-busy="{promise:campusPromise}">
-        <table class="table table-striped campus-result-table">
-            <thead>
-            <tr>
-                <th>Seller (Student)</th>
-                <th>Condition / Details</th>
-                <th>Contact Method</th>
-                <th>Available</th>
-                <th>Payment</th>
-                <th>Price</th>
-                <th>Contact</th>
-            </tr>
-            </thead>
-            <tbody ng-show="noUniversitySelected && !$parent.loggedIn">
-            <tr>
-                <td colspan="7" class="text text-danger">You need to choose your University before
-                    you can see on-campus textbooks.
-                </td>
-            </tr>
-            </tbody>
-            <tbody ng-show="!noUniversitySelected || $parent.loggedIn">
-
-            <tr data-ng-repeat="deal in campusBookDeals.buyerToSeller">
-                <td>{{deal.username}}</td>
-                <td>{{deal.bookCondition}}
-                    <button class="myBtn app-btn buy-now-button view-more-button"
-                            ng-click="deal.showDetails=!deal.showDetails"><i
-                            class="fa fa-angle-down fa-2x"></i></button>
-                    <div class="transition-view" ng-show="deal.showDetails">
-                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
-                        Notes in textbook: {{deal.bookHasNotes}}<br/>
-                        Comment by Seller: {{deal.bookComment}}
-                    </div>
-
-                </td>
-                <td>Buyer Contacts Seller</td>
-
-                <td>{{deal.bookAvailableDate}}</td>
-                <td ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                    Cash
-                </td>
-                <td ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                    Cheque
-                </td>
-                <td ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                    Cash, Cheque
-                </td>
-                <td>${{deal.bookPriceSell}}</td>
-                <td>
-                    <div ng-show="$parent.loggedIn">
-                        <button ng-click="contact(deal)" class="myBtn app-btn buy-now-button ">
-                            Contact
-                        </button>
-                    </div>
-                    <div ng-show="!$parent.loggedIn">
-
-                        <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
-                           class="myBtn app-btn buy-now-button ">Sign In</a>
-                        <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
-                                class="myBtn app-btn buy-now-button ">Contact
-                        </button>
-                    </div>
-
-                    <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->
-                </td>
-            </tr>
-            <tr ng-if="noBuyerToSeller">
-                <td class="text text-danger" colspan="7">There is no deal on-campus where Buyer
-                    contacts Seller
-                </td>
-            </tr>
-            <tr data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
-                <td>{{deal.username}}</td>
-                <td>{{deal.bookCondition}}
-                    <button class="myBtn app-btn buy-now-button view-more-button"
-                            ng-click="deal.showDetails=!deal.showDetails"><i
-                            class="fa fa-angle-down fa-2x"></i></button>
-                    <div class="transition-view" ng-show="deal.showDetails">
-                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
-                        Notes in textbook: {{deal.bookHasNotes}}<br/>
-                        Comment by Seller: {{deal.bookComment}}
-                    </div>
-
-                </td>
-                <td>Seller Contacts Buyer</td>
-                <td>{{deal.bookAvailableDate}}</td>
-                <td ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                    Cash
-                </td>
-                <td ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                    Cheque
-                </td>
-                <td ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                    Cash, Cheque
-                </td>
-                <td>${{deal.bookPriceSell}}</td>
-                <td>
-                    <div ng-show="$parent.loggedIn">
-                        <button ng-click="contact(deal)" class="myBtn app-btn buy-now-button ">
-                            Contact
-                        </button>
-                    </div>
-                    <div ng-show="!$parent.loggedIn">
-
-                        <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
-                           class="myBtn app-btn buy-now-button ">Sign In</a>
-                        <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
-                                class="myBtn app-btn buy-now-button ">Contact
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr ng-if="noSellerToBuyer">
-                <td class="text text-danger" colspan="7">There is no deal on-campus where Seller
-                    contacts Buyer
-                </td>
-            </tr>
 
 
-            </tbody>
+        <div class="button-panel">
+            <button ng-click="approveSelectedUsers()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Users</button>
+            <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
+        </div>
+
+
+
+
+        <table ng-table="tableParams" class="table table-striped campus-result-table ">
+
+            <form name="userEditForm" submit-validate >
+
+                <tr ng-repeat="user in $data" ng-form="editRowForm">
+                    <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
+                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
+                    </td>
+                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
+                        <span ng-if="!user.$edit">{{user.username}}</span>
+
+
+                        <div ng-if="user.$edit"
+                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
+                            <input name="username" class="input-sm form-control" type="text"
+                                   required
+                                   ng-model="user.username"/>
+                            <p class="help-block">
+                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
+                            </p>
+                        </div>
+
+                    </td>
+                    <td data-title="'Full Name'" width="200" >
+                        <span>{{user.fullName}}</span>
+                    </td>
+                    <td data-title="'Email'" width="200">
+                        <span>{{user.email}}</span>
+                    </td>
+                    <td data-title="'Actions'" width="200">
+                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
+                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    </td>
+                </tr>
+            </form>
         </table>
+        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+            <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
+        </script>
+
+
+
     </div>
 </uib-tab>
-<uib-tab class="mid-tab">
+    <uib-tab class="mid-tab">
     <uib-tab-heading>
         <div class="book-close-icon-div"></div>
-        <text>Online Stores: New</text>
+        <text>Approved Users</text>
     </uib-tab-heading>
     <div cg-busy="{promise:onlinePromise}">
 
 
-        <table class="table table-striped campus-result-table">
-            <thead>
-            <tr>
-                <th>Online Store</th>
-                <th>Available</th>
-                <th style="width: 20%">Comments</th>
-                <th>Shipping</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="book in newBooks">
-                <td class="store-image-td"><img ng-src="{{book.merchant_image}}"
-                                                alt="{{book.merchant_name}}"></td>
-                <td>{{book.availability_text}}</td>
-                <td>{{book.comments}}</td>
-                <td>${{book.shipping_ground}}</td>
-                <td>${{book.price}}</td>
+        <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
 
-                <td>
-                    ${{book.total_price}} &nbsp;
-                    <a target="_blank" href="{{book.link}}" class="myBtn app-btn buy-now-button ">Buy
-                        Now</a>
-                </td>
-            </tr>
+            <form name="userEditForm" submit-validate >
 
-            </tbody>
+                <tr ng-repeat="user in $data" ng-form="editRowForm">
+
+                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
+                        <span>{{user.username}}</span>
+
+                    </td>
+                    <td data-title="'Full Name'" width="200" >
+                        <span>{{user.fullName}}</span>
+                    </td>
+                    <td data-title="'Email'" width="200">
+                        <span>{{user.email}}</span>
+                    </td>
+                    <td data-title="'University'" width="200">
+                        <span>{{user.universityName}}</span>
+                    </td>
+                    <td data-title="'Campus'" width="200">
+                        <span>{{user.campusName}}</span>
+                    </td>
+                    <td data-title="'Status'" width="200">
+                        <div ng-if="!user.$edit">
+                            <span ng-if="user.enabled">Activated</span>
+                            <span ng-if="!user.enabled">Deactivated</span>
+
+                        </div>
+
+                        <div ng-if="user.$edit">
+                            <select ng-model="user.enabled" class="form-control mb-10">
+                                <option ng-selected="user.enabled==true"
+                                        value="true">Activated
+                                </option>
+                                <option ng-selected="user.enabled==false"
+                                        value="false">Deactivated
+                                </option>
+                            </select>
+                        </div>
+
+                    </td>
+
+                    <td data-title="'Actions'" width="200">
+                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
+                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    </td>
+                </tr>
+            </form>
         </table>
     </div>
 </uib-tab>
-<uib-tab class="last-tab">
-    <uib-tab-heading>
-        <div class="book-open-icon-div"></div>
-        <text>Online Stores: Used</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:onlinePromise}">
-        <table class="table table-striped campus-result-table">
-            <thead>
-            <tr>
-                <th>Online Store</th>
-                <th>Available</th>
-                <th style="width: 20%;">Comments</th>
-                <th>Shipping</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="book in usedBooks">
-                <td class="store-image-td"><img ng-src="{{book.merchant_image}}"
-                                                alt="{{book.merchant_name}}"></td>
-                <td>{{book.availability_text}}</td>
-                <td>{{book.comments}}</td>
-                <td>${{book.shipping_ground}}</td>
-                <td>${{book.price}}</td>
+    <uib-tab class="last-tab">
+        <uib-tab-heading>
+            <div class="book-open-icon-div"></div>
+            <text>Admin Users</text>
+        </uib-tab-heading>
+        <div cg-busy="{promise:onlinePromise}">
 
-                <td>
-                    ${{book.total_price}} &nbsp;
-                    <a target="_blank" href="{{book.link}}" class="myBtn app-btn buy-now-button ">Buy
-                        Now</a>
-                </td>
-            </tr>
+            <div class="button-panel">
+                <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>
+                <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
+            </div>
 
+            <div ui-view="addUserView" ></div>
 
-            </tbody>
-        </table>
-    </div>
-</uib-tab>
+            <table ng-table="adminTableParams" class="table table-striped campus-result-table ">
 
+                <form name="userEditForm" submit-validate >
+
+                    <tr ng-repeat="user in $data" ng-form="editRowForm">
+
+                        <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
+                            <span>{{user.username}}</span>
+
+                        </td>
+                        <td data-title="'Full Name'" width="200" >
+                            <span>{{user.fullName}}</span>
+                        </td>
+                        <td data-title="'Email'" width="200">
+                            <span>{{user.email}}</span>
+                        </td>
+
+                        <td data-title="'Status'" width="200">
+                            <div ng-if="!user.$edit">
+                                <span ng-if="user.enabled">Activated</span>
+                                <span ng-if="!user.enabled">Deactivated</span>
+
+                            </div>
+
+                            <div ng-if="user.$edit">
+                                <select ng-model="user.enabled" class="form-control mb-10">
+                                    <option ng-selected="user.enabled==true"
+                                            value="true">Activated
+                                    </option>
+                                    <option ng-selected="user.enabled==false"
+                                            value="false">Deactivated
+                                    </option>
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <td data-title="'Actions'" width="200">
+                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
+                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </uib-tab>
 
 </uib-tabset>
 </div>

@@ -352,82 +352,110 @@ var app = angular
                 controller: 'WishListCtrl',
                 templateUrl: 'views/book/wishlist.html'
             })
-
-
-
-
-
-
-
-
-
-
             //Profile
             .state('app.profile', {
                 url: '^/profile',
                 controller: 'ProfileCtrl',
                 templateUrl: 'views/account/profile.html'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            .state('app.change_password', {
-                url: '/change_password',
+            //Change Password
+            .state('app.changePassword', {
+                url: '^/changePassword',
                 controller: 'ChangePasswordCtrl',
                 templateUrl: 'views/account/change_password.html'
             })
+            //AdminUserList
+            .state('app.userList', {
+                url: '^/userList',
+                controller: 'UserManagementCtrl',
+                templateUrl: 'views/admin/user/user_list.html'
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Add User
+            .state('app.userList.addUser', {
+                url: '^/addUser',
+                views:{
+                    'addUserView@app.userList':{
+                        templateUrl: 'views/admin/user/add_user.html',
+                        controller: 'AddUserCtrl'
+                    }
+                }
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             .state('registration', {
                 abstract: true,
                 url: '/registration',

@@ -3,62 +3,44 @@
     'use strict';
 
     app
-        .factory('userService', userService);
+        .factory('adminUserService', adminUserService);
 
-    userService.$inject=['apiService','SERVER_CONSTANT','LOGIN_CONSTANT','USER_CONSTANT'];
+    adminUserService.$inject=['apiService','SERVER_CONSTANT','ADMIN_CONSTANT'];
 
-    function userService(apiService,SERVER_CONSTANT,LOGIN_CONSTANT,USER_CONSTANT) {
+    function adminUserService(apiService,SERVER_CONSTANT,ADMIN_CONSTANT) {
 
         return {
-            getAuthorizedUserShortData: _getAuthorizedUserShortData,
-            getAuthorizedUserFullData: _getAuthorizedUserFullData,
-            setUpdatedSocialUserData:_setUpdatedSocialUserData,
-            getAllUserData: _getAllUserData,
+            getAllNonApprovedUsers:_getAllNonApprovedUsers,
+            getAllApprovedUsers:_getAllApprovedUsers,
+            getAllAdminUsers: _getAllAdminUsers,
             saveUpdatedUserDataAdmin: _saveUpdatedUserDataAdmin,
-//            updateFullName:_updateFullName,
-//            updateUserUniversityCampus:_updateUserUniversityCampus,
-            updateUserProfile: _updateUserProfile,
-            changePassword: _changePassword,
-            getAllNonApprovedUsers:_getAllNonApprovedUsers
+            approveUsers:_approveUsers,
+            addAdminUser:_addAdminUser
         };
 
-        function _getAuthorizedUserShortData(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+USER_CONSTANT.CURRENT_USER_SHORT_DETAILS+"?access_token="+accessToken);
+
+        function _getAllNonApprovedUsers(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_NON_APPROVED_USER+"?access_token="+accessToken,data);
         }
 
-        function _getAuthorizedUserFullData(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+USER_CONSTANT.CURRENT_USER_FULL_DETAILS+"?access_token="+accessToken);
+        function _getAllApprovedUsers(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_APPROVED_USER+"?access_token="+accessToken,data);
         }
 
-        function _setUpdatedSocialUserData(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_SOCIAL_USER+"?access_token="+accessToken,data);
-        }
-
-        function _getAllUserData(accessToken){
-
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_ALL_USER_DATA+"?access_token="+accessToken);
+        function _getAllAdminUsers(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_ADMIN_USER+"?access_token="+accessToken,data);
         }
 
         function _saveUpdatedUserDataAdmin(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_UPDATE_USER_DATA+"?access_token="+accessToken,data);
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADMIN_UPDATE_USER_DATA+"?access_token="+accessToken,data);
         }
 
-//        function _updateFullName(accessToken,data){
-//            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_FULL_NAME+"?access_token="+accessToken,data);
-//        }
-//
-//        function _updateUserUniversityCampus(accessToken,data){
-//            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_USER_UNIVERSITY_CAMPUS+"?access_token="+accessToken,data);
-//        }
-        function _updateUserProfile(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_PROFILE+"?access_token="+accessToken,data);
+        function _approveUsers(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.APPROVE_USERS+"?access_token="+accessToken,data);
         }
 
-        function _changePassword(data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.CHANGE_PASSWORD,data);
-        }
-        function _getAllNonApprovedUsers(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.GET_ALL_NON_APPROVED_USER+"?access_token="+accessToken,data);
+        function _addAdminUser(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADD_ADMIN_USER+"?access_token="+accessToken,data);
         }
 
 

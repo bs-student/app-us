@@ -5,10 +5,16 @@
     app
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$scope', 'identityService', 'userService', 'responseService', 'universityService', '$log', '$q'];
+    ProfileCtrl.$inject = ['$scope','$state', 'identityService', 'userService', 'responseService', 'universityService', '$log', '$q'];
 
-    function ProfileCtrl($scope, identityService, userService, responseService, universityService, $log, $q) {
+    function ProfileCtrl($scope, $state,identityService, userService, responseService, universityService, $log, $q) {
 
+        if(!$scope.$parent.loggedIn){
+            $state.go("app.login");
+        }
+
+        $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "user";
 
         $scope.editFullName = _editFullName;
         $scope.cancelEditFullName = _cancelEditFullName;

@@ -9,6 +9,9 @@
 
     function SellArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
+        if(!$scope.$parent.loggedIn){
+            $state.go("app.login");
+        }
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellingBook";

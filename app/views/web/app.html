@@ -54,8 +54,8 @@
                         </ul>
                     </li>
 
-                    <li ng-show="loggedIn"  ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
-                        <ul class="menu-right-position">
+                    <li ng-show="loggedIn" ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
+                        <ul ng-show="loggedIn && !adminUser"  class="menu-right-position">
                             <li><a ui-sref="app.sellingBookList"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Selling Books</a></li>
                             <li><a ui-sref="app.sellArchive"><i class="fa fa-file-archive-o"></i>&nbsp;&nbsp;&nbsp;Sell Archive</a></li>
                             <li><a ui-sref="app.contactedBookList"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Active Deals</a></li>
@@ -63,10 +63,27 @@
                             <li><a ui-sref="app.wishList"><i class="fa fa-heart-o"></i>&nbsp;&nbsp;&nbsp;WishList</a></li>
                             <li><a ui-sref="app.profile"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a></li>
                             <!--<li><a ui-sref="app.dashboard"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Change University</a></li>-->
-                            <li><a ui-sref="app.dashboard"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
+                            <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
                             <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>
                         </ul>
+
+                        <ul ng-show="loggedIn && adminUser" class="menu-right-position">
+                            <li><a ui-sref="app.userList"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;User Management</a></li>
+                            <li><a ui-sref="app.sellArchive"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Book Deals</a></li>
+                            <li><a ui-sref="app.contactedBookList"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;News Management</a></li>
+                            <li><a ui-sref="app.buyArchive"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Student Contents</a></li>
+                            <li><a ui-sref="app.buyArchive"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Campus Contents</a></li>
+                            <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
+                            <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>
+                        </ul>
+
                     </li>
+
+                    <!--<li ng-show="adminUser"  ng-class="{admin:'active'}[activePage]"><a href="#">Admin Panel</a>-->
+                        <!--<ul class="menu-right-position">-->
+                            <!---->
+                        <!--</ul>-->
+                    <!--</li>-->
 
                 </ul>
 

@@ -13,6 +13,7 @@
 
 //        $scope.homePage = null;
         $scope.loggedIn = false;
+        $scope.adminUser=false;
         $scope.logout = _logout;
 
 //        checkIfUserLoggedIn();
@@ -72,10 +73,10 @@
 //            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);
             identityService.setAuthorizedUserData(response.data.success.successData);
             if(identityService.getAuthorizedUserData().registrationStatus=="incomplete"){
-                userLoggedIn();
+                userLoggedIn(response.data.success.successData);
                 $state.go('registration.complete');
             }else if(identityService.getAuthorizedUserData().registrationStatus=="complete"){
-                userLoggedIn();
+                userLoggedIn(response.data.success.successData);
 //                $state.go('app.dashboard');
             }
 
@@ -93,9 +94,15 @@
         }
 
 
-        function userLoggedIn(){
+        function userLoggedIn(userData){
+            if(userData.role.indexOf("ROLE_ADMIN_USER")>=0){
+                $scope.adminUser=true;
+            }else{
+                $scope.adminUser=false;
+            }
             $scope.loggedIn = true;
             $scope.username = identityService.getAuthorizedUserData().username;
+
         }
 
 

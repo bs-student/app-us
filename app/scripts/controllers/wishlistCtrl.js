@@ -9,6 +9,9 @@
 
     function WishListCtrl($scope, identityService,responseService,wishListService,imageModalService,SERVER_CONSTANT) {
 
+        if(!$scope.$parent.loggedIn){
+            $state.go("app.login");
+        }
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
