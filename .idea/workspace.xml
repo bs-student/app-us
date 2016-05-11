@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/services/adminBookDealService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookDealCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/book/book_deals.html" />
-      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\admin\user\user_list_old.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/addQuoteCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/content/add_student_quote.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/content/add_university_quote.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/services/adminQuoteService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/quoteCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/content/quotes.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/app.html" afterPath="$PROJECT_DIR$/app/views/web/app.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/constants/constants.js" afterPath="$PROJECT_DIR$/app/scripts/constants/constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/fileInput.js" afterPath="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/myStyle.css" afterPath="$PROJECT_DIR$/app/assets/css/myStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/userManagementCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/userManagementCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -39,7 +41,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="0" selection-start="7048" selection-end="7048" vertical-scroll-proportion="-5.490196" vertical-offset="2066" max-vertical-offset="5015">
+            <state line="188" column="51" selection-start="10526" selection-end="10526" vertical-scroll-proportion="-62.666668" vertical-offset="0" max-vertical-offset="5066">
               <folding />
             </state>
           </provider>
@@ -48,99 +50,98 @@
       <file leaf-file-name="gulpfile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="50" selection-start="4765" selection-end="4765" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="4437">
+            <state line="53" column="54" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4505">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/user/user_list.html">
+      <file leaf-file-name="quotes.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/content/quotes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="47" selection-start="1856" selection-end="1879" vertical-scroll-proportion="-20.26923" vertical-offset="357" max-vertical-offset="4233">
+            <state line="126" column="22" selection-start="5648" selection-end="5670" vertical-scroll-proportion="-7.8235292" vertical-offset="1743" max-vertical-offset="3995">
               <folding>
-                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#2;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#2;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1462865416701" expanded="true" signature="10153:10261" placeholder="..." />
-                <marker date="1462865416701" expanded="true" signature="10292:10421" placeholder="..." />
-                <marker date="1462865416701" expanded="true" signature="10328:10409" placeholder="..." />
-                <marker date="1462865416701" expanded="false" signature="10354:10366" placeholder="..." />
-                <marker date="1462865416701" expanded="true" signature="10452:10624" placeholder="..." />
-                <marker date="1462865416701" expanded="true" signature="10543:10613" placeholder="..." />
-                <marker date="1462865416701" expanded="true" signature="10546:10592" placeholder="..." />
+                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#0;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#0;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <marker date="1462957487882" expanded="true" signature="9716:9824" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="9855:9984" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="9891:9972" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="9917:9929" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="10015:10187" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="10106:10176" placeholder="..." />
+                <marker date="1462957487882" expanded="true" signature="10109:10155" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book_deals.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/book/book_deals.html">
+      <file leaf-file-name="add_student_quote.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/content/add_student_quote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="227" selection-start="5088" selection-end="5088" vertical-scroll-proportion="-10.274509" vertical-offset="904" max-vertical-offset="3043">
+            <state line="36" column="84" selection-start="2394" selection-end="2394" vertical-scroll-proportion="-8.823529" vertical-offset="162" max-vertical-offset="2006">
               <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1462883456999" expanded="true" signature="8437:8545" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8576:8705" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8612:8693" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8638:8650" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8736:8908" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8827:8897" placeholder="..." />
-                <marker date="1462883456999" expanded="true" signature="8830:8876" placeholder="..." />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myStyle.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/css/myStyle.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1884" column="16" selection-start="42680" selection-end="42680" vertical-scroll-proportion="-33.32" vertical-offset="31195" max-vertical-offset="32147">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="constants.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="74" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.46095446" vertical-offset="0" max-vertical-offset="2771">
+            <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2856">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buy_archive.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/book/buy_archive.html">
+      <file leaf-file-name="bookService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/bookService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="14" selection-start="650" selection-end="9450" vertical-scroll-proportion="-23.538462" vertical-offset="2295" max-vertical-offset="6715">
+            <state line="73" column="17" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.0" vertical-offset="934" max-vertical-offset="2108">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bookDealCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookDealCtrl.js">
+      <file leaf-file-name="adminQuoteService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/adminQuoteService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="30" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
+            <state line="28" column="90" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buyArchiveCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/buyArchiveCtrl.js">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="31" selection-start="680" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2941">
+            <state line="421" column="17" selection-start="14714" selection-end="15012" vertical-scroll-proportion="0.0" vertical-offset="6624" max-vertical-offset="23953">
+              <folding>
+                <marker date="1462960857858" expanded="true" signature="14409:15027" placeholder="{&quot;url&quot;: '^/addUniversityQuote'...}" />
+                <marker date="1462960857858" expanded="true" signature="14478:14714" placeholder="{...}" />
+                <marker date="1462960857858" expanded="true" signature="14536:14696" placeholder="{&quot;templateUrl&quot;: 'views/admin/content/add_university_quote.html'...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_university_quote.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/content/add_university_quote.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="32" selection-start="2337" selection-end="2435" vertical-scroll-proportion="-19.615385" vertical-offset="102" max-vertical-offset="2006">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminBookDealService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/adminBookDealService.js">
+      <file leaf-file-name="addQuoteCtrl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/addQuoteCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="67" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+            <state line="45" column="96" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.37310195" vertical-offset="421" max-vertical-offset="1564">
               <folding />
             </state>
           </provider>
@@ -159,13 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/controllers/bookSearchCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/book/search_result.html" />
-        <option value="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/modalService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/modalInstanceCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/imageModalService.js" />
-        <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
         <option value="$PROJECT_DIR$/app/views/book/buy_archive.html" />
@@ -201,14 +195,21 @@
         <option value="$PROJECT_DIR$/app/scripts/services/adminUserService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/addUserCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/userManagementCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/web/app.html" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/adminBookDealService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookDealCtrl.js" />
-        <option value="$PROJECT_DIR$/app/assets/css/myStyle.css" />
         <option value="$PROJECT_DIR$/app/views/admin/book/book_deals.html" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/app/views/web/app.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/quoteCtrl.js" />
+        <option value="$PROJECT_DIR$/app/assets/css/myStyle.css" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/addQuoteCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/adminQuoteService.js" />
+        <option value="$PROJECT_DIR$/app/views/admin/content/quotes.html" />
+        <option value="$PROJECT_DIR$/app/views/admin/content/add_university_quote.html" />
+        <option value="$PROJECT_DIR$/app/views/admin/content/add_student_quote.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
       </list>
     </option>
@@ -261,6 +262,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,6 +426,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="university" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -707,11 +748,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\services" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\admin\content" />
       <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\controllers" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\services" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\admin" />
       <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\admin\book" />
-      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\admin\user" />
-      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\account" />
     </key>
   </component>
   <component name="RunManager">
@@ -756,11 +797,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -780,61 +821,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/gotoTop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/formsubmit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/fileInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/check-toggler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/angular.flexslider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3298" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/anchor-scroll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/wishListService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1006" selection-end="1011" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/validators/valEmail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="39" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/validators/valUsername.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="895" selection-end="895" vertical-scroll-proportion="0.47939262" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/web/scam_fraud.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="937" selection-end="3391" vertical-scroll-proportion="-22.884615" vertical-offset="0" max-vertical-offset="748" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/account/profile_old.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6341" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/security/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="159" column="42" selection-start="6787" selection-end="8473" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="4250" />
@@ -855,13 +841,6 @@
         <state line="116" column="38" selection-start="3373" selection-end="6267" vertical-scroll-proportion="-24.846153" vertical-offset="1326" max-vertical-offset="2703" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="9" selection-start="290" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5678">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037" />
@@ -869,30 +848,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="9" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3774">
-          <folding />
-        </state>
+        <state line="13" column="9" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3774" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="9" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2941">
-          <folding />
-        </state>
+        <state line="13" column="9" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2941" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="9" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4046">
-          <folding />
-        </state>
+        <state line="13" column="9" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4046" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/wishListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="9" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1717">
-          <folding />
-        </state>
+        <state line="50" column="9" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1717" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/identityService.js">
@@ -929,9 +900,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/profileCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="17" selection-start="1146" selection-end="1918" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2397">
-          <folding />
-        </state>
+        <state line="49" column="17" selection-start="1146" selection-end="1918" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2397" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/userService.js">
@@ -943,85 +912,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/changePasswordCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="322" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <folding />
-        </state>
+        <state line="16" column="43" selection-start="322" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/compare_book_price.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="466" column="10" selection-start="18287" selection-end="19583" vertical-scroll-proportion="-26.153847" vertical-offset="7242" max-vertical-offset="8619">
-          <folding>
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1462255229570" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="466" column="10" selection-start="18287" selection-end="19583" vertical-scroll-proportion="-26.153847" vertical-offset="7242" max-vertical-offset="8619" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookBuyCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="382" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2108">
-          <folding />
-        </state>
+        <state line="15" column="46" selection-start="382" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/buy_book.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="16" selection-start="221" selection-end="221" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="3774">
-          <folding />
-        </state>
+        <state line="2" column="16" selection-start="221" selection-end="221" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="3774" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/user/add_user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="117" selection-start="929" selection-end="933" vertical-scroll-proportion="-4.4736843" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
-        </state>
+        <state line="20" column="117" selection-start="929" selection-end="933" vertical-scroll-proportion="-4.4736843" vertical-offset="0" max-vertical-offset="1785" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/adminUserService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="81" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="935">
-          <folding />
-        </state>
+        <state line="42" column="81" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/startCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="53" selection-start="3855" selection-end="3870" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295">
-          <folding />
-        </state>
+        <state line="97" column="53" selection-start="3855" selection-end="3870" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/signupCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="96" selection-start="5140" selection-end="5162" vertical-scroll-proportion="0.0" vertical-offset="1403" max-vertical-offset="2312">
-          <folding />
-        </state>
+        <state line="120" column="96" selection-start="5140" selection-end="5162" vertical-scroll-proportion="0.0" vertical-offset="1403" max-vertical-offset="2312" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/addUserCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="38" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/web/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="60" selection-start="4810" selection-end="4810" vertical-scroll-proportion="-19.615385" vertical-offset="697" max-vertical-offset="2023">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="419" column="41" selection-start="13355" selection-end="13367" vertical-scroll-proportion="0.0" vertical-offset="6675" max-vertical-offset="23256">
           <folding />
         </state>
       </provider>
@@ -1039,7 +970,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/buy_archive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="14" selection-start="650" selection-end="9450" vertical-scroll-proportion="-23.538462" vertical-offset="2295" max-vertical-offset="6715">
+        <state line="171" column="14" selection-start="650" selection-end="9450" vertical-scroll-proportion="0.0" vertical-offset="2295" max-vertical-offset="6715">
           <folding />
         </state>
       </provider>
@@ -1065,64 +996,174 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/book/book_deals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="227" selection-start="5088" selection-end="5088" vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="3043">
+          <folding>
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462883456999" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookCompareCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="63" selection-start="1137" selection-end="1192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/web/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="54" selection-start="5065" selection-end="5065" vertical-scroll-proportion="-18.961538" vertical-offset="748" max-vertical-offset="2023">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/user/user_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="47" selection-start="1856" selection-end="1879" vertical-scroll-proportion="-20.26923" vertical-offset="357" max-vertical-offset="4233">
+        <state line="161" column="12" selection-start="7509" selection-end="7543" vertical-scroll-proportion="-5.607843" vertical-offset="2451" max-vertical-offset="4233">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/book/sell.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267" column="18" selection-start="8609" selection-end="10035" vertical-scroll-proportion="-39.23077" vertical-offset="3519" max-vertical-offset="16031">
           <folding>
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#2;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#2;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1462865416701" expanded="true" signature="10153:10261" placeholder="..." />
-            <marker date="1462865416701" expanded="true" signature="10292:10421" placeholder="..." />
-            <marker date="1462865416701" expanded="true" signature="10328:10409" placeholder="..." />
-            <marker date="1462865416701" expanded="false" signature="10354:10366" placeholder="..." />
-            <marker date="1462865416701" expanded="true" signature="10452:10624" placeholder="..." />
-            <marker date="1462865416701" expanded="true" signature="10543:10613" placeholder="..." />
-            <marker date="1462865416701" expanded="true" signature="10546:10592" placeholder="..." />
+            <marker date="1461756869823" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1461756869823" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/css/myStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1884" column="16" selection-start="42680" selection-end="42680" vertical-scroll-proportion="-33.32" vertical-offset="31195" max-vertical-offset="32147">
+        <state line="1892" column="32" selection-start="42888" selection-end="42888" vertical-scroll-proportion="0.0" vertical-offset="31374" max-vertical-offset="32283">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/book/book_deals.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/quoteCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="227" selection-start="5088" selection-end="5088" vertical-scroll-proportion="-10.274509" vertical-offset="904" max-vertical-offset="3043">
+        <state line="25" column="28" selection-start="765" selection-end="778" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="3485">
           <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1462883456999" expanded="true" signature="8437:8545" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8576:8705" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8612:8693" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8638:8650" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8736:8908" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8827:8897" placeholder="..." />
-            <marker date="1462883456999" expanded="true" signature="8830:8876" placeholder="..." />
+            <marker date="1462948049345" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="16" selection-start="1945" selection-end="1945" vertical-scroll-proportion="0.3329718" vertical-offset="1818" max-vertical-offset="15929">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/fileInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="33" selection-start="282" selection-end="287" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="35" selection-start="4545" selection-end="4545" vertical-scroll-proportion="0.0" vertical-offset="1798" max-vertical-offset="5678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/bookService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="17" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.0" vertical-offset="934" max-vertical-offset="2108">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/content/add_student_quote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="84" selection-start="2394" selection-end="2394" vertical-scroll-proportion="-8.823529" vertical-offset="162" max-vertical-offset="2006">
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="421" column="17" selection-start="14714" selection-end="15012" vertical-scroll-proportion="0.0" vertical-offset="6624" max-vertical-offset="23953">
+          <folding>
+            <marker date="1462960857858" expanded="true" signature="14409:15027" placeholder="{&quot;url&quot;: '^/addUniversityQuote'...}" />
+            <marker date="1462960857858" expanded="true" signature="14478:14714" placeholder="{...}" />
+            <marker date="1462960857858" expanded="true" signature="14536:14696" placeholder="{&quot;templateUrl&quot;: 'views/admin/content/add_university_quote.html'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/content/quotes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="22" selection-start="5648" selection-end="5670" vertical-scroll-proportion="-7.8235292" vertical-offset="1743" max-vertical-offset="3995">
+          <folding>
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#0;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#0;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#form#0;n#table#0;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1462957487882" expanded="true" signature="9716:9824" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="9855:9984" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="9891:9972" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="9917:9929" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="10015:10187" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="10106:10176" placeholder="..." />
+            <marker date="1462957487882" expanded="true" signature="10109:10155" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2856">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="50" selection-start="4765" selection-end="4765" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="4437">
+        <state line="53" column="54" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4505">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="0" selection-start="7048" selection-end="7048" vertical-scroll-proportion="-5.490196" vertical-offset="2066" max-vertical-offset="5015">
+        <state line="188" column="51" selection-start="10526" selection-end="10526" vertical-scroll-proportion="-62.666668" vertical-offset="0" max-vertical-offset="5066">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/adminQuoteService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="74" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.46095446" vertical-offset="0" max-vertical-offset="2771">
+        <state line="28" column="90" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/content/add_university_quote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="32" selection-start="2337" selection-end="2435" vertical-scroll-proportion="-19.615385" vertical-offset="102" max-vertical-offset="2006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/addQuoteCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="96" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.37310195" vertical-offset="421" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>

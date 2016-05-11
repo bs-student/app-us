@@ -51,6 +51,7 @@ var assets = {
         "vendor/rs-plugin/js/jquery.themepunch.tools.min.js",
         "vendor/rs-plugin/js/jquery.themepunch.revolution.js",
         "vendor/ng-parallax-master/js/ngParallax.js",
+        "vendor/filestyle/bootstrap-filestyle.min.js",
 
         "app/assets/js/global.js"
     ],
@@ -96,6 +97,8 @@ var assets = {
         "app/scripts/controllers/wishListCtrl.js",
         "app/scripts/controllers/addUserCtrl.js",
         "app/scripts/controllers/bookDealCtrl.js",
+        "app/scripts/controllers/quoteCtrl.js",
+        "app/scripts/controllers/addQuoteCtrl.js",
 
 
 
@@ -141,6 +144,7 @@ var assets = {
         "app/scripts/services/wishListService.js",
         "app/scripts/services/adminUserService.js",
         "app/scripts/services/adminBookDealService.js",
+        "app/scripts/services/adminQuoteService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

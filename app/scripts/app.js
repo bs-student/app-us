@@ -381,45 +381,86 @@ var app = angular
                 }
 
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Admin All Book Deals
             .state('app.allBookDeals', {
                 url: '^/allBookDeals',
                 controller: 'BookDealCtrl',
                 templateUrl: 'views/admin/book/book_deals.html'
             })
+            //Admin Quotes
+            .state('app.quotes', {
+                url: '^/quotes',
+                controller: 'QuoteCtrl',
+                templateUrl: 'views/admin/content/quotes.html'
+            })
+            //Add Student Quote
+            .state('app.quotes.addStudentQuote', {
+                url: '^/addStudentQuote',
+                views:{
+                    'addStudentQuoteView@app.quotes':{
+                        templateUrl: 'views/admin/content/add_student_quote.html',
+                        controller: 'AddQuoteCtrl'
+                    }
+                }/*,
+                resolve: {
+                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            '../vendor/filestyle/bootstrap-filestyle.min.js'
+                        ]);
+                    }]
+                }*/
+
+            })
+            //Add University Quote
+            .state('app.quotes.addUniversityQuote', {
+                url: '^/addUniversityQuote',
+                views:{
+                    'addUniversityQuoteView@app.quotes':{
+                        templateUrl: 'views/admin/content/add_university_quote.html',
+                        controller: 'AddQuoteCtrl'
+                    }
+                }/*,
+                resolve: {
+                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            '../vendor/filestyle/bootstrap-filestyle.min.js'
+                        ]);
+                    }]
+                }*/
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

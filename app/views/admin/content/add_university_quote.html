@@ -1,6 +1,6 @@
 
         <div class="row">
-            <form name="quoteForm" submit-validate ng-submit="addQuote(quoteForm.$valid,'Student')" role="form" novalidate>
+            <form name="quoteForm" submit-validate ng-submit="addQuote(quoteForm.$valid,'University')" role="form" novalidate>
             <div class="col-md-6 reg-page-col-div">
 
                 <div class="add-new-quote-form">
@@ -17,10 +17,10 @@
 
                             <div class="form-group" ng-class="{ 'has-error' : quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine, 'has-success' : quoteForm.quoteProvider.$valid && !quoteForm.quoteProvider.$pristine}">
                                 <!--<label class="white-text" for="quoteProvider">Full Name: </label>-->
-                                <p class="" for="quoteProvider">Quote Provider Name: </p>
+                                <p class="" for="quoteProvider">University Name: </p>
                                 <input type="text" name="quoteProvider" id="quoteProvider" class="form-control " ng-model="quote.quoteProvider"  required>
                                 <p class="help-block">
-                                    <span ng-show="quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine">Quote Provider Name is required.</span>
+                                    <span ng-show="quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine">University Name is required.</span>
                                 </p>
                             </div>
 
@@ -34,7 +34,7 @@
                             </div>
 
                             <div ng-show="!singleFile" class="form-group">
-                                <p>Quote Image: (Recommended size: 64px/64px)</p>
+                                <p>University Image: (Recommended dimension: 195px/195px & Recommended Size : less than 200KB)</p>
                                 <input  single-file="singleFile" file-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
             buttonText: 'Select file',
             iconName: 'fa fa-inbox'
@@ -47,7 +47,7 @@
                                     <div class="p-15 bg-white">
 
 
-                                        <h5 class="custom-font text-default m-0">Quote Image</h5>
+                                        <h5 class="custom-font text-default m-0">University Image</h5>
 
                                     </div>
 

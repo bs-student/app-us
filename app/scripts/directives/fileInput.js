@@ -12,6 +12,7 @@ app
                     element.bind("change",function(e){
 
                         var model = attrs.fileInput;
+                        var singleFile = attrs.singleFile;
                         var fileIdModel = attrs.fileIdentifier;
                         var fileDataModel = attrs.fileData;
                         if(scope.model==undefined){
@@ -23,9 +24,10 @@ app
                                 file[fileDataModel]=loadEvent.target.result;
                                 file[fileIdModel] = Math.floor((Math.random() * 1000000) + 1);
 
-
+                                var fileSelected= true;
                                 scope.$apply(function(){
                                     scope.model.push(file);
+                                    scope.singleFile = true;
                                 });
                             };
                             reader.readAsDataURL(file);

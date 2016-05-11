@@ -3,46 +3,39 @@
     'use strict';
 
     app
-        .factory('adminUserService', adminUserService);
+        .factory('adminQuoteService', adminQuoteService);
 
-    adminUserService.$inject=['apiService','SERVER_CONSTANT','ADMIN_CONSTANT'];
+    adminQuoteService.$inject=['apiService','SERVER_CONSTANT','ADMIN_CONSTANT'];
 
-    function adminUserService(apiService,SERVER_CONSTANT,ADMIN_CONSTANT) {
+    function adminQuoteService(apiService,SERVER_CONSTANT,ADMIN_CONSTANT) {
 
         return {
-            getAllNonApprovedUsers:_getAllNonApprovedUsers,
-            getAllApprovedUsers:_getAllApprovedUsers,
-            getAllAdminUsers: _getAllAdminUsers,
-            saveUpdatedUserDataAdmin: _saveUpdatedUserDataAdmin,
-            approveUsers:_approveUsers,
-            addAdminUser:_addAdminUser
+            getStudentQuotes:_getStudentQuotes,
+            getUniversityQuotes:_getUniversityQuotes,
+            saveUpdatedQuote:_saveUpdatedQuote,
+            addQuote:_addQuote
         };
 
 
-        function _getAllNonApprovedUsers(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_NON_APPROVED_USER+"?access_token="+accessToken,data);
+        function _getStudentQuotes(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_STUDENT_QUOTES+"?access_token="+accessToken,data);
         }
 
-        function _getAllApprovedUsers(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_APPROVED_USER+"?access_token="+accessToken,data);
+        function _getUniversityQuotes(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_UNIVERSITY_QUOTES+"?access_token="+accessToken,data);
         }
 
-        function _getAllAdminUsers(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_ADMIN_USER+"?access_token="+accessToken,data);
+        function _saveUpdatedQuote(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.UPDATE_QUOTE+"?access_token="+accessToken,data);
         }
 
-        function _saveUpdatedUserDataAdmin(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADMIN_UPDATE_USER_DATA+"?access_token="+accessToken,data);
+        function _addQuote(accessToken,data){
+            var config = {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            }
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADD_QUOTE+"?access_token="+accessToken,data,config);
         }
-
-        function _approveUsers(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.APPROVE_USERS+"?access_token="+accessToken,data);
-        }
-
-        function _addAdminUser(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADD_ADMIN_USER+"?access_token="+accessToken,data);
-        }
-
 
     }
 

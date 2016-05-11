@@ -2,11 +2,11 @@
     'use strict';
 
     app
-        .controller('AddUserCtrl', AddUserCtrl);
+        .controller('AddQuoteCtrl', AddQuoteCtrl);
 
-    AddUserCtrl.$inject = ['identityService', 'adminUserService', 'responseService', '$scope', '$state'];
+    AddQuoteCtrl.$inject = ['identityService', 'adminQuoteService', 'responseService', '$scope', '$state'];
 
-    function AddUserCtrl(identityService, adminUserService, responseService, $scope, $state) {
+    function AddQuoteCtrl(identityService, adminQuoteService, responseService, $scope, $state) {
 
 
         if(!$scope.$parent.adminUser){
@@ -17,21 +17,36 @@
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
+        $scope.removeFile=_removeFile;
+        $scope.addQuote = _addQuote;
 
-        $scope.addUser = _addUser;
 
+        function _addQuote(valid,quoteType) {
 
-        function _addUser(valid) {
             if(valid){
-                $scope.user.adminApproved="Yes";
-                $scope.user.new_password=$scope.user.password;
-                $scope.user.confirm_password= $scope.user.passwordConfirm;
+                var formData = new FormData();
+                var i=0;
+                angular.forEach($scope.files, function (file) {
+                    formData.append("file"+ i.toString(),file);
+                    i++;
+                });
+                var quote={};
+                quote.quoteType = quoteType;
+                quote.quoteDescription = $scope.quote.quoteDescription;
+                quote.quoteProvider = $scope.quote.quoteProvider;
 
-                adminUserService.addAdminUser(identityService.getAccessToken(),$scope.user).then(function (response) {
+                formData.append("quote",JSON.stringify(quote));
+
+                adminQuoteService.addQuote(identityService.getAccessToken(),formData).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
-                    $scope.$parent.adminUsers.push(response.data.success.successData);
-                    $state.go('app.userList');
+                    if(quoteType=="Student"){
+                        $scope.$parent.studentQuotes.push(response.data.success.successData);
+                    }else if(quoteType=="University"){
+                        $scope.$parent.universityQuotes.push(response.data.success.successData);
+                    }
+
+                    $state.go('app.quotes');
 
                 }).catch(function(response){
 
@@ -40,22 +55,11 @@
                     } else if (response.data.error_description == "The access token provided has expired.") {
                         identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                             identityService.setAccessToken(response.data);
-                            _addUser(valid);
+                            _addQuote(valid,quoteType);
                         });
                     } else if (response.data.error != undefined) {
-                        var errorDescription="";
-                        if(response.data.error.errorData!=undefined){
-                            $scope.user.password=null;
-                            $scope.user.passwordConfirm=null;
-                            if(response.data.error.errorData.children.username.errors!=undefined){
-                                errorDescription+= response.data.error.errorData.children.username.errors[0]+". ";
-                            }
-                            if(response.data.error.errorData.children.email.errors!=undefined){
-                                errorDescription+= response.data.error.errorData.children.email.errors[0]+". ";
-                            }
-                        }
 
-                        responseService.showErrorToast(response.data.error.errorTitle, errorDescription+". "+response.data.error.errorDescription);
+                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
                     } else {
                         responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
                     }
@@ -65,6 +69,18 @@
 
             }
 
+        }
+
+        function _removeFile(item){
+            $scope.singleFile=false;
+            var i = 0;
+            angular.forEach($scope.files,function(file){
+                if(file.fileId == item.fileId){
+                    $scope.files.splice($scope.files.indexOf(file), 1);
+                }
+                i++;
+            });
+            console.log($scope.files);
         }
     }
 
