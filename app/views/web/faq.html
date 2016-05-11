@@ -1,26 +1,26 @@
-<div class="safety-first-page-head-banner">
+<div class="faq-page-head-banner">
     <div class="container clearfix">
 
 
         <div class="row concept-banner-row">
 
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <div class="concept-page-banner-text"><p
-                        class=" open-sans concept-page-banner-first-text  text-white uppercase"><strong>scam & Fraud</strong>
+                        class=" open-sans concept-page-banner-first-text  text-white uppercase"><strong>Frequently asked</strong>
                 </p>
 
                     <p class="open-sans concept-page-banner-second-text text-right"><strong>
-                        <text class="uppercase navy-blue-text ">&nbsp;&nbsp;fight</text>
-                        <text class="uppercase orange-text">them</text>
+                        <text class="uppercase navy-blue-text ">&nbsp;&nbsp;questions</text>
+
                     </strong></p>
                 </div>
 
             </div>
 
 
-            <div class="col-md-5 text-right">
+            <div class="col-md-3 text-right">
                 <div class="guard-image">
-                <img src="dist/images/scam_fraud/security.png"/>
+                <img src="dist/images/faq/faq.png"/>
                 </div>
             </div>
 
@@ -39,42 +39,68 @@
 <div class="content-wrap mid-section">
 
 
-<div class="section m-0 pt-0 mid-one safety-first-section scam-fraud-section">
+<div class="section m-0 pt-0 mid-one safety-first-section scam-fraud-section faq-section">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
             <div class="col-md-4 mid-three-uni-quote-col">
-                <div class="concept-page-mid-one-odd-image">
-                    <img class="img-responsive" src="dist/images/scam_fraud/image2.png"/>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="faq-topics-div">
+                            <ul class="tabs-menu">
+
+                                <li ng-class="{true:'active'}[link.active]" data-ng-repeat="link in faqList"><a href="" ng-click="active(link)" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; {{link.linkText}}</a></li>
+
+                                <!--<li class="active"><a ng-click="tab_1=true"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; about student2student</a></li>-->
+                                <!--<li><a href="#tab_2" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; general</a></li>-->
+                                <!--<li><a href="#tab_3" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; seller's handbook</a></li>-->
+                                <!--<li><a href="#tab_4" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; buyer's handbook</a></li>-->
+                                <!--<li><a href="#tab_5" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; how to's</a></li>-->
+                                <!--<li><a href="#tab_6" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; policies</a></li>-->
+                                <!--<li><a href="#tab_7" ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp; contact us</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="orange-text uppercase lato mid-one-header-text"><strong>avoid scams & fraud</strong></h2>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="faq-download-div">
+                            <div class="div-header"><text class="uppercase lato">Download</text></div>
+                            <img class="hr-img" data-ng-src="dist/images/faq/hr.png"/>
+                            <ul>
+                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
+                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
+                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="mid-one-style first-style">
-                    <img class="img-responsive" src="dist/images/concept/conceptPageFirstStyle.png"/>
-                </div>
-                <div>
-                    <p class="grey-text lato mid-one-details">Read carefully to fight Scams & Fraud
-                    </p>
-                </div>
+
             </div>
             <div class="col-md-8 mid-three-uni-quote-col page-text-side ">
 
-                <p class="blue-text lato uppercase heading-text">Who are scammers?</p>
+                <div class="tab-content">
+                    <div class="faq-all-questions">
 
-                <p class="blue-text lato sub-heading-text">Follow these common-sense rules:</p>
+                        <div ng-show="faq.active" data-ng-repeat="faq in faqList">
+                            <uib-accordion close-others="oneAtATime">
+
+                                <uib-accordion-group ng-repeat="row in faq.faqs" is-open="row.open">
+                                    <uib-accordion-heading>
+                                        {{row.question}} <i class="pull-right fa" ng-class="{'fa-minus': row.open, 'fa-plus': !row.open}"></i>
+                                    </uib-accordion-heading>
+                                    {{row.answer}}
+                                </uib-accordion-group>
+
+                            </uib-accordion>
+                        </div>
 
 
-                <ul class="text-list">
-                    <li><span>DEAL LOCALLY WITH FOLKS YOU CAN MEET IN PERSON - COE (Cash on Exchange) - follow this one simple rule, and you will avoid 99% of the scam attempts on Student 2 Student.</span></li>
-                    <li><span>NEVER WIRE FUNDS, MONEY - anyone who asks you to do so is a potential scammer.</span></li>
-                    <li><span>FAKE CASHIER CHECKS & MONEY ORDERS ARE COMMON, and BANKS WILL CASH THEM AND THEN HOLD YOU RESPONSIBLE when the fake is discovered weeks later.</span></li>
-                    <li><span>Student 2 Student IS NOT INVOLVED IN ANY TRANSACTION, and does not handle payments, guarantee transactions, or offer "buyer protection" or    "seller certification".</span></li>
-                    <li><span>NEVER GIVE OUT FINANCIAL INFORMATION (bank account number, social security number, eBay/PayPal info, etc.)</span></li>
-                    <li><span>AVOID DEALS INVOLVING SHIPPING OR UPFRONT PAYMENT and know that ONLY A SCAMMER WILL "GUARANTEE" YOUR TRANSACTION.</span></li>
-                </ul>
+                    </div>
 
-
+                </div>
 
             </div>
 

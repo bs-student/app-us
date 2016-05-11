@@ -401,14 +401,7 @@ var app = angular
                         templateUrl: 'views/admin/content/add_student_quote.html',
                         controller: 'AddQuoteCtrl'
                     }
-                }/*,
-                resolve: {
-                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            '../vendor/filestyle/bootstrap-filestyle.min.js'
-                        ]);
-                    }]
-                }*/
+                }
 
             })
             //Add University Quote
@@ -419,14 +412,7 @@ var app = angular
                         templateUrl: 'views/admin/content/add_university_quote.html',
                         controller: 'AddQuoteCtrl'
                     }
-                }/*,
-                resolve: {
-                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            '../vendor/filestyle/bootstrap-filestyle.min.js'
-                        ]);
-                    }]
-                }*/
+                }
 
             })
 
@@ -448,7 +434,12 @@ var app = angular
 
 
 
-
+            //FAQ
+            .state('app.faq', {
+                url: '^/faq',
+                controller: 'FaqCtrl',
+                templateUrl: 'views/web/faq.html'
+            })
 
 
 

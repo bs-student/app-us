@@ -99,6 +99,7 @@ var assets = {
         "app/scripts/controllers/bookDealCtrl.js",
         "app/scripts/controllers/quoteCtrl.js",
         "app/scripts/controllers/addQuoteCtrl.js",
+        "app/scripts/controllers/faqCtrl.js",
 
 
 

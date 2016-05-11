@@ -1128,7 +1128,7 @@
     font-family: "Open Sans";
 }
 .concept-page-banner-first-text{
-    font-size: 87px;
+    font-size: 85px;
 }
 .concept-page-banner-second-text{
     font-size: 62px;
@@ -1892,3 +1892,115 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .add-new-quote-form .p-15{
     padding: 15px 0px !important;
 }
+
+/********************************************/
+/*         FAQ page                         */
+/*********************************************/
+
+.faq-page-head-banner{
+    background: url("../images/faq/faq_banner.png") no-repeat;
+    background-size: cover;
+}
+.faq-section .panel .panel-heading .panel-title .accordion-toggle{
+
+    padding: 25px;
+    background: #ffffff;
+    color: #FF530E;
+    text-transform: uppercase;
+    font-size:14px;
+    font-weight: 600;
+    font-family: Lato;
+}
+.faq-section .panel .panel-heading .panel-title .accordion-toggle:hover{
+
+    background: #FF530E;
+    color: #FFFFFF;
+    
+}
+.faq-section .panel .panel-heading .panel-title .accordion-toggle i{
+    margin-top: 5px;
+
+}
+.faq-section .panel .panel-heading .panel-title .accordion-toggle span{
+    -webkit-transition: none ;-moz-transition: none ;-ms-transition: none ;-o-transition: none ;transition: none ;
+}
+.faq-section .panel .panel-heading .panel-title .accordion-toggle:hover span{
+    padding-left: 0px;
+}
+.faq-section  .panel-group .panel + .panel {
+    margin-top: 25px;
+
+}
+
+.faq-section .panel.panel-default.panel-open .panel-heading .panel-title a{
+    background: #FF530E;
+    color: #FFFFFF;
+
+}
+.faq-section .panel.panel-default .panel-heading .panel-title a{
+    outline: none;
+}
+.faq-section .panel.panel-default .panel-collapse .panel-body {
+    font-size: 14px;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 400;
+}
+.faq-section .faq-topics-div{
+    padding: 10px 30px;
+    border: 2px solid #ddd;
+}
+
+.faq-topics-div .tabs-menu > li > a{
+    background: #FDF9F6;
+    color: #444;
+    font-weight: 600;
+    font-family: Lato;
+    text-transform: uppercase;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.faq-topics-div .tabs-menu > li.active > a{
+    background: #FF530E;
+    color: #FFFFFF;
+}
+.faq-topics-div .tabs-menu > li.active:after{
+    content: none;
+}
+.faq-download-div ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.faq-download-div ul>li>a{
+    line-height: 3em;
+    background: #FF530E;
+    padding: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    margin-top: 30px;
+}
+.faq-download-div .div-header{
+    font-family: "Lato", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.faq-download-div .hr-img{
+    width: 100%;
+}
+.faq-download-div ul img{
+    float: right;
+    margin-right: 20px;
+}
+.faq-all-questions{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.faq-topics-div{
+    margin-top: 50px;
+}
+/*
+.faq-all-questions */
