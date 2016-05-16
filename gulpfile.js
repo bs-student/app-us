@@ -100,6 +100,7 @@ var assets = {
         "app/scripts/controllers/quoteCtrl.js",
         "app/scripts/controllers/addQuoteCtrl.js",
         "app/scripts/controllers/faqCtrl.js",
+        "app/scripts/controllers/bookSellMainCtrl.js",
 
 
 
@@ -107,7 +108,7 @@ var assets = {
         "app/scripts/directives/anchor-scroll.js",
         "app/scripts/directives/angular.flexslider.js",
         "app/scripts/directives/check-toggler.js",
-        "app/scripts/directives/fileInput.js",
+        "app/scripts/directives/multipleImageInput.js",
         "app/scripts/directives/formsubmit.js",
         "app/scripts/directives/gotoTop.js",
         "app/scripts/directives/homeSlider.js",
@@ -122,6 +123,7 @@ var assets = {
         "app/scripts/directives/submitvalidate.js",
         "app/scripts/directives/topHeader.js",
         "app/scripts/directives/textOverflow.js",
+        "app/scripts/directives/singleImageInput.js",
 
 
 

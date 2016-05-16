@@ -5,155 +5,294 @@
     app
         .controller('BookSellCtrl', BookSellCtrl);
 
-    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService'];
+    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService'];
 
-    function BookSellCtrl($state,$scope,bookService,identityService,responseService) {
+    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService) {
+
 
         if(!$scope.$parent.loggedIn){
             $state.go("app.login");
-
         }
-
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 
-        $scope.searchByIsbn = _searchByIsbn;
-        $scope.book = null;
-
-        $scope.addNewSellBook =false;
-        $scope.addCustomNewSellBook =false;
-//        $scope.user = identityService.getAuthorizedUserData();
-        $scope.sellBook = _sellBook;
-//        $scope.sellCustomBook = _sellCustomBook;
-//        $scope.userDetails = identityService.getAuthorizedUserData();
-        $scope.removeFile = _removeFile;
-
-
-
-
+        if($stateParams.book==null){
+            responseService.showErrorToast("No Book was found");
+            $scope.book=[];
+            $state.go("app.sellBook");
+        }else{
+            $scope.customBook=false;
+            $scope.book = $stateParams.book;
+            $scope.book.contactInfoEmail ='sujit@brainstation-23.com';
+            $scope.amazonImageFile = {
+                'fileData':$scope.book.bookImages[0].image
+            };
+        }
 
 
+        $scope.nextStep=_nextStep;
+        $scope.backToStep = _backToStep;
 
+        $scope.email=identityService.getAuthorizedUserData().email;
+
+        //DatePicker
 
         $scope.today = function() {
-            $scope.dt = new Date();
+            $scope.book.availableDate = new Date();
         };
-
         $scope.today();
 
-        $scope.clear = function () {
-            $scope.dt = null;
+        $scope.clear = function() {
+            $scope.book.availableDate = null;
         };
-
-        // Disable weekend selection
-        $scope.disabled = function(date, mode) {
-            return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-        };
-
-        $scope.toggleMin = function() {
-            $scope.minDate = $scope.minDate ? null : new Date();
-        };
-        $scope.toggleMin();
-
-        $scope.open = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            $scope.opened = true;
-        };
-
         $scope.dateOptions = {
             formatYear: 'yy',
             startingDay: 1,
             'class': 'datepicker'
         };
+        $scope.open1 = function() {
+            $scope.popup1.opened = true;
+        };
+        $scope.setDate = function(year, month, day) {
+            $scope.book.availableDate = new Date(year, month, day);
+        };
+        $scope.format = 'dd-MMMM-yyyy';
+        $scope.popup1 = {
+            opened: false
+        };
 
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        $scope.format = $scope.formats[0];
+        $scope.imageFiles=[];
+
+        $scope.prevPage = _prevPage;
+        $scope.nextPage = _nextPage;
+        $scope.setActive = _setActive;
+
+        $scope.finalSubmit = _finalSubmit;
 
 
 
-        function _sellBook(valid){
+
+
+
+
+
+//        $scope.searchByIsbn = _searchByIsbn;
+//        $scope.book = null;
+
+//        $scope.addNewSellBook =false;
+//        $scope.addCustomNewSellBook =false;
+//        $scope.user = identityService.getAuthorizedUserData();
+//        $scope.sellBook = _sellBook;
+//        $scope.sellCustomBook = _sellCustomBook;
+//        $scope.userDetails = identityService.getAuthorizedUserData();
+        $scope.removeFile = _removeFile;
+        $scope.viewImage = _viewImage;
+
+
+
+
+
+
+        function _nextStep(valid,step,data){
 
             if(valid){
-                var formData = new FormData();
 
-                var i=0;
-                angular.forEach($scope.files, function (file) {
-                    formData.append("file"+ i.toString(),file);
-                    i++;
-                });
-
-                var bookData={};
-
-                bookData.bookTitle = $scope.book.bookTitle;
-                bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
-                bookData.bookEdition = $scope.book.bookEdition;
-                bookData.bookIsbn10 = $scope.book.bookIsbn;
-                bookData.bookIsbn13 = $scope.book.bookEan;
-                bookData.bookPublisher = $scope.book.bookPublisher;
-                bookData.bookPublishDate = $scope.book.bookPublishDate;
-                bookData.bookBinding = $scope.book.bookBinding;
-                bookData.bookPage = $scope.book.bookPages;
-                bookData.bookLanguage = $scope.book.bookLanguage;
-                bookData.bookDescription = $scope.book.bookDescription;
-                if($scope.addNewSellBook){
-                    bookData.bookImage = $scope.book.bookImages[0].image;
-                    bookData.bookType = "newSellBook";
-                }
-                if($scope.addCustomNewSellBook){
-                    bookData.bookType = "newSellCustomBook";
+                if(data!=undefined){
+                    $scope.imageFiles=[];
+                    angular.copy(data,$scope.imageFiles);
+                    $scope.imageFiles.unshift($scope.amazonImageFile);
                 }
 
+                if(step=='step1'){
+                    $scope.steps.step2=true;
+                    $scope.step1Completed=true;
+                }
+                else if(step=='step2'){
+                    $scope.steps.step3=true;
+                    $scope.step2Completed=true;
+                }
+                else if(step=='step3'){
+                    $scope.steps.step4=true;
+                    $scope.step3Completed=true;
+                    $scope.availableDate = new Date($scope.book.availableDate);
 
+                }
+                else if(step=='step4'){
+                    $scope.steps.step5=true;
+                    $scope.step4Completed=true;
+                    setCarousel();
+                    console.log($scope.imageFiles);
+                }
 
-
-                var bookDealData={};
-
-                bookDealData.bookPriceSell = $scope.book.sellingPrice;
-                bookDealData.bookCondition = $scope.book.bookCondition;
-                bookDealData.bookIsHighlighted = $scope.book.textHighlighted;
-                bookDealData.bookHasNotes = $scope.book.notesOnTextbook;
-                bookDealData.bookComment = $scope.book.comment;
-                bookDealData.bookContactMethod = $scope.book.contactMethod;
-                bookDealData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
-                bookDealData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
-                bookDealData.bookContactEmail = $scope.book.contactInfoEmail;
-                bookDealData.bookIsAvailablePublic = $scope.book.availablePublic;
-                bookDealData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
-                bookDealData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
-                bookDealData.bookAvailableDate = $scope.book.availableDate;
-
-
-                var data={
-                    bookData:bookData,
-                    bookDealData:bookDealData
-                };
-
-
-                formData.append("data",JSON.stringify(data));
-
-
-                bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
-
-                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
-
-                }).catch(function(response){
-                    if (response.data.error_description == "The access token provided is invalid.") {
-
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            _sellBook(valid);
-                        });
-                    } else if (response.data.error != undefined) {
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-                });
             }
+        }
+
+        function _backToStep(step){
+            if(step=='Step1')$scope.steps.step1=true;
+            else if(step=='Step2')$scope.steps.step2=true;
+            else if(step=='Step3')$scope.steps.step3=true;
+            else if(step=='Step4')$scope.steps.step4=true;
+        }
+
+
+
+
+        // Set Carousel
+        function setCarousel() {
+
+            $scope.thumbnailSize = 3;
+            $scope.thumbnailPage = 1;
+            $scope.myInterval = 5000;
+            $scope.noWrapSlides = false;
+
+            if ($scope.imageFiles.length == 1) {
+                $scope.showThumb = false;
+            } else {
+                $scope.showThumb = true;
+            }
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+        }
+
+        function _prevPage() {
+            if ($scope.thumbnailPage > 1) {
+                $scope.thumbnailPage--;
+            }
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+        }
+
+        function _nextPage() {
+            if ($scope.thumbnailPage <= Math.floor($scope.imageFiles.length / $scope.thumbnailSize)) {
+                $scope.thumbnailPage++;
+            }
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+        }
+
+        function _setActive(thumb) {
+            $scope.imageFiles[$scope.imageFiles.indexOf(thumb)].active=true;
+        }
+
+
+        function _finalSubmit(step1Valid,step2Valid,step3Valid){
+
+            var error =false;
+
+            if(!step1Valid){
+                responseService.showErrorToast("Please Fill Up Book Information Form Correctly.");
+                error=true;
+            }else if(!step2Valid){
+                responseService.showErrorToast("Please Fill Up Contact Method Form Correctly.");
+                error=true;
+            }else if(!step3Valid){
+                responseService.showErrorToast("Please Fill Up Deal TErms Form Correctly.");
+                error=true;
+            }
+
+            if(!error){
+                responseService.showSuccessToast("All Forms are correct. add the data to Database tomorrow and new custom books too. ")
+//                sellBook();
+            }
+        }
+
+
+        function _viewImage(event, title) {
+            imageModalService.showModal(event, title);
+        }
+        function _removeFile(item,items){
+
+            var i = 0;
+            angular.forEach(items,function(file){
+                if(file.fileId == item.fileId){
+                    items.splice(items.indexOf(file), 1);
+                }
+                i++;
+            });
+            $scope.imageFiles = items;
+            console.log($scope);
+
+        }
+
+        function sellBook(){
+
+
+            var formData = new FormData();
+
+            var i=0;
+            angular.forEach($scope.files, function (file) {
+                formData.append("file"+ i.toString(),file);
+                i++;
+            });
+
+            var bookData={};
+
+            bookData.bookTitle = $scope.book.bookTitle;
+            bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
+            bookData.bookEdition = $scope.book.bookEdition;
+            bookData.bookIsbn10 = $scope.book.bookIsbn;
+            bookData.bookIsbn13 = $scope.book.bookEan;
+            bookData.bookPublisher = $scope.book.bookPublisher;
+            bookData.bookPublishDate = $scope.book.bookPublishDate;
+            bookData.bookBinding = $scope.book.bookBinding;
+            bookData.bookPage = $scope.book.bookPages;
+            bookData.bookLanguage = $scope.book.bookLanguage;
+            bookData.bookDescription = $scope.book.bookDescription;
+            if(!$scope.customBook){
+                bookData.bookImage = $scope.book.bookImages[0].image;
+                bookData.bookType = "newSellBook";
+            }
+            if($scope.customBook){
+                bookData.bookType = "newSellCustomBook";
+            }
+
+
+
+
+            var bookDealData={};
+
+            bookDealData.bookPriceSell = $scope.book.sellingPrice;
+            bookDealData.bookCondition = $scope.book.bookCondition;
+            bookDealData.bookIsHighlighted = $scope.book.textHighlighted;
+            bookDealData.bookHasNotes = $scope.book.notesOnTextbook;
+            bookDealData.bookComment = $scope.book.comment;
+            bookDealData.bookContactMethod = $scope.book.contactMethod;
+            bookDealData.bookContactHomeNumber = $scope.book.contactInfoHomePhone;
+            bookDealData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
+            bookDealData.bookContactEmail = $scope.book.contactInfoEmail;
+            bookDealData.bookIsAvailablePublic = $scope.book.availablePublic;
+            bookDealData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
+            bookDealData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
+            bookDealData.bookAvailableDate = $scope.book.availableDate;
+
+
+            var data={
+                bookData:bookData,
+                bookDealData:bookDealData
+            };
+
+
+            formData.append("data",JSON.stringify(data));
+
+
+            bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
+
+                responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+
+            }).catch(function(response){
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _sellBook(valid);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+            });
+
         }
 
 
@@ -271,54 +410,64 @@
 //        }
 
 
-        function _searchByIsbn(){
-
-            var data = {
-                'isbn':$scope.isbn,
-                'accessToken': identityService.getAccessToken()
-            };
-            bookService.searchBooksByIsbnAmazon(data).then(function(response){
-
-                $scope.book = response.data.success.successData.books[0];
-
-                if(response.data.success.successData.books.length==1){
-                    $scope.addNewSellBook =true;
-                    $scope.addCustomNewSellBook =false;
-                }else{
-                    $scope.addNewSellBook =false;
-                    $scope.addCustomNewSellBook =true;
-                }
-
-            }).catch(function(response){
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _searchByIsbn();
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-            });
-
-        }
-
-
+//        function _searchByIsbn(){
+//
+//            var data = {
+//                'isbn':$scope.isbn,
+//                'accessToken': identityService.getAccessToken()
+//            };
+//            bookService.searchBooksByIsbnAmazon(data).then(function(response){
+//
+//                $scope.book = response.data.success.successData.books[0];
+//
+//                if(response.data.success.successData.books.length==1){
+//                    $scope.addNewSellBook =true;
+//                    $scope.addCustomNewSellBook =false;
+//                }else{
+//                    $scope.addNewSellBook =false;
+//                    $scope.addCustomNewSellBook =true;
+//                }
+//
+//            }).catch(function(response){
+//                if (response.data.error_description == "The access token provided is invalid.") {
+//
+//                } else if (response.data.error_description == "The access token provided has expired.") {
+//                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+//                        identityService.setAccessToken(response.data);
+//                        _searchByIsbn();
+//                    });
+//                } else if (response.data.error != undefined) {
+//                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+//                } else {
+//                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+//                }
+//            });
+//
+//        }
 
 
-        function _removeFile(item){
-            var i = 0;
-            angular.forEach($scope.files,function(file){
-                if(file.fileId == item.fileId){
-                    $scope.files.splice($scope.files.indexOf(file), 1);
-                }
-                i++;
-            });
-            console.log($scope.files);
-        }
+//        function getImage(url){
+//
+//            var img = new Image();
+//            img.src = url;
+//            img.onload = function(){
+//                var canvas = document.createElement("canvas");
+//                canvas.width = img.width;
+//                canvas.height = img.height;
+//                var ctx = canvas.getContext("2d");
+//                ctx.drawImage(img, 0, 0);
+//                var dataURL = canvas.toDataURL("image/png");
+//                var file = new File([dataURL],"hello",{type: 'image/png', encoding: 'utf-8'});
+//                file.fileData=dataURL;
+//                return file;
+//
+//            }
+//
+//        }
+
+
+
+
 
 
 

@@ -72,6 +72,8 @@
         }
 
         function _removeFile(item){
+
+            console.log($scope);
             $scope.singleFile=false;
             var i = 0;
             angular.forEach($scope.files,function(file){

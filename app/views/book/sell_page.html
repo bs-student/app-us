@@ -25,52 +25,166 @@
             <div class="col-md-12">
             <uib-tabset class="tab-container tab-wizard" justified="true" set-ng-animate="true" ng-init="steps={step1:true, step2:false, step3:false, step4:false, step5: false}">
 
-            <uib-tab active="steps.step1">
+            <uib-tab active="steps.step1" >
 
-                <uib-tab-heading>
-                    <div class="tab-head-div">
-                        <div class="book-info-icon-div"></div>
+                <uib-tab-heading ng-class="{completed: step1Completed}">
+                    <div class="tab-head-div" >
+                        <div class="pic-div book-info-icon-div" ></div>
                         <p class="tab-head-title">Book Information</p>
                     </div>
-                    <div class="text-center step-div">
-                        <h3 class="grey-text lato">Step 01</h3>
-                    </div>
+
                 </uib-tab-heading>
 
 
                 <div class="sell-book-form-div">
+                    <form name="step1" role="form" ng-submit="nextStep(step1.$valid,'step1')" submit-validate novalidate class="form-validation">
+                    <div class="step1">
+                        <div class="row">
 
-                    <div></div>
-                    <form name="step1" role="form" novalidate class="form-validation">
+                            <div class="col-md-3">
+                                <div class="sell-book-image">
+                                   <img data-ng-repeat="image in book.bookImages" data-ng-src="{{image.image}}">
+                                    <!--<img data-ng-src="http://localhost:8080/Student2StudentApi/web/bookImages/2016-01-05_06_31_32_6756591.png">-->
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="archive-page-headers">
+                                            <h3 class="book-title orange-text lato uppercase">{{book.bookTitle}}</h3>
+                                            <h4 class="book-sub-title blue-text lato">{{book.bookSubTitle}}</h4>
+                                            <div class="book-description ">
+                                                <p><text class="grey-text ">ISBN: </text><text class="blue-text">{{book.bookIsbn}}</text></p>
+                                                <p class="grey-text">By <text class="blue-text">{{book.bookDirectorAuthorArtist}}</text> :: Published by {{book.bookPublisher}} {{book.bookPublishDate}} :: ({{book.bookBinding}})</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="archive-page-side">
+                                            <h1 class="orange-text open-sans price-header">{{book.bookPriceAmazon}} </h1>
+                                            <text class="lato blue-text">(New Price On Amazon)</text>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <text class="box-title uppercase orange-text lato"><strong>Information</strong></text>
+                                            <br/><br/>
+                                            <div class="deal-information-box inner-form">
+                                                <div class="row">
+
+                                                    <div class="col-md-4"><text class="blue-text uppercase"><strong>Condition of book : </strong></text></div>
+                                                    <div class="col-md-8">
+                                                        <div ng-class="{ 'has-error' : step1.bookCondition.$invalid && !step1.bookCondition.$pristine, 'has-success' : step1.bookCondition.$valid && !contactForm.bookCondition.$pristine}">
+
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="bookCondition" ng-model="book.bookCondition" value="New"  type="radio" required><i></i> New
+                                                            </label>
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="bookCondition" ng-model="book.bookCondition" value="Barely Used" type="radio" required><i></i> Barely Used
+                                                            </label>
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="bookCondition" ng-model="book.bookCondition" value="Used" type="radio" required><i></i> Used
+                                                            </label>
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="bookCondition" ng-model="book.bookCondition" value="Heavily Used"  type="radio" required><i></i> Heavily Used
+                                                            </label>
+                                                            <p class="help-block">
+                                                                <span  ng-show="step1.bookCondition.$invalid && !step1.bookCondition.$pristine">Book Condition is required.</span>
+
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4"><text class="blue-text uppercase"><strong>Text highlighted : </strong></text></div>
+                                                    <div class="col-md-8">
+
+
+
+                                                            <div  ng-class="{ 'has-error' : step1.textHighlighted.$invalid && !step1.textHighlighted.$pristine, 'has-success' : step1.textHighlighted.$valid && !contactForm.textHighlighted.$pristine}">
+
+                                                                <label class="checkbox-inline checkbox-custom">
+                                                                    <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="Yes" required><i></i> Yes
+                                                                </label>
+                                                                <label class="checkbox-inline checkbox-custom">
+                                                                    <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="No" required><i></i> No
+                                                                </label>
+                                                                <p class="help-block">
+                                                                    <span  ng-show="step1.textHighlighted.$invalid && !step1.textHighlighted.$pristine">Select Text Highlighted or Not.</span>
+
+                                                                </p>
+
+                                                            </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <text class="blue-text uppercase"><strong>Notes in Textbook : </strong></text>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div ng-class="{ 'has-error' : step1.notesOnTextbook.$invalid && !step1.notesOnTextbook.$pristine, 'has-success' : step1.notesOnTextbook.$valid && !contactForm.notesOnTextbook.$pristine}">
+
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="Yes" required><i></i> Yes
+                                                            </label>
+                                                            <label class="checkbox-inline checkbox-custom">
+                                                                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="No" required><i></i> No
+                                                            </label>
+                                                            <p class="help-block">
+                                                                <span  ng-show="step1.notesOnTextbook.$invalid && !step1.notesOnTextbook.$pristine">Select if there are notes on textbook.</span>
+
+                                                            </p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <text class="blue-text uppercase"><strong>Comment : </strong></text>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div  ng-class="{ 'has-error' : step1.comment.$invalid && !step1.comment.$pristine, 'has-success' : step1.comment.$valid && !contactForm.comment.$pristine}">
+
+                                                            <textarea class="form-control"
+                                                                      rows="5" name="comment"  ng-model="book.comment"
+                                                                      on-blur-validation="" required aria-multiline="true"></textarea>
+
+                                                            <p class="help-block">
+                                                                <span  ng-show="step1.comment.$invalid && !step1.comment.$pristine">Comment is Required.</span>
+
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
 
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="username">Name: </label>
-                                <input type="text" name="name" id="name" class="form-control" ng-model="user.name" required>
-                                <p class="help-block">
-                                    <span ng-show="step1.name.$invalid && !step1.name.$pristine">Name is required.</span>
-                                </p>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="username">Username: </label>
-                                <input type="text" name="username" id="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
-                                <p class="help-block">
-                                    <span ng-show="step1.username.$invalid && !step1.username.$pristine">Username is required.</span>
-                                    <span ng-show="step1.username.$error.minlength">Username is too short.</span>
-                                    <span ng-show="step1.username.$error.maxlength">Username is too long.</span>
-                                </p>
-                            </div>
+                            <div class="col-md-12 text-right"><button type="submit" class="myBtn step-form-next-button" >Next</button></div>
                         </div>
-
-
-
-                        <div class="form-group">
-                            <label for="message">About you: </label>
-                            <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about you..." ng-model="user.message"></textarea>
-                        </div>
-
-                        <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default" ng-click="steps.step2=true">Next</button>
 
                     </form>
                 </div>
@@ -81,230 +195,589 @@
 
             <uib-tab active="steps.step2" disable="step1.$invalid">
 
-                <uib-tab-heading>
+                <uib-tab-heading ng-class="{completed: step2Completed}">
                     <div class="tab-head-div">
-                        <div class="contact-method-icon-div"></div>
+                        <div class="pic-div contact-method-icon-div"></div>
                         <p class="tab-head-title">Contact Method</p>
                     </div>
-                    <div class="text-center step-div">
+                    <!--<div class="text-center step-div">
                         <h3 class="grey-text lato">Step 02</h3>
-                    </div>
+                    </div>-->
                 </uib-tab-heading>
 
-                <form name="step2" role="form" novalidate>
+                <div class="sell-book-form-div">
+                    <form name="step2" role="form" ng-submit="nextStep(step2.$valid,'step2')" submit-validate novalidate class="form-validation">
+                        <div class="step1">
+                            <div class="row">
 
-                    <div class="row">
-                        <div class="form-group col-md-8 mb-0">
-                            <label for="street">Street: </label>
-                            <input type="text" name="street" id="street" class="form-control" ng-model="user.street" placeholder="Enter street address" required>
-                            <p class="help-block">
-                                <span ng-show="step2.street.$invalid && !step2.street.$pristine">Street is required.</span>
-                            </p>
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            <label for="dnumber">Door no.: </label>
-                            <input type="text" name="dnumber" id="dnumber" class="form-control" ng-model="user.dnumber" placeholder="Enter door number" required>
-                            <p class="help-block">
-                                <span ng-show="step2.dnumber.$invalid && !step2.dnumber.$pristine">Door number is required.</span>
-                            </p>
-                        </div>
-                    </div>
+                                <div class="col-md-12">
+                                    <text class="form-information lato"> Please choose one contact method and provide the necessary information. (Please be aware of who gets/sees which information.)</text>
+                                </div>
 
-                    <div class="form-group">
-                        <label for="address2">Address Line 2: </label>
-                        <input type="text" name="address2" id="address2" class="form-control" ng-model="user.address2" placeholder="Enter secondary address">
-                    </div>
 
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="city">City: </label>
-                            <input type="text" name="city" id="city" class="form-control" ng-model="user.city" placeholder="Enter city" required>
-                            <p class="help-block">
-                                <span ng-show="step2.city.$invalid && !step2.city.$pristine">City is required.</span>
-                            </p>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="state">State: </label>
-                            <input type="text" name="state" id="state" class="form-control" ng-model="user.state" placeholder="Enter state" required>
-                            <p class="help-block">
-                                <span ng-show="step2.state.$invalid && !step2.state.$pristine">State is required.</span>
-                            </p>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="zip">Zip: </label>
-                            <input type="text" name="zip" id="zip" class="form-control" ng-model="user.zip" placeholder="Enter zip" required>
-                            <p class="help-block">
-                                <span ng-show="step2.zip.$invalid && !step2.zip.$pristine">Zip is required.</span>
-                            </p>
-                        </div>
-                    </div>
+                            </div>
+                            <div class="row contact-method-step-details" ng-class="{ 'has-error' : step2.contactMethod.$invalid && !step2.contactMethod.$pristine, 'has-success' : step2.contactMethod.$valid && !contactForm.contactMethod.$pristine}">
 
-                    <button type="submit" class="btn btn-default" ng-click="steps.step1=true">Previous</button>
-                    <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default pull-right" ng-click="steps.step3=true">Next</button>
 
-                </form>
+
+                                <div class="col-md-6">
+                                    <div class="left-side-form">
+                                        <label class="checkbox checkbox-custom">
+                                            <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="sellerToBuyer" required><i></i> <strong><text class="uppercase px-16">Seller Contact Buyer</text></strong>
+                                        </label>
+
+                                        <text class="lato">
+                                            With this method, the buyer will not get your information. The buyer needs to send you their information when reserving
+                                            the book. The system will send the buyer's message to the following email address: <strong>{{email}}</strong>
+
+                                        </text>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <div class="right-side-form" >
+                                        <label class="checkbox checkbox-custom">
+                                            <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="buyerToSeller" required><i></i> <strong><text class="uppercase px-16">Buyer Contact Seller</text></strong>
+                                        </label>
+
+                                        <text class="lato">
+                                            With this method, the buyer will get your information through email. Define which contact information the buyer can request.
+
+                                        </text>
+
+                                        <div class="row lower-form">
+                                            <div class="col-md-4">
+                                                <text class=""><strong>Home Phone :</strong></text>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" name="contactInfoHomePhone" ng-model="book.contactInfoHomePhone"
+                                                       ng-required="
+
+                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+
+                                                       "
+                                                       class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row lower-form-other">
+                                            <div class="col-md-4">
+                                                <text class=""><strong>Cell Phone :</strong></text>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" name="contactInfoCellPhone" ng-model="book.contactInfoCellPhone"
+                                                       ng-required="
+
+                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+
+                                                       "
+                                                       class="form-control"   />
+                                            </div>
+                                        </div>
+
+                                        <div class="row lower-form-other">
+                                            <div class="col-md-4">
+                                                <text class=""><strong>Email :</strong></text>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="email" name="contactInfoEmail" ng-model="book.contactInfoEmail"
+                                                       ng-required="
+
+                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+
+                                                       "
+                                                       class="form-control"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="has-error">
+                                            <p >
+                                                <span class="text-danger"  ng-show="(book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)">You have to provide at least one contact information.</span>
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                            </div>
+                            <div class="row has-error">
+                                <div class="col-md-12">
+                                    <p class="help-block">
+                                        <span  ng-show="step2.contactMethod.$invalid && !step2.contactMethod.$pristine">Set Contact Method.</span>
+
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="control-panel text-right">
+                                    <button type="button" class="myBtn step-form-previous-button" ng-click="backToStep('Step1')"><i class="fa fa-angle-left fa-3x"></i></button>
+                                    <button type="submit" class="myBtn step-form-next-button" >Next</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+
 
             </uib-tab>
 
             <uib-tab active="steps.step3" disable="step2.$invalid">
 
-                <uib-tab-heading>
+                <uib-tab-heading ng-class="{completed: step3Completed}">
                     <div class="tab-head-div">
-                        <div class="deal-terms-icon-div"></div>
+                        <div class="pic-div deal-terms-icon-div"></div>
                         <p class="tab-head-title">Deal Terms</p>
                     </div>
-                    <div class="text-center step-div">
+                    <!--<div class="text-center step-div">
                         <h3 class="grey-text lato">Step 03</h3>
-                    </div>
+                    </div>-->
                 </uib-tab-heading>
 
-                <form name="step3" role="form" novalidate>
+                <div class="sell-book-form-div">
+                    <form name="step3" role="form" ng-submit="nextStep(step3.$valid,'step3')" submit-validate novalidate class="form-validation">
+                        <div class="step1">
 
-                    <h4 class="custom-font"><strong>Primary</strong> School</h4>
+                            <div class="row" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
 
-                    <div class="row">
-                        <div class="form-group col-md-4 mb-0">
-                            <label for="pr-subject">Subject: </label>
-                            <input type="text" name="pr-subject" id="pr-subject" class="form-control" ng-model="user.prsubject">
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            <label for="pr-name">School name: </label>
-                            <input type="text" name="pr-name" id="pr-name" class="form-control" ng-model="user.prname" required>
-                        </div>
-                        <div class="form-group col-md-2 mb-0">
-                            <label for="prstart">Start Date: </label>
-                            <input type="text" name="prstart" id="prstart" class="form-control" ng-model="user.prstart" placeholder="YYYY-MM-DD" ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/">
-                            <p class="help-block">
-                                <span ng-show="step3.prstart.$invalid && !step3.prstart.$pristine">Bad format.</span>
-                            </p>
-                        </div>
-                        <div class="form-group col-md-2 mb-0">
-                            <label for="prend">End Date: </label>
-                            <input type="text" name="prend" id="prend" class="form-control" ng-model="user.prend" placeholder="YYYY-MM-DD" ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/">
-                            <p class="help-block">
-                                <span ng-show="step3.prend.$invalid && !step3.prend.$pristine">Bad format.</span>
-                            </p>
-                        </div>
-                    </div>
+                                <div class="col-md-4">
+                                    <text class="px-16 lato uppercase"><strong>Text available to public :</strong></text>
+                                </div>
 
-                    <h4 class="custom-font"><strong>Secondary</strong> School</h4>
+                                <div class="col-md-8">
 
-                    <div class="row">
-                        <div class="form-group col-md-4 mb-0">
-                            <label for="sc-subject">Subject: </label>
-                            <input type="text" name="sc-subject" id="sc-subject" class="form-control" ng-model="user.scsubject">
-                        </div>
-                        <div class="form-group col-md-4 mb-0">
-                            <label for="sc-name">School name: </label>
-                            <input type="text" name="sc-name" id="sc-name" class="form-control" ng-model="user.scname">
-                        </div>
-                        <div class="form-group col-md-2 mb-0">
-                            <label for="scstart">Start Date: </label>
-                            <input type="text" name="scstart" id="scstart" class="form-control" ng-model="user.scstart" placeholder="YYYY-MM-DD" ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/">
-                            <p class="help-block">
-                                <span ng-show="step3.scstart.$invalid && !step3.scstart.$pristine">Bad format.</span>
-                            </p>
-                        </div>
-                        <div class="form-group col-md-2 mb-0">
-                            <label for="scend">End Date: </label>
-                            <input type="text" name="scend" id="scend" class="form-control" ng-model="user.scend" placeholder="YYYY-MM-DD" ng-pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/">
-                            <p class="help-block">
-                                <span ng-show="step3.scend.$invalid && !step3.scend.$pristine">Bad format.</span>
-                            </p>
-                        </div>
-                    </div>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="Yes" required><i></i> Yes
+                                    </label>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="No" required><i></i> No
+                                    </label>
+                                    <p class="help-block">
+                                        <span  ng-show="step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine">Set if the book is available for public or not.</span>
 
-                    <div class="form-group">
-                        <label for="qualification">Other qualification: </label>
-                        <textarea class="form-control" rows="5" name="qualification" id="qualification" ng-model="user.qualification"></textarea>
-                    </div>
+                                    </p>
 
-                    <button type="submit" class="btn btn-default" ng-click="steps.step2=true">Previous</button>
-                    <button type="submit" ng-disabled="step3.$invalid" class="btn btn-default pull-right" ng-click="steps.step4=true">Next</button>
+                                </div>
 
-                </form>
+                            </div>
+
+                            <div class="row" ng-class="{ 'has-error' : step3.availableDate.$invalid && !step3.availableDate.$pristine, 'has-success' : step3.availableDate.$valid && !step3.availableDate.$pristine}">
+
+                                <div class="col-md-4">
+                                    <text class="px-16 lato uppercase"><strong>Textbook available Date :</strong></text>
+                                </div>
+
+                                <div class="col-md-4 date-picker">
+
+
+                                    <p class="input-group">
+                                        <input name="availableDate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="book.availableDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                          <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                                          </span>
+                                    </p>
+                                    <p class="help-block">
+                                        <span  ng-show="step3.availableDate.$invalid && !step3.availableDate.$pristine">You have to set book available date in (11-May-2016) format.</span>
+                                    </p>
+
+
+                                    <!--<input type="text" name="availableDate" ng-model="book.availableDate" class="form-control"  required/>
+                                    <p class="help-block">
+                                        <span  ng-show="step3.availableDate.$invalid && !step3.availableDate.$pristine">You have to set book available date.</span>
+                                    </p>-->
+
+
+                                </div>
+
+                            </div>
+                            <div class="row" ng-class="{ 'has-error' : step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine, 'has-success' : step3.sellingPrice.$valid && !step3.sellingPrice.$pristine}">
+
+                                <div class="col-md-4">
+                                    <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) :</strong></text>
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <input type="number" name="sellingPrice" ng-model="book.sellingPrice" class="form-control"  required/>
+                                    <p class="help-block">
+                                        <span  ng-show="step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine">You have to set the selling price.</span>
+                                    </p>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <text class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US $15.00</text>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <text class="px-16 lato uppercase"><strong>Payment Method :</strong></text>
+                                </div>
+
+                                <div class="col-md-8">
+
+                                    <div ng-class="{
+
+                                    'has-error' :   (step3.cashPaymentMethod.$invalid && !step3.cashPaymentMethod.$pristine) ||
+                                                    (step3.chequePaymentMethod.$invalid && !step3.chequePaymentMethod.$pristine),
+
+                                    'has-success' :   (step3.chequePaymentMethod.$valid && !step3.chequePaymentMethod.$pristine) ||
+                                                      (step3.chequePaymentMethod.$valid && !step3.chequePaymentMethod.$pristine)}">
+
+                                        <label class="checkbox checkbox-custom">
+                                            <input type="checkbox"
+                                                   ng-required="
+
+                                                       !(book.paymentMethodCashOnExchange || book.paymentMethodCheque)
+
+                                                       "
+                                                   name="cashPaymentMethod" ng-model="book.paymentMethodCashOnExchange" ><i></i> Cash on Exchange
+                                        </label>
+
+                                        <label class="checkbox checkbox-custom">
+                                            <input type="checkbox" ng-required="
+
+                                                       !(book.paymentMethodCashOnExchange || book.paymentMethodCheque)
+
+                                                       " name="chequePaymentMethod" ng-model="book.paymentMethodCheque" ><i></i> Cheque
+                                        </label>
+                                        <p class="help-block">
+                                            <span ng-show=" (step3.cashPaymentMethod.$invalid && !step3.cashPaymentMethod.$pristine) ||
+                                                    (step3.chequePaymentMethod.$invalid && !step3.chequePaymentMethod.$pristine)">You have to choose at least one payment method.</span>
+
+                                        </p>
+
+
+                                    </div>
+                                    <br/>
+
+                                    <div ng-class="{ 'has-error' : step3.agreedOnTermsAndConditions.$invalid && !step3.agreedOnTermsAndConditions.$pristine, 'has-success' : step3.agreedOnTermsAndConditions.$valid && !step3.agreedOnTermsAndConditions.$pristine}">
+                                        <label class="checkbox checkbox-custom">
+                                            <input type="checkbox" name="agreedOnTermsAndConditions" ng-model="book.agreedOnTermsAndConditions" required><i></i> I do hereby swear that I am the rightful owner of the book I am selling.
+                                            I am aware that other students may get my contact information depending
+                                            upon the contact method I chose.
+                                        </label>
+                                        <!--{{step3}}-->
+                                        <!--{{step3.agreedOnTermsAndConditions.$invalid}}-->
+                                        <p class="help-block">
+                                            <span ng-show="step3.agreedOnTermsAndConditions.$invalid && !step3.agreedOnTermsAndConditions.$pristine">You have to agree.</span>
+
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="control-panel text-right">
+                                <button type="button" class="myBtn step-form-previous-button" ng-click="backToStep('Step2')"><i class="fa fa-angle-left fa-3x"></i></button>
+                                <button type="submit" class="myBtn step-form-next-button" >Next</button>
+                            </div>
+
+                            <!--<div class="col-md-12 text-right">
+                                <button type="button" class="btn myBtn btn-default step-form-previous-button" ng-click="backToStep('Step2')"><i class="fa fa-angle-left fa-3x"></i></button>
+                                <button type="submit" class="btn myBtn btn-default step-form-next-button" >Next</button>
+                            </div>-->
+                        </div>
+
+                    </form>
+                </div>
+
+
             </uib-tab>
 
             <uib-tab active="steps.step4" disable="step3.$invalid">
 
-                <uib-tab-heading>
+                <uib-tab-heading ng-class="{completed: step4Completed}">
                     <div class="tab-head-div">
-                        <div class="add-image-icon-div"></div>
+                        <div class="pic-div add-image-icon-div"></div>
                         <p class="tab-head-title">Add Book Images</p>
                     </div>
-                    <div class="text-center step-div">
+                    <!--<div class="text-center step-div">
                         <h3 class="grey-text lato">Step 04</h3>
-                    </div>
+                    </div>-->
                 </uib-tab-heading>
 
-                <form name="step4" role="form" novalidate>
+                <div class="sell-book-form-div">
+                    <form name="step4" role="form" ng-submit="nextStep(step4.$valid,'step4',files)" submit-validate novalidate class="form-validation">
+                        <div class="step1">
 
-                    <div class="row">
-                        <div class="form-group col-md-6 mb-0">
-                            <label for="email">Email: </label>
-                            <input type="email" name="email" id="email" class="form-control" ng-model="user.email" required>
-                            <p class="help-block">
-                                <span ng-show="step4.email.$invalid && !step4.email.$pristine">Email is required.</span>
-                            </p>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <text class="form-information lato"> You can upload 3 pictures from your textbook to show its condition. (Recommended Picture Size : Less than 200KB. Recommended Picture Dimension: 350px/500px)</text>
+                                </div>
+
+
+                            </div>
+                            <br/>
+
+                            <div class="row" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+
+
+
+                                        <input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select file',
+            iconName: 'fa fa-inbox'
+          }"  multiple accept="image/*">
+                                    </div>
+
+
+                                    <div class="tcol">
+                                        <div class="bg-white">
+
+
+                                            <h4 class="custom-font text-default m-0">Additional Images</h4>
+
+                                        </div>
+
+                                        <div class="">
+
+                                            <table class="table b-a b-solid bg-white image-upload-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th >Size</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="file in files" class="text-sm">
+                                                    <td style="text-align: center"><img data-options="splash-2 splash-primary splash-ef-2" ng-click="viewImage($event)" style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
+
+                                                    <td nowrap>{{ file.size/1024|number:2 }} KB</td>
+
+                                                    <td nowrap>
+                                                        <button type="button" class="myBtn orange-btn" ng-click="removeFile(file,files)">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
                         </div>
-                        <div class="form-group col-md-6 mb-0">
-                            <label for="phone">Phone: </label>
-                            <input type="text" name="phone" id="phone" class="form-control" ng-model="user.phone" placeholder="(XXX) XXXX XXX"  ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/">
-                            <p class="help-block">
-                                <span ng-show="step4.phone.$invalid && !step4.phone.$pristine">Bad format.</span>
-                            </p>
+
+                        <div class="row">
+
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="myBtn step-form-previous-button" ng-click="backToStep('Step3')"><i class="fa fa-angle-left fa-3x"></i></button>
+                                <button type="submit" class="myBtn step-form-next-button" >Next</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="web">Website: </label>
-                        <input type="url" name="web" id="web" class="form-control" ng-model="user.web" placeholder="http://">
-                        <p class="help-block">
-                            <span ng-show="step4.web.$invalid && !step4.web.$pristine">Bad format.</span>
-                        </p>
-                    </div>
+                    </form>
+                </div>
 
-                    <button type="submit" class="btn btn-default" ng-click="steps.step3=true">Previous</button>
-                    <button type="submit" ng-disabled="step4.$invalid" class="btn btn-default pull-right" ng-click="steps.step5=true">Next</button>
 
-                </form>
+
             </uib-tab>
 
-            <uib-tab active="steps.step5" disable="step4.$invalid">
+            <uib-tab active="steps.step5" disable="step3.$invalid || step4.$invalid">
 
-                <uib-tab-heading>
+                <uib-tab-heading ng-class="{completed: step4Completed}">
                     <div class="tab-head-div">
-                        <div class="preview-confirm-icon-div"></div>
+                        <div class="pic-div preview-confirm-icon-div"></div>
                         <p class="tab-head-title">Preview & Confirm</p>
                     </div>
-                    <div class="text-center step-div">
+                    <!--<div class="text-center step-div">
                         <h3 class="grey-text lato">Step 05</h3>
-                    </div>
+                    </div>-->
                 </uib-tab-heading>
 
-                <p class="well">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
 
-                <form name="step5" role="form" novalidate>
+                <div class="sell-book-form-div">
+                    <form name="step5" role="form" ng-submit="finalSubmit(step1.$valid,step2.$valid,step3.$valid)" submit-validate novalidate class="form-validation">
+                        <div class="step1">
+                            <div class="row">
 
-                    <div class="checkbox">
-                        <label class="checkbox checkbox-custom">
-                            <input type="checkbox" name="agree" id="agree" ng-model="user.agree" required><i></i> I agree to the <a href class="text-info">Terms of Service</a>
-                        </label>
-                        <p class="help-block">
-                            <span ng-show="step5.agree.$invalid && !step5.agree.$pristine" class="text-red">You must accept Terms of Service.</span>
-                        </p>
-                    </div>
+                                <div class="col-md-12">
+                                    <div class="archive-page-headers">
+                                        <h3 class="book-title orange-text lato uppercase">{{book.bookTitle}}</h3>
+                                        <h4 class="book-sub-title blue-text lato">{{book.bookSubTitle}}</h4>
+                                        <p class="book-description grey-text">By <text class="blue-text">{{book.bookDirectorAuthorArtist}}</text> :: Published by {{book.bookPublisher}} {{book.bookPublishDate}} :: ({{book.bookBinding}})
+                                            ISBN: <text class="blue-text">{{book.bookIsbn}}</text></p>
+                                    </div>
+                                </div>
 
-                    <div class="checkbox">
-                        <label class="checkbox checkbox-custom">
-                            <input type="checkbox" name="newsletter" id="newsletter" ng-model="user.newsletter"><i></i> Receive newsletter</a>
-                        </label>
-                    </div>
+                            </div>
+                            <div class="row preview-div">
+                                <div class="col-md-9">
 
-                    <button type="submit" class="btn btn-default" ng-click="steps.step4=true">Previous</button>
-                    <button type="submit" ng-disabled="step5.$invalid" class="btn btn-success pull-right">Finish</button>
+                                    <div class="step-1-info">
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Condition of book</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookCondition}}</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Text highlighted</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.textHighlighted}}</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Notes in the textbook</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.notesOnTextbook}}</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Comment</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.comment}}</strong></text></div>
+                                        </div>
+                                    </div>
 
-                </form>
+
+                                    <div ng-show="book.contactMethod=='buyerToSeller'" class="step-2-info">
+
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <text  class="blue-text uppercase"><strong>buyer contact seller</strong></text>
+                                            </div>
+                                        </div>
+                                        <br/>
+
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Home phone</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoHomePhone}}&nbsp;</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>cell phone</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoCellPhone}} &nbsp;</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Email</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoEmail}} &nbsp;</strong></text></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div ng-show="book.contactMethod=='sellerToBuyer'" class="step-2-info">
+
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <text  class="blue-text uppercase"><strong>Seller contact buyer</strong></text>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+
+                                    <div class="step-last-info">
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available to public?</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.availablePublic}}</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available date</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{availableDate  | date:'dd-MMM-yyyy'}}</strong></text></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Selling Price</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>${{book.sellingPrice}}</strong></text></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>payment method</strong></text></div>
+                                            <div class="col-md-8 border-left">
+                                                <text ng-show="book.paymentMethodCashOnExchange && !book.paymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
+                                                <text ng-show="!book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
+                                                <text ng-show="book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="">
+
+
+                                        <div class="search-book-image-carousel">
+                                            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+
+                                                <uib-slide ng-repeat="slide in imageFiles" active="slide.active">
+                                                    <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
+                                                          class="big-images" ng-src="{{slide.fileData}}" style="margin:auto;">
+
+                                                </uib-slide>
+                                            </uib-carousel>
+                                            <div class="btn-group" ng-show="showThumb">
+                                                <span><a class="thumb-control-left" ng-click="prevPage(book)"><i class="fa fa-angle-left fa-3x"></i></a></span>
+
+                                                <span class="search-thumb-image"
+                                                      ng-repeat="thumb in showThumbnails"
+                                                      ng-class="{true:'active',false:'not-active'}[thumb.active]">
+                                                    <img ng-src="{{thumb.fileData}}" ng-click="setActive(thumb)"/>
+                                                </span>
+
+                                                <span><a class="thumb-control-right" ng-click="nextPage(book)"><i
+                                                        class="fa fa-angle-right fa-3x"></i></a></span>
+                                            </div>
+                                        </div>
+
+
+                                        <!--<img data-ng-src="http://ecx.images-amazon.com/images/I/51qhWqPSpzL.jpg">-->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+<br/><br/>
+                        <div class="row">
+                            <div class="col-md-12 text-right"><button type="submit" class=" myBtn  orange-btn max-large-btn" >Sell book now</button></div>
+                        </div>
+
+                    </form>
+                </div>
+
+
 
             </uib-tab>
 
@@ -327,4 +800,19 @@
 
 </section>
 
+<script type="text/ng-template" id="myModalContent">
+
+    <div class="modal-body">
+
+        <div class="modal-images">
+            <img data-ng-src="{{src.src}}"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-arrow-right"></i> Ok
+        </button>
+    </div>
+</script>
 

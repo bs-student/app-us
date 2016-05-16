@@ -2002,5 +2002,331 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .faq-topics-div{
     margin-top: 50px;
 }
-/*
-.faq-all-questions */
+
+
+/********************************************/
+/*         Sell Main Page                    */
+/*********************************************/
+
+.sell-book-page-head-banner{
+    background: url("../images/sell_book/sell_book.png") no-repeat;
+    background-size: cover;
+}
+
+.sell-book-page-head-banner .search-page-big-text{
+    font-size: 45px;
+    font-weight: 600;
+}
+.sell-book-page-head-banner .sub-title-p{
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+}
+.barcode-text{
+    font-size: 77px;
+    font-weight: 600;
+    line-height: .7;
+    margin-left: 20px;
+}
+.sell-book-page-head-banner .middle-part img{
+    vertical-align: top;
+}
+.sell-book-page-head-banner .middle-part{
+    margin-top: 100px;
+}
+.search-banner-input-col.sell-book-form{
+    margin-top: 50px;
+    min-height: 155px;
+}
+
+/********************************************/
+/*         Sell Page                        */
+/*********************************************/
+.sell-page-container{
+    padding-bottom: 0px; !important
+}
+.sell-book-section{
+    padding: 60px 0px 0px 0px !important;
+}
+.sell-page-head-banner{
+    background: url("../images/sell_book/banner.png") no-repeat;
+    background-size: cover;
+    height: 300px;
+    border-bottom: 10px solid #FF530E;
+}
+.sell-page-head-banner .header-title{
+    text-align: center;
+    font-size: 56px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+.sell-book-section .tab-head-div{
+    text-align: center;
+    padding: 10px;
+}
+
+.sell-book-section .tab-head-div .tab-head-title{
+    font-size: 16px;
+    font-family: Lato;
+    line-height: 1em !important;
+    margin-bottom: 0px;
+}
+
+.sell-book-section  .tab-wizard .nav-tabs > li a{
+    border: none;
+    background: transparent;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.sell-book-section  .tab-wizard .nav-tabs > li a .tab-head-div{
+    border: 2px solid #FF530E;
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 0px;
+}
+
+.sell-book-section  .tab-wizard .nav-tabs > li.active > a .tab-head-div,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:hover .tab-head-div,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:active .tab-head-div,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:focus .tab-head-div{
+    background: #FF530E;
+    border: 2px solid #FF530E;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.sell-book-section  .tab-wizard .nav-tabs > li.active > a .step-div h3,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:hover .step-div h3,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:active .step-div h3,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:focus .step-div h3{
+    /*background: #FF530E;*/
+    /*border: 3px solid #FF530E;*/
+    color: #FF530E;
+    /*padding: 10px;*/
+}
+
+
+
+.sell-book-section  .tab-wizard .nav-tabs > li.active > a ,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:hover ,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:active ,
+.sell-book-section .tab-wizard .nav-tabs > li.active > a:focus {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    padding: 0px;
+}
+
+
+.sell-book-section   .tab-wizard .nav-tabs > li > a:before{
+    border-bottom: 33px solid transparent;
+    border-left: 37px solid #FFFFFF;
+    border-top: 33px solid transparent;
+    right: -35px;
+    position: absolute;
+    top: 2px;
+}
+.sell-book-section   .tab-wizard .nav-tabs > li.active > a:before{
+    border-left: 40px solid #FF530E;
+}
+.sell-book-section   .tab-wizard .nav-tabs > li > a:after{
+    border-bottom: 33px solid transparent;
+    border-left: 37px solid #FF530E;
+    border-top: 33px solid transparent;
+    right: -38px;
+    position: absolute;
+    top: 2px;
+}
+.sell-book-section  .tab-wizard .nav-tabs > li:first-child > a{
+    padding-left: 0px;
+}
+.sell-book-section  .tab-wizard .nav-tabs > li:first-child > a .tab-head-div{
+    border-top-left-radius: 3px;
+}
+.sell-book-section   .tab-container .nav-tabs > li{
+    border-right: none;
+}
+.sell-book-section   .tab-wizard .nav-tabs > li > a, .tab-wizard .nav-tabs > li > a:hover{
+    background: #FFFFFF;
+}
+.sell-book-section .tab-container .nav-tabs > li > a:hover{
+    background: #FFFFFF;
+}
+.sell-book-form-div{
+    border: 2px solid #FF530E;
+    border-top: none;
+    border-bottom: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
+    padding-top: 40px;
+}
+
+
+.sell-book-section .step-div h3{
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-weight: 400;
+}
+
+.sell-book-section  .tab-wizard .nav-tabs > li:first-child > a .step-div h3{
+    border-left: 2px solid #FF530E;
+}
+.sell-book-section  .tab-wizard .nav-tabs > li:last-child > a .step-div h3{
+    border-right: 2px solid #FF530E;
+}
+
+
+.sell-book-section ul.nav li a .pic-div{
+    height: 30px;
+}
+.sell-book-section ul.nav li a .completed .tab-head-title{
+    color: #FF530E;
+}
+.sell-book-section ul.nav li.active a .tab-head-title{
+    color: #FFFFFF;
+}
+
+/*Step 1*/
+
+.sell-book-section ul.nav li a .completed .book-info-icon-div{
+    background: url("../../dist/images/sell_book/book_info_done.png") no-repeat center;
+}
+.sell-book-section ul.nav li a .book-info-icon-div{
+    background: url("../../dist/images/sell_book/book_info.png") no-repeat center;
+}
+.sell-book-section ul.nav li.active a .book-info-icon-div{
+    background: url("../../dist/images/sell_book/book_info_active.png") no-repeat center;
+}
+
+/*Step 2*/
+.sell-book-section ul.nav li a .completed .contact-method-icon-div{
+    background: url("../../dist/images/sell_book/contact_method_done.png") no-repeat center;
+}
+.sell-book-section ul.nav li a .contact-method-icon-div{
+    background: url("../../dist/images/sell_book/contact_method.png") no-repeat center;
+}
+.sell-book-section ul.nav li.active a .contact-method-icon-div{
+    background: url("../../dist/images/sell_book/contact_method_active.png") no-repeat center;
+}
+/*Step 3*/
+.sell-book-section ul.nav li a .completed .deal-terms-icon-div{
+    background: url("../../dist/images/sell_book/deal_terms_done.png") no-repeat center;
+}
+.sell-book-section ul.nav li a .deal-terms-icon-div{
+    background: url("../../dist/images/sell_book/deal_terms.png") no-repeat center;
+}
+.sell-book-section ul.nav li.active a .deal-terms-icon-div{
+    background: url("../../dist/images/sell_book/deal_terms_active.png") no-repeat center;
+}
+
+/*step 4*/
+.sell-book-section ul.nav li a .completed .add-image-icon-div{
+    background: url("../../dist/images/sell_book/add_image_done.png") no-repeat center;
+}
+.sell-book-section ul.nav li a .add-image-icon-div{
+    background: url("../../dist/images/sell_book/add_image.png") no-repeat center;
+}
+.sell-book-section ul.nav li.active a .add-image-icon-div{
+    background: url("../../dist/images/sell_book/add_image_active.png") no-repeat center;
+}
+/*step 5*/
+.sell-book-section ul.nav li a .completed .preview-confirm-icon-div{
+    background: url("../../dist/images/sell_book/preview_done.png") no-repeat center;
+}
+.sell-book-section ul.nav li a .preview-confirm-icon-div{
+    background: url("../../dist/images/sell_book/preview.png") no-repeat center;
+}
+.sell-book-section ul.nav li.active a .preview-confirm-icon-div{
+    background: url("../../dist/images/sell_book/preview_active.png") no-repeat center;
+}
+
+
+
+
+.sell-book-section .tab-wizard .tab-content .tab-pane{
+    margin-top: 0px;
+}
+
+.sell-book-image img{
+    width: 100%;
+}
+.deal-information-box.inner-form{
+    border: 1px solid #C7C7C7;
+    padding: 15px;
+}
+.step-form-next-button,.step-form-next-button:visited,.step-form-next-button:focus,.step-form-next-button:active{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    padding: 0px;
+    background: #FF530E;
+    outline: none;
+    color: #FFFFFF;
+    margin-top: 70px;
+    vertical-align: middle;
+}
+
+.step-form-previous-button,.step-form-previous-button:visited,.step-form-previous-button:active,.step-form-previous-button:focus,.step-form-previous-button:hover{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+    background: transparent;
+    border: 2px solid #A5A5A5;
+    color: #A5A5A5;
+    margin-top: 70px;
+    padding-right: 3px;
+    vertical-align: middle;
+}
+
+.form-information{
+    font-size: 16px;
+}
+.contact-method-step-details{
+    margin-top: 50px;
+}
+.contact-method-step-details .right-side-form{
+    padding-left: 50px;
+    border-left: 1px solid #eee;
+}.contact-method-step-details  .left-side-form{
+    width: 90%;
+ }
+.contact-method-step-details   .lower-form{
+    margin-top: 50px;
+ }
+
+.contact-method-step-details   .lower-form-other{
+    margin-top: 10px;
+}
+.px-16{
+    font-size:16px;
+}
+/*.preview-div .step-1-info .row,.preview-div .step-2-info .row,.preview-div .step-last-info .row {
+    padding-top: 10px;
+}*/
+.preview-div .step-2-info,.preview-div .step-last-info {
+    margin-top: 40px;
+}
+.preview-div .border-left{
+    border-left: 1px solid #A5A5A5;
+    padding-left: 40px;
+}
+.step1 .archive-page-side h1{
+    margin-bottom: 0px;
+}
+.date-picker .input-group .btn.btn-default{
+    padding: 8px 14px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.group-span-filestyle.input-group-btn .btn.btn-default{
+    height: 38px;
+}
+.image-upload-table th,.image-upload-table td{
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+ /*.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group*/

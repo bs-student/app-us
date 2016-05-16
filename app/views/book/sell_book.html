@@ -1,5 +1,4 @@
-<!--<div  ng-parallax offset="0"  speed="5"  class="parallax-box dark" pattern="'assets/images/parallax/search-result-banner.png'" class="search-page-head-banner">-->
-<div class="search-page-head-banner">
+<div class="sell-book-page-head-banner">
     <div class="container clearfix">
 
 
@@ -8,209 +7,59 @@
             <div class="col-md-12">
 
 
-                <p class="text-white mid-two-header search-page-big-text">Search your books by<br/>
-                    title / Author / isbn / keywords</p>
+                <p class="text-white mid-two-header search-page-big-text">sell your <text class="tiya-text">textbooks</text></p>
+                <p class="text-white white-text lato sub-title-p">Don't waste time ... Sell your textbooks to other students on-campus</p>
             </div>
-            <form name="bookSearchForm" submit-validate ng-submit="searchBook(bookSearchForm.$valid)" role="form"
-                  novalidate>
-                <div class="col-md-12 search-banner-input-col">
+
+
+            <div class="col-md-12 text-center">
+                <div class="middle-part">
+                    <img data-ng-src="dist/images/sell_book/barcode.png"/><text class="white-text lato uppercase barcode-text">ISBN</text>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-offset-2 col-md-8">
+                <div class="search-banner-input-col sell-book-form">
                     <div class="search-page-input-div">
-                        <div ng-if="!$parent.loggedIn" class="form-group">
-                            <md-autocomplete
-                                             md-input-id="search-university-search-page"
-
-                                             md-input-name="campus"
-                                             md-selected-item="selectedItem"
-                                             md-search-text-change="searchTextChange(searchUniversity)"
-                                             md-search-text="searchUniversity"
-                                             md-selected-item-change="selectedItemChange(item)"
-                                             md-items="item in querySearch(searchUniversity)"
-                                             md-item-text="item.display"
-                                             md-min-length="0"
-                                             placeholder="What is your University Campus?">
-                                <md-item-template>
-
-                                    <span md-highlight-text="searchUniversity" md-highlight-flags="^i">{{item.display}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                    No matches found for "{{searchUniversity}}".
-
-                                </md-not-found>
-
-
-
-                            </md-autocomplete>
-                            <!--<p class="help-block">
-                                <span ng-show="bookSearchForm.campus.$invalid && !bookSearchForm.campus.$pristine">Choose your University.</span>
-                            </p>-->
-                        </div>
-                            <br/><br/>
-
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search fa-2x"></i></span>
-                            <input  required name="searchText" id="searchText" ng-model="searchText"
-                                   type="text" class="form-control search-page-input"
-                                   placeholder="Principles of Marketing By Philip Kotler...">
+                        <form name="bookSearchForm" submit-validate ng-submit="searchByIsbn(bookSearchForm.$valid)" role="form"
+                              novalidate>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-search fa-2x"></i></span>
+                                <input  required name="searchText" id="searchText" ng-model="isbn"
+                                        type="text" class="form-control search-page-input"
+                                        placeholder="Enter your ISBN">
 
                            <span class="input-group-btn">
                               <button class="btn btn-default" type="submit">
-                                  go
+                                  Sell
                               </button>
                            </span>
 
-                        </div>
 
-
-                    </div>
-                    <!--<code>{{bookSearchForm}}</code>-->
-
-                    <p class="help-block">
+                            </div>
+                            <p class="help-block">
                         <span class="orange-text"
                               ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
 
-                    </p>
+                            </p>
+
+                        </form>
+                    </div>
 
                 </div>
-            </form>
-
+            </div>
+            <div class="col-md-2"></div>
 
         </div>
 
 
-    </div>
-
-
-</div>
-
-<section id="content" ng-show="showResult">
-
-
-
-<!-- ============ section ============ -->
-
-<!-- /section -->
-
-
-<div class="content-wrap mid-section">
-
-<div class="section m-0 pt-0 search-result-section">
-    <div class="container clearfix quote-container-homepage">
-        <div class="row">
-            <div class="col-md-9 mid-three-people-quote-col">
-                <div class="">
-                    <p class="mid-three-header text-center">
-                        <text class="orange-text uppercase lato italic">Search</text>
-                        <text class="blue-text uppercase lato italic">Result</text>
-                    </p>
-                </div>
-                <div class="search-result-bar-info-div">
-
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Total Results:</text>
-                        <text class="blue-text lato">{{totalSearchResultsText}}</text>
-                        <br/>
-
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Pages:</text>
-                        <text class="blue-text lato">{{numPages}}</text>
-                        <br/>
-
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <text class="orange-text lato">Showing Page:</text>
-                        <text class="blue-text lato">{{currentPage}} of {{numPages}}</text>
-                    </div>
-
-                    <div class="col-md-6 text-center">
-                        <div class="search-page-options">Sort By:
-
-                            <select ng-model="sortType">
-                                <option value="bookTitle" ng-selected="true">Title</option>
-                                <option value="bookDirectorAuthorArtist">Author</option>
-                                <option value="bookIsbn">ISBN</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <div class="search-page-options">
-                            <span>Select View:</span>
-                                <span class="btn-group">
-
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'List'"><i
-                                            class="fa fa-th-list"></i></label>
-
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'Grid'"><i
-                                            class="fa fa-th-large"></i></label>
-                                </span>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-                <div class="col-md-12">
-                    <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
-                                    ng-change="changePage(currentPage)" class="search-page-pagination"
-                                    boundary-links="true"
-                                    rotate="false" num-pages="numPages"></uib-pagination>
-
-                </div>
-            </div>
-            <div class="col-md-3 girl-image">
-                <img src="dist/images/sections/girl.png">
-            </div>
-
-        </div>
 
     </div>
-</div>
-
-<div class="section mid-section">
-<div class="container clearfix">
-
-<div class="row" cg-busy="{promise:searchPromise,templateUrl:'views/template/search_result_loading_template.html'}">
-
-    <div ng-show="searchingProgress" class="searching-on-progress-div"></div>
-    <div ng-show="searchingError" class="searching-error-div text-center">
-        <h3>
-            Sorry No Books Were Found
-        </h3>
-        <h4>
-            Please Refine your search query and try again.
-        </h4>
-    </div>
-
-
-    <div ui-view="searchResultView" ></div>
-
-
 
 
 </div>
-
-
-<div class="row">
-    <div class="col-md-12 text-center">
-        <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
-                        ng-change="changePage(currentPage)" class="search-page-pagination"
-                        boundary-links="true"
-                        rotate="false" num-pages="numPages"></uib-pagination>
-
-    </div>
-</div>
-
-</div>
-</div>
-
-
-</div>
-</section>
-
-
-
-
 
 

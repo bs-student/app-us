@@ -312,23 +312,6 @@ var app = angular
                 controller: 'BuyArchiveCtrl',
                 templateUrl: 'views/book/buy_archive.html'
             })
-            //Sell Book
-            .state('app.sellBook', {
-                url: '^/sellBook',
-                controller: 'BookSellCtrl',
-                templateUrl: 'views/book/sell.html',
-                resolve: {
-                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            '../vendor/filestyle/bootstrap-filestyle.min.js'/*,
-                            '../vendor/slider/bootstrap-slider.js',
-                            '../vendor/touchspin/jquery.bootstrap-touchspin.js',
-                            '../vendor/touchspin/jquery.bootstrap-touchspin.css'*/
-
-                        ]);
-                    }]
-                }
-            })
             //BUY FROM AMAZON
             .state('app.buy_from_amazon', {
                 url: '^/buy_from_amazon:bookOfferId',
@@ -415,31 +398,54 @@ var app = angular
                 }
 
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //FAQ
             .state('app.faq', {
                 url: '^/faq',
                 controller: 'FaqCtrl',
                 templateUrl: 'views/web/faq.html'
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Sell Book Main Page
+            .state('app.sellBook', {
+                url: '^/sellBook',
+                controller: 'BookSellMainCtrl',
+                templateUrl: 'views/book/sell_book.html'
+//                controller: 'BookSellCtrl',
+//                templateUrl: 'views/book/sell_page.html'
+
+            })
+
+
+
+
+            //Sell Book
+            .state('app.sellBookByIsbn', {
+                url: '^/sellBookByIsbn',
+                controller: 'BookSellCtrl',
+                templateUrl: 'views/book/sell_page.html',
+                params: {
+                    "book": null
+                }
+            })
+            //Sell Book Custom
+            .state('app.sellBookCustom', {
+                url: '^/sellBookCustom',
+                controller: 'BookSellCustomCtrl',
+                templateUrl: 'views/book/sell_page_custom.html'
+            })
+
 
 
 

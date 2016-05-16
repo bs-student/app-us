@@ -1,7 +1,7 @@
 'use strict';
 
 app
-    .directive("singleFileInput", ["$parse",
+    .directive("singleImageInput", ["$parse",
         function ($parse) {
 
             return {
@@ -11,7 +11,7 @@ app
 
                     element.bind("change",function(e){
 
-                        var model = attrs.fileInput;
+                        var model = attrs.singleImageInput;
                         var singleFile = attrs.singleFile;
                         var fileIdModel = attrs.fileIdentifier;
                         var fileDataModel = attrs.fileData;
@@ -35,6 +35,7 @@ app
                             reader.readAsDataURL(file);
 
                         });
+//                        console.log(model);
                         $parse(model).assign(scope, scope.model);
 
                     });

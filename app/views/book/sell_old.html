@@ -163,7 +163,7 @@
 <div class="tile-widget">
 
     <!-- row -->
-    <div ng-show="addNewSellBook" style="border-bottom: 1px solid;margin-top: 10px;" class="row">
+    <div style="border-bottom: 1px solid;margin-top: 10px;" class="row">
         <!-- col -->
         <form name="sellBookForm" class="form-horizontal" submit-validate ng-submit="sellBook(sellBookForm.$valid)" role="form" novalidate>
         <div class="col-md-6">
@@ -218,7 +218,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label class="control-label">Add Additional Book Image</label>
-                <input file-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+                <input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
             buttonText: 'Select file',
             iconName: 'fa fa-inbox'
           }"  multiple>
@@ -403,7 +403,7 @@
         </div>
         <div class="col-md-12">
             Textbook available date:
-            <div>
+            <!--<div>
                 <div class="input-group w-md">
                     <input type="text"
                            class="form-control ng-isolate-scope ng-valid-date ng-dirty ng-touched ng-valid ng-valid-required"
@@ -414,14 +414,14 @@
                     <div uib-datepicker-popup-wrap="" ng-model="date" ng-model-options="ngModelOptions"
                          ng-change="dateSelection(date)" template-url="uib/template/datepicker/popup.html"
                          class="ng-valid ng-valid-date-disabled ng-dirty" aria-invalid="false">
-                        <!-- ngIf: isOpen -->
+                        &lt;!&ndash; ngIf: isOpen &ndash;&gt;
                     </div>
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="open($event)"><i
                               class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
-            </div>
+            </div>-->
             </div>
         <div class="col-md-12" ng-class="{ 'has-error' : sellBookForm.paymentMethod.$invalid && !sellBookForm.paymentMethod.$pristine, 'has-success' : sellBookForm.paymentMethod.$valid && !contactForm.paymentMethod.$pristine}">
             <br/>
@@ -521,7 +521,7 @@
 
         <div class="col-md-12">
             Publish date:
-            <div>
+            <!--<div>
                 <div class="input-group w-md">
                     <input type="text"
                            class="form-control ng-isolate-scope ng-valid-date ng-dirty ng-touched ng-valid ng-valid-required"
@@ -532,14 +532,14 @@
                     <div uib-datepicker-popup-wrap="" ng-model="publishDate" ng-model-options="ngModelOptions2"
                          ng-change="dateSelection(publishDate)" template-url="uib/template/datepicker/popup.html"
                          class="ng-valid ng-valid-date-disabled ng-dirty" aria-invalid="false">
-                        <!-- ngIf: isOpen -->
+                        &lt;!&ndash; ngIf: isOpen &ndash;&gt;
                     </div>
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="open($event)"><i
                               class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <div class="col-md-12">
@@ -824,7 +824,7 @@
 
             </p>
         </div>
-        <div class="col-md-12">
+        <!--<div class="col-md-12">
             Textbook available date:
             <div>
                 <div class="input-group w-md">
@@ -837,7 +837,7 @@
                     <div uib-datepicker-popup-wrap="" ng-model="date" ng-model-options="ngModelOptions"
                          ng-change="dateSelection(date)" template-url="uib/template/datepicker/popup.html"
                          class="ng-valid ng-valid-date-disabled ng-dirty" aria-invalid="false">
-                        <!-- ngIf: isOpen -->
+                        &lt;!&ndash; ngIf: isOpen &ndash;&gt;
                     </div>
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="open($event)"><i
@@ -845,7 +845,7 @@
                     </span>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="col-md-12" ng-class="{ 'has-error' : sellCustomBookForm.paymentMethod.$invalid && !sellCustomBookForm.paymentMethod.$pristine, 'has-success' : sellCustomBookForm.paymentMethod.$valid && !contactForm.paymentMethod.$pristine}">
             <br/>
             Payment Method:
