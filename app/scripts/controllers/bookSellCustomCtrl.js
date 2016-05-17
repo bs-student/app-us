@@ -3,11 +3,11 @@
     'use strict';
 
     app
-        .controller('BookSellCtrl', BookSellCtrl);
+        .controller('BookSellCustomCtrl', BookSellCustomCtrl);
 
-    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService'];
+    BookSellCustomCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService'];
 
-    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService) {
+    function BookSellCustomCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService) {
 
 
         if(!$scope.$parent.loggedIn){
@@ -17,18 +17,21 @@
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 
-        if($stateParams.book==null){
-            responseService.showErrorToast("No Book was found");
-            $scope.book=[];
-            $state.go("app.sellBook");
-        }else{
-            $scope.customBook=false;
-            $scope.book = $stateParams.book;
-            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
-            $scope.amazonImageFile = {
-                'fileData':$scope.book.bookImages[0].image
-            };
-        }
+        $scope.book=[];
+        $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+
+//        if($stateParams.book==null){
+//            responseService.showErrorToast("No Book was found");
+
+//            $state.go("app.sellBook");
+//        }else{
+//            $scope.customBook=false;
+//            $scope.book = $stateParams.book;
+//            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+//            $scope.amazonImageFile = {
+//                'fileData':$scope.book.bookImages[0].image
+//            };
+//        }
 
 
         $scope.nextStep=_nextStep;
@@ -66,7 +69,8 @@
         };
 
         $scope.imageFiles=[];
-        $scope.carouselFiles=[];
+        $scope.noImages=true;
+//        $scope.carouselFiles=[];
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
@@ -105,6 +109,7 @@
                 if(step=='step1'){
                     $scope.steps.step2=true;
                     $scope.step1Completed=true;
+                    $scope.publishDate = new Date($scope.book.bookPublishDate);
                 }
                 else if(step=='step2'){
                     $scope.steps.step3=true;
@@ -117,24 +122,36 @@
 
                 }
                 else if(step=='step4'){
-                    $scope.steps.step5=true;
-                    $scope.step4Completed=true;
 
-                    $scope.imageFiles=data;
-//                    $scope.imageFiles=[];
-                    angular.copy(data,$scope.carouselFiles);
-//                    angular.copy(data,$scope.uploadFiles);
-                    if($scope.carouselFiles.length==0){
-                        $scope.carouselFiles.push($scope.amazonImageFile);
-                    }else{
-                        $scope.carouselFiles.unshift($scope.amazonImageFile);
+                    if(data!=undefined){
+                        $scope.imageFiles=data;
                     }
 
+                    if(data==undefined || $scope.imageFiles.length==0){
+                        $scope.noImages=true;
+                    }else{
+                        $scope.noImages=false;
+                        $scope.steps.step5=true;
+                        $scope.step4Completed=true;
+
+                        setCarousel();
+                    }
+//                    console.log(data);
+
+//                    $scope.imageFiles=[];
+//                    angular.copy(data,$scope.carouselFiles);
+//                    angular.copy(data,$scope.uploadFiles);
+//                    if($scope.carouselFiles.length==0){
+//                        $scope.carouselFiles.push($scope.amazonImageFile);
+//                    }else{
+//                        $scope.carouselFiles.unshift($scope.amazonImageFile);
+//                    }
 
 
-                    setCarousel();
-                    console.log($scope.carouselFiles);
-                    console.log($scope.imageFiles);
+
+//                    setCarousel();
+//                    console.log($scope.carouselFiles);
+//                    console.log($scope.imageFiles);
                 }
 
             }
@@ -158,12 +175,12 @@
             $scope.myInterval = 5000;
             $scope.noWrapSlides = false;
 
-            if ($scope.carouselFiles.length == 1) {
+            if ($scope.imageFiles.length == 1) {
                 $scope.showThumb = false;
             } else {
                 $scope.showThumb = true;
             }
-            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
 
         }
 
@@ -171,18 +188,18 @@
             if ($scope.thumbnailPage > 1) {
                 $scope.thumbnailPage--;
             }
-            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
         }
 
         function _nextPage() {
-            if ($scope.thumbnailPage <= Math.floor($scope.carouselFiles.length / $scope.thumbnailSize)) {
+            if ($scope.thumbnailPage <= Math.floor($scope.imageFiles.length / $scope.thumbnailSize)) {
                 $scope.thumbnailPage++;
             }
-            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
         }
 
         function _setActive(thumb) {
-            $scope.carouselFiles[$scope.carouselFiles.indexOf(thumb)].active=true;
+            $scope.imageFiles[$scope.imageFiles.indexOf(thumb)].active=true;
         }
 
 
@@ -198,6 +215,11 @@
                 error=true;
             }else if(!step3Valid){
                 responseService.showErrorToast("Please Fill Up Deal TErms Form Correctly.");
+                error=true;
+            }
+
+            if($scope.noImages){
+                responseService.showErrorToast("Please Add at least One Image.");
                 error=true;
             }
 
@@ -224,6 +246,9 @@
             });
             $scope.imageFiles = items;
 
+            if($scope.imageFiles.length==0){
+                $scope.noImages=true;
+            }
         }
 
         function sellBook(){
@@ -246,24 +271,25 @@
             var bookData={};
 
             bookData.bookTitle = $scope.book.bookTitle;
+            bookData.bookSubTitle = $scope.book.bookSubTitle;
             bookData.bookDirectorAuthorArtist = $scope.book.bookDirectorAuthorArtist;
             bookData.bookEdition = $scope.book.bookEdition;
-            bookData.bookIsbn10 = $scope.book.bookIsbn;
-            bookData.bookIsbn13 = $scope.book.bookEan;
+            bookData.bookIsbn10 = $scope.book.bookIsbn10;
+            bookData.bookIsbn13 = $scope.book.bookIsbn13;
             bookData.bookPublisher = $scope.book.bookPublisher;
             bookData.bookPublishDate = $scope.book.bookPublishDate;
             bookData.bookBinding = $scope.book.bookBinding;
             bookData.bookPage = $scope.book.bookPages;
             bookData.bookLanguage = $scope.book.bookLanguage;
             bookData.bookDescription = $scope.book.bookDescription;
-            bookData.bookAmazonPrice = $scope.book.bookPriceAmazon.substring(1,$scope.book.bookPriceAmazon.length);
-            if(!$scope.customBook){
+//            bookData.bookAmazonPrice = $scope.book.bookPriceAmazon.substring(1,$scope.book.bookPriceAmazon.length);
+            /*if(!$scope.customBook){
                 bookData.bookImage = $scope.book.bookImages[0].image;
                 bookData.bookType = "newSellBook";
-            }
-            /*if($scope.customBook){
-                bookData.bookType = "newSellCustomBook";
             }*/
+//            if($scope.customBook){
+                bookData.bookType = "newSellCustomBook";
+//            }
 
 
 

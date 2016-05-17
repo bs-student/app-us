@@ -101,6 +101,7 @@ var assets = {
         "app/scripts/controllers/addQuoteCtrl.js",
         "app/scripts/controllers/faqCtrl.js",
         "app/scripts/controllers/bookSellMainCtrl.js",
+        "app/scripts/controllers/bookSellCustomCtrl.js",
 
 
 

@@ -738,7 +738,7 @@
                                         <div class="search-book-image-carousel">
                                             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
-                                                <uib-slide ng-repeat="slide in imageFiles" active="slide.active">
+                                                <uib-slide ng-repeat="slide in carouselFiles" active="slide.active">
                                                     <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
                                                           class="big-images" ng-src="{{slide.fileData}}" style="margin:auto;">
 

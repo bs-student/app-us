@@ -405,31 +405,15 @@ var app = angular
                 templateUrl: 'views/web/faq.html'
             })
 
-
-
-
-
-
-
-
-
-
-
-
-
             //Sell Book Main Page
             .state('app.sellBook', {
                 url: '^/sellBook',
                 controller: 'BookSellMainCtrl',
                 templateUrl: 'views/book/sell_book.html'
-//                controller: 'BookSellCtrl',
-//                templateUrl: 'views/book/sell_page.html'
+//                controller: 'BookSellCustomCtrl',
+//                templateUrl: 'views/book/sell_page_custom.html'
 
             })
-
-
-
-
             //Sell Book
             .state('app.sellBookByIsbn', {
                 url: '^/sellBookByIsbn',
@@ -439,6 +423,27 @@ var app = angular
                     "book": null
                 }
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //Sell Book Custom
             .state('app.sellBookCustom', {
                 url: '^/sellBookCustom',

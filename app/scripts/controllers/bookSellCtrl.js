@@ -24,7 +24,7 @@
         }else{
             $scope.customBook=false;
             $scope.book = $stateParams.book;
-            $scope.book.contactInfoEmail ='sujit@brainstation-23.com';
+            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
             $scope.amazonImageFile = {
                 'fileData':$scope.book.bookImages[0].image
             };
@@ -34,7 +34,10 @@
         $scope.nextStep=_nextStep;
         $scope.backToStep = _backToStep;
 
-        $scope.email=identityService.getAuthorizedUserData().email;
+        if(identityService.getAuthorizedUserData()!=null){
+            $scope.email=identityService.getAuthorizedUserData().email;
+        }
+
 
         //DatePicker
 
@@ -63,6 +66,7 @@
         };
 
         $scope.imageFiles=[];
+        $scope.carouselFiles=[];
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
@@ -98,12 +102,6 @@
 
             if(valid){
 
-                if(data!=undefined){
-                    $scope.imageFiles=[];
-                    angular.copy(data,$scope.imageFiles);
-                    $scope.imageFiles.unshift($scope.amazonImageFile);
-                }
-
                 if(step=='step1'){
                     $scope.steps.step2=true;
                     $scope.step1Completed=true;
@@ -121,7 +119,21 @@
                 else if(step=='step4'){
                     $scope.steps.step5=true;
                     $scope.step4Completed=true;
+
+                    $scope.imageFiles=data;
+//                    $scope.imageFiles=[];
+                    angular.copy(data,$scope.carouselFiles);
+//                    angular.copy(data,$scope.uploadFiles);
+                    if($scope.carouselFiles.length==0){
+                        $scope.carouselFiles.push($scope.amazonImageFile);
+                    }else{
+                        $scope.carouselFiles.unshift($scope.amazonImageFile);
+                    }
+
+
+
                     setCarousel();
+                    console.log($scope.carouselFiles);
                     console.log($scope.imageFiles);
                 }
 
@@ -146,12 +158,12 @@
             $scope.myInterval = 5000;
             $scope.noWrapSlides = false;
 
-            if ($scope.imageFiles.length == 1) {
+            if ($scope.carouselFiles.length == 1) {
                 $scope.showThumb = false;
             } else {
                 $scope.showThumb = true;
             }
-            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
 
         }
 
@@ -159,18 +171,18 @@
             if ($scope.thumbnailPage > 1) {
                 $scope.thumbnailPage--;
             }
-            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
         }
 
         function _nextPage() {
-            if ($scope.thumbnailPage <= Math.floor($scope.imageFiles.length / $scope.thumbnailSize)) {
+            if ($scope.thumbnailPage <= Math.floor($scope.carouselFiles.length / $scope.thumbnailSize)) {
                 $scope.thumbnailPage++;
             }
-            $scope.showThumbnails = $scope.imageFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+            $scope.showThumbnails = $scope.carouselFiles.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
         }
 
         function _setActive(thumb) {
-            $scope.imageFiles[$scope.imageFiles.indexOf(thumb)].active=true;
+            $scope.carouselFiles[$scope.carouselFiles.indexOf(thumb)].active=true;
         }
 
 
@@ -190,8 +202,8 @@
             }
 
             if(!error){
-                responseService.showSuccessToast("All Forms are correct. add the data to Database tomorrow and new custom books too. ")
-//                sellBook();
+//                responseService.showSuccessToast("All Forms are correct. add the data to Database tomorrow and new custom books too. ")
+                sellBook();
             }
         }
 
@@ -199,6 +211,8 @@
         function _viewImage(event, title) {
             imageModalService.showModal(event, title);
         }
+
+
         function _removeFile(item,items){
 
             var i = 0;
@@ -209,21 +223,26 @@
                 i++;
             });
             $scope.imageFiles = items;
-            console.log($scope);
 
         }
 
         function sellBook(){
 
 
+
             var formData = new FormData();
 
+
             var i=0;
-            angular.forEach($scope.files, function (file) {
+            angular.forEach($scope.imageFiles, function (file) {
+
                 formData.append("file"+ i.toString(),file);
+
                 i++;
             });
 
+
+            console.log(formData);
             var bookData={};
 
             bookData.bookTitle = $scope.book.bookTitle;
@@ -237,13 +256,14 @@
             bookData.bookPage = $scope.book.bookPages;
             bookData.bookLanguage = $scope.book.bookLanguage;
             bookData.bookDescription = $scope.book.bookDescription;
+            bookData.bookAmazonPrice = $scope.book.bookPriceAmazon.substring(1,$scope.book.bookPriceAmazon.length);
             if(!$scope.customBook){
                 bookData.bookImage = $scope.book.bookImages[0].image;
                 bookData.bookType = "newSellBook";
             }
-            if($scope.customBook){
+            /*if($scope.customBook){
                 bookData.bookType = "newSellCustomBook";
-            }
+            }*/
 
 
 
@@ -277,6 +297,7 @@
             bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                $state.go('app.sellingBookList');
 
             }).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {

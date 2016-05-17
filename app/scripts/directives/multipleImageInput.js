@@ -44,6 +44,7 @@ multipleImageInput.$inject=["$parse","responseService"];
                                 var fileSelected= true;
                                 scope.$apply(function(){
                                     scope.model.push(file);
+                                    scope.noImages=false;
                                 });
                             };
                             reader.readAsDataURL(file);

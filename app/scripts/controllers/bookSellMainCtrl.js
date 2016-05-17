@@ -33,8 +33,8 @@
                         if(response.data.success.successData.books.length==1){
                             $state.go('app.sellBookByIsbn',{book:response.data.success.successData.books[0]});
                         }else{
-//                            $state.go('app.sellBookCustom');
-                            responseService.showErrorToast("No Books Found.","Add Custom Books will be added Soon...")
+                            $state.go('app.sellBookCustom');
+//                            responseService.showErrorToast("No Books Found.","Add Custom Books will be added Soon...")
                         }
 
                     }).catch(function(response){
