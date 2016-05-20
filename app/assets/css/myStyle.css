@@ -1,3 +1,8 @@
+
+.contact-section{
+    margin-top:30px;
+}
+
 /********************************************/
 /*              Header                        */
 /*********************************************/
@@ -2119,25 +2124,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 
 
-.sell-book-section   .tab-wizard .nav-tabs > li > a:before{
-    border-bottom: 33px solid transparent;
-    border-left: 37px solid #FFFFFF;
-    border-top: 33px solid transparent;
-    right: -35px;
-    position: absolute;
-    top: 2px;
-}
-.sell-book-section   .tab-wizard .nav-tabs > li.active > a:before{
-    border-left: 40px solid #FF530E;
-}
-.sell-book-section   .tab-wizard .nav-tabs > li > a:after{
-    border-bottom: 33px solid transparent;
-    border-left: 37px solid #FF530E;
-    border-top: 33px solid transparent;
-    right: -38px;
-    position: absolute;
-    top: 2px;
-}
+
 .sell-book-section  .tab-wizard .nav-tabs > li:first-child > a{
     padding-left: 0px;
 }
@@ -2157,10 +2144,9 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     border: 2px solid #FF530E;
     border-top: none;
     border-bottom: none;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 60px;
-    padding-top: 40px;
+    padding: 40px 30px 60px 30px;
+
+    min-height: 690px;
 }
 
 
@@ -2182,17 +2168,48 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .sell-book-section ul.nav li a .pic-div{
     height: 30px;
 }
-.sell-book-section ul.nav li a .completed .tab-head-title{
-    color: #FF530E;
+.sell-book-section ul.nav li.completed a  .tab-head-title{
+    color: #FFFFFF;
+}
+.sell-book-section ul.nav li.completed a  .tab-head-div{
+    background: rgba(255,171,138,1);
 }
 .sell-book-section ul.nav li.active a .tab-head-title{
     color: #FFFFFF;
 }
 
+
+.sell-book-section   .tab-wizard .nav-tabs > li > a:before{
+    border-bottom: 33px solid transparent;
+    border-left: 37px solid #FFFFFF;
+    border-top: 33px solid transparent;
+    right: -35px;
+    position: absolute;
+    top: 2px;
+}
+.sell-book-section   .tab-wizard .nav-tabs > li.active > a:before{
+    border-left: 40px solid #FF530E;
+}
+.sell-book-section   .tab-wizard .nav-tabs > li > a:after{
+    border-bottom: 33px solid transparent;
+    border-left: 37px solid #FF530E;
+    border-top: 33px solid transparent;
+    right: -38px;
+    position: absolute;
+    top: 2px;
+}
+
+.sell-book-section .tab-wizard .nav-tabs > li.completed a:before  {
+    border-left: 37px solid rgba(255,171,138,1);
+}
+
+.sell-book-section .tab-wizard .nav-tabs > li.completed.active a:before{
+    border-left: 37px solid #FF530E;
+}
 /*Step 1*/
 
-.sell-book-section ul.nav li a .completed .book-info-icon-div{
-    background: url("../../dist/images/sell_book/book_info_done.png") no-repeat center;
+.sell-book-section ul.nav li.completed a  .book-info-icon-div{
+    background: url("../../dist/images/sell_book/book_info_active.png") no-repeat center;
 }
 .sell-book-section ul.nav li a .book-info-icon-div{
     background: url("../../dist/images/sell_book/book_info.png") no-repeat center;
@@ -2202,8 +2219,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 
 /*Step 2*/
-.sell-book-section ul.nav li a .completed .contact-method-icon-div{
-    background: url("../../dist/images/sell_book/contact_method_done.png") no-repeat center;
+.sell-book-section ul.nav li.completed a  .contact-method-icon-div{
+    background: url("../../dist/images/sell_book/contact_method_active.png") no-repeat center;
 }
 .sell-book-section ul.nav li a .contact-method-icon-div{
     background: url("../../dist/images/sell_book/contact_method.png") no-repeat center;
@@ -2212,8 +2229,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     background: url("../../dist/images/sell_book/contact_method_active.png") no-repeat center;
 }
 /*Step 3*/
-.sell-book-section ul.nav li a .completed .deal-terms-icon-div{
-    background: url("../../dist/images/sell_book/deal_terms_done.png") no-repeat center;
+.sell-book-section ul.nav li.completed a  .deal-terms-icon-div{
+    background: url("../../dist/images/sell_book/deal_terms_active.png") no-repeat center;
 }
 .sell-book-section ul.nav li a .deal-terms-icon-div{
     background: url("../../dist/images/sell_book/deal_terms.png") no-repeat center;
@@ -2223,8 +2240,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 
 /*step 4*/
-.sell-book-section ul.nav li a .completed .add-image-icon-div{
-    background: url("../../dist/images/sell_book/add_image_done.png") no-repeat center;
+.sell-book-section ul.nav li.completed a  .add-image-icon-div{
+    background: url("../../dist/images/sell_book/add_image_active.png") no-repeat center;
 }
 .sell-book-section ul.nav li a .add-image-icon-div{
     background: url("../../dist/images/sell_book/add_image.png") no-repeat center;
@@ -2233,8 +2250,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     background: url("../../dist/images/sell_book/add_image_active.png") no-repeat center;
 }
 /*step 5*/
-.sell-book-section ul.nav li a .completed .preview-confirm-icon-div{
-    background: url("../../dist/images/sell_book/preview_done.png") no-repeat center;
+.sell-book-section ul.nav li.completed a  .preview-confirm-icon-div{
+    background: url("../../dist/images/sell_book/preview_active.png") no-repeat center;
 }
 .sell-book-section ul.nav li a .preview-confirm-icon-div{
     background: url("../../dist/images/sell_book/preview.png") no-repeat center;
@@ -2330,3 +2347,67 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     vertical-align: middle !important;
 }
  /*.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group*/
+
+.sell-page-container .help-button{
+    font-weight: 400;
+    background: #FF530E;
+    height: 100px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 46px;
+    padding: 5px;
+    margin: 0px;
+}
+.sell-page-container .help-div{
+    position: absolute;
+    right: -30px;
+}
+.help-button.orange-btn{
+    text-transform: none;
+
+}
+
+.help-details-div{
+    position: absolute;
+    right: -354px;
+
+    width: 369px;
+    height: 100%;
+    border-right: 2px solid #FF530E;
+    border-top-right-radius: 4px;
+}
+
+.help-details-div .help-header{
+
+    background: #FF530E;
+    width: 100%;
+    height: 70px;
+    background: #FF530E;
+    width: 100%;
+    padding: 10px;
+
+}
+.help-details-div .help-header .help-back-button i{
+    height: 40px;
+    width: 40px !important;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    background: #FF530E;
+    /*width: 100%;*/
+    padding: 2px;
+}
+.help-details-div .help-header .help-back-button{
+    background: #FF530E;
+    font-weight: 600;
+}
+.help-header img{
+    vertical-align: top;
+    padding: 7px;
+    margin-left: 40px;
+}
+.help-details-text-div{
+    padding: 20px;
+}
+.help-details-text-div p{
+    line-height: 1.2em !important;
+}

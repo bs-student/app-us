@@ -423,33 +423,33 @@ var app = angular
                     "book": null
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Sell Book Custom
             .state('app.sellBookCustom', {
                 url: '^/sellBookCustom',
                 controller: 'BookSellCustomCtrl',
                 templateUrl: 'views/book/sell_page_custom.html'
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
