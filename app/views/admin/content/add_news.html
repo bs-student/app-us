@@ -1,0 +1,112 @@
+
+        <div class="row">
+            <form name="quoteForm" submit-validate ng-submit="addQuote(quoteForm.$valid,'Student')" role="form" novalidate>
+            <div class="col-md-6 reg-page-col-div">
+
+                <div class="add-new-quote-form">
+
+
+
+                    <!-- tile -->
+                    <section class="tile text-left" fullscreen="isFullscreen01">
+
+
+                        <!-- tile body -->
+                        <div class="tile-body">
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine, 'has-success' : quoteForm.quoteProvider.$valid && !quoteForm.quoteProvider.$pristine}">
+                                <!--<label class="white-text" for="quoteProvider">Full Name: </label>-->
+                                <p class="" for="quoteProvider">Quote Provider Name: </p>
+                                <input type="text" name="quoteProvider" id="quoteProvider" class="form-control " ng-model="quote.quoteProvider"  required>
+                                <p class="help-block">
+                                    <span ng-show="quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine">Quote Provider Name is required.</span>
+                                </p>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error' :  quoteForm.quoteDescription.$invalid && !quoteForm.quoteDescription.$pristine, 'has-success' : quoteForm.quoteDescription.$valid && !quoteForm.quoteDescription.$pristine}">
+                                <!--<label class="white-text" for="quoteDescription">quoteDescription: </label>-->
+                                <p class="" for="quoteProvider">Quote: </p>
+                                <textarea name="quoteDescription" id="quoteDescription" class="form-control " ng-model="quote.quoteDescription" required></textarea>
+                                <p class="help-block">
+                                    <span ng-show="quoteForm.quoteDescription.$invalid && !quoteForm.quoteDescription.$pristine">Quote is required.</span>
+                                </p>
+                            </div>
+
+                            <div ng-show="!singleFile" class="form-group">
+                                <p>University Image: (Recommended dimension: 64px/64px & Recommended Size : less than 200KB)</p>
+                                <input  single-file="singleFile" single-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select file',
+            iconName: 'fa fa-inbox'
+          }" >
+
+
+                            </div>
+                            <div  class="form-group">
+                                <div class="tcol">
+                                    <div class="p-15 bg-white">
+
+
+                                        <h5 class="custom-font text-default m-0">Student Image</h5>
+
+                                    </div>
+
+                                    <div class="p-15">
+
+                                        <table class="table b-a b-solid bg-white">
+                                            <thead>
+                                            <tr>
+                                                <th>Image</th>
+
+                                                <th >Size</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="file in files" class="text-sm">
+                                                <td style="text-align: center"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
+
+                                                <td nowrap>{{ file.size/1024/1024|number:2 }} MB</td>
+
+                                                <td nowrap>
+
+
+                                                    <button type="button" class="btn btn-default btn-xs" ng-click="removeFile(file)">
+                                                        <span class="fa fa-trash"></span> Remove
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Save Quote</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a ui-sref="app.quotes" class="myBtn app-btn buy-now-button "><i class="fa fa-times"></i>&nbsp;Cancel</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+                </div>
+
+
+
+
+            </div>
+
+            </form>
+        </div>
+

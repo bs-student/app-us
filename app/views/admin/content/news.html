@@ -1,0 +1,229 @@
+<div class="archive-page-head-banner">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="header-title"><text class="uppercase blue-text lato">Quote</text><text class="uppercase orange-text lato"> Management</text></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="compare-page" id="content">
+
+
+<div class="content-wrap mid-section">
+
+
+
+
+<div class="section m-0 pt-0 mid-one compare-result-section user-management-sections">
+<div class="container clearfix quote-container-homepage">
+<div class="row">
+
+<div class="col-md-12">
+
+<uib-tabset justified="true" type="pills">
+    <uib-tab class="first-tab">
+    <uib-tab-heading>
+        <div class="people-icon-div"></div>
+        <text>Student Quotes</text>
+    </uib-tab-heading>
+    <div cg-busy="{promise:campusPromise}">
+
+
+        <div class="button-panel">
+            <a ui-sref="app.quotes.addStudentQuote" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Student Quote</a>
+        </div>
+
+
+        <div ui-view="addStudentQuoteView" ></div>
+
+        <table ng-table="studentQuoteTableParams" class="table table-striped campus-result-table ">
+
+            <form name="userEditForm" submit-validate >
+
+                <tr ng-repeat="quote in $data" ng-form="editRowForm">
+
+                    <td data-title="'Quote Provider'" width="200"  filter="{ 'quoteProvider': 'text' }">
+                        <span ng-if="!quote.$edit">{{quote.quoteProvider}}</span>
+
+
+                        <div ng-if="quote.$edit"
+                             ng-class="{ 'has-error' : editRowForm.quoteProvider.$invalid && !editRowForm.quoteProvider.$pristine, 'has-success' : editRowForm.quoteProvider.$valid && !editRowForm.quoteProvider.$pristine}">
+                            <input name="quoteProvider" class="input-sm form-control" type="text"
+                                   required
+                                   ng-model="quote.quoteProvider"/>
+                            <p class="help-block">
+                                <span ng-show="editRowForm.quoteProvider.$invalid && !editRowForm.quoteProvider.$pristine">Quote Provider Name is required.</span>
+                            </p>
+                        </div>
+
+                    </td>
+                    <td data-title="'Image'"  width="200">
+                       <img data-ng-src="{{imageHostPath}}{{quote.quoteImage}}">
+                    </td>
+                    <td data-title="'Quote'" >
+                        <span ng-if="!quote.$edit">{{quote.quoteDescription}}</span>
+
+                        <div ng-if="quote.$edit"
+                             ng-class="{ 'has-error' : editRowForm.quoteDescription.$invalid && !editRowForm.quoteDescription.$pristine, 'has-success' : editRowForm.quoteDescription.$valid && !editRowForm.quoteDescription.$pristine}">
+
+
+                            <textarea name="quoteDescription" class="input-sm form-control" type="text"
+                                      required
+                                      ng-model="quote.quoteDescription" >{{quote.quoteDescription}}</textarea>
+
+                            <p class="help-block">
+                                <span ng-show="editRowForm.quoteDescription.$invalid && !editRowForm.quoteDescription.$pristine">Quote is required.</span>
+                            </p>
+                        </div>
+
+                    </td>
+
+                    <td data-title="'Status'" width="100" sortable="'quoteStatus'">
+                        <span ng-if="!quote.$edit">{{quote.quoteStatus}}</span>
+
+                        <div ng-if="quote.$edit">
+                            <select ng-model="quote.quoteStatus" class="form-control mb-10">
+                                <option ng-selected="quote.quoteStatus=='Activated'"
+                                        value="Activated">Activated
+                                </option>
+                                <option ng-selected="quote.quoteStatus=='Deactivated'"
+                                        value="Deactivated">Deactivated
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-title="'Actions'" width="200">
+                        <a ng-if="!quote.$edit" href="" ng-click="editRow(quote)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                        <a ng-if="quote.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,quote)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
+                        <a ng-if="quote.$edit" href="" ng-click="cancelEditRow(quote)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+
+
+
+
+    </div>
+</uib-tab>
+    <uib-tab class="mid-tab">
+    <uib-tab-heading>
+        <div class="book-close-icon-div"></div>
+        <text>University Quotes</text>
+    </uib-tab-heading>
+    <div cg-busy="{promise:onlinePromise}">
+
+
+        <div class="button-panel">
+            <a ui-sref="app.quotes.addUniversityQuote" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add University Quote</a>
+            <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
+        </div>
+
+        <div ui-view="addUniversityQuoteView" ></div>
+
+
+        <table ng-table="universityQuoteTableParams" class="table table-striped campus-result-table ">
+
+            <form name="userEditForm" submit-validate >
+
+                <tr ng-repeat="quote in $data" ng-form="editRowForm">
+
+                    <td data-title="'Quote Provider'" width="200"  filter="{ 'quoteProvider': 'text' }">
+                        <span ng-if="!quote.$edit">{{quote.quoteProvider}}</span>
+
+
+                        <div ng-if="quote.$edit"
+                             ng-class="{ 'has-error' : editRowForm.quoteProvider.$invalid && !editRowForm.quoteProvider.$pristine, 'has-success' : editRowForm.quoteProvider.$valid && !editRowForm.quoteProvider.$pristine}">
+                            <input name="quoteProvider" class="input-sm form-control" type="text"
+                                   required
+                                   ng-model="quote.quoteProvider"/>
+                            <p class="help-block">
+                                <span ng-show="editRowForm.quoteProvider.$invalid && !editRowForm.quoteProvider.$pristine">Quote Provider Name is required.</span>
+                            </p>
+                        </div>
+
+                    </td>
+                    <td data-title="'Image'"  width="200">
+                        <img data-ng-src="{{imageHostPath}}{{quote.quoteImage}}">
+                    </td>
+                    <td data-title="'Quote'" >
+                        <span ng-if="!quote.$edit">{{quote.quoteDescription}}</span>
+
+                        <div ng-if="quote.$edit"
+                             ng-class="{ 'has-error' : editRowForm.quoteDescription.$invalid && !editRowForm.quoteDescription.$pristine, 'has-success' : editRowForm.quoteDescription.$valid && !editRowForm.quoteDescription.$pristine}">
+
+
+                            <textarea name="quoteDescription" class="input-sm form-control" type="text"
+                                      required
+                                      ng-model="quote.quoteDescription" >{{quote.quoteDescription}}</textarea>
+
+                            <p class="help-block">
+                                <span ng-show="editRowForm.quoteDescription.$invalid && !editRowForm.quoteDescription.$pristine">Quote is required.</span>
+                            </p>
+                        </div>
+
+                    </td>
+
+                    <td data-title="'Status'" width="100" sortable="'quoteStatus'">
+                        <span ng-if="!quote.$edit">{{quote.quoteStatus}}</span>
+
+                        <div ng-if="quote.$edit">
+                            <select ng-model="quote.quoteStatus" class="form-control mb-10">
+                                <option ng-selected="quote.quoteStatus=='Activated'"
+                                        value="Activated">Activated
+                                </option>
+                                <option ng-selected="quote.quoteStatus=='Deactivated'"
+                                        value="Deactivated">Deactivated
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td data-title="'Actions'" width="200">
+                        <a ng-if="!quote.$edit" href="" ng-click="editRow(quote)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                        <a ng-if="quote.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,quote)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
+                        <a ng-if="quote.$edit" href="" ng-click="cancelEditRow(quote)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</uib-tab>
+
+
+</uib-tabset>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+<script type="text/ng-template" id="myModalContent">
+   <!-- <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">{{title}}</h3>
+    </div>-->
+    <div class="modal-body">
+
+        <div class="modal-images">
+            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-arrow-right"></i> Ok
+        </button>
+    </div>
+</script>
