@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I have bought</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">News</text></h1>
 
             </div>
         </div>
@@ -10,343 +10,104 @@
 </div>
 
 
-<section class="compare-page" id="content">
+<section id="content">
+
+<div class="content-wrap">
+
+<div class="container clearfix">
+
+<div class="row">
 
 
-<div class="content-wrap mid-section">
+<!-- BLOG POSTS -->
+<div class="col-sm-9 blog-posts">
 
 
-<!--SELLER TO BUYER-->
+    <article class="post-entry" data-ng-repeat="news in totalNews">
 
-<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
-    <div class="container clearfix quote-container-homepage">
-        <div class="row">
+        <div class="entry-image">
 
-            <div class="col-md-3">
-                <div class="search-book-image-carousel">
-                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+            <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
+                <li>
+                    <div class="slide">
+                        <div class="media">
 
-                        <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
-                            <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
-                                  class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
-
-                        </uib-slide>
-                    </uib-carousel>
-                    <div class="btn-group" ng-show="deal.showThumb">
-                        <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
-
-                                    <span class="search-thumb-image"
-                                          ng-repeat="thumb in deal.showThumbnails"
-                                          ng-class="{true:'active',false:'not-active'}[thumb.active]">
-                                        <img ng-src="{{imageHostPath}}{{thumb.image}}" ng-click="setActive(deal,thumb.imageId)"/>
-                                    </span>
-
-                        <span><a class="thumb-control-right" ng-click="nextPage(deal)"><i
-                                class="fa fa-angle-right fa-3x"></i></a></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="archive-page-headers">
-                            <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
-                            <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
-                            <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
-                        </div>
-                        <div class="archive-page-deal-information">
-                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                                <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
-                            </div>
-                            <div ng-show="deal.viewMoreInfo">
-                                <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
-                                <div class="deal-information-box">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text"> : Seller Contacted You (Buyer)</text><br/></p>
-
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-
-                                            <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
-
-                                                <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                                                    Cash
-                                                </text>
-                                                <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                    Cheque
-                                                </text>
-                                                <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                    Cash, Cheque
-                                                </text>
-
-                                            </text><br/></p>
-                                            <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="archive-page-side">
-                            <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" ng-show="deal.viewMoreInfo">
-                    <div class="col-md-12">
-                        <div class="archive-page-contact-history">
-                            <text class="box-title uppercase orange-text lato"><strong>Contact history - Seller (You) Contact Buyer</strong></text>
-                            <div class="contact-history-box">
-                                <table class="table contact-history-table">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 20%;">Date</th>
-                                        <th style="width: 20%;">Seller Nickname</th>
-                                        <th style="width: 60%;">Action</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody data-ng-repeat="contact in deal.contacts">
-                                    <tr>
-                                        <td>{{contact.contactDateTime}}</td>
-                                        <td>{{deal.sellerUsername}}</td>
-
-                                        <td>
-                                            <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
-                                            <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-
-                                        </td>
-                                    </tr>
-
-
-                                    <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                        <th>Date</th>
-                                        <th>Nickname</th>
-                                        <th>Message</th>
-                                    </tr>
-
-                                    <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                        <td>{{message.messageDateTime}}</td>
-                                        <td>{{message.sender}}</td>
-                                        <td >{{message.messageBody}}</td>
-                                    </tr>
-
-
-
-                                    </tbody>
-
-
-
-                                </table>
+                            <div class="media-body">
+                                <img src="{{imageHostPath}}{{item.image}}"/>
 
                             </div>
                         </div>
-                        <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Back</button></div>
-
                     </div>
-                </div>
-
-
-            </div>
-
-
+                </li>
+            </flex-slider>
         </div>
 
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<!--BUYER TO SELLER-->
-
-<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.buyerToSeller">
-        <div class="container clearfix quote-container-homepage">
-            <div class="row">
-
-                <div class="col-md-3">
-                    <div class="search-book-image-carousel">
-                        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-
-                            <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
-                                <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
-                                      class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
-
-                            </uib-slide>
-                        </uib-carousel>
-                        <div class="btn-group" ng-show="deal.showThumb">
-                            <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
-
-                                    <span class="search-thumb-image"
-                                          ng-repeat="thumb in deal.showThumbnails"
-                                          ng-class="{true:'active',false:'not-active'}[thumb.active]">
-                                        <img ng-src="{{imageHostPath}}{{thumb.image}}" ng-click="setActive(deal,thumb.imageId)"/>
-
-                                    </span>
-
-                        <span><a class="thumb-control-right" ng-click="nextPage(deal)"><i
-                                class="fa fa-angle-right fa-3x"></i></a></span>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="archive-page-headers">
-                                <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
-                                <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
-                                <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                    ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
-                            </div>
-                            <div class="archive-page-deal-information">
-                                <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                                    <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
-                                </div>
-                                <div ng-show="deal.viewMoreInfo">
-                                    <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
-                                    <div class="deal-information-box">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                    <text class="grey-text"> : You (Buyer) Contacted Seller</text><br/></p>
-
-                                                <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerHomeNumber}}</strong></text><br/></p>
-                                                <p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.sellerCellNumber}}</strong></text><br/></p>
-                                                <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
-                                                <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
-
-                                                    <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                                                        Cash
-                                                    </text>
-                                                    <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                        Cheque
-                                                    </text>
-                                                    <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                        Cash, Cheque
-                                                    </text>
-
-                                                </text><br/></p>
-                                                <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
-                                                <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
-                                                <p><text class="blue-text"><strong>Book Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
-                                                <p><text class="blue-text"><strong>Book Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-3"><div class="archive-page-side">
-                            <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-
-
-
-                        </div>
-                        </div>
-                    </div>
-                    <div class="row" ng-show="deal.viewMoreInfo">
-                        <div class="col-md-12">
-                            <div class="archive-page-contact-history">
-                                <text class="box-title uppercase orange-text lato"><strong>Contact history - Seller (You) Contact Buyer</strong></text>
-                                <div class="contact-history-box">
-                                    <table class="table contact-history-table">
-                                        <thead>
-                                        <tr>
-                                            <th style="width: 15%;">Date</th>
-                                            <th style="width: 15%;">Nickname</th>
-                                            <th style="width: 15%;">Email</th>
-                                            <th style="width: 15%;">HomePhone</th>
-                                            <th style="width: 15%;">CellPhone</th>
-
-                                            <th style="width: 25%;">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody data-ng-repeat="contact in deal.contacts">
-                                        <tr>
-                                            <td>{{contact.contactDateTime}}</td>
-                                            <td>{{deal.sellerUsername}}</td>
-                                            <td>{{deal.sellerEmail}}</td>
-                                            <td>{{deal.sellerHomeNumber}}</td>
-                                            <td>{{deal.sellerCellNumber}}</td>
-
-                                            <td>
-                                                <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
-                                                <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-
-                                            </td>
-                                        </tr>
-
-
-                                        <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                            <th colspan="2">Date</th>
-                                            <th>Nickname</th>
-                                            <th colspan="3">Message</th>
-                                        </tr>
-
-                                        <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                            <td colspan="2">{{message.messageDateTime}}</td>
-                                            <td>{{message.sender}}</td>
-                                            <td colspan="3">{{message.messageBody}}</td>
-                                        </tr>
-
-
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                            <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Back</button></div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
+        <div class="entry-title">
+            <h2 class="text-uppercase"><a>{{news.newsTitle}}</a></h2>
         </div>
-    </div>
+
+        <ul class="entry-meta clearfix">
+            <li><i class="fa fa-calendar-o"></i> {{news.newsDateTime}}</li>
+        </ul>
+
+        <div class="entry-content">
+            <p>{{news.newsDescription}}</p>
+        </div>
+
+        <!--<a href="blog-item.html" class="myBtn myBtn-rounded myBtn-border myBtn-xs myBtn-midlight m-0 mt-20"><i class="fa fa-angle-right"></i> Read more</a>-->
+
+        <hr class="post-divider">
+    </article>
 
 
 </div>
+<!-- END BLOG POSTS -->
+
+<!-- BLOG SIDEBAR -->
+<div class="col-sm-3 sidebar">
+
+    <!-- CATEGORIES -->
+    <h4 class="widget-heading">Links</h4>
+    <ul class="nav categories sidebar-widget">
+
+
+        <li><a ui-sref="app.dashboard"><i class="fa fa-angle-right mr-5"></i> Contact Us</a></li>
+        <li><a ui-sref="app.scamAndFraud"><i class="fa fa-angle-right mr-5"></i> Scam & Fraud</a></li>
+        <li><a ui-sref="app.faq"><i class="fa fa-angle-right mr-5"></i> FAQ</a></li>
+        <li><a ui-sref="app.safetyFirst"><i class="fa fa-angle-right mr-5"></i> Safety First</a></li>
+    </ul>
+    <!-- END CATEGORIES -->
+
+    <h4 class="widget-heading">Concept</h4>
+    <ul class="nav categories sidebar-widget">
+
+
+        <li><a ui-sref="app.howItWorks"><i class="fa fa-angle-right mr-5"></i> How It Works</a></li>
+        <li><a ui-sref="app.conceptVideo"><i class="fa fa-angle-right mr-5"></i> Concept Video</a></li>
+
+    </ul>
+
+
+</div>
+<!-- END BLOG SIDEBAR -->
+
+</div><!-- blog -->
+
+
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+</div>
 </section>
 
 

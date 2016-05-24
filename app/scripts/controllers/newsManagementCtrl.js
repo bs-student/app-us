@@ -3,11 +3,11 @@
     'use strict';
 
     app
-        .controller('NewsCtrl', NewsCtrl);
+        .controller('NewsManagementCtrl', NewsManagementCtrl);
 
-    NewsCtrl.$inject = ['$state','identityService', 'adminNewsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
+    NewsManagementCtrl.$inject = ['$state','identityService', 'adminNewsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
 
-    function NewsCtrl($state,identityService, adminNewsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
+    function NewsManagementCtrl($state,identityService, adminNewsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
 
         if(!$scope.$parent.adminUser){
@@ -23,14 +23,81 @@
         $scope.saveEditedRow = _saveEditedRow;
 
 
-        $scope.news=[];
+        $scope.totalNews=[];
+
+        $scope.prevPage = _prevPage;
+        $scope.nextPage = _nextPage;
+        $scope.setActive = _setActive;
+
+        $scope.viewImage = _viewImage;
 
 
         init();
 
         function init(){
             getNews();
+
         }
+
+        function setCarousel() {
+
+            $scope.thumbnailSize = 3;
+            $scope.thumbnailPage = 1;
+            $scope.myInterval = 5000;
+            $scope.noWrapSlides = false;
+
+            angular.forEach($scope.totalNews, function (news) {
+
+                if (news.newsImages.length == 1) {
+                    news.showThumb = false;
+                } else {
+                    news.showThumb = true;
+                }
+
+                news.showThumbnails = news.newsImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+            });
+
+        }
+
+        function _prevPage(news) {
+            if ($scope.thumbnailPage > 1) {
+                $scope.thumbnailPage--;
+            }
+            news.showThumbnails = news.newsImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+        }
+
+        function _nextPage(news) {
+
+            if ($scope.thumbnailPage <= Math.floor(news.newsImages.length / $scope.thumbnailSize)) {
+                $scope.thumbnailPage++;
+            }
+            news.showThumbnails = news.newsImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
+
+        }
+
+        function _setActive(news, idx) {
+
+            angular.forEach(news.showThumbnails, function (slide) {
+
+
+                if (slide.imageId == idx) {
+                    slide.active = true;
+                }
+                else {
+                    slide.active = false;
+                }
+
+            });
+        }
+
+
+        // Set View Image
+        function _viewImage(event, title) {
+            imageModalService.showModal(event, title);
+        }
+
         function getNews(){
             $scope.tableParams = new ngTableParams(
                 {
@@ -45,7 +112,7 @@
                 },
 
                 {
-                    total: $scope.news.length, // length of data
+                    total: $scope.totalNews.length, // length of data
                     getData: getNewsData
                 });
 
@@ -61,11 +128,11 @@
                     "sort":params.sorting()
                 };
                 adminNewsService.getNews(identityService.getAccessToken(), queryData).then(function (response) {
-                    $scope.news = response.data.success.successData.news.totalNews;
-                    $scope.news= $filter('orderBy')($scope.news, params.orderBy());
-                    $defer.resolve($scope.news);
+                    $scope.totalNews = response.data.success.successData.news.totalNews;
+                    $scope.totalNews= $filter('orderBy')($scope.totalNews, params.orderBy());
+                    $defer.resolve($scope.totalNews);
                     params.total(response.data.success.successData.news.totalNumber);
-
+                    setCarousel();
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {
@@ -146,15 +213,15 @@
 
         function _editRow(row){
             row.$edit = true;
-            row.quoteDescriptionOnEdit = row.quoteDescription ;
-            row.quoteStatusOnEdit = row.quoteStatus;
-            row.quoteProviderOnEdit = row.quoteProvider;
+            row.newsDescriptionOnEdit = row.newsDescription ;
+            row.newsStatusOnEdit = row.newsStatus;
+            row.newsTitleOnEdit = row.newsTitle;
         }
         function _cancelEditRow(row){
             row.$edit = false;
-            row.quoteDescription =  row.quoteDescriptionOnEdit;
-            row.quoteStatus = row.quoteStatusOnEdit;
-            row.quoteProvider = row.quoteProviderOnEdit;
+            row.newsDescription =  row.newsDescriptionOnEdit;
+            row.newsStatus = row.newsStatusOnEdit;
+            row.newsTitle = row.newsTitleOnEdit;
         }
 
         function _saveEditedRow(valid,row){
@@ -162,7 +229,7 @@
             if(valid){
                 row.$edit=false;
 
-                adminQuoteService.saveUpdatedQuote(identityService.getAccessToken(),row).then(function (response) {
+                adminNewsService.saveUpdatedNews(identityService.getAccessToken(),row).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                 }).catch(function (response) {

@@ -42,7 +42,10 @@
             "GET_STUDENT_QUOTES":"/api/admin/get_student_quotes",
             "GET_UNIVERSITY_QUOTES":"/api/admin/get_university_quotes",
             "UPDATE_QUOTE":"/api/admin/update_quote",
-            "ADD_QUOTE":"/api/admin/add_quote"
+            "ADD_QUOTE":"/api/admin/add_quote",
+            "GET_NEWS":"/api/admin/get_news",
+            "ADD_NEWS":"/api/admin/add_news",
+            "UPDATE_NEWS":"/api/admin/update_news"
 
         })
         .constant("UNIVERSITY_CONSTANT", {
@@ -130,6 +133,9 @@
             "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user",
             "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD": "/api/book_deal/get_book_deals_i_have_created_and_sold",
             "GET_BOOK_DEALS_I_HAVE_BOUGHT": "/api/book_deal/get_book_deals_i_have_bought"
+        })
+        .constant("NEWS_CONSTANT", {
+            "GET_ACTIVATED_NEWS": "/news/get_activated_news"
         })
         .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
             "GOOGLE_APP_NAME":"Student2Student",

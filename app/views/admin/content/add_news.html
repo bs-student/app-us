@@ -1,6 +1,6 @@
 
         <div class="row">
-            <form name="quoteForm" submit-validate ng-submit="addQuote(quoteForm.$valid,'Student')" role="form" novalidate>
+            <form name="newsForm" submit-validate ng-submit="addNews(newsForm.$valid,'Student')" role="form" novalidate>
             <div class="col-md-6 reg-page-col-div">
 
                 <div class="add-new-quote-form">
@@ -15,30 +15,28 @@
                         <div class="tile-body">
 
 
-                            <div class="form-group" ng-class="{ 'has-error' : quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine, 'has-success' : quoteForm.quoteProvider.$valid && !quoteForm.quoteProvider.$pristine}">
-                                <!--<label class="white-text" for="quoteProvider">Full Name: </label>-->
-                                <p class="" for="quoteProvider">Quote Provider Name: </p>
-                                <input type="text" name="quoteProvider" id="quoteProvider" class="form-control " ng-model="quote.quoteProvider"  required>
+                            <div class="form-group" ng-class="{ 'has-error' : newsForm.newsTitle.$invalid && !newsForm.newsTitle.$pristine, 'has-success' : newsForm.newsTitle.$valid && !newsForm.newsTitle.$pristine}">
+                                <p class="" for="newsTitle">News Title: </p>
+                                <input type="text" name="newsTitle" id="newsTitle" class="form-control " ng-model="news.newsTitle"  required>
                                 <p class="help-block">
-                                    <span ng-show="quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine">Quote Provider Name is required.</span>
+                                    <span ng-show="newsForm.newsTitle.$invalid && !newsForm.newsTitle.$pristine">News Title is required.</span>
                                 </p>
                             </div>
 
-                            <div class="form-group" ng-class="{ 'has-error' :  quoteForm.quoteDescription.$invalid && !quoteForm.quoteDescription.$pristine, 'has-success' : quoteForm.quoteDescription.$valid && !quoteForm.quoteDescription.$pristine}">
-                                <!--<label class="white-text" for="quoteDescription">quoteDescription: </label>-->
-                                <p class="" for="quoteProvider">Quote: </p>
-                                <textarea name="quoteDescription" id="quoteDescription" class="form-control " ng-model="quote.quoteDescription" required></textarea>
+                            <div class="form-group" ng-class="{ 'has-error' :  newsForm.newsDescription.$invalid && !newsForm.newsDescription.$pristine, 'has-success' : newsForm.newsDescription.$valid && !newsForm.newsDescription.$pristine}">
+                                <p class="" for="newsTitle">News Details: </p>
+                                <textarea name="newsDescription" id="newsDescription" class="form-control " ng-model="news.newsDescription" required></textarea>
                                 <p class="help-block">
-                                    <span ng-show="quoteForm.quoteDescription.$invalid && !quoteForm.quoteDescription.$pristine">Quote is required.</span>
+                                    <span ng-show="newsForm.newsDescription.$invalid && !newsForm.newsDescription.$pristine">News Description is required.</span>
                                 </p>
                             </div>
 
-                            <div ng-show="!singleFile" class="form-group">
-                                <p>University Image: (Recommended dimension: 64px/64px & Recommended Size : less than 200KB)</p>
-                                <input  single-file="singleFile" single-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+                            <div class="form-group">
+                                <p>News Images: (Recommended dimension: **px/**px & Recommended Size : less than 200KB)</p>
+                                <input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
             buttonText: 'Select file',
             iconName: 'fa fa-inbox'
-          }" >
+          }"  multiple accept="image/*">
 
 
                             </div>
@@ -47,7 +45,7 @@
                                     <div class="p-15 bg-white">
 
 
-                                        <h5 class="custom-font text-default m-0">Student Image</h5>
+                                        <h5 class="custom-font text-default m-0">News Images</h5>
 
                                     </div>
 
@@ -66,7 +64,7 @@
                                             <tr ng-repeat="file in files" class="text-sm">
                                                 <td style="text-align: center"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
 
-                                                <td nowrap>{{ file.size/1024/1024|number:2 }} MB</td>
+                                                <td nowrap>{{ file.size/1024|number:2 }} KB</td>
 
                                                 <td nowrap>
 
@@ -87,10 +85,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button type="submit" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Save Quote</button>
+                                    <button type="submit" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Save News</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <a ui-sref="app.quotes" class="myBtn app-btn buy-now-button "><i class="fa fa-times"></i>&nbsp;Cancel</a>
+                                    <a ui-sref="app.newsManagement" class="myBtn app-btn buy-now-button "><i class="fa fa-times"></i>&nbsp;Cancel</a>
                                 </div>
                             </div>
 

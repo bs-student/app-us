@@ -102,6 +102,9 @@ var assets = {
         "app/scripts/controllers/faqCtrl.js",
         "app/scripts/controllers/bookSellMainCtrl.js",
         "app/scripts/controllers/bookSellCustomCtrl.js",
+        "app/scripts/controllers/newsManagementCtrl.js",
+        "app/scripts/controllers/addNewsCtrl.js",
+        "app/scripts/controllers/newsCtrl.js",
 
 
 
@@ -149,6 +152,8 @@ var assets = {
         "app/scripts/services/adminUserService.js",
         "app/scripts/services/adminBookDealService.js",
         "app/scripts/services/adminQuoteService.js",
+        "app/scripts/services/adminNewsService.js",
+        "app/scripts/services/newsService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

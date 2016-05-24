@@ -2,11 +2,11 @@
     'use strict';
 
     app
-        .controller('AddQuoteCtrl', AddQuoteCtrl);
+        .controller('AddNewsCtrl', AddNewsCtrl);
 
-    AddQuoteCtrl.$inject = ['identityService', 'adminQuoteService', 'responseService', '$scope', '$state'];
+    AddNewsCtrl.$inject = ['identityService', 'adminNewsService', 'responseService', '$scope', '$state'];
 
-    function AddQuoteCtrl(identityService, adminQuoteService, responseService, $scope, $state) {
+    function AddNewsCtrl(identityService, adminNewsService, responseService, $scope, $state) {
 
 
         if(!$scope.$parent.adminUser){
@@ -17,57 +17,60 @@
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
+        $scope.files=[];
         $scope.removeFile=_removeFile;
-        $scope.addQuote = _addQuote;
+        $scope.addNews = _addNews;
 
 
-        function _addQuote(valid,quoteType) {
+        function _addNews(valid) {
 
-            if(valid){
-                var formData = new FormData();
-                var i=0;
-                angular.forEach($scope.files, function (file) {
-                    formData.append("file"+ i.toString(),file);
-                    i++;
-                });
-                var quote={};
-                quote.quoteType = quoteType;
-                quote.quoteDescription = $scope.quote.quoteDescription;
-                quote.quoteProvider = $scope.quote.quoteProvider;
+            if($scope.files.length==0){
+                responseService.showErrorToast("Please Enter at least one image");
+            }else{
+                if(valid){
+                    var formData = new FormData();
+                    var i=0;
+                    angular.forEach($scope.files, function (file) {
+                        formData.append("file"+ i.toString(),file);
+                        i++;
+                    });
+                    var news={};
 
-                formData.append("quote",JSON.stringify(quote));
+                    news.newsTitle= $scope.news.newsTitle;
+                    news.newsDescription = $scope.news.newsDescription;
 
-                adminQuoteService.addQuote(identityService.getAccessToken(),formData).then(function (response) {
-                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+                    formData.append("news",JSON.stringify(news));
 
-                    if(quoteType=="Student"){
-                        $scope.$parent.studentQuotes.push(response.data.success.successData);
-                    }else if(quoteType=="University"){
-                        $scope.$parent.universityQuotes.push(response.data.success.successData);
-                    }
+                    adminNewsService.addNews(identityService.getAccessToken(),formData).then(function (response) {
+                        responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
-                    $state.go('app.quotes');
-
-                }).catch(function(response){
-
-                    if (response.data.error_description == "The access token provided is invalid.") {
-
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            _addQuote(valid,quoteType);
-                        });
-                    } else if (response.data.error != undefined) {
-
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-
-                });
+                        $scope.$parent.totalNews.push(response.data.success.successData);
 
 
+                        $state.go('app.newsManagement');
+
+                    }).catch(function(response){
+
+                        if (response.data.error_description == "The access token provided is invalid.") {
+
+                        } else if (response.data.error_description == "The access token provided has expired.") {
+                            identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                                identityService.setAccessToken(response.data);
+                                _addNews(valid,quoteType);
+                            });
+                        } else if (response.data.error != undefined) {
+
+                            responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                        } else {
+                            responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                        }
+
+                    });
+
+
+                }
             }
+
 
         }
 

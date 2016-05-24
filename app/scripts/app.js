@@ -429,6 +429,23 @@ var app = angular
                 controller: 'BookSellCustomCtrl',
                 templateUrl: 'views/book/sell_page_custom.html'
             })
+            //Admin News
+            .state('app.newsManagement', {
+                url: '^/newsManagement',
+                controller: 'NewsManagementCtrl',
+                templateUrl: 'views/admin/content/news.html'
+            })
+            //Add Student Quote
+            .state('app.newsManagement.addNews', {
+                url: '^/addNews',
+                views:{
+                    'addNewsView@app.newsManagement':{
+                        templateUrl: 'views/admin/content/add_news.html',
+                        controller: 'AddNewsCtrl'
+                    }
+                }
+
+            })
 
 
 
@@ -460,6 +477,22 @@ var app = angular
 
 
 
+
+
+
+
+
+
+
+
+
+
+            //Public News
+            .state('app.news', {
+                url: '^/news',
+                controller: 'NewsCtrl',
+                templateUrl: 'views/news/news.html'
+            })
 
 
 

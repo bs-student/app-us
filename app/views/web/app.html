@@ -43,7 +43,7 @@
 
                     <li ng-show="!loggedIn" ng-class="{signup:'active'}[activePage]"><a ui-sref="app.signup">Join</a>
                     <li ng-show="!loggedIn" ng-class="{login:'active'}[activePage]"><a ui-sref="app.login">Sign In</a>
-                    <li ng-class="{news:'active'}[activePage]"><a ui-sref="app.dashboard">News</a></li>
+                    <li ng-class="{news:'active'}[activePage]"><a ui-sref="app.news">News</a></li>
 
                     <li ng-class="{helpAndSafety:'active'}[activePage]"><a ui-sref="app.dashboard">Help & Safety</a>
                         <ul class="menu-right-position">
@@ -70,7 +70,7 @@
                         <ul ng-show="loggedIn && adminUser" class="menu-right-position">
                             <li><a ui-sref="app.userList"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;User Management</a></li>
                             <li><a ui-sref="app.allBookDeals"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Book Deals</a></li>
-                            <li><a ui-sref="app.dashboard"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;News Management</a></li>
+                            <li><a ui-sref="app.newsManagement"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;News Management</a></li>
                             <li><a ui-sref="app.quotes"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Quotes</a></li>
                             <!--<li><a ui-sref="app.buyArchive"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Campus Contents</a></li>-->
                             <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
