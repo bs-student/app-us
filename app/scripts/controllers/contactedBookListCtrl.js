@@ -163,12 +163,13 @@
                     message: contact.message,
                     accessToken:identityService.getAccessToken(),
                     contactId:contact.contactId
-                }
+                };
                 contactService.sendMessages(data).then(function(response){
                     if(contact.messages!=undefined){
                         contact.messages.push(response.data.success.successData);
                     }
                     contact.sendingMessages=false;
+                    responseService.showSuccessToast(response.data.success.successTitle);
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {
