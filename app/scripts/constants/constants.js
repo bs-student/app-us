@@ -27,7 +27,6 @@
 //            "UPDATE_FULL_NAME": "/api/update_user_full_name",
 //            "UPDATE_USER_UNIVERSITY_CAMPUS": "/api/update_user_university_campus",
             "CHANGE_PASSWORD": "/profile/change-password",
-            "UPDATE_SOCIAL_USER": "/api/user/update_created_profile",
             "ADMIN_ALL_USER_DATA" :"/api/admin/all_users",
             "UPDATE_PROFILE" : "/api/update_user_profile"
         })
@@ -83,6 +82,7 @@
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",
             "REGISTER":"/register",
+            "UPDATE_SOCIAL_USER": "/update_social_user",
             "CONFIRM_REGISTRATION":"/confirm",
             "CHECK_IF_USERNAME_EXIST":"/check_if_username_exist",
             "CHECK_IF_EMAIL_EXIST":"/check_if_email_exist",
@@ -91,9 +91,9 @@
         })
 
         .constant("LOGIN_CONSTANT", {
-            "PAGE": "/login",
-            "SUBMIT": "/login_check",
-            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
+//            "PAGE": "/login",
+            "SUBMIT": "/login_check"
+//            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
 
         })
         .constant("BOOK_CONSTANT", {
@@ -136,33 +136,33 @@
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news"
-        })
-        .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
-            "GOOGLE_APP_NAME":"Student2Student",
-            "GOOGLE_CLIENT_ID":"799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com",
-            "GOOGLE_CLIENT_SECRET":"ecwlOs7uqXfte2kPoJLYxIpY",
-            "GOOGLE_SCOPE":"email profile",
-
-//            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google",
-//            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyClient/app/google_redirect",
-            "GOOGLE_RESPONSE_TYPE": "token",
-            "GOOGLE_ACCESS_TYPE": "online",
-            "GOOGLE_OAUTH_LINK":"https://accounts.google.com/o/oauth2/auth?",
-            "GOOGLE_USER_INFO_LINK":"https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
-        })
-        .constant("SOCIAL_PLUGIN_FACEBOOK_CONSTANTS",{
-            "FACEBOOK_APP_NAME":"Student2Student",
-            "FACEBOOK_CLIENT_ID":"1102199066466109",
-            "FACEBOOK_CLIENT_SECRET":"b6178715d703f075f8c48fbf73616450",
-            "FACEBOOK_SCOPE":"email profile",
-
-//            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google",
-//            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyClient/app/google_redirect",
-            "GOOGLE_RESPONSE_TYPE": "token",
-            "GOOGLE_ACCESS_TYPE": "online",
-            "GOOGLE_OAUTH_LINK":"https://accounts.google.com/o/oauth2/auth?",
-            "GOOGLE_USER_INFO_LINK":"https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
         });
+//        .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
+//            "GOOGLE_APP_NAME":"Student2Student",
+//            "GOOGLE_CLIENT_ID":"799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com",
+//            "GOOGLE_CLIENT_SECRET":"ecwlOs7uqXfte2kPoJLYxIpY",
+//            "GOOGLE_SCOPE":"email profile",
+//
+////            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google",
+////            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyClient/app/google_redirect",
+//            "GOOGLE_RESPONSE_TYPE": "token",
+//            "GOOGLE_ACCESS_TYPE": "online",
+//            "GOOGLE_OAUTH_LINK":"https://accounts.google.com/o/oauth2/auth?",
+//            "GOOGLE_USER_INFO_LINK":"https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
+//        })
+//        .constant("SOCIAL_PLUGIN_FACEBOOK_CONSTANTS",{
+//            "FACEBOOK_APP_NAME":"Student2Student",
+//            "FACEBOOK_CLIENT_ID":"1102199066466109",
+//            "FACEBOOK_CLIENT_SECRET":"b6178715d703f075f8c48fbf73616450",
+//            "FACEBOOK_SCOPE":"email profile",
+//
+////            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google",
+////            "GOOGLE_REDIRECT_URL":"http://localhost:8080/SymfonyClient/app/google_redirect",
+//            "GOOGLE_RESPONSE_TYPE": "token",
+//            "GOOGLE_ACCESS_TYPE": "online",
+//            "GOOGLE_OAUTH_LINK":"https://accounts.google.com/o/oauth2/auth?",
+//            "GOOGLE_USER_INFO_LINK":"https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
+//        });
 
 //    http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google?code=4/iP1644wF5VVZlYgEtQQMupTjxHOCpQaTSGzjN4nnoO8
 //    4/XNbfIbG7dT0sIfjr-omN7DyfdB0EERxNPK50A_KnHqE

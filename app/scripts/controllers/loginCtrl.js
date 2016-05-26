@@ -6,9 +6,9 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','storageService'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth'];
 
-    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,storageService) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
@@ -25,17 +25,32 @@
 
 
 
-        /*$scope.loginViaGoogle = _loginViaGoogle;
-        $scope.loginViaFacebook = _loginViaFacebook;*/
+        $scope.loginSocial = _loginSocial;
 
 
+
+        function _loginSocial(provider){
+            $auth.authenticate(provider).then(function(response){
+                if(response.data.success.successTitle!=undefined || response.data.success.successDescription!=undefined){
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription)
+                }
+                if(response.data.success.successData.registrationStatus!=undefined){
+                    if(response.data.success.successData.registrationStatus=="incomplete"){
+                        $state.go("app.completeRegistration",{user:response.data.success.successData})
+                    }else{
+                        identityService.getSocialPluginAccessToken(response.data.success.successData.serviceId).then(getAuthorizedUserData).catch(showUnknownError);
+                    }
+                }
+
+            }).catch(function(response){
+                responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+            });
+        }
 
 
 
         function _loginUser(valid) {
-
             if(valid){
-
                 securityService.loginUser($scope.user).then(showDashboardPage).catch(showLoginUnsuccessful);
             }
         }
@@ -99,71 +114,7 @@
 
         }
 
-        /*function _loginViaGoogle() {
 
-            securityService.fetchGoogleAccessToken().then(function (token_response) {
-                securityService.fetchGoogleUserData(token_response.access_token).then(function (response) {
-
-                    var requestData = {
-                        'socialService': 'google',
-                        'email': response.data.email,
-                        'googleId': response.data.id,
-                        'username': response.data.given_name + response.data.family_name + Math.floor(Math.random() * 100000) + 1,
-                        'fullName': response.data.name,
-                        'googleEmail': response.data.email,
-                        'googleToken': token_response.access_token
-                    };
-
-                    securityService.loginUserViaSocialService(requestData).then(loginViaSocialServiceNextStep);
-
-                });
-
-            });
-
-
-        }
-
-        function _loginViaFacebook() {
-            securityService.fetchFacebookAccessToken().then(function (token_response) {
-                    console.log(token_response.authResponse);
-                    securityService.fetchFacebookUserData(token_response.authResponse.userID).then(function (response) {
-
-                        var requestData = {
-                            'socialService': 'facebook',
-                            'email': response.email,
-                            'facebookId': response.id,
-                            'username': response.first_name + response.last_name + Math.floor(Math.random() * 100000) + 1,
-                            'fullName': response.name,
-                            'facebookEmail': response.email,
-                            'facebookToken': token_response.authResponse.accessToken
-                        }
-
-                        console.log(response);
-                        securityService.loginUserViaSocialService(requestData).then(loginViaSocialServiceNextStep);
-                    });
-
-                }
-            );
-        }
-
-        function loginViaSocialServiceNextStep(response) {
-
-            if (response.data.userData != undefined) {
-                identityService.getSocialPluginAccessToken(response.data.userData.userId).then(function (tokenResponse) {
-                    identityService.setAccessToken(tokenResponse.data);
-                    identityService.setAuthorizedUserData(response.data.userData);
-
-                    if (response.data.userData.registrationStatus == "incomplete") {
-                        $state.go('registration.complete');
-                    } else {
-                        $state.go('app.dashboard');
-                    }
-
-                });
-            }
-
-
-        }*/
 
 
     }

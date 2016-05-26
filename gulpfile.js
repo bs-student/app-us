@@ -35,6 +35,7 @@ var assets = {
         "bower_components/angular-recaptcha/release/angular-recaptcha.js",
         "bower_components/angular-busy/dist/angular-busy.js",
         "bower_components/angular-sanitize/angular-sanitize.js",
+        "bower_components/satellizer/satellizer.js",
 
 
         "vendor/superfish/js/superfish.js",
@@ -70,7 +71,7 @@ var assets = {
         "app/scripts/controllers/dashboardCtrl.js",
         "app/scripts/controllers/forgotPasswordCtrl.js",
         "app/scripts/controllers/loginCtrl.js",
-        "app/scripts/controllers/oAuthCtrl.js",
+        "app/scripts/controllers/socialRegisterCompleteCtrl.js",
         "app/scripts/controllers/profileCtrl.js",
         "app/scripts/controllers/resetPasswordCtrl.js",
         "app/scripts/controllers/signupConfirmCtrl.js",
@@ -154,6 +155,7 @@ var assets = {
         "app/scripts/services/adminQuoteService.js",
         "app/scripts/services/adminNewsService.js",
         "app/scripts/services/newsService.js",
+
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js"

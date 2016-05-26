@@ -7,7 +7,7 @@
 var app = angular
     .module('student2studentApp', [
 
-//        'satellizer',
+        'satellizer',
 
         'ngAnimate',
         'ngCookies',
@@ -104,10 +104,7 @@ var app = angular
         vcRecaptchaServiceProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw')
         vcRecaptchaServiceProvider.setTheme('dark')
     }])
-    /*.config(['noCAPTCHAProvider', function (noCaptchaProvider) {
-        noCaptchaProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw');
-        noCaptchaProvider.setTheme('dark');
-    }])*/
+
 
 
     //angular-language
@@ -120,41 +117,27 @@ var app = angular
         $translateProvider.preferredLanguage('en');
         $translateProvider.useSanitizeValueStrategy(null);
     }])
-//    .controller('authenticationCtrl', function($scope, facebook) {
-//
-//        $scope.login = function() {
-//            // From now on you can use the Facebook service just as Facebook api says
-//            facebook.login(function(response) {
-//                // Do something with response.
-//            });
-//        };
-//
-//        $scope.getLoginStatus = function() {
-//            Facebook.getLoginStatus(function(response) {
-//                if(response.status === 'connected') {
-//                    $scope.loggedIn = true;
-//                } else {
-//                    $scope.loggedIn = false;
-//                }
-//            });
-//        };
-//
-//        $scope.me = function() {
-//            Facebook.api('/me', function(response) {
-//                $scope.user = response;
-//            });
-//        };
-//    })
 
-//    .config(function($authProvider) {
-//        $authProvider.google({
-//            clientId: '799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com'
-////            url: 'app/dashboard'
-////            redirectUri: "http://localhost:8080/SymfonyReal2/web/app_dev.php/login/check-google",
-////            authorizationEndpoint: 'https://accounts.google.com/o/oauth2/token'
-//        });
-////        $authProvider.baseUrl = null;
-//    })
+
+    .config(['$authProvider',function($authProvider) {
+
+        $authProvider.facebook({
+            clientId: '1570785423241368',
+            url:'http://localhost:8080/Student2StudentApi/web/app_dev.php/auth/facebook'
+            //TODO fix the redirect URL
+//            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/facebook',
+//            redirectUri: 'http://localhost:8080/'
+
+        });
+        $authProvider.google({
+            clientId: '799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com',
+            url:'http://localhost:8080/Student2StudentApi/web/app_dev.php/auth/google'
+            //TODO fix the redirect URL
+//            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/google',
+//            redirectUri: 'http://localhost:8080'
+        });
+
+    }])
 
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 //        $locationProvider.html5Mode(true);
@@ -163,12 +146,7 @@ var app = angular
 //            .when('/access_token=:accessToken','')
             .otherwise('/');
         $stateProvider
-//            .state('code', {
-//                abstract: true,
-//                url: '/?code',
-//                controller: 'TestCtrl'
-////                templateUrl: 'views/tmpl/app.html'
-//            })
+
 
             .state('app', {
                 abstract: true,
@@ -204,13 +182,6 @@ var app = angular
                 params: {
                     "bookId": null
                 }
-//                resolve: {
-//                    plugins: ['$ocLazyLoad', function ($ocLazyLoad) {
-//                        return $ocLazyLoad.load([
-//                            'https://apis.google.com/js/client.js'
-//                        ]);
-//                    }]
-//                }
             })
 
             // Add University Public
@@ -410,8 +381,6 @@ var app = angular
                 url: '^/sellBook',
                 controller: 'BookSellMainCtrl',
                 templateUrl: 'views/book/sell_book.html'
-//                controller: 'BookSellCustomCtrl',
-//                templateUrl: 'views/book/sell_page_custom.html'
 
             })
             //Sell Book
@@ -446,53 +415,62 @@ var app = angular
                 }
 
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Public News
             .state('app.news', {
                 url: '^/news',
                 controller: 'NewsCtrl',
                 templateUrl: 'views/news/news.html'
             })
+            //Complete Registration
+            .state('app.completeRegistration', {
+                url: '^/completeRegistration',
+                controller: 'SocialRegisterCompleteCtrl',
+                templateUrl: 'views/security/complete_registration.html',
+                params: {
+                    "user": null
+                }
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -544,13 +522,13 @@ var app = angular
 
             })
             //login
-            .state('registration.complete', {
-                url: '/complete',
-                controller: 'OAuthCtrl',
-//                controller: 'LoginCtrl',
-                templateUrl: 'views/registration/complete_registration.html'
-
-            })
+//            .state('registration.complete', {
+//                url: '/complete',
+//                controller: 'OAuthCtrl',
+////                controller: 'LoginCtrl',
+//                templateUrl: 'views/registration/complete_registration.html'
+//
+//            })
 
             //Admin
             .state('admin', {

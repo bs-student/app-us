@@ -528,7 +528,20 @@
 /*             Login Page                    */
 /*********************************************/
 
-
+.orange-btn.facebook-btn{
+    background-color: #3B5998;
+    width: 48%;
+    border-radius: 2px;
+    margin-left: 0px;
+    font-size: 22px;
+}
+.orange-btn.google-btn{
+    background-color: #EA4335;
+    width: 49%;
+    border-radius: 2px;
+    margin-right: 0px;
+    font-size: 22px;
+}
 
 .login-page-parallax{
     background: url(../images/parallax/login_parallax.png);
@@ -540,7 +553,7 @@
 .login-page-dark-div{
     padding: 20px;
     background: rgba(0,0,0,0.4);
-    min-height: 500px;
+    min-height: 541px;
 }
 .login-page-dark-div .flexslider{
     background: transparent;

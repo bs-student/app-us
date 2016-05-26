@@ -1,4 +1,4 @@
-<div ng-parallax pattern="'assets/images/parallax/login_parallax.png'" offset="0"  speed="5"  class="parallax-box dark" >
+<div ng-parallax pattern="'assets/images/parallax/login_parallax.png'" offset="0" speed="5" class="parallax-box dark">
 
     <div class="container clearfix">
 
@@ -11,11 +11,7 @@
                 <p class="text-white mid-two-header">Log In</p>
 
 
-
-
-
             </div>
-
 
 
         </div>
@@ -23,36 +19,38 @@
             <div class="col-md-6 login-page-col-div col-md-push-6">
 
                 <div class="login-page-dark-div login-page-form">
-                    <form name="loginForm" class="form-horizontal" submit-validate ng-submit="loginUser(loginForm.$valid)" role="form" novalidate>
+                    <form name="loginForm" class="form-horizontal" submit-validate
+                          ng-submit="loginUser(loginForm.$valid)" role="form" novalidate>
 
-                        
-                        
+
                         <!--<div class="form-group">
                             <span class="text text-center text-danger">{{credential_error}}</span>
                         </div>-->
 
-                        <div class="form-group" ng-class="{ 'has-error' : loginForm._username.$invalid && !loginForm._username.$pristine, 'has-success' : loginForm._username.$valid && !contactForm._username.$pristine}">
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm._username.$invalid && !loginForm._username.$pristine, 'has-success' : loginForm._username.$valid && !contactForm._username.$pristine}">
                             <p class="white-text ">Email or Username :</p>
 
-                            <input name="_username" type="text" class="form-control input-style" placeholder="Username / Email" ng-model="user._username" required>
+                            <input name="_username" type="text" class="form-control input-style"
+                                   placeholder="Username / Email" ng-model="user._username" required>
 
                             <p class="help-block">
-                                <span  ng-show="loginForm._username.$invalid && !loginForm._username.$pristine">Username or Email is required.</span>
+                                <span ng-show="loginForm._username.$invalid && !loginForm._username.$pristine">Username or Email is required.</span>
                             </p>
                         </div>
 
 
-                        <div class="form-group" ng-class="{ 'has-error' : loginForm._password.$invalid && !loginForm._password.$pristine, 'has-success' : loginForm._password.$valid && !contactForm._password.$pristine}">
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm._password.$invalid && !loginForm._password.$pristine, 'has-success' : loginForm._password.$valid && !contactForm._password.$pristine}">
                             <p class="white-text ">Password :</p>
 
-                            <input name="_password" type="password" class="form-control input-style" placeholder="Password" ng-model="user._password" required>
+                            <input name="_password" type="password" class="form-control input-style"
+                                   placeholder="Password" ng-model="user._password" required>
 
                             <p class="help-block">
-                                <span  ng-show="loginForm._password.$invalid && !loginForm._password.$pristine">Password is required.</span>
+                                <span ng-show="loginForm._password.$invalid && !loginForm._password.$pristine">Password is required.</span>
                             </p>
                         </div>
-
-
 
 
                         <div class="form-group text-left mt-20">
@@ -63,52 +61,21 @@
                             <a ui-sref="app.forgotPassword" class="pull-right mt-10">Forgot Password?</a>
                         </div>
 
+
+                        <div class="form-group text-left mt-20">
+                            <p class="white-text lato">Or Login with</p>
+
+                            <button ng-click="loginSocial('facebook')" type="button" class="myBtn orange-btn facebook-btn"><i class="fa fa-facebook"></i></button>
+                            <button ng-click="loginSocial('google')" type="button" class="myBtn orange-btn google-btn"><i class="fa fa-google-plus"></i></button>
+
+                        </div>
+
                     </form>
 
                     <div class="text-center white-text">
                         Not a member yet ? <a ui-sref="app.signup">Join Now</a>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                <!--<div class="social-login text-left">-->
-
-                <!--<ul class="pull-right list-unstyled list-inline">-->
-                <!--<li class="p-0">-->
-                <!--<a ng-click="loginViaFacebook()" class="btn btn-sm btn-primary b-0 btn-rounded-20" href="javascript:;"><i class="fa fa-facebook"></i></a>-->
-                <!--</li>-->
-
-                <!--<li class="p-0">-->
-                <!--<a ng-click="loginViaGoogle()" class="btn btn-sm btn-lightred b-0 btn-rounded-20" href="javascript:;"><i class="fa fa-google-plus"></i></a>-->
-                <!--</li>-->
-                <!---->
-
-                <!--</ul>-->
-
-                <!--<h5>Or login with</h5>-->
-
-                <!--</div>-->
-
-                <!--<div class="bg-slategray lt wrap-reset mt-40">-->
-                <!--<p class="m-0">-->
-                <!--<a ui-sref="app.signup" class="text-uppercase">Create an account</a>-->
-                <!--</p>-->
-                <!--</div>-->
-
-
-
-
-
 
 
             </div>
@@ -127,8 +94,10 @@
 
                                                     <div class="mid-three-people-quote login-page-quote">
                                                         <div class="display-flex">
-                                                            <div><i class="fa fa-quote-left fa-4x" style="font-style: italic"></i></div>
-                                                            <div class="login-page-quote-text">{{item.peopleQuote}}</div>
+                                                            <div><i class="fa fa-quote-left fa-4x"
+                                                                    style="font-style: italic"></i></div>
+                                                            <div class="login-page-quote-text">{{item.peopleQuote}}
+                                                            </div>
                                                         </div>
 
                                                         <div class="display-flex">
@@ -140,7 +109,7 @@
                                                                 <strong>{{item.peopleName}} </strong>,
                                                                 <span>{{item.peopleType}}</span>
                                                             </div>
-                                                            </div>
+                                                        </div>
 
 
                                                     </div>
