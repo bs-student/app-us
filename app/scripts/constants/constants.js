@@ -79,6 +79,9 @@
         .constant("COUNTRY_CONSTANT", {
             "COUNTRY_LIST": "/country/list"
         })
+        .constant("CONTACT_US_CONSTANT", {
+            "SEND_CONTACT_MESSAGE": "/contactus/send_message"
+        })
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",
             "REGISTER":"/register",

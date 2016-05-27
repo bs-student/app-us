@@ -474,7 +474,12 @@ var app = angular
 
 
 
-
+            //Contact Us
+            .state('app.contactUs', {
+                url: '^/contactUs',
+                controller: 'ContactUsCtrl',
+                templateUrl: 'views/web/contact_us.html'
+            })
 
 
 

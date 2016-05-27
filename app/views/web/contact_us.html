@@ -1,8 +1,8 @@
-<div class="archive-page-head-banner">
+<div class="contact-us-page-head-banner">
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">News</text></h1>
+
 
             </div>
         </div>
@@ -12,139 +12,233 @@
 
 <section id="content">
 
-<div class="content-wrap">
+<div class="content-wrap contact-us-page-content-wrap">
 
-<div class="container clearfix">
+    <div class="container clearfix">
 
-<div class="row">
-
-
-<!-- BLOG POSTS -->
-<div class="col-sm-9 blog-posts">
+        <div class="row">
 
 
-    <article class="post-entry" data-ng-repeat="news in totalNews">
+            <!-- BLOG POSTS -->
+            <div class="col-sm-9 blog-posts contact-us-form-div">
 
-        <div class="entry-image">
+                <div class="contact-page-left-side">
 
-            <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
-                <li>
-                    <div class="slide">
-                        <div class="media">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="lato form-page-header">Contact Us</h1>
+                            <h4 class="lato">Tell student 2 student what is on your mind...</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="grey-text lato">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dolor diam, egestas id
+                                elit bibendum, laoreet sagittis odio. Praesent semper malesuada libero, egestas
+                                fermentum erat gravida sed. Ut maximus, lectus vel ultrices dignissim, est tellus
+                                tristique lorem, sed euismod dui orci vel risus.
 
-                            <div class="media-body">
-                                <img src="{{imageHostPath}}{{item.image}}"/>
+                            </p>
 
-                            </div>
+                            <p class="grey-text lato">
+                                Suspendisse tincidunt, turpis ac ultrices euismod, diam nibh imperdiet libero, sed
+                                dictum metus elit id diam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit.
+                            </p>
                         </div>
                     </div>
-                </li>
-            </flex-slider>
+
+                    <form cg-busy="{promise:contactUsPromise}" name="contactUsForm" role="form" ng-submit="sendMessage(contactUsForm.$valid)" submit-validate novalidate class="form-validation">
+                        <div class="row contact-form-start-div">
+
+
+                            <div class="col-md-6">
+                                <text class="lato px-18">Full Name *</text>
+                                <br/><br/>
+
+                                <div ng-class="{ 'has-error' : contactUsForm.fullName.$invalid && !contactUsForm.fullName.$pristine, 'has-success' : contactUsForm.fullName.$valid && !contactUsForm.fullName.$pristine}">
+
+                                    <input type="text" class="form-control" name="fullName" ng-model="fullName" placeholder="Your Full Name"
+                                           required/>
+
+                                    <p class="help-block">
+                                        <span ng-show="contactUsForm.fullName.$invalid && !contactUsForm.fullName.$pristine">Full Name is required.</span>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <text class="lato px-18">Email *</text>
+                                <br/><br/>
+
+                                <div ng-class="{ 'has-error' : contactUsForm.email.$invalid && !contactUsForm.email.$pristine, 'has-success' : contactUsForm.email.$valid && !contactUsForm.email.$pristine}">
+
+                                    <input type="email" class="form-control" name="email" ng-model="email" placeholder="you@yourmail.com"
+                                           required/>
+
+                                    <p class="help-block">
+                                        <span ng-show="contactUsForm.email.$invalid && !contactUsForm.email.$pristine">Email is required.</span>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+                                <text class="lato px-18">Subject *</text>
+                                <br/><br/>
+
+                                <div ng-class="{ 'has-error' : contactUsForm.subject.$invalid && !contactUsForm.subject.$pristine, 'has-success' : contactUsForm.subject.$valid && !contactUsForm.subject.$pristine}">
+
+                                    <input type="text" class="form-control" name="subject" ng-model="subject" placeholder="Give Subject of your query"
+                                           required/>
+
+                                    <p class="help-block">
+                                        <span ng-show="contactUsForm.subject.$invalid && !contactUsForm.subject.$pristine">Subject is required.</span>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+                                <text class="lato px-18">Your Message *</text>
+                                <br/><br/>
+
+                                <div ng-class="{ 'has-error' : contactUsForm.message.$invalid && !contactUsForm.message.$pristine, 'has-success' : contactUsForm.message.$valid && !contactUsForm.message.$pristine}">
+
+                                    <textarea type="text" class="form-control" name="message" placeholder="Write the message..."
+                                              ng-model="message" required></textarea>
+
+                                    <p class="help-block">
+                                        <span ng-show="contactUsForm.message.$invalid && !contactUsForm.message.$pristine">Your Message is required.</span>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+                                <text class="lato px-18">I want :</text>
+                                <br/><br/>
+
+                                <div ng-class="{ 'has-error' : contactUsForm.want.$invalid && !contactUsForm.want.$pristine, 'has-success' : contactUsForm.want.$valid && !contactUsForm.want.$pristine}">
+
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="want" ng-model="want" type="radio"
+                                               value="Feedback" required><i></i> Feedback
+                                    </label>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="want" ng-model="want" type="radio"
+                                               value="Administrative Support" required><i></i> Administrative Support
+                                    </label>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="want" ng-model="want" type="radio"
+                                               value="Technical Support" required><i></i> Technical Support
+                                    </label>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="want" ng-model="want" type="radio"
+                                               value="Suggestion" required><i></i> Suggestion
+                                    </label>
+                                    <label class="checkbox-inline checkbox-custom">
+                                        <input name="want" ng-model="want" type="radio"
+                                               value="Question" required><i></i> Question ?
+                                    </label>
+
+                                    <p class="help-block">
+                                        <span ng-show="contactUsForm.want.$invalid && !contactUsForm.want.$pristine">Your have to select what you want.</span>
+
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+                                <button type="submit" class="myBtn orange-btn contact-form-submit-button">Send</button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+            <!-- END BLOG POSTS -->
+
+            <!-- BLOG SIDEBAR -->
+            <div class="col-sm-3 sidebar contact-us-page-right-bar">
+
+                <div class="blue-background right-head-text">
+                    <p class="white-text lato px-16">You didn’t find your university? Go <a ui-sref="app.addUniversity">here</a>
+                        and add it to Student 2 Student automatically
+                    </p>
+                </div>
+                <div class="white-background right-head-text text-center right-white-div">
+                    <div class="follow-us-head-text">
+                        <span class="follow-us-header lato orange-text uppercase px-16"><strong>Follow
+                            us</strong></span><br/>
+                    </div>
+
+                    <div class="follow-us-logos-div text-center">
+                        <div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div>
+                        <div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div>
+                    </div>
+                    <div class="follow-us-head-text">
+                        <span class=" follow-us-header lato orange-text uppercase px-16"><strong>quick
+                            links</strong></span>
+                    </div>
+
+                    <div class="quick-links">
+                        <ul class="footer-useful-links-ul lato grey-text">
+                            <li>
+                                <a ui-sref="app.faq">&nbsp;FAQ</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.signup">&nbsp;Sign Up</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.howItWorks">&nbsp;How It Works Video</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.bookBuy">&nbsp;Buy a Book</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.universityMap">&nbsp;University Map</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- END BLOG SIDEBAR -->
+
         </div>
-
-        <div class="entry-title">
-            <h2 class="text-uppercase"><a>{{news.newsTitle}}</a></h2>
-        </div>
-
-        <ul class="entry-meta clearfix">
-            <li><i class="fa fa-calendar-o"></i> {{news.newsDateTime}}</li>
-        </ul>
-
-        <div class="entry-content">
-            <p>{{news.newsDescription}}</p>
-        </div>
-
-        <!--<a href="blog-item.html" class="myBtn myBtn-rounded myBtn-border myBtn-xs myBtn-midlight m-0 mt-20"><i class="fa fa-angle-right"></i> Read more</a>-->
-
-        <hr class="post-divider">
-    </article>
+        <!-- blog -->
 
 
-</div>
-<!-- END BLOG POSTS -->
-
-<!-- BLOG SIDEBAR -->
-<div class="col-sm-3 sidebar">
-
-    <!-- CATEGORIES -->
-    <h4 class="widget-heading">Links</h4>
-    <ul class="nav categories sidebar-widget">
-
-
-        <li><a ui-sref="app.dashboard"><i class="fa fa-angle-right mr-5"></i> Contact Us</a></li>
-        <li><a ui-sref="app.scamAndFraud"><i class="fa fa-angle-right mr-5"></i> Scam & Fraud</a></li>
-        <li><a ui-sref="app.faq"><i class="fa fa-angle-right mr-5"></i> FAQ</a></li>
-        <li><a ui-sref="app.safetyFirst"><i class="fa fa-angle-right mr-5"></i> Safety First</a></li>
-    </ul>
-    <!-- END CATEGORIES -->
-
-    <h4 class="widget-heading">Concept</h4>
-    <ul class="nav categories sidebar-widget">
-
-
-        <li><a ui-sref="app.howItWorks"><i class="fa fa-angle-right mr-5"></i> How It Works</a></li>
-        <li><a ui-sref="app.conceptVideo"><i class="fa fa-angle-right mr-5"></i> Concept Video</a></li>
-
-    </ul>
-
-
-</div>
-<!-- END BLOG SIDEBAR -->
-
-</div><!-- blog -->
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 
 </div>
 </section>
 
-
-<script type="text/ng-template" id="myModalContent">
-    <!-- <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">{{title}}</h3>
-     </div>-->
-    <div class="modal-body">
-
-        <div class="modal-images">
-            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
-        </div>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-arrow-right"></i> Ok
-        </button>
-    </div>
-</script>
-
-<script type="text/ng-template" id="sellingModalContent">
-     <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
-     </div>
-    <div class="modal-body">
-
-        <p>You Sure you want to sell this book to this user ?</p>
-        <p>Once Sold You can see the book on the Selling Archive Page</p>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
-            <i class="fa fa-check" ></i> Yes
-        </button>
-        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-times"></i> No
-        </button>
-    </div>
-</script>

@@ -3,35 +3,19 @@
     'use strict';
 
     app
-        .factory('contactService', contactService);
+        .factory('contactUsService', contactUsService);
 
-    contactService.$inject=['SERVER_CONSTANT','CONTACT_CONSTANT','apiService'];
+    contactUsService.$inject=['SERVER_CONSTANT','CONTACT_US_CONSTANT','apiService'];
 
-    function contactService(SERVER_CONSTANT,CONTACT_CONSTANT,apiService) {
+    function contactUsService(SERVER_CONSTANT,CONTACT_US_CONSTANT,apiService) {
 
         return {
-            addContact:_addContact,
-            getMessages:_getMessages,
-            sendMessages:_sendMessages
-
+            sendContactUsMessage:_sendContactUsMessage
         };
 
 
-        function _addContact(data){
-            if(data.access_token!=null){
-                return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.ADD_CONTACT_API+"?access_token="+data.access_token,data);
-            }else{
-                return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.ADD_CONTACT,data);
-            }
-
-        }
-
-        function _getMessages(data){
-            return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.GET_MESSAGES+"?access_token="+data.accessToken,data);
-        }
-
-        function _sendMessages(data){
-            return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.SEND_MESSAGES+"?access_token="+data.accessToken,data);
+        function _sendContactUsMessage(data){
+            return apiService.post(SERVER_CONSTANT.HOST+CONTACT_US_CONSTANT.SEND_CONTACT_MESSAGE,data);
         }
 
     }

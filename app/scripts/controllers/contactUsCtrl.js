@@ -3,66 +3,39 @@
     'use strict';
 
     app
-        .controller('NewsCtrl', NewsCtrl);
+        .controller('ContactUsCtrl', ContactUsCtrl);
 
-    NewsCtrl.$inject = ['$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
+    ContactUsCtrl.$inject = ['$state', '$scope','responseService','contactUsService'];
 
-    function NewsCtrl($state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
+    function ContactUsCtrl($state, $scope,responseService,contactUsService) {
 
 
-
-        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
         $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "news";
+        $scope.$parent.activePage = "helpAndSafety";
 
 
+        $scope.sendMessage=_sendMessage;
 
-        $scope.totalNews=[];
+        function _sendMessage(valid){
+            if(valid){
+                var data={
+                    "fullName": $scope.fullName,
+                    "email": $scope.email,
+                    "subject": $scope.subject,
+                    "message": $scope.message,
+                    "want": $scope.want
+                };
 
+                ($scope.contactUsPromise = contactUsService.sendContactUsMessage(data)).then(function(response){
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                    $state.go('app.dashboard');
+                }).catch(function (response){
+                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+                });
 
-        init();
-
-        function init(){
-            getNewsData();
-
+            }
         }
-
-        function getNewsData($defer, params) {
-
-            var queryData =
-            {
-                "searchQuery": "",
-                "pageNumber": 1,
-                "pageSize": 10,
-                "sort":{
-                    newsDateTime: 'desc'
-                }
-            };
-            newsService.getActivatedNews(identityService.getAccessToken(), queryData).then(function (response) {
-                $scope.totalNews = response.data.success.successData.news.totalNews;
-                $defer.resolve($scope.totalNews);
-                params.total(response.data.success.successData.news.totalNumber);
-
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        getNewsData($defer, params);
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-
-            });
-        }
-
 
     }
 

@@ -2444,3 +2444,106 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .help-details-text-div p{
     line-height: 1.2em !important;
 }
+
+
+/********************************************/
+/*         Contact Us Page                        */
+/*********************************************/
+
+.contact-us-page-head-banner{
+    background: url("../images/contact_us/banner.png") no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+.content-wrap.contact-us-page-content-wrap{
+    background-color: #E9E9E9;
+}
+.blue-background{
+    background-color: #0D2551;
+}
+.contact-us-page-right-bar .right-head-text{
+    font-weight: 400;
+    padding: 40px 30px;
+}
+.contact-us-page-right-bar .right-head-text a{
+    color: #FF530E;
+    font-weight: 400;
+    /*text-decoration: underline !important;*/
+}
+.contact-us-page-right-bar .right-head-text a:hover,
+.contact-us-page-right-bar .right-head-text a:active,
+.contact-us-page-right-bar .right-head-text a:focus{
+    color: #FF530E;
+    font-weight: 400;
+
+}
+.white-background{
+    background-color: #FFFFFF;
+}
+.follow-us-head-text{
+    border-bottom: 1px solid #E1D8D1;
+    height: 13px;
+}
+.follow-us-head-text .follow-us-header{
+    background: #FFFFFF;
+    padding: 0px 20px;
+}
+.follow-us-logos-div{
+    padding: 50px 50px;
+    display: flex;
+
+}
+.follow-us-logos-div .follow-twitter{
+    background-color: #61C2FF;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50%;
+}
+.follow-us-logos-div .follow-facebook{
+    background-color: #0073AE;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
+.quick-links .footer-useful-links-ul li{
+    border-bottom: none;
+}
+.quick-links .footer-useful-links-ul li:before{
+    content: " ";
+}
+.quick-links .footer-useful-links-ul{
+    list-style-image: url('../images/contact_us/ul.png');
+
+    text-align: left;
+    padding: 40px 0px 0px 20px;
+}
+.contact-us-form-div{
+    background-color: #FFFFFF;
+}
+.form-page-header{
+    margin-bottom: 5px;
+}
+.px-18{
+    font-size: 18px;
+}
+.contact-page-left-side{
+    padding: 50px;
+}
+.contact-form-start-div{
+    margin-top: 20px;
+}
+.contact-form-submit-button{
+    margin: 0px;
+    margin-top: 40px;
+    width: 200px;
+}
+.right-head-text.right-white-div{
+    min-height: 634px;
+}
+.quick-links ul li  a{
+    text-decoration: none !important;
+    color:#a5a5a5 !important;
+}

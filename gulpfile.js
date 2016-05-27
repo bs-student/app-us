@@ -107,6 +107,7 @@ var assets = {
         "app/scripts/controllers/newsManagementCtrl.js",
         "app/scripts/controllers/addNewsCtrl.js",
         "app/scripts/controllers/newsCtrl.js",
+        "app/scripts/controllers/contactUsCtrl.js",
 
 
 
@@ -156,6 +157,7 @@ var assets = {
         "app/scripts/services/adminQuoteService.js",
         "app/scripts/services/adminNewsService.js",
         "app/scripts/services/newsService.js",
+        "app/scripts/services/contactUsService.js",
 
 
         "app/scripts/validators/valEmail.js",
