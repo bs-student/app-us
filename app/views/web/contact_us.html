@@ -1,0 +1,150 @@
+<div class="archive-page-head-banner">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="header-title"><text class="uppercase blue-text lato">News</text></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="content">
+
+<div class="content-wrap">
+
+<div class="container clearfix">
+
+<div class="row">
+
+
+<!-- BLOG POSTS -->
+<div class="col-sm-9 blog-posts">
+
+
+    <article class="post-entry" data-ng-repeat="news in totalNews">
+
+        <div class="entry-image">
+
+            <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
+                <li>
+                    <div class="slide">
+                        <div class="media">
+
+                            <div class="media-body">
+                                <img src="{{imageHostPath}}{{item.image}}"/>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </flex-slider>
+        </div>
+
+        <div class="entry-title">
+            <h2 class="text-uppercase"><a>{{news.newsTitle}}</a></h2>
+        </div>
+
+        <ul class="entry-meta clearfix">
+            <li><i class="fa fa-calendar-o"></i> {{news.newsDateTime}}</li>
+        </ul>
+
+        <div class="entry-content">
+            <p>{{news.newsDescription}}</p>
+        </div>
+
+        <!--<a href="blog-item.html" class="myBtn myBtn-rounded myBtn-border myBtn-xs myBtn-midlight m-0 mt-20"><i class="fa fa-angle-right"></i> Read more</a>-->
+
+        <hr class="post-divider">
+    </article>
+
+
+</div>
+<!-- END BLOG POSTS -->
+
+<!-- BLOG SIDEBAR -->
+<div class="col-sm-3 sidebar">
+
+    <!-- CATEGORIES -->
+    <h4 class="widget-heading">Links</h4>
+    <ul class="nav categories sidebar-widget">
+
+
+        <li><a ui-sref="app.dashboard"><i class="fa fa-angle-right mr-5"></i> Contact Us</a></li>
+        <li><a ui-sref="app.scamAndFraud"><i class="fa fa-angle-right mr-5"></i> Scam & Fraud</a></li>
+        <li><a ui-sref="app.faq"><i class="fa fa-angle-right mr-5"></i> FAQ</a></li>
+        <li><a ui-sref="app.safetyFirst"><i class="fa fa-angle-right mr-5"></i> Safety First</a></li>
+    </ul>
+    <!-- END CATEGORIES -->
+
+    <h4 class="widget-heading">Concept</h4>
+    <ul class="nav categories sidebar-widget">
+
+
+        <li><a ui-sref="app.howItWorks"><i class="fa fa-angle-right mr-5"></i> How It Works</a></li>
+        <li><a ui-sref="app.conceptVideo"><i class="fa fa-angle-right mr-5"></i> Concept Video</a></li>
+
+    </ul>
+
+
+</div>
+<!-- END BLOG SIDEBAR -->
+
+</div><!-- blog -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</section>
+
+
+<script type="text/ng-template" id="myModalContent">
+    <!-- <div class="modal-header">
+         <h3 class="modal-title custom-font white-text">{{title}}</h3>
+     </div>-->
+    <div class="modal-body">
+
+        <div class="modal-images">
+            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-arrow-right"></i> Ok
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="sellingModalContent">
+     <div class="modal-header">
+         <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
+     </div>
+    <div class="modal-body">
+
+        <p>You Sure you want to sell this book to this user ?</p>
+        <p>Once Sold You can see the book on the Selling Archive Page</p>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
+            <i class="fa fa-check" ></i> Yes
+        </button>
+        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-times"></i> No
+        </button>
+    </div>
+</script>
