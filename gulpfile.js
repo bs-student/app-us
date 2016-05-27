@@ -36,6 +36,7 @@ var assets = {
         "bower_components/angular-busy/dist/angular-busy.js",
         "bower_components/angular-sanitize/angular-sanitize.js",
         "bower_components/satellizer/satellizer.js",
+        "bower_components/angular-scroll/angular-scroll.js",
 
 
         "vendor/superfish/js/superfish.js",

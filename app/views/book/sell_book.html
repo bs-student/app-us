@@ -23,7 +23,7 @@
 
             <div class="col-md-offset-2 col-md-8">
                 <div class="search-banner-input-col sell-book-form">
-                    <div class="search-page-input-div">
+                    <div cg-busy="{promise:bookSearchMainPromise}" class="search-page-input-div">
                         <form name="bookSearchForm" submit-validate ng-submit="searchByIsbn(bookSearchForm.$valid)" role="form"
                               novalidate>
                             <div class="input-group">

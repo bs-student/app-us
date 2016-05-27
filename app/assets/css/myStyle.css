@@ -802,6 +802,9 @@
     background: url("../images/parallax/search-result-banner.png") no-repeat;
     background-size: cover;
 }
+.search-page-input-div{
+    border-radius: 8px;
+}
 .search-page-input-div .input-group-addon:first-child{
     background: transparent;
     color: #d5d5d5;
@@ -1131,6 +1134,10 @@
 /********************************************/
 /*    Concept Page (How it Works Page)      */
 /*********************************************/
+.why-student-2-student .header-text{
+    margin-top: 30px;
+    font-size: 55px;
+}
 .concept-page-head-banner{
     background: url("../images/parallax/conceptPageHeader.png") no-repeat;
     background-size: cover;
@@ -1248,7 +1255,7 @@
 .concept-page .mid-three-left-part h5{
     border-bottom: 5px solid #9AB33C;
     padding-bottom: 20px;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     margin-bottom: 40px;
 }
 
@@ -1288,7 +1295,7 @@
     padding: 20px 0px;
 }
 .mid-three-right-part .blue-header,.mid-three-right-part .orange-header{
-    margin-top:100px;
+    margin-top:20px;
     margin-bottom: 60px;
 }
 
@@ -1705,7 +1712,18 @@
 /********************************************/
 /*              Selling Books Page          */
 /*********************************************/
-
+.final-step-finish-button{
+    height: 50px;
+    width: 200px;
+    border-radius: 2px;
+    padding: 0px;
+    background: #FF530E;
+    outline: none;
+    color: #FFFFFF;
+    margin-top: 70px;
+    vertical-align: middle;
+    margin-left: 20px;
+}
 .archive-page-sections{
     background-color: #F8F8F8;
     margin-bottom: 10px !important;
@@ -2102,6 +2120,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     background: #FFFFFF;
     padding: 10px;
     border-radius: 0px;
+    padding-left:40px;
 }
 
 .sell-book-section  .tab-wizard .nav-tabs > li.active > a .tab-head-div,
@@ -2112,6 +2131,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     border: 2px solid #FF530E;
     color: #FFFFFF;
     padding: 10px;
+    padding-left:40px;
 }
 
 .sell-book-section  .tab-wizard .nav-tabs > li.active > a .step-div h3,

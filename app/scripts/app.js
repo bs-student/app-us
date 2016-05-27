@@ -64,7 +64,8 @@ var app = angular
         'ngParallax',
 //        'noCAPTCHA'
         'vcRecaptcha',
-        'cgBusy'
+        'cgBusy',
+        'duScroll'
     ])
     .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;

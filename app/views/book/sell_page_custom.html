@@ -80,7 +80,7 @@
             </div>
         </div>
             <div class="col-md-12">
-            <uib-tabset class="tab-container tab-wizard" justified="true" set-ng-animate="true" ng-init="steps={step1:true, step2:false, step3:false, step4:false, step5: false}">
+            <uib-tabset cg-busy="{promise:bookSellPromise}" class="tab-container tab-wizard" justified="true" set-ng-animate="true" ng-init="steps={step1:true, step2:false, step3:false, step4:false, step5: false}">
 
             <uib-tab class="{{step1Completed ? 'completed':''}}"  active="steps.step1" >
 
@@ -667,7 +667,7 @@
 
                                 </div>
                                 <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US $15.00</text>
+                                    <text class="px-16 lato grey-text">You are first who is selling this book in this campus</text>
                                 </div>
 
                             </div>
@@ -1022,7 +1022,11 @@
 
 <br/><br/>
                         <div class="row">
-                            <div class="col-md-12 text-right"><button type="submit" class=" myBtn  orange-btn max-large-btn" >Sell book now</button></div>
+                            <!--<div class="col-md-12 text-right"><button type="submit" class=" myBtn  orange-btn max-large-btn" >Sell book now</button></div>-->
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="myBtn step-form-previous-button" ng-click="backToStep('Step4')"><i class="fa fa-angle-left fa-3x"></i></button>
+                                <button type="submit" class=" myBtn  orange-btn final-step-finish-button" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell book now</button>
+                            </div>
                         </div>
 
                     </form>

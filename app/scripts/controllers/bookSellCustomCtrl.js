@@ -320,7 +320,7 @@
             formData.append("data",JSON.stringify(data));
 
 
-            bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
+            ($scope.bookSellPromise =bookService.addSellBook(identityService.getAccessToken(),formData)).then(function(response){
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                 $state.go('app.sellingBookList');

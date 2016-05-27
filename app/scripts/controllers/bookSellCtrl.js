@@ -24,6 +24,12 @@
         }else{
             $scope.customBook=false;
             $scope.book = $stateParams.book;
+
+            if($scope.book.campusLowestPrice!=undefined){
+                $scope.foundCampusLowestPrice =true;
+            }else{
+                $scope.foundCampusLowestPrice =false;
+            }
             $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
             $scope.amazonImageFile = {
                 'fileData':$scope.book.bookImages[0].image
@@ -294,7 +300,7 @@
             formData.append("data",JSON.stringify(data));
 
 
-            bookService.addSellBook(identityService.getAccessToken(),formData).then(function(response){
+            ($scope.bookSellPromise =  bookService.addSellBook(identityService.getAccessToken(),formData)).then(function(response){
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                 $state.go('app.sellingBookList');

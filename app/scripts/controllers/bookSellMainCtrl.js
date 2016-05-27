@@ -28,7 +28,7 @@
                         'isbn':$scope.isbn,
                         'accessToken': identityService.getAccessToken()
                     };
-                    bookService.searchBooksByIsbnAmazon(data).then(function(response){
+                    ($scope.bookSearchMainPromise = bookService.searchBooksByIsbnAmazon(data)).then(function(response){
 
                         if(response.data.success.successData.books.length==1){
                             $state.go('app.sellBookByIsbn',{book:response.data.success.successData.books[0]});
