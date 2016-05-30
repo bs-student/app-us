@@ -1796,17 +1796,21 @@
     background: #FFFFFF;
     text-align: center;
 }
-.contact-history-box .contact-history-table thead > tr > td{
+.contact-history-box .contact-history-table tr > th{
 
+    text-align: center;
+}
+.contact-history-box .contact-history-table tbody > tr > td{
     text-align: center;
 }
 .contact-history-table .contact-btn{
     margin-top: 5px;
-    padding: 0 3px;
+    padding: 0 10px;
     font-size: 12px;
     height: 30px;
     line-height: 15px;
     border-radius: 0px;
+    min-width: 200px;
 }
 .archive-page-contact-history{
     margin-top: 40px;
@@ -2447,7 +2451,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 
 
 /********************************************/
-/*         Contact Us Page                        */
+/*         Contact Us Page                  */
 /*********************************************/
 
 .contact-us-page-head-banner{
@@ -2546,4 +2550,28 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .quick-links ul li  a{
     text-decoration: none !important;
     color:#a5a5a5 !important;
+}
+
+/********************************************/
+/*         Books I ma Selling Page           */
+/*********************************************/
+
+
+.selling-book-promise-div{
+    min-height:200px;
+}
+#content .section.custom-pagination-section{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.search-book-image-carousel.selling-book-image-carousel .btn-group{
+    margin-left: 14%;
+}
+.green-btn{
+    font-family: "Raleway", "Arial", sans-serif;
+}
+.green-btn:hover{
+    background-color: #FF530E;
 }

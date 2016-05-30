@@ -13,9 +13,10 @@
             $state.go("app.login");
         }
 
+        $scope.showPagination=false;
 
         $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "sellingBook";
+        $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];
 
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
@@ -30,8 +31,17 @@
         $scope.nextPage = _nextPage;
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
-        init();
 
+
+
+        //Pagination
+
+        $scope.changePage=_changePage;
+        $scope.maxSize = 10;
+        $scope.totalSearchResults = 0;
+        $scope.currentPage = 1;
+
+        init($scope.currentPage);
 
         // Set Carousel
         function setCarousel() {
@@ -41,7 +51,7 @@
             $scope.myInterval = 5000;
             $scope.noWrapSlides = false;
 
-            angular.forEach($scope.campusBookDeals.buyerToSeller, function (book) {
+            angular.forEach($scope.campusBookDeals, function (book) {
                 if (book.bookImages.length == 1) {
                     book.showThumb = false;
                 } else {
@@ -52,16 +62,7 @@
 
 
             });
-            angular.forEach($scope.campusBookDeals.sellerToBuyer, function (book) {
-                if (book.bookImages.length == 1) {
-                    book.showThumb = false;
-                } else {
-                    book.showThumb = true;
-                }
 
-                book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
-
-            });
         }
 
         function _prevPage(book) {
@@ -104,9 +105,16 @@
         }
 
 
-        function init(){
-            bookDealService.getBookDealsOfMine(identityService.getAccessToken()).then(function(response){
-                $scope.campusBookDeals = response.data.success.successData;
+        function init(currentPage){
+
+            var data={
+                "pageNumber": currentPage,
+                "pageSize": $scope.maxSize
+            };
+            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(),data)).then(function(response){
+                $scope.campusBookDeals = response.data.success.successData.result;
+                $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                $scope.showPagination=true;
                 setCarousel();
 
             }).catch(function (response) {
@@ -116,7 +124,7 @@
                 } else if (response.data.error_description == "The access token provided has expired.") {
                     identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                         identityService.setAccessToken(response.data);
-                        init();
+                        init(currentPage);
                     });
                 } else if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
@@ -130,14 +138,48 @@
 
         }
 
+        function _changePage(currentPage) {
+
+            var data={
+                "pageNumber": currentPage,
+                "pageSize": $scope.maxSize
+            };
+
+            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(),data)).then(function(response){
+                $scope.campusBookDeals = response.data.success.successData.result;
+                $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                setCarousel();
+
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _changePage(currentPage)
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+
+
+        }
+
         function _getMessages(contact){
 
             var data={
                 accessToken:identityService.getAccessToken(),
                 contactId:contact.contactId
-            }
-            contactService.getMessages(data).then(function(response){
+            };
+            ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
                 contact.messages = response.data.success.successData;
+                contact.messages.push({'messageBody':" "});
                 contact.showingMessages = true;
             }).catch(function (response) {
 
@@ -163,11 +205,13 @@
                     message: contact.message,
                     accessToken:identityService.getAccessToken(),
                     contactId:contact.contactId
-                }
-                contactService.sendMessages(data).then(function(response){
+                };
+                ($scope.messagePromise=contactService.sendMessages(data)).then(function(response){
                     responseService.showSuccessToast("Message is Sent");
                     if(contact.messages!=undefined){
+                        contact.messages.pop();
                         contact.messages.push(response.data.success.successData);
+                        contact.messages.push({'messageBody':""});
                     }
                     contact.sendingMessages=false;
                 }).catch(function (response) {
