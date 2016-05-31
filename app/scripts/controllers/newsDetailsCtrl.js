@@ -31,7 +31,7 @@
 
 
         function getSingleNews(newsId){
-            newsService.getSingleNews({"newsId":newsId}).then(function (response) {
+            ($scope.newsPromise=newsService.getSingleNews({"newsId":newsId})).then(function (response) {
 
                 $scope.firstNews.push(response.data.success.successData.news);
 

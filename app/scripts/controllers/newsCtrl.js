@@ -39,7 +39,7 @@
                     newsDateTime: 'desc'
                 }
             };
-            newsService.getActivatedNews(queryData).then(function (response) {
+            ($scope.newsPromise=newsService.getActivatedNews(queryData)).then(function (response) {
 
                 $scope.totalNews = response.data.success.successData.news.totalNews;
                 $scope.latestNews = $scope.totalNews.slice(0,3);
