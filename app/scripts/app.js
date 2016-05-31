@@ -416,12 +416,7 @@ var app = angular
                 }
 
             })
-            //Public News
-            .state('app.news', {
-                url: '^/news',
-                controller: 'NewsCtrl',
-                templateUrl: 'views/news/news.html'
-            })
+
             //Complete Registration
             .state('app.completeRegistration', {
                 url: '^/completeRegistration',
@@ -438,6 +433,12 @@ var app = angular
                 controller: 'ContactUsCtrl',
                 templateUrl: 'views/web/contact_us.html'
             })
+            //Public News
+            .state('app.news', {
+                url: '^/news',
+                controller: 'NewsCtrl',
+                templateUrl: 'views/news/news.html'
+            })
 
 
 
@@ -473,7 +474,12 @@ var app = angular
 
 
 
-
+            //News Details
+            .state('app.newsDetails', {
+                url: '^/newsDetails/:newsId',
+                controller: 'NewsDetailsCtrl',
+                templateUrl: 'views/news/news_details.html'
+            })
 
 
 

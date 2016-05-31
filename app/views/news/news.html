@@ -1,150 +1,229 @@
-<div class="archive-page-head-banner">
-    <div class="container clearfix">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">News</text></h1>
+<div class="news-page-head-banner">
 
-            </div>
-        </div>
-    </div>
 </div>
 
 
 <section id="content">
 
-<div class="content-wrap">
+    <div class="content-wrap news-page-content-wrap">
 
-<div class="container clearfix">
+        <div class="container clearfix">
 
-<div class="row">
-
-
-<!-- BLOG POSTS -->
-<div class="col-sm-9 blog-posts">
+            <div class="row">
 
 
-    <article class="post-entry" data-ng-repeat="news in totalNews">
+                <!-- BLOG POSTS -->
+                <div class="col-sm-8 blog-posts">
 
-        <div class="entry-image">
+                    <article class="news-post post-entry" data-ng-repeat="news in firstNews">
 
-            <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
-                <li>
-                    <div class="slide">
-                        <div class="media">
+                        <div class="entry-image">
 
-                            <div class="media-body">
-                                <img src="{{imageHostPath}}{{item.image}}"/>
+                            <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
+                                <li>
+                                    <div class="slide">
+                                        <div class="media">
+
+                                            <div class="media-body">
+                                                <img src="{{imageHostPath}}{{item.image}}"/>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </flex-slider>
+                        </div>
+
+                        <div class="first-news-post">
+                            <div class="entry-title text-center">
+                                <h2><a ui-sref="app.newsDetails({newsId:news.newsId})" class="lato px-25 orange-text">{{news.newsTitle}}</a></h2>
+                            </div>
+
+                            <div class="news-date-time-div">
+                                <ul class="entry-meta clearfix text-center">
+                                    <li>{{news.newsDateTime}}</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="entry-content">
+                                <p>{{news.newsDescription | limitTo:250}}...</p>
 
                             </div>
+
+                            <div class="text-center continue-reading-button">
+                                <a ui-sref="app.newsDetails({newsId:news.newsId})" class="myBtn simple-button">Continue Reading</a>
+                            </div>
+
+                            <div class="news-hr-border-bottom">
+                                <div class="news-share-hr-div text-center">
+                                    <div class="social-container">
+                                        <div class="follow-facebook white-text"><i class="fa fa-facebook"></i></div>
+                                    </div>
+                                    <div class="social-container">
+                                        <div class="follow-google white-text"><i class="fa fa-google-plus"></i></div>
+                                    </div>
+                                    <div class="social-container">
+                                        <div class="follow-twitter white-text"><i class="fa fa-twitter"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
+
+
+
+
+                    </article>
+
+                    <div class="row">
+                    <div class="col-sm-6 blog-posts small-news-section" data-ng-repeat="news in totalNews">
+
+                        <article class="news-post post-entry" >
+
+                            <div class="entry-image">
+
+                                <flex-slider slide="item in news.newsImages track by item.imageId" animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <img src="{{imageHostPath}}{{item.image}}"/>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+
+                            <div class="other-news-post">
+                                <div class="entry-title text-center">
+                                    <h2><a ui-sref="app.newsDetails({newsId:news.newsId})" class="lato px-25 orange-text">{{news.newsTitle | limitTo:40}}...</a></h2>
+                                </div>
+
+                                <div class="news-date-time-div">
+                                    <ul class="entry-meta clearfix text-center">
+                                        <li>{{news.newsDateTime}}</li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="entry-content">
+                                    <p>{{news.newsDescription | limitTo:250}}...</p>
+                                </div>
+
+                                <div class="text-left continue-reading-button">
+                                    <a ui-sref="app.newsDetails({newsId:news.newsId})" class="simple-continue-reading-button lato px-16"><strong>Continue Reading</strong></a>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+
+                        </article>
+
                     </div>
-                </li>
-            </flex-slider>
+
+                    </div>
+
+                </div>
+                <!-- END BLOG POSTS -->
+
+                <!-- BLOG SIDEBAR -->
+                <div class="col-sm-4 sidebar">
+
+                    <!-- CATEGORIES -->
+                    <div class="news-page-right-header">
+                        <text class="off-white-background lato px-16 widget-heading uppercase bold">How It works</text>
+                    </div>
+                    <div class="how-it-works-image">
+                        <img src="dist/images/news/howItWorks.png">
+                    </div>
+                    <p class="how-it-works-p">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's
+                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled it to make
+                        a type specimen book.
+                    </p>
+
+                    <div class="news-page-right-header">
+                        <text class="off-white-background lato px-16 widget-heading uppercase bold">Subscribe and
+                            follow
+                        </text>
+                    </div>
+                    <div class="follow-us-logos-div text-center">
+                        <div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div>
+                        <div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div>
+                        <div class="follow-google white-text"><i class="fa fa-google-plus fa-2x"></i></div>
+                        <div class="follow-instagram  white-text"><i class="fa fa-instagram fa-2x"></i></div>
+                    </div>
+                    <div class="news-page-right-header">
+                        <text class="off-white-background lato px-16 widget-heading uppercase bold">Tags</text>
+                    </div>
+
+                    <div class="news-tags">
+                        <ul class="tags sidebar-widget list-unstyled list-inline">
+                            <li><a href="#" class="btn-tag"> Student</a></li>
+                            <li><a href="#" class="btn-tag"> Books</a></li>
+                            <li><a href="#" class="btn-tag"> Textbooks</a></li>
+                            <li><a href="#" class="btn-tag"> Exchange</a></li>
+                            <li><a href="#" class="btn-tag"> Sell Books</a></li>
+                            <li><a href="#" class="btn-tag"> Student</a></li>
+                            <li><a href="#" class="btn-tag"> Books</a></li>
+                            <li><a href="#" class="btn-tag"> Textbooks</a></li>
+                            <li><a href="#" class="btn-tag"> Exchange</a></li>
+                            <li><a href="#" class="btn-tag"> Sell Books</a></li>
+                            <li><a href="#" class="btn-tag"> Student</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="news-page-right-header">
+                        <text class="off-white-background lato px-16 widget-heading uppercase bold">Latest news</text>
+                    </div>
+                    <div class="latest-news">
+                        <ul class="media-list recent-posts sidebar-widget">
+
+                            <li class="media" data-ng-repeat="item in latestNews">
+                                <div class="media-left">
+                                    <a ui-sref="app.newsDetails({newsId:item.newsId})">
+                                        <img class="media-object" alt=""
+                                             ng-src="{{imageHostPath}}{{item.newsImages[0].image}}">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><a ui-sref="app.newsDetails({newsId:item.newsId})">{{item.newsTitle | limitTo:25}}...</a>
+                                    </h5>
+
+                                    <p>{{item.newsDateTime}}</p>
+                                </div>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+
+
+                </div>
+                <!-- END BLOG SIDEBAR -->
+
+            </div>
+
+
+            <!-- blog -->
+
+
         </div>
 
-        <div class="entry-title">
-            <h2 class="text-uppercase"><a>{{news.newsTitle}}</a></h2>
-        </div>
 
-        <ul class="entry-meta clearfix">
-            <li><i class="fa fa-calendar-o"></i> {{news.newsDateTime}}</li>
-        </ul>
-
-        <div class="entry-content">
-            <p>{{news.newsDescription}}</p>
-        </div>
-
-        <!--<a href="blog-item.html" class="myBtn myBtn-rounded myBtn-border myBtn-xs myBtn-midlight m-0 mt-20"><i class="fa fa-angle-right"></i> Read more</a>-->
-
-        <hr class="post-divider">
-    </article>
-
-
-</div>
-<!-- END BLOG POSTS -->
-
-<!-- BLOG SIDEBAR -->
-<div class="col-sm-3 sidebar">
-
-    <!-- CATEGORIES -->
-    <h4 class="widget-heading">Links</h4>
-    <ul class="nav categories sidebar-widget">
-
-
-        <li><a ui-sref="app.dashboard"><i class="fa fa-angle-right mr-5"></i> Contact Us</a></li>
-        <li><a ui-sref="app.scamAndFraud"><i class="fa fa-angle-right mr-5"></i> Scam & Fraud</a></li>
-        <li><a ui-sref="app.faq"><i class="fa fa-angle-right mr-5"></i> FAQ</a></li>
-        <li><a ui-sref="app.safetyFirst"><i class="fa fa-angle-right mr-5"></i> Safety First</a></li>
-    </ul>
-    <!-- END CATEGORIES -->
-
-    <h4 class="widget-heading">Concept</h4>
-    <ul class="nav categories sidebar-widget">
-
-
-        <li><a ui-sref="app.howItWorks"><i class="fa fa-angle-right mr-5"></i> How It Works</a></li>
-        <li><a ui-sref="app.conceptVideo"><i class="fa fa-angle-right mr-5"></i> Concept Video</a></li>
-
-    </ul>
-
-
-</div>
-<!-- END BLOG SIDEBAR -->
-
-</div><!-- blog -->
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
+    </div>
 </section>
 
-
-<script type="text/ng-template" id="myModalContent">
-    <!-- <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">{{title}}</h3>
-     </div>-->
-    <div class="modal-body">
-
-        <div class="modal-images">
-            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
-        </div>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-arrow-right"></i> Ok
-        </button>
-    </div>
-</script>
-
-<script type="text/ng-template" id="sellingModalContent">
-     <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
-     </div>
-    <div class="modal-body">
-
-        <p>You Sure you want to sell this book to this user ?</p>
-        <p>Once Sold You can see the book on the Selling Archive Page</p>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
-            <i class="fa fa-check" ></i> Yes
-        </button>
-        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-times"></i> No
-        </button>
-    </div>
-</script>

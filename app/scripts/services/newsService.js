@@ -10,12 +10,16 @@
     function newsService(apiService,SERVER_CONSTANT,NEWS_CONSTANT) {
 
         return {
-            getActivatedNews:_getActivatedNews
+            getActivatedNews:_getActivatedNews,
+            getSingleNews:_getSingleNews
         };
 
 
-        function _getActivatedNews(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+NEWS_CONSTANT.GET_ACTIVATED_NEWS+"?access_token="+accessToken,data);
+        function _getActivatedNews(data){
+            return apiService.post(SERVER_CONSTANT.HOST+NEWS_CONSTANT.GET_ACTIVATED_NEWS,data);
+        }
+        function _getSingleNews(data){
+            return apiService.post(SERVER_CONSTANT.HOST+NEWS_CONSTANT.GET_SINGLE_NEWS,data);
         }
 
     }

@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/news/banner.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/news/blog_item_image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/news/howItWorks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/news/main_pic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/newsDetailsCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/news/news_details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/bookDealService.js" afterPath="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/constants/constants.js" afterPath="$PROJECT_DIR$/app/scripts/constants/constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/myStyle.css" afterPath="$PROJECT_DIR$/app/assets/css/myStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/selling_book_list.html" afterPath="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/news.html" afterPath="$PROJECT_DIR$/app/views/news/news.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/newsService.js" afterPath="$PROJECT_DIR$/app/scripts/services/newsService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/textOverflow.js" afterPath="$PROJECT_DIR$/app/scripts/directives/textOverflow.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -32,90 +40,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="buy_book.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/book/buy_book.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="6" selection-start="7573" selection-end="7963" vertical-scroll-proportion="-12.411765" vertical-offset="2801" max-vertical-offset="3774">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookBuyCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookBuyCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="44" selection-start="457" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selling_book_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="49" selection-start="9849" selection-end="9863" vertical-scroll-proportion="-3.0" vertical-offset="2244" max-vertical-offset="8296">
-              <folding>
-                <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1464606069921" expanded="true" signature="27801:27911" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="27942:28071" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="27978:28059" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28004:28016" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28102:28274" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28193:28263" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28196:28242" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28375:28506" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28535:28688" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28719:29070" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28841:28905" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28995:29059" placeholder="..." />
-                <marker date="1464606069921" expanded="true" signature="28998:29038" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sellingBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="73" selection-start="7608" selection-end="7608" vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="4301">
-              <folding>
-                <element signature="e#2019#2282#0" expanded="false" />
-                <element signature="e#2317#2639#0" expanded="false" />
-                <element signature="e#2680#2965#0" expanded="false" />
-                <element signature="e#3036#3102#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookDealService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/bookDealService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="55" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookSearchCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSearchCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="40" selection-start="3650" selection-end="3663" vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="3706">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="constants.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.18438178" vertical-offset="0" max-vertical-offset="3009">
+            <state line="22" column="0" selection-start="930" selection-end="930" vertical-scroll-proportion="0.40563992" vertical-offset="0" max-vertical-offset="3026">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="24" selection-start="578" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="1224">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/newsService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="25" selection-start="312" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/news/news.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="206" column="33" selection-start="9545" selection-end="9545" vertical-scroll-proportion="-21.384615" vertical-offset="2946" max-vertical-offset="3995">
               <folding />
             </state>
           </provider>
@@ -124,8 +79,56 @@
       <file leaf-file-name="myStyle.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/css/myStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1798" column="43" selection-start="40342" selection-end="40342" vertical-scroll-proportion="-15.84" vertical-offset="30170" max-vertical-offset="43894">
+            <state line="2779" column="21" selection-start="63869" selection-end="63869" vertical-scroll-proportion="-34.0" vertical-offset="46393" max-vertical-offset="47362">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="478" column="43" selection-start="15015" selection-end="15015" vertical-scroll-proportion="-30.16" vertical-offset="7372" max-vertical-offset="24395">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsDetailsCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newsDetailsCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="16" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1598">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="247" column="17" selection-start="13938" selection-end="13976" vertical-scroll-proportion="-12.076923" vertical-offset="3885" max-vertical-offset="5321">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="110" column="53" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="4760">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news_details.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/news/news_details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="70" selection-start="528" selection-end="528" vertical-scroll-proportion="-13.0" vertical-offset="2" max-vertical-offset="1904">
+              <folding>
+                <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#section#0" expanded="false" />
+                <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#section#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,9 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/styles/theme-main.css" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/addQuoteCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/directives/fileInput.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/singleFileInput.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/singleImageInput.js" />
         <option value="$PROJECT_DIR$/app/views/admin/content/add_student_quote.html" />
@@ -160,9 +160,6 @@
         <option value="$PROJECT_DIR$/app/views/admin/content/news.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/newsManagementCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/adminNewsService.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/newsService.js" />
-        <option value="$PROJECT_DIR$/app/views/news/news.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/security/complete_registration.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/oAuthCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/security/login.html" />
@@ -181,18 +178,24 @@
         <option value="$PROJECT_DIR$/app/views/book/sell_page_custom.html" />
         <option value="$PROJECT_DIR$/app/views/web/app.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/contactUsService.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/views/web/contact_us.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/contactUsCtrl.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/book/buy_book.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookBuyCtrl.js" />
-        <option value="$PROJECT_DIR$/app/assets/css/myStyle.css" />
         <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/directives/textOverflow.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/scripts/services/newsService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js" />
+        <option value="$PROJECT_DIR$/app/views/news/news.html" />
+        <option value="$PROJECT_DIR$/app/assets/css/myStyle.css" />
+        <option value="$PROJECT_DIR$/app/views/news/news_details.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/newsDetailsCtrl.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
       </list>
     </option>
@@ -588,11 +591,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\news" />
+      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\controllers" />
       <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\book" />
       <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\services" />
       <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\web" />
-      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\scripts\controllers" />
-      <recent name="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\security" />
     </key>
   </component>
   <component name="RunManager">
@@ -637,11 +640,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -661,33 +664,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/tokenService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="38" selection-start="521" selection-end="547" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/howItWorksCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/userService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="21" selection-start="64" selection-end="64" vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="1173" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/identityService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="17" selection-start="3133" selection-end="3133" vertical-scroll-proportion="0.0" vertical-offset="172" max-vertical-offset="1802" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/font-awesome/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="34544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/angular-fontawesome/dist/angular-fontawesome.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2465" />
@@ -721,11 +697,6 @@
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/topHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2635" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/directives/textOverflow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/submitvalidate.js">
@@ -793,11 +764,6 @@
         <state line="39" column="36" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.4978308" vertical-offset="204" max-vertical-offset="1207" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/book/search_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="3141" selection-end="3141" vertical-scroll-proportion="0.30309987" vertical-offset="688" max-vertical-offset="2278" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell_book.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="25" selection-start="872" selection-end="913" vertical-scroll-proportion="0.47433037" vertical-offset="0" max-vertical-offset="1207" />
@@ -805,122 +771,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell_page_custom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="46" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="1465" max-vertical-offset="18343">
-          <folding />
-        </state>
+        <state line="103" column="46" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="1465" max-vertical-offset="18343" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="587" column="150" selection-start="34345" selection-end="34469" vertical-scroll-proportion="0.0" vertical-offset="9702" max-vertical-offset="15164">
-          <folding>
-            <marker date="1464344129245" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464344129245" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464344129245" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464344129245" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464344129245" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="587" column="150" selection-start="34345" selection-end="34469" vertical-scroll-proportion="0.0" vertical-offset="9702" max-vertical-offset="15164" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/contactUsService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="76" selection-start="474" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <folding />
-        </state>
+        <state line="17" column="76" selection-start="474" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactUsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <folding>
-            <marker date="1464358636035" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="50" selection-start="16612" selection-end="16628" vertical-scroll-proportion="0.0" vertical-offset="4421" max-vertical-offset="5304">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="46" selection-start="7572" selection-end="7572" vertical-scroll-proportion="0.0" vertical-offset="2223" max-vertical-offset="4743">
-          <folding />
-        </state>
+        <state line="9" column="33" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/app.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="2023">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/web/contact_us.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="4250">
-          <folding />
-        </state>
+        <state line="42" column="0" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="2023" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="302" column="35" selection-start="9728" selection-end="9743" vertical-scroll-proportion="0.59002167" vertical-offset="4590" max-vertical-offset="5729">
-          <folding />
-        </state>
+        <state line="302" column="35" selection-start="9728" selection-end="9743" vertical-scroll-proportion="0.59002167" vertical-offset="4590" max-vertical-offset="5729" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookCompareCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="32" selection-start="2543" selection-end="2556" vertical-scroll-proportion="0.829718" vertical-offset="561" max-vertical-offset="4726">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="58" selection-start="8899" selection-end="8916" vertical-scroll-proportion="0.0" vertical-offset="4461" max-vertical-offset="24293">
-          <folding />
-        </state>
+        <state line="78" column="32" selection-start="2543" selection-end="2556" vertical-scroll-proportion="0.829718" vertical-offset="561" max-vertical-offset="4726" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/buy_book.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="6" selection-start="7573" selection-end="7963" vertical-scroll-proportion="-12.411765" vertical-offset="2801" max-vertical-offset="3774">
-          <folding />
-        </state>
+        <state line="202" column="6" selection-start="7573" selection-end="7963" vertical-scroll-proportion="-12.411765" vertical-offset="2801" max-vertical-offset="3774" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSearchCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="40" selection-start="3650" selection-end="3663" vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="3706">
-          <folding />
-        </state>
+        <state line="123" column="40" selection-start="3650" selection-end="3663" vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="3706" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/universityService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="17" selection-start="940" selection-end="940" vertical-scroll-proportion="0.42407808" vertical-offset="0" max-vertical-offset="922">
-          <folding />
-        </state>
+        <state line="23" column="17" selection-start="940" selection-end="940" vertical-scroll-proportion="0.42407808" vertical-offset="0" max-vertical-offset="922" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/bookDealService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="55" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
+        <state line="25" column="55" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookBuyCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="44" selection-start="457" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2108">
-          <folding />
-        </state>
+        <state line="15" column="44" selection-start="457" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/theme-main.css">
@@ -937,56 +843,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/myStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1798" column="43" selection-start="40342" selection-end="40342" vertical-scroll-proportion="-15.84" vertical-offset="30170" max-vertical-offset="43894">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="49" selection-start="9849" selection-end="9863" vertical-scroll-proportion="-3.0" vertical-offset="2244" max-vertical-offset="8296">
-          <folding>
-            <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1464606069921" expanded="true" signature="27801:27911" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="27942:28071" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="27978:28059" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28004:28016" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28102:28274" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28193:28263" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28196:28242" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28375:28506" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28535:28688" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28719:29070" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28841:28905" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28995:29059" placeholder="..." />
-            <marker date="1464606069921" expanded="true" signature="28998:29038" placeholder="..." />
-          </folding>
-        </state>
+        <state line="141" column="49" selection-start="9849" selection-end="9863" vertical-scroll-proportion="-3.0" vertical-offset="2244" max-vertical-offset="8296" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="73" selection-start="7608" selection-end="7608" vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="4301">
+        <state line="208" column="73" selection-start="7608" selection-end="7608" vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="4301" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/web/contact_us.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="203" column="47" selection-start="9802" selection-end="9802" vertical-scroll-proportion="0.8348214" vertical-offset="0" max-vertical-offset="1547" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/book/search_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="93" selection-start="263" selection-end="329" vertical-scroll-proportion="11.115385" vertical-offset="357" max-vertical-offset="2278">
           <folding>
-            <element signature="e#2019#2282#0" expanded="false" />
-            <element signature="e#2317#2639#0" expanded="false" />
-            <element signature="e#2680#2965#0" expanded="false" />
-            <element signature="e#3036#3102#0" expanded="false" />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1462255161717" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/directives/textOverflow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="26" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1445">
+          <folding>
+            <marker date="1464618889970" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1464618889970" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1464618889970" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1464618889970" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="16" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.3329718" vertical-offset="1954" max-vertical-offset="15929">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="478" column="43" selection-start="15015" selection-end="15015" vertical-scroll-proportion="-30.16" vertical-offset="7372" max-vertical-offset="24395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/newsService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="25" selection-start="312" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="24" selection-start="578" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="33" selection-start="9545" selection-end="9545" vertical-scroll-proportion="-21.384615" vertical-offset="2946" max-vertical-offset="3995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/myStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2779" column="21" selection-start="63869" selection-end="63869" vertical-scroll-proportion="-34.0" vertical-offset="46393" max-vertical-offset="47362">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/news_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="70" selection-start="528" selection-end="528" vertical-scroll-proportion="-13.0" vertical-offset="2" max-vertical-offset="1904">
+          <folding>
+            <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#section#0" expanded="false" />
+            <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#section#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newsDetailsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="16" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="247" column="17" selection-start="13938" selection-end="13976" vertical-scroll-proportion="-12.076923" vertical-offset="3885" max-vertical-offset="5321">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="53" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="4760">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.18438178" vertical-offset="0" max-vertical-offset="3009">
+        <state line="22" column="0" selection-start="930" selection-end="930" vertical-scroll-proportion="0.40563992" vertical-offset="0" max-vertical-offset="3026">
           <folding />
         </state>
       </provider>

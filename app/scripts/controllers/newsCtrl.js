@@ -19,8 +19,8 @@
 
 
         $scope.totalNews=[];
-
-
+        $scope.firstNews=[];
+        $scope.latestNews=[];
         init();
 
         function init(){
@@ -28,7 +28,7 @@
 
         }
 
-        function getNewsData($defer, params) {
+        function getNewsData() {
 
             var queryData =
             {
@@ -39,21 +39,15 @@
                     newsDateTime: 'desc'
                 }
             };
-            newsService.getActivatedNews(identityService.getAccessToken(), queryData).then(function (response) {
+            newsService.getActivatedNews(queryData).then(function (response) {
+
                 $scope.totalNews = response.data.success.successData.news.totalNews;
-                $defer.resolve($scope.totalNews);
-                params.total(response.data.success.successData.news.totalNumber);
+                $scope.latestNews = $scope.totalNews.slice(0,3);
+                $scope.firstNews.push($scope.totalNews.shift());
 
             }).catch(function (response) {
 
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        getNewsData($defer, params);
-                    });
-                } else if (response.data.error != undefined) {
+                if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
 
                 } else {

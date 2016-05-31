@@ -3,11 +3,11 @@
     'use strict';
 
     app
-        .controller('NewsCtrl', NewsCtrl);
+        .controller('NewsDetailsCtrl', NewsDetailsCtrl);
 
-    NewsCtrl.$inject = ['$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
+    NewsDetailsCtrl.$inject = ['$stateParams','$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
 
-    function NewsCtrl($state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
+    function NewsDetailsCtrl($stateParams,$state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
 
 
@@ -17,19 +17,36 @@
         $scope.$parent.activePage = "news";
 
 
+        if($stateParams.newsId==undefined){
+            $state.go('app.news');
+        }else{
 
-        $scope.totalNews=[];
-        $scope.firstNews=[];
-        $scope.latestNews=[];
-        init();
-
-        function init(){
-            getNewsData();
-
+            $scope.firstNews=[];
+            $scope.latestNews=[];
+            $scope.alsoLikedNews=[];
+            getSingleNews($stateParams.newsId);
+            getLatest10News();
         }
 
-        function getNewsData() {
 
+
+        function getSingleNews(newsId){
+            newsService.getSingleNews({"newsId":newsId}).then(function (response) {
+
+                $scope.firstNews.push(response.data.success.successData.news);
+
+            }).catch(function (response) {
+
+                if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+        }
+
+        function getLatest10News(){
             var queryData =
             {
                 "searchQuery": "",
@@ -39,22 +56,18 @@
                     newsDateTime: 'desc'
                 }
             };
-            newsService.getActivatedNews(identityService.getAccessToken(), queryData).then(function (response) {
+            newsService.getActivatedNews(queryData).then(function (response) {
 
-                $scope.totalNews = response.data.success.successData.news.totalNews;
-                $scope.latestNews = $scope.totalNews.slice(0,3);
-                $scope.firstNews.push($scope.totalNews.shift());
+                var allNews= response.data.success.successData.news.totalNews;
+//                console.log(allNews);
+                $scope.alsoLikedNews = allNews.slice(0,2);
+//                console.log(allNews);
+                $scope.latestNews = allNews.slice(2,5);
+//                console.log(allNews);
 
             }).catch(function (response) {
 
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        getNewsData();
-                    });
-                } else if (response.data.error != undefined) {
+                if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
 
                 } else {
@@ -63,6 +76,8 @@
 
             });
         }
+
+
 
 
     }

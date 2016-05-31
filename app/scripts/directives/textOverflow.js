@@ -41,6 +41,7 @@ app
                 if (scope.elementType == "h4") {
                     scope.showH4 = true;
                 }
+
                 scope.end = scope.limit;
                 scope.isShowMore = true;
                 scope.largeText = true;

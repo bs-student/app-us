@@ -2575,3 +2575,207 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .green-btn:hover{
     background-color: #FF530E;
 }
+
+/********************************************/
+/*                News Page                 */
+/*********************************************/
+
+.news-page-head-banner{
+    background: url("../images/news/banner.png") no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+.news-page-right-header{
+    border-bottom:16px solid #FF530E;
+    height: 21px;
+}
+.news-page-right-header text{
+    padding-right: 15px;
+}
+.bold{
+    font-weight: 600;
+}
+.how-it-works-image{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.how-it-works-image img{
+    width: 100%;
+}
+.btn-tag{
+    background: #E7E7E7;
+    border-color: #E7E7E7;
+    color:#555;
+    font-size: 13px;
+}
+.btn-tag:hover{
+
+    border-color: #FF530E;
+    color:#FF530E;
+}
+.btn-tag:before{
+    content: none;
+}
+.btn-tag:after{
+    content: none;
+}
+.sidebar .sidebar-widget.media-list .media .media-object{
+    width: 150px;
+    border-radius: 0px;
+}
+.follow-google{
+    background-color: #EA4335;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+.follow-instagram{
+    background-color: #405299;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
+.content-wrap.news-page-content-wrap{
+    background: #F7F7F7;
+}
+.off-white-background{
+    background: #F7F7F7;
+}
+.news-page-content-wrap .how-it-works-p{
+    margin-bottom: 40px;
+}
+.news-tags{
+    margin-top:40px;
+    margin-bottom:40px;
+}
+.latest-news{
+    margin-top: 40px;
+}
+.latest-news .media-heading a{
+    color: #555;
+    font-family: Lato;
+}
+.latest-news .media-heading a:hover{
+    color:#FF530E;
+}
+
+.latest-news  .media{
+    margin-top: 0px;
+    padding-top: 30px;
+    border-bottom:1px solid #E5E5E5 ;
+    padding-bottom: 30px;
+}
+.px-25{
+    font-size: 25px;
+}
+.news-post .entry-meta > li{
+
+    font-style: normal;
+    color: #555;
+    font-size: 13px;
+    border-bottom: 3px solid #FF530E;
+    padding-bottom: 15px ;
+}
+
+.news-post .entry-title h3 a,.news-post .entry-title h2 a{
+    color:#FF530E;
+}
+.post-entry .entry-image{
+    margin-bottom: 0px;
+}
+.simple-button{
+    background: #FFFFFF;
+    color:#555;
+    border:2px solid #BAB9B7;
+    text-shadow: none;
+    line-height: 2.5em;
+}
+.simple-button:hover{
+    background: #FF530E;
+    color:#FFFFFF;
+    border:2px solid #FF530E;
+}
+.continue-reading-button{
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+.first-news-post{
+    background: #FFFFFF;
+    padding: 40px 20px;
+}
+.news-share-hr-div{
+    display: flex;
+    margin-left: 19%;
+}
+.news-share-hr-div .social-container{
+    border:1px solid #D9D9D7;
+    padding: 5px;
+    margin-left: 80px;
+    background: #FFFFFF;
+
+}
+.news-share-hr-div .follow-twitter{
+    background-color: #61C2FF;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    /*margin-left: 23px;*/
+    border-radius: 50%;
+    font-size: 16px;
+}
+.news-share-hr-div .follow-facebook{
+    background-color: #0073AE;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    /*margin-left: 23px;*/
+    border-radius: 50%;
+    font-size: 16px;
+}
+.news-share-hr-div .follow-google{
+    background-color: #EE5456;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    margin-left: 0px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+.news-hr-border-bottom{
+    border-bottom:1px solid #D9D9D7;
+    height: 22px;
+    margin-bottom: 70px;
+}
+.blog-posts .post-entry .entry-image img{
+    border-radius: 0px;
+}
+.other-news-post{
+    padding: 40px 0px;
+}
+a.simple-continue-reading-button{
+    color: #555;
+}
+a.simple-continue-reading-button:hover{
+    color: #FF530E;
+}
+
+.blog-posts.small-news-section .post-entry .entry-image img{
+    height:230px ;
+}
+.first-news-post.news-details-view{
+    border-bottom:8px solid #0072AE;
+}
+.entry-content.news-details-view{
+    margin-bottom: 60px;
+}
+.you-must-also-like{
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
