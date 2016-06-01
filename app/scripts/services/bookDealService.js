@@ -23,8 +23,8 @@
         };
 
 
-        function _getBookDealsIhaveContactedFor(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR+"?access_token="+accessToken);
+        function _getBookDealsIhaveContactedFor(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CONTACTED_FOR+"?access_token="+accessToken,data);
         }
 
         function _getBookDealsOfMine(accessToken,data){

@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/bookDealService.js" afterPath="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/contacted_book_list.html" afterPath="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -36,10 +37,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sellArchiveCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js">
+      <file leaf-file-name="contacted_book_list.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/book/contacted_book_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="40" selection-start="4068" selection-end="4068" vertical-scroll-proportion="48.44" vertical-offset="3285" max-vertical-offset="4182">
+            <state line="25" column="82" selection-start="921" selection-end="921" vertical-scroll-proportion="-1.4901961" vertical-offset="349" max-vertical-offset="8075">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <marker date="1464797062666" expanded="true" signature="26187:26297" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26328:26457" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26364:26445" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26390:26402" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26488:26660" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26579:26649" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26582:26628" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26761:26892" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="26921:27074" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="27105:27456" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="27227:27291" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="27381:27445" placeholder="..." />
+                <marker date="1464797062666" expanded="true" signature="27384:27424" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contactedBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="205" column="66" selection-start="7792" selection-end="7792" vertical-scroll-proportion="0.0" vertical-offset="3158" max-vertical-offset="4420">
               <folding />
             </state>
           </provider>
@@ -48,7 +76,7 @@
       <file leaf-file-name="sell_archive.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/book/sell_archive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="14" selection-start="12193" selection-end="12193" vertical-scroll-proportion="-1.4313725" vertical-offset="3242" max-vertical-offset="4624">
+            <state line="25" column="55" selection-start="888" selection-end="915" vertical-scroll-proportion="-4.576923" vertical-offset="306" max-vertical-offset="4624">
               <folding>
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -75,53 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sellingBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+      <file leaf-file-name="sellArchiveCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="27" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0" vertical-offset="1367" max-vertical-offset="6171">
+            <state line="173" column="61" selection-start="5999" selection-end="5999" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="4182">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selling_book_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="430" column="18" selection-start="28531" selection-end="28531" vertical-scroll-proportion="-7.607843" vertical-offset="3777" max-vertical-offset="6375">
-              <folding>
-                <element signature="e#15419#27989#0" expanded="false" />
-                <marker date="1464793433139" expanded="true" signature="28698:28808" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="28839:28968" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="28875:28956" placeholder="..." />
-                <marker date="1464793433139" expanded="false" signature="28901:28913" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="28999:29171" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29090:29160" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29093:29139" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29272:29403" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29432:29585" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29616:29967" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29738:29802" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29892:29956" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="29895:29935" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30071:30176" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30205:30293" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30324:30670" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30441:30505" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30595:30659" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30598:30638" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30771:30874" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="30903:30989" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31020:31366" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31137:31201" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31291:31355" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31294:31334" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31465:31571" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31600:31848" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31879:32219" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="31990:32054" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="32144:32208" placeholder="..." />
-                <marker date="1464793433139" expanded="true" signature="32147:32187" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -129,7 +115,16 @@
       <file leaf-file-name="bookDealService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/services/bookDealService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="26" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1258">
+            <state line="26" column="99" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0" vertical-offset="118" max-vertical-offset="1258">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sellingBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="218" column="66" selection-start="8037" selection-end="8209" vertical-scroll-proportion="0.0" vertical-offset="3152" max-vertical-offset="6171">
               <folding />
             </state>
           </provider>
@@ -192,12 +187,12 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookDealEditCtrl.js" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/views/book/sell_archive.html" />
-        <option value="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
         <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
+        <option value="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
       </list>
     </option>
@@ -828,7 +823,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/imageModalService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="35" selection-start="1408" selection-end="1412" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003" />
+        <state line="44" column="35" selection-start="1408" selection-end="1412" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
@@ -921,98 +918,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/book/contacted_book_list.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="35" selection-start="803" selection-end="803" vertical-scroll-proportion="-15.038462" vertical-offset="51" max-vertical-offset="7718">
-          <folding>
-            <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1464790271601" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="41" selection-start="785" selection-end="785" vertical-scroll-proportion="0.38720173" vertical-offset="0" max-vertical-offset="3791">
+        <state line="173" column="61" selection-start="5999" selection-end="5999" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="4182">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="430" column="18" selection-start="28531" selection-end="28531" vertical-scroll-proportion="-7.607843" vertical-offset="3777" max-vertical-offset="6375">
+        <state line="210" column="175" selection-start="14898" selection-end="14925" vertical-scroll-proportion="0.5164213" vertical-offset="3114" max-vertical-offset="6375">
           <folding>
             <element signature="e#15419#27989#0" expanded="false" />
-            <marker date="1464793433139" expanded="true" signature="28698:28808" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="28839:28968" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="28875:28956" placeholder="..." />
-            <marker date="1464793433139" expanded="false" signature="28901:28913" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="28999:29171" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29090:29160" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29093:29139" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29272:29403" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29432:29585" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29616:29967" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29738:29802" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29892:29956" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="29895:29935" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30071:30176" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30205:30293" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30324:30670" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30441:30505" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30595:30659" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30598:30638" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30771:30874" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="30903:30989" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31020:31366" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31137:31201" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31291:31355" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31294:31334" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31465:31571" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31600:31848" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31879:32219" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="31990:32054" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="32144:32208" placeholder="..." />
-            <marker date="1464793433139" expanded="true" signature="32147:32187" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1464793433139" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="27" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0" vertical-offset="500" max-vertical-offset="6171">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/bookDealService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="26" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1258">
+        <state line="26" column="99" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0" vertical-offset="118" max-vertical-offset="1258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="66" selection-start="8037" selection-end="8209" vertical-scroll-proportion="0.0" vertical-offset="3152" max-vertical-offset="6171">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="205" column="66" selection-start="7792" selection-end="7792" vertical-scroll-proportion="0.0" vertical-offset="3158" max-vertical-offset="4420">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell_archive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="14" selection-start="12193" selection-end="12193" vertical-scroll-proportion="-1.4313725" vertical-offset="3242" max-vertical-offset="4624">
+        <state line="25" column="55" selection-start="888" selection-end="915" vertical-scroll-proportion="-4.576923" vertical-offset="306" max-vertical-offset="4624">
           <folding>
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -1038,10 +1014,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellArchiveCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/views/book/contacted_book_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="40" selection-start="4068" selection-end="4068" vertical-scroll-proportion="48.44" vertical-offset="3285" max-vertical-offset="4182">
-          <folding />
+        <state line="25" column="82" selection-start="921" selection-end="921" vertical-scroll-proportion="-1.4901961" vertical-offset="349" max-vertical-offset="8075">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1464797062666" expanded="true" signature="26187:26297" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26328:26457" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26364:26445" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26390:26402" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26488:26660" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26579:26649" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26582:26628" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26761:26892" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="26921:27074" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="27105:27456" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="27227:27291" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="27381:27445" placeholder="..." />
+            <marker date="1464797062666" expanded="true" signature="27384:27424" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
