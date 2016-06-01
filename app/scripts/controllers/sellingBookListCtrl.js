@@ -26,6 +26,11 @@
         $scope.showMarkAsSoldModal = _showMarkAsSoldModal;
         $scope.markUserAsBuyerOfThatDeal = _markUserAsBuyerOfThatDeal;
 
+        $scope.showBookDealChangeStatusModal = _showBookDealChangeStatusModal;
+        $scope.changeBookDealStatus = _changeBookDealStatus;
+
+        $scope.showDeleteBookDealModal=_showDeleteBookDealModal;
+        $scope.deleteBookDeal=_deleteBookDeal;
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
@@ -243,10 +248,10 @@
 
             var data = {
                 'contactId':paramData.contact.contactId
-            }
-            bookDealService.sellBookToUser(identityService.getAccessToken(),data).then(function(response){
+            };
+            ($scope.messagePromise=bookDealService.sellBookToUser(identityService.getAccessToken(),data)).then(function(response){
                 responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-                paramData.allDeals.splice(paramData.allDeals.indexOf(paramData.deal),1);
+                $scope.campusBookDeals.splice($scope.campusBookDeals.indexOf(paramData.deal),1);
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided is invalid.") {
@@ -266,7 +271,83 @@
 
         }
 
+        function _showBookDealChangeStatusModal(event, modalTemplate,data){
+            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
+        }
 
+
+        function _changeBookDealStatus(paramData){
+
+            if(paramData.deal.bookStatus=="Activated"){
+                var data = {
+                    'bookDealId':paramData.deal.bookDealId,
+                    'bookStatus':"Deactivated"
+                };
+            }else{
+                var data = {
+                    'bookDealId':paramData.deal.bookDealId,
+                    'bookStatus':"Activated"
+                };
+            }
+
+            ($scope.sellingBookPromise = bookDealService.changeBookDealStatus(identityService.getAccessToken(),data)).then(function(response){
+                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+
+                if(paramData.deal.bookStatus=="Activated"){
+                    $scope.campusBookDeals[$scope.campusBookDeals.indexOf(paramData.deal)].bookStatus = "Deactivated";
+                }else{
+                    $scope.campusBookDeals[$scope.campusBookDeals.indexOf(paramData.deal)].bookStatus = "Activated";
+                }
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _changeBookDealStatus(paramData);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+        }
+
+
+        function _showDeleteBookDealModal(event, modalTemplate,data){
+            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
+        }
+
+
+        function _deleteBookDeal(paramData){
+
+
+            ($scope.sellingBookPromise = bookDealService.deleteBookDeal(identityService.getAccessToken(),{"bookDealId":paramData.deal.bookDealId})).then(function(response){
+                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+
+                $scope.campusBookDeals.splice($scope.campusBookDeals.indexOf(paramData.deal),1);
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _changeBookDealStatus(paramData);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+        }
 
     }
 

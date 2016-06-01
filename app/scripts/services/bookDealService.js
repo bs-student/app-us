@@ -14,7 +14,11 @@
             getBookDealsOfMine:_getBookDealsOfMine,
             sellBookToUser: _sellBookToUser,
             getBookDealsOfMineWhichAreSold:_getBookDealsOfMineWhichAreSold,
-            getBookDealsOfMineWhichAreBought: _getBookDealsOfMineWhichAreBought
+            getBookDealsOfMineWhichAreBought: _getBookDealsOfMineWhichAreBought,
+            changeBookDealStatus:_changeBookDealStatus,
+            getLowestCampusDealPrice:_getLowestCampusDealPrice,
+            updateBookDeal:_updateBookDeal,
+            deleteBookDeal:_deleteBookDeal
 
         };
 
@@ -37,6 +41,26 @@
 
         function _getBookDealsOfMineWhichAreBought(accessToken){
             return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_BOUGHT+"?access_token="+accessToken);
+        }
+
+        function _changeBookDealStatus(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.CHANGE_BOOK_DEAL_STATUS+"?access_token="+accessToken,data);
+        }
+
+        function _getLowestCampusDealPrice(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_LOWEST_CAMPUS_DEAL_PRICE+"?access_token="+accessToken,data);
+        }
+
+        function _updateBookDeal(accessToken,data){
+            var config = {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            };
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.UPDATE_BOOK_DEAL+"?access_token="+accessToken,data,config);
+        }
+
+        function _deleteBookDeal(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.DELETE_BOOK_DEAL+"?access_token="+accessToken,data);
         }
 
     }

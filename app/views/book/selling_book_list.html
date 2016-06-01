@@ -18,7 +18,7 @@
 
 <!--SELLER TO BUYER-->
 <div class="selling-book-promise-div" cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
-<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
+<div  class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
@@ -112,9 +112,20 @@
                                 <span><img src="./dist/images/archive_pages/fb.png"/></span>
                             </div>
                             <div class="buttons">
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</button>
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
+                                <a ui-sref="app.editBookDeal({book:deal})"  class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</a>
+
+                                <button ng-show="deal.bookStatus=='Activated'" data-options="splash-2 splash-primary splash-ef-2"
+                                        ng-click="showBookDealChangeStatusModal($event,'deactivateModalContent',{deal:deal})" class="myBtn app-btn orange-btn">
+                                    <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
+
+                                <button ng-show="deal.bookStatus=='Deactivated'" data-options="splash-2 splash-primary splash-ef-2"
+                                        ng-click="showBookDealChangeStatusModal($event,'activateModalContent',{deal:deal})" class="myBtn app-btn orange-btn">
+                                    <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Activate</button>
+
+
+                                <button data-options="splash-2 splash-primary splash-ef-2"
+                                        ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
+                                        class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
                             </div>
                             <div class="view-and-contact">
                                 <p><text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong></text> <text class="grey-text"> : {{deal.bookViewCount}}</text><br/></p>
@@ -473,6 +484,68 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
+            <i class="fa fa-check" ></i> Yes
+        </button>
+        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-times"></i> No
+        </button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="deactivateModalContent">
+    <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">You want to Deactivate This Book?</h3>
+    </div>
+    <div class="modal-body">
+
+        <p>You Sure you want to Deactivate "{{src.deal.bookTitle}}" ?</p>
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)" >
+            <i class="fa fa-check" ></i> Yes
+        </button>
+        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-times"></i> No
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="activateModalContent">
+    <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">You want to Activate This Book?</h3>
+    </div>
+    <div class="modal-body">
+
+        <p>You Sure you want to Activate "{{src.deal.bookTitle}}" ?</p>
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)" >
+            <i class="fa fa-check" ></i> Yes
+        </button>
+        <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-times"></i> No
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="deleteModalContent">
+    <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">You want to Delete This Book Deal?</h3>
+    </div>
+    <div class="modal-body">
+
+        <p>You Sure you want to Delete "{{src.deal.bookTitle}}" ?</p>
+        <p>Once deleted all the content regarding this book deal will be erased. There is no way you can retrieve the data regarding this book deal after that.</p>
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(deleteBookDeal,src)" >
             <i class="fa fa-check" ></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i

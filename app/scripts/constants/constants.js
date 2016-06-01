@@ -135,7 +135,11 @@
             "GET_BOOK_DEALS_I_HAVE_CREATED": "/api/book_deal/get_book_deals_i_have_created",
             "SELL_BOOK_TO_USER": "/api/book_deal/sell_book_to_user",
             "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD": "/api/book_deal/get_book_deals_i_have_created_and_sold",
-            "GET_BOOK_DEALS_I_HAVE_BOUGHT": "/api/book_deal/get_book_deals_i_have_bought"
+            "GET_BOOK_DEALS_I_HAVE_BOUGHT": "/api/book_deal/get_book_deals_i_have_bought",
+            "CHANGE_BOOK_DEAL_STATUS":"/api/book_deal/change_book_deal_status",
+            "GET_LOWEST_CAMPUS_DEAL_PRICE":"/api/book_deal/get_lowest_campus_deal_price",
+            "UPDATE_BOOK_DEAL":"/api/book_deal/update_book_deal",
+            "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal"
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",

@@ -109,6 +109,7 @@ var assets = {
         "app/scripts/controllers/newsCtrl.js",
         "app/scripts/controllers/contactUsCtrl.js",
         "app/scripts/controllers/newsDetailsCtrl.js",
+        "app/scripts/controllers/bookDealEditCtrl.js",
 
 
 
@@ -132,7 +133,7 @@ var assets = {
         "app/scripts/directives/topHeader.js",
         "app/scripts/directives/textOverflow.js",
         "app/scripts/directives/singleImageInput.js",
-
+        "app/scripts/directives/stringToNumber.js",
 
 
         "app/scripts/services/apiService.js",

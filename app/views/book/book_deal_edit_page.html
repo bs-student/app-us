@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">sell</text><text class="uppercase orange-text lato"> books</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">Edit</text><text class="uppercase orange-text lato"> book Deal</text></h1>
 
             </div>
         </div>
@@ -102,7 +102,7 @@
 
                             <div class="col-md-3">
                                 <div class="sell-book-image">
-                                   <img data-ng-repeat="image in book.bookImages" data-ng-src="{{image.image}}">
+                                   <img  data-ng-src="{{imageHostPath}}{{book.bookImages[0].image}}">
                                     <!--<img data-ng-src="http://localhost:8080/Student2StudentApi/web/bookImages/2016-01-05_06_31_32_6756591.png">-->
                                 </div>
                             </div>
@@ -120,12 +120,12 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <!--<div class="col-md-3">
                                         <div class="archive-page-side">
                                             <h1 class="orange-text open-sans price-header">{{book.bookPriceAmazon}} </h1>
                                             <text class="lato blue-text">(New Price On Amazon)</text>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -166,16 +166,16 @@
 
 
 
-                                                            <div  ng-class="{ 'has-error' : step1.textHighlighted.$invalid && !step1.textHighlighted.$pristine, 'has-success' : step1.textHighlighted.$valid && !contactForm.textHighlighted.$pristine}">
+                                                            <div  ng-class="{ 'has-error' : step1.bookIsHighlighted.$invalid && !step1.bookIsHighlighted.$pristine, 'has-success' : step1.bookIsHighlighted.$valid && !contactForm.bookIsHighlighted.$pristine}">
 
                                                                 <label class="checkbox-inline checkbox-custom">
-                                                                    <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="Yes" required><i></i> Yes
+                                                                    <input name="bookIsHighlighted" type="radio" ng-model="book.bookIsHighlighted" value="Yes" required><i></i> Yes
                                                                 </label>
                                                                 <label class="checkbox-inline checkbox-custom">
-                                                                    <input name="textHighlighted" type="radio" ng-model="book.textHighlighted" value="No" required><i></i> No
+                                                                    <input name="bookIsHighlighted" type="radio" ng-model="book.bookIsHighlighted" value="No" required><i></i> No
                                                                 </label>
                                                                 <p class="help-block">
-                                                                    <span  ng-show="step1.textHighlighted.$invalid && !step1.textHighlighted.$pristine">Select Text Highlighted or Not.</span>
+                                                                    <span  ng-show="step1.bookIsHighlighted.$invalid && !step1.bookIsHighlighted.$pristine">Select Text Highlighted or Not.</span>
 
                                                                 </p>
 
@@ -189,16 +189,16 @@
                                                         <text class="blue-text uppercase"><strong>Notes in Textbook : </strong></text>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <div ng-class="{ 'has-error' : step1.notesOnTextbook.$invalid && !step1.notesOnTextbook.$pristine, 'has-success' : step1.notesOnTextbook.$valid && !contactForm.notesOnTextbook.$pristine}">
+                                                        <div ng-class="{ 'has-error' : step1.bookHasNotes.$invalid && !step1.bookHasNotes.$pristine, 'has-success' : step1.bookHasNotes.$valid && !contactForm.bookHasNotes.$pristine}">
 
                                                             <label class="checkbox-inline checkbox-custom">
-                                                                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="Yes" required><i></i> Yes
+                                                                <input name="bookHasNotes" type="radio" ng-model="book.bookHasNotes" value="Yes" required><i></i> Yes
                                                             </label>
                                                             <label class="checkbox-inline checkbox-custom">
-                                                                <input name="notesOnTextbook" type="radio" ng-model="book.notesOnTextbook" value="No" required><i></i> No
+                                                                <input name="bookHasNotes" type="radio" ng-model="book.bookHasNotes" value="No" required><i></i> No
                                                             </label>
                                                             <p class="help-block">
-                                                                <span  ng-show="step1.notesOnTextbook.$invalid && !step1.notesOnTextbook.$pristine">Select if there are notes on textbook.</span>
+                                                                <span  ng-show="step1.bookHasNotes.$invalid && !step1.bookHasNotes.$pristine">Select if there are notes on textbook.</span>
 
                                                             </p>
 
@@ -210,19 +210,17 @@
                                                     <div class="col-md-12">
                                                         <text class="blue-text uppercase"><strong>Comment : </strong></text>
                                                     </div>
-
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div  ng-class="{ 'has-error' : step1.comment.$invalid && !step1.comment.$pristine, 'has-success' : step1.comment.$valid && !contactForm.comment.$pristine}">
+                                                        <div  ng-class="{ 'has-error' : step1.bookComment.$invalid && !step1.bookComment.$pristine, 'has-success' : step1.bookComment.$valid && !contactForm.bookComment.$pristine}">
 
                                                             <textarea class="form-control"
-                                                                      rows="5" name="comment"  ng-model="book.comment"
+                                                                      rows="5" name="bookComment"  ng-model="book.bookComment"
                                                                       on-blur-validation="" required aria-multiline="true"></textarea>
 
                                                             <p class="help-block">
-                                                                <span  ng-show="step1.comment.$invalid && !step1.comment.$pristine">Comment is Required.</span>
-
+                                                                <span  ng-show="step1.bookComment.$invalid && !step1.bookComment.$pristine">Comment is Required.</span>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -276,14 +274,14 @@
 
 
                             </div>
-                            <div class="row contact-method-step-details" ng-class="{ 'has-error' : step2.contactMethod.$invalid && !step2.contactMethod.$pristine, 'has-success' : step2.contactMethod.$valid && !contactForm.contactMethod.$pristine}">
+                            <div class="row contact-method-step-details" ng-class="{ 'has-error' : step2.bookContactMethod.$invalid && !step2.bookContactMethod.$pristine, 'has-success' : step2.bookContactMethod.$valid && !contactForm.bookContactMethod.$pristine}">
 
 
 
                                 <div class="col-md-6">
                                     <div class="left-side-form">
                                         <label class="checkbox checkbox-custom">
-                                            <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="sellerToBuyer" required><i></i> <strong><text class="uppercase px-16">Seller Contact Buyer</text></strong>
+                                            <input name="bookContactMethod" ng-model="book.bookContactMethod" type="radio" value="sellerToBuyer" required><i></i> <strong><text class="uppercase px-16">Seller Contact Buyer</text></strong>
                                         </label>
 
                                         <text class="lato">
@@ -300,7 +298,7 @@
 
                                     <div class="right-side-form" >
                                         <label class="checkbox checkbox-custom">
-                                            <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="buyerToSeller" required><i></i> <strong><text class="uppercase px-16">Buyer Contact Seller</text></strong>
+                                            <input name="bookContactMethod" ng-model="book.bookContactMethod" type="radio" value="buyerToSeller" required><i></i> <strong><text class="uppercase px-16">Buyer Contact Seller</text></strong>
                                         </label>
 
                                         <text class="lato">
@@ -316,7 +314,7 @@
                                                 <input type="text" name="contactInfoHomePhone" ng-model="book.contactInfoHomePhone"
                                                        ng-required="
 
-                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+                                                       (book.bookContactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
 
                                                        "
                                                        class="form-control" />
@@ -331,7 +329,7 @@
                                                 <input type="text" name="contactInfoCellPhone" ng-model="book.contactInfoCellPhone"
                                                        ng-required="
 
-                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+                                                       (book.bookContactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
 
                                                        "
                                                        class="form-control"   />
@@ -346,7 +344,7 @@
                                                 <input type="email" name="contactInfoEmail" ng-model="book.contactInfoEmail"
                                                        ng-required="
 
-                                                       (book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
+                                                       (book.bookContactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)
 
                                                        "
                                                        class="form-control"/>
@@ -355,7 +353,7 @@
 
                                         <div class="has-error">
                                             <p >
-                                                <span class="text-danger"  ng-show="(book.contactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)">You have to provide at least one contact information.</span>
+                                                <span class="text-danger"  ng-show="(book.bookContactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)">You have to provide at least one contact information.</span>
                                             </p>
                                         </div>
 
@@ -371,7 +369,7 @@
                             <div class="row has-error">
                                 <div class="col-md-12">
                                     <p class="help-block">
-                                        <span  ng-show="step2.contactMethod.$invalid && !step2.contactMethod.$pristine">Set Contact Method.</span>
+                                        <span  ng-show="step2.bookContactMethod.$invalid && !step2.bookContactMethod.$pristine">Set Contact Method.</span>
 
                                     </p>
                                 </div>
@@ -424,10 +422,10 @@
                                 <div class="col-md-8">
 
                                     <label class="checkbox-inline checkbox-custom">
-                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="Yes" required><i></i> Yes
+                                        <input name="publicAvailable" ng-model="book.bookIsAvailablePublic" type="radio" value="Yes" required><i></i> Yes
                                     </label>
                                     <label class="checkbox-inline checkbox-custom">
-                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="No" required><i></i> No
+                                        <input name="publicAvailable" ng-model="book.bookIsAvailablePublic" type="radio" value="No" required><i></i> No
                                     </label>
                                     <p class="help-block">
                                         <span  ng-show="step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine">Set if the book is available for public or not.</span>
@@ -438,7 +436,7 @@
 
                             </div>
 
-                            <div class="row" ng-class="{ 'has-error' : step3.availableDate.$invalid && !step3.availableDate.$pristine, 'has-success' : step3.availableDate.$valid && !step3.availableDate.$pristine}">
+                            <div class="row" ng-class="{ 'has-error' : step3.bookAvailableDate.$invalid && !step3.bookAvailableDate.$pristine, 'has-success' : step3.bookAvailableDate.$valid && !step3.bookAvailableDate.$pristine}">
 
                                 <div class="col-md-4">
                                     <text class="px-16 lato uppercase"><strong>Textbook available Date :</strong></text>
@@ -448,26 +446,23 @@
 
 
                                     <p class="input-group">
-                                        <input name="availableDate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="book.availableDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                        <input name="bookAvailableDate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="book.bookAvailableDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                                           <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
                                           </span>
                                     </p>
                                     <p class="help-block">
-                                        <span  ng-show="step3.availableDate.$invalid && !step3.availableDate.$pristine">You have to set book available date in (11-May-2016) format.</span>
+                                        <span  ng-show="step3.bookAvailableDate.$invalid && !step3.bookAvailableDate.$pristine">You have to set book available date in (11-May-2016) format.</span>
                                     </p>
 
 
-                                    <!--<input type="text" name="availableDate" ng-model="book.availableDate" class="form-control"  required/>
-                                    <p class="help-block">
-                                        <span  ng-show="step3.availableDate.$invalid && !step3.availableDate.$pristine">You have to set book available date.</span>
-                                    </p>-->
+                                    
 
 
                                 </div>
 
                             </div>
-                            <div class="row" ng-class="{ 'has-error' : step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine, 'has-success' : step3.sellingPrice.$valid && !step3.sellingPrice.$pristine}">
+                            <div class="row" ng-class="{ 'has-error' : step3.bookPriceSell.$invalid && !step3.bookPriceSell.$pristine, 'has-success' : step3.bookPriceSell.$valid && !step3.bookPriceSell.$pristine}">
 
                                 <div class="col-md-4">
                                     <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) :</strong></text>
@@ -475,14 +470,16 @@
 
                                 <div class="col-md-4">
 
-                                    <input type="number" name="sellingPrice" ng-model="book.sellingPrice" class="form-control"  required/>
+                                    <input type="number" string-to-number name="bookPriceSell" ng-model="book.bookPriceSell" ui-validate=" '$value <= {{bookPriceSell}}' " class="form-control"  required/>
                                     <p class="help-block">
-                                        <span  ng-show="step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine">You have to set the selling price.</span>
+                                        <span  ng-show="step3.bookPriceSell.$invalid && !step3.bookPriceSell.$pristine">You have to set the selling price.</span><br/>
+                                        <span ng-if="step3.bookPriceSell.$error.validator">Your Price cannot be greater than {{bookPriceSell}}</span>
+
                                     </p>
 
                                 </div>
                                 <div class="col-md-4">
-                                    <text ng-show="foundCampusLowestPrice"><text  class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US {{book.campusLowestPrice}}</text></text>
+                                    <text ng-show="foundCampusLowestPrice"><text  class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US {{campusLowestPrice}}</text></text>
                                     <text ng-show="!foundCampusLowestPrice" class="px-16 lato grey-text">You are first who is selling this book in this campus</text>
                                 </div>
 
@@ -497,32 +494,32 @@
 
                                     <div ng-class="{
 
-                                    'has-error' :   (step3.cashPaymentMethod.$invalid && !step3.cashPaymentMethod.$pristine) ||
-                                                    (step3.chequePaymentMethod.$invalid && !step3.chequePaymentMethod.$pristine),
+                                    'has-error' :   (step3.bookPaymentMethodCaShOnExchange.$invalid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                                    (step3.bookPaymentMethodCheque.$invalid && !step3.bookPaymentMethodCheque.$pristine),
 
-                                    'has-success' :   (step3.chequePaymentMethod.$valid && !step3.chequePaymentMethod.$pristine) ||
-                                                      (step3.chequePaymentMethod.$valid && !step3.chequePaymentMethod.$pristine)}">
+                                    'has-success' :   (step3.bookPaymentMethodCaShOnExchange.$valid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                                      (step3.bookPaymentMethodCheque.$valid && !step3.bookPaymentMethodCheque.$pristine)}">
 
                                         <label class="checkbox checkbox-custom">
                                             <input type="checkbox"
                                                    ng-required="
 
-                                                       !(book.paymentMethodCashOnExchange || book.paymentMethodCheque)
+                                                       !(book.bookPaymentMethodCaShOnExchange || book.bookPaymentMethodCheque)
 
                                                        "
-                                                   name="cashPaymentMethod" ng-model="book.paymentMethodCashOnExchange" ><i></i> Cash on Exchange
+                                                   name="bookPaymentMethodCaShOnExchange" ng-model="book.bookPaymentMethodCaShOnExchange" ><i></i> Cash on Exchange
                                         </label>
 
                                         <label class="checkbox checkbox-custom">
                                             <input type="checkbox" ng-required="
 
-                                                       !(book.paymentMethodCashOnExchange || book.paymentMethodCheque)
+                                                       !(book.bookPaymentMethodCaShOnExchange || book.bookPaymentMethodCheque)
 
-                                                       " name="chequePaymentMethod" ng-model="book.paymentMethodCheque" ><i></i> Cheque
+                                                       " name="bookPaymentMethodCheque" ng-model="book.bookPaymentMethodCheque" ><i></i> Cheque
                                         </label>
                                         <p class="help-block">
-                                            <span ng-show=" (step3.cashPaymentMethod.$invalid && !step3.cashPaymentMethod.$pristine) ||
-                                                    (step3.chequePaymentMethod.$invalid && !step3.chequePaymentMethod.$pristine)">You have to choose at least one payment method.</span>
+                                            <span ng-show=" (step3.bookPaymentMethodCaShOnExchange.$invalid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                                    (step3.bookPaymentMethodCheque.$invalid && !step3.bookPaymentMethodCheque.$pristine)">You have to choose at least one payment method.</span>
 
                                         </p>
 
@@ -631,6 +628,17 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <tr ng-repeat="file in book.bookImages" class="text-sm" ng-show="!$first">
+                                                    <td style="text-align: center"><img data-options="splash-2 splash-primary splash-ef-2" ng-click="viewImage($event)" style="max-height: 100px;max-width: 100px;" ng-src="{{imageHostPath}}{{file.image}}"/></td>
+
+                                                    <td nowrap>&nbsp;</td>
+
+                                                    <td nowrap>
+                                                        <button type="button" class="myBtn orange-btn" ng-click="removeBookImageFile(file)">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
                                                 <tr ng-repeat="file in files" class="text-sm">
                                                     <td style="text-align: center"><img data-options="splash-2 splash-primary splash-ef-2" ng-click="viewImage($event)" style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
 
@@ -714,20 +722,20 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>Text highlighted</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.textHighlighted}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookIsHighlighted}}</strong></text></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>Notes in the textbook</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.notesOnTextbook}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookHasNotes}}</strong></text></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>Comment</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.comment}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookComment}}</strong></text></div>
                                         </div>
                                     </div>
 
 
-                                    <div ng-show="book.contactMethod=='buyerToSeller'" class="step-2-info">
+                                    <div ng-show="book.bookContactMethod=='buyerToSeller'" class="step-2-info">
 
                                         <div class="row">
 
@@ -752,7 +760,7 @@
 
                                     </div>
 
-                                    <div ng-show="book.contactMethod=='sellerToBuyer'" class="step-2-info">
+                                    <div ng-show="book.bookContactMethod=='sellerToBuyer'" class="step-2-info">
 
                                         <div class="row">
 
@@ -771,23 +779,23 @@
                                     <div class="step-last-info">
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available to public?</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.availablePublic}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookIsAvailablePublic}}</strong></text></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available date</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{availableDate  | date:'dd-MMM-yyyy'}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookAvailableDate  | date:'dd-MMM-yyyy'}}</strong></text></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>Selling Price</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>${{book.sellingPrice}}</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>${{book.bookPriceSell}}</strong></text></div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>payment method</strong></text></div>
                                             <div class="col-md-8 border-left">
-                                                <text ng-show="book.paymentMethodCashOnExchange && !book.paymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
-                                                <text ng-show="!book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
-                                                <text ng-show="book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
+                                                <text ng-show="book.bookPaymentMethodCaShOnExchange && !book.bookPaymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
+                                                <text ng-show="!book.bookPaymentMethodCaShOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
+                                                <text ng-show="book.bookPaymentMethodCaShOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
                                             </div>
                                         </div>
                                     </div>
@@ -838,7 +846,7 @@
 
                             <div class="col-md-12 text-right">
                                 <button type="button" class="myBtn step-form-previous-button" ng-click="backToStep('Step4')"><i class="fa fa-angle-left fa-3x"></i></button>
-                                <button type="submit" class=" myBtn  orange-btn final-step-finish-button" ><i class="fa fa-paper-plane" ></i> Sell book now</button>
+                                <button type="submit" class=" myBtn  orange-btn final-step-finish-button" ><i class="fa fa-paper-plane" ></i> Save Book Deal</button>
                             </div>
                         </div>
 
