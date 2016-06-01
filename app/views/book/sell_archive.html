@@ -17,13 +17,13 @@
 
 
 <!--SELLER TO BUYER-->
-
-<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
+<div class="selling-book-promise-div" cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
+<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
             <div class="col-md-3">
-                <div class="search-book-image-carousel">
+                <div class="search-book-image-carousel selling-book-image-carousel">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
                         <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
@@ -64,17 +64,19 @@
                                 <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
                                 <div class="deal-information-box">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text"> : You (Seller) Contacted Buyer</text><br/></p>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You(Seller) Contact Buyer</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer Contact You(Seller)</text>
+                                                <br/>
+                                            </p>
 
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
+
                                             <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
                                             <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
                                             <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
 
                                                 <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
@@ -107,7 +109,9 @@
 
                             <div class="buttons">
 
-                                <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
+                                <button data-options="splash-2 splash-primary splash-ef-2"
+                                        ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
+                                        class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
                             </div>
                             <div class="view-and-contact">
                                 <p><text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong></text> <text class="grey-text"> : {{deal.bookViewCount}}</text><br/></p>
@@ -118,69 +122,77 @@
                     </div>
                 </div>
 
-                <div class="row" ng-show="deal.viewMoreInfo">
-                    <div class="col-md-12">
-                        <div class="archive-page-contact-history">
-                            <text class="box-title uppercase orange-text lato"><strong>Contact history - Seller (You) Contact Buyer</strong></text>
-                            <div class="contact-history-box">
-                                <table class="table contact-history-table">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 13%;">Date</th>
-                                        <th style="width: 13%;">Nickname</th>
-                                        <th style="width: 15%;">Email</th>
-                                        <th style="width: 13%;">CellPhone</th>
-                                        <th style="width: 13%;">HomePhone</th>
-                                        <th style="width: 33%;">Action</th>
-                                    </tr>
-                                    </thead>
 
-                                    <tbody data-ng-repeat="contact in deal.contacts">
-                                    <tr>
-                                        <td>{{contact.contactDateTime}}</td>
-                                        <td>{{contact.buyerNickName}}</td>
-                                        <td>{{contact.buyerEmail}}</td>
-                                        <td>{{contact.buyerCellPhone}}</td>
-                                        <td>{{contact.buyerHomePhone}}</td>
-                                        <td>
-                                            <button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
-                                            <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-
-                                        </td>
-                                    </tr>
-
-
-                                    <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                        <th colspan="2">Date</th>
-                                        <th>Nickname</th>
-                                        <th colspan="3">Message</th>
-                                    </tr>
-
-                                    <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                        <td colspan="2">{{message.messageDateTime}}</td>
-                                        <td>{{message.sender}}</td>
-                                        <td colspan="3">{{message.messageBody}}</td>
-                                    </tr>
-
-
-
-                                    </tbody>
-
-
-
-                                </table>
-
-                            </div>
-                        </div>
-                        <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Back</button></div>
-
-                    </div>
-                </div>
 
 
             </div>
 
 
+        </div>
+        <div class="row" ng-show="deal.viewMoreInfo">
+            <div class="col-md-12">
+                <div class="archive-page-contact-history">
+                    <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You(Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> Buyer Contact You(Seller) <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide his information to you as the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <div class="contact-history-box">
+                        <table class="table contact-history-table" cg-busy="{promise:messagePromise}">
+                            <thead>
+                            <tr>
+                                <th style="width: 13%;">Date</th>
+                                <th style="width: 13%;">Nickname</th>
+                                <th style="width: 15%;">Email</th>
+                                <th style="width: 13%;">CellPhone</th>
+                                <th style="width: 13%;">HomePhone</th>
+                                <th style="width: 33%;">Action</th>
+                            </tr>
+                            </thead>
+
+                            <tbody data-ng-repeat="contact in deal.contacts">
+                            <tr>
+                                <td>{{contact.contactDateTime}}</td>
+                                <td>{{contact.buyerNickName}}</td>
+                                <td>{{contact.buyerEmail}}</td>
+                                <td>{{contact.buyerCellPhone}}</td>
+                                <td>{{contact.buyerHomePhone}}</td>
+                                <td>
+                                    <text ng-show="!contact.showingMessages"><button  ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn"><i class="fa fa-envelope-o"></i> Messages</button><br/></text>
+                                    <text ng-show="contact.showingMessages"><button  ng-click="contact.showingMessages=false" class="myBtn app-btn green-btn contact-btn"><i class="fa fa-envelope-o"></i> Messages</button><br/></text>
+
+
+
+                                    <!--<button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
+                                    <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>-->
+
+                                </td>
+                            </tr>
+
+
+                            <tr ng-show="contact.showingMessages" class="message-header-tr">
+                                <th>Date</th>
+                                <th>Nickname</th>
+                                <th colspan="4">Message</th>
+                            </tr>
+
+                            <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
+                                <td>{{message.messageDateTime}}</td>
+                                <td>{{message.sender}}</td>
+                                <td colspan="4">{{message.messageBody}}</td>
+                            </tr>
+
+
+
+                            </tbody>
+
+
+
+                        </table>
+
+                    </div>
+                </div>
+                <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>
+
+            </div>
         </div>
 
     </div>
@@ -188,16 +200,9 @@
 
 
 
-
-
-
-
-
-
-
 <!--BUYER TO SELLER-->
 
-<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.buyerToSeller">
+<!--<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.buyerToSeller">
         <div class="container clearfix quote-container-homepage">
             <div class="row">
 
@@ -355,8 +360,23 @@
             </div>
 
         </div>
-    </div>
+    </div>-->
 
+<div class="section custom-pagination-section" ng-show="showPagination">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
+                                ng-change="changePage(currentPage)" class="search-page-pagination"
+                                boundary-links="true"
+                                rotate="false" num-pages="numPages"></uib-pagination>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 
 </div>
 </div>
@@ -382,18 +402,20 @@
     </div>
 </script>
 
-<script type="text/ng-template" id="sellingModalContent">
-     <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
-     </div>
+
+<script type="text/ng-template" id="deleteModalContent">
+    <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">You want to Delete This Book Deal?</h3>
+    </div>
     <div class="modal-body">
 
-        <p>You Sure you want to sell this book to this user ?</p>
-        <p>Once Sold You can see the book on the Selling Archive Page</p>
+        <p>You Sure you want to Delete "{{src.deal.bookTitle}}" ?</p>
+        <p>Once deleted all the content regarding this book deal will be erased. There is no way you can retrieve the data regarding this book deal after that.</p>
+
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(deleteBookDeal,src)" >
             <i class="fa fa-check" ></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
