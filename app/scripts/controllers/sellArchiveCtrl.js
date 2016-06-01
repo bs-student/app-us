@@ -13,6 +13,7 @@
             $state.go("app.login");
         }
 
+        $scope.showPagination=false;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];
@@ -27,8 +28,16 @@
         $scope.nextPage = _nextPage;
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
-        init();
 
+
+        //Pagination
+
+        $scope.changePage=_changePage;
+        $scope.maxSize = 10;
+        $scope.totalSearchResults = 0;
+        $scope.currentPage = 1;
+
+        init($scope.currentPage);
 
         // Set Carousel
         function setCarousel() {
@@ -91,9 +100,17 @@
         }
 
 
-        function init(){
-            ($scope.sellingBookPromise=bookDealService.getBookDealsOfMineWhichAreSold(identityService.getAccessToken())).then(function(response){
-                $scope.campusBookDeals = response.data.success.successData;
+        function init(currentPage){
+
+            var data={
+                "pageNumber": currentPage,
+                "pageSize": $scope.maxSize
+            };
+
+            ($scope.sellingBookPromise=bookDealService.getBookDealsOfMineWhichAreSold(identityService.getAccessToken(),data)).then(function(response){
+                $scope.campusBookDeals = response.data.success.successData.result;
+                $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                $scope.showPagination=true;
                 setCarousel();
 
             }).catch(function (response) {
@@ -103,7 +120,7 @@
                 } else if (response.data.error_description == "The access token provided has expired.") {
                     identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                         identityService.setAccessToken(response.data);
-                        init();
+                        init(currentPage);
                     });
                 } else if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
@@ -116,6 +133,40 @@
 
 
         }
+
+        function _changePage(currentPage) {
+
+            var data={
+                "pageNumber": currentPage,
+                "pageSize": $scope.maxSize
+            };
+
+            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMineWhichAreSold(identityService.getAccessToken(),data)).then(function(response){
+                $scope.campusBookDeals = response.data.success.successData.result;
+                $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                setCarousel();
+
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _changePage(currentPage)
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+
+
+        }
+
 
         function _getMessages(contact){
 
