@@ -107,7 +107,7 @@
 
                         <div class="other-news-post">
                             <div class="entry-title text-left">
-                                <h2><a class="lato px-25 orange-text">{{news.newsTitle | limitTo:40}}...</a></h2>
+                                <h2><a ui-sref="app.newsDetails({newsId:news.newsId})" class="lato px-25 orange-text">{{news.newsTitle | limitTo:40}}...</a></h2>
                             </div>
 
                             <p class="Lato px-16">{{news.newsDateTime}}</p>
@@ -187,7 +187,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h5 class="media-heading"><a href="#">{{item.newsDescription | limitTo:25}}...</a>
+                            <h5 class="media-heading"><a ui-sref="app.newsDetails({newsId:item.newsId})">{{item.newsTitle | limitTo:25}}...</a>
                             </h5>
 
                             <p>{{item.newsDateTime}}</p>
