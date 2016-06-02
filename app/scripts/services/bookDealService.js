@@ -39,8 +39,8 @@
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD+"?access_token="+accessToken,data);
         }
 
-        function _getBookDealsOfMineWhichAreBought(accessToken){
-            return apiService.get(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_BOUGHT+"?access_token="+accessToken);
+        function _getBookDealsOfMineWhichAreBought(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_BOUGHT+"?access_token="+accessToken,data);
         }
 
         function _changeBookDealStatus(accessToken,data){
