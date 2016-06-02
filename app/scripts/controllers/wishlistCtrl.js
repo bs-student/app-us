@@ -5,9 +5,9 @@
     app
         .controller('WishListCtrl', WishListCtrl);
 
-    WishListCtrl.$inject = ['$scope','identityService','responseService','wishListService','imageModalService','SERVER_CONSTANT'];
+    WishListCtrl.$inject = ['$state','$scope','identityService','responseService','wishListService','imageModalService','SERVER_CONSTANT'];
 
-    function WishListCtrl($scope, identityService,responseService,wishListService,imageModalService,SERVER_CONSTANT) {
+    function WishListCtrl($state,$scope, identityService,responseService,wishListService,imageModalService,SERVER_CONSTANT) {
 
         if(!$scope.$parent.loggedIn){
             $state.go("app.login");
@@ -22,11 +22,14 @@
         $scope.showDeleteModal = _showDeleteModal;
         $scope.deleteBookFromWishList=_deleteBookFromWishList;
 
+
+
         init();
 
-
         function init(){
-            wishListService.getMyWishList(identityService.getAccessToken()).then(function(response){
+
+
+            ($scope.sellingBookPromise=wishListService.getMyWishList(identityService.getAccessToken())).then(function(response){
                 $scope.wishListBooks = response.data.success.successData;
 
             }).catch(function (response) {
@@ -34,7 +37,7 @@
                 if (response.data.error_description == "The access token provided is invalid.") {
 
                 } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                    ($scope.sellingBookPromise=identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                         identityService.setAccessToken(response.data);
                         init();
                     });
@@ -62,8 +65,8 @@
             var json={
                 accessToken:identityService.getAccessToken(),
                 bookId:data.book.bookId
-            }
-            wishListService.removeWishListItem(json).then(function(response){
+            };
+            ($scope.sellingBookPromise=wishListService.removeWishListItem(json)).then(function(response){
                 responseService.showSuccessToast(response.data.success.successTitle);
 
                 $scope.wishListBooks.splice($scope.wishListBooks.indexOf(data.book),1);
@@ -73,7 +76,7 @@
                 if (response.data.error_description == "The access token provided is invalid.") {
 
                 } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                    ($scope.sellingBookPromise=identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                         identityService.setAccessToken(response.data);
                         _deleteBookFromWishList(data);
                     });

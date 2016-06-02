@@ -17,7 +17,7 @@
 
 
 <!--SELLER TO BUYER-->
-
+    <div class="selling-book-promise-div" cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
 <div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in wishListBooks">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
@@ -110,7 +110,21 @@
     </div>
 </div>
 
+        <div class="section custom-pagination-section" ng-show="showPagination">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
+                                        ng-change="changePage(currentPage)" class="search-page-pagination"
+                                        boundary-links="true"
+                                        rotate="false" num-pages="numPages"></uib-pagination>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -130,6 +144,23 @@
 </section>
 
 
+<script type="text/ng-template" id="myModalContent">
+    <!-- <div class="modal-header">
+         <h3 class="modal-title custom-font white-text">{{title}}</h3>
+     </div>-->
+    <div class="modal-body">
+
+        <div class="modal-images">
+            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
+                class="fa fa-arrow-right"></i> Ok
+        </button>
+    </div>
+</script>
 
 <script type="text/ng-template" id="deleteModalContent">
      <div class="modal-header">
