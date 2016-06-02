@@ -2790,3 +2790,17 @@ a.simple-continue-reading-button:hover{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
+/********************************************/
+/*                My SellPage                 */
+/*********************************************/
+
+
+.search-page-options .input-group{
+    width: 350px;
+}
+
+.search-page-options .input-group-btn:last-child > .btn, .search-page-options .input-group-btn:last-child > .btn-group{
+    height: 38px;
+}

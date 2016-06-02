@@ -139,7 +139,8 @@
             "CHANGE_BOOK_DEAL_STATUS":"/api/book_deal/change_book_deal_status",
             "GET_LOWEST_CAMPUS_DEAL_PRICE":"/api/book_deal/get_lowest_campus_deal_price",
             "UPDATE_BOOK_DEAL":"/api/book_deal/update_book_deal",
-            "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal"
+            "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal",
+            "GET_ACTIVATED_BOOK_DEAL_OF_USER":"/book_deal/get_activated_book_deal_of_user"
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",

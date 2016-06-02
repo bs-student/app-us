@@ -445,41 +445,6 @@ var app = angular
                 controller: 'NewsDetailsCtrl',
                 templateUrl: 'views/news/news_details.html'
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Edit Book Deal
             .state('app.editBookDeal', {
                 url: '^/editBookDeal',
@@ -491,6 +456,46 @@ var app = angular
             })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //My Sells Page
+            .state('app.mySellPage', {
+                url: '^/:username',
+                controller: 'MySellPageCtrl',
+                templateUrl: 'views/web/my_sell_page.html'
+            })
 
 
 

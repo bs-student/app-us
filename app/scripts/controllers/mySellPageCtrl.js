@@ -3,40 +3,27 @@
     'use strict';
 
     app
-        .controller('SellingBookListCtrl', SellingBookListCtrl);
+        .controller('MySellPageCtrl', MySellPageCtrl);
 
-    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT'];
+    MySellPageCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT','wishListService'];
 
-    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
-
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+    function MySellPageCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT,wishListService) {
 
         $scope.showPagination=false;
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];
-
+        $scope.sortType = "bookTitle";
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
-        $scope.getMessages= _getMessages;
-        $scope.sendMessage= _sendMessage;
-
-        $scope.showMarkAsSoldModal = _showMarkAsSoldModal;
-        $scope.markUserAsBuyerOfThatDeal = _markUserAsBuyerOfThatDeal;
-
-        $scope.showBookDealChangeStatusModal = _showBookDealChangeStatusModal;
-        $scope.changeBookDealStatus = _changeBookDealStatus;
-
-        $scope.showDeleteBookDealModal=_showDeleteBookDealModal;
-        $scope.deleteBookDeal=_deleteBookDeal;
 
         $scope.prevPage = _prevPage;
         $scope.nextPage = _nextPage;
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
 
+        $scope.search= _search;
+        $scope.saveToWishList=_saveToWishList;
 
 
         //Pagination
@@ -45,8 +32,9 @@
         $scope.maxSize = 10;
         $scope.totalSearchResults = 0;
         $scope.currentPage = 1;
+        $scope.searchQuery="";
 
-        init($scope.currentPage);
+        init($scope.currentPage,$scope.searchQuery);
 
         // Set Carousel
         function setCarousel() {
@@ -110,14 +98,17 @@
         }
 
 
-        function init(currentPage){
+        function init(currentPage,searchQuery){
 
             var data={
                 "pageNumber": currentPage,
-                "pageSize": $scope.maxSize
+                "pageSize": $scope.maxSize,
+                "username":$stateParams.username,
+                "keyword":searchQuery
             };
-            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(),data)).then(function(response){
+            ($scope.sellingBookPromise = bookDealService.getActivatedBookDealsOfUser(data)).then(function(response){
                 $scope.campusBookDeals = response.data.success.successData.result;
+                $scope.user = response.data.success.successData.userData;
                 $scope.totalSearchResults = response.data.success.successData.totalNumber;
                 $scope.showPagination=true;
                 setCarousel();
@@ -176,57 +167,20 @@
 
         }
 
-        function _getMessages(contact){
-
-            var data={
-                accessToken:identityService.getAccessToken(),
-                contactId:contact.contactId
-            };
-            ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
-                contact.messages = response.data.success.successData;
-                contact.messages.push({'messageBody':" "});
-                contact.showingMessages = true;
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _getMessages(deal);
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-
-            });
+        function _search(searchQuery){
+            init(1,searchQuery);
         }
-        function _sendMessage(valid,contact){
 
-            if(valid){
-                var data={
-                    message: contact.message,
-                    accessToken:identityService.getAccessToken(),
-                    contactId:contact.contactId
-                };
-                ($scope.messagePromise=contactService.sendMessages(data)).then(function(response){
-                    responseService.showSuccessToast("Message is Sent");
-                    if(contact.messages!=undefined){
-                        contact.messages.pop();
-                        contact.messages.push(response.data.success.successData);
-                        contact.messages.push({'messageBody':""});
-                    }
-                    contact.sendingMessages=false;
+        function _saveToWishList(deal){
+            if($scope.$parent.loggedIn){
+                ($scope.sellingBookPromise = wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:deal.bookId})).then(function(response){
+                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                 }).catch(function (response) {
 
-                    if (response.data.error_description == "The access token provided is invalid.") {
-
-                    } else if (response.data.error_description == "The access token provided has expired.") {
+                    if (response.data.error_description == "The access token provided has expired.") {
                         identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                             identityService.setAccessToken(response.data);
-                            _sendMessage(valid,deal);
+                            _saveToWishList(deal)
                         });
                     } else if (response.data.error != undefined) {
                         responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
@@ -235,119 +189,12 @@
                     }
 
                 });
-            }
-
-        }
-
-        function _showMarkAsSoldModal(event, modalTemplate,data){
-            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
-        }
-
-        function _markUserAsBuyerOfThatDeal(paramData){
-
-
-            var data = {
-                'contactId':paramData.contact.contactId
-            };
-            ($scope.messagePromise=bookDealService.sellBookToUser(identityService.getAccessToken(),data)).then(function(response){
-                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-                $scope.campusBookDeals.splice($scope.campusBookDeals.indexOf(paramData.deal),1);
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _markUserAsBuyerOfThatDeal(paramData);
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-
-            });
-
-        }
-
-        function _showBookDealChangeStatusModal(event, modalTemplate,data){
-            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
-        }
-
-
-        function _changeBookDealStatus(paramData){
-
-            if(paramData.deal.bookStatus=="Activated"){
-                var data = {
-                    'bookDealId':paramData.deal.bookDealId,
-                    'bookStatus':"Deactivated"
-                };
             }else{
-                var data = {
-                    'bookDealId':paramData.deal.bookDealId,
-                    'bookStatus':"Activated"
-                };
+                $state.go("app.login",{bookId:deal.bookId});
             }
 
-            ($scope.sellingBookPromise = bookDealService.changeBookDealStatus(identityService.getAccessToken(),data)).then(function(response){
-                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-
-                if(paramData.deal.bookStatus=="Activated"){
-                    $scope.campusBookDeals[$scope.campusBookDeals.indexOf(paramData.deal)].bookStatus = "Deactivated";
-                }else{
-                    $scope.campusBookDeals[$scope.campusBookDeals.indexOf(paramData.deal)].bookStatus = "Activated";
-                }
-
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _changeBookDealStatus(paramData);
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-
-            });
         }
 
-
-        function _showDeleteBookDealModal(event, modalTemplate,data){
-            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
-        }
-
-
-        function _deleteBookDeal(paramData){
-
-
-            ($scope.sellingBookPromise = bookDealService.deleteBookDeal(identityService.getAccessToken(),{"bookDealId":paramData.deal.bookDealId})).then(function(response){
-                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-
-                $scope.campusBookDeals.splice($scope.campusBookDeals.indexOf(paramData.deal),1);
-
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _changeBookDealStatus(paramData);
-                    });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
-
-            });
-        }
 
     }
 

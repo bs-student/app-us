@@ -18,7 +18,8 @@
             changeBookDealStatus:_changeBookDealStatus,
             getLowestCampusDealPrice:_getLowestCampusDealPrice,
             updateBookDeal:_updateBookDeal,
-            deleteBookDeal:_deleteBookDeal
+            deleteBookDeal:_deleteBookDeal,
+            getActivatedBookDealsOfUser:_getActivatedBookDealsOfUser
 
         };
 
@@ -62,6 +63,11 @@
         function _deleteBookDeal(accessToken,data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.DELETE_BOOK_DEAL+"?access_token="+accessToken,data);
         }
+
+        function _getActivatedBookDealsOfUser(data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_ACTIVATED_BOOK_DEAL_OF_USER,data);
+        }
+
 
     }
 
