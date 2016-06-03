@@ -214,16 +214,13 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div  ng-class="{ 'has-error' : step1.comment.$invalid && !step1.comment.$pristine, 'has-success' : step1.comment.$valid && !contactForm.comment.$pristine}">
+                                                        <div >
 
                                                             <textarea class="form-control"
                                                                       rows="5" name="comment"  ng-model="book.comment"
-                                                                      on-blur-validation="" required aria-multiline="true"></textarea>
+                                                                      aria-multiline="true"></textarea>
 
-                                                            <p class="help-block">
-                                                                <span  ng-show="step1.comment.$invalid && !step1.comment.$pristine">Comment is Required.</span>
 
-                                                            </p>
                                                         </div>
                                                     </div>
 
@@ -530,19 +527,7 @@
                                     </div>
                                     <br/>
 
-                                    <div ng-class="{ 'has-error' : step3.agreedOnTermsAndConditions.$invalid && !step3.agreedOnTermsAndConditions.$pristine, 'has-success' : step3.agreedOnTermsAndConditions.$valid && !step3.agreedOnTermsAndConditions.$pristine}">
-                                        <label class="checkbox checkbox-custom">
-                                            <input type="checkbox" name="agreedOnTermsAndConditions" ng-model="book.agreedOnTermsAndConditions" required><i></i> I do hereby swear that I am the rightful owner of the book I am selling.
-                                            I am aware that other students may get my contact information depending
-                                            upon the contact method I chose.
-                                        </label>
-                                        <!--{{step3}}-->
-                                        <!--{{step3.agreedOnTermsAndConditions.$invalid}}-->
-                                        <p class="help-block">
-                                            <span ng-show="step3.agreedOnTermsAndConditions.$invalid && !step3.agreedOnTermsAndConditions.$pristine">You have to agree.</span>
 
-                                        </p>
-                                    </div>
 
                                 </div>
 
@@ -690,7 +675,7 @@
 
 
                 <div class="sell-book-form-div">
-                    <form name="step5" role="form" ng-submit="finalSubmit(step1.$valid,step2.$valid,step3.$valid)" submit-validate novalidate class="form-validation">
+                    <form name="step5" role="form" ng-submit="finalSubmit(step1.$valid,step2.$valid,step3.$valid,step5.$valid)" submit-validate novalidate class="form-validation">
                         <div class="step1">
                             <div class="row">
 
@@ -826,6 +811,25 @@
                                         <!--<img data-ng-src="http://ecx.images-amazon.com/images/I/51qhWqPSpzL.jpg">-->
 
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row agree-row">
+                                <div class="col-md-12">
+
+
+                                <div ng-class="{ 'has-error' : step5.agreedOnTermsAndConditions.$invalid && !step5.agreedOnTermsAndConditions.$pristine, 'has-success' : step5.agreedOnTermsAndConditions.$valid && !step5.agreedOnTermsAndConditions.$pristine}">
+                                    <label class="checkbox checkbox-custom">
+                                        <input type="checkbox" name="agreedOnTermsAndConditions" ng-model="book.agreedOnTermsAndConditions" required><i></i> I do hereby swear that I am the rightful owner of the book I am selling.
+                                        I am aware that other students may get my contact information depending
+                                        upon the contact method I chose.
+                                    </label>
+                                    <!--{{step3}}-->
+                                    <!--{{step3.agreedOnTermsAndConditions.$invalid}}-->
+                                    <p class="help-block">
+                                        <span ng-show="step5.agreedOnTermsAndConditions.$invalid && !step5.agreedOnTermsAndConditions.$pristine">You have to agree.</span>
+
+                                    </p>
+                                </div>
                                 </div>
                             </div>
 

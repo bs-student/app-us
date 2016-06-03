@@ -192,7 +192,7 @@
         }
 
 
-        function _finalSubmit(step1Valid,step2Valid,step3Valid){
+        function _finalSubmit(step1Valid,step2Valid,step3Valid,step5Valid){
 
             var error =false;
 
@@ -204,6 +204,8 @@
                 error=true;
             }else if(!step3Valid){
                 responseService.showErrorToast("Please Fill Up Deal TErms Form Correctly.");
+                error=true;
+            }else if(!step5Valid){
                 error=true;
             }
 
