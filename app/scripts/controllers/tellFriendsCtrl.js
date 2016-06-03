@@ -3,37 +3,56 @@
     'use strict';
 
     app
-        .controller('ContactUsCtrl', ContactUsCtrl);
+        .controller('TellFriendsCtrl', TellFriendsCtrl);
 
-    ContactUsCtrl.$inject = ['$state', '$scope','responseService','contactUsService'];
+    TellFriendsCtrl.$inject = ['$state', '$scope','responseService','contactUsService'];
 
-    function ContactUsCtrl($state, $scope,responseService,contactUsService) {
+    function TellFriendsCtrl($state, $scope,responseService,contactUsService) {
 
 
 
         $scope.$parent.headerStyle = "dark";
-        $scope.$parent.activePage = "helpAndSafety";
+        $scope.$parent.activePage = "howItWorks";
 
+        $scope.addNewFriendEmail = _addNewFriendEmail;
+        $scope.removeFriendEmail = _removeFriendEmail ;
+        $scope.sendMails=_sendMails;
 
-        $scope.sendMessage=_sendMessage;
+        $scope.friendEmails =
+            [
+                {
+                    email:" ",
+                    remove : false
+                }
+            ];
 
-        function _sendMessage(valid){
+        function _addNewFriendEmail() {
+            $scope.friendEmails.push({
+                email:" ",
+                remove : true
+            });
+        }
+        function _removeFriendEmail (email){
+            console.log($scope.friendEmails.indexOf(email));
+            $scope.friendEmails.splice($scope.friendEmails.indexOf(email),1);
+        }
+
+        function _sendMails(valid){
             if(valid){
                 var data={
-                    "fullName": $scope.fullName,
-                    "email": $scope.email,
-                    "subject": $scope.subject,
-                    "message": $scope.message,
-                    "want": $scope.want
+                    "fullName": $scope.user.fullName,
+                    "email": $scope.user.email,
+                    "message": $scope.user.message,
+                    "key": $scope.user.key,
+                    "friendEmails": $scope.friendEmails
                 };
 
-                ($scope.contactUsPromise = contactUsService.sendContactUsMessage(data)).then(function(response){
+                ($scope.contactUsPromise = contactUsService.sendMailsToFriends(data)).then(function(response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                     $state.go('app.dashboard');
                 }).catch(function (response){
                     responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
                 });
-
             }
         }
 

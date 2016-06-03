@@ -2808,3 +2808,49 @@ a.simple-continue-reading-button:hover{
 .search-page-options .input-group-btn:last-child > .btn, .search-page-options .input-group-btn:last-child > .btn-group{
     height: 38px;
 }
+/********************************************/
+/*                Tell Friends              */
+/*********************************************/
+.tell-friends-share-div a.facebook{
+    background: #0073AE;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 55px;
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+.tell-friends-share-div a.twitter{
+    background: #61C2FF;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 55px;
+    color: #FFFFFF;
+    margin-left: 20px;
+}
+.email-template-view{
+    background: #FFFFFF;
+
+}
+.email-template-text{
+    padding: 20px;
+}
+.email-template-text ul{
+    padding-left: 20px;
+}
+.login-page-quotation.email-template-div{
+    padding: 0px;
+}
+.email-template-view .footer-text{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.email-template-text .header-text{
+    margin-bottom: 10px;
+}

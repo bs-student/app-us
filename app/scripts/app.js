@@ -454,40 +454,12 @@ var app = angular
                     "book": null
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //Tell My Friends
+            .state('app.tellFriends', {
+                url: '^/tellFriends',
+                controller: 'TellFriendsCtrl',
+                templateUrl: 'views/web/tell_friends.html'
+            })
 
 
             //My Sells Page
@@ -496,6 +468,43 @@ var app = angular
                 controller: 'MySellPageCtrl',
                 templateUrl: 'views/web/my_sell_page.html'
             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

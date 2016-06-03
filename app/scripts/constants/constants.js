@@ -80,7 +80,8 @@
             "COUNTRY_LIST": "/country/list"
         })
         .constant("CONTACT_US_CONSTANT", {
-            "SEND_CONTACT_MESSAGE": "/contactus/send_message"
+            "SEND_CONTACT_MESSAGE": "/contactus/send_message",
+            "SEND_MAILS_TO_FRIENDS":"/contactus/send_mails_to_friends"
         })
         .constant("SECURITY_CONSTANT", {
             "LOGOUT": "/logout",

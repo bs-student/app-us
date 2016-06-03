@@ -8,7 +8,12 @@
             <div class="col-md-12">
 
 
-                <p class="text-white mid-two-header">Log In</p>
+                <p class="text-white mid-two-header">Tell Your Friends</p>
+
+                <div class="text-center tell-friends-share-div">
+                    <a class="facebook" href=""><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href=""><i  class="fa fa-twitter"></i></a>
+                </div>
 
 
             </div>
@@ -16,116 +21,171 @@
 
         </div>
         <div class="row">
-            <div class="col-md-6 login-page-col-div col-md-push-6">
+            <div class="col-md-6 login-page-col-div">
 
-                <div class="login-page-dark-div login-page-form">
-                    <form name="loginForm" class="form-horizontal" submit-validate
-                          ng-submit="loginUser(loginForm.$valid)" role="form" novalidate>
+                <div cg-busy="{promise:contactUsPromise}" class="login-page-dark-div login-page-form">
+                    <form name="sendEmail" class="form-horizontal" submit-validate
+                          ng-submit="sendMails(sendEmail.$valid)" role="form" novalidate>
 
-
-                        <!--<div class="form-group">
-                            <span class="text text-center text-danger">{{credential_error}}</span>
-                        </div>-->
 
                         <div class="form-group"
-                             ng-class="{ 'has-error' : loginForm._username.$invalid && !loginForm._username.$pristine, 'has-success' : loginForm._username.$valid && !contactForm._username.$pristine}">
-                            <p class="white-text ">Email or Username :</p>
+                             ng-class="{ 'has-error' : sendEmail.fullName.$invalid && !sendEmail.fullName.$pristine, 'has-success' : sendEmail.fullName.$valid && !contactForm.fullName.$pristine}">
+                            <p class="white-text ">Your Full Name:</p>
 
-                            <input name="_username" type="text" class="form-control input-style"
-                                   placeholder="Username / Email" ng-model="user._username" required>
+                            <input name="fullName" type="text" class="form-control input-style"
+                                   placeholder="Your Full Name" ng-model="user.fullName" required>
 
                             <p class="help-block">
-                                <span ng-show="loginForm._username.$invalid && !loginForm._username.$pristine">Username or Email is required.</span>
+                                <span ng-show="sendEmail.fullName.$invalid && !sendEmail.fullName.$pristine">Your Full Name is required.</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : sendEmail.email.$invalid && !sendEmail.email.$pristine, 'has-success' : sendEmail.email.$valid && !contactForm.email.$pristine}">
+                            <p class="white-text ">Your Email:</p>
+
+                            <input name="email" type="email" class="form-control input-style"
+                                   placeholder="Your Email" ng-model="user.email" required>
+
+                            <p class="help-block">
+                                <span ng-show="sendEmail.email.$invalid && !sendEmail.email.$pristine">Your Email is required.</span>
                             </p>
                         </div>
 
 
-                        <div class="form-group"
-                             ng-class="{ 'has-error' : loginForm._password.$invalid && !loginForm._password.$pristine, 'has-success' : loginForm._password.$valid && !contactForm._password.$pristine}">
-                            <p class="white-text ">Password :</p>
+                        <div data-ng-repeat="friendEmail in friendEmails track by $index" ng-form="addRowForm">
 
-                            <input name="_password" type="password" class="form-control input-style"
-                                   placeholder="Password" ng-model="user._password" required>
+                            <div class="row">
+
+                                <div class="form-group col-md-6"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (sendEmail.$submitted && addRowForm.email.$invalid && addRowForm.email.$pristine)||
+                                                        (addRowForm.email.$invalid && !addRowForm.email.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.email.$valid && !addRowForm.email.$pristine}">
+                                    <p class="white-text">Friend Email: </p>
+
+                                    <input type="email" class="form-control input-style" name="email"
+
+                                           ng-model="friendEmail.email" required>
+
+                                    <p class="help-block">
+                                        <span ng-show="(sendEmail.$submitted && addRowForm.email.$invalid && addRowForm.email.$pristine)||(addRowForm.email.$invalid && !addRowForm.email.$pristine)">Email is required.</span>
+
+                                    </p>
+                                </div>
+
+
+
+
+
+                                <div ng-if="friendEmail.remove" class="form-group col-md-6 float-right">
+                                    <p class="white-text text-right" for="state">&nbsp;</p>
+                                    <button type="button"
+                                            class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                                            ng-click="removeFriendEmail(friendEmail)"><i class="fa fa-trash"></i>
+                                        <span>Remove Email</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr/>
+
+
+                        </div>
+                        <div class="form-group ">
+                            <button type="button" class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                                    ng-click="addNewFriendEmail()"><i
+                                    class="fa fa-plus"></i> <span>Add New Email</span></button>
+                        </div>
+
+
+
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : sendEmail.message.$invalid && !sendEmail.message.$pristine, 'has-success' : sendEmail.message.$valid && !contactForm.message.$pristine}">
+                            <p class="white-text ">Your Message:</p>
+
+                            <textarea name="message" type="text" class="form-control input-style"
+                                   placeholder="Your Message" ng-model="user.message" required></textarea>
 
                             <p class="help-block">
-                                <span ng-show="loginForm._password.$invalid && !loginForm._password.$pristine">Password is required.</span>
+                                <span ng-show="sendEmail.message.$invalid && !sendEmail.message.$pristine">Your Message is required.</span>
+                            </p>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':sendEmail.recaptcha.$invalid && !sendEmail.recaptcha.$pristine}">
+                            <div    name="recaptcha"
+                                    vc-recaptcha
+                                    ng-model="user.key"
+                                    required
+                                    ></div>
+                            <p class="help-block">
+                                <span  ng-show="sendEmail.recaptcha.$invalid && !sendEmail.recaptcha.$pristine">Captcha is required.</span>
                             </p>
                         </div>
 
 
+
                         <div class="form-group text-left mt-20">
-                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Login</button>
-                            <label class="checkbox checkbox-custom checkbox-custom-sm inline-block white-text">
-                                <input type="checkbox"><i></i> Remember me
-                            </label>
-                            <a ui-sref="app.forgotPassword" class="pull-right mt-10">Forgot Password?</a>
+                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Send Email</button>
+
                         </div>
 
 
-                        <div class="form-group text-left mt-20">
-                            <p class="white-text lato">Or Login with</p>
-
-                            <button ng-click="loginSocial('facebook')" type="button" class="myBtn orange-btn facebook-btn"><i class="fa fa-facebook"></i></button>
-                            <button ng-click="loginSocial('google')" type="button" class="myBtn orange-btn google-btn"><i class="fa fa-google-plus"></i></button>
-
-                        </div>
 
                     </form>
 
-                    <div class="text-center white-text">
-                        Not a member yet ? <a ui-sref="app.signup">Join Now</a>
-                    </div>
+
                 </div>
 
 
             </div>
-            <div class="col-md-6 login-page-col-div col-md-pull-6">
+            <div class="col-md-6 login-page-col-div ">
 
-                <div class="login-page-dark-div login-page-quotation">
-                    <div class="fslider" data-animation="slide" data-arrows="false">
-                        <div class="flexslider reference-slider">
-                            <div class="slider-wrap">
-                                <flex-slider slide="item in peopleQuoteItems track by item.id" animation="slide">
-                                    <li>
-                                        <div class="slide">
-                                            <div class="media">
+                <div class="login-page-dark-div login-page-quotation email-template-div">
+                    <div class="email-template-view">
+                    <img width="100%" data-ng-src="dist/images/tell_friend/header.jpg"/>
+                    <div class="row email-template-text">
+                        <div class="col-md-8">
+                            <h4 class="blue-text lato header-text">Hello my Friend,</h4>
+                            <p class="blue-text">Check out this service... just for students!</p>
+                            <p class="blue-text">No! This is not another bookstore trying to get your used textbooks for almost nothing!</p>
+                            <p class="blue-text">I am sick of getting ripped-off by the bookstores, so I decided to sell my textbooks directly to all the students on-campus.</p>
+                            <ul class="blue-text">
+                                <li>List books you want to sell, find books you need.</li>
+                                <li>Promote your own textbook Selling Page.</li>
+                                <li>Meet on-campus to do the deal.</li>
+                                <li>Interact directly with students. Pay cash.</li>
+                                <li>No shipping. No credit cards.</li>
+                                <li>Use the online textbook price comparison.</li>
+                                <li>IT'S TOTALLY FREE!</li>
+                                <li>Check out the 2 minute "How it Works":<br/>
+                                    <a ui-sref="app.conceptVideo">Watch Now!</a></li>
+                            </ul>
+                            <p class="blue-text">Don't waste money, buy directly from students.</p>
+                            <p class="blue-text">... tell your friends, tell your classmates, tell the world... the more members we get, the more everyone will SAVE!</p>
+                            <p class="blue-text">It's time to take back the bookstore! Cutout the middleman and spend your money on something better!!! Or do you like to get ripped-off?</p>
 
-                                                <div class="media-body">
+                            <text class="blue-text">
+                                Cheers,<br/>
+                                {{user.fullName}}<br/>
+                                {{user.email}}
+                            </text>
+                        </div>
+                        <div class="col-md-4">
 
-                                                    <div class="mid-three-people-quote login-page-quote">
-                                                        <div class="display-flex">
-                                                            <div><i class="fa fa-quote-left fa-4x"
-                                                                    style="font-style: italic"></i></div>
-                                                            <div class="login-page-quote-text">{{item.peopleQuote}}
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="display-flex">
-                                                            <div class="login-page-student-img media-left">
-                                                                <img class="media-object thumb img-circle" alt=""
-                                                                     ng-src="{{item.peopleImg}}">
-                                                            </div>
-                                                            <div class="mid-three-people-name">
-                                                                <strong>{{item.peopleName}} </strong>,
-                                                                <span>{{item.peopleType}}</span>
-                                                            </div>
-                                                        </div>
+                            <a ui-sref="app.signup"><img width="100%" data-ng-src="dist/images/tell_friend/joinButton.jpg"/></a><br/><br/>
+                            <text class="lato italic blue-text">Personal Message for you:</text><br/>
+                            <text class="lato blue-text">{{user.message}}</text>
+                        </div>
 
 
-                                                    </div>
+                    </div>
 
-                                                    <!--<div class="mid-three-people">
-
-
-
-                                                    </div>-->
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </flex-slider>
-                            </div>
+                    <img width="100%" data-ng-src="dist/images/tell_friend/share.jpg"/>
+                    <img width="100%" data-ng-src="dist/images/tell_friend/footer.jpg"/>
+                        <div class="text-center footer-text">
+                            <text >2007-2016 Student 2 Student, All Rights Reserved</text>
                         </div>
                     </div>
                 </div>

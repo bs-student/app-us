@@ -111,6 +111,7 @@ var assets = {
         "app/scripts/controllers/newsDetailsCtrl.js",
         "app/scripts/controllers/bookDealEditCtrl.js",
         "app/scripts/controllers/mySellPageCtrl.js",
+        "app/scripts/controllers/tellFriendsCtrl.js",
 
 
 
