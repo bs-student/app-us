@@ -18,7 +18,20 @@
         $scope.$parent.activePage = "sellBook";
 
         $scope.book=[];
-        $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+
+
+        if(identityService.getAuthorizedUserData().standardEmail!=undefined){
+            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().standardEmail;
+            $scope.email =identityService.getAuthorizedUserData().standardEmail;
+        }else{
+            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+            $scope.email =identityService.getAuthorizedUserData().email;
+        }
+
+        $scope.book.contactInfoHomePhone =identityService.getAuthorizedUserData().standardHomePhone;
+        $scope.book.contactInfoCellPhone =identityService.getAuthorizedUserData().standardCellPhone;
+
+//        $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
 
 //        if($stateParams.book==null){
 //            responseService.showErrorToast("No Book was found");
@@ -37,9 +50,9 @@
         $scope.nextStep=_nextStep;
         $scope.backToStep = _backToStep;
 
-        if(identityService.getAuthorizedUserData()!=null){
-            $scope.email=identityService.getAuthorizedUserData().email;
-        }
+//        if(identityService.getAuthorizedUserData()!=null){
+//            $scope.email=identityService.getAuthorizedUserData().email;
+//        }
 
 
         //DatePicker

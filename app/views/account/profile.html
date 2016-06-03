@@ -33,155 +33,275 @@
 
 </div>
 
+<section id="content">
 
-<section class="concept-page" id="content">
+<div class="content-wrap contact-us-page-content-wrap">
 
+<div class="container clearfix">
 
-    <div class="content-wrap mid-section">
-
-
-        <div class="section m-0 pt-0 mid-one safety-first-section scam-fraud-section">
-            <div class="container clearfix quote-container-homepage">
-                <div class="row">
-                    <div class="col-md-12">
+<div class="row">
 
 
+<!-- BLOG POSTS -->
+<div cg-busy="{promise:profilePromise}" class="col-sm-9 blog-posts contact-us-form-div">
 
-                        <br/>
+    <div class="contact-page-left-side profile-page">
 
-                        <br/><br/>
+        <div class="row">
+            <div class="col-md-8">
+                <h1 ng-show="!updatingProfile" class="lato form-page-header">Profile</h1>
 
+                <h1 ng-show="updatingProfile" class="lato form-page-header">Update Profile</h1>
 
+            </div>
+            <div class="col-md-4">
+                <a ng-show="!updatingProfile" ui-sref="app.changePassword" class="myBtn orange-btn max-large-btn"><i
+                        class="fa fa-cog"></i> Change Password</a>
+                <button ng-show="!updatingProfile" ng-click="editProfile(user)"
+                        class="myBtn orange-btn max-large-btn"><i class="fa fa-pencil-square-o"></i> Update Profile Info
+                </button>
 
-                        <form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
-                            <table class="table table-bordered table-striped">
+                <button ng-show="updatingProfile" class="myBtn orange-btn max-large-btn"><i class="fa fa-check"></i>
+                    Save Profile Info
+                </button>
+                <button ng-show="updatingProfile" ng-click="cancelEditProfile()"
+                        class="myBtn orange-btn max-large-btn"><i class="fa fa-times"></i> Cancel
+                </button>
 
-                                <tr>
-
-                                    <th >Full Name</th>
-                                    <td ng-if="!editingFullName">{{user.fullName}}</td>
-                                    <td ng-if="editingFullName" ng-class="{ 'has-error' : updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine, 'has-success' : updateProfileForm.fullName.$valid && !updateProfileForm.fullName.$pristine}">
-
-                                        <input type="text" name="fullName" id="fullName" class="form-control" ng-model="user.fullName"  required>
-                                        <p class="help-block">
-                                            <span ng-show="updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine">Full Name is required.</span>
-                                        </p>
-
-                                    </td>
-                                    <td>
-                                        <button type="button"  ng-show="!editingFullName"  ng-click="editFullName(user)"
-                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change Full Name<i
-                                                class="fa fa-arrow-right"></i></button>
-                                        <button ng-show="editingFullName"  type="submit"
-                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save New Full Name<i
-                                                class="fa fa-arrow-right"></i></button>
-                                        <button type="button" ng-click="cancelEditFullName()" ng-show="editingFullName"
-                                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
-                                                class="fa fa-times"></i></button>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-                                    <th>Username</th>
-                                    <td colspan="2">{{user.username}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td colspan="2">{{user.email}}</td>
-                                </tr>
-                                <tr>
-                                    <th>University</th>
-                                    <td>{{user.universityName}}, {{user.campusName}}, {{user.stateShortName}}, {{user.countryName}}<br/>
-                                    <span ng-if="editingUniversityCampus">
-
-
-
-                                        <!--<md-autocomplete required
-                                                         md-input-id="input-style"
-
-                                                         md-input-name="campus"
-                                                         md-selected-item="selectedItem"
-                                                         md-search-text-change="searchTextChange(searchText)"
-                                                         md-search-text="searchText"
-                                                         md-selected-item-change="selectedItemChange(item)"
-                                                         md-items="item in querySearch(searchText)"
-                                                         md-item-text="item.display"
-                                                         md-min-length="0"
-                                                         placeholder="What is your University Campus?">
-                                            <md-item-template>
-
-                                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                            </md-item-template>
-                                            <md-not-found>
-                                                No matches found for "{{searchText}}".
-
-                                            </md-not-found>
-
-                                            <div ng-messages="updateProfileForm.autocompleteField.$error" ng-if="updateProfileForm.autocompleteField.$touched">
-                                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                                <div ng-message="minlength">Your entry is not long enough.</div>
-                                                <div ng-message="maxlength">Your entry is too long.</div>
-                                            </div>
-
-                                        </md-autocomplete>-->
-
-
-
-
-                                        <md-autocomplete
-
-
-                                                md-selected-item="selectedItem"
-                                                md-search-text-change="searchTextChange(searchText)"
-                                                md-search-text="searchText"
-                                                md-selected-item-change="selectedItemChange(item)"
-                                                md-items="item in querySearch(searchText)"
-                                                md-item-text="item.display"
-                                                md-min-length="0"
-                                                placeholder="What is your University Campus?">
-                                            <md-item-template>
-
-                                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                            </md-item-template>
-                                            <md-not-found>
-                                                No matches found for "{{searchText}}".
-                                            </md-not-found>
-
-                                            <div ng-messages="updateProfileForm.autocompleteField.$error" ng-if="updateProfileForm.autocompleteField.$touched">
-                                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                                <div ng-message="minlength">Your entry is not long enough.</div>
-                                                <div ng-message="maxlength">Your entry is too long.</div>
-                                            </div>
-
-                                        </md-autocomplete>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <button type="button" ng-show="!editingUniversityCampus" ng-click="editingUniversityCampus=true"
-                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Change University<i
-                                                class="fa fa-arrow-right"></i></button>
-                                        <button type="submit" ng-show="editingUniversityCampus"
-                                                class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save University<i
-                                                class="fa fa-arrow-right"></i></button>
-                                        <button type="button" ng-click="editingUniversityCampus=false" ng-show="editingUniversityCampus"
-                                                class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c mb-10">Cancel<i
-                                                class="fa fa-times"></i></button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-
-
-                </div>
 
             </div>
         </div>
 
 
+        <div class="row contact-form-start-div">
+
+
+            <div class="col-md-12">
+                <text class="lato px-18">Full Name :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.fullName}}</text>
+                <br/>
+                <text class="lato px-18">Username :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.username}}</text>
+                <br/>
+                <text class="lato px-18">Email :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.email}}</text>
+                <br/>
+                <text ng-show="updatingProfile" class="lato px-18">University :&nbsp;&nbsp;&nbsp;</text>
+                <text ng-show="updatingProfile" class="blue-text lato px-18">{{user.universityName}}, {{user.campusName}},
+                    {{user.stateShortName}}({{user.stateName}}), {{user.countryName}}
+                </text>
+            </div>
+
+
+        </div>
+
+        <div ng-show="!updatingProfile" class="row contact-form-start-div">
+
+
+            <div class="col-md-12">
+                <text class="lato px-18">Select University :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.universityName}}, {{user.campusName}},
+                    {{user.stateShortName}}({{user.stateName}}), {{user.countryName}}
+                </text>
+                <br/>
+                <text class="lato px-18">Standard Home Phone:&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.standardHomePhone}}</text>
+                <br/>
+                <text class="lato px-18">Standard Cell Phone for Contact :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.standardCellPhone}}</text>
+                <br/>
+                <text class="lato px-18">Standard Email for Contact :&nbsp;&nbsp;&nbsp;</text>
+                <text class="blue-text lato px-18">{{user.standardEmail}}</text>
+            </div>
+
+
+        </div>
+
+        <div ng-show="updatingProfile" class="contact-form-start-div">
+
+            <form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <text class="lato px-18">University :</text>
+                        <br/>
+
+                        <div ng-class="{ 'has-error' : updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine, 'has-success' : updateProfileForm.subject.$valid && !updateProfileForm.subject.$pristine}">
+
+                            <!--<input type="text" class="form-control" name="subject" ng-model="subject" placeholder="Give Subject of your query"
+                                   required/>
+
+                            <p class="help-block">
+                                <span ng-show="updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine">Subject is required.</span>
+
+                            </p>-->
+
+                            <md-autocomplete
+
+
+                                    md-selected-item="selectedItem"
+                                    md-search-text-change="searchTextChange(searchText)"
+                                    md-search-text="searchText"
+                                    md-selected-item-change="selectedItemChange(item)"
+                                    md-items="item in querySearch(searchText)"
+                                    md-item-text="item.display"
+                                    md-min-length="0"
+                                    placeholder="What is your University Campus?">
+                                <md-item-template>
+
+                                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{searchText}}".
+                                </md-not-found>
+
+                                <div ng-messages="updateProfileForm.autocompleteField.$error"
+                                     ng-if="updateProfileForm.autocompleteField.$touched">
+                                    <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                                    <div ng-message="minlength">Your entry is not long enough.</div>
+                                    <div ng-message="maxlength">Your entry is too long.</div>
+                                </div>
+
+                            </md-autocomplete>
+
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <text class="lato px-18">Standard Home Phone :</text>
+                        <br/>
+
+                        <div>
+                            <input type="text" class="form-control" name="standardHomePhone" ng-model="user.standardHomePhone"
+                                   />
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <text class="lato px-18">Standard Cell Phone for Contact :</text>
+                        <br/>
+
+                        <div>
+
+                            <input type="text" class="form-control" name="standardCellPhone" ng-model="user.standardCellPhone"
+                                   />
+
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+                        <text class="lato px-18">Standard Email For Contact :</text>
+                        <br/>
+
+                        <div>
+
+                            <input type="text" class="form-control" name="standardEmail" ng-model="user.standardEmail"
+                                   />
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row contact-form-start-div">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="myBtn orange-btn "><i class="fa fa-check"></i>
+                            Save Profile Info
+                        </button>
+                        <button type="button" ng-show="updatingProfile" ng-click="cancelEditProfile()"
+                                class="myBtn orange-btn "><i class="fa fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+
 
     </div>
+
+
+</div>
+<!-- END BLOG POSTS -->
+
+<!-- BLOG SIDEBAR -->
+<div class="col-sm-3 sidebar contact-us-page-right-bar">
+
+
+    <div class="white-background right-head-text text-center right-white-div profile-page">
+        <div class="follow-us-head-text">
+                        <span class="follow-us-header lato orange-text uppercase px-16"><strong>Follow
+                            us</strong></span><br/>
+        </div>
+
+        <div class="follow-us-logos-div text-center">
+            <div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div>
+            <div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div>
+        </div>
+        <div class="follow-us-head-text">
+                        <span class=" follow-us-header lato orange-text uppercase px-16"><strong>quick
+                            links</strong></span>
+        </div>
+
+        <div class="quick-links">
+            <ul class="footer-useful-links-ul lato grey-text">
+                <li>
+                    <a ui-sref="app.faq">&nbsp;FAQ</a>
+                </li>
+                <li>
+                    <a ui-sref="app.signup">&nbsp;Sign Up</a>
+                </li>
+                <li>
+                    <a ui-sref="app.howItWorks">&nbsp;How It Works Video</a>
+                </li>
+                <li>
+                    <a ui-sref="app.bookBuy">&nbsp;Buy a Book</a>
+                </li>
+                <li>
+                    <a ui-sref="app.universityMap">&nbsp;University Map</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+
+</div>
+<!-- END BLOG SIDEBAR -->
+
+</div>
+<!-- blog -->
+
+
+</div>
+
+
+</div>
 </section>
+
+
 
 

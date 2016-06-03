@@ -13,11 +13,13 @@
             $state.go("app.login");
         }
 
+        $scope.updatingProfile=false;
+
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
-        $scope.editFullName = _editFullName;
-        $scope.cancelEditFullName = _cancelEditFullName;
+        $scope.editProfile = _editProfile;
+        $scope.cancelEditProfile = _cancelEditProfile;
         $scope.updateProfile = _updateProfile;
 
         $scope.querySearch = _querySearch;
@@ -31,7 +33,7 @@
 
         function init() {
 
-            userService.getAuthorizedUserFullData(identityService.getAccessToken()).then(function (response) {
+            ($scope.profilePromise = userService.getAuthorizedUserFullData(identityService.getAccessToken())).then(function (response) {
                 $scope.user = response.data.success.successData;
 
             }).catch(function (response) {
@@ -39,7 +41,7 @@
                 if (response.data.error_description == "The access token provided is invalid.") {
 
                 } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                    ($scope.profilePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                         identityService.setAccessToken(response.data);
                         init();
                     });
@@ -52,14 +54,18 @@
 
         }
 
-        function _editFullName(user) {
-            $scope.fullNameOnEdit = user.fullName;
-            $scope.editingFullName = true;
+        function _editProfile(user) {
+            $scope.standardCellPhoneOnEdit = user.standardCellPhone;
+            $scope.standardHomePhoneOnEdit = user.standardHomePhone;
+            $scope.standardEmailOnEdit = user.standardEmail;
+            $scope.updatingProfile = true;
         }
 
-        function _cancelEditFullName() {
-            $scope.user.fullName = $scope.fullNameOnEdit;
-            $scope.editingFullName = false;
+        function _cancelEditProfile() {
+            $scope.user.standardCellPhone= $scope.standardCellPhoneOnEdit;
+            $scope.user.standardHomePhone= $scope.standardHomePhoneOnEdit ;
+            $scope.user.standardEmail = $scope.standardEmailOnEdit ;
+            $scope.updatingProfile = false;
         }
 
 
@@ -90,21 +96,27 @@
                 var data = null;
 
                 if ($scope.selectedItem != null) {
-                    data = {campus: $scope.selectedItem.value, fullName: $scope.user.fullName}
+                    data = {campus: $scope.selectedItem.value,
+                        standardHomePhone: $scope.user.standardHomePhone,
+                        standardCellPhone: $scope.user.standardCellPhone,
+                        standardEmail: $scope.user.standardEmail
+                    }
                 } else {
-                    data = {campus:$scope.user.campusId, fullName: $scope.user.fullName}
+                    data = {campus:$scope.user.campusId, standardHomePhone: $scope.user.standardHomePhone,
+                        standardCellPhone: $scope.user.standardCellPhone,
+                        standardEmail: $scope.user.standardEmail}
                 }
 
-                $scope.editingFullName = false;
-                $scope.editingUniversityCampus = false;
+//                $scope.editingFullName = false;
+//                $scope.editingUniversityCampus = false;
 
-                userService.updateUserProfile(identityService.getAccessToken(), data).then(function (response) {
+                ($scope.profilePromise =  userService.updateUserProfile(identityService.getAccessToken(), data)).then(function (response) {
                     $scope.user.campusId = response.data.success.successData.campusId;
                     $scope.user.campusName = response.data.success.successData.campusName;
                     $scope.user.universityName = response.data.success.successData.universityName;
                     $scope.user.stateName = response.data.success.successData.stateName ;
                     $scope.user.stateShortName = response.data.success.successData.stateShortName  ;
-
+                    $scope.updatingProfile=false;
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
 
@@ -112,16 +124,16 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
                         $scope.user.fullName = $scope.fullNameOnEdit;
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.profilePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _updateProfile(valid);
                         });
                     } else if (response.data.error != undefined) {
                         responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                        $scope.user.fullName = $scope.fullNameOnEdit;
+//                        $scope.user.fullName = $scope.fullNameOnEdit;
                     } else {
                         responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                        $scope.user.fullName = $scope.fullNameOnEdit;
+//                        $scope.user.fullName = $scope.fullNameOnEdit;
                     }
                 });
             }

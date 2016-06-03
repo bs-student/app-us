@@ -30,7 +30,19 @@
             }else{
                 $scope.foundCampusLowestPrice =false;
             }
-            $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+
+            if(identityService.getAuthorizedUserData().standardEmail!=undefined){
+                $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().standardEmail;
+                $scope.email =identityService.getAuthorizedUserData().standardEmail;
+            }else{
+                $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().email;
+                $scope.email =identityService.getAuthorizedUserData().email;
+            }
+
+            $scope.book.contactInfoHomePhone =identityService.getAuthorizedUserData().standardHomePhone;
+            $scope.book.contactInfoCellPhone =identityService.getAuthorizedUserData().standardCellPhone;
+
+
             $scope.amazonImageFile = {
                 'fileData':$scope.book.bookImages[0].image
             };
@@ -40,9 +52,9 @@
         $scope.nextStep=_nextStep;
         $scope.backToStep = _backToStep;
 
-        if(identityService.getAuthorizedUserData()!=null){
-            $scope.email=identityService.getAuthorizedUserData().email;
-        }
+//        if(identityService.getAuthorizedUserData()!=null){
+//            $scope.email=identityService.getAuthorizedUserData().email;
+//        }
 
 
         //DatePicker

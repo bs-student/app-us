@@ -2811,6 +2811,11 @@ a.simple-continue-reading-button:hover{
 /********************************************/
 /*                Tell Friends              */
 /*********************************************/
+.tell-a-friend-background{
+    background: url("../images/parallax/login_parallax.png") no-repeat;
+    background-size: cover;
+    padding-top: 70px;
+}
 .tell-friends-share-div a.facebook{
     background: #0073AE;
     height: 80px;
@@ -2853,4 +2858,16 @@ a.simple-continue-reading-button:hover{
 }
 .email-template-text .header-text{
     margin-bottom: 10px;
+}
+
+/********************************************/
+/*                Profile              */
+/*********************************************/
+
+.contact-page-left-side.profile-page{
+    padding: 50px 20px 50px 50px;
+    min-height: 481px;
+}
+.right-white-div.profile-page{
+    min-height: 481px;
 }

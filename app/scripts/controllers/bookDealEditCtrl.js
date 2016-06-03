@@ -19,7 +19,7 @@
             $scope.book.contactInfoEmail =$scope.book.sellerEmail;
             $scope.book.contactInfoHomePhone =$scope.book.sellerHomeNumber;
             $scope.book.contactInfoCellPhone =$scope.book.sellerCellNumber;
-            $scope.email =$scope.book.sellerEmail;
+            $scope.email = $scope.book.sellerEmail;
             $scope.book.bookAvailableDate = new Date($scope.book.bookAvailableDate);
             $scope.bookPriceSell = $scope.book.bookPriceSell;
 //            $scope.book.agreedOnTermsAndConditions=true;
