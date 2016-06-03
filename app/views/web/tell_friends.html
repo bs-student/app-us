@@ -1,0 +1,152 @@
+<div ng-parallax pattern="'assets/images/parallax/login_parallax.png'" offset="0" speed="5" class="parallax-box dark">
+
+    <div class="container clearfix">
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <p class="text-white mid-two-header">Log In</p>
+
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 login-page-col-div col-md-push-6">
+
+                <div class="login-page-dark-div login-page-form">
+                    <form name="loginForm" class="form-horizontal" submit-validate
+                          ng-submit="loginUser(loginForm.$valid)" role="form" novalidate>
+
+
+                        <!--<div class="form-group">
+                            <span class="text text-center text-danger">{{credential_error}}</span>
+                        </div>-->
+
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm._username.$invalid && !loginForm._username.$pristine, 'has-success' : loginForm._username.$valid && !contactForm._username.$pristine}">
+                            <p class="white-text ">Email or Username :</p>
+
+                            <input name="_username" type="text" class="form-control input-style"
+                                   placeholder="Username / Email" ng-model="user._username" required>
+
+                            <p class="help-block">
+                                <span ng-show="loginForm._username.$invalid && !loginForm._username.$pristine">Username or Email is required.</span>
+                            </p>
+                        </div>
+
+
+                        <div class="form-group"
+                             ng-class="{ 'has-error' : loginForm._password.$invalid && !loginForm._password.$pristine, 'has-success' : loginForm._password.$valid && !contactForm._password.$pristine}">
+                            <p class="white-text ">Password :</p>
+
+                            <input name="_password" type="password" class="form-control input-style"
+                                   placeholder="Password" ng-model="user._password" required>
+
+                            <p class="help-block">
+                                <span ng-show="loginForm._password.$invalid && !loginForm._password.$pristine">Password is required.</span>
+                            </p>
+                        </div>
+
+
+                        <div class="form-group text-left mt-20">
+                            <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Login</button>
+                            <label class="checkbox checkbox-custom checkbox-custom-sm inline-block white-text">
+                                <input type="checkbox"><i></i> Remember me
+                            </label>
+                            <a ui-sref="app.forgotPassword" class="pull-right mt-10">Forgot Password?</a>
+                        </div>
+
+
+                        <div class="form-group text-left mt-20">
+                            <p class="white-text lato">Or Login with</p>
+
+                            <button ng-click="loginSocial('facebook')" type="button" class="myBtn orange-btn facebook-btn"><i class="fa fa-facebook"></i></button>
+                            <button ng-click="loginSocial('google')" type="button" class="myBtn orange-btn google-btn"><i class="fa fa-google-plus"></i></button>
+
+                        </div>
+
+                    </form>
+
+                    <div class="text-center white-text">
+                        Not a member yet ? <a ui-sref="app.signup">Join Now</a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-6 login-page-col-div col-md-pull-6">
+
+                <div class="login-page-dark-div login-page-quotation">
+                    <div class="fslider" data-animation="slide" data-arrows="false">
+                        <div class="flexslider reference-slider">
+                            <div class="slider-wrap">
+                                <flex-slider slide="item in peopleQuoteItems track by item.id" animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
+
+                                                <div class="media-body">
+
+                                                    <div class="mid-three-people-quote login-page-quote">
+                                                        <div class="display-flex">
+                                                            <div><i class="fa fa-quote-left fa-4x"
+                                                                    style="font-style: italic"></i></div>
+                                                            <div class="login-page-quote-text">{{item.peopleQuote}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="display-flex">
+                                                            <div class="login-page-student-img media-left">
+                                                                <img class="media-object thumb img-circle" alt=""
+                                                                     ng-src="{{item.peopleImg}}">
+                                                            </div>
+                                                            <div class="mid-three-people-name">
+                                                                <strong>{{item.peopleName}} </strong>,
+                                                                <span>{{item.peopleType}}</span>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <!--<div class="mid-three-people">
+
+
+
+                                                    </div>-->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
+
+
+<!--</div>-->
+
+
+
+
