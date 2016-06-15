@@ -12,7 +12,8 @@
                         <!--<h2>Student2Student</h2>-->
 
                         <p>Buy and sell textbooks directly with student at your university. Meet on-campus
-                            to the deal. No shipping, no credit cards, no hassles... All Free!</p><a ui-sref="app.howItWorks">
+                            to the deal. No shipping, no credit cards, no hassles... All Free!</p><a
+                            ui-sref="app.howItWorks">
                         <div class="badge"><i class="fa fa-angle-right"></i></div>
                         Read more</a>
                     </div>
@@ -66,12 +67,27 @@
 
                     <div class="widget widget-contact mt-20-md">
                         <h4><strong>Subscribe to our Newsletter</strong></h4>
-                        <input type="email" class="form-control subscribe-input" placeholder="Enter your Email"
-                               required="">
-                        <br/>
-                        <button class="myBtn myBtn-rounded search-homepage-btn subscribe-btn" type="submit">
-                            Subscribe Now
-                        </button>
+
+                        <form cg-busy="{promise:newsletterPromise}" name="newsletterForm" submit-validate
+                              ng-submit="addToNewsletter(newsletterForm.$valid,newsletterEmail)" role="form"
+                              novalidate>
+                            <div class="form-group"
+                                 ng-class="{ 'has-error' : newsletterForm.email.$invalid && !newsletterForm.email.$pristine, 'has-success' : newsletterForm.email.$valid && !newsletterForm.email.$pristine}">
+
+                                <input ng-model="newsletterEmail" name="email" type="email"
+                                       class="form-control subscribe-input" placeholder="Enter your Email"
+                                       required="">
+
+                                <p class="help-block">
+                                    <span ng-show="newsletterForm.email.$invalid && !newsletterForm.email.$pristine">Email is required.</span>
+                                </p>
+                                <button class="myBtn myBtn-rounded search-homepage-btn subscribe-btn" type="submit">
+                                    Subscribe Now
+                                </button>
+
+                            </div>
+                        </form>
+
 
                     </div>
 
@@ -118,13 +134,17 @@
             <div class="row">
 
                 <div class="col-md-4 copyright">
-                    <p class="mb-0">Copyright &copy; 1999-2016, Student2Student.com. </p>
+                    <p class="mb-0">Copyright &copy; 2007-2016, Student2Student.com. </p>
 
 
                 </div>
-                <div class="col-md-4"><p><a href="#">Privacy</a>, <a href="#">Policy</a>, <a href="#">Disclaimer</a>, <a
-                        href="#">Condition
-                    of Use</a></p></div>
+                <div class="col-md-4">
+                    <p>
+                        <a ui-sref="app.privacyPolicy">Privacy Policy</a>,
+                        <a ui-sref="app.disclaimer">Disclaimer</a>,
+                        <a ui-sref="app.conditionOfUse">Condition of Use</a>
+                    </p>
+                </div>
 
 
             </div>

@@ -5,10 +5,10 @@
     app
         .controller('StartCtrl', StartCtrl)
 
-    StartCtrl.$inject = ['$state','$rootScope','$scope', 'identityService', 'userService','securityService','responseService','storageService'];
+    StartCtrl.$inject = ['$state','$rootScope','$scope', 'identityService', 'userService','securityService','responseService','storageService','newsletterService'];
 
 
-    function StartCtrl($state,$rootScope,$scope, identityService, userService,securityService,responseService,storageService) {
+    function StartCtrl($state,$rootScope,$scope, identityService, userService,securityService,responseService,storageService,newsletterService) {
 
 
 //        $scope.homePage = null;
@@ -16,6 +16,7 @@
         $scope.adminUser=false;
         $scope.logout = _logout;
 
+        $scope.addToNewsletter = _addToNewsletter;
 //        checkIfUserLoggedIn();
 //
 //
@@ -120,6 +121,17 @@
             }).catch(function(response){
                 responseService.showSuccessToast("Could not Log Out","Sorry, Try again.");
             });
+        }
+
+        function _addToNewsletter(valid,email){
+            if(valid){
+                ($scope.newsletterPromise = newsletterService.addNewsletterEmail({email:email})).then(function(response){
+                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+                }).catch(function(response){
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                });
+
+            }
         }
 
     }

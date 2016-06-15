@@ -45,7 +45,8 @@
             "DELETE_QUOTE":"/api/admin/delete_quote",
             "GET_NEWS":"/api/admin/get_news",
             "ADD_NEWS":"/api/admin/add_news",
-            "UPDATE_NEWS":"/api/admin/update_news"
+            "UPDATE_NEWS":"/api/admin/update_news",
+            "GET_ALL_NEWSLETTER_EMAILS":"/api/admin/get_all_newsletter_emails"
 
         })
         .constant("QUOTE_CONSTANT", {
@@ -151,6 +152,9 @@
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",
             "GET_SINGLE_NEWS":"/news/get_single_news"
+        })
+        .constant("NEWSLETTER_CONSTANT", {
+            "ADD_NEWSLETTER_EMAIL": "/newsletter/add_newsletter_email"
         });
 //        .constant("SOCIAL_PLUGIN_GOOGLE_CONSTANTS",{
 //            "GOOGLE_APP_NAME":"Student2Student",

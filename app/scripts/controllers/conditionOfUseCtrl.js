@@ -3,18 +3,16 @@
     'use strict';
 
     app
-        .controller('DisclaimerCtrl', DisclaimerCtrl);
+        .controller('ConditionOfUseCtrl', ConditionOfUseCtrl);
 
-    DisclaimerCtrl.$inject = ['$scope'];
+    ConditionOfUseCtrl.$inject = ['$scope'];
 
-    function DisclaimerCtrl($scope) {
+    function ConditionOfUseCtrl($scope) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
-
     }
-
 
 })();
 

@@ -3,23 +3,24 @@
     'use strict';
 
     app
-        .factory('newsService', newsService);
+        .factory('newsletterService', newsletterService);
 
-    newsService.$inject=['apiService','SERVER_CONSTANT','NEWS_CONSTANT'];
+    newsletterService.$inject=['apiService','SERVER_CONSTANT','NEWSLETTER_CONSTANT','ADMIN_CONSTANT'];
 
-    function newsService(apiService,SERVER_CONSTANT,NEWS_CONSTANT) {
+    function newsletterService(apiService,SERVER_CONSTANT,NEWSLETTER_CONSTANT,ADMIN_CONSTANT) {
 
         return {
-            getActivatedNews:_getActivatedNews,
-            getSingleNews:_getSingleNews
+            addNewsletterEmail:_addNewsletterEmail,
+            adminGetAllNewsletterEmails:_adminGetAllNewsletterEmails
         };
 
 
-        function _getActivatedNews(data){
-            return apiService.post(SERVER_CONSTANT.HOST+NEWS_CONSTANT.GET_ACTIVATED_NEWS,data);
+        function _addNewsletterEmail(data){
+            return apiService.post(SERVER_CONSTANT.HOST+NEWSLETTER_CONSTANT.ADD_NEWSLETTER_EMAIL,data);
         }
-        function _getSingleNews(data){
-            return apiService.post(SERVER_CONSTANT.HOST+NEWS_CONSTANT.GET_SINGLE_NEWS,data);
+
+        function _adminGetAllNewsletterEmails(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_NEWSLETTER_EMAILS+"?access_token="+accessToken,data);
         }
 
     }

@@ -466,6 +466,39 @@ var app = angular
                 templateUrl: 'views/web/tell_friends.html'
             })
 
+            //Admin Newsletter
+            .state('app.newsletter', {
+                url: '^/newsletter',
+                controller: 'NewsletterCtrl',
+                templateUrl: 'views/admin/newsletter/newsletter.html'
+            })
+
+
+
+            //Privacy Policy
+            .state('app.privacyPolicy', {
+                url: '^/privacyPolicy',
+                controller: 'PrivacyPolicyCtrl',
+                templateUrl: 'views/web/privacy_policy.html'
+            })
+            //Disclaimer
+            .state('app.disclaimer', {
+                url: '^/disclaimer',
+                controller: 'DisclaimerCtrl',
+                templateUrl: 'views/web/disclaimer.html'
+            })
+
+            //Condition of Use
+            .state('app.conditionOfUse', {
+                url: '^/conditionOfUse',
+                controller: 'ConditionOfUseCtrl',
+                templateUrl: 'views/web/condition_of_use.html'
+            })
+
+
+
+
+
 
             //My Sells Page
             .state('app.mySellPage', {
@@ -473,7 +506,6 @@ var app = angular
                 controller: 'MySellPageCtrl',
                 templateUrl: 'views/web/my_sell_page.html'
             })
-
 
 
 

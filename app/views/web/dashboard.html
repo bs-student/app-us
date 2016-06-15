@@ -1,137 +1,142 @@
 <home-slider>
-<section id="slider" class="slider-parallax">
+    <section id="slider" class="slider-parallax">
 
-<!--
-#################################
-    - THEMEPUNCH BANNER -
-#################################
--->
+        <!--
+        #################################
+            - THEMEPUNCH BANNER -
+        #################################
+        -->
 
-<div class="tp-banner-container">
+        <div class="tp-banner-container">
 
-<div class="tp-banner">
+            <div class="tp-banner">
 
-<!--<div class="tp-banner">-->
-<ul>
+                <!--<div class="tp-banner">-->
+                <ul>
 
-<!-- SLIDE  -->
-<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+                    <!-- SLIDE  -->
+                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
 
-    <!-- MAIN IMAGE -->
-    <img src="assets/images/slider/bg-1.png" alt="" data-bgposition="center center" data-bgfit="cover"
-         data-bgrepeat="no-repeat">
+                        <!-- MAIN IMAGE -->
+                        <img src="assets/images/slider/bg-1.png" alt="" data-bgposition="center center"
+                             data-bgfit="cover"
+                             data-bgrepeat="no-repeat">
 
-    <!-- LAYERS -->
+                        <!-- LAYERS -->
 
-    <!-- LAYER NR. 1 -->
-    <div class="tp-caption big-text text-white skewfromleft fadeout"
-         data-x="130"
-         data-y="160"
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption big-text text-white skewfromleft fadeout"
+                             data-x="130"
+                             data-y="160"
 
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn">Textbook Exchange Made Easy
-    </div>
+                             data-speed="800"
+                             data-start="1000"
+                             data-easing="easeOutQuad"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn">Textbook Exchange Made Easy
+                        </div>
 
-    <!-- LAYER NR. 2 -->
+                        <!-- LAYER NR. 2 -->
 
-    <div class="tp-caption light_normal_22 no-middle-man text-center skewfromright fadeout"
-         data-x="220"
-         data-y="250"
+                        <div class="tp-caption light_normal_22 no-middle-man text-center skewfromright fadeout"
+                             data-x="220"
+                             data-y="250"
 
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn" style="width: 680px; max-width: 680px; white-space: normal;">NO MIDDLE MAN |
-        ON-CAMPUS | PRICE COMPARISON
-    </div>
+                             data-speed="800"
+                             data-start="1000"
+                             data-easing="easeOutQuad"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="width: 680px; max-width: 680px; white-space: normal;">NO MIDDLE MAN |
+                            ON-CAMPUS | PRICE COMPARISON
+                        </div>
 
 
-    <!-- LAYER NR. 3 -->
-    <div class="tp-caption light_normal_22 skewfromright fadeout slider-form-container"
-         data-x="50"
-         data-y="300"
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn" style="white-space: normal;">
-        <form role="form">
-            <div class="input-group home-search-bar-input-group m-auto">
-                <input type="email" class="form-control search-input-homepage slider-form"
-                       placeholder="Principles of Marketing By Philip Kotler..." required="">
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption light_normal_22 skewfromright fadeout slider-form-container"
+                             data-x="50"
+                             data-y="300"
+                             data-speed="800"
+                             data-start="1000"
+                             data-easing="easeOutQuad"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn" style="white-space: normal;">
+                            <form role="form">
+                                <div class="input-group home-search-bar-input-group m-auto">
+                                    <input type="email" class="form-control search-input-homepage slider-form"
+                                           placeholder="Principles of Marketing By Philip Kotler..." required="">
                                         <span class="input-group-btn">
-                                              <button class="myBtn myBtn-rounded slider-form-button search-homepage-btn" type="submit">FIND
+                                              <button class="myBtn myBtn-rounded slider-form-button search-homepage-btn"
+                                                      type="submit">FIND
                                                   THE BOOK
                                               </button>
                                         </span>
+                                </div>
+                            </form>
+
+
+                        </div>
+
+
+                        <!-- LAYER NR. 4 -->
+                        <div ng-show="firstSlide"
+                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+                             data-x="0"
+                             data-y="600"
+                             data-speed="800"
+                             data-start="1000"
+                             data-easing="easeOutQuad"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="width: 680px; max-width: 680px; white-space: normal;">
+                            Sell, buy & exchange books directly<br/>
+                            with each other right on-campus
+                        </div>
+
+                        <div ng-show="secondSlide"
+                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+                             data-x="0"
+                             data-y="600"
+                             data-speed="800"
+                             data-start="1000"
+                             data-easing="easeOutQuad"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="width: 680px; max-width: 680px; white-space: normal;">
+                            Buy and sell textbooks directly with student on-campus.<br/>
+                            No shipping, no credit cards, no hassles... All Free!
+                        </div>
+
+                        <!-- LAYER NR. 4 -->
+                        <button ng-click="rotateSlide()">
+                            <div class="tp-caption light_normal_22 circle_on_banner skewfromright fadeout "
+                                 data-x="1050"
+                                 data-y="580"
+                                 data-speed="800"
+                                 data-start="1000"
+                                 data-easing="easeOutQuad"
+                                 data-endspeed="1000"
+                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
+                                <!--<i class="fa fa-angle-right"></i>-->
+                            </div>
+                        </button>
+
+
+                    </li>
+
+
+                </ul>
+
             </div>
-        </form>
 
 
-    </div>
+        </div>
+        <!-- END REVOLUTION SLIDER -->
 
 
-    <!-- LAYER NR. 4 -->
-    <div ng-show="firstSlide" class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-         data-x="0"
-         data-y="600"
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn" style="width: 680px; max-width: 680px; white-space: normal;">
-        Sell, buy & exchange books directly<br/>
-        with each other right on-campus
-    </div>
-
-    <div ng-show="secondSlide" class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-         data-x="0"
-         data-y="600"
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn" style="width: 680px; max-width: 680px; white-space: normal;">
-        Buy and sell textbooks directly with student  on-campus.<br/>
-        No shipping, no credit cards, no hassles... All Free!
-    </div>
-
-    <!-- LAYER NR. 4 -->
-    <button ng-click="rotateSlide()"><div class="tp-caption light_normal_22 circle_on_banner skewfromright fadeout "
-         data-x="1050"
-         data-y="580"
-         data-speed="800"
-         data-start="1000"
-         data-easing="easeOutQuad"
-         data-endspeed="1000"
-         data-endeasing="Power4.easeIn" style="white-space: normal;">
-        <!--<i class="fa fa-angle-right"></i>-->
-    </div></button>
-
-
-
-
-</li>
-
-
-
-
-</ul>
-
-</div>
-
-
-</div>
-<!-- END REVOLUTION SLIDER -->
-
-
-</section>
-<!-- #slider end -->
+    </section>
+    <!-- #slider end -->
 </home-slider>
 
 <!-- ============================================
@@ -284,7 +289,8 @@
 
 <!-- ============ Parallax box ============ -->
 <!--<img src="assets/images/parallax/mid2.png"/>-->
-<div ng-parallax pattern="'assets/images/parallax/mid2.png'" offset="-300" speed="5" page="'home'"  class="parallax-box mid-section-two  parallax-1 dark" >
+<div ng-parallax pattern="'assets/images/parallax/mid2.png'" offset="-300" speed="5" page="'home'"
+     class="parallax-box mid-section-two  parallax-1 dark">
 
     <div class="container clearfix">
 
@@ -300,31 +306,34 @@
                     cheapest price online amongst many bookstores.
                 </p>
 
-                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form" novalidate>
-                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
-                    <div class="input-group w-3xl m-auto">
-                        <input type="email" ng-model="email" name="email" class="form-control search-input-homepage sign-up-input-homepage"
-                               placeholder="Your Email Address" required>
+                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form"
+                      novalidate>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
+                        <div class="input-group w-3xl m-auto">
+                            <input type="email" ng-model="email" name="email"
+                                   class="form-control search-input-homepage sign-up-input-homepage"
+                                   placeholder="Your Email Address" required>
                                         <span class="input-group-btn">
-                                              <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button" type="submit">
+                                              <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button"
+                                                      type="submit">
                                                   Sign Up
                                               </button>
                                         </span>
 
+                        </div>
+                        <div class="input-group w-3xl m-auto">
+
+                            <p class="help-block" style="width: 660px;">
+                                <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
+                            </p>
+
+
+                        </div>
                     </div>
-                    <div class="input-group w-3xl m-auto">
-
-                        <p class="help-block" style="width: 660px;">
-                            <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
-                        </p>
-
-
-                    </div>
-                </div>
                 </form>
 
             </div>
-
 
 
         </div>
@@ -339,91 +348,91 @@
 
 <!-- ============ heading section ============ -->
 <div class="section m-0 pt-0">
-<div class="container clearfix quote-container-homepage">
-<div class="row">
-<div class="col-md-6 mid-three-people-quote-col">
-    <div class="">
-        <p class="mid-three-header">What Students are saying about us</p>
+    <div class="container clearfix quote-container-homepage">
+        <div class="row">
+            <div class="col-md-6 mid-three-people-quote-col">
+                <div class="">
+                    <p class="mid-three-header">What Students are saying about us</p>
 
 
-        <div class="fslider" data-animation="slide" data-arrows="false">
-            <div class="flexslider reference-slider">
-                <div class="slider-wrap">
-                    <flex-slider slide="item in peopleQuoteItems track by item.id" animation="slide">
-                        <li>
-                            <div class="slide">
-                                <div class="media">
+                    <div class="fslider" data-animation="slide" data-arrows="false">
+                        <div class="flexslider reference-slider">
+                            <div class="slider-wrap">
+                                <flex-slider slide="item in peopleQuoteItems track by item.id" animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
 
-                                    <div class="media-body">
-                                        <p class="mid-three-people-quote">{{item.peopleQuote}}</p>
+                                                <div class="media-body">
+                                                    <p class="mid-three-people-quote">{{item.peopleQuote}}</p>
 
-                                        <div class="mid-three-people">
-                                            <div class="media-left">
-                                                <img class="media-object thumb img-circle" alt=""
-                                                     ng-src="{{imageHostPath}}{{item.peopleImg}}">
+                                                    <div class="mid-three-people">
+                                                        <div class="media-left">
+                                                            <img class="media-object thumb img-circle" alt=""
+                                                                 ng-src="{{imageHostPath}}{{item.peopleImg}}">
 
-                                            </div>
+                                                        </div>
 
-                                            <div class="mid-three-people-name">
-                                                <strong>{{item.peopleName}} </strong>,
-                                                <span>{{item.peopleType}}</span>
+                                                        <div class="mid-three-people-name">
+                                                            <strong>{{item.peopleName}} </strong>,
+                                                            <span>{{item.peopleType}}</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
-
-                                    </div>
-                                </div>
+                                    </li>
+                                </flex-slider>
                             </div>
-                        </li>
-                    </flex-slider>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-6 mid-three-uni-quote-col">
+                <div class="">
+                    <p class="mid-three-header">We are everywhere for you!</p>
+
+
+                    <div class="fslider" data-animation="slide" data-arrows="false">
+                        <div class="flexslider reference-slider">
+                            <div class="slider-wrap">
+                                <flex-slider slide="item in universityQuoteItems track by item.id" animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <div class="col-md-5">
+                                                        <div><img alt=""
+                                                                  ng-src="{{imageHostPath}}{{item.universityImg}}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <p class="mid-three-uni-name">{{item.universityName}}</p>
+
+                                                        <p class="mid-three-uni-quote">{{item.universityQuote}}</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
 
-
     </div>
 </div>
-<div class="col-md-6 mid-three-uni-quote-col">
-    <div class="">
-        <p class="mid-three-header">We are everywhere for you!</p>
-
-
-        <div class="fslider" data-animation="slide" data-arrows="false">
-            <div class="flexslider reference-slider">
-                <div class="slider-wrap">
-                    <flex-slider slide="item in universityQuoteItems track by item.id" animation="slide">
-                        <li>
-                            <div class="slide">
-                                <div class="media">
-
-                                    <div class="media-body">
-                                        <div class="col-md-5">
-                                            <div><img alt=""
-                                                      ng-src="{{imageHostPath}}{{item.universityImg}}"/></div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <p class="mid-three-uni-name">{{item.universityName}}</p>
-
-                                            <p class="mid-three-uni-quote">{{item.universityQuote}}</p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </li>
-                    </flex-slider>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
 
 
 </div>

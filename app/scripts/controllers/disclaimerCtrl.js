@@ -3,15 +3,14 @@
     'use strict';
 
     app
-        .controller('PrivacyPolicyCtrl', PrivacyPolicyCtrl);
+        .controller('DisclaimerCtrl', DisclaimerCtrl);
 
-    PrivacyPolicyCtrl.$inject = ['$scope'];
+    DisclaimerCtrl.$inject = ['$scope'];
 
-    function PrivacyPolicyCtrl($scope) {
+    function DisclaimerCtrl($scope) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
-
 
     }
 

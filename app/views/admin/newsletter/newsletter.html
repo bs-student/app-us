@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">Newsletter</text><text class="uppercase orange-text lato"> Emails</text></h1>
 
             </div>
         </div>
@@ -25,191 +25,30 @@
 
 <div class="col-md-12">
 
-<uib-tabset justified="true" type="pills">
-    <uib-tab class="first-tab">
-    <uib-tab-heading>
-        <div class="people-icon-div"></div>
-        <text>Pending Users</text>
-    </uib-tab-heading>
     <div cg-busy="{promise:campusPromise}">
-
-
-        <div class="button-panel">
-            <button ng-click="approveSelectedUsers()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Users</button>
-            <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
-        </div>
-
-
-
 
         <table ng-table="tableParams" class="table table-striped campus-result-table ">
 
             <form name="userEditForm" submit-validate >
 
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
-                    <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
-                    </td>
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span ng-if="!user.$edit">{{user.username}}</span>
+                <tr ng-repeat="newsletter in $data" ng-form="editRowForm">
 
+                    <td data-title="'Email'" width="200"  sortable="'email'" filter="{ 'email': 'text' }">
+                        <span>{{newsletter.email}}</span>
+                    </td>
+                    <td data-title="'Date Time'" width="200" sortable="'lastUpdateDateTime'">
+                        <span>{{newsletter.lastUpdateDateTime}}</span>
+                    </td>
+                    <td data-title="'Status'" width="200" sortable="'activationStatus'">
+                        <span>{{newsletter.activationStatus}}</span>
+                    </td>
 
-                        <div ng-if="user.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="user.username"/>
-                            <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                            </p>
-                        </div>
-
-                    </td>
-                    <td data-title="'Full Name'" width="200" >
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" width="200">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'Actions'" width="200">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
                 </tr>
             </form>
         </table>
-        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
-            <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
-        </script>
-
 
 
     </div>
-</uib-tab>
-    <uib-tab class="mid-tab">
-    <uib-tab-heading>
-        <div class="book-close-icon-div"></div>
-        <text>Approved Users</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:onlinePromise}">
-
-
-        <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
-
-            <form name="userEditForm" submit-validate >
-
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
-
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span>{{user.username}}</span>
-
-                    </td>
-                    <td data-title="'Full Name'" width="200" >
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" width="200">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'University'" width="200">
-                        <span>{{user.universityName}}</span>
-                    </td>
-                    <td data-title="'Campus'" width="200">
-                        <span>{{user.campusName}}</span>
-                    </td>
-                    <td data-title="'Status'" width="200">
-                        <div ng-if="!user.$edit">
-                            <span ng-if="user.enabled">Activated</span>
-                            <span ng-if="!user.enabled">Deactivated</span>
-
-                        </div>
-
-                        <div ng-if="user.$edit">
-                            <select ng-model="user.enabled" class="form-control mb-10">
-                                <option ng-selected="user.enabled==true"
-                                        value="true">Activated
-                                </option>
-                                <option ng-selected="user.enabled==false"
-                                        value="false">Deactivated
-                                </option>
-                            </select>
-                        </div>
-
-                    </td>
-
-                    <td data-title="'Actions'" width="200">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-    </div>
-</uib-tab>
-    <uib-tab class="last-tab">
-        <uib-tab-heading>
-            <div class="book-open-icon-div"></div>
-            <text>Admin Users</text>
-        </uib-tab-heading>
-        <div cg-busy="{promise:onlinePromise}">
-
-            <div class="button-panel">
-                <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>
-                <!--<button ng-if="selected_edit" ng-click="saveEditedSelectedUsers()" class="btn btn-success btn-ef btn-ef-3 btn-ef-3c mb-10">Save Users <i class="fa fa-arrow-right"></i></button>-->
-            </div>
-
-            <div ui-view="addUserView" ></div>
-
-            <table ng-table="adminTableParams" class="table table-striped campus-result-table ">
-
-                <form name="userEditForm" submit-validate >
-
-                    <tr ng-repeat="user in $data" ng-form="editRowForm">
-
-                        <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                            <span>{{user.username}}</span>
-
-                        </td>
-                        <td data-title="'Full Name'" width="200" >
-                            <span>{{user.fullName}}</span>
-                        </td>
-                        <td data-title="'Email'" width="200">
-                            <span>{{user.email}}</span>
-                        </td>
-
-                        <td data-title="'Status'" width="200">
-                            <div ng-if="!user.$edit">
-                                <span ng-if="user.enabled">Activated</span>
-                                <span ng-if="!user.enabled">Deactivated</span>
-
-                            </div>
-
-                            <div ng-if="user.$edit">
-                                <select ng-model="user.enabled" class="form-control mb-10">
-                                    <option ng-selected="user.enabled==true"
-                                            value="true">Activated
-                                    </option>
-                                    <option ng-selected="user.enabled==false"
-                                            value="false">Deactivated
-                                    </option>
-                                </select>
-                            </div>
-
-                        </td>
-
-                        <td data-title="'Actions'" width="200">
-                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                        </td>
-                    </tr>
-                </form>
-            </table>
-        </div>
-    </uib-tab>
-
-</uib-tabset>
 </div>
 
 </div>
@@ -224,20 +63,4 @@
 </section>
 
 
-<script type="text/ng-template" id="myModalContent">
-   <!-- <div class="modal-header">
-        <h3 class="modal-title custom-font white-text">{{title}}</h3>
-    </div>-->
-    <div class="modal-body">
 
-        <div class="modal-images">
-            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
-        </div>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-arrow-right"></i> Ok
-        </button>
-    </div>
-</script>
