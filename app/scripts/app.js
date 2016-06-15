@@ -65,7 +65,8 @@ var app = angular
 //        'noCAPTCHA'
         'vcRecaptcha',
         'cgBusy',
-        'duScroll'
+        'duScroll',
+        '720kb.socialshare'
     ])
     .run(['$rootScope', '$state', '$stateParams' ,function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
