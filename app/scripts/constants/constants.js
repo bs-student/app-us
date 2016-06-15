@@ -42,10 +42,15 @@
             "GET_UNIVERSITY_QUOTES":"/api/admin/get_university_quotes",
             "UPDATE_QUOTE":"/api/admin/update_quote",
             "ADD_QUOTE":"/api/admin/add_quote",
+            "DELETE_QUOTE":"/api/admin/delete_quote",
             "GET_NEWS":"/api/admin/get_news",
             "ADD_NEWS":"/api/admin/add_news",
             "UPDATE_NEWS":"/api/admin/update_news"
 
+        })
+        .constant("QUOTE_CONSTANT", {
+            "GET_ACTIVATED_STUDENT_QUOTE": "/quote/get_activated_student_quote",
+            "GET_ACTIVATED_UNIVERSITY_QUOTE":"/quote/get_activated_university_quote"
         })
         .constant("UNIVERSITY_CONSTANT", {
             "AUTOCOMPLETE_SEARCH_LIST": "/university/autocomplete_activated_search_list",

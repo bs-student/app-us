@@ -13,7 +13,8 @@
             getStudentQuotes:_getStudentQuotes,
             getUniversityQuotes:_getUniversityQuotes,
             saveUpdatedQuote:_saveUpdatedQuote,
-            addQuote:_addQuote
+            addQuote:_addQuote,
+            deleteQuote:_deleteQuote
         };
 
 
@@ -35,6 +36,9 @@
                 headers: { 'Content-Type': undefined }
             }
             return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.ADD_QUOTE+"?access_token="+accessToken,data,config);
+        }
+        function _deleteQuote(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.DELETE_QUOTE+"?access_token="+accessToken,data);
         }
 
     }

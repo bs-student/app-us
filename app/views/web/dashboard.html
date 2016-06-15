@@ -77,7 +77,7 @@
 
 
     <!-- LAYER NR. 4 -->
-    <div class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout"
+    <div ng-show="firstSlide" class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
          data-x="0"
          data-y="600"
          data-speed="800"
@@ -89,8 +89,20 @@
         with each other right on-campus
     </div>
 
+    <div ng-show="secondSlide" class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+         data-x="0"
+         data-y="600"
+         data-speed="800"
+         data-start="1000"
+         data-easing="easeOutQuad"
+         data-endspeed="1000"
+         data-endeasing="Power4.easeIn" style="width: 680px; max-width: 680px; white-space: normal;">
+        Buy and sell textbooks directly with student  on-campus.<br/>
+        No shipping, no credit cards, no hassles... All Free!
+    </div>
+
     <!-- LAYER NR. 4 -->
-    <div class="tp-caption light_normal_22 circle_on_banner skewfromright fadeout"
+    <button ng-click="rotateSlide()"><div class="tp-caption light_normal_22 circle_on_banner skewfromright fadeout "
          data-x="1050"
          data-y="580"
          data-speed="800"
@@ -99,10 +111,14 @@
          data-endspeed="1000"
          data-endeasing="Power4.easeIn" style="white-space: normal;">
         <!--<i class="fa fa-angle-right"></i>-->
-    </div>
+    </div></button>
+
+
 
 
 </li>
+
+
 
 
 </ul>
@@ -284,16 +300,27 @@
                     cheapest price online amongst many bookstores.
                 </p>
 
-                <form role="form">
+                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form" novalidate>
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
                     <div class="input-group w-3xl m-auto">
-                        <input type="email" class="form-control search-input-homepage sign-up-input-homepage"
-                               placeholder="Your Email Address" required="">
+                        <input type="email" ng-model="email" name="email" class="form-control search-input-homepage sign-up-input-homepage"
+                               placeholder="Your Email Address" required>
                                         <span class="input-group-btn">
                                               <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button" type="submit">
                                                   Sign Up
                                               </button>
                                         </span>
+
                     </div>
+                    <div class="input-group w-3xl m-auto">
+
+                        <p class="help-block" style="width: 660px;">
+                            <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
+                        </p>
+
+
+                    </div>
+                </div>
                 </form>
 
             </div>
@@ -333,7 +360,8 @@
                                         <div class="mid-three-people">
                                             <div class="media-left">
                                                 <img class="media-object thumb img-circle" alt=""
-                                                     ng-src="{{item.peopleImg}}">
+                                                     ng-src="{{imageHostPath}}{{item.peopleImg}}">
+
                                             </div>
 
                                             <div class="mid-three-people-name">
@@ -370,7 +398,7 @@
                                     <div class="media-body">
                                         <div class="col-md-5">
                                             <div><img alt=""
-                                                      ng-src="{{item.universityImg}}"/></div>
+                                                      ng-src="{{imageHostPath}}{{item.universityImg}}"/></div>
                                         </div>
                                         <div class="col-md-7">
                                             <p class="mid-three-uni-name">{{item.universityName}}</p>

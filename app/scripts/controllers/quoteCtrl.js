@@ -5,9 +5,9 @@
     app
         .controller('QuoteCtrl', QuoteCtrl);
 
-    QuoteCtrl.$inject = ['$state','identityService', 'adminQuoteService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
+    QuoteCtrl.$inject = ['$state','identityService', 'adminQuoteService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
 
-    function QuoteCtrl($state,identityService, adminQuoteService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
+    function QuoteCtrl($state,identityService, adminQuoteService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
 
         if(!$scope.$parent.adminUser){
@@ -22,6 +22,8 @@
         $scope.cancelEditRow=_cancelEditRow;
         $scope.saveEditedRow = _saveEditedRow;
 
+        $scope.showDeleteModal = _showDeleteModal;
+        $scope.deleteQuote=_deleteQuote;
 
         $scope.studentQuotes=[];
         $scope.universityQuotes=[];
@@ -186,6 +188,45 @@
                 });
 
             }
+
+        }
+
+        function _showDeleteModal(event, modalTemplate,data){
+            imageModalService.showPromptModal(event, modalTemplate,data,$scope);
+        }
+
+        function _deleteQuote(data){
+
+            console.log(data.quote);
+            var json={
+                quoteId:data.quote.quoteId
+            };
+            ($scope.sellingBookPromise=adminQuoteService.deleteQuote(identityService.getAccessToken(),json)).then(function(response){
+                responseService.showSuccessToast(response.data.success.successTitle);
+
+                if(data.quote.quoteType=="Student"){
+                    $scope.studentQuotes.splice($scope.studentQuotes.indexOf(data.quote),1);
+                }else{
+                    $scope.universityQuotes.splice($scope.universityQuotes.indexOf(data.quote),1);
+                }
+
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    ($scope.sellingBookPromise=identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _deleteQuote(data);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
 
         }
 

@@ -67,7 +67,7 @@ var app = angular
         'cgBusy',
         'duScroll'
     ])
-    .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+    .run(['$rootScope', '$state', '$stateParams' ,function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $rootScope.$on('$stateChangeSuccess', function (event, toState) {
@@ -85,6 +85,7 @@ var app = angular
                 }, 200);
             });
             $rootScope.containerClass = toState.containerClass;
+
         });
 
 
@@ -139,6 +140,7 @@ var app = angular
         });
 
     }])
+
 
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 //        $locationProvider.html5Mode(true);
@@ -202,7 +204,10 @@ var app = angular
             .state('app.signup', {
                 url: '^/signup',
                 controller: 'SignupCtrl',
-                templateUrl: 'views/security/signup.html'
+                templateUrl: 'views/security/signup.html',
+                params: {
+                    "email": null
+                }
             })
             //Registration Confirm
             .state('app.confirm', {

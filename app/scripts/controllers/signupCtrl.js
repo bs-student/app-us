@@ -6,13 +6,14 @@
     app
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','responseService'];
+    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','responseService','$stateParams'];
 
-    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,responseService) {
+    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,responseService,$stateParams) {
 
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "signup";
+        $scope.user=[];
         setUpForm();
         $scope.register=_register;
         $scope.createUniversityCampusName=false;
@@ -25,6 +26,10 @@
 
 
         function setUpForm(){
+
+            if($stateParams.email!=undefined){
+                $scope.user.email=$stateParams.email;
+            }
 
             referralService.getReferralList().then(function(response){
                 $scope.referrals = response.data.success.successData;

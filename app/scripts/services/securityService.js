@@ -21,8 +21,8 @@
 //            fetchFacebookUserData: _fetchFacebookUserData,
             registerUser:_registerUser,
             confirmRegistration:_confirmRegistration,
-//            checkIfUsernameExist: _checkIfUsernameExist,
-//            checkIfEmailExist:_checkIfEmailExist,
+            checkIfUsernameExist: _checkIfUsernameExist,
+            checkIfEmailExist:_checkIfEmailExist,
             forgotPassword: _forgotPassword,
             resetPassword: _resetPassword,
             updateSocialUser:_updateSocialUser
@@ -90,13 +90,13 @@
             return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.REGISTER, data);
         }
 
-//        function _checkIfUsernameExist(query){
-//            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CHECK_IF_USERNAME_EXIST, query);
-//        }
-//
-//        function _checkIfEmailExist(query){
-//            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CHECK_IF_EMAIL_EXIST, query);
-//        }
+        function _checkIfUsernameExist(query){
+            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CHECK_IF_USERNAME_EXIST, query);
+        }
+
+        function _checkIfEmailExist(query){
+            return apiService.post(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CHECK_IF_EMAIL_EXIST, query);
+        }
 
         function _confirmRegistration(code){
             return apiService.get(SERVER_CONSTANT.HOST + SECURITY_CONSTANT.CONFIRM_REGISTRATION+"/"+code);

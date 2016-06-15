@@ -32,6 +32,7 @@
     margin: 0px 5px;
     width: 250px;
     font-family:"Raleway" ;
+    text-align: center;
 }
 
 .input-group .search-input-homepage::-webkit-input-placeholder {
@@ -178,6 +179,13 @@
     }
 
 }
+
+/* when hiding the picture */
+.animate-show.ng-hide-add         { animation:0.5s lightSpeedOut ease; }
+
+/* when showing the picture */
+.animate-show.ng-hide-remove      { animation:0.5s flipInX ease; }
+
 /********************************************/
 /*              Footer                        */
 /*********************************************/
