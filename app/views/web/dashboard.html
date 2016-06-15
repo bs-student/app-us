@@ -62,18 +62,33 @@
                              data-easing="easeOutQuad"
                              data-endspeed="1000"
                              data-endeasing="Power4.easeIn" style="white-space: normal;">
-                            <form role="form">
-                                <div class="input-group home-search-bar-input-group m-auto">
-                                    <input type="email" class="form-control search-input-homepage slider-form"
-                                           placeholder="Principles of Marketing By Philip Kotler..." required="">
+                            <form name="bookSearchForm"  submit-validate ng-submit="searchBook(bookSearchForm.$valid)"   role="form"  novalidate >
+                                <div ng-class="{ 'has-error' : bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine, 'has-success' : bookSearchForm.searchText.$valid && !bookSearchForm.searchText.$pristine}">
+                                    <div class="input-group home-search-bar-input-group m-auto" >
+
+
+                                        <input ng-model="searchText" name="searchText" type="text" class="form-control search-input-homepage slider-form"
+                                           placeholder="Principles of Marketing By Philip Kotler..." required>
                                         <span class="input-group-btn">
                                               <button class="myBtn myBtn-rounded slider-form-button search-homepage-btn"
                                                       type="submit">FIND
-                                                  THE BOOK
+                                                  THE BOOK {{bookSearchForm.bookName}}
                                               </button>
                                         </span>
+                                    </div>
+                                    <div >
+
+                                    <p class="help-block">
+                                        <span ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">Field is Required</span>
+                                    </p>
+
+
                                 </div>
+                                </div>
+
                             </form>
+
+
 
 
                         </div>
@@ -123,6 +138,7 @@
                         </button>
 
 
+
                     </li>
 
 
@@ -136,6 +152,8 @@
 
 
     </section>
+
+
     <!-- #slider end -->
 </home-slider>
 
