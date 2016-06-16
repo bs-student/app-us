@@ -23,6 +23,10 @@
         function _searchByIsbn(valid){
 
             if(valid){
+
+                $scope.isbn = $scope.isbn.replace(/-/g, "");
+
+
                 if($scope.isbn.length>=10){
                     var data = {
                         'isbn':$scope.isbn,
