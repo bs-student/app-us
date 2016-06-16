@@ -2101,10 +2101,10 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     margin-top: 40px;
 }
 .sell-page-container{
-    padding-bottom: 0px; !important
+    padding-bottom: 60px; !important
 }
 .sell-book-section{
-    padding: 60px 0px 0px 0px !important;
+    padding: 0px !important;
 }
 .sell-page-head-banner{
     background: url("../images/sell_book/banner.png") no-repeat;
@@ -2198,13 +2198,20 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .sell-book-form-div{
     border: 2px solid #FF530E;
     border-top: none;
-    border-bottom: none;
+    /* border-bottom: none; */
+    border-bottom-left-radius: 4px;
+    /*border-bottom-right-radius: 4px;*/
     padding: 40px 30px 60px 30px;
-
-    min-height: 690px;
+    min-height: 730px;
+    /*min-height: 730px;*/
 }
 
-
+.sell-book-form-div.preview-step{
+    height: 780px;
+}
+.sell-book-form-div.custom-first-step{
+    min-height: 890px;
+}
 .sell-book-section .step-div h3{
     margin-bottom: 0px;
     padding-top: 20px;
@@ -2423,13 +2430,21 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 
 .help-details-div{
+    /*position: absolute;*/
+    /*right: -354px;*/
+
+    /*width: 369px;*/
+    /*height: 100%;*/
+    /*border-right: 2px solid #FF530E;*/
+    /*border-top-right-radius: 4px;*/
     position: absolute;
     right: -354px;
-
     width: 369px;
-    height: 100%;
+    height: 800px;
     border-right: 2px solid #FF530E;
+    border-bottom: 2px solid #FF530E;
     border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .help-details-div .help-header{
@@ -2462,6 +2477,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .help-details-text-div{
     padding: 20px;
+    max-height: 730px;
 }
 .help-details-text-div p{
     line-height: 1.2em !important;
@@ -2491,6 +2507,9 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     color: #FF530E;
     font-weight: 400;
     /*text-decoration: underline !important;*/
+}
+.underline{
+    text-decoration: underline;
 }
 .contact-us-page-right-bar .right-head-text a:hover,
 .contact-us-page-right-bar .right-head-text a:active,

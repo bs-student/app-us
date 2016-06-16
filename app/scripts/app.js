@@ -66,7 +66,8 @@ var app = angular
         'vcRecaptcha',
         'cgBusy',
         'duScroll',
-        '720kb.socialshare'
+        '720kb.socialshare',
+        'jkuri.slimscroll'
     ])
     .run(['$rootScope', '$state', '$stateParams' ,function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;

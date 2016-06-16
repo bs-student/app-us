@@ -19,7 +19,7 @@
 
         $scope.book=[];
 
-
+        $scope.universityName =identityService.getAuthorizedUserData().universityName;
         if(identityService.getAuthorizedUserData().standardEmail!=undefined){
             $scope.book.contactInfoEmail =identityService.getAuthorizedUserData().standardEmail;
             $scope.email =identityService.getAuthorizedUserData().standardEmail;

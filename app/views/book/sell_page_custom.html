@@ -31,7 +31,7 @@
                     <img src="dist/images/sell_book/help.png"/> <text class="white-text lato">Help</text></button>
             </div>
 
-            <div class="help-details-text-div">
+            <div ng-slimscroll class="help-details-text-div">
                 <p class="orange-text lato px-16">
                     What is This?
                 </p>
@@ -45,8 +45,24 @@
                 </p>
                 <p class="lato">Describe any special information about the deal or the
                     textbook itself.</p>
-                <p class="lato">Student 2 Student recommends the method "Seller contacts
-                    Buyer" so they can protect  their Contact Information.</p>
+                <p class="orange-text lato px-16">
+                    Contact Method
+                </p>
+                <p class="lato">Define the contact method.<br/>
+                    Do you want the Buyer to contact you? Or do you want to contact the Buyer in order to protect your information?<br/>
+                    You need to provide at least one Contact Information method when you choose "Buyer contacts Seller (You)" so the Buyer can contact you.
+
+                </p>
+                <p class="lato"><strong>Student 2 Student recommends the method "Seller contacts
+                    Buyer" so they can protect  their Contact Information.</strong></p>
+
+                <p class="orange-text lato px-16">
+                    Textbook available to Public?
+                </p>
+                <p class="lato">
+                    You can choose if everyone at your University can see your textbook without being a member/signed in.<br/>
+                    <strong>Important!</strong> Even if you choose no, everyone will see your textbook but will need to Sign In to contact you.
+                </p>
                 <p class="orange-text lato px-16">
                     Textbook available date?
                 </p>
@@ -64,19 +80,12 @@
                 </p>
                 <p class="lato">Define how the Buyer needs to pay you.
                 </p>
-                <p class="">We recommend using "Cash on Exchange (COE)." This means
+                <p class=""><strong>We recommend using "Cash on Exchange (COE)." This means
                     the Buyer will need to pay cash for the textbook when you
-                    meet in a public place to exchange the money and textbook.
+                    meet in a public place to exchange the money and textbook.</strong>
                 </p>
 
-                <p class="orange-text lato px-16">
-                    Contact Method
-                </p>
-                <p class="lato">Define the contact method.
-                    Do you want the Buyer to contact you? Or do you want to contact the Buyer in order to protect your information?
-                    You need to provide at least one Contact Information method when you choose "Buyer contacts Seller (You)" so the Buyer can contact you.
 
-                </p>
             </div>
         </div>
             <div class="col-md-12">
@@ -93,7 +102,7 @@
                 </uib-tab-heading>
 
 
-                <div class="sell-book-form-div">
+                <div class="sell-book-form-div custom-first-step">
                     <form name="step1" role="form" ng-submit="nextStep(step1.$valid,'step1')" submit-validate novalidate class="form-validation">
                     <div class="step1">
                         <div class="row">
@@ -417,6 +426,9 @@
 
                                         </div>
                                     </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-right"><button type="submit" class="myBtn step-form-next-button" >Next</button></div>
+                                </div>
                                 </div>
 
 
@@ -425,9 +437,7 @@
 
                     </div>
 
-                        <div class="row">
-                            <div class="col-md-12 text-right"><button type="submit" class="myBtn step-form-next-button" >Next</button></div>
-                        </div>
+
 
                     </form>
                 </div>
@@ -454,7 +464,7 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <text class="form-information lato"> Please choose one contact method and provide the necessary information. (Please be aware of who gets/sees which information.)</text>
+                                    <text class="form-information lato"> Please choose one contact method and provide the necessary information. (Please be aware of who gets/sees which information)</text>
                                 </div>
 
 
@@ -470,7 +480,7 @@
                                         </label>
 
                                         <text class="lato">
-                                            With this method, the buyer will not get your information. The buyer needs to send you their information when reserving
+                                            With this method, <text class="underline">the buyer will not get your information</text>. The buyer needs to send you the information when inquiring for
                                             the book. The system will send the buyer's message to the following email address: <strong>{{email}}</strong>
 
                                         </text>
@@ -664,7 +674,7 @@
 
                                 </div>
                                 <div class="col-md-4">
-                                    <text class="px-16 lato grey-text">You are first who is selling this book in this campus</text>
+                                    <text class="px-16 lato grey-text">You are first who is selling this book on-campus "{{universityName}}"</text>
                                 </div>
 
                             </div>

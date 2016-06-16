@@ -38,6 +38,7 @@ var assets = {
         "bower_components/satellizer/satellizer.js",
         "bower_components/angular-scroll/angular-scroll.js",
         "bower_components/angular-socialshare/dist/angular-socialshare.js",
+        "bower_components/ngSlimscroll/src/js/ngSlimscroll.js",
 
 
         "vendor/superfish/js/superfish.js",
