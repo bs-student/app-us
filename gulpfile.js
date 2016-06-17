@@ -170,6 +170,7 @@ var assets = {
         "app/scripts/services/contactUsService.js",
         "app/scripts/services/quoteService.js",
         "app/scripts/services/newsletterService.js",
+        "app/scripts/services/imageStoreService.js",
 
 
         "app/scripts/validators/valEmail.js",

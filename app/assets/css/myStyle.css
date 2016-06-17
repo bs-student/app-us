@@ -10,7 +10,19 @@
 #main-navbar a i {
     width: 20px;
 }
+#header.transparent-header.light #main-navbar ul li:hover a, #header.transparent-header.light #main-navbar ul li.active a{
+    color: #FF530D;
+}
+#main-navbar > ul > li:hover a, #main-navbar > ul > li.active a{
+    color:#FF530D;
+}
+#main-navbar ul ul li:hover > a {
 
+    color: #FF530D !important;
+}
+#main-navbar ul ul, #main-navbar ul li .mega-menu-content{
+    border-top: 1px solid #FF530D;
+}
 /********************************************/
 /*              Homepage Slider              */
 /*********************************************/
@@ -2207,7 +2219,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 
 .sell-book-form-div.preview-step{
-    height: 780px;
+    min-height: 780px;
 }
 .sell-book-form-div.custom-first-step{
     min-height: 890px;

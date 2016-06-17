@@ -3,49 +3,40 @@
     'use strict';
 
     app
-        .factory('imageModalService', imageModalService);
+        .factory('imageStoreService', imageStoreService);
 
-    imageModalService.$inject=['$uibModal'];
+    imageStoreService.$inject=[];
 
-    function imageModalService($uibModal) {
+    function imageStoreService() {
 
+        var imageFiles=[];
 
         return {
-            showModal : _showModal,
-            showPromptModal: _showPromptModal
+            addImage: _addImage,
+            storeImages : _storeImages,
+            getStoredImages: _getStoredImages,
+            removeStoredImage: _removeStoredImage,
+            removeAllStoredImages :_removeAllStoredImages
+        };
+
+        function _addImage(image){
+            imageFiles.push(image);
         }
 
-        function _showModal(event, title){
-            var options = angular.element(event.target).data('options');
-            var src = angular.element(event.target).attr('src');
-
-            $uibModal.open({
-                templateUrl: 'myModalContent',
-                controller:'ModalInstanceCtrl',
-                backdropClass: 'splash' + ' ' + options,
-                windowClass: 'splash' + ' ' + options,
-                resolve: {
-                    src: function () {
-                        return {src:src,title:title};
-                    }
-                }
-            });
+        function _storeImages(files){
+            imageFiles = files;
         }
-        function _showPromptModal(event,modalTemplate,data,scope){
-            var options = angular.element(event.target).data('options');
 
-            $uibModal.open({
-                templateUrl: modalTemplate,
-                controller:'ModalInstanceCtrl',
-                scope:scope,
-                backdropClass: 'splash' + ' ' + options,
-                windowClass: 'splash' + ' ' + options,
-                resolve: {
-                    src: function () {
-                        return data;
-                    }
-                }
-            });
+        function _getStoredImages(){
+            return imageFiles;
+        }
+
+        function _removeAllStoredImages(){
+            imageFiles=[];
+        }
+
+        function _removeStoredImage(index){
+            imageFiles.splice(index,1);
         }
 
     }

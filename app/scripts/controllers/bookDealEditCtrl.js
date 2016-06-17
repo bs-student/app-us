@@ -159,6 +159,9 @@
         }
 
         function _setActive(thumb) {
+            angular.forEach($scope.carouselFiles,function(item){
+                item.active=false;
+            });
             $scope.carouselFiles[$scope.carouselFiles.indexOf(thumb)].active=true;
         }
 

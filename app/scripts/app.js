@@ -69,9 +69,10 @@ var app = angular
         '720kb.socialshare',
         'jkuri.slimscroll'
     ])
-    .run(['$rootScope', '$state', '$stateParams' ,function ($rootScope, $state, $stateParams) {
+    .run(['$rootScope', '$state', '$stateParams','imageStoreService' ,function ($rootScope, $state, $stateParams,imageStoreService) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
+
         $rootScope.$on('$stateChangeSuccess', function (event, toState) {
 
             event.targetScope.$watch('$viewContentLoaded', function () {
@@ -88,6 +89,7 @@ var app = angular
             });
             $rootScope.containerClass = toState.containerClass;
 
+            imageStoreService.removeAllStoredImages();
         });
 
 

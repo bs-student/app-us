@@ -4,8 +4,8 @@
 
 app
     .directive("multipleImageInput",multipleImageInput);
-multipleImageInput.$inject=["$parse","responseService"];
-    function multipleImageInput($parse,responseService){
+multipleImageInput.$inject=["$parse","responseService","imageStoreService"];
+    function multipleImageInput($parse,responseService,imageStoreService){
 
 
             return {
@@ -42,10 +42,15 @@ multipleImageInput.$inject=["$parse","responseService"];
                                 file[fileIdModel] = Math.floor((Math.random() * 1000000) + 1);
 
                                 var fileSelected= true;
-                                scope.$apply(function(){
-                                    scope.model.push(file);
-                                    scope.noImages=false;
-                                });
+                                if(scope.model.length<3){
+                                    scope.$apply(function(){
+                                        scope.model.push(file);
+                                        scope.noImages=false;
+                                    });
+                                    imageStoreService.addImage(file);
+                                }
+
+
                             };
                             reader.readAsDataURL(file);
 
