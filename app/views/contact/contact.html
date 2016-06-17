@@ -18,9 +18,9 @@
                     <div>
                         <p class="book-subtitle-header">Buying Textbooks directly from other Students can be so simple</p>
                         <p>
-                            The Seller ({{deal.username}}) of this textbook wants <strong>You to contact {{deal.username}}</strong>.<br/>
-                            Please provide your Email below so we can send you the Seller's Contact Information.<br/>
-                            You also have the option to send a message to the Seller.<br/>
+                            The Seller ({{deal.username}}) of this textbook wants <strong>You to contact student {{deal.username}}</strong>.
+                            Please provide your Email below so we can send you the Seller's Contact Information.
+                            You also have the option to send a message to the Seller.
                         </p>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                     <div>
                         <p class="book-subtitle-header">Buying Textbooks directly from other Students can be so simple</p>
                         <p>
-                            The Seller ({{deal.username}}) of this textbook wants to contact you. Please provide your Contact information below.<br/>
-                            We will send the information to the seller who then will contact you.<br/>
-                            You also have the option to send a message to the Seller.<br/>
+                            The Seller ({{deal.username}}) of this textbook wants to contact you. Please provide your Contact information below.
+                            We will send the information to the seller who then will contact you.
+                            You also have the option to send a message to the Seller.
                         </p>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine, 'has-success' : contactForm.message.$valid && !contactForm.message.$pristine}">
 
                                 <p class="" for="message">Message: </p>
-                                <textarea type="text" name="message" id="message" class="form-control " ng-model="contact.messages[0].messageBody"   required></textarea>
+                                <textarea rows="5" type="text" name="message" id="message" class="form-control " ng-model="contact.messages[0].messageBody"   required></textarea>
                                 <p class="help-block">
                                     <span ng-show="contactForm.message.$invalid && !contactForm.message.$pristine">Message is required.</span>
 
@@ -136,6 +136,7 @@
 
 
             </div>
+            <br/><br/><br/>
 
 
         </div>

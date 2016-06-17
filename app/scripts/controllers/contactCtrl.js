@@ -39,6 +39,7 @@
 
                 contactService.addContact(data).then(function (response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                    $state.go("app.contactedBookList");
                 }).catch(function (response){
                     responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
                 });
