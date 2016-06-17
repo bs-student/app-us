@@ -54,7 +54,7 @@
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
                             <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
+                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
                             <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
@@ -66,8 +66,8 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : Seller Contact You(Buyer)</text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : You(Buyer) Contact Seller</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : Seller Contact You (Buyer)</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : You (Buyer) Contact Seller</text>
                                                 <br/></p>
 
 
@@ -91,8 +91,8 @@
                                             </text><br/></p>
                                             <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
                                             <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Textbook Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Textbook Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
                                         </div>
                                     </div>
 
@@ -124,7 +124,7 @@
                 <div class="archive-page-contact-history">
                     <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> Seller Contact You (Buyer) <text uib-tooltip="You as Buyer will not receiving any of Seller's information. Seller will contact buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> You(Buyer) Contact Seller <text uib-tooltip="You as Buyer will receive Seller information and will contact Seller. Buyer can also provide his information to the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> You (Buyer) Contact Seller <text uib-tooltip="You as Buyer will receive Seller information and will contact Seller. Buyer can also provide information to the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <div class="contact-history-box">
                         <table class="table contact-history-table" cg-busy="{promise:messagePromise}">
                             <thead>

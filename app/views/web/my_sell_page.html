@@ -143,7 +143,7 @@
                     <p class="book-description grey-text">By
                         <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
                         :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                        ISBN:
+                        <br/>ISBN:
                         <text class="blue-text">{{deal.bookIsbn}}</text>
                     </p>
                 </div>
@@ -206,11 +206,11 @@
                                         <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text>
                                         <br/></p>
                                     <p>
-                                        <text class="blue-text"><strong>Book Has Notes</strong></text>
+                                        <text class="blue-text"><strong>Textbook Has Notes</strong></text>
                                         <text class="grey-text"> : {{deal.bookHasNotes}}</text>
                                         <br/></p>
                                     <p>
-                                        <text class="blue-text"><strong>Book Is Highlighted</strong></text>
+                                        <text class="blue-text"><strong>Textbook Is Highlighted</strong></text>
                                         <text class="grey-text"> : {{deal.bookIsHighlighted}}</text>
                                         <br/></p>
                                 </div>
@@ -231,11 +231,47 @@
                 <div class="archive-page-side">
                     <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
-                    <div class="share-images">
-                        <span><img src="./dist/images/archive_pages/share.png"/></span>
-                        <span><img src="./dist/images/archive_pages/skype.png"/></span>
-                        <span><img src="./dist/images/archive_pages/fb.png"/></span>
-                    </div>
+                    <!--<div class="share-images">
+                                <span class="dropdown" uib-dropdown on-toggle="toggled(open)">
+                                  <a href class="dropdown-toggle" uib-dropdown-toggle>
+                                      <span><img src="./dist/images/archive_pages/share.png"/></span>
+                                  </a>
+                                  <ul class="dropdown-menu share-ul">
+                                      <li>
+                                          <a href="" socialshare
+                                             socialshare-provider="twitter"
+                                             socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-twitter fa-2x"></i></a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                          <a href="" socialshare
+                                             socialshare-provider="linkedin"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-linkedin fa-2x"></i></a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                          <a href=""  socialshare
+                                             socialshare-provider="google"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-google-plus fa-2x"></i></a>
+                                      </li>
+                                  </ul>
+                                </span>
+                                <span><a href="" socialshare
+                                         socialshare-provider="skype"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-url="{{shareUrl}}"><img src="./dist/images/archive_pages/skype.png"/></a></span>
+                                <span><a href="" socialshare
+                                         socialshare-provider="facebook"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                         socialshare-url="{{shareUrl}}">
+                                    <img src="./dist/images/archive_pages/fb.png"/></a></span>
+
+                    </div>-->
                     <div class="buttons">
 
                         <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn"><i class="fa fa-phone"></i>&nbsp; Contact</a>

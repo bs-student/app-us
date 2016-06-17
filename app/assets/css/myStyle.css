@@ -1732,6 +1732,26 @@
 /********************************************/
 /*              Selling Books Page          */
 /*********************************************/
+
+.dropdown-menu.share-ul{
+    padding: 0px;
+    min-width: 50px;
+    border-radius: 0px;
+    margin-top: 10px;
+}
+.dropdown-menu.share-ul .divider{
+    margin: 0px;
+}
+.dropdown-menu.share-ul li{
+    text-align: center;
+}
+.dropdown-menu.share-ul li a{
+    padding: 5px;
+}
+.dropdown-menu.share-ul li a:hover{
+    color:#FF530E;
+}
+
 .final-step-finish-button{
     height: 50px;
     width: 200px;

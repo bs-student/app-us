@@ -54,7 +54,7 @@
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
                             <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
+                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
                             <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
@@ -66,8 +66,8 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You(Seller) Contact Buyer</text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer Contact You(Seller)</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You (Seller) Contact Buyer</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer Contact You (Seller)</text>
                                                 <br/>
                                             </p>
 
@@ -92,8 +92,8 @@
                                             </text><br/></p>
                                             <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
                                             <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Book Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Textbook Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Textbook Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
                                         </div>
                                     </div>
 
@@ -107,9 +107,45 @@
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
                             <div class="share-images">
-                                <span><img src="./dist/images/archive_pages/share.png"/></span>
-                                <span><img src="./dist/images/archive_pages/skype.png"/></span>
-                                <span><img src="./dist/images/archive_pages/fb.png"/></span>
+                                <span class="dropdown" uib-dropdown on-toggle="toggled(open)">
+                                  <a href class="dropdown-toggle" uib-dropdown-toggle>
+                                      <span><img src="./dist/images/archive_pages/share.png"/></span>
+                                  </a>
+                                  <ul class="dropdown-menu share-ul">
+                                      <li>
+                                          <a href="" socialshare
+                                             socialshare-provider="twitter"
+                                             socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-twitter fa-2x"></i></a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                          <a href="" socialshare
+                                             socialshare-provider="linkedin"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-linkedin fa-2x"></i></a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                          <a href=""  socialshare
+                                             socialshare-provider="google"
+                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                             socialshare-url="{{shareUrl}}"><i class="fa fa-google-plus fa-2x"></i></a>
+                                      </li>
+                                  </ul>
+                                </span>
+                                <span><a href="" socialshare
+                                         socialshare-provider="skype"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-url="{{shareUrl}}"><img src="./dist/images/archive_pages/skype.png"/></a></span>
+                                <span><a href="" socialshare
+                                         socialshare-provider="facebook"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                         socialshare-url="{{shareUrl}}">
+                                    <img src="./dist/images/archive_pages/fb.png"/></a></span>
+
                             </div>
                             <div class="buttons">
                                 <a ui-sref="app.editBookDeal({book:deal})"  class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</a>
@@ -147,8 +183,8 @@
             <div class="col-md-12">
                 <div class="archive-page-contact-history">
                     <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You(Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> Buyer Contact You(Seller) <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide his information to you as the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You (Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> Buyer Contact You (Seller) <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide information to you as the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <div class="contact-history-box">
                         <table cg-busy="{promise:messagePromise}" class="table contact-history-table">
                             <thead>
@@ -495,11 +531,11 @@
 
 <script type="text/ng-template" id="deactivateModalContent">
     <div class="modal-header">
-        <h3 class="modal-title custom-font white-text">You want to Deactivate This Book?</h3>
+        <h3 class="modal-title custom-font white-text">You want to deactivate this Textbook deal?</h3>
     </div>
     <div class="modal-body">
 
-        <p>You Sure you want to Deactivate "{{src.deal.bookTitle}}" ?</p>
+        <p>Are you sure you want to deactivate the Textbook deal "{{src.deal.bookTitle}}"? No student will be able to see the deal anymore.</p>
 
 
     </div>
@@ -515,11 +551,12 @@
 
 <script type="text/ng-template" id="activateModalContent">
     <div class="modal-header">
-        <h3 class="modal-title custom-font white-text">You want to Activate This Book?</h3>
+        <h3 class="modal-title custom-font white-text">You want to activate this Textbook deal?</h3>
     </div>
     <div class="modal-body">
 
-        <p>You Sure you want to Activate "{{src.deal.bookTitle}}" ?</p>
+
+        <p>Are you sure you want to activate the Textbook deal "{{src.deal.bookTitle}}"? Other students will be able to see the deal and inquire for the textbook.</p>
 
 
     </div>

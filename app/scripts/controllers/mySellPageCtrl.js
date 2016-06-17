@@ -11,6 +11,8 @@
 
         $scope.showPagination=false;
 
+//        $scope.shareUrl="http://hello.com/#/"+identityService.getAuthorizedUserData().username;
+
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];

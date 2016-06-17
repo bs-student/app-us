@@ -13,6 +13,8 @@
             $state.go("app.login");
         }
 
+        $scope.shareUrl=window.location.origin+window.location.pathname+"#/"+identityService.getAuthorizedUserData().username;
+//        $scope.shareUrl="http://hello.com/#/"+identityService.getAuthorizedUserData().username;
         $scope.showPagination=false;
 
         $scope.$parent.headerStyle = "dark";
