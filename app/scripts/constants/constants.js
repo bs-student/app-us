@@ -111,7 +111,7 @@
             "SEARCH_AMAZON_API": "/api/book/search_by_keyword_amazon_api",
             "GET_LOWEST_ONLINE_PRICE": "/book/get_lowest_price_by_isbn_campus_books",
             "GET_BOOK_BY_ASIN_AMAZON":"/book/search_by_asin_amazon",
-            "GET_BOOK_BY_ISBN_AMAZON":"/book/search_by_isbn_amazon",
+            "GET_BOOK_BY_ISBN_AMAZON":"/api/book/search_by_isbn_amazon",
             "GET_BOOK_BY_ISBN_CAMPUS_BOOKS":"/book/search_by_isbn_campus_books",
             "GET_AMAZON_CART_CREATE_URL":"/book/get_amazon_cart_create_url",
             "GET_CAMPUS_DEALS_BY_ISBN_API":"/api/book/get_campus_deals_by_isbn_api",

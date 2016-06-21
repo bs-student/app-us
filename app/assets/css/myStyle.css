@@ -1048,6 +1048,7 @@
 
 .search-thumb-image img{
     width: 50px;
+    height: 75px;
 }
 .search-book-image-carousel .carousel-indicators,
 .search-book-image-carousel .carousel-control{
@@ -2645,7 +2646,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     margin-bottom: 30px;
 }
 .search-book-image-carousel.selling-book-image-carousel .btn-group{
-    margin-left: 14%;
+    margin-left: auto;
+    width: 100%;
 }
 .green-btn{
     font-family: "Raleway", "Arial", sans-serif;
