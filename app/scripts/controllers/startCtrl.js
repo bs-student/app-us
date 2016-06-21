@@ -142,6 +142,7 @@
             }
             $scope.loggedIn = true;
             $scope.username = identityService.getAuthorizedUserData().username;
+            $state.go("app.dashboard");
 
         }
 
