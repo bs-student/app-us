@@ -42,7 +42,7 @@
                         'page': pageNumber,
                         'campus':$stateParams.campus,
                         'access_token':identityService.getAccessToken()
-                    }
+                    };
                     $scope.$parent.showResult = true;
                     $scope.$parent.searchText = $stateParams.searchQuery;
                     $scope.$parent.searchingError=false;
@@ -147,10 +147,35 @@
                 $scope.$parent.searchingError=false;
                 setCarousel();
             }).catch(function(response){
-                $scope.$parent.bookSearchResult=0;
-                $scope.$parent.searchingProgress = false;
-                $scope.$parent.searchingError=true;
-                responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+                    responseService.showErrorToast("Invalid Request","You are trying to access data with invalid request");
+
+                    $scope.$parent.bookSearchResult=0;
+                    $scope.$parent.searchingProgress = false;
+                    $scope.$parent.searchingError=true;
+
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    ($scope.$parent.searchPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        doSearch(data);
+                    });
+                } else if (response.data.error != undefined) {
+                    $scope.$parent.bookSearchResult=0;
+                    $scope.$parent.searchingProgress = false;
+                    $scope.$parent.searchingError=true;
+
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    $scope.$parent.bookSearchResult=0;
+                    $scope.$parent.searchingProgress = false;
+                    $scope.$parent.searchingError=true;
+
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+
+
             });
         }
 
