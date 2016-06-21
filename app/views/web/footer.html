@@ -35,29 +35,27 @@
                     <div class="widget widget-contact mt-20-md">
                         <h4><strong>Search Hundreds of Booksellers and Get the Best Price</strong></h4>
 
+                        <div class="fslider" data-animation="slide" data-arrows="false">
+                            <div class="flexslider reference-slider footer-silder">
+                                <div class="slider-wrap">
+                                    <flex-slider slide="brandImage in brandImages track by $index" animation="slide" direction="vertical" controlNav="false" directionNav="false">
+                                        <li>
+                                            <div class="slide">
+                                                <ul class="footer-brands-ul">
+                                                    <li data-ng-repeat="brand in brandImage.brands">
+                                                        <img ng-src="{{brand.image}}"/>
+                                                    </li>
 
-                        <ul class="footer-brands-ul">
-                            <li>
+                                                </ul>
 
-                                <img src="assets/images/footer/amazon_logo.png"/>
+                                            </div>
+                                        </li>
+                                    </flex-slider>
+                                </div>
+                            </div>
+                        </div>
 
 
-                            </li>
-                            <li>
-                                <img src="assets/images/footer/abe_logo.png"/>
-
-
-                            </li>
-                            <li>
-                                <img src="assets/images/footer/chegg_logo.png"/>
-                            </li>
-                            <li>
-                                <img src="assets/images/footer/half_logo.png"/>
-                            </li>
-                            <li>
-                                <img src="assets/images/footer/tbl_logo.png"/>
-                            </li>
-                        </ul>
 
 
                     </div>

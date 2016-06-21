@@ -201,6 +201,15 @@
 /********************************************/
 /*              Footer                        */
 /*********************************************/
+.flexslider.footer-silder .slides img{
+    margin: auto;
+}
+.footer-brands-ul li{
+    background: #1A1C27;
+}
+.flexslider.footer-silder .flex-control-nav{
+    display: none;
+}
 
 
 #footer a,#footer .footer-bottom a{
