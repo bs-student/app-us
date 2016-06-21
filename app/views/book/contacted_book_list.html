@@ -170,9 +170,9 @@
                             </tr>
 
                             <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                <td >{{message.messageDateTime}}</td>
-                                <td>{{message.sender}}</td>
-                                <td >{{message.messageBody}}</td>
+                                <td class="italic">{{message.messageDateTime}}</td>
+                                <td class="italic">{{message.sender}}</td>
+                                <td class="italic">{{message.messageBody}}</td>
                             </tr>
 
                             <tr ng-show="contact.sendingMessages">
@@ -183,7 +183,7 @@
 
 
 
-                                        <textarea name="message" class="form-control" placeholder="Write Down Your Message" ng-model="contact.message" required></textarea>
+                                        <textarea name="message" class="form-control" placeholder="Write Your Message" ng-model="contact.message" required></textarea>
 
                                         <p class="help-block">
                                             <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
