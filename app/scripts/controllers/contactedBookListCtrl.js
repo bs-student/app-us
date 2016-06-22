@@ -9,9 +9,9 @@
 
     function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,SERVER_CONSTANT,imageModalService) {
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
 
         $scope.showPagination=false;
 

@@ -146,7 +146,19 @@ var app = angular
     }])
 
 
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider','authCheckerServiceProvider', function ($stateProvider, $urlRouterProvider,authCheckerServiceProvider) {
+        var authCheck = {
+            authCheck: function() {
+                return authCheckerServiceProvider.$get().checkIfLoggedIn();
+            }
+        };
+
+        var adminCheck = {
+            adminCheck: function() {
+                return authCheckerServiceProvider.$get().checkIfAdminLoggedIn();
+            }
+        };
+
 //        $locationProvider.html5Mode(true);
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
@@ -154,6 +166,8 @@ var app = angular
             .otherwise('/');
         $stateProvider
 
+
+            ////////////////////// Public View Routes ///////////////////////
 
             .state('app', {
                 abstract: true,
@@ -268,164 +282,8 @@ var app = angular
                 params: {
                     "deal": null
                 }
-            })
-            //Contacted Book List
-            .state('app.contactedBookList', {
-                url: '^/contactedBookList',
-                controller: 'ContactedBookListCtrl',
-                templateUrl: 'views/book/contacted_book_list.html'
-            })
-            //Selling Book List
-            .state('app.sellingBookList', {
-                url: '^/sellingBookList',
-                controller: 'SellingBookListCtrl',
-                templateUrl: 'views/book/selling_book_list.html'
-            })
-            //Sell Archive
-            .state('app.sellArchive', {
-                url: '^/sellArchive',
-                controller: 'SellArchiveCtrl',
-                templateUrl: 'views/book/sell_archive.html'
-            })
-            //Buy Archive
-            .state('app.buyArchive', {
-                url: '^/buyArchive',
-                controller: 'BuyArchiveCtrl',
-                templateUrl: 'views/book/buy_archive.html'
-            })
-            //BUY FROM AMAZON
-            .state('app.buy_from_amazon', {
-                url: '^/buy_from_amazon:bookOfferId',
-                controller: 'BookBuyFromAmazonCtrl'
-            })
-            //Safety First
-            .state('app.safetyFirst', {
-                url: '^/safetyFirst',
-                controller: 'SafetyFirstCtrl',
-                templateUrl: 'views/web/safety_first.html'
-            })
-            //Scam & Fraud
-            .state('app.scamAndFraud', {
-                url: '^/scamAndFraud',
-                controller: 'ScamFraudCtrl',
-                templateUrl: 'views/web/scam_fraud.html'
-            })
-            //Wishlist
-            .state('app.wishList', {
-                url: '^/wishList',
-                controller: 'WishListCtrl',
-                templateUrl: 'views/book/wishlist.html'
-            })
-            //Profile
-            .state('app.profile', {
-                url: '^/profile',
-                controller: 'ProfileCtrl',
-                templateUrl: 'views/account/profile.html'
-            })
-            //Change Password
-            .state('app.changePassword', {
-                url: '^/changePassword',
-                controller: 'ChangePasswordCtrl',
-                templateUrl: 'views/account/change_password.html'
-            })
-            //AdminUserList
-            .state('app.userList', {
-                url: '^/userList',
-                controller: 'UserManagementCtrl',
-                templateUrl: 'views/admin/user/user_list.html'
-            })
-            //Add User
-            .state('app.userList.addUser', {
-                url: '^/addUser',
-                views:{
-                    'addUserView@app.userList':{
-                        templateUrl: 'views/admin/user/add_user.html',
-                        controller: 'AddUserCtrl'
-                    }
-                }
 
             })
-            //Admin All Book Deals
-            .state('app.allBookDeals', {
-                url: '^/allBookDeals',
-                controller: 'BookDealCtrl',
-                templateUrl: 'views/admin/book/book_deals.html'
-            })
-            //Admin Quotes
-            .state('app.quotes', {
-                url: '^/quotes',
-                controller: 'QuoteCtrl',
-                templateUrl: 'views/admin/content/quotes.html'
-            })
-            //Add Student Quote
-            .state('app.quotes.addStudentQuote', {
-                url: '^/addStudentQuote',
-                views:{
-                    'addStudentQuoteView@app.quotes':{
-                        templateUrl: 'views/admin/content/add_student_quote.html',
-                        controller: 'AddQuoteCtrl'
-                    }
-                }
-
-            })
-            //Add University Quote
-            .state('app.quotes.addUniversityQuote', {
-                url: '^/addUniversityQuote',
-                views:{
-                    'addUniversityQuoteView@app.quotes':{
-                        templateUrl: 'views/admin/content/add_university_quote.html',
-                        controller: 'AddQuoteCtrl'
-                    }
-                }
-
-            })
-            //FAQ
-            .state('app.faq', {
-                url: '^/faq',
-                controller: 'FaqCtrl',
-                templateUrl: 'views/web/faq.html'
-            })
-
-            //Sell Book Main Page
-            .state('app.sellBook', {
-                url: '^/sellBook',
-                controller: 'BookSellMainCtrl',
-                templateUrl: 'views/book/sell_book.html'
-
-            })
-            //Sell Book
-            .state('app.sellBookByIsbn', {
-                url: '^/sellBookByIsbn',
-                controller: 'BookSellCtrl',
-                templateUrl: 'views/book/sell_page.html',
-                params: {
-                    "book": null
-                }
-            })
-            //Sell Book Custom
-            .state('app.sellBookCustom', {
-                url: '^/sellBookCustom',
-                controller: 'BookSellCustomCtrl',
-                templateUrl: 'views/book/sell_page_custom.html'
-            })
-            //Admin News
-            .state('app.newsManagement', {
-                url: '^/newsManagement',
-                controller: 'NewsManagementCtrl',
-                templateUrl: 'views/admin/content/news.html'
-            })
-            //Add Student Quote
-            .state('app.newsManagement.addNews', {
-                url: '^/addNews',
-                views:{
-                    'addNewsView@app.newsManagement':{
-                        templateUrl: 'views/admin/content/add_news.html',
-                        controller: 'AddNewsCtrl'
-                    }
-                }
-
-            })
-
             //Complete Registration
             .state('app.completeRegistration', {
                 url: '^/completeRegistration',
@@ -454,27 +312,11 @@ var app = angular
                 controller: 'NewsDetailsCtrl',
                 templateUrl: 'views/news/news_details.html'
             })
-            //Edit Book Deal
-            .state('app.editBookDeal', {
-                url: '^/editBookDeal',
-                controller: 'BookDealEditCtrl',
-                templateUrl: 'views/book/book_deal_edit_page.html',
-                params: {
-                    "book": null
-                }
-            })
             //Tell My Friends
             .state('app.tellFriends', {
                 url: '^/tellFriends',
                 controller: 'TellFriendsCtrl',
                 templateUrl: 'views/web/tell_friends.html'
-            })
-
-            //Admin Newsletter
-            .state('app.newsletter', {
-                url: '^/newsletter',
-                controller: 'NewsletterCtrl',
-                templateUrl: 'views/admin/newsletter/newsletter.html'
             })
 
 
@@ -498,11 +340,219 @@ var app = angular
                 controller: 'ConditionOfUseCtrl',
                 templateUrl: 'views/web/condition_of_use.html'
             })
+            //BUY FROM AMAZON
+            .state('app.buy_from_amazon', {
+                url: '^/buy_from_amazon:bookOfferId',
+                controller: 'BookBuyFromAmazonCtrl'
+            })
+            //Safety First
+            .state('app.safetyFirst', {
+                url: '^/safetyFirst',
+                controller: 'SafetyFirstCtrl',
+                templateUrl: 'views/web/safety_first.html'
+            })
+            //Scam & Fraud
+            .state('app.scamAndFraud', {
+                url: '^/scamAndFraud',
+                controller: 'ScamFraudCtrl',
+                templateUrl: 'views/web/scam_fraud.html'
+            })
+            //FAQ
+            .state('app.faq', {
+                url: '^/faq',
+                controller: 'FaqCtrl',
+                templateUrl: 'views/web/faq.html'
+            })
+
+            //Access Denied
+            .state('app.accessDenied', {
+                url: '^/accessDenied',
+                templateUrl: 'views/web/accessDenied.html'
+            })
+
+            /////////////////////// Logged In User Routes /////////////////
+
+            //Contacted Book List
+            .state('app.contactedBookList', {
+                url: '^/contactedBookList',
+                controller: 'ContactedBookListCtrl',
+                templateUrl: 'views/book/contacted_book_list.html',
+                resolve: authCheck
+            })
+            //Selling Book List
+            .state('app.sellingBookList', {
+                url: '^/sellingBookList',
+                controller: 'SellingBookListCtrl',
+                templateUrl: 'views/book/selling_book_list.html',
+                resolve: authCheck
+            })
+            //Sell Archive
+            .state('app.sellArchive', {
+                url: '^/sellArchive',
+                controller: 'SellArchiveCtrl',
+                templateUrl: 'views/book/sell_archive.html',
+                resolve: authCheck
+            })
+            //Buy Archive
+            .state('app.buyArchive', {
+                url: '^/buyArchive',
+                controller: 'BuyArchiveCtrl',
+                templateUrl: 'views/book/buy_archive.html',
+                resolve: authCheck
+            })
+
+            //Wishlist
+            .state('app.wishList', {
+                url: '^/wishList',
+                controller: 'WishListCtrl',
+                templateUrl: 'views/book/wishlist.html',
+                resolve: authCheck
+            })
+            //Profile
+            .state('app.profile', {
+                url: '^/profile',
+                controller: 'ProfileCtrl',
+                templateUrl: 'views/account/profile.html',
+                resolve: authCheck
+            })
+            //Change Password
+            .state('app.changePassword', {
+                url: '^/changePassword',
+                controller: 'ChangePasswordCtrl',
+                templateUrl: 'views/account/change_password.html',
+                resolve: authCheck
+            })
+
+            //Sell Book Main Page
+            .state('app.sellBook', {
+                url: '^/sellBook',
+                controller: 'BookSellMainCtrl',
+                templateUrl: 'views/book/sell_book.html',
+                resolve: authCheck
+
+            })
+            //Sell Book
+            .state('app.sellBookByIsbn', {
+                url: '^/sellBookByIsbn',
+                controller: 'BookSellCtrl',
+                templateUrl: 'views/book/sell_page.html',
+                params: {
+                    "book": null
+                },
+                resolve: authCheck
+            })
+            //Sell Book Custom
+            .state('app.sellBookCustom', {
+                url: '^/sellBookCustom',
+                controller: 'BookSellCustomCtrl',
+                templateUrl: 'views/book/sell_page_custom.html',
+                resolve: authCheck
+            })
+
+
+
+            //Edit Book Deal
+            .state('app.editBookDeal', {
+                url: '^/editBookDeal',
+                controller: 'BookDealEditCtrl',
+                templateUrl: 'views/book/book_deal_edit_page.html',
+                params: {
+                    "book": null
+                },
+                resolve: authCheck
+            })
 
 
 
 
 
+            //////////////////////// ADMIN Routes ////////////////
+            //AdminUserList
+            .state('app.userList', {
+                url: '^/userList',
+                controller: 'UserManagementCtrl',
+                templateUrl: 'views/admin/user/user_list.html',
+                resolve: adminCheck
+            })
+            //Add User
+            .state('app.userList.addUser', {
+                url: '^/addUser',
+                views:{
+                    'addUserView@app.userList':{
+                        templateUrl: 'views/admin/user/add_user.html',
+                        controller: 'AddUserCtrl'
+                    }
+                },
+                resolve: authCheck
+
+            })
+            //Admin All Book Deals
+            .state('app.allBookDeals', {
+                url: '^/allBookDeals',
+                controller: 'BookDealCtrl',
+                templateUrl: 'views/admin/book/book_deals.html',
+                resolve: authCheck
+            })
+            //Admin Quotes
+            .state('app.quotes', {
+                url: '^/quotes',
+                controller: 'QuoteCtrl',
+                templateUrl: 'views/admin/content/quotes.html',
+                resolve: authCheck
+            })
+            //Add Student Quote
+            .state('app.quotes.addStudentQuote', {
+                url: '^/addStudentQuote',
+                views:{
+                    'addStudentQuoteView@app.quotes':{
+                        templateUrl: 'views/admin/content/add_student_quote.html',
+                        controller: 'AddQuoteCtrl'
+                    }
+                },
+                resolve: authCheck
+
+            })
+            //Add University Quote
+            .state('app.quotes.addUniversityQuote', {
+                url: '^/addUniversityQuote',
+                views:{
+                    'addUniversityQuoteView@app.quotes':{
+                        templateUrl: 'views/admin/content/add_university_quote.html',
+                        controller: 'AddQuoteCtrl'
+                    }
+                },
+                resolve: authCheck
+
+            })
+            //Admin News
+            .state('app.newsManagement', {
+                url: '^/newsManagement',
+                controller: 'NewsManagementCtrl',
+                templateUrl: 'views/admin/content/news.html',
+                resolve: authCheck
+            })
+            //Add Student Quote
+            .state('app.newsManagement.addNews', {
+                url: '^/addNews',
+                views:{
+                    'addNewsView@app.newsManagement':{
+                        templateUrl: 'views/admin/content/add_news.html',
+                        controller: 'AddNewsCtrl'
+                    }
+                },
+                resolve: authCheck
+
+            })
+            //Admin Newsletter
+            .state('app.newsletter', {
+                url: '^/newsletter',
+                controller: 'NewsletterCtrl',
+                templateUrl: 'views/admin/newsletter/newsletter.html',
+                resolve: authCheck
+            })
+
+
+            //////////////////// My Sell Page //////////////
 
             //My Sells Page
             .state('app.mySellPage', {

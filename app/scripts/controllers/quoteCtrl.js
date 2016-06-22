@@ -10,9 +10,9 @@
     function QuoteCtrl($state,identityService, adminQuoteService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
 
-        if(!$scope.$parent.adminUser){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.adminUser){
+//            $state.go("app.login");
+//        }
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
         $scope.$parent.headerStyle = "dark";

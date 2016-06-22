@@ -9,9 +9,11 @@
 
     function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
+
+
 
         $scope.shareUrl=window.location.origin+window.location.pathname+"#/"+identityService.getAuthorizedUserData().username;
 //        $scope.shareUrl="http://hello.com/#/"+identityService.getAuthorizedUserData().username;

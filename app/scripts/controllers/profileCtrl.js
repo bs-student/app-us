@@ -9,9 +9,9 @@
 
     function ProfileCtrl($scope, $state,identityService, userService, responseService, universityService, $log, $q) {
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
 
         $scope.updatingProfile=false;
 

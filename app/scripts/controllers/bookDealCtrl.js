@@ -10,9 +10,9 @@
     function BookDealCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT) {
 
 
-        if(!$scope.$parent.adminUser){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.adminUser){
+//            $state.go("app.login");
+//        }
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";

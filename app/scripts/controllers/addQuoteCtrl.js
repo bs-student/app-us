@@ -9,9 +9,9 @@
     function AddQuoteCtrl(identityService, adminQuoteService, responseService, $scope, $state) {
 
 
-        if(!$scope.$parent.adminUser){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.adminUser){
+//            $state.go("app.login");
+//        }
 
 
         $scope.$parent.headerStyle = "dark";

@@ -9,9 +9,9 @@
 
     function SellArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
 
         $scope.showPagination=false;
         $scope.$parent.headerStyle = "dark";

@@ -2949,4 +2949,10 @@ a.simple-continue-reading-button:hover{
     line-height: 1em;
     color: #ffffff;
 }
+/********************************************/
+/*                Access Denied            */
+/*********************************************/
+.tree-section.access-denied-section{
+    background: #FFFFFF;
 
+}

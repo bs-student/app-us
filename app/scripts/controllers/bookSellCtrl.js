@@ -10,9 +10,9 @@
     function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService) {
 
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";

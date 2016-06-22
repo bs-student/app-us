@@ -10,9 +10,9 @@
     function BookDealEditCtrl($stateParams,$state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT,imageModalService,bookDealService) {
 
 
-        if(!$scope.$parent.loggedIn){
-            $state.go("app.login");
-        }
+//        if(!$scope.$parent.loggedIn){
+//            $state.go("app.login");
+//        }
 
         if($stateParams.book!=undefined){
             $scope.book = $stateParams.book;
