@@ -16,37 +16,42 @@
 
         $scope.campusDetails=null;
         $scope.querySearch   = querySearch;
-        $scope.selectedItemChange = selectedItemChange;
-        $scope.searchTextChange   = searchTextChange;
-        $scope.selectedItem = null;
 
+        $scope.onCampusSelect = _onCampusSelect;
+
+        $scope.modelOptions = {
+            debounce: {
+                default: 300,
+                blur: 250
+            },
+            getterSetter: true
+        };
 
 
         function querySearch (query) {
 
             var data ={'query':query};
-            var deferred = $q.defer();
-            universityService.getUniversitiesForAutocomplete(data).then(function(response){
-                deferred.resolve(response.data.success.successData);
+            return universityService.getUniversitiesForAutocomplete(data).then(function(response){
+                return response.data.success.successData.map(function(item){
+                    return item;
+                });
             }).catch(function(response){
                 responseService.showErrorToast("Something Went Wrong","Please Reload Again");
             });
-            return deferred.promise;
 
         }
 
-        function searchTextChange(text) {
-            $log.info('Text changed to ' + text);
+
+        function _onCampusSelect($item, $model, $label){
+            if($scope.campus.value!=undefined){
+                campusService.getCampusDetailsWithUniversityAndState({campusId:$scope.campus.value}).then(function(response){
+                    $scope.campusDetails = response.data.success.successData[0];
+                }).catch(function(response){
+                    responseService.showErrorToast("Sorry Something Went Wrong","Please Search again");
+                });
+            }
         }
-        function selectedItemChange(item) {
-            $scope.selectedItem = item;
-            campusService.getCampusDetailsWithUniversityAndState({campusId:item.value}).then(function(response){
-                $scope.campusDetails = response.data.success.successData[0];
-            }).catch(function(response){
-                responseService.showErrorToast("Sorry Something Went Wrong","Please Search again");
-            });
-            $log.info('Item changed to ' + JSON.stringify(item));
-        }
+
 
 
     }

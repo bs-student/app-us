@@ -33,37 +33,28 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
-                                            <!--<label class="white-text">University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>-->
+
                                             <p class="white-text">Search by any University Name, Campus Name or State Name: </p> <p class="white-text">If not found then <a ui-sref="app.addUniversity">Create a new university!</a></p>
 
-                                            <md-autocomplete required
-                                                             md-input-id="input-style"
+                                            <input
+                                                    placeholder="Type any University/Campus/State Name"
 
-                                                             md-input-name="campus"
-                                                             md-selected-item="selectedItem"
-                                                             md-search-text-change="searchTextChange(searchText)"
-                                                             md-search-text="searchText"
-                                                             md-selected-item-change="selectedItemChange(item)"
-                                                             md-items="item in querySearch(searchText)"
-                                                             md-item-text="item.display"
-                                                             md-min-length="0"
-                                                             placeholder="Type any University/Campus?State Name">
-                                                <md-item-template>
+                                                    typeahead-on-select="onCampusSelect($item, $model, $label)"
+                                                    ng-model-options="modelOptions"
+                                                    name="campus"
+                                                    required type="text"
+                                                    ng-model="campus"
+                                                    uib-typeahead="campus as campus.display for campus in querySearch($viewValue)"
+                                                    typeahead-loading="loadingCampuses"
+                                                    typeahead-no-results="noResults"
+                                                    class="form-control input-style">
 
-                                                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                                </md-item-template>
-                                                <md-not-found>
-                                                    No matches found for "{{searchText}}".
+                                            <text ng-show="loadingCampuses"  class="white-text"><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
+                                            <div ng-show="noResults" class="text-danger">
+                                                <i class="fa fa-times"></i> No Results Found
+                                            </div>
 
-                                                </md-not-found>
 
-                                                <div ng-messages="registrationCompleteForm.autocompleteField.$error" ng-if="registrationCompleteForm.autocompleteField.$touched">
-                                                    <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                                    <div ng-message="minlength">Your entry is not long enough.</div>
-                                                    <div ng-message="maxlength">Your entry is too long.</div>
-                                                </div>
-
-                                            </md-autocomplete>
                                             <p class="help-block">
                                                 <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
                                             </p>
@@ -133,10 +124,6 @@
 </div>
 
 
-<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
-
-
-<!--</div>-->
 
 
 

@@ -10,16 +10,10 @@
 
                 <p class="text-white mid-two-header">Sign Up</p>
 
-
-
-
-
             </div>
 
-
-
         </div>
-        <div class="row reg-page-dark-div">
+        <div cg-busy="{promise:signupPromise}" class="row reg-page-dark-div">
             <form name="userForm" submit-validate ng-submit="register(userForm.$valid)" role="form" novalidate>
             <div class="col-md-6 reg-page-col-div">
 
@@ -101,29 +95,10 @@
                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
             </div>
             <div class="col-md-6 reg-page-col-div ">
 
                 <div class=" reg-page-form">
-
-
-
-
-
-
-
-
 
 
                     <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">

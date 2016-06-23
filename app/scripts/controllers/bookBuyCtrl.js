@@ -18,6 +18,7 @@
         $scope.searchingError = false;
         $scope.searchingProgress=true;
         $scope.searchBook = _searchBook;
+
         $scope.changePage = _changePage;
 
         $scope.bookSearchResult = null;
@@ -40,39 +41,58 @@
                 $scope.noUniversitySelected=true;
             }
             $scope.querySearch   = querySearch;
-            $scope.selectedItemChange = selectedItemChange;
-            $scope.searchTextChange   = searchTextChange;
-            $scope.selectedItem = null;
+            $scope.onCampusSelect = _onCampusSelect;
+            $scope.onCampusChange = _onCampusChange;
 
+            $scope.modelOptions = {
+                debounce: {
+                    default: 300,
+                    blur: 250
+                },
+                getterSetter: true
+            };
+            function _onCampusSelect($item, $model, $label){
+
+
+                if($scope.campus.value!=undefined){
+                    $scope.bookSearchForm.campus.$setValidity("data_error", true);
+                    $scope.noUniversitySelected=false;
+                    storageService.setValue('universityCampusDisplay',$scope.campus.display);
+                    storageService.setValue('universityCampusValue',$scope.campus.value);
+                }else{
+                    console.log("SELECTED CAMPUS");
+                    $scope.bookSearchForm.campus.$setValidity("data_error", false);
+
+                }
+            }
+            function _onCampusChange(){
+                if($scope.campus!=undefined){
+                    if($scope.campus.value!=undefined){
+                        $scope.bookSearchForm.campus.$setValidity("data_error", true);
+                    }else{
+                        $scope.bookSearchForm.campus.$setValidity("data_error", false);
+                    }
+                }else{
+                    $scope.bookSearchForm.campus.$setValidity("data_error", false);
+                }
+
+            }
 
 
             function querySearch (query) {
 
                 var data ={'query':query};
-                var deferred = $q.defer();
-                universityService.getUniversitiesForAutocomplete(data).then(function(response){
-                    deferred.resolve(response.data.success.successData);
+                return universityService.getUniversitiesForAutocomplete(data).then(function(response){
+                    return response.data.success.successData.map(function(item){
+                        return item;
+                    });
                 }).catch(function(response){
                     responseService.showErrorToast("Something Went Wrong","Please Reload Again");
                 });
-                return deferred.promise;
 
             }
 
-            function searchTextChange(text) {
-                $log.info('Text changed to ' + text);
-            }
-            function selectedItemChange(item) {
 
-                if(item!=undefined){
-                    $scope.noUniversitySelected=false;
-                    storageService.setValue('universityCampusDisplay',item.display);
-                    storageService.setValue('universityCampusValue',item.value);
-                    $scope.selectedItem = item;
-                }
-
-//                $log.info('Item changed to ' + JSON.stringify(item));
-            }
         }
 
 

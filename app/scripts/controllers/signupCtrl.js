@@ -112,7 +112,7 @@
 
                 var json = JSON.stringify(data);
 
-                securityService.registerUser(data).then(function (response){
+                ($scope.signupPromise = securityService.registerUser(data)).then(function (response){
                     if(response.data.success!=undefined){
                         responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
                         $state.go('app.dashboard');

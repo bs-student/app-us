@@ -6,17 +6,23 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth','quoteService','SERVER_CONSTANT'];
 
-    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
-        $scope.peopleQuoteItems = [
-            {id: 1, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
-            {id: 2, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
-            {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
-        ];
+
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
+        $scope.peopleQuoteItems = [];
+        ($scope.quotePromise = quoteService.getActivatedStudentQuotes()).then(function(response){
+            $scope.peopleQuoteItems = response.data.success.successData;
+        });
+//        $scope.peopleQuoteItems = [
+//            {id: 1, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
+//            {id: 2, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
+//            {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
+//        ];
 
         $scope.bookId = $stateParams.bookId;
         $scope.loginUser = _loginUser;
@@ -51,7 +57,7 @@
 
         function _loginUser(valid) {
             if(valid){
-                securityService.loginUser($scope.user).then(showDashboardPage).catch(showLoginUnsuccessful);
+                ($scope.loginPromise = securityService.loginUser($scope.user)).then(showDashboardPage).catch(showLoginUnsuccessful);
             }
         }
 
@@ -66,7 +72,7 @@
 
         function showDashboardPage(response) {
             if (response.data.success.successTitle = "Login Successful") {
-                    identityService.getInitialAccessToken($scope.user).then(getAuthorizedUserData).catch(showUnknownError);
+                ($scope.loginPromise = identityService.getInitialAccessToken($scope.user)).then(getAuthorizedUserData).catch(showUnknownError);
             }
         }
 
@@ -74,7 +80,7 @@
 
             identityService.setAccessToken(response.data);
 
-            userService.getAuthorizedUserShortData(response.data.access_token).then(setAuthorizedUserData).catch(function(response){
+            ($scope.loginPromise = userService.getAuthorizedUserShortData(response.data.access_token)).then(setAuthorizedUserData).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {
                     $scope.$parent.logout();
                 } else if (response.data.error_description == "The access token provided has expired.") {

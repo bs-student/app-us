@@ -15,42 +15,11 @@
                   novalidate>
                 <div class="col-md-12 search-banner-input-col">
                     <div class="search-page-input-div">
-                        <div ng-if="!$parent.loggedIn" class="form-group">
-                            <md-autocomplete
-                                             md-input-id="search-university-search-page"
-
-                                             md-input-name="campus"
-                                             md-selected-item="selectedItem"
-                                             md-search-text-change="searchTextChange(searchUniversity)"
-                                             md-search-text="searchUniversity"
-                                             md-selected-item-change="selectedItemChange(item)"
-                                             md-items="item in querySearch(searchUniversity)"
-                                             md-item-text="item.display"
-                                             md-min-length="0"
-                                             placeholder="What is your University Campus?">
-                                <md-item-template>
-
-                                    <span md-highlight-text="searchUniversity" md-highlight-flags="^i">{{item.display}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                    No matches found for "{{searchUniversity}}".
-
-                                </md-not-found>
-
-
-
-                            </md-autocomplete>
-                            <!--<p class="help-block">
-                                <span ng-show="bookSearchForm.campus.$invalid && !bookSearchForm.campus.$pristine">Choose your University.</span>
-                            </p>-->
-                        </div>
-                            <br/><br/>
-
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-search fa-2x"></i></span>
                             <input  required name="searchText" id="searchText" ng-model="searchText"
-                                   type="text" class="form-control search-page-input"
-                                   placeholder="Principles of Marketing By Philip Kotler...">
+                                    type="text" class="form-control search-page-input"
+                                    placeholder="Principles of Marketing By Philip Kotler...">
 
                            <span class="input-group-btn">
                               <button class="btn btn-default" type="submit">
@@ -59,16 +28,41 @@
                            </span>
 
                         </div>
+                        <p class="help-block">
+                        <span class="orange-text"
+                              ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
+
+                        </p>
+                        <br/><br/>
+                        <div ng-show="!$parent.loggedIn" class="form-group">
+                            <input
+                                    name="campus"
+                                    ng-model="campus"
+                                    id="search-university-search-page"
+                                    placeholder="What is your University Campus?"
+                                    ng-change="onCampusChange()"
+                                    typeahead-on-select="onCampusSelect($item, $model, $label)"
+                                    ng-model-options="modelOptions"
+
+                                    ng-required="!$parent.loggedIn" type="text"
+
+                                    uib-typeahead="universityCampus as universityCampus.display for universityCampus in querySearch($viewValue)"
+                                    typeahead-loading="loadingCampuses"
+                                    typeahead-no-results="noResults"
+                                    class="form-control input-style">
+                            <text ng-show="loadingCampuses"  class="white-text"><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
+                            <div ng-show="noResults" class="text-danger">
+                                <i class="fa fa-times"></i> No Results Found
+                            </div>
+
+
+                        </div>
 
 
                     </div>
                     <!--<code>{{bookSearchForm}}</code>-->
 
-                    <p class="help-block">
-                        <span class="orange-text"
-                              ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
 
-                    </p>
 
                 </div>
             </form>

@@ -939,8 +939,29 @@
     border-radius: 8px !important;
     /*border-top-right-radius: 8px !important;*/
 }
+#search-university-search-page::-webkit-input-placeholder{
+    font-size: 22px;
+}
+#search-university-search-page:-ms-input-placeholder{
+    color: #d5d5d5;
+    font-family: Lato;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 24px;
+    /*padding: 7px 0px;*/
+    /*line-height: 27px;*/
+    height:      68px;
+}
 #search-university-search-page, #search-university-search-page:hover:not(:disabled), #search-university-search-page:focus, #search-university-search-page:focus:hover{
     height: 68px;
+}
+
+.search-page-input-div ul.dropdown-menu{
+    width: 100%;
+    padding: 0px;
+}
+.search-page-input-div ul.dropdown-menu > li > a{
+    padding: 10px 20px;
 }
 
 

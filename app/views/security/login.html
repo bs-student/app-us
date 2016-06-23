@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-6 login-page-col-div col-md-push-6">
 
-                <div class="login-page-dark-div login-page-form">
+                <div cg-busy="{promise:loginPromise}" class="login-page-dark-div login-page-form">
                     <form name="loginForm" class="form-horizontal" submit-validate
                           ng-submit="loginUser(loginForm.$valid)" role="form" novalidate>
 
@@ -79,9 +79,9 @@
 
 
             </div>
-            <div class="col-md-6 login-page-col-div col-md-pull-6">
+            <div  class="col-md-6 login-page-col-div col-md-pull-6" >
 
-                <div class="login-page-dark-div login-page-quotation">
+                <div cg-busy="{promise:quotePromise}" class="login-page-dark-div login-page-quotation">
                     <div class="fslider" data-animation="slide" data-arrows="false">
                         <div class="flexslider reference-slider">
                             <div class="slider-wrap">
@@ -103,7 +103,7 @@
                                                         <div class="display-flex">
                                                             <div class="login-page-student-img media-left">
                                                                 <img class="media-object thumb img-circle" alt=""
-                                                                     ng-src="{{item.peopleImg}}">
+                                                                     ng-src="{{imageHostPath}}{{item.peopleImg}}">
                                                             </div>
                                                             <div class="mid-three-people-name">
                                                                 <strong>{{item.peopleName}} </strong>,
