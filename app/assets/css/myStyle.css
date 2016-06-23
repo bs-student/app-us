@@ -2080,6 +2080,12 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     background: #FF530E;
     color: #FFFFFF;
 }
+.faq-topics-div .tabs-menu > li.active > a i:after{
+    content: "\f068";
+}
+.faq-topics-div .tabs-menu > li.active > a i:before{
+    content: "";
+}
 .faq-topics-div .tabs-menu > li.active:after{
     content: none;
 }
@@ -2593,10 +2599,38 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     padding: 0px 20px;
 }
 .follow-us-logos-div{
-    padding: 50px 50px;
+    padding: 50px 27%;
     display: flex;
-
 }
+.follow-us-logos-div-contact-us{
+    padding: 50px 18px;
+    display: flex;
+}
+
+.follow-us-logos-div-contact-us .follow-twitter{
+    background-color: #61C2FF;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50%;
+}
+.follow-us-logos-div-contact-us .follow-facebook{
+    background-color: #0073AE;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
+.follow-us-logos-div-contact-us .follow-instagram{
+    background-color: #405299;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
+
 .follow-us-logos-div .follow-twitter{
     background-color: #61C2FF;
     width: 40px;
@@ -2606,6 +2640,14 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .follow-us-logos-div .follow-facebook{
     background-color: #0073AE;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
+.follow-us-logos-div .follow-instagram{
+    background-color: #405299;
     padding: 8px;
     width: 40px;
     height: 40px;
@@ -2645,7 +2687,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     width: 200px;
 }
 .right-head-text.right-white-div{
-    min-height: 634px;
+    min-height: 642px;
 }
 .quick-links ul li  a{
     text-decoration: none !important;
@@ -2826,6 +2868,15 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     width: 30px;
     height: 30px;
     /*margin-left: 23px;*/
+    border-radius: 50%;
+    font-size: 16px;
+}
+.news-share-hr-div .follow-instagram{
+    background-color: #405299;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    margin-left: 0px;
     border-radius: 50%;
     font-size: 16px;
 }

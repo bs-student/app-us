@@ -20,6 +20,11 @@
             "SOCIAL_PLUGIN_GRANT_TYPE":"http://platform.local/grants/social_plugin",
             "OAUTH_TOKEN_URL":"/oauth/v2/token"
         })
+        .constant("SOCIAL_MEDIA_CONSTANT", {
+            "FACEBOOK_LINK": "https://www.facebook.com",
+            "TWITTER_LINK": "https://www.twitter.com",
+            "INSTAGRAM_LINK": "https://www.instagram.com"
+        })
 
         .constant("USER_CONSTANT", {
             "CURRENT_USER_SHORT_DETAILS": "/api/current_user_short_details",

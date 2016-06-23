@@ -5,9 +5,9 @@
     app
         .controller('NewsDetailsCtrl', NewsDetailsCtrl);
 
-    NewsDetailsCtrl.$inject = ['$stateParams','$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService'];
+    NewsDetailsCtrl.$inject = ['$stateParams','$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService','SOCIAL_MEDIA_CONSTANT','$location'];
 
-    function NewsDetailsCtrl($stateParams,$state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
+    function NewsDetailsCtrl($stateParams,$state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService,SOCIAL_MEDIA_CONSTANT,$location) {
 
 
 
@@ -16,11 +16,15 @@
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "news";
 
+        $scope.facebookLink = SOCIAL_MEDIA_CONSTANT.FACEBOOK_LINK;
+        $scope.twitterLink = SOCIAL_MEDIA_CONSTANT.TWITTER_LINK;
+        $scope.instagramLink = SOCIAL_MEDIA_CONSTANT.INSTAGRAM_LINK;
+
+        $scope.shareLink = $location.absUrl();
 
         if($stateParams.newsId==undefined){
             $state.go('app.news');
         }else{
-
             $scope.firstNews=[];
             $scope.latestNews=[];
             $scope.alsoLikedNews=[];

@@ -31,18 +31,12 @@
                         </div>
                         <div class="col-md-12">
                             <p class="grey-text lato">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dolor diam, egestas id
-                                elit bibendum, laoreet sagittis odio. Praesent semper malesuada libero, egestas
-                                fermentum erat gravida sed. Ut maximus, lectus vel ultrices dignissim, est tellus
-                                tristique lorem, sed euismod dui orci vel risus.
+                                Student 2 Student is happy to hear about any suggestions, ideas or anything that you might feel is important.<br/>
+                                Our goal is to help every student to safe money on textbooks.<br/>
+                                Or... We are depending on the students so if you have a quote for us, we would love to publish it<br/>
 
                             </p>
 
-                            <p class="grey-text lato">
-                                Suspendisse tincidunt, turpis ac ultrices euismod, diam nibh imperdiet libero, sed
-                                dictum metus elit id diam. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </p>
                         </div>
                     </div>
 
@@ -52,7 +46,7 @@
 
                             <div class="col-md-6">
                                 <text class="lato px-18">Full Name *</text>
-                                <br/><br/>
+                                <br/>
 
                                 <div ng-class="{ 'has-error' : contactUsForm.fullName.$invalid && !contactUsForm.fullName.$pristine, 'has-success' : contactUsForm.fullName.$valid && !contactUsForm.fullName.$pristine}">
 
@@ -68,7 +62,7 @@
 
                             <div class="col-md-6">
                                 <text class="lato px-18">Email *</text>
-                                <br/><br/>
+                                <br/>
 
                                 <div ng-class="{ 'has-error' : contactUsForm.email.$invalid && !contactUsForm.email.$pristine, 'has-success' : contactUsForm.email.$valid && !contactUsForm.email.$pristine}">
 
@@ -82,13 +76,13 @@
                                 </div>
                             </div>
                         </div>
-
+                        <br/>
                         <div class="row">
 
 
                             <div class="col-md-12">
                                 <text class="lato px-18">Subject *</text>
-                                <br/><br/>
+                                <br/>
 
                                 <div ng-class="{ 'has-error' : contactUsForm.subject.$invalid && !contactUsForm.subject.$pristine, 'has-success' : contactUsForm.subject.$valid && !contactUsForm.subject.$pristine}">
 
@@ -103,13 +97,13 @@
                             </div>
 
                         </div>
-
+                        <br/>
                         <div class="row">
 
 
                             <div class="col-md-12">
                                 <text class="lato px-18">Your Message *</text>
-                                <br/><br/>
+                                <br/>
 
                                 <div ng-class="{ 'has-error' : contactUsForm.message.$invalid && !contactUsForm.message.$pristine, 'has-success' : contactUsForm.message.$valid && !contactUsForm.message.$pristine}">
 
@@ -124,13 +118,13 @@
                             </div>
 
                         </div>
-
+                        <br/>
                         <div class="row">
 
 
                             <div class="col-md-12">
                                 <text class="lato px-18">I want :</text>
-                                <br/><br/>
+                                <br/>
 
                                 <div ng-class="{ 'has-error' : contactUsForm.want.$invalid && !contactUsForm.want.$pristine, 'has-success' : contactUsForm.want.$valid && !contactUsForm.want.$pristine}">
 
@@ -164,6 +158,23 @@
                             </div>
 
                         </div>
+<br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" ng-class="{'has-error':contactUsForm.recaptcha.$invalid && !contactUsForm.recaptcha.$pristine}">
+                                    <div    name="recaptcha"
+                                            theme="light"
+                                            vc-recaptcha
+                                            ng-model="key"
+                                            required
+                                            ></div>
+                                    <p class="help-block">
+                                        <span  ng-show="contactUsForm.recaptcha.$invalid && !contactUsForm.recaptcha.$pristine">Captcha is required.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
 
@@ -186,8 +197,11 @@
             <div class="col-sm-3 sidebar contact-us-page-right-bar">
 
                 <div class="blue-background right-head-text">
-                    <p class="white-text lato px-16">You didn’t find your university? Go <a ui-sref="app.addUniversity">here</a>
-                        and add it to Student 2 Student automatically
+                    <p class="white-text lato px-16">
+                        <a ui-sref="app.conceptVideo">This</a> is the easiest thing you’ll do all semester. No, really.<br/>
+                        Here’s how the simple, fast, Student 2 Student system works to make your life easier.
+                        <!--You didn’t find your university? Go <a ui-sref="app.addUniversity">here</a>
+                        and add it to Student 2 Student automatically-->
                     </p>
                 </div>
                 <div class="white-background right-head-text text-center right-white-div">
@@ -196,9 +210,10 @@
                             us</strong></span><br/>
                     </div>
 
-                    <div class="follow-us-logos-div text-center">
-                        <div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div>
-                        <div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div>
+                    <div class="follow-us-logos-div-contact-us text-center">
+                        <a target="_blank" href="{{twitterLink}}"><div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div></a>
+                        <a target="_blank" href="{{facebookLink}}"><div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div></a>
+                        <a target="_blank" href="{{instagramLink}}"><div class="follow-instagram  white-text"><i class="fa fa-instagram fa-2x"></i></div></a>
                     </div>
                     <div class="follow-us-head-text">
                         <span class=" follow-us-header lato orange-text uppercase px-16"><strong>quick
@@ -208,19 +223,22 @@
                     <div class="quick-links">
                         <ul class="footer-useful-links-ul lato grey-text">
                             <li>
+                                <a ui-sref="app.howItWorks">&nbsp;How Student 2 Student works</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.news">&nbsp;News</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.signup">&nbsp;Join</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.bookBuy">&nbsp;Search</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.addUniversity">&nbsp;Add a new University</a>
+                            </li>
+                            <li>
                                 <a ui-sref="app.faq">&nbsp;FAQ</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.signup">&nbsp;Sign Up</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.howItWorks">&nbsp;How It Works Video</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.bookBuy">&nbsp;Buy a Book</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.universityMap">&nbsp;University Map</a>
                             </li>
 
                         </ul>

@@ -39,6 +39,11 @@
             $scope.searchUniversity = storageService.getValue("universityCampusDisplay");
             if($scope.searchUniversity==null){
                 $scope.noUniversitySelected=true;
+            }else{
+                $scope.campus = {
+                    display: storageService.getValue("universityCampusDisplay"),
+                    value: storageService.getValue("universityCampusValue")
+                }
             }
             $scope.querySearch   = querySearch;
             $scope.onCampusSelect = _onCampusSelect;

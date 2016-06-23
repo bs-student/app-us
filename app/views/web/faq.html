@@ -67,12 +67,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="faq-download-div">
-                            <div class="div-header"><text class="uppercase lato">Download</text></div>
+                            <div class="div-header"><text class="uppercase lato">Downloads</text></div>
                             <img class="hr-img" data-ng-src="dist/images/faq/hr.png"/>
                             <ul>
-                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
-                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
-                                <li ><a href="#">about student2student <img src="dist/images/faq/file_download.png"/></a></li>
+                                <li ><a href="#">Bookmark for print <img src="dist/images/faq/file_download.png"/></a></li>
+                                <li ><a href="#">Small Flyer <img src="dist/images/faq/file_download.png"/></a></li>
+                                <li ><a href="#">Big flyer <img src="dist/images/faq/file_download.png"/></a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                     <uib-accordion-heading>
                                         {{row.question}} <i class="pull-right fa" ng-class="{'fa-minus': row.open, 'fa-plus': !row.open}"></i>
                                     </uib-accordion-heading>
-                                    {{row.answer}}
+                                    <div ng-bind-html="row.answer"></div>
                                 </uib-accordion-group>
 
                             </uib-accordion>

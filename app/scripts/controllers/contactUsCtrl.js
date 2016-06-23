@@ -5,14 +5,17 @@
     app
         .controller('ContactUsCtrl', ContactUsCtrl);
 
-    ContactUsCtrl.$inject = ['$state', '$scope','responseService','contactUsService'];
+    ContactUsCtrl.$inject = ['$state', '$scope','responseService','contactUsService','SOCIAL_MEDIA_CONSTANT'];
 
-    function ContactUsCtrl($state, $scope,responseService,contactUsService) {
+    function ContactUsCtrl($state, $scope,responseService,contactUsService,SOCIAL_MEDIA_CONSTANT) {
 
 
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "helpAndSafety";
+        $scope.facebookLink = SOCIAL_MEDIA_CONSTANT.FACEBOOK_LINK;
+        $scope.twitterLink = SOCIAL_MEDIA_CONSTANT.TWITTER_LINK;
+        $scope.instagramLink = SOCIAL_MEDIA_CONSTANT.INSTAGRAM_LINK;
 
 
         $scope.sendMessage=_sendMessage;
@@ -24,7 +27,8 @@
                     "email": $scope.email,
                     "subject": $scope.subject,
                     "message": $scope.message,
-                    "want": $scope.want
+                    "want": $scope.want,
+                    "key": $scope.key
                 };
 
                 ($scope.contactUsPromise = contactUsService.sendContactUsMessage(data)).then(function(response){
