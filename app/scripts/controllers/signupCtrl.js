@@ -6,9 +6,9 @@
     app
         .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','responseService','$stateParams'];
+    SignupCtrl.$inject = ['$q','$log','$scope', 'identityService', '$state', "securityService", 'userService','referralService','universityService','responseService','$stateParams','$http'];
 
-    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,responseService,$stateParams) {
+    function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,responseService,$stateParams,$http) {
 
 
         $scope.$parent.headerStyle = "dark";
@@ -38,43 +38,59 @@
             });
 
             $scope.states        = null;
-            $scope.querySearch   = querySearch;
-            $scope.selectedItemChange = selectedItemChange;
-            $scope.searchTextChange   = searchTextChange;
-            $scope.selectedItem = null;
+            $scope.querySearch   = _querySearch;
+            $scope.onCampusSelect = _onCampusSelect;
+            $scope.onCampusChange = _onCampusChange;
 
 
 
-            function querySearch (query) {
+            $scope.modelOptions = {
+                debounce: {
+                    default: 300,
+                    blur: 250
+                },
+                getterSetter: true
+            };
+            function _onCampusSelect($item, $model, $label){
+                if($scope.campus.value!=undefined){
+                    $scope.userForm.campus.$setValidity("data_error", true);
+                }else{
+                    $scope.userForm.campus.$setValidity("data_error", false);
+                }
+            }
+            function _onCampusChange(){
+                if($scope.campus!=undefined){
+                    if($scope.campus.value!=undefined){
+                        $scope.userForm.campus.$setValidity("data_error", true);
+                    }else{
+                        $scope.userForm.campus.$setValidity("data_error", false);
+                    }
+                }else{
+                    $scope.userForm.campus.$setValidity("data_error", false);
+                }
+
+            }
+            function _querySearch (query) {
 
                 var data ={'query':query};
-                var deferred = $q.defer();
-                universityService.getUniversitiesForAutocomplete(data).then(function(response){
-                    deferred.resolve(response.data.success.successData);
+                return universityService.getUniversitiesForAutocomplete(data).then(function(response){
+                    return response.data.success.successData.map(function(item){
+                        return item;
+                    });
                 }).catch(function(response){
                     responseService.showErrorToast("Something Went Wrong","Please Reload Again");
                 });
-                return deferred.promise;
-
             }
 
-            function searchTextChange(text) {
-                $log.info('Text changed to ' + text);
-            }
-            function selectedItemChange(item) {
-                $scope.selectedItem = item;
-                $log.info('Item changed to ' + JSON.stringify(item));
-            }
 
         }
 
 
         function _register(valid){
 
-
             if(valid){
 
-                campusValue = null;
+
                 var data =
                 {
                     'fullName': $scope.user.fullName,
@@ -86,13 +102,11 @@
                     'key': $scope.user.key
 
                 };
-                if(!$scope.createUniversityCampusName && $scope.selectedItem!=null){
-                    var campusValue = $scope.selectedItem;
-                    data['campus']=campusValue.value;
+                if($scope.campus.value!=undefined){
+                    $scope.userForm.campus.$setValidity("data_error", true);
+                    data['campus']=$scope.campus.value;
                 }else{
-                    data['campusName']=$scope.user.campusName;
-                    data['state']=$scope.user.state;
-                    data['university']=$scope.user.university;
+                    $scope.userForm.campus.$setValidity("data_error", false);
                 }
 
 
@@ -116,14 +130,14 @@
                 $scope.user.password=null;
                 $scope.user.passwordConfirm=null;
                 if(response.data.error.errorData.children.username.errors!=undefined){
-                    errorDescription+= response.data.error.errorData.children.username.errors[0]+". ";
+                    errorDescription+= response.data.error.errorData.children.username.errors[0]+" ";
                 }
                 if(response.data.error.errorData.children.email.errors!=undefined){
-                    errorDescription+= response.data.error.errorData.children.email.errors[0]+". ";
+                    errorDescription+= response.data.error.errorData.children.email.errors[0]+" ";
                 }
             }
 
-            responseService.showErrorToast(response.data.error.errorTitle,errorDescription+". "+response.data.error.errorDescription);
+            responseService.showErrorToast(response.data.error.errorTitle,errorDescription+" "+response.data.error.errorDescription);
         }
 
 
