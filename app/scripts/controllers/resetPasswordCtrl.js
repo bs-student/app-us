@@ -24,7 +24,7 @@
                             'passwordConfirm':$scope.user.passwordConfirm,
                             'token':$stateParams.code
                         }
-                        securityService.resetPassword(data).then(function(response){
+                            ($scope.resetPromise = securityService.resetPassword(data)).then(function(response){
 
                             if(response.data.success!=undefined){
                                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
