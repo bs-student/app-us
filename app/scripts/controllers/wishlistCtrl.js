@@ -15,6 +15,7 @@
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
+        $scope.resultFound=true;
         $scope.wishListBooks=[];
 
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
@@ -30,7 +31,12 @@
 
 
             ($scope.sellingBookPromise=wishListService.getMyWishList(identityService.getAccessToken())).then(function(response){
-                $scope.wishListBooks = response.data.success.successData;
+                if(response.data.success.successData.length>0){
+                    $scope.wishListBooks = response.data.success.successData;
+
+                }else{
+                    $scope.resultFound=false;
+                }
 
             }).catch(function (response) {
 

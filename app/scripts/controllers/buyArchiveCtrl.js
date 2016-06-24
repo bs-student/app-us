@@ -13,6 +13,7 @@
 //            $state.go("app.login");
 //        }
 
+        $scope.resultFound = true;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];
@@ -114,11 +115,13 @@
             };
 
             ($scope.sellingBookPromise=bookDealService.getBookDealsOfMineWhichAreBought(identityService.getAccessToken(),data)).then(function(response){
-
-                $scope.campusBookDeals = response.data.success.successData.result;
-                $scope.totalSearchResults = response.data.success.successData.totalNumber;
-                $scope.showPagination=true;
-
+                if(response.data.success.successData.result.length>0){
+                    $scope.campusBookDeals = response.data.success.successData.result;
+                    $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                    $scope.showPagination=true;
+                }else{
+                    $scope.resultFound=false;
+                }
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided is invalid.") {

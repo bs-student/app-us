@@ -23,6 +23,26 @@
 <div class="selling-book-promise-div"
      cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
 
+<div class="section m-0 pt-0 archive-page-sections" ng-show="!resultFound">
+    <div class="container clearfix quote-container-homepage">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="lato px-25 orange-text">"{{username}}" is not selling any textbooks yet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section m-0 pt-0 archive-page-sections" ng-show="noUserFound">
+    <div class="container clearfix quote-container-homepage">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="lato px-25 text-danger">Sorry, no user was found named "{{username}}"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="section m-0 pt-0 search-result-section" ng-show="showPagination">
     <div class="container clearfix quote-container-homepage">
         <div class="row">

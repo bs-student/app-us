@@ -9,11 +9,9 @@
 
     function SellArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
 
         $scope.showPagination=false;
+        $scope.resultFound = true;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];
@@ -108,10 +106,15 @@
             };
 
             ($scope.sellingBookPromise=bookDealService.getBookDealsOfMineWhichAreSold(identityService.getAccessToken(),data)).then(function(response){
-                $scope.campusBookDeals = response.data.success.successData.result;
-                $scope.totalSearchResults = response.data.success.successData.totalNumber;
-                $scope.showPagination=true;
-                setCarousel();
+                if(response.data.success.successData.result.length>0){
+
+                    $scope.campusBookDeals = response.data.success.successData.result;
+                    $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                    $scope.showPagination=true;
+                    setCarousel();
+                }else{
+                    $scope.resultFound=false;
+                }
 
             }).catch(function (response) {
 

@@ -13,8 +13,12 @@
 
 //        $scope.shareUrl="http://hello.com/#/"+identityService.getAuthorizedUserData().username;
 
+
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
+        $scope.resultFound=true;
+        $scope.noUserFound=false;
+        $scope.username = $stateParams.username;
         $scope.campusBookDeals=[];
         $scope.sortType = "bookTitle";
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
@@ -109,11 +113,15 @@
                 "keyword":searchQuery
             };
             ($scope.sellingBookPromise = bookDealService.getActivatedBookDealsOfUser(data)).then(function(response){
+                if(response.data.success.successData.result.length>0){
                 $scope.campusBookDeals = response.data.success.successData.result;
                 $scope.user = response.data.success.successData.userData;
                 $scope.totalSearchResults = response.data.success.successData.totalNumber;
                 $scope.showPagination=true;
                 setCarousel();
+                }else{
+                    $scope.resultFound=false;
+                }
 
             }).catch(function (response) {
 
@@ -125,6 +133,7 @@
                         init(currentPage);
                     });
                 } else if (response.data.error != undefined) {
+                    $scope.noUserFound=true;
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
                 } else {
                     responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")

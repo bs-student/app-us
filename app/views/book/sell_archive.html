@@ -18,6 +18,17 @@
 
 <!--SELLER TO BUYER-->
 <div class="selling-book-promise-div" cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
+
+<div class="section m-0 pt-0 archive-page-sections" ng-show="!resultFound">
+    <div class="container clearfix quote-container-homepage">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="lato px-25 orange-text">You have not sold any textbooks yet. You can start selling your textbooks within seconds <a ui-sref="app.sellBook">here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
