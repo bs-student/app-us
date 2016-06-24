@@ -4,10 +4,10 @@
 
     app
         .constant("SERVER_CONSTANT",{
-            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
-            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
-//            "IMAGE_HOST_PATH":"./api/web"
+//            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
+//            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
+              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
+            "IMAGE_HOST_PATH":"./api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
@@ -102,6 +102,7 @@
             "CHECK_IF_USERNAME_EXIST":"/check_if_username_exist",
             "CHECK_IF_EMAIL_EXIST":"/check_if_email_exist",
             "FORGOT_PASSWORD":"/resetting/send-email",
+            "CHECK_RESET_PASSWORD_LINK":"/resetting/check_token",
             "RESET_PASSWORD":"/resetting/reset"
         })
 
