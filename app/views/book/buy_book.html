@@ -33,10 +33,10 @@
                               ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">This Field is required.</span>
 
                         </p>
-                        <br/><br/>
+
 
                         <div ng-show="!$parent.loggedIn">
-                            <p class="grey-text px-25 lato">University: <strong ng-show="!noUniversitySelected">{{selectedCampus.display}}</strong><strong ng-show="noUniversitySelected">You have not selected any university yet.</strong> &nbsp; <a href="" ng-click="changeUniversity=!changeUniversity">Choice University</a></p>
+                            <p class="grey-text px-18 lato">University: <text ng-show="!noUniversitySelected">{{selectedCampus.display}}</text><text ng-show="noUniversitySelected">You have not selected any university yet.</text> &nbsp; <a href="" ng-click="changeUniversity=!changeUniversity">Choice University</a></p>
                         </div>
 
                         <!--<div ng-show="!$parent.loggedIn" class="form-group">
