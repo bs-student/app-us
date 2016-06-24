@@ -212,6 +212,12 @@
                             </tr>
                             </thead>
 
+                            <tbody ng-show="deal.contacts.length==0">
+                            <tr>
+                                <td colspan="6">You have no contact history yet.</td>
+                            </tr>
+                            </tbody>
+
                             <tbody data-ng-repeat="contact in deal.contacts">
                             <tr>
                                 <td>{{contact.contactDateTime}}</td>
