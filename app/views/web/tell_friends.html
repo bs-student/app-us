@@ -10,18 +10,19 @@
 
                 <p class="text-white mid-two-header">Tell Your Friends</p>
 
-                <div class="text-center tell-friends-share-div">
+                <div  class="text-center tell-friends-share-div">
                     <a class="facebook" href="" socialshare
                        socialshare-provider="facebook"
-                       socialshare-text="Student2Student.com Textbook Exchange made Easy"
-                       socialshare-hashtags="student2student, Textbook Exchange Made Easy"
-                       socialshare-url="http://168.61.173.224:8080/student2student/#/"><i class="fa fa-facebook"></i></a>
+                       socialshare-text="{{shareText}}"
+                       socialshare-hashtags="{{shareHashtags}}"
+                       socialshare-url="{{shareUrl}}"><i class="fa fa-facebook"></i></a>
                     <a class="twitter" href="" href="" socialshare
                        socialshare-provider="twitter"
-                       socialshare-text="Student2Student.com Textbook Exchange made Easy"
-                       socialshare-hashtags="student2student, Textbook Exchange Made Easy"
-                       socialshare-url="http://168.61.173.224:8080/student2student/#/"><i  class="fa fa-twitter"></i></a>
+                       socialshare-text="{{shareText}}"
+                       socialshare-hashtags="{{shareHashtags}}"
+                       socialshare-url="{{shareUrl}}"><i  class="fa fa-twitter"></i></a>
                 </div>
+
 
 
             </div>
@@ -38,10 +39,10 @@
 
                         <div class="form-group"
                              ng-class="{ 'has-error' : sendEmail.fullName.$invalid && !sendEmail.fullName.$pristine, 'has-success' : sendEmail.fullName.$valid && !contactForm.fullName.$pristine}">
-                            <p class="white-text ">Your Full Name:</p>
+                            <p class="white-text ">Your Full Name: <text ng-show="$parent.loggedIn"><strong>{{user.fullName}}</strong></text></p>
 
-                            <input name="fullName" type="text" class="form-control input-style"
-                                   placeholder="Your Full Name" ng-model="user.fullName" required>
+                            <input ng-show="!$parent.loggedIn" name="fullName" type="text" class="form-control input-style"
+                                   placeholder="Your Full Name" ng-model="user.fullName" ng-required="!$parent.loggedIn">
 
                             <p class="help-block">
                                 <span ng-show="sendEmail.fullName.$invalid && !sendEmail.fullName.$pristine">Your Full Name is required.</span>
@@ -50,10 +51,10 @@
 
                         <div class="form-group"
                              ng-class="{ 'has-error' : sendEmail.email.$invalid && !sendEmail.email.$pristine, 'has-success' : sendEmail.email.$valid && !contactForm.email.$pristine}">
-                            <p class="white-text ">Your Email:</p>
+                            <p class="white-text ">Your Email: <text ng-show="$parent.loggedIn"><strong>{{user.email}}</strong></text></p>
 
-                            <input name="email" type="email" class="form-control input-style"
-                                   placeholder="Your Email" ng-model="user.email" required>
+                            <input ng-show="!$parent.loggedIn" name="email" type="email" class="form-control input-style"
+                                   placeholder="Your Email" ng-model="user.email" ng-required="!$parent.loggedIn">
 
                             <p class="help-block">
                                 <span ng-show="sendEmail.email.$invalid && !sendEmail.email.$pristine">Your Email is required.</span>
@@ -74,7 +75,7 @@
                                                         addRowForm.email.$valid && !addRowForm.email.$pristine}">
                                     <p class="white-text">Friend Email: </p>
 
-                                    <input type="email" class="form-control input-style" name="email"
+                                    <input  type="email" class="form-control input-style" name="email"
 
                                            ng-model="friendEmail.email" required>
 
@@ -109,28 +110,30 @@
 
 
 
-                        <div class="form-group"
+                        <div ng-show="!$parent.loggedIn" class="form-group"
                              ng-class="{ 'has-error' : sendEmail.message.$invalid && !sendEmail.message.$pristine, 'has-success' : sendEmail.message.$valid && !contactForm.message.$pristine}">
                             <p class="white-text ">Your Message:</p>
 
                             <textarea name="message" type="text" class="form-control input-style"
-                                   placeholder="Your Message" ng-model="user.message" required></textarea>
+                                   placeholder="Your Message" ng-model="user.message" ng-required="!$parent.loggedIn"></textarea>
 
                             <p class="help-block">
                                 <span ng-show="sendEmail.message.$invalid && !sendEmail.message.$pristine">Your Message is required.</span>
                             </p>
                         </div>
 
-                        <div class="form-group" ng-class="{'has-error':sendEmail.recaptcha.$invalid && !sendEmail.recaptcha.$pristine}">
-                            <div    name="recaptcha"
+                        <div ng-if="!$parent.loggedIn" class="form-group" ng-class="{'has-error':sendEmail.captcha.$invalid && !sendEmail.captcha.$pristine}">
+                            <div    name="captcha"
                                     vc-recaptcha
                                     ng-model="user.key"
-                                    required
+                                    required = "!$parent.loggedIn"
                                     ></div>
                             <p class="help-block">
-                                <span  ng-show="sendEmail.recaptcha.$invalid && !sendEmail.recaptcha.$pristine">Captcha is required.</span>
+                                <span  ng-show="sendEmail.captcha.$invalid && !sendEmail.captcha.$pristine">Captcha is required.</span>
                             </p>
                         </div>
+
+
 
 
 
@@ -156,35 +159,56 @@
                     <div class="row email-template-text">
                         <div class="col-md-8">
                             <h4 class="blue-text lato header-text">Hello my Friend,</h4>
-                            <p class="blue-text">Check out this service... just for students!</p>
-                            <p class="blue-text">No! This is not another bookstore trying to get your used textbooks for almost nothing!</p>
-                            <p class="blue-text">I am sick of getting ripped-off by the bookstores, so I decided to sell my textbooks directly to all the students on-campus.</p>
-                            <ul class="blue-text">
-                                <li>List books you want to sell, find books you need.</li>
-                                <li>Promote your own textbook Selling Page.</li>
-                                <li>Meet on-campus to do the deal.</li>
-                                <li>Interact directly with students. Pay cash.</li>
-                                <li>No shipping. No credit cards.</li>
-                                <li>Use the online textbook price comparison.</li>
-                                <li>IT'S TOTALLY FREE!</li>
-                                <li>Check out the 2 minute "How it Works":<br/>
-                                    <a ui-sref="app.conceptVideo">Watch Now!</a></li>
-                            </ul>
-                            <p class="blue-text">Don't waste money, buy directly from students.</p>
-                            <p class="blue-text">... tell your friends, tell your classmates, tell the world... the more members we get, the more everyone will SAVE!</p>
-                            <p class="blue-text">It's time to take back the bookstore! Cutout the middleman and spend your money on something better!!! Or do you like to get ripped-off?</p>
+                            <div ng-show="!$parent.loggedIn">
+                                <p class="blue-text">Check out this service... just for students!</p>
+                                <p class="blue-text">No! This is not another bookstore trying to get your used textbooks for almost nothing!</p>
+                                <p class="blue-text">I am sick of getting ripped-off by the bookstores, so I decided to sell my textbooks directly to all the students on-campus.</p>
+                                <ul class="blue-text">
+                                    <li>List books you want to sell, find books you need.</li>
+                                    <li>Promote your own textbook Selling Page.</li>
+                                    <li>Meet on-campus to do the deal.</li>
+                                    <li>Interact directly with students. Pay cash.</li>
+                                    <li>No shipping. No credit cards.</li>
+                                    <li>Use the online textbook price comparison.</li>
+                                    <li>IT'S TOTALLY FREE!</li>
+                                    <li>Check out the 2 minute "How it Works":<br/>
+                                        <a ui-sref="app.conceptVideo">Watch Now!</a></li>
+                                </ul>
+                                <p class="blue-text">Don't waste money, buy directly from students.</p>
+                                <p class="blue-text">... tell your friends, tell your classmates, tell the world... the more members we get, the more everyone will SAVE!</p>
+                                <p class="blue-text">It's time to take back the bookstore! Cutout the middleman and spend your money on something better!!! Or do you like to get ripped-off?</p>
 
-                            <text class="blue-text">
-                                Cheers,<br/>
-                                {{user.fullName}}<br/>
-                                {{user.email}}
-                            </text>
+                                <text class="blue-text">
+                                    Cheers,<br/>
+                                    {{user.fullName}}<br/>
+                                    {{user.email}}
+                                </text>
+                            </div>
+
+                            <div ng-show="$parent.loggedIn">
+                                <p class="blue-text">Check out the textbooks I am selling.</p>
+                                <p class="blue-text">I am sick of getting ripped-off by the bookstores, so I decided to sell my textbooks directly to all the students on-campus.</p>
+                                <p class="blue-text">Don't waste money, buy directly from me.</p>
+                                <p class="blue-text">I am sure there is a textbook for you too!</p>
+                                <a target="_blank" href="{{shareUrl}}"><img style="width: 264px;" data-ng-src="dist/images/tell_friend/buy_my_textbooks.jpg"/></a><br/><br/>
+
+                                <p class="blue-text">Cheers,<br/>
+                                {{user.fullName}}</p>
+                                <p class="blue-text"><a target="_blank" href="{{shareUrl}}">{{shareUrl}}</a>
+
+                            </div>
+
                         </div>
                         <div class="col-md-4">
+                            <div ng-show="!$parent.loggedIn">
+                                <a target="_blank" ui-sref="app.signup"><img width="100%" data-ng-src="dist/images/tell_friend/joinButton.jpg"/></a><br/><br/>
+                                <text class="lato italic blue-text">Personal Message for you:</text><br/>
+                                <text class="lato blue-text">{{user.message}}</text>
+                            </div>
+                            <div ng-show="$parent.loggedIn">
+                                <a target="_blank" href="{{shareUrl}}"><img width="100%" data-ng-src="dist/images/tell_friend/books_stack.jpg"/></a><br/><br/>
+                            </div>
 
-                            <a ui-sref="app.signup"><img width="100%" data-ng-src="dist/images/tell_friend/joinButton.jpg"/></a><br/><br/>
-                            <text class="lato italic blue-text">Personal Message for you:</text><br/>
-                            <text class="lato blue-text">{{user.message}}</text>
                         </div>
 
 

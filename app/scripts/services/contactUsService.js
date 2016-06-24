@@ -11,7 +11,8 @@
 
         return {
             sendContactUsMessage:_sendContactUsMessage,
-            sendMailsToFriends:_sendMailsToFriends
+            sendMailsToFriends:_sendMailsToFriends,
+            sendMailsToUserFriends:_sendMailsToUserFriends
         };
 
 
@@ -21,6 +22,10 @@
 
         function _sendMailsToFriends(data){
             return apiService.post(SERVER_CONSTANT.HOST+CONTACT_US_CONSTANT.SEND_MAILS_TO_FRIENDS,data);
+        }
+
+        function _sendMailsToUserFriends(data){
+            return apiService.post(SERVER_CONSTANT.HOST+CONTACT_US_CONSTANT.SEND_MAILS_TO_USER_FRIENDS+"?access_token="+data.token,data);
         }
 
     }

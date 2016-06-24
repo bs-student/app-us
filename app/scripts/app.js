@@ -372,6 +372,16 @@ var app = angular
 
             /////////////////////// Logged In User Routes /////////////////
 
+
+            //Promote my sell page
+            .state('app.promoteMyStore', {
+                url: '^/promoteMyStore',
+                controller: 'TellFriendsCtrl',
+                templateUrl: 'views/web/tell_friends.html',
+                resolve: authCheck
+            })
+
+
             //Contacted Book List
             .state('app.contactedBookList', {
                 url: '^/contactedBookList',

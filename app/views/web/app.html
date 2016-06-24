@@ -34,7 +34,9 @@
                     <li ng-class="{howItWorks:'active'}[activePage]"><a ui-sref="app.howItWorks">How It Works</a>
                         <ul class="menu-right-position">
                             <li><a ui-sref="app.conceptVideo"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;&nbsp;Concept Video</a></li>
-                            <li><a ui-sref="app.tellFriends"><i class="fa  fa-user-plus"></i>&nbsp;&nbsp;&nbsp;Tell A Friend</a></li>
+                            <li ng-show="!loggedIn"><a ui-sref="app.tellFriends"><i class="fa  fa-user-plus"></i>&nbsp;&nbsp;&nbsp;Tell A Friend</a></li>
+                            <li ng-show="loggedIn && !adminUser"><a ui-sref="app.promoteMyStore"><i class="fa  fa-user-plus"></i>&nbsp;&nbsp;&nbsp;Tell A Friend</a></li>
+
                         </ul>
                     </li>
                     <li ng-hide="loggedIn && adminUser" ng-class="{sellBook:'active'}[activePage]"><a ui-sref="app.sellBook">Sell Books</a>
@@ -60,6 +62,7 @@
                             <li><a ui-sref="app.sellArchive"><i class="fa fa-file-archive-o"></i>&nbsp;&nbsp;&nbsp;Sell Archive</a></li>
                             <li><a ui-sref="app.contactedBookList"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Active Deals</a></li>
                             <li><a ui-sref="app.buyArchive"><i class="fa fa-archive"></i>&nbsp;&nbsp;&nbsp;Buy Archive</a></li>
+                            <li><a ui-sref="app.promoteMyStore"><i class="fa fa-bullhorn"></i>&nbsp;&nbsp;&nbsp;Promote My Store</a></li>
                             <li><a ui-sref="app.wishList"><i class="fa fa-heart-o"></i>&nbsp;&nbsp;&nbsp;WishList</a></li>
                             <li><a ui-sref="app.mySellPage({username:username})"><i class="fa fa-map-o"></i>&nbsp;&nbsp;&nbsp;My Sell Page</a></li>
                             <li><a ui-sref="app.profile"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a></li>

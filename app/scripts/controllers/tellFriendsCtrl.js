@@ -5,14 +5,30 @@
     app
         .controller('TellFriendsCtrl', TellFriendsCtrl);
 
-    TellFriendsCtrl.$inject = ['$state', '$scope','responseService','contactUsService'];
+    TellFriendsCtrl.$inject = ['$state', '$scope','responseService','contactUsService','identityService'];
 
-    function TellFriendsCtrl($state, $scope,responseService,contactUsService) {
+    function TellFriendsCtrl($state, $scope,responseService,contactUsService,identityService) {
 
 
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "howItWorks";
+
+        $scope.user=[];
+        if($scope.$parent.loggedIn){
+            $scope.shareUrl = window.location.origin+window.location.pathname+"#/"+identityService.getAuthorizedUserData().username;
+            $scope.shareText = identityService.getAuthorizedUserData().username+"'s Sell Page | Student2Student.com | Textbook Exchange made Easy";
+            $scope.shareHashtags = identityService.getAuthorizedUserData().username+"_Sell_Page, Student2Student, Textbook_Exchange_made_Easy";
+
+            $scope.user.email = identityService.getAuthorizedUserData().email;
+            $scope.user.fullName = identityService.getAuthorizedUserData().fullName;
+
+        }else{
+            $scope.shareUrl = "http://168.61.173.224:8080/student2student/#/";
+            $scope.shareText = "Student2Student.com Textbook Exchange made Easy";
+            $scope.shareHashtags = "Student2Student, Textbook_Exchange_made_Easy";
+        }
+
 
         $scope.addNewFriendEmail = _addNewFriendEmail;
         $scope.removeFriendEmail = _removeFriendEmail ;
@@ -44,15 +60,26 @@
                     "email": $scope.user.email,
                     "message": $scope.user.message,
                     "key": $scope.user.key,
-                    "friendEmails": $scope.friendEmails
+                    "friendEmails": $scope.friendEmails,
+                    "token":identityService.getAccessToken()
                 };
 
-                ($scope.contactUsPromise = contactUsService.sendMailsToFriends(data)).then(function(response){
-                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
-                    $state.go('app.dashboard');
-                }).catch(function (response){
-                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
-                });
+                if($scope.$parent.loggedIn){
+                    ($scope.contactUsPromise = contactUsService.sendMailsToUserFriends(data)).then(function(response){
+                        responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                        $state.go('app.dashboard');
+                    }).catch(function (response){
+                        responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+                    });
+                }else{
+                    ($scope.contactUsPromise = contactUsService.sendMailsToFriends(data)).then(function(response){
+                        responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                        $state.go('app.dashboard');
+                    }).catch(function (response){
+                        responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+                    });
+                }
+
             }
         }
 
