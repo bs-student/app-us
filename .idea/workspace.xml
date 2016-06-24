@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/constants/constants.js" afterPath="$PROJECT_DIR$/app/scripts/constants/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/resetPasswordCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security/resetpassword.html" afterPath="$PROJECT_DIR$/app/views/security/resetpassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/securityService.js" afterPath="$PROJECT_DIR$/app/scripts/services/securityService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
     <ignored path=".idea/workspace.xml" />
