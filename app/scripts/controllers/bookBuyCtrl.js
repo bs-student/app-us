@@ -31,19 +31,23 @@
         $scope.viewType = 'List';
         $scope.showResult = false;
         $scope.sortType = "bookTitle";
-
+        $scope.selectedCampus={};
 
         init();
 
         function init(){
             $scope.searchUniversity = storageService.getValue("universityCampusDisplay");
+
             if($scope.searchUniversity==null){
                 $scope.noUniversitySelected=true;
             }else{
+
                 $scope.campus = {
                     display: storageService.getValue("universityCampusDisplay"),
                     value: storageService.getValue("universityCampusValue")
                 }
+
+                angular.copy($scope.campus,$scope.selectedCampus);
             }
             $scope.querySearch   = querySearch;
             $scope.onCampusSelect = _onCampusSelect;
@@ -62,8 +66,10 @@
                 if($scope.campus.value!=undefined){
                     $scope.bookSearchForm.campus.$setValidity("data_error", true);
                     $scope.noUniversitySelected=false;
+                    $scope.changeUniversity=false;
                     storageService.setValue('universityCampusDisplay',$scope.campus.display);
                     storageService.setValue('universityCampusValue',$scope.campus.value);
+                    angular.copy($scope.campus,$scope.selectedCampus);
                 }else{
                     console.log("SELECTED CAMPUS");
                     $scope.bookSearchForm.campus.$setValidity("data_error", false);
