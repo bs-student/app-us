@@ -5,14 +5,18 @@
     app
         .controller('StartCtrl', StartCtrl)
 
-    StartCtrl.$inject = ['$state', '$rootScope', '$scope', 'identityService', 'userService', 'securityService', 'responseService', 'storageService', 'newsletterService'];
+    StartCtrl.$inject = ['$state', '$rootScope', '$scope', 'identityService', 'userService', 'securityService', 'responseService', 'storageService', 'newsletterService','$firebaseArray','$firebaseObject','eventService'];
 
 
-    function StartCtrl($state, $rootScope, $scope, identityService, userService, securityService, responseService, storageService, newsletterService) {
+    function StartCtrl($state, $rootScope, $scope, identityService, userService, securityService, responseService, storageService, newsletterService,$firebaseArray,$firebaseObject,eventService) {
 
 
         $scope.loggedIn = false;
         $scope.adminUser = false;
+
+        $scope.notificationCounter=0;
+        $scope.notifications=[];
+
         $scope.logout = _logout;
 
         $scope.addToNewsletter = _addToNewsletter;
@@ -55,6 +59,82 @@
                 ]
             }
         ];
+
+
+
+        //Listen for getting view Number
+        eventService.on("getViewNumbers",function(){
+
+            var ref = firebase.database().ref("/views");
+
+            $scope.viewList = $firebaseArray(ref);
+            $scope.viewList.$watch(function(event) {
+
+                var record = $scope.viewList.$getRecord(event.key);
+                if(record!=null){
+                    eventService.trigger("addNewViewNumber",record);
+                }
+                $scope.viewList.$loaded().then(function(viewData){
+                    $scope.viewList.$remove(viewData.$indexFor(event.key));
+                });
+
+            });
+
+        });
+
+
+
+
+
+
+        //Listen for getting contact notification
+        eventService.on("getContactNotifications",function(data,username){
+
+            var ref = firebase.database().ref("/users/"+username+"/contacts");
+
+            $scope.notificationList = $firebaseArray(ref);
+            $scope.notificationList.$watch(function(event) {
+                var record = $scope.notificationList.$getRecord(event.key);
+                if(record!=null){
+                    $scope.notifications.push(record);
+                    $scope.notificationCounter +=1;
+
+                    eventService.trigger("addNewContactNumber",record);
+
+                }else{
+                    $scope.notificationCounter -=1;
+                    angular.forEach($scope.notifications,function(notification){
+                        if(notification.$id==event.key){
+                            $scope.notifications.splice($scope.notifications.indexOf(notification),1);
+                        }
+                    });
+                }
+
+            });
+
+        });
+
+
+        //Listen for removing contact notification
+        eventService.on("removeContactNotification",function(data,contactData){
+
+            var ref = firebase.database().ref("/users/"+contactData.username+"/contacts");
+
+            var list = $firebaseArray(ref);
+
+            list.$loaded().then(function(notificationData){
+                angular.forEach(notificationData,function(notification){
+                    if(notification.contactId==contactData.contact.contactId){
+                        list.$remove(notificationData.indexOf(notification));
+                    }
+                });
+            });
+
+        });
+
+
+
+
 
 
 
@@ -103,6 +183,7 @@
 
 
         function userLoggedIn(userData) {
+
             if (userData.role.indexOf("ROLE_ADMIN_USER") >= 0) {
                 $scope.adminUser = true;
             } else {
@@ -110,6 +191,13 @@
             }
             $scope.loggedIn = true;
             $scope.username = identityService.getAuthorizedUserData().username;
+
+
+            eventService.trigger("getContactNotifications",$scope.username);
+            eventService.trigger("getViewNumbers");
+
+
+
 //            $state.go("app.dashboard");
 
         }
@@ -123,10 +211,20 @@
                     $scope.username = "Loading...";
                     $scope.loggedIn = false;
                     responseService.showSuccessToast("Logged Out Successfully");
+
+                    if($scope.notificationList!=undefined){
+                        $scope.notificationList.$destroy();
+                        $scope.viewList.$destroy();
+                        $scope.notificationCounter=0;
+                        $scope.notifications=[];
+                    }
+
+
                     $state.go("app.dashboard");
+
                 }
             }).catch(function (response) {
-                responseService.showSuccessToast("Could not Log Out", "Sorry, Try again.");
+                responseService.showErrorToast("Could not Log Out", "Sorry, Try again.");
             });
         }
 
@@ -140,6 +238,8 @@
 
             }
         }
+
+
 
     }
 

@@ -56,9 +56,25 @@
                         </ul>
                     </li>
 
+                    <li ng-show="loggedIn && !adminUser" ><a class="notification-a"><i class="fa fa fa-bell-o"></i><span ng-show="notificationCounter>0" class="badge bg-lightred">{{notificationCounter}}</span></a>
+
+                        <ul class="menu-right-position notification-ul">
+                            <li>Notifications</li>
+                            <li class="text-center" ng-show="notificationCounter==0">No new notifications.</li>
+                            <li data-ng-repeat="notification in notifications track by $index"><a ui-sref="app.sellingBookList">
+                                <dl class="dl-horizontal">
+                                    <dt><i class="fa fa-phone fa-2x"></i></dt>
+                                    <dd><text class="italic">{{notification.buyerNickName}}</text> has contacted you for <text class="italic">"{{notification.bookTitle}}"</text></dd>
+                                </dl>
+                            </a></li>
+
+                        </ul>
+
+                    </li>
+
                     <li ng-show="loggedIn" ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
                         <ul ng-show="loggedIn && !adminUser"  class="menu-right-position">
-                            <li><a ui-sref="app.sellingBookList"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Selling Books</a></li>
+                            <li><a ui-sref="app.sellingBookList"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Selling Books <span ng-show="notificationCounter>0" class="badge badge-primary">{{notificationCounter}}</span></a></li>
                             <li><a ui-sref="app.sellArchive"><i class="fa fa-file-archive-o"></i>&nbsp;&nbsp;&nbsp;Sell Archive</a></li>
                             <li><a ui-sref="app.contactedBookList"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Active Deals</a></li>
                             <li><a ui-sref="app.buyArchive"><i class="fa fa-archive"></i>&nbsp;&nbsp;&nbsp;Buy Archive</a></li>

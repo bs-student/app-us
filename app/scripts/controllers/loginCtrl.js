@@ -6,9 +6,9 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth','quoteService','SERVER_CONSTANT'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth','quoteService','SERVER_CONSTANT','eventService','$firebaseObject','$firebaseArray'];
 
-    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT,eventService,$firebaseObject,$firebaseArray) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
@@ -26,9 +26,6 @@
 
         $scope.bookId = $stateParams.bookId;
         $scope.loginUser = _loginUser;
-
-
-
 
 
         $scope.loginSocial = _loginSocial;
@@ -101,6 +98,10 @@
             identityService.setAuthorizedUserData(response.data.success.successData);
             responseService.showSuccessToast("Login Successful");
 
+            //Listen To Real Time Time Notification
+            eventService.trigger("getContactNotifications",response.data.success.successData.username);
+            eventService.trigger("getViewNumbers");
+
             if(response.data.success.successData.role.indexOf("ROLE_ADMIN_USER")>=0){
                 $scope.$parent.adminUser=true;
             }else{
@@ -116,9 +117,12 @@
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
                 });
             }
+
             $state.go('app.dashboard');
 
         }
+
+
 
 
 

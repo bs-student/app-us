@@ -5,9 +5,9 @@
     app
         .controller('SellingBookListCtrl', SellingBookListCtrl);
 
-    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT'];
+    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT','eventService'];
 
-    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
+    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT,eventService) {
 
 
 
@@ -38,6 +38,7 @@
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
 
+        $scope.removeNewContacts=_removeNewContacts;
 
 
         //Pagination
@@ -48,6 +49,34 @@
         $scope.currentPage = 1;
 
         init($scope.currentPage);
+
+
+        //Listen for getting contact notification
+        eventService.on("addNewContactNumber",function(data,bookDealData){
+
+            angular.forEach($scope.campusBookDeals,function(bookDeal){
+                if(bookDeal.bookDealId==bookDealData.bookDealId){
+                    bookDeal.contacts.push(bookDealData);
+                    bookDeal.newContacts+=1;
+                }
+            });
+
+        });
+
+        //Listen for getting contact notification
+        eventService.on("addNewViewNumber",function(data,bookDealData){
+
+            angular.forEach($scope.campusBookDeals,function(bookDeal){
+                if(bookDeal.bookDealId==bookDealData.bookDealId){
+                    bookDeal.bookViewCount+=1;
+                }
+            });
+
+        });
+
+
+
+
 
         // Set Carousel
         function setCarousel() {
@@ -124,6 +153,9 @@
                     $scope.totalSearchResults = response.data.success.successData.totalNumber;
                     $scope.showPagination=true;
                     setCarousel();
+
+                    checkForNewContact();
+
                 }else{
                     $scope.resultFound=false;
                 }
@@ -161,6 +193,7 @@
                 $scope.campusBookDeals = response.data.success.successData.result;
                 $scope.totalSearchResults = response.data.success.successData.totalNumber;
                 setCarousel();
+                checkForNewContact();
 
 
             }).catch(function (response) {
@@ -353,6 +386,27 @@
                     responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
                 }
 
+            });
+        }
+
+        function checkForNewContact(){
+            angular.forEach($scope.campusBookDeals,function(bookDeal){
+                bookDeal.newContacts = 0;
+               angular.forEach($scope.$parent.notifications,function(notification){
+                   if(bookDeal.bookDealId==notification.bookDealId){
+                       bookDeal.newContacts+=1;
+                   }
+               })
+            });
+        }
+
+        function _removeNewContacts(deal){
+
+            deal.viewMoreInfo=true;
+            deal.newContacts=0;
+
+            angular.forEach(deal.contacts,function(contact){
+                eventService.trigger("removeContactNotification",{contact:contact,username:identityService.getAuthorizedUserData().username});
             });
         }
 

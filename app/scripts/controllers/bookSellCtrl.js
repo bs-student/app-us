@@ -5,9 +5,9 @@
     app
         .controller('BookSellCtrl', BookSellCtrl);
 
-    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService'];
+    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService','$firebaseObject','$firebaseArray'];
 
-    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService) {
+    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService,$firebaseObject,$firebaseArray) {
 
 
 //        if(!$scope.$parent.loggedIn){
@@ -303,6 +303,32 @@
             ($scope.bookSellPromise =  bookService.addSellBook(identityService.getAccessToken(),formData)).then(function(response){
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+
+
+//                //Realtime Database
+//                var username = identityService.getAuthorizedUserData().username;
+//                var ref = firebase.database().ref("/users/"+username+"/deals");
+//                var list = $firebaseArray(ref);
+//
+//                list.$loaded()
+//                    .then(function(x) {
+//                        list.$add({
+//                           "deal_id":response.data.success.successData.bookDealId,
+//                            "view":0,
+//                            "contacts":0
+//                        });
+////                        console.log(x);
+////                        if(x.length==""){
+////                            var obj = $firebaseObject(ref);
+////                            obj["deals"] = "";
+////                            obj.$save();
+////                        }
+//                    })
+//                    .catch(function(error) {
+//                        console.log("Error:", error);
+//                    });
+
+
                 $state.go('app.sellingBookList');
 
             }).catch(function(response){

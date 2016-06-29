@@ -5,9 +5,9 @@
     app
         .controller('BookCompareCtrl', BookCompareCtrl);
 
-    BookCompareCtrl.$inject = ['$state','$stateParams','$scope','bookService','identityService','responseService','storageService','wishListService','SERVER_CONSTANT','imageModalService'];
+    BookCompareCtrl.$inject = ['$state','$stateParams','$scope','bookService','identityService','responseService','storageService','wishListService','SERVER_CONSTANT','imageModalService','$firebaseArray'];
 
-    function BookCompareCtrl($state,$stateParams,$scope,bookService,identityService,responseService,storageService, wishListService,SERVER_CONSTANT,imageModalService) {
+    function BookCompareCtrl($state,$stateParams,$scope,bookService,identityService,responseService,storageService, wishListService,SERVER_CONSTANT,imageModalService,$firebaseArray) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
@@ -105,8 +105,24 @@
                     $scope.noUniversitySelected=true;
                 }
 
+
                 //GET CHEAPEST CAMPUS DEAL
                 getCheapestBookDeal($scope.campusBookDeals);
+
+                //Adding View to Realtime Database
+                var ref = firebase.database().ref("/views");
+                var list = $firebaseArray(ref);
+
+                angular.forEach($scope.campusBookDeals.buyerToSeller,function(item){
+                    list.$add({bookDealId:item.bookDealId});
+                });
+                angular.forEach($scope.campusBookDeals.sellerToBuyer,function(item){
+                    list.$add({bookDealId:item.bookDealId});
+                });
+
+
+
+
             }).catch(function (response) {
 
                 if (response.data.error_description == "The access token provided has expired.") {

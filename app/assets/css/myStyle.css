@@ -7,6 +7,86 @@
 /*              Header                        */
 /*********************************************/
 
+
+a.notification-a i{
+    font-size: 1.5em;
+}
+
+a.notification-a > .badge.bg-lightred {
+    border-radius: 50%;
+    margin-left: -11px;
+    height: 22px;
+    margin-top: -25px;
+    width: 22px;
+    padding: 2px;
+    border: 2px solid #444444;
+    background-color: #FFFFFF !important;
+    color: #444 !important;
+}
+
+#main-navbar > ul > li:hover a .badge.bg-lightred, #main-navbar > ul > li.active a .badge.bg-lightred{
+    color:#FF530D !important;
+    border: 2px solid #FF530D;
+}
+
+#header.transparent-header.light #main-navbar ul li a .badge.bg-lightred{
+    /*color: #EEE !important;*/
+    background-color: #EEE !important;
+    border: 2px solid #EEE;
+}
+#header.transparent-header.light #main-navbar ul li:hover a .badge.bg-lightred, #header.transparent-header.light #main-navbar ul li.active a .badge.bg-lightred{
+    background-color: #FF530D !important;
+    border: 2px solid #FF530D;
+    color: #444 !important;
+}
+
+ul.notification-ul li{
+    border-bottom: 1px solid #EEE;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ul.notification-ul li:first-child{
+    padding-top: 10px;
+}
+ul.notification-ul li:last-child{
+    padding-bottom: 10px;
+}
+#main-navbar ul.notification-ul li:hover > a {
+    background-color: #fafafa;
+    padding-left: 15px;
+
+}
+#main-navbar ul.notification-ul li a{
+    text-transform: none;
+    line-height: 1.2em;
+    font-size: 14px;
+    height: auto;
+}
+ul.notification-ul .dl-horizontal dt{
+    width: 20px;
+}
+ul.notification-ul .dl-horizontal dd{
+    margin-left: 40px;
+}
+
+ul.notification-ul dl.dl-horizontal{
+    margin-bottom: 0px;
+}
+
+ul.notification-ul li:first-child{
+    background: #FF530D;
+    color: #EEEEEE;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+
+ul.notification-ul{
+    width: 274px !important;
+    border: 1px solid #FF530D !important;
+}
+
 #main-navbar a i {
     width: 20px;
 }
@@ -23,6 +103,9 @@
 #main-navbar ul ul, #main-navbar ul li .mega-menu-content{
     border-top: 1px solid #FF530D;
 }
+
+
+
 /********************************************/
 /*              Homepage Slider              */
 /*********************************************/

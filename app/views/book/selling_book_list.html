@@ -72,7 +72,7 @@
                         </div>
                         <div class="archive-page-deal-information">
                             <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                                <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
+                                <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn">View More Information <span ng-show="deal.newContacts>0" class="badge">{{deal.newContacts}}</span></button>
                             </div>
                             <div ng-show="deal.viewMoreInfo">
                                 <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>

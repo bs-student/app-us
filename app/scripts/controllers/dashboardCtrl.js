@@ -8,10 +8,10 @@
         .controller('DashboardCtrl', DashboardCtrl);
 
 
-    DashboardCtrl.$inject = ['$scope', 'identityService', 'userService','$state','quoteService','SERVER_CONSTANT','storageService'];
+    DashboardCtrl.$inject = ['$scope', 'identityService', 'userService','$state','quoteService','SERVER_CONSTANT','storageService','$firebaseObject'];
 
 
-    function DashboardCtrl($scope, identityService, userService,$state,quoteService,SERVER_CONSTANT,storageService) {
+    function DashboardCtrl($scope, identityService, userService,$state,quoteService,SERVER_CONSTANT,storageService,$firebaseObject) {
 
         $scope.$parent.headerStyle = "light";
         $scope.$parent.activePage = "home";
@@ -24,6 +24,34 @@
         $scope.universityQuoteItems = [];
 
         setUpPage();
+
+//        var ref = firebase.database().ref("/");
+//
+//        var obj = $firebaseObject(ref);
+//
+////        obj.foo = "bar";
+//
+//        obj.$watch(function(data) {
+//
+//            console.log("data changed!");
+//            console.log(data);
+//        });
+
+//        obj.$loaded().then(function() {
+//            console.log("loaded record:", obj.$id, obj.someOtherKeyInData);
+//
+//            // To iterate the key/value pairs of the object, use angular.forEach()
+//            angular.forEach(obj, function(value, key) {
+//                console.log(key, value);
+//            });
+//        });
+
+
+//        console.log(obj);
+//        var ref = firebase.database().ref();
+//        console.log()$firebaseObject(ref.child('profiles').child('physicsmarie'));
+
+
 
 //        checkIfUserLoggedIn();
 

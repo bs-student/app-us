@@ -67,7 +67,8 @@ var app = angular
         'cgBusy',
         'duScroll',
         '720kb.socialshare',
-        'jkuri.slimscroll'
+        'jkuri.slimscroll',
+        'firebase'
     ])
     .run(['$rootScope', '$state', '$stateParams','imageStoreService' ,function ($rootScope, $state, $stateParams,imageStoreService) {
         $rootScope.$state = $state;
@@ -96,7 +97,15 @@ var app = angular
 
 
     }])
-
+    .config(function() {
+        var config = {
+            apiKey: "AIzaSyDhYGV8b2Zc6zxYThPS9S0N-pxkghBeJI8",               // Your Firebase API key
+            authDomain: "student2student-1205.firebaseapp.com",       // Your Firebase Auth domain ("*.firebaseapp.com")
+            databaseURL: "https://student2student-1205.firebaseio.com",     // Your Firebase Database URL ("https://*.firebaseio.com")
+            storageBucket: "student2student-1205.appspot.com"  // Your Firebase Storage bucket ("*.appspot.com")
+        };
+        firebase.initializeApp(config);
+    })
 //    .config(["$locationProvider", function($locationProvider) {
 //        $locationProvider.html5Mode({
 //            enabled: true/*,

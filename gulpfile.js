@@ -39,6 +39,8 @@ var assets = {
         "bower_components/angular-scroll/angular-scroll.js",
         "bower_components/angular-socialshare/dist/angular-socialshare.js",
         "bower_components/ngSlimscroll/src/js/ngSlimscroll.js",
+        "bower_components/firebase/firebase.js",
+        "bower_components/angularfire/dist/angularfire.js",
 
 
         "vendor/superfish/js/superfish.js",
@@ -60,6 +62,7 @@ var assets = {
         "app/assets/js/global.js"
     ],
     js_app:[
+
         "app/scripts/app.js",
 
         "app/scripts/constants/constants.js",
@@ -172,6 +175,7 @@ var assets = {
         "app/scripts/services/newsletterService.js",
         "app/scripts/services/imageStoreService.js",
         "app/scripts/services/authCheckerService.js",
+        "app/scripts/services/eventService.js",
 
 
         "app/scripts/validators/valEmail.js",
