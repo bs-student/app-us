@@ -61,6 +61,27 @@
         ];
 
 
+        //Listen for getting New Messages
+        eventService.on("getMessages",function(data,username){
+
+            var ref = firebase.database().ref("/users/"+username+"/messages");
+
+            $scope.messageList = $firebaseArray(ref);
+            $scope.messageList.$watch(function(event) {
+
+                var record = $scope.messageList.$getRecord(event.key);
+                if(record!=null){
+
+                    eventService.trigger("addNewMessage",record);
+                }
+                $scope.messageList.$loaded().then(function(viewData){
+                    $scope.messageList.$remove(viewData.$indexFor(event.key));
+                });
+
+            });
+
+        });
+
 
         //Listen for getting view Number
         eventService.on("getViewNumbers",function(){
@@ -195,6 +216,7 @@
 
             eventService.trigger("getContactNotifications",$scope.username);
             eventService.trigger("getViewNumbers");
+            eventService.trigger("getMessages",$scope.username);
 
 
 
@@ -215,6 +237,7 @@
                     if($scope.notificationList!=undefined){
                         $scope.notificationList.$destroy();
                         $scope.viewList.$destroy();
+                        $scope.messageList.$destroy();
                         $scope.notificationCounter=0;
                         $scope.notifications=[];
                     }

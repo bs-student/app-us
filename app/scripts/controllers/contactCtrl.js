@@ -53,10 +53,6 @@
                         "bookDealId": $scope.deal.bookDealId,
                         "bookTitle": $scope.deal.bookTitle,
                         "buyerNickName": identityService.getAuthorizedUserData().username
-                    }).then(function(x){
-                        console.log(x);
-                    }).catch(function(x){
-                        console.log(x);
                     });
 
                     $state.go("app.contactedBookList");

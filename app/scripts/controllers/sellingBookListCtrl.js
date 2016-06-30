@@ -5,9 +5,9 @@
     app
         .controller('SellingBookListCtrl', SellingBookListCtrl);
 
-    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT','eventService'];
+    SellingBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT','eventService','$firebaseArray'];
 
-    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT,eventService) {
+    function SellingBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT,eventService,$firebaseArray) {
 
 
 
@@ -63,13 +63,35 @@
 
         });
 
-        //Listen for getting contact notification
+        //Listen for getting view Number
         eventService.on("addNewViewNumber",function(data,bookDealData){
 
             angular.forEach($scope.campusBookDeals,function(bookDeal){
                 if(bookDeal.bookDealId==bookDealData.bookDealId){
                     bookDeal.bookViewCount+=1;
                 }
+            });
+
+        });
+
+
+        //Listen for getting messages
+        eventService.on("addNewMessage",function(data,messageData){
+
+            angular.forEach($scope.campusBookDeals,function(bookDeal){
+                angular.forEach(bookDeal.contacts,function(contact){
+                    if(messageData.contactId==contact.contactId){
+                        if(contact.showingMessages){
+                            if(contact.messages!=undefined){
+                                contact.messages.pop();
+                                contact.messages.push(messageData);
+                                contact.messages.push({'messageBody':""});
+                            }
+
+                        }
+
+                    }
+                });
             });
 
         });
@@ -245,6 +267,7 @@
         }
         function _sendMessage(valid,contact){
 
+
             if(valid){
                 var data={
                     message: contact.message,
@@ -259,6 +282,23 @@
                         contact.messages.push({'messageBody':""});
                     }
                     contact.sendingMessages=false;
+
+                    //Adding Realtime Database
+                    var username = contact.buyerNickName;
+                    var ref = firebase.database().ref("/users/" + username + "/messages");
+                    var list = $firebaseArray(ref);
+
+                    list.$add({
+                        "bookDealId": contact.bookDealId,
+                        "contactId": contact.contactId,
+                        "messageBody":contact.message,
+                        "messageDateTime": new Date().toUTCString().substr(0,new Date().toUTCString().length-7),
+                        "messageId":response.data.success.successData.messageId,
+                        "sender":identityService.getAuthorizedUserData().username
+
+                    });
+
+
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {

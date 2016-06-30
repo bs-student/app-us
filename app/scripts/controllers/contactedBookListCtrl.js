@@ -5,9 +5,9 @@
     app
         .controller('ContactedBookListCtrl', ContactedBookListCtrl);
 
-    ContactedBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','SERVER_CONSTANT','imageModalService'];
+    ContactedBookListCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','SERVER_CONSTANT','imageModalService','$firebaseArray','eventService'];
 
-    function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,SERVER_CONSTANT,imageModalService) {
+    function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,SERVER_CONSTANT,imageModalService,$firebaseArray,eventService) {
 
 //        if(!$scope.$parent.loggedIn){
 //            $state.go("app.login");
@@ -38,6 +38,28 @@
         $scope.currentPage = 1;
 
         init($scope.currentPage);
+
+        //Listen for getting messages
+        eventService.on("addNewMessage",function(data,messageData){
+
+            angular.forEach($scope.campusBookDeals,function(bookDeal){
+                angular.forEach(bookDeal.contacts,function(contact){
+                    if(messageData.contactId==contact.contactId){
+                        if(contact.showingMessages){
+                            if(contact.messages!=undefined){
+                                contact.messages.pop();
+                                contact.messages.push(messageData);
+                                contact.messages.push({'messageBody':""});
+                            }
+
+                        }
+
+                    }
+                });
+            });
+
+        });
+
 
         // Set Carousel
         function setCarousel() {
@@ -165,7 +187,6 @@
 
             });
 
-
         }
 
         function _getMessages(contact){
@@ -195,7 +216,7 @@
 
             });
         }
-        function _sendMessage(valid,contact){
+        function _sendMessage(valid,contact,deal){
 
             if(valid){
                 var data={
@@ -210,6 +231,22 @@
                         contact.messages.push({'messageBody':""});
                     }
                     contact.sendingMessages=false;
+
+                    //Adding Realtime Database
+                    var username = deal.sellerUsername;
+                    var ref = firebase.database().ref("/users/" + username + "/messages");
+                    var list = $firebaseArray(ref);
+
+                    list.$add({
+                        "bookDealId": deal.bookDealId,
+                        "contactId": contact.contactId,
+                        "messageBody":contact.message,
+                        "messageDateTime": new Date().toUTCString().substr(0,new Date().toUTCString().length-7),
+                        "messageId":response.data.success.successData.messageId,
+                        "sender":identityService.getAuthorizedUserData().username
+
+                    });
+
                     responseService.showSuccessToast(response.data.success.successTitle);
                 }).catch(function (response) {
 

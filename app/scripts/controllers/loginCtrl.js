@@ -101,6 +101,7 @@
             //Listen To Real Time Time Notification
             eventService.trigger("getContactNotifications",response.data.success.successData.username);
             eventService.trigger("getViewNumbers");
+            eventService.trigger("getMessages",response.data.success.successData.username);
 
             if(response.data.success.successData.role.indexOf("ROLE_ADMIN_USER")>=0){
                 $scope.$parent.adminUser=true;

@@ -190,7 +190,7 @@
 
                                 <td colspan="3" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
 
-                                    <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
+                                    <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact,deal)" role="form" novalidate>
 
 
 
