@@ -105,6 +105,9 @@ ul.notification-ul{
 }
 
 
+a.notification-a.message-board-a i{
+    font-size: 1.8em;
+}
 
 /********************************************/
 /*              Homepage Slider              */
@@ -3145,4 +3148,21 @@ a.simple-continue-reading-button:hover{
 .tree-section.access-denied-section{
     background: #FFFFFF;
 
+}
+
+/********************************************/
+/*                Message Board            */
+/*********************************************/
+.tabs-menu.message-board-tabs-menu img{
+    height: 63px;
+    width: 43px;
+}
+.tabs-menu.message-board-tabs-menu .dl-horizontal dt{
+    width: 45px;
+}
+.tabs-menu.message-board-tabs-menu .dl-horizontal dd{
+    margin-left: 55px;
+}
+.tabs-menu.message-board-tabs-menu dl {
+    margin-bottom: 0px;
 }

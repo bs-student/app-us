@@ -12,7 +12,9 @@
         return {
             addContact:_addContact,
             getMessages:_getMessages,
-            sendMessages:_sendMessages
+            sendMessages:_sendMessages,
+
+            sendMessagesWithoutMailing:_sendMessagesWithoutMailing
 
         };
 
@@ -32,6 +34,10 @@
 
         function _sendMessages(data){
             return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.SEND_MESSAGES+"?access_token="+data.accessToken,data);
+        }
+
+        function _sendMessagesWithoutMailing(data){
+            return apiService.post(SERVER_CONSTANT.HOST+CONTACT_CONSTANT.SEND_MESSAGES_WITHOUT_MAILING+"?access_token="+data.accessToken,data);
         }
 
     }

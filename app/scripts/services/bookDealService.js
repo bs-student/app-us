@@ -19,7 +19,10 @@
             getLowestCampusDealPrice:_getLowestCampusDealPrice,
             updateBookDeal:_updateBookDeal,
             deleteBookDeal:_deleteBookDeal,
-            getActivatedBookDealsOfUser:_getActivatedBookDealsOfUser
+            getActivatedBookDealsOfUser:_getActivatedBookDealsOfUser,
+
+            //for Message
+            getAllActivatedSellingAndContactedBookOfUser:_getAllActivatedSellingAndContactedBookOfUser
 
         };
 
@@ -67,6 +70,11 @@
         function _getActivatedBookDealsOfUser(data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_ACTIVATED_BOOK_DEAL_OF_USER,data);
         }
+
+        function _getAllActivatedSellingAndContactedBookOfUser(accessToken){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER+"?access_token="+accessToken);
+        }
+
 
 
     }

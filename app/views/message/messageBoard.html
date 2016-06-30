@@ -20,235 +20,127 @@
 
 
             <!-- BLOG POSTS -->
-            <div class="col-sm-9 blog-posts contact-us-form-div">
+            <div cg-busy="{promise:getDealsPromise}" class="col-sm-12 blog-posts contact-us-form-div">
 
                 <div class="contact-page-left-side">
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="lato form-page-header">Contact Us</h1>
-                            <h4 class="lato">Tell student 2 student what is on your mind...</h4>
-                        </div>
-                        <div class="col-md-12">
-                            <p class="grey-text lato">
-                                Student 2 Student is happy to hear about any suggestions, ideas or anything that you might feel is important.<br/>
-                                Our goal is to help every student to safe money on textbooks.<br/>
-                                Or... We are depending on the students so if you have a quote for us, we would love to publish it<br/>
 
-                            </p>
+                        <div class="col-md-4">
+                            <h3 class="text-center lato" >TextBook Deals</h3>
+                            <div class="faq-topics-div">
 
+
+
+                                <ul class="tabs-menu message-board-tabs-menu">
+
+                                    <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
+                                        <a href="" ng-click="active(deal)" >
+                                        <dl class="dl-horizontal">
+                                            <dt> <img class="" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/></dt>
+                                            <dd>{{deal.bookTitle}} <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
+                                                ISBN: {{deal.bookIsbn}}</dd>
+                                        </dl>
+
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
+
+                        <div class="col-md-8">
+                            <h3 class="text-center lato" >Contacts</h3>
+                            <div class="tab-content">
+                                <div class="faq-all-questions">
+
+                                    <div ng-show="deal.active" data-ng-repeat="deal in bookDeals">
+
+
+                                        <ul class="list-group no-radius no-border" id="mails-list">
+                                            <li ng-repeat="contact in deal.contacts"
+                                                class="list-group-item b-{{mail.label.color}}">
+
+                                                <div class="media">
+
+                                                    <div class="media-body">
+                                                        <div class="media-heading m-0">
+                                                            <a href="" ng-click="getMessages(contact)" class="mr-5">{{contact.contactName}} <span ng-show="contact.newMessages>0"  class="badge">{{contact.newMessages}}</span></a>
+                                                            <!--<span class="label bg-primary">label</span>-->
+                                                            <span class="pull-right text-sm text-muted">
+                                                              <span class="hidden-xs">{{contact.contactDateTimeFormatted}}</span>
+
+                                                            </span>
+                                                        </div>
+                                                        <small>{{contact.contactEmail}}</small>
+                                                    </div>
+                                                </div>
+
+
+                                                <ul ng-show="contact.messages.length>0" class="list-group no-radius no-border">
+                                                    <li ng-repeat="message in contact.messages"
+                                                        class="list-group-item b-{{mail.label.color}}">
+
+                                                        <div class="media">
+
+                                                            <div class="media-body">
+                                                                <div class="media-heading m-0">
+                                                                    <text class="blue-text">{{message.sender}}</text> : {{message.messageBody}}
+            <span class="pull-right text-sm text-muted">
+              <span class="hidden-xs">{{message.messageDateTime}}</span>
+
+            </span>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <form  name="sendMessageForm" submit-validate ng-submit="sendMessage(sendMessageForm.$valid,contact)" role="form" novalidate>
+                                                            <input ng-model="contact.message" name="message" type="text" />
+                                                            <input type="submit" value="Send"/>
+                                                        </form>
+
+                                                    </li>
+                                                </ul>
+
+
+                                            </li>
+                                        </ul>
+
+
+
+                                        <!--<ul>
+                                            <li data-ng-repeat="contact in deal.contacts"><a ng-click="getMessages(contact)">{{contact.buyerNickName}}</a>
+                                                <ul><li data-ng-repeat="message in contact.messages">{{message.messageDateTime}}::{{message.sender}}: {{message.messageBody}}</li>
+                                                    <form  name="sendMessageForm" submit-validate ng-submit="sendMessage(sendMessageForm.$valid,contact)" role="form" novalidate>
+                                                        <input ng-model="contact.message" name="message" type="text" />
+                                                        <input type="submit" value="Send"/>
+                                                    </form>
+                                                </ul>
+
+                                            </li>
+                                        </ul>-->
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
 
-                    <form cg-busy="{promise:contactUsPromise}" name="contactUsForm" role="form" ng-submit="sendMessage(contactUsForm.$valid)" submit-validate novalidate class="form-validation">
-                        <div class="row contact-form-start-div">
 
-
-                            <div class="col-md-6">
-                                <text class="lato px-18">Full Name *</text>
-                                <br/>
-
-                                <div ng-class="{ 'has-error' : contactUsForm.fullName.$invalid && !contactUsForm.fullName.$pristine, 'has-success' : contactUsForm.fullName.$valid && !contactUsForm.fullName.$pristine}">
-
-                                    <input type="text" class="form-control" name="fullName" ng-model="fullName" placeholder="Your Full Name"
-                                           required/>
-
-                                    <p class="help-block">
-                                        <span ng-show="contactUsForm.fullName.$invalid && !contactUsForm.fullName.$pristine">Full Name is required.</span>
-
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <text class="lato px-18">Email *</text>
-                                <br/>
-
-                                <div ng-class="{ 'has-error' : contactUsForm.email.$invalid && !contactUsForm.email.$pristine, 'has-success' : contactUsForm.email.$valid && !contactUsForm.email.$pristine}">
-
-                                    <input type="email" class="form-control" name="email" ng-model="email" placeholder="you@yourmail.com"
-                                           required/>
-
-                                    <p class="help-block">
-                                        <span ng-show="contactUsForm.email.$invalid && !contactUsForm.email.$pristine">Email is required.</span>
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-
-
-                            <div class="col-md-12">
-                                <text class="lato px-18">Subject *</text>
-                                <br/>
-
-                                <div ng-class="{ 'has-error' : contactUsForm.subject.$invalid && !contactUsForm.subject.$pristine, 'has-success' : contactUsForm.subject.$valid && !contactUsForm.subject.$pristine}">
-
-                                    <input type="text" class="form-control" name="subject" ng-model="subject" placeholder="Give Subject of your query"
-                                           required/>
-
-                                    <p class="help-block">
-                                        <span ng-show="contactUsForm.subject.$invalid && !contactUsForm.subject.$pristine">Subject is required.</span>
-
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <br/>
-                        <div class="row">
-
-
-                            <div class="col-md-12">
-                                <text class="lato px-18">Your Message *</text>
-                                <br/>
-
-                                <div ng-class="{ 'has-error' : contactUsForm.message.$invalid && !contactUsForm.message.$pristine, 'has-success' : contactUsForm.message.$valid && !contactUsForm.message.$pristine}">
-
-                                    <textarea type="text" class="form-control" name="message" placeholder="Write the message..."
-                                              ng-model="message" required></textarea>
-
-                                    <p class="help-block">
-                                        <span ng-show="contactUsForm.message.$invalid && !contactUsForm.message.$pristine">Your Message is required.</span>
-
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <br/>
-                        <div class="row">
-
-
-                            <div class="col-md-12">
-                                <text class="lato px-18">I want :</text>
-                                <br/>
-
-                                <div ng-class="{ 'has-error' : contactUsForm.want.$invalid && !contactUsForm.want.$pristine, 'has-success' : contactUsForm.want.$valid && !contactUsForm.want.$pristine}">
-
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="want" ng-model="want" type="radio"
-                                               value="Feedback" required><i></i> Feedback
-                                    </label>
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="want" ng-model="want" type="radio"
-                                               value="Administrative Support" required><i></i> Administrative Support
-                                    </label>
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="want" ng-model="want" type="radio"
-                                               value="Technical Support" required><i></i> Technical Support
-                                    </label>
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="want" ng-model="want" type="radio"
-                                               value="Suggestion" required><i></i> Suggestion
-                                    </label>
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="want" ng-model="want" type="radio"
-                                               value="Question" required><i></i> Question ?
-                                    </label>
-
-                                    <p class="help-block">
-                                        <span ng-show="contactUsForm.want.$invalid && !contactUsForm.want.$pristine">Your have to select what you want.</span>
-
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-<br/>
-                        <br/>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group" ng-class="{'has-error':contactUsForm.recaptcha.$invalid && !contactUsForm.recaptcha.$pristine}">
-                                    <div    name="recaptcha"
-                                            theme="light"
-                                            vc-recaptcha
-                                            ng-model="key"
-                                            required
-                                            ></div>
-                                    <p class="help-block">
-                                        <span  ng-show="contactUsForm.recaptcha.$invalid && !contactUsForm.recaptcha.$pristine">Captcha is required.</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-
-                            <div class="col-md-12">
-                                <button type="submit" class="myBtn orange-btn contact-form-submit-button">Send</button>
-
-                            </div>
-
-                        </div>
-
-                    </form>
                 </div>
 
 
             </div>
             <!-- END BLOG POSTS -->
 
-            <!-- BLOG SIDEBAR -->
-            <div class="col-sm-3 sidebar contact-us-page-right-bar">
-
-                <div class="blue-background right-head-text">
-                    <p class="white-text lato px-16">
-                        <a ui-sref="app.conceptVideo">This</a> is the easiest thing you’ll do all semester. No, really.<br/>
-                        Here’s how the simple, fast, Student 2 Student system works to make your life easier.
-                        <!--You didn’t find your university? Go <a ui-sref="app.addUniversity">here</a>
-                        and add it to Student 2 Student automatically-->
-                    </p>
-                </div>
-                <div class="white-background right-head-text text-center right-white-div">
-                    <div class="follow-us-head-text">
-                        <span class="follow-us-header lato orange-text uppercase px-16"><strong>Follow
-                            us</strong></span><br/>
-                    </div>
-
-                    <div class="follow-us-logos-div-contact-us text-center">
-                        <a target="_blank" href="{{twitterLink}}"><div class="follow-twitter white-text"><i class="fa fa-twitter fa-2x"></i></div></a>
-                        <a target="_blank" href="{{facebookLink}}"><div class="follow-facebook  white-text"><i class="fa fa-facebook fa-2x"></i></div></a>
-                        <a target="_blank" href="{{instagramLink}}"><div class="follow-instagram  white-text"><i class="fa fa-instagram fa-2x"></i></div></a>
-                    </div>
-                    <div class="follow-us-head-text">
-                        <span class=" follow-us-header lato orange-text uppercase px-16"><strong>quick
-                            links</strong></span>
-                    </div>
-
-                    <div class="quick-links">
-                        <ul class="footer-useful-links-ul lato grey-text">
-                            <li>
-                                <a ui-sref="app.howItWorks">&nbsp;How Student 2 Student works</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.news">&nbsp;News</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.signup">&nbsp;Join</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.bookBuy">&nbsp;Search</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.addUniversity">&nbsp;Add a new University</a>
-                            </li>
-                            <li>
-                                <a ui-sref="app.faq">&nbsp;FAQ</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-
-                </div>
-
-            </div>
-            <!-- END BLOG SIDEBAR -->
 
         </div>
         <!-- blog -->

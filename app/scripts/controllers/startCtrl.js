@@ -17,6 +17,9 @@
         $scope.notificationCounter=0;
         $scope.notifications=[];
 
+        $scope.messageNotificationCounter=0;
+        $scope.messageNotifications=[];
+
         $scope.logout = _logout;
 
         $scope.addToNewsletter = _addToNewsletter;
@@ -70,14 +73,37 @@
             $scope.messageList.$watch(function(event) {
 
                 var record = $scope.messageList.$getRecord(event.key);
+
                 if(record!=null){
-
+                    $scope.messageNotifications.push(record);
+                    $scope.messageNotificationCounter +=1;
                     eventService.trigger("addNewMessage",record);
+                }else{
+                    $scope.messageNotificationCounter -=1;
+                    angular.forEach($scope.messageNotifications,function(notification){
+                        if(notification.$id==event.key){
+                            $scope.messageNotifications.splice($scope.messageNotifications.indexOf(notification),1);
+                        }
+                    });
                 }
-                $scope.messageList.$loaded().then(function(viewData){
-                    $scope.messageList.$remove(viewData.$indexFor(event.key));
-                });
 
+            });
+
+        });
+
+        //Listen for removing message notification
+        eventService.on("removeMessageNotification",function(data,messageData){
+
+            var ref = firebase.database().ref("/users/"+messageData.username+"/messages");
+
+            var list = $firebaseArray(ref);
+
+            list.$loaded().then(function(notificationData){
+                angular.forEach(notificationData,function(notification){
+                    if(parseInt(notification.messageId,10)==parseInt(messageData.message.messageId,10)){
+                        list.$remove(notificationData.indexOf(notification));
+                    }
+                });
             });
 
         });

@@ -121,6 +121,7 @@ var assets = {
         "app/scripts/controllers/privacyPolicyCtrl.js",
         "app/scripts/controllers/disclaimerCtrl.js",
         "app/scripts/controllers/conditionOfUseCtrl.js",
+        "app/scripts/controllers/messageBoardCtrl.js",
 
 
 

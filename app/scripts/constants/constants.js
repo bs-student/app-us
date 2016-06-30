@@ -141,7 +141,8 @@
             "ADD_CONTACT": "/contact/add_contact",
             "ADD_CONTACT_API": "/api/contact/add_contact_api",
             "GET_MESSAGES": "/api/contact/get_messages",
-            "SEND_MESSAGES": "/api/contact/send_messages"
+            "SEND_MESSAGES": "/api/contact/send_messages",
+            "SEND_MESSAGES_WITHOUT_MAILING": "/api/contact/send_messages_without_mailing"
 
         })
         .constant("BOOK_DEAL_CONSTANT", {
@@ -154,7 +155,9 @@
             "GET_LOWEST_CAMPUS_DEAL_PRICE":"/api/book_deal/get_lowest_campus_deal_price",
             "UPDATE_BOOK_DEAL":"/api/book_deal/update_book_deal",
             "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal",
-            "GET_ACTIVATED_BOOK_DEAL_OF_USER":"/book_deal/get_activated_book_deal_of_user"
+            "GET_ACTIVATED_BOOK_DEAL_OF_USER":"/book_deal/get_activated_book_deal_of_user",
+
+            "GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER":"/api/book_del/get_all_activated_selling_and_contacted_book_of_user"
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",

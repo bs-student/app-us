@@ -481,6 +481,15 @@ var app = angular
                 resolve: authCheck
             })
 
+            //Message Board
+            .state('app.messageBoard', {
+                url: '^/messageBoard',
+                controller: 'MessageBoardCtrl',
+                templateUrl: 'views/message/messageBoard.html',
+                resolve: authCheck
+            })
+
+
 
 
 

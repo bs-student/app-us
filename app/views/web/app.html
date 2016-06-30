@@ -56,6 +56,22 @@
                         </ul>
                     </li>
 
+                    <li ng-show="loggedIn && !adminUser" ng-class="{messageBoard:'active'}[activePage]"><a ui-sref="app.messageBoard" class="notification-a message-board-a"><i class="fa fa-comments-o"></i><span ng-show="messageNotificationCounter>0" class="badge bg-lightred">{{messageNotificationCounter}}</span></a>
+
+                        <ul class="menu-right-position notification-ul">
+                            <li>Messages</li>
+                            <li class="text-center" ng-show="messageNotificationCounter==0">No new messages.</li>
+                            <li data-ng-repeat="message in messageNotifications track by $index"><a ui-sref="app.messageBoard">
+                                <dl class="dl-horizontal">
+                                    <dt><i class="fa fa-phone fa-2x"></i></dt>
+                                    <dd><text class="italic">{{message.sender}}</text> has sent you a message</dd>
+                                </dl>
+                            </a></li>
+
+                        </ul>
+
+                    </li>
+
                     <li ng-show="loggedIn && !adminUser" ><a class="notification-a"><i class="fa fa fa-bell-o"></i><span ng-show="notificationCounter>0" class="badge bg-lightred">{{notificationCounter}}</span></a>
 
                         <ul class="menu-right-position notification-ul">
