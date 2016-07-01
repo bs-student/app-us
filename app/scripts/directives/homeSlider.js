@@ -7,6 +7,9 @@ app
             restrict: 'E',
             link: function postLink(scope, element) {
 
+
+
+
                 var apiRevoSlider = $('.tp-banner').show().revolution(
                     {
                         dottedOverlay: "none",
@@ -135,6 +138,32 @@ app
 
                     return sliderParallaxOffsetTop;
                 }
+
+                scope.rotateSlide=function(){
+
+                    if(scope.firstSlide){
+                        scope.secondSlide = true;
+                        scope.firstSlide = false;
+                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/2.jpg" + ')'})
+                                .animate({opacity:1});
+                        });
+
+
+//                            .css('background-image', 'url(' + "assets/images/slider/2.jpg" + ')');
+
+                    }else{
+                        scope.firstSlide = true;
+                        scope.secondSlide = false;
+                        $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/1.png" + ')'})
+                                .animate({opacity: 1});
+                        });
+
+                    }
+                };
             }
 
 

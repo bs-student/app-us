@@ -17,7 +17,7 @@
         $scope.$parent.activePage = "home";
         $scope.firstSlide = true;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
-        $scope.rotateSlide = _rotateSlide;
+//        $scope.rotateSlide = _rotateSlide;
         $scope.showRegister = _showRegister;
         $scope.searchBook = _searchBook;
         $scope.peopleQuoteItems = [];
@@ -121,16 +121,16 @@
             })
         }
 
-        function _rotateSlide(){
-            if($scope.firstSlide){
-                $scope.secondSlide = true;
-                $scope.firstSlide = false;
-
-            }else{
-                $scope.firstSlide = true;
-                $scope.secondSlide = false;
-            }
-        }
+//        function _rotateSlide(){
+//            if($scope.firstSlide){
+//                $scope.secondSlide = true;
+//                $scope.firstSlide = false;
+//
+//            }else{
+//                $scope.firstSlide = true;
+//                $scope.secondSlide = false;
+//            }
+//        }
 
         function _searchBook(valid){
             if(valid){
