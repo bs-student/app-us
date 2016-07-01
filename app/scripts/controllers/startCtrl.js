@@ -278,11 +278,14 @@
         }
 
         function _addToNewsletter(valid, email) {
+
             if (valid) {
                 ($scope.newsletterPromise = newsletterService.addNewsletterEmail({email: email})).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+
                 }).catch(function (response) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+
                 });
 
             }

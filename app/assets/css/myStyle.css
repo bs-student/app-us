@@ -548,6 +548,7 @@ a.notification-a.message-board-a i{
     font-size: 36px;
     font-family: "Lato";
     font-weight: 300;
+    text-align: center;
 }
 .mid-three-people-quote{
     margin: 50px 30px;
@@ -598,7 +599,9 @@ a.notification-a.message-board-a i{
     bottom: -30px;
     left: 0;
 }
-
+.mid-three-uni-quote-col{
+    padding-left: 70px;
+}
 .mid-three-uni-quote-col .flexslider.reference-slider .flex-control-nav {
     top: auto;
     bottom: -75px;
