@@ -19,13 +19,15 @@
 
 
 
-<div class="section m-0 pt-0 mid-one compare-result-section user-management-sections">
+<div class="section m-0 pt-0 mid-one compare-result-section user-management-sections newsletter-sections">
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
 <div class="col-md-12">
 
-    <div cg-busy="{promise:campusPromise}">
+    <button class="myBtn app-btn buy-now-button" ng-click="exportNewsletterDataIntoCSV()"><b><i class="fa fa-file-text-o"></i></b>&nbsp;Export All Data into CSV</button>
+
+    <div cg-busy="{promise:newsletterPromise}">
 
         <table ng-table="tableParams" class="table table-striped campus-result-table ">
 

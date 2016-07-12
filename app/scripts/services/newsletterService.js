@@ -11,7 +11,8 @@
 
         return {
             addNewsletterEmail:_addNewsletterEmail,
-            adminGetAllNewsletterEmails:_adminGetAllNewsletterEmails
+            adminGetAllNewsletterEmails:_adminGetAllNewsletterEmails,
+            adminExportAllDataIntoCSV:_adminExportAllDataIntoCSV
         };
 
 
@@ -21,6 +22,10 @@
 
         function _adminGetAllNewsletterEmails(accessToken,data){
             return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_NEWSLETTER_EMAILS+"?access_token="+accessToken,data);
+        }
+
+        function _adminExportAllDataIntoCSV(accessToken){
+            return apiService.get(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.EXPORT_ALL_NEWSLETTER_DATA_INTO_CSV+"?access_token="+accessToken);
         }
 
     }

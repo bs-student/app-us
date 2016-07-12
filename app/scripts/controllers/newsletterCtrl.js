@@ -5,9 +5,9 @@
     app
         .controller('NewsletterCtrl', NewsletterCtrl);
 
-    NewsletterCtrl.$inject = ['$state','identityService', 'newsletterService', '$scope', '$filter', '$q', 'ngTableParams','responseService'];
+    NewsletterCtrl.$inject = ['$state','identityService', 'newsletterService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
 
-    function NewsletterCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService) {
+    function NewsletterCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
 
 
 //        if(!$scope.$parent.adminUser){
@@ -18,6 +18,8 @@
         $scope.$parent.activePage = "user";
 
         $scope.subscribedEmails=[];
+
+        $scope.exportNewsletterDataIntoCSV = _exportNewsletterDataIntoCSV;
 
         init();
 
@@ -55,7 +57,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                newsletterService.adminGetAllNewsletterEmails(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.newsletterPromise = newsletterService.adminGetAllNewsletterEmails(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.subscribedEmails = response.data.success.successData.newsletterEmails.totalNewsletterEmails;
                     $defer.resolve($scope.subscribedEmails);
                     params.total(response.data.success.successData.newsletterEmails.totalNumber);
@@ -80,6 +82,36 @@
             }
         }
 
+
+        function _exportNewsletterDataIntoCSV(){
+            ($scope.newsletterPromise = newsletterService.adminExportAllDataIntoCSV(identityService.getAccessToken())).then(function (response) {
+
+                var downloadLink = angular.element('<a></a>');
+                downloadLink.attr('href',SERVER_CONSTANT.IMAGE_HOST_PATH+response.data.success.successData.link);
+                downloadLink.attr('download', 'newsletterEmails.csv');
+                downloadLink[0].click();
+
+
+                responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided is invalid.") {
+//                        $scope.$parent.logout();
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _exportNewsletterDataIntoCSV();
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+        }
 
 
     }

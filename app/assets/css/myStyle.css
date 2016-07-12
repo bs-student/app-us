@@ -3170,3 +3170,11 @@ a.simple-continue-reading-button:hover{
 .tabs-menu.message-board-tabs-menu dl {
     margin-bottom: 0px;
 }
+
+/********************************************/
+/*                Newsletter            */
+/*********************************************/
+.compare-result-section.user-management-sections.newsletter-sections{
+    margin-top: 0px !important;
+    margin-bottom: 50px !important;
+}
