@@ -65,19 +65,19 @@
 
                     <div class="widget widget-contact mt-20-md">
                         <h4><strong>Subscribe to our Newsletter</strong></h4>
-                        {{email}}
+
                         <form cg-busy="{promise:newsletterPromise}" name="newsletterForm" submit-validate
-                              ng-submit="addToNewsletter(newsletterForm.$valid,newsLetterEmail)" role="form"
+                              ng-submit="addToNewsletter(newsletterForm.$valid)" role="form"
                               novalidate>
                             <div class="form-group"
                                  ng-class="{ 'has-error' : newsletterForm.email.$invalid && !newsletterForm.email.$pristine, 'has-success' : newsletterForm.email.$valid && !newsletterForm.email.$pristine}">
 
-                                <input ng-model="newsLetterEmail" name="email" type="email"
+                                <input ng-model="user.newsLetterEmail" name="email" type="email"
                                        class="form-control subscribe-input" placeholder="Enter your Email"
                                        required="">
 
                                 <p class="help-block">
-                                    <span ng-show="newsletterForm.email.$invalid && !newsletterForm.email.$pristine">Email is required.</span>
+                                    <!--<span ng-show="newsletterForm.email.$invalid && !newsletterForm.email.$pristine">Email is required.</span>-->
                                 </p>
                                 <button class="myBtn myBtn-rounded search-homepage-btn subscribe-btn" type="submit">
                                     Subscribe Now

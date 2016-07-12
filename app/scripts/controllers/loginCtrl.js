@@ -54,7 +54,11 @@
 
         function _loginUser(valid) {
             if(valid){
-                ($scope.loginPromise = securityService.loginUser($scope.user)).then(showDashboardPage).catch(showLoginUnsuccessful);
+               var  data={
+                    _username: $scope.user._username,
+                    _password: $scope.user._password
+                };
+                ($scope.loginPromise = securityService.loginUser(data)).then(showDashboardPage).catch(showLoginUnsuccessful);
             }
         }
 

@@ -23,6 +23,7 @@
         $scope.logout = _logout;
 
         $scope.addToNewsletter = _addToNewsletter;
+        $scope.user = [];
 
 
         //Footer Carousel
@@ -277,18 +278,16 @@
             });
         }
 
-        function _addToNewsletter(valid, email) {
+        function _addToNewsletter(valid) {
+                    ($scope.newsletterPromise = newsletterService.addNewsletterEmail({email:$scope.user.newsLetterEmail})).then(function (response) {
+                        responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+                        $scope.user.newsLetterEmail = "";
+                    }).catch(function (response) {
+                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
 
-            if (valid) {
-                ($scope.newsletterPromise = newsletterService.addNewsletterEmail({email: email})).then(function (response) {
-                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
-                }).catch(function (response) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                    });
 
-                });
-
-            }
         }
 
 
