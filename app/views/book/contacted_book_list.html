@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I have contacted for</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">List of deals</text><text class="uppercase orange-text lato"> I have contacts for</text></h1>
 
             </div>
         </div>
@@ -67,7 +67,7 @@
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
                             <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
+                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text>&nbsp;&nbsp;&nbsp;&nbsp;ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
                             <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">

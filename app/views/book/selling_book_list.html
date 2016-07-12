@@ -68,7 +68,7 @@
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
                             <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text></p>
+                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text> &nbsp;&nbsp;&nbsp;&nbsp;ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
                             <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
@@ -195,6 +195,11 @@
         </div>
         <div class="row" ng-show="deal.viewMoreInfo">
             <div class="col-md-12">
+
+                <div ng-show="deal.bookStatus=='Deactivated'" class="alert alert-danger">
+                    Textbook Deal is currently <strong>Deactivated!</strong> Activate it in order for Students to see it again.
+                </div>
+
                 <div class="archive-page-contact-history">
                     <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You (Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>

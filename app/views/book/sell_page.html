@@ -27,7 +27,7 @@
             <div ng-show="showHelp" class="help-details-div">
 
                 <div class="help-header">
-                    <button ng-click="showHelp=false" class="myBtn orange-btn help-back-button"><i class="fa fa-angle-left fa-2x"></i> Back
+                    <button ng-click="showHelp=false" class="myBtn orange-btn help-back-button"><i class="fa fa-angle-left fa-2x"></i> Close
                     <img src="dist/images/sell_book/help.png"/> <text class="white-text lato">Help</text></button>
                 </div>
 
@@ -123,7 +123,7 @@
                                             <h3 class="book-title orange-text lato uppercase">{{book.bookTitle}}</h3>
                                             <h4 class="book-sub-title blue-text lato">{{book.bookSubTitle}}</h4>
                                             <div class="book-description ">
-                                                <p><text class="grey-text ">ISBN: </text><text class="blue-text">{{book.bookIsbn}}</text></p>
+                                                <p><text class="grey-text ">ISBN: </text><text class="blue-text">{{book.bookIsbn}}</text>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text ">ISBN-13: </text><text class="blue-text">{{book.bookEan}}</text></p>
                                                 <p class="grey-text">By <text class="blue-text">{{book.bookDirectorAuthorArtist}}</text> :: Published by {{book.bookPublisher}} {{book.bookPublishDate}} :: ({{book.bookBinding}})</p>
                                             </div>
 
@@ -421,10 +421,10 @@
                     <form name="step3" role="form" ng-submit="nextStep(step3.$valid,'step3')" submit-validate novalidate class="form-validation">
                         <div class="step1">
 
-                            <div class="row" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
+                            <div class="row height-48" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
 
                                 <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Text available to public :</strong></text>
+                                    <text class="px-16 lato uppercase"><strong>Text available to public &nbsp;&nbsp;:</strong></text>
                                 </div>
 
                                 <div class="col-md-8">
@@ -476,7 +476,7 @@
                             <div class="row" ng-class="{ 'has-error' : step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine, 'has-success' : step3.sellingPrice.$valid && !step3.sellingPrice.$pristine}">
 
                                 <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) :</strong></text>
+                                    <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong></text>
                                 </div>
 
                                 <div class="col-md-4">
@@ -489,14 +489,15 @@
                                 </div>
                                 <div class="col-md-4">
                                     <text ng-show="foundCampusLowestPrice"><text  class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US {{book.campusLowestPrice}}</text></text>
-                                    <text ng-show="!foundCampusLowestPrice" class="px-16 lato grey-text">You are first who is selling this book on-campus "{{universityName}}"</text>
+                                    <text ng-show="!foundCampusLowestPrice" class="px-16 lato grey-text">Remember, on Amazon the book costs {{book.bookPriceAmazon}}</text>
                                 </div>
 
                             </div>
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Payment Method :</strong></text>
+                                    <text class="px-16 lato uppercase"><strong>Payment Method &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong></text>
                                 </div>
 
                                 <div class="col-md-8">
@@ -595,13 +596,13 @@
                             <div class="row" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
 
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    <div class="form-group sell-page-upload-image-input">
 
 
 
-                                        <input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
-            buttonText: 'Select file',
-            iconName: 'fa fa-inbox'
+                                        <input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle " ui-options="{
+            buttonText: 'Select Images',
+            iconName: 'fa fa-cloud-upload'
           }"  multiple accept="image/*">
                                     </div>
 
@@ -693,7 +694,7 @@
                                         <h3 class="book-title orange-text lato uppercase">{{book.bookTitle}}</h3>
                                         <h4 class="book-sub-title blue-text lato">{{book.bookSubTitle}}</h4>
                                         <p class="book-description grey-text">By <text class="blue-text">{{book.bookDirectorAuthorArtist}}</text> :: Published by {{book.bookPublisher}} {{book.bookPublishDate}} :: ({{book.bookBinding}})
-                                            ISBN: <text class="blue-text">{{book.bookIsbn}}</text></p>
+                                            ISBN: <text class="blue-text">{{book.bookIsbn}}</text>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text ">ISBN-13: </text><text class="blue-text">{{book.bookEan}}</text></p>
                                     </div>
                                 </div>
 
@@ -724,10 +725,10 @@
                                     <div ng-show="book.contactMethod=='buyerToSeller'" class="step-2-info">
 
                                         <div class="row">
-
-                                            <div class="col-md-12">
-                                                <text  class="blue-text uppercase"><strong>buyer contact seller</strong></text>
+                                            <div class="col-md-4">
+                                                <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Buyer Contact Seller</strong></text></div>
                                         </div>
                                         <br/>
 
@@ -749,10 +750,10 @@
                                     <div ng-show="book.contactMethod=='sellerToBuyer'" class="step-2-info">
 
                                         <div class="row">
-
-                                            <div class="col-md-12">
-                                                <text  class="blue-text uppercase"><strong>Seller contact buyer</strong></text>
+                                            <div class="col-md-4">
+                                                <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Seller Contact Buyer</strong></text></div>
                                         </div>
 
 
@@ -764,7 +765,7 @@
 
                                     <div class="step-last-info">
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available to public?</strong></text></div>
+                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available to public</strong></text></div>
                                             <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.availablePublic}}</strong></text></div>
                                         </div>
                                         <div class="row">

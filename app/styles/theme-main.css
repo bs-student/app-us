@@ -1361,3 +1361,9 @@ button:focus {
     color: #ffc100; }
  #mails-list > li .controls .mail-select {
     width: 20px; }
+
+.alert {
+    padding: 10px 15px;
+    border-radius: 0;
+    border: 0;
+    border-left: 3px solid; }

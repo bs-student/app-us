@@ -2290,7 +2290,25 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /********************************************/
 /*         Sell Page                        */
 /*********************************************/
+.sell-page-upload-image-input .bootstrap-filestyle.input-group{
+    width: 100%;
 
+}
+.sell-page-upload-image-input .bootstrap-filestyle.input-group input{
+    display: none !important;
+}
+.sell-page-upload-image-input .bootstrap-filestyle.input-group span.group-span-filestyle{
+    width: 100%;
+
+}
+.sell-page-upload-image-input .bootstrap-filestyle.input-group span.group-span-filestyle label{
+    width: 100%;
+    border-radius: 4px;
+    color: #FFFFFF;
+    background: #FF530E;
+    border: none;
+    font-size: 18px;
+}
 .row.agree-row{
     margin-top: 40px;
 }
@@ -2667,7 +2685,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .help-header img{
     vertical-align: top;
     padding: 7px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 .help-details-text-div{
     padding: 20px;
@@ -3078,6 +3096,9 @@ a.simple-continue-reading-button:hover{
 /********************************************/
 /*                Tell Friends              */
 /*********************************************/
+a.share-my-sell-page-url{
+    text-decoration: underline !important;
+}
 .tell-a-friend-background{
     background: url("../images/parallax/login_parallax.png") no-repeat;
     background-size: cover;
@@ -3177,4 +3198,7 @@ a.simple-continue-reading-button:hover{
 .compare-result-section.user-management-sections.newsletter-sections{
     margin-top: 0px !important;
     margin-bottom: 50px !important;
+}
+.height-48{
+    min-height: 48px;
 }
