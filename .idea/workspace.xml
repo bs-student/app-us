@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Projects\WampServerProjects\wamp\www\Student2StudentApp\app\views\contact\contact_old.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/app.html" afterPath="$PROJECT_DIR$/app/views/web/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/compare_book_price.html" afterPath="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contact/contact.html" afterPath="$PROJECT_DIR$/app/views/contact/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/css/myStyle.css" afterPath="$PROJECT_DIR$/app/assets/css/myStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security/signup.html" afterPath="$PROJECT_DIR$/app/views/security/signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/tell_friends.html" afterPath="$PROJECT_DIR$/app/views/web/tell_friends.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -53,7 +48,25 @@
       <file leaf-file-name="contact.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/contact/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="120" selection-start="926" selection-end="926" vertical-scroll-proportion="-1.9230769" vertical-offset="290" max-vertical-offset="2856">
+            <state line="62" column="53" selection-start="2558" selection-end="2572" vertical-scroll-proportion="-5.230769" vertical-offset="918" max-vertical-offset="2856">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.18438178" vertical-offset="0" max-vertical-offset="3468">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contactCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="73" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1326">
               <folding />
             </state>
           </provider>
@@ -94,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tell_friends.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tell_friends.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/web/tell_friends.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="33" selection-start="5997" selection-end="5997" vertical-scroll-proportion="0.41183037" vertical-offset="1756" max-vertical-offset="4709">
+            <state line="125" column="56" selection-start="6020" selection-end="6020" vertical-scroll-proportion="-25.961538" vertical-offset="1450" max-vertical-offset="4709">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -136,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/eventService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookCompareCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
@@ -161,7 +173,6 @@
         <option value="$PROJECT_DIR$/app/views/admin/newsletter/newsletter.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/newsletterService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/newsletterCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
         <option value="$PROJECT_DIR$/app/views/web/howItWorks.html" />
         <option value="$PROJECT_DIR$/app/views/book/sell_page.html" />
         <option value="$PROJECT_DIR$/app/views/book/sell_page_custom.html" />
@@ -173,11 +184,13 @@
         <option value="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
         <option value="$PROJECT_DIR$/app/views/book/a.txt" />
         <option value="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
-        <option value="$PROJECT_DIR$/app/views/contact/contact.html" />
         <option value="$PROJECT_DIR$/app/views/web/app.html" />
         <option value="$PROJECT_DIR$/app/views/security/signup.html" />
         <option value="$PROJECT_DIR$/app/assets/css/myStyle.css" />
         <option value="$PROJECT_DIR$/app/views/web/tell_friends.html" />
+        <option value="$PROJECT_DIR$/app/views/contact/contact.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
       </list>
     </option>
   </component>
@@ -732,11 +745,6 @@
         <state line="111" column="50" selection-start="4361" selection-end="4361" vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="4998" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="22" selection-start="2173" selection-end="2173" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1326" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="218" column="50" selection-start="8246" selection-end="8246" vertical-scroll-proportion="0.0" vertical-offset="3277" max-vertical-offset="5117" />
@@ -860,11 +868,6 @@
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newsletterCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="126" selection-start="3796" selection-end="3796" vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="2176" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="46" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/newsletter/newsletter.html">
@@ -1078,13 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contact/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="120" selection-start="926" selection-end="926" vertical-scroll-proportion="-1.9230769" vertical-offset="290" max-vertical-offset="2856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/app.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="137" selection-start="6717" selection-end="6717" vertical-scroll-proportion="-15.653846" vertical-offset="1259" max-vertical-offset="2669">
@@ -1130,10 +1126,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/tell_friends.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="33" selection-start="5997" selection-end="5997" vertical-scroll-proportion="0.41183037" vertical-offset="1756" max-vertical-offset="4709">
+        <state line="125" column="56" selection-start="6020" selection-end="6020" vertical-scroll-proportion="-25.961538" vertical-offset="1450" max-vertical-offset="4709">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="73" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contact/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="53" selection-start="2558" selection-end="2572" vertical-scroll-proportion="-5.230769" vertical-offset="918" max-vertical-offset="2856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="354" selection-end="354" vertical-scroll-proportion="0.18438178" vertical-offset="0" max-vertical-offset="3468">
+          <folding />
         </state>
       </provider>
     </entry>

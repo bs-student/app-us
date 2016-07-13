@@ -38,7 +38,7 @@
                 };
 
 
-                contactService.addContact(data).then(function (response) {
+                ($scope.contactPromise = contactService.addContact(data)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                     //Adding Realtime Database
