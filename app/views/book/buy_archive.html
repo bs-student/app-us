@@ -81,6 +81,7 @@
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
                                                 <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : Seller Contact You (Buyer)</text>
                                                 <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : You (Buyer) Contact Seller</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> : Use Student2Student Message Board</text>
                                                 <br/></p>
 
 
@@ -138,6 +139,7 @@
                     <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> Seller Contact You (Buyer) <text uib-tooltip="You as Buyer will not receiving any of Seller's information. Seller will contact buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> You (Buyer) Contact Seller <text uib-tooltip="You as Buyer will receive Seller information and will contact Seller. Buyer can also provide information to the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='student2studentBoard'"><strong> Use Student2Student Message Board <text uib-tooltip="You can chat with the buyer on Student2Student Message Board." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <div class="contact-history-box">
                         <table class="table contact-history-table" cg-busy="{promise:messagePromise}">
                             <thead>

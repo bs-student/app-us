@@ -485,6 +485,16 @@
 
                                         </text>
                                     </div>
+                                    <div class="left-side-form margin-top-60">
+                                        <label class="checkbox checkbox-custom">
+                                            <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="student2studentBoard" required><i></i> <strong><text class="uppercase px-16">Use Student2Student Message Board</text></strong>
+                                        </label>
+
+                                        <text class="lato">
+                                            With this method, <text class="underline">neither buyer nor seller any of contact information of each other</text>. They can send message each other by only using student2student message board.
+
+                                        </text>
+                                    </div>
 
                                 </div>
 
@@ -942,6 +952,18 @@
                                                 <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
                                             <div class="col-md-8 border-left"><text class="grey-text"><strong>Seller Contact Buyer</strong></text></div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div ng-show="book.contactMethod=='student2studentBoard'" class="step-2-info">
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
+                                            </div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Student2Student Message Board</strong></text></div>
                                         </div>
 
 

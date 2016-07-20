@@ -82,6 +82,7 @@
                                             <p><text class="blue-text"><strong>Contact Method</strong></text>
                                                 <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You (Seller) Contact Buyer</text>
                                                 <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer Contact You (Seller)</text>
+                                                <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> : Use Student2Student Message Board</text>
                                                 <br/>
                                             </p>
 
@@ -204,13 +205,14 @@
                     <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You (Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> Buyer Contact You (Seller) <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide information to you as the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
+                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='student2studentBoard'"><strong> Use Student2Student Message Board <text uib-tooltip="You can chat with the buyer on Student2Student Message Board." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <div class="contact-history-box">
                         <table cg-busy="{promise:messagePromise}" class="table contact-history-table">
                             <thead>
                             <tr>
                                 <th style="width: 13%;">Date</th>
                                 <th style="width: 13%;">Nickname</th>
-                                <th style="width: 15%;">Email</th>
+                                <th ng-show="deal.bookContactMethod!=='student2studentBoard'" style="width: 15%;">Email</th>
                                 <th style="width: 13%;">CellPhone</th>
                                 <th style="width: 13%;">HomePhone</th>
                                 <th style="width: 33%;">Action</th>
@@ -227,7 +229,7 @@
                             <tr>
                                 <td>{{contact.contactDateTime}}</td>
                                 <td>{{contact.buyerNickName}}</td>
-                                <td>{{contact.buyerEmail}}</td>
+                                <td  ng-show="deal.bookContactMethod!=='student2studentBoard'">{{contact.buyerEmail}}</td>
                                 <td>{{contact.buyerCellPhone}}</td>
                                 <td>{{contact.buyerHomePhone}}</td>
                                 <td>

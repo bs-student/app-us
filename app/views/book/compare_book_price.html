@@ -383,6 +383,55 @@
                 </td>
             </tr>
 
+            <tr data-ng-repeat="deal in campusBookDeals.student2studentBoard">
+                <td>{{deal.username}}</td>
+                <td>{{deal.bookCondition}}
+                    <button class="myBtn app-btn buy-now-button view-more-button"
+                            ng-click="deal.showDetails=!deal.showDetails"><i
+                            class="fa fa-angle-down fa-2x"></i></button>
+                    <div class="transition-view" ng-show="deal.showDetails">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                        Comment by Seller: {{deal.bookComment}}
+                    </div>
+
+                </td>
+                <td>Contact Through Message Board</td>
+
+                <td>{{deal.bookAvailableDate}}</td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                    Cash
+                </td>
+                <td ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cheque
+                </td>
+                <td ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                    Cash, Cheque
+                </td>
+                <td>${{deal.bookPriceSell}}</td>
+                <td>
+                    <div ng-show="$parent.loggedIn">
+                        <button ng-click="contact(deal)" class="myBtn app-btn buy-now-button ">
+                            Contact
+                        </button>
+                    </div>
+                    <div ng-show="!$parent.loggedIn">
+
+                        <a ui-sref="app.login"
+
+                           class="myBtn app-btn buy-now-button ">Sign In</a>
+                        <!--<button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
+                                class="myBtn app-btn buy-now-button ">Contact
+                        </button>-->
+                    </div>
+
+                    <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->
+                </td>
+            </tr>
+            <tr ng-if="noStudent2studentBoard">
+                <td class="text text-danger" colspan="7">There is no deal on-campus where Contact Method is Message Board
+                </td>
+            </tr>
 
             </tbody>
         </table>

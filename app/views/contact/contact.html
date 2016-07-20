@@ -40,6 +40,18 @@
                     </div>
                 </div>
 
+                <div ng-if="deal.bookContactMethod=='student2studentBoard'" class="col-md-10">
+                    <div class="book-title-header">
+                        <h1 class="uppercase"><strong>Send Messages to ({{deal.username}}) via Student2Student Message Board</strong></h1>
+                        <hr/>
+                    </div>
+                    <div>
+                        <p class="book-subtitle-header">Buying Textbooks directly from other Students can be so simple</p>
+                        <p>
+                            In this method after contacting The Seller ({{deal.username}}) you can easily send messages to the seller via Student2Student Message Board.
+                        </p>
+                    </div>
+                </div>
 
 
 
@@ -74,7 +86,7 @@
 
                             </div>
 
-                            <div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine, 'has-success' : contactForm.email.$valid && !contactForm.email.$pristine}">
+                            <div ng-if="deal.bookContactMethod=='sellerToBuyer' || deal.bookContactMethod=='buyerToSeller'" class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine, 'has-success' : contactForm.email.$valid && !contactForm.email.$pristine}">
 
                                 <p class="" for="email">Email: </p>
                                 <input type="email" name="email" id="email" class="form-control " ng-model="contact.buyerEmail" required>
@@ -125,7 +137,6 @@
                                     <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Send Seller Your Details</button>
                                 </div>
 
-
                             </div>
                             <div ng-if="deal.bookContactMethod=='buyerToSeller'" class="form-group">
 
@@ -133,6 +144,13 @@
                                     <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Get Seller Details</button>
                                 </div>
 
+
+                            </div>
+                            <div ng-if="deal.bookContactMethod=='student2studentBoard'" class="form-group">
+
+                                <div class="form-group text-left mt-20">
+                                    <button type="submit" class="myBtn app-btn orange-btn max-large-btn">Send Message to Seller</button>
+                                </div>
 
                             </div>
 

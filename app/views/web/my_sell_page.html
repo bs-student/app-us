@@ -188,12 +188,13 @@
                                         <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer
                                             Contact Seller
                                         </text>
+                                        <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> : Use Student2Student Message Board</text>
                                         <br/>
                                     </p>
 
                                     <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
                                     <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-                                    <p>
+                                    <p  ng-if="deal.bookContactMethod!=='student2studentBoard'">
                                         <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
                                         <text><strong>{{deal.sellerEmail}}</strong></text>
                                         <br/></p>
