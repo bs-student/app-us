@@ -5,14 +5,16 @@
     app
         .controller('BookDealEditCtrl', BookDealEditCtrl);
 
-    BookDealEditCtrl.$inject = ['$stateParams','$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService','adminBookDealService','SERVER_CONSTANT','imageModalService','bookDealService'];
+    BookDealEditCtrl.$inject = ['$stateParams','$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService','adminBookDealService','SERVER_CONSTANT','imageModalService','bookDealService','imageStoreService'];
 
-    function BookDealEditCtrl($stateParams,$state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT,imageModalService,bookDealService) {
+    function BookDealEditCtrl($stateParams,$state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT,imageModalService,bookDealService,imageStoreService) {
 
 
 //        if(!$scope.$parent.loggedIn){
 //            $state.go("app.login");
 //        }
+
+
 
         if($stateParams.book!=undefined){
             $scope.book = $stateParams.book;
@@ -23,10 +25,11 @@
             $scope.book.bookAvailableDate = new Date($scope.book.bookAvailableDate);
             $scope.bookPriceSell = $scope.book.bookPriceSell;
 //            $scope.book.agreedOnTermsAndConditions=true;
+            $scope.universityName =identityService.getAuthorizedUserData().universityName;
             getLowestCampusDealPrice();
 
 
-            console.log($scope.book);
+
         }else{
             $state.go("app.sellingBookList");
         }
@@ -40,6 +43,7 @@
         $scope.nextStep=_nextStep;
         $scope.backToStep = _backToStep;
 
+        $scope.previewSelected = _previewSelected;
 
         //DatePicker
 
@@ -65,7 +69,7 @@
             opened: false
         };
 
-        $scope.imageFiles=[]
+        $scope.imageFiles=[];
         $scope.carouselFiles=[];
 
         $scope.prevPage = _prevPage;
@@ -99,7 +103,7 @@
                     $scope.steps.step5=true;
                     $scope.step4Completed=true;
 
-                    $scope.imageFiles=data;
+                    /*$scope.imageFiles=data;
 
                     angular.copy(data,$scope.carouselFiles);
 
@@ -110,7 +114,7 @@
                     });
                     $scope.carouselFiles = array.concat($scope.carouselFiles);
                     console.log($scope.carouselFiles);
-                    setCarousel();
+                    setCarousel();*/
 
                 }
 
@@ -125,7 +129,26 @@
         }
 
 
+        function _previewSelected(){
 
+            $scope.steps.step5=true;
+            $scope.step4Completed=true;
+
+            $scope.carouselFiles=[];
+
+
+            angular.forEach($scope.book.bookImages,function(image){
+                image.fileData=$scope.imageHostPath+image.image;
+                $scope.carouselFiles.push(image);
+
+            });
+
+            angular.forEach(imageStoreService.getStoredImages(),function(image){
+                $scope.carouselFiles.push(image);
+            });
+
+            setCarousel();
+        }
 
         // Set Carousel
         function setCarousel() {
@@ -175,6 +198,8 @@
         }
         function _removeFile(item,items){
 
+            imageStoreService.removeStoredImage(imageStoreService.getStoredImages().indexOf(item));
+
             var i = 0;
             angular.forEach(items,function(file){
                 if(file.fileId == item.fileId){
@@ -182,7 +207,7 @@
                 }
                 i++;
             });
-            $scope.imageFiles = items;
+//            $scope.imageFiles = items;
 
         }
 
@@ -241,7 +266,7 @@
             var formData = new FormData();
 
             var i=0;
-            angular.forEach($scope.imageFiles, function (file) {
+            angular.forEach(imageStoreService.getStoredImages(), function (file) {
 
                 formData.append("file"+ i.toString(),file);
 
