@@ -1,7 +1,105 @@
-<div class="contact-us-page-head-banner">
+<div class="safety-first-page-head-banner message-board-page-head-banner">
     <div class="container clearfix">
+
+
+        <div class="row concept-banner-row">
+
+            <div class="col-md-7">
+                <div class="concept-page-banner-text"><p
+                        class=" open-sans concept-page-banner-first-text  text-white uppercase"><strong>Message</strong>
+                </p>
+
+                    <p class="open-sans concept-page-banner-second-text text-left"><strong>
+
+                        <text class="uppercase navy-blue-text ">Board</text>
+
+                    </strong></p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-5 text-right">
+                <div class="guard-image">
+                    <img src="dist/images/parallax/conceptpageHeaderLogo.png"/>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<section id="content">
+
+<div class="content-wrap contact-us-page-content-wrap">
+
+<div class="section m-0 pt-0 search-result-section">
+    <div class="container clearfix ">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mid-three-people-quote-col">
+                <div class="message-board-type-buttons text-center">
+
+                    <div class="btn-group">
+                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Left'"
+                               uncheckable>All</label>
+                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Middle'"
+                               uncheckable>Unread</label>
+                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Right'"
+                               uncheckable>Starred</label>
+                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'60days'" uncheckable>Older
+                            than 60 days</label>
+                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'sent'"
+                               uncheckable>Sent</label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="search-page-options message-board-type-options">Sort By:
+
+                    <select ng-model="sortType">
+                        <option value="bookTitle" ng-selected="true">Title</option>
+                        <option value="bookDirectorAuthorArtist">Author</option>
+                        <option value="bookIsbn">ISBN</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-4 message-board-pagination text-center">
+                <uib-pagination total-items="totalSearchResults" ng-model="currentPage" max-size="maxSize"
+                                ng-change="changePage(currentPage)" class="search-page-pagination "
+                                boundary-links="true"
+                                rotate="false" num-pages="numPages"></uib-pagination>
+
+            </div>
+            <div class="col-md-4 text-center">
+
+
+                <div class="search-page-options message-board-search">
+
+                    <div class="input-group">
+
+                        <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+
+                        <input type="text"
+                               ng-model="searchQuery"
+                               ng-change="search(searchQuery)"
+                               ng-model-options="{debounce: 750}"
+                               placeholder="search your book"
+                               class="form-control">
+
+                    </div>
+                </div>
 
 
             </div>
@@ -9,144 +107,300 @@
     </div>
 </div>
 
+<div class="container clearfix">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-3 message-board-column-header-checkbox text-center">
+                    <text class="all-checkbox-text">
+                        All
+                        <label  class="checkbox checkbox-custom-alt white-text">
+                            <input type="checkbox" name="agree" id="agree" ng-model="user.agree"><i></i>
+                        </label>
+                    </text>
 
-<section id="content">
+                </div>
+                <div class="col-md-9 message-board-column-header text-center white-border-left-1">
+                    <text class="uppercase ">&nbsp;&nbsp; Text book deals</text>
+                </div>
+            </div>
 
-<div class="content-wrap contact-us-page-content-wrap">
+            <div class="row">
+                <div class="col-md-12 message-boards-all-deals-column">
+                    <ul class="tabs-menu message-board-tabs-menu">
 
-    <div class="container clearfix">
+                        <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
+                            <div class="row">
+                                <div class="col-md-3 text-center message-board-check-star-item-column">
+                                    <div class="message-board-check-star-item">
+                                        <label  class="checkbox checkbox-custom-alt white-text">
+                                            <input type="checkbox" name="agree"  ng-model="user.agree"><i></i>
+                                        </label>
 
-        <div class="row">
+                                        <span><a><i class="fa fa-star-o"></i></a></span>
+                                    </div>
 
-
-            <!-- BLOG POSTS -->
-            <div cg-busy="{promise:getDealsPromise}" class="col-sm-12 blog-posts contact-us-form-div">
-
-                <div class="contact-page-left-side">
-
-                    <div class="row">
-
-                        <div class="col-md-4">
-                            <h3 class="text-center lato" >TextBook Deals</h3>
-                            <div class="faq-topics-div">
-
-
-
-                                <ul class="tabs-menu message-board-tabs-menu">
-
-                                    <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
-                                        <a href="" ng-click="active(deal)" >
-                                        <dl class="dl-horizontal">
-                                            <dt> <img class="" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/></dt>
-                                            <dd>{{deal.bookTitle}} <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
-                                                ISBN: {{deal.bookIsbn}}</dd>
+                                </div>
+                                <div class="col-md-9 ">
+                                    <a href="" ng-click="active(deal)">
+                                        <dl class="dl-horizontal message-board-textbook-deal-item">
+                                            <dt><img class="" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/>
+                                            </dt>
+                                            <dd><text class="convert-to-white-text orange-text lato uppercase">{{deal.bookTitle}}</text> <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
+                                                <text class="grey-text">ISBN:</text> <text class="blue-text convert-to-white-text">{{deal.bookIsbn}}</text><br/>
+                                                <text  class="convert-to-white-text orange-text float-right">${{deal.bookPriceSell}}</text>
+                                            </dd>
+                                            <!--<dd class=""></dd>-->
                                         </dl>
 
-                                        </a>
-                                    </li>
-
-                                </ul>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </li>
 
-                        <div class="col-md-8">
-                            <h3 class="text-center lato" >Contacts</h3>
-                            <div class="tab-content">
-                                <div class="faq-all-questions">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="message-board-column-header text-center">
+                <text class="uppercase text-center "><i class="fa fa-envelope-o"></i>&nbsp;&nbsp; Contact</text>
+            </div>
 
-                                    <div ng-show="deal.active" data-ng-repeat="deal in bookDeals">
+            <div class="message-board-all-contacts">
+                <div class="message-board-contacts" ng-show="deal.active" data-ng-repeat="deal in bookDeals">
 
+                    <uib-accordion >
 
-                                        <ul class="list-group no-radius no-border" id="mails-list">
-                                            <li ng-repeat="contact in deal.contacts"
-                                                class="list-group-item b-{{mail.label.color}}">
+                        <uib-accordion-group ng-repeat="contact in deal.contacts" is-open="row.open">
+                            <uib-accordion-heading >
 
-                                                <div class="media">
+                                <div class="row" ng-click="getMessages(contact,row.open)">
 
-                                                    <div class="media-body">
-                                                        <div class="media-heading m-0">
-                                                            <a href="" ng-click="getMessages(contact)" class="mr-5">{{contact.contactName}} <span ng-show="contact.newMessages>0"  class="badge">{{contact.newMessages}}</span></a>
-                                                            <!--<span class="label bg-primary">label</span>-->
-                                                            <span class="pull-right text-sm text-muted">
-                                                              <span class="hidden-xs">{{contact.contactDateTimeFormatted}}</span>
+                                    <div class="col-md-5 no-right-padding">
+                                        <div class="message-icons text-white lato pull-left">
+                                            <i class="angle-icon fa-3x fa" ng-class="{'fa-angle-up': row.open, 'fa-angle-down': !row.open}"></i><br/>
+                                            <i class="envelope-icon fa fa-envelope-o "></i>
+                                        </div>
 
-                                                            </span>
-                                                        </div>
-                                                        <small>{{contact.contactEmail}}</small>
-                                                    </div>
-                                                </div>
+                                        <div class="avatar-image pull-left">
+                                            <span><img class="" data-ng-src="./dist/images/avatars/a.jpg"/></span> <span class="text-white lato uppercase contact-name">{{contact.contactName}}</span>
+                                        </div>
 
+                                    </div>
+                                    <div class="col-md-2 no-left-padding no-right-padding">
+                                        <div class="item-price">
+                                            <text class="text-white lato">Price: ${{deal.bookPriceSell}}</text>
+                                        </div>
+                                    </div>
 
-                                                <ul ng-show="contact.messages.length>0" class="list-group no-radius no-border">
-                                                    <li ng-repeat="message in contact.messages"
-                                                        class="list-group-item b-{{mail.label.color}}">
+                                    <div class="col-md-5 no-left-padding no-right-padding">
+                                        <div class="book-details">
+                                            <div class="pull-right">
+                                                <img class="book-image" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/>
+                                            </div>
+                                            <div class="pull-right book-title-and-isbn">
+                                                <text class="white-text lato uppercase">{{deal.bookTitle}}</text><br/>
+                                                <text class="white-text">ISBN:</text> <text class="white-text ">{{deal.bookIsbn}}</text><br/>
+                                            </div>
 
-                                                        <div class="media">
-
-                                                            <div class="media-body">
-                                                                <div class="media-heading m-0">
-                                                                    <text class="blue-text">{{message.sender}}</text> : {{message.messageBody}}
-            <span class="pull-right text-sm text-muted">
-              <span class="hidden-xs">{{message.messageDateTime}}</span>
-
-            </span>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-
-
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <form  name="sendMessageForm" submit-validate ng-submit="sendMessage(sendMessageForm.$valid,contact)" role="form" novalidate>
-                                                            <input ng-model="contact.message" name="message" type="text" />
-                                                            <input type="submit" value="Send"/>
-                                                        </form>
-
-                                                    </li>
-                                                </ul>
-
-
-                                            </li>
-                                        </ul>
-
-
-
-                                        <!--<ul>
-                                            <li data-ng-repeat="contact in deal.contacts"><a ng-click="getMessages(contact)">{{contact.buyerNickName}}</a>
-                                                <ul><li data-ng-repeat="message in contact.messages">{{message.messageDateTime}}::{{message.sender}}: {{message.messageBody}}</li>
-                                                    <form  name="sendMessageForm" submit-validate ng-submit="sendMessage(sendMessageForm.$valid,contact)" role="form" novalidate>
-                                                        <input ng-model="contact.message" name="message" type="text" />
-                                                        <input type="submit" value="Send"/>
-                                                    </form>
-                                                </ul>
-
-                                            </li>
-                                        </ul>-->
+                                        </div>
 
                                     </div>
 
                                 </div>
+                            </uib-accordion-heading>
+                            <div class="contact-messages">
+                                <ul ng-show="contact.messages.length>0"
+                                    class="list-group no-radius no-border">
+                                    <li ng-repeat="message in contact.messages"
+                                        class="list-group-item b-{{mail.label.color}}">
 
+                                        <div class="media">
+
+                                            <div class="pull-left"><img class="small-avatar-image" data-ng-src="./dist/images/avatars/a.jpg"/></div>
+                                            <div>
+                                                <text class="lato orange-text">{{message.sender}}</text><br/>
+                                                <text class="margin-left-20 lato italic">{{message.messageBody}}</text>
+                                            </div>
+
+                                            <div class="message-date pull-right">
+
+                                                <text class="lato italic">{{message.messageDateTime}}</text>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <form name="sendMessageForm" submit-validate
+                                              ng-submit="sendMessage(sendMessageForm.$valid,contact)"
+                                              role="form" novalidate>
+                                            <div ng-class="{ 'has-error' : sendMessageForm.message.$invalid && !sendMessageForm.message.$pristine, 'has-success' : sendMessageForm.message.$valid && !sendMessageForm.message.$pristine}">
+                                                <textarea rows="5" class="form-control" placeholder="Type your message here.." ng-model="contact.message" name="message" required
+                                                          type="text"></textarea>
+                                            </div>
+                                            
+
+                                            <div class="box-div-for-message-board-input">
+                                                <input class="send-message-button myBtn orange-btn" type="submit" value="Send"/>
+                                            </div>
+
+                                        </form>
+
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
 
+
+                        </uib-accordion-group>
+
+                    </uib-accordion>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!--
+<div class="container clearfix">
+
+    <div class="row">
+
+
+
+        <div cg-busy="{promise:getDealsPromise}" class="col-sm-12 blog-posts contact-us-form-div">
+
+            <div class="contact-page-left-side">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <h3 class="text-center lato">TextBook Deals</h3>
+
+                        <div class="faq-topics-div">
+
+
+                            <ul class="tabs-menu message-board-tabs-menu">
+
+                                <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
+                                    <a href="" ng-click="active(deal)">
+                                        <dl class="dl-horizontal">
+                                            <dt><img class="" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/>
+                                            </dt>
+                                            <dd>{{deal.bookTitle}} <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
+                                                ISBN: {{deal.bookIsbn}}
+                                            </dd>
+                                        </dl>
+
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
 
+                    <div class="col-md-8">
+                        <h3 class="text-center lato">Contacts</h3>
+
+                        <div class="tab-content">
+                            <div class="faq-all-questions">
+
+                                <div ng-show="deal.active" data-ng-repeat="deal in bookDeals">
+
+
+                                    <ul class="list-group no-radius no-border" id="mails-list">
+                                        <li ng-repeat="contact in deal.contacts"
+                                            class="list-group-item b-{{mail.label.color}}">
+
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <div class="media-heading m-0">
+                                                        <a href="" ng-click="getMessages(contact)" class="mr-5">{{contact.contactName}}
+                                                            <span ng-show="contact.newMessages>0" class="badge">{{contact.newMessages}}</span></a>
+
+                                                            <span class="pull-right text-sm text-muted">
+                                                              <span class="hidden-xs">{{contact.contactDateTimeFormatted}}</span>
+
+                                                            </span>
+                                                    </div>
+                                                    <small>{{contact.contactEmail}}</small>
+                                                </div>
+                                            </div>
+
+
+                                            <ul ng-show="contact.messages.length>0"
+                                                class="list-group no-radius no-border">
+                                                <li ng-repeat="message in contact.messages"
+                                                    class="list-group-item b-{{mail.label.color}}">
+
+                                                    <div class="media">
+
+                                                        <div class="media-body">
+                                                            <div class="media-heading m-0">
+                                                                <text class="blue-text">{{message.sender}}</text>
+                                                                : {{message.messageBody}}
+            <span class="pull-right text-sm text-muted">
+              <span class="hidden-xs">{{message.messageDateTime}}</span>
+
+            </span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <form name="sendMessageForm" submit-validate
+                                                          ng-submit="sendMessage(sendMessageForm.$valid,contact)"
+                                                          role="form" novalidate>
+                                                        <input ng-model="contact.message" name="message"
+                                                               type="text"/>
+                                                        <input type="submit" value="Send"/>
+                                                    </form>
+
+                                                </li>
+                                            </ul>
+
+
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
 
 
             </div>
-            <!-- END BLOG POSTS -->
 
 
         </div>
-        <!-- blog -->
+
 
 
     </div>
+
+
+
+</div>
+-->
 
 
 </div>

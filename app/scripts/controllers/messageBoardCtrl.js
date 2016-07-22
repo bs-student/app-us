@@ -117,36 +117,40 @@
 
             }
         }
-        function _getMessages(contact){
+        function _getMessages(contact,open){
 
-            var data={
-                accessToken:identityService.getAccessToken(),
-                contactId:contact.contactId
-            };
-            ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
-                contact.messages = response.data.success.successData;
 
-                decreaseNewMessage(contact);
-                angular.forEach(contact.messages,function(message){
-                    eventService.trigger("removeMessageNotification",{message:message,username:identityService.getAuthorizedUserData().username});
-                });
+            if(!open){
+                var data={
+                    accessToken:identityService.getAccessToken(),
+                    contactId:contact.contactId
+                };
+                ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
+                    contact.messages = response.data.success.successData;
 
-            }).catch(function (response) {
-
-                if (response.data.error_description == "The access token provided is invalid.") {
-
-                } else if (response.data.error_description == "The access token provided has expired.") {
-                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-                        identityService.setAccessToken(response.data);
-                        _getMessages(contact);
+                    decreaseNewMessage(contact);
+                    angular.forEach(contact.messages,function(message){
+                        eventService.trigger("removeMessageNotification",{message:message,username:identityService.getAuthorizedUserData().username});
                     });
-                } else if (response.data.error != undefined) {
-                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-                } else {
-                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                }
 
-            });
+                }).catch(function (response) {
+
+                    if (response.data.error_description == "The access token provided is invalid.") {
+
+                    } else if (response.data.error_description == "The access token provided has expired.") {
+                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                            identityService.setAccessToken(response.data);
+                            _getMessages(contact);
+                        });
+                    } else if (response.data.error != undefined) {
+                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                    } else {
+                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                    }
+
+                });
+            }
+
         }
 
         function checkForNewMessage(){
