@@ -5,14 +5,12 @@
     app
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$scope','$state', 'identityService', 'userService', 'responseService', 'universityService', '$log', '$q'];
+    ProfileCtrl.$inject = ['$scope','$state', 'identityService', 'userService', 'responseService', 'universityService', '$log', '$q','SERVER_CONSTANT'];
 
-    function ProfileCtrl($scope, $state,identityService, userService, responseService, universityService, $log, $q) {
+    function ProfileCtrl($scope, $state,identityService, userService, responseService, universityService, $log, $q,SERVER_CONSTANT) {
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
+        $scope.files=[];
         $scope.updatingProfile=false;
 
         $scope.$parent.headerStyle = "dark";
@@ -23,10 +21,18 @@
         $scope.updateProfile = _updateProfile;
 
         $scope.querySearch = _querySearch;
-        $scope.selectedItemChange = _selectedItemChange;
-        $scope.searchTextChange = _searchTextChange;
-        $scope.selectedItem = null;
+        $scope.onCampusSelect = _onCampusSelect;
+        $scope.onCampusChange = _onCampusChange;
+        $scope.removeFile=_removeFile;
 
+
+        $scope.modelOptions = {
+            debounce: {
+                default: 300,
+                blur: 250
+            },
+            getterSetter: true
+        };
 
         init();
 
@@ -35,6 +41,8 @@
 
             ($scope.profilePromise = userService.getAuthorizedUserFullData(identityService.getAccessToken())).then(function (response) {
                 $scope.user = response.data.success.successData;
+
+
 
             }).catch(function (response) {
 
@@ -54,21 +62,51 @@
 
         }
 
-        function _editProfile(user) {
-            $scope.standardCellPhoneOnEdit = user.standardCellPhone;
-            $scope.standardHomePhoneOnEdit = user.standardHomePhone;
-            $scope.standardEmailOnEdit = user.standardEmail;
+        function _editProfile() {
+            $scope.standardCellPhone = $scope.user.standardCellPhone;
+            $scope.standardHomePhone = $scope.user.standardHomePhone;
+            $scope.standardEmail = $scope.user.standardEmail;
+            $scope.subject = {
+                display: $scope.user.universityName+", "+$scope.user.campusName+", "+$scope.user.stateShortName+", "+$scope.user.countryName,
+                value:$scope.user.campusId
+            };
+            $scope.fullName = $scope.user.fullName;
             $scope.updatingProfile = true;
         }
 
         function _cancelEditProfile() {
-            $scope.user.standardCellPhone= $scope.standardCellPhoneOnEdit;
-            $scope.user.standardHomePhone= $scope.standardHomePhoneOnEdit ;
-            $scope.user.standardEmail = $scope.standardEmailOnEdit ;
+            $scope.standardCellPhone = $scope.user.standardCellPhone;
+            $scope.standardHomePhone = $scope.user.standardHomePhone;
+            $scope.standardEmail = $scope.user.standardEmail;
+            $scope.subject = {
+                display: $scope.user.universityName+", "+$scope.user.campusName+", "+$scope.user.stateShortName+", "+$scope.user.countryName,
+                value:$scope.user.campsuId
+            };
+            $scope.fullName = $scope.user.fullName;
             $scope.updatingProfile = false;
         }
 
 
+        function _onCampusSelect($item, $model, $label){
+            if($scope.subject.value!=undefined){
+                $scope.updateProfileForm.subject.$setValidity("data_error", true);
+            }else{
+                $scope.updateProfileForm.subject.$setValidity("data_error", false);
+            }
+        }
+        function _onCampusChange(){
+            if($scope.subject!=undefined){
+                if($scope.subject.value!=undefined){
+                    $scope.updateProfileForm.subject.$setValidity("data_error", true);
+                }else{
+                    $scope.updateProfileForm.subject.$setValidity("data_error", false);
+                }
+            }else{
+                $scope.updateProfileForm.subject.$setValidity("data_error", false);
+            }
+
+        }
+        
         function _querySearch(query) {
 
             var data = {'query': query, 'access_token': identityService.getAccessToken()};
@@ -80,42 +118,53 @@
 
         }
 
-        function _searchTextChange(text) {
-            $log.info('Text changed to ' + text);
-        }
+        function _removeFile(item){
 
-        function _selectedItemChange(item) {
-            $scope.selectedItem = item;
-            $log.info('Item changed to ' + JSON.stringify(item));
+            console.log($scope);
+            $scope.singleFile=false;
+            var i = 0;
+            angular.forEach($scope.files,function(file){
+                if(file.fileId == item.fileId){
+                    $scope.files.splice($scope.files.indexOf(file), 1);
+                }
+                i++;
+            });
+            console.log($scope.files);
         }
-
         function _updateProfile(valid) {
+
 
             if (valid) {
 
-                var data = null;
+                var formData = new FormData();
+                var i=0;
+                angular.forEach($scope.files, function (file) {
+                    formData.append("file"+ i.toString(),file);
+                    i++;
+                });
 
-                if ($scope.selectedItem != null) {
-                    data = {campus: $scope.selectedItem.value,
-                        standardHomePhone: $scope.user.standardHomePhone,
-                        standardCellPhone: $scope.user.standardCellPhone,
-                        standardEmail: $scope.user.standardEmail
-                    }
-                } else {
-                    data = {campus:$scope.user.campusId, standardHomePhone: $scope.user.standardHomePhone,
-                        standardCellPhone: $scope.user.standardCellPhone,
-                        standardEmail: $scope.user.standardEmail}
-                }
+                var data = {};
+                data.campus= $scope.subject.value;
+                data.standardHomePhone=$scope.standardHomePhone;
+                data.standardCellPhone=$scope.standardCellPhone;
+                data.standardEmail=$scope.standardEmail;
+                data.fullName=$scope.fullName;
 
-//                $scope.editingFullName = false;
-//                $scope.editingUniversityCampus = false;
+                formData.append("profileData",JSON.stringify(data));
 
-                ($scope.profilePromise =  userService.updateUserProfile(identityService.getAccessToken(), data)).then(function (response) {
+
+                $scope.profilePromise =  userService.updateUserProfile(identityService.getAccessToken(), formData).then(function (response) {
                     $scope.user.campusId = response.data.success.successData.campusId;
                     $scope.user.campusName = response.data.success.successData.campusName;
                     $scope.user.universityName = response.data.success.successData.universityName;
                     $scope.user.stateName = response.data.success.successData.stateName ;
                     $scope.user.stateShortName = response.data.success.successData.stateShortName  ;
+                    $scope.user.fullName = response.data.success.successData.fullName;
+                    $scope.user.standardHomePhone = response.data.success.successData.standardHomePhone;
+                    $scope.user.standardCellPhone = response.data.success.successData.standardCellPhone;
+                    $scope.user.standardEmail = response.data.success.successData.standardEmail;
+                    $scope.user.profilePicture= response.data.success.successData.profilePicture;
+
                     $scope.updatingProfile=false;
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 

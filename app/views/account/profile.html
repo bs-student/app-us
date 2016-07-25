@@ -44,7 +44,7 @@
 
 <!-- BLOG POSTS -->
 <div cg-busy="{promise:profilePromise}" class="col-sm-9 blog-posts contact-us-form-div">
-
+<form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
     <div class="contact-page-left-side profile-page">
 
         <div class="row">
@@ -57,14 +57,14 @@
             <div class="col-md-4">
                 <a ng-show="!updatingProfile" ui-sref="app.changePassword" class="myBtn orange-btn max-large-btn"><i
                         class="fa fa-cog"></i> Change Password</a>
-                <button ng-show="!updatingProfile" ng-click="editProfile(user)"
+                <button type="button" ng-show="!updatingProfile" ng-click="editProfile()"
                         class="myBtn orange-btn max-large-btn"><i class="fa fa-pencil-square-o"></i> Update Profile Info
                 </button>
 
-                <button ng-show="updatingProfile" class="myBtn orange-btn max-large-btn"><i class="fa fa-check"></i>
+                <button type="submit" ng-show="updatingProfile" class="myBtn orange-btn max-large-btn"><i class="fa fa-check"></i>
                     Save Profile Info
                 </button>
-                <button ng-show="updatingProfile" ng-click="cancelEditProfile()"
+                <button type="button" ng-show="updatingProfile" ng-click="cancelEditProfile()"
                         class="myBtn orange-btn max-large-btn"><i class="fa fa-times"></i> Cancel
                 </button>
 
@@ -77,6 +77,11 @@
 
 
             <div class="col-md-12">
+
+                <div class="profile-image">
+                    <img data-ng-src="{{imageHostPath}}{{user.profilePicture}}"/>
+                </div>
+
                 <text class="lato px-18">Full Name :&nbsp;&nbsp;&nbsp;</text>
                 <text class="blue-text lato px-18">{{user.fullName}}</text>
                 <br/>
@@ -119,54 +124,132 @@
 
         <div ng-show="updatingProfile" class="contact-form-start-div">
 
-            <form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-show="!singleFile" class="form-group">
+                        <text>Select Profile Picture : (Recommended dimension: 200px/200px & Recommended Size : less than 200KB)</text>
+                        <!--<input multiple-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select file',
+            iconName: 'fa fa-inbox'
+          }"  multiple accept="image/*">-->
+                        <input  single-file="singleFile" single-image-input="files" file-data="fileData" file-identifier="fileId" ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select file',
+            iconName: 'fa fa-inbox'
+          }" >
+
+                    </div>
+                    <div  class="form-group">
+                        <div class="tcol">
+
+                            <div class="bg-white">
+                                <text class="custom-font text-default m-0 lato">Profile Picture</text>
+                            </div>
+
+                                <table class="table b-a b-solid bg-white">
+                                    <thead>
+                                    <tr >
+                                        <th class="text-center">Image</th>
+
+                                        <th class="text-center">Size</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="file in files" class="text-sm">
+                                        <td class="text-center"><img style="max-height: 100px;max-width: 100px;" ng-src="{{file.fileData}}"/></td>
+
+                                        <td class="text-center" nowrap>{{ file.size/1024|number:2 }} KB</td>
+
+                                        <td class="text-center" nowrap>
+
+
+                                            <button type="button" class="myBtn orange-btn" ng-click="removeFile(file)">
+                                                <span class="fa fa-trash"></span> Remove
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="row">
+
+
+            <div class="col-md-12">
+                <text class="lato px-18">Full Name :</text>
+
+
+
+                <div class="form-group" ng-class="{ 'has-error' : updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine, 'has-success' : updateProfileForm.fullName.$valid && !updateProfileForm.fullName.$pristine}">
+
+
+
+                    <input
+                            placeholder="What is your University Campus?"
+
+                            name="fullName"
+                            required type="text"
+                            ng-model="fullName"
+
+                            class="form-control">
+
+                    <p class="help-block">
+                        <span ng-show="updateProfileForm.fullName.$invalid && !updateProfileForm.fullName.$pristine">Full Name is Required</span>
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+        <br/>
+
 
                 <div class="row">
 
 
                     <div class="col-md-12">
                         <text class="lato px-18">University :</text>
-                        <br/>
 
-                        <div ng-class="{ 'has-error' : updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine, 'has-success' : updateProfileForm.subject.$valid && !updateProfileForm.subject.$pristine}">
 
-                            <!--<input type="text" class="form-control" name="subject" ng-model="subject" placeholder="Give Subject of your query"
-                                   required/>
+
+
+                        <div class="form-group" ng-class="{ 'has-error' : updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine, 'has-success' : updateProfileForm.subject.$valid && !updateProfileForm.subject.$pristine}">
+
+
+                            <input
+                                    placeholder="What is your University Campus?"
+                                    ng-change="onCampusChange()"
+                                    typeahead-on-select="onCampusSelect($item, $model, $label)"
+                                    ng-model-options="modelOptions"
+                                    name="subject"
+                                    required type="text"
+                                    ng-model="subject"
+                                    uib-typeahead="campus as campus.display for campus in querySearch($viewValue)"
+                                    typeahead-loading="loadingCampuses"
+                                    typeahead-no-results="noResults"
+                                    class="form-control">
+
+                            <text ng-show="loadingCampuses"  ><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
+                            <div ng-show="noResults" class="text-danger">
+                                <i class="fa fa-times"></i> No Results Found
+                            </div>
+
+
 
                             <p class="help-block">
-                                <span ng-show="updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine">Subject is required.</span>
-
-                            </p>-->
-
-                            <md-autocomplete
-
-
-                                    md-selected-item="selectedItem"
-                                    md-search-text-change="searchTextChange(searchText)"
-                                    md-search-text="searchText"
-                                    md-selected-item-change="selectedItemChange(item)"
-                                    md-items="item in querySearch(searchText)"
-                                    md-item-text="item.display"
-                                    md-min-length="0"
-                                    placeholder="What is your University Campus?">
-                                <md-item-template>
-
-                                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                                </md-item-template>
-                                <md-not-found>
-                                    No matches found for "{{searchText}}".
-                                </md-not-found>
-
-                                <div ng-messages="updateProfileForm.autocompleteField.$error"
-                                     ng-if="updateProfileForm.autocompleteField.$touched">
-                                    <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                    <div ng-message="minlength">Your entry is not long enough.</div>
-                                    <div ng-message="maxlength">Your entry is too long.</div>
-                                </div>
-
-                            </md-autocomplete>
-
+                                <span ng-show="updateProfileForm.subject.$invalid && !updateProfileForm.subject.$pristine">Campus is required.</span>
+                            </p>
                         </div>
+                        
+                        
                     </div>
 
                 </div>
@@ -180,7 +263,7 @@
                         <br/>
 
                         <div>
-                            <input type="text" class="form-control" name="standardHomePhone" ng-model="user.standardHomePhone"
+                            <input type="text" class="form-control" name="standardHomePhone" ng-model="standardHomePhone"
                                    />
                         </div>
                     </div>
@@ -197,7 +280,7 @@
 
                         <div>
 
-                            <input type="text" class="form-control" name="standardCellPhone" ng-model="user.standardCellPhone"
+                            <input type="text" class="form-control" name="standardCellPhone" ng-model="standardCellPhone"
                                    />
 
                         </div>
@@ -215,7 +298,7 @@
 
                         <div>
 
-                            <input type="text" class="form-control" name="standardEmail" ng-model="user.standardEmail"
+                            <input type="text" class="form-control" name="standardEmail" ng-model="standardEmail"
                                    />
 
 
@@ -235,13 +318,13 @@
                 </div>
 
 
-            </form>
+
 
         </div>
 
 
     </div>
-
+</form>
 
 </div>
 <!-- END BLOG POSTS -->

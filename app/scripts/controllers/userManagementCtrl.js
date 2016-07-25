@@ -5,15 +5,15 @@
     app
         .controller('UserManagementCtrl', UserManagementCtrl);
 
-    UserManagementCtrl.$inject = ['$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService'];
+    UserManagementCtrl.$inject = ['$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
 
-    function UserManagementCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService) {
+    function UserManagementCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
 
 
-        if(!$scope.$parent.adminUser){
-            $state.go("app.login");
-        }
-
+//        if(!$scope.$parent.adminUser){
+//            $state.go("app.login");
+//        }
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

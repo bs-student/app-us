@@ -50,7 +50,11 @@
 //            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_USER_UNIVERSITY_CAMPUS+"?access_token="+accessToken,data);
 //        }
         function _updateUserProfile(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_PROFILE+"?access_token="+accessToken,data);
+            var config = {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            }
+            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_PROFILE+"?access_token="+accessToken,data,config);
         }
 
         function _changePassword(data){

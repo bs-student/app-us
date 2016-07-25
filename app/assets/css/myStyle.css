@@ -3200,6 +3200,13 @@ a.share-my-sell-page-url{
 .right-white-div.profile-page{
     min-height: 481px;
 }
+.profile-image img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    border: 2px solid #E9E9E9;
+}
 /********************************************/
 /*                Privacy Policy            */
 /*********************************************/

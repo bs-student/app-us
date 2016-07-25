@@ -50,6 +50,9 @@
                     <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
                         <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
                     </td>
+                    <td data-title="'Picture'" width="200"  >
+                        <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
+                    </td>
                     <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
                         <span ng-if="!user.$edit">{{user.username}}</span>
 
@@ -101,6 +104,9 @@
 
                 <tr ng-repeat="user in $data" ng-form="editRowForm">
 
+                    <td data-title="'Picture'" width="200"  >
+                        <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
+                    </td>
                     <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
                         <span>{{user.username}}</span>
 
@@ -166,7 +172,9 @@
                 <form name="userEditForm" submit-validate >
 
                     <tr ng-repeat="user in $data" ng-form="editRowForm">
-
+                        <td data-title="'Picture'" width="200"  >
+                            <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
+                        </td>
                         <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
                             <span>{{user.username}}</span>
 
