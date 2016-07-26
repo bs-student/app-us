@@ -3229,6 +3229,11 @@ a.share-my-sell-page-url{
 /*.background-orange{
     background: #FF530E;
 }*/
+.message-board-contacts .panel .panel-heading .panel-title .accordion-toggle span.badge{
+    padding: 3px 6px;
+    margin-left: 3px;
+    margin-top: 5px;
+}
 .box-div-for-message-board-input{
     border-left: 1px solid #FF530E;
     width: 50px;
@@ -3313,6 +3318,7 @@ a.share-my-sell-page-url{
     border: 1px solid #CBD6DA;
     border-top: none;
 }
+
 .message-board-contacts .panel .panel-body .contact-messages ul{
     margin-bottom: 0px;
 
@@ -3336,6 +3342,9 @@ a.share-my-sell-page-url{
 }
 .message-board-contacts .panel .panel-heading .panel-title .accordion-toggle:hover span{
     padding-left: 0px;
+}
+.message-board-contacts .panel .panel-heading .panel-title .accordion-toggle:hover span.badge{
+    padding-left: 6px;
 }
 .message-board-contacts .panel-heading div{
     /*display: inline-block;*/

@@ -22,8 +22,8 @@
             getActivatedBookDealsOfUser:_getActivatedBookDealsOfUser,
 
             //for Message
-            getAllActivatedSellingAndContactedBookOfUser:_getAllActivatedSellingAndContactedBookOfUser
-
+            getAllActivatedSellingAndContactedBookOfUser:_getAllActivatedSellingAndContactedBookOfUser,
+            addBookDealAsStarred:_addBookDealAsStarred
         };
 
 
@@ -73,6 +73,10 @@
 
         function _getAllActivatedSellingAndContactedBookOfUser(accessToken){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER+"?access_token="+accessToken);
+        }
+
+        function _addBookDealAsStarred(data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.ADD_BOOK_DEAL_TO_STAR_LIST+"?access_token="+data.accessToken,data);
         }
 
 

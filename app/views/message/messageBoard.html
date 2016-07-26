@@ -45,16 +45,16 @@
                 <div class="message-board-type-buttons text-center">
 
                     <div class="btn-group">
-                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Left'"
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'All'"
                                uncheckable>All</label>
-                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Middle'"
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Unread'"
                                uncheckable>Unread</label>
-                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'Right'"
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Starred'"
                                uncheckable>Starred</label>
-                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'60days'" uncheckable>Older
-                            than 60 days</label>
-                        <label class="btn btn-check" ng-model="radioModel" uib-btn-radio="'sent'"
-                               uncheckable>Sent</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'SellingDeal'" uncheckable>Selling Deals</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'ContactedDeal'" uncheckable>Contacted Deals</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Sold'"
+                               uncheckable>Sold</label>
                     </div>
 
                 </div>
@@ -65,7 +65,7 @@
             <div class="col-md-4 text-center">
                 <div class="search-page-options message-board-type-options">Sort By:
 
-                    <select ng-model="sortType">
+                    <select ng-change="changeSortType()" ng-model="sortType">
                         <option value="bookTitle" ng-selected="true">Title</option>
                         <option value="bookDirectorAuthorArtist">Author</option>
                         <option value="bookIsbn">ISBN</option>
@@ -93,8 +93,8 @@
 
                         <input type="text"
                                ng-model="searchQuery"
-                               ng-change="search(searchQuery)"
-                               ng-model-options="{debounce: 750}"
+                                ng-change="search(searchQuery)"
+
                                placeholder="search your book"
                                class="form-control">
 
@@ -126,8 +126,18 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 message-boards-all-deals-column">
+                <div  cg-busy="{promise:getDealsPromise}" class="col-md-12 message-boards-all-deals-column">
                     <ul class="tabs-menu message-board-tabs-menu">
+
+                        <li ng-show="bookDeals.length==0" >
+                            <div class="row">
+                                <div class="col-md-12 text-center message-board-check-star-item-column">
+                                    <text>No Textbook Deal is found.</text>
+
+                                </div>
+
+                            </div>
+                        </li>
 
                         <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
                             <div class="row">
@@ -137,7 +147,10 @@
                                             <input type="checkbox" name="agree"  ng-model="user.agree"><i></i>
                                         </label>
 
-                                        <span><a><i class="fa fa-star-o"></i></a></span>
+                                        <span><a ng-click="makeStar(deal)">
+                                            <i ng-show="!deal.starred" class="fa fa-star-o"></i>
+                                            <i ng-show="deal.starred" class="fa fa-star"></i>
+                                        </a></span>
                                     </div>
 
                                 </div>
@@ -170,6 +183,12 @@
             <div class="message-board-all-contacts">
                 <div class="message-board-contacts" ng-show="deal.active" data-ng-repeat="deal in bookDeals">
 
+                    <div class="row" ng-show="deal.contacts.length==0">
+                        <div class="col-md-12 text-center">
+                            <text>No one has contacted for this textbook deal yet.</text>
+                        </div>
+                    </div>
+
                     <uib-accordion >
 
                         <uib-accordion-group ng-repeat="contact in deal.contacts" is-open="row.open">
@@ -180,11 +199,12 @@
                                     <div class="col-md-5 no-right-padding">
                                         <div class="message-icons text-white lato pull-left">
                                             <i class="angle-icon fa-3x fa" ng-class="{'fa-angle-up': row.open, 'fa-angle-down': !row.open}"></i><br/>
-                                            <i class="envelope-icon fa fa-envelope-o "></i>
+                                            <i class="envelope-icon fa fa-envelope-o "></i><br/>
+                                            <span ng-show="contact.newMessages>0" class="badge">{{contact.newMessages}}</span>
                                         </div>
 
                                         <div class="avatar-image pull-left">
-                                            <span><img class="" data-ng-src="./dist/images/avatars/a.jpg"/></span> <span class="text-white lato uppercase contact-name">{{contact.contactName}}</span>
+                                            <span><img class="" data-ng-src="{{imageHostPath}}{{contact.profilePicture}}"/></span> <span class="text-white lato uppercase contact-name">{{contact.contactName}}</span>
                                         </div>
 
                                     </div>
@@ -210,49 +230,52 @@
 
                                 </div>
                             </uib-accordion-heading>
-                            <div class="contact-messages">
-                                <ul ng-show="contact.messages.length>0"
-                                    class="list-group no-radius no-border">
-                                    <li ng-repeat="message in contact.messages"
-                                        class="list-group-item b-{{mail.label.color}}">
+                            <div cg-busy="{promise:messagePromise}">
+                                <div  ng-slimscroll class="contact-messages" height="600">
+                                    <ul ng-show="contact.messages.length>0"
+                                        class="list-group no-radius no-border">
+                                        <li ng-repeat="message in contact.messages"
+                                            class="list-group-item b-{{mail.label.color}}">
 
-                                        <div class="media">
+                                            <div class="media">
 
-                                            <div class="pull-left"><img class="small-avatar-image" data-ng-src="./dist/images/avatars/a.jpg"/></div>
-                                            <div>
-                                                <text class="lato orange-text">{{message.sender}}</text><br/>
-                                                <text class="margin-left-20 lato italic">{{message.messageBody}}</text>
+                                                <div class="pull-left"><img class="small-avatar-image" data-ng-src="{{imageHostPath}}{{message.senderProfilePicture}}"/></div>
+                                                <div>
+                                                    <text class="lato orange-text">{{message.sender}}</text><br/>
+                                                    <text class="margin-left-20 lato italic">{{message.messageBody}}</text>
+                                                </div>
+
+                                                <div class="message-date pull-right">
+
+                                                    <text class="lato italic">{{message.messageDateTime}}</text>
+                                                </div>
+
+
                                             </div>
 
-                                            <div class="message-date pull-right">
 
-                                                <text class="lato italic">{{message.messageDateTime}}</text>
-                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <form name="sendMessageForm" submit-validate
+                                                  ng-submit="sendMessage(sendMessageForm.$valid,contact)"
+                                                  role="form" novalidate>
+                                                <div ng-class="{ 'has-error' : sendMessageForm.message.$invalid && !sendMessageForm.message.$pristine, 'has-success' : sendMessageForm.message.$valid && !sendMessageForm.message.$pristine}">
+                                                    <textarea rows="5" class="form-control" placeholder="Type your message here.." ng-model="contact.message" name="message" required
+                                                              type="text"></textarea>
+                                                </div>
 
 
-                                        </div>
+                                                <div class="box-div-for-message-board-input">
+                                                    <input class="send-message-button myBtn orange-btn" type="submit" value="Send"/>
+                                                </div>
 
+                                            </form>
 
-                                    </li>
-                                    <li class="list-group-item">
-                                        <form name="sendMessageForm" submit-validate
-                                              ng-submit="sendMessage(sendMessageForm.$valid,contact)"
-                                              role="form" novalidate>
-                                            <div ng-class="{ 'has-error' : sendMessageForm.message.$invalid && !sendMessageForm.message.$pristine, 'has-success' : sendMessageForm.message.$valid && !sendMessageForm.message.$pristine}">
-                                                <textarea rows="5" class="form-control" placeholder="Type your message here.." ng-model="contact.message" name="message" required
-                                                          type="text"></textarea>
-                                            </div>
-                                            
-
-                                            <div class="box-div-for-message-board-input">
-                                                <input class="send-message-button myBtn orange-btn" type="submit" value="Send"/>
-                                            </div>
-
-                                        </form>
-
-                                    </li>
-                                </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+
 
 
                         </uib-accordion-group>

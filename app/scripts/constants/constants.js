@@ -158,7 +158,8 @@
             "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal",
             "GET_ACTIVATED_BOOK_DEAL_OF_USER":"/book_deal/get_activated_book_deal_of_user",
 
-            "GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER":"/api/book_del/get_all_activated_selling_and_contacted_book_of_user"
+            "GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER":"/api/book_del/get_all_activated_selling_and_contacted_book_of_user",
+            "ADD_BOOK_DEAL_TO_STAR_LIST":"/api/star/add_book_deal_to_star_list"
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",
