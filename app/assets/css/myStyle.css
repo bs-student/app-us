@@ -1543,11 +1543,85 @@ a.notification-a.message-board-a i{
 /********************************************/
 /*              Concept Video Page)           */
 /*********************************************/
+.min-height-1037{
+    min-height: 1037px;
+}
+.margin-top-20{
+    margin-top: 20px;
+}
+.margin-top-120{
+    margin-top: 120px;
+}
+.padding-right-30{
+    padding-right: 30px;
+}
+.padding-left-30{
+    padding-left: 30px;
+}
+.tree-section .border-right-blue{
+    border-right: 5px solid #0072AE;
+}
+.tree-section .border-left-blue{
+    border-left: 4px solid #0072AE;
+}
+.tree-section.concept-video-page{
+    background: none;
+    margin-top: 100px !important;
+}
+.px-30{
+    font-size: 30px;
+}
+blockquote.orange-blockquote{
+    border-left:8px solid #FF5307;
+    padding: 0px 0px 0px 20px;
+}
+blockquote.green-blockquote{
+    border-left:8px solid #A1BC3B;
+    padding: 0px 0px 0px 20px;
+}
 
+.tree-section .blue-circle{
+    height: 20px;
+    width: 100%;
+    color: #0072AE;
+
+}
 .concept-video-page-banner-first-text{
     font-size: 62px;
 }
+.akashi-text{
+    color:#9DDAF9;
+}
+.concept-page-head-banner.concept-video-page-head-banner{
+    background: url("../images/concept_video/banner.png") no-repeat;
+    background-size: cover;
+}
+.concept-video-page-text-banner{
+    background-color: #FF5307;
+}
+.concept-video-page-text-banner .header-text{
+    font-size: 40px;
+}
+.concept-video-page-text-banner .sub-header-text{
+    font-size: 22px;
+}
+.section.play-video-section{
+    background: url("../images/concept_video/background.jpg") no-repeat;
+    background-size: cover;
+}
+.concept-video-page-text-footer{
+    background: #0072AE;
+}
 
+.concept-video-page-text-footer .header-text{
+    font-size: 25px;
+}
+.concept-video-page-text-footer .sub-header-text{
+    font-size: 18px;
+}
+.concept-video-page-text-footer .myBtn{
+    border: 2px solid #FFFFFF;
+}
 
 /********************************************/
 /*              Compare Page)              */
