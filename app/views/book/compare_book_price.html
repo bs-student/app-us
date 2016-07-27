@@ -227,8 +227,8 @@
                     <div class="col-md-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <button ng-click="book.showTotalDescription=!book.showTotalDescription"
-                                    class="myBtn app-btn buy-now-button view-more-button compare-page"><i
-                                    class="fa fa-angle-down"></i></button>
+                                    class="myBtn app-btn buy-now-button view-more-button"><i
+                                    class="fa fa-2x fa-angle-down"></i></button>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -269,13 +269,13 @@
         <table class="table table-striped campus-result-table">
             <thead>
             <tr>
-                <th>Seller (Student)</th>
-                <th>Condition / Details</th>
-                <th>Contact Method</th>
-                <th>Available</th>
-                <th>Payment</th>
-                <th>Price</th>
-                <th>Contact</th>
+                <th style="width: 18%;">Seller (Student)</th>
+                <th style="width: 20%;">Condition / Details</th>
+                <th style="width: 18%;">Contact Method</th>
+                <th style="width: 10%;">Available</th>
+                <th style="width: 10%;">Payment</th>
+                <th style="width: 12%;">Price</th>
+                <th style="width: 12%;">Contact</th>
             </tr>
             </thead>
             <tbody ng-show="noUniversitySelected && !$parent.loggedIn">
@@ -290,12 +290,14 @@
             <tr data-ng-repeat="deal in campusBookDeals.buyerToSeller">
                 <td>{{deal.username}}</td>
                 <td>{{deal.bookCondition}}
+                    <div class="transition-view">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                    </div>
                     <button class="myBtn app-btn buy-now-button view-more-button"
                             ng-click="deal.showDetails=!deal.showDetails"><i
                             class="fa fa-angle-down fa-2x"></i></button>
                     <div class="transition-view" ng-show="deal.showDetails">
-                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
-                        Notes in textbook: {{deal.bookHasNotes}}<br/>
                         Comment by Seller: {{deal.bookComment}}
                     </div>
 
@@ -339,12 +341,14 @@
             <tr data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
                 <td>{{deal.username}}</td>
                 <td>{{deal.bookCondition}}
+                    <div class="transition-view">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                    </div>
                     <button class="myBtn app-btn buy-now-button view-more-button"
                             ng-click="deal.showDetails=!deal.showDetails"><i
                             class="fa fa-angle-down fa-2x"></i></button>
                     <div class="transition-view" ng-show="deal.showDetails">
-                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
-                        Notes in textbook: {{deal.bookHasNotes}}<br/>
                         Comment by Seller: {{deal.bookComment}}
                     </div>
 
@@ -386,12 +390,14 @@
             <tr data-ng-repeat="deal in campusBookDeals.student2studentBoard">
                 <td>{{deal.username}}</td>
                 <td>{{deal.bookCondition}}
+                    <div class="transition-view">
+                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
+                        Notes in textbook: {{deal.bookHasNotes}}<br/>
+                    </div>
                     <button class="myBtn app-btn buy-now-button view-more-button"
                             ng-click="deal.showDetails=!deal.showDetails"><i
                             class="fa fa-angle-down fa-2x"></i></button>
                     <div class="transition-view" ng-show="deal.showDetails">
-                        Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
-                        Notes in textbook: {{deal.bookHasNotes}}<br/>
                         Comment by Seller: {{deal.bookComment}}
                     </div>
 
@@ -448,12 +454,12 @@
         <table class="table table-striped campus-result-table">
             <thead>
             <tr>
-                <th>Online Store</th>
-                <th>Available</th>
-                <th style="width: 20%">Comments</th>
-                <th>Shipping</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th style="width: 15%;">Online Store</th>
+                <th style="width: 15%;">Available</th>
+                <th style="width: 23%;">Comments</th>
+                <th style="width: 12%;">Shipping</th>
+                <th style="width: 12%;">Price</th>
+                <th style="width: 46%;">Total</th>
             </tr>
             </thead>
             <tbody>
@@ -508,12 +514,12 @@
         <table class="table table-striped campus-result-table">
             <thead>
             <tr>
-                <th>Online Store</th>
-                <th>Available</th>
-                <th style="width: 20%;">Comments</th>
-                <th>Shipping</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th style="width: 15%;">Online Store</th>
+                <th style="width: 15%;">Available</th>
+                <th style="width: 23%;">Comments</th>
+                <th style="width: 12%;">Shipping</th>
+                <th style="width: 12%;">Price</th>
+                <th style="width: 46%;">Total</th>
             </tr>
             </thead>
             <tbody>

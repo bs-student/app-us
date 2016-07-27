@@ -2726,7 +2726,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .help-header img{
     vertical-align: top;
     padding: 7px;
-    margin-left: 20px;
+    margin-left: 110px;
 }
 .help-details-text-div{
     padding: 20px;
@@ -2871,7 +2871,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     width: 200px;
 }
 .right-head-text.right-white-div{
-    min-height: 642px;
+    /*min-height: 642px;*/
+    min-height: 518px;
 }
 .quick-links ul li  a{
     text-decoration: none !important;

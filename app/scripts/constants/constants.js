@@ -21,9 +21,9 @@
             "OAUTH_TOKEN_URL":"/oauth/v2/token"
         })
         .constant("SOCIAL_MEDIA_CONSTANT", {
-            "FACEBOOK_LINK": "https://www.facebook.com",
-            "TWITTER_LINK": "https://www.twitter.com",
-            "INSTAGRAM_LINK": "https://www.instagram.com"
+            "FACEBOOK_LINK": "https://www.facebook.com/student2student",
+            "TWITTER_LINK": "https://twitter.com/St2StTextbook",
+            "INSTAGRAM_LINK": "https://www.instagram.com/st2sttextbook"
         })
 
         .constant("USER_CONSTANT", {
