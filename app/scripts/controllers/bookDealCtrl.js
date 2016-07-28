@@ -10,9 +10,6 @@
     function BookDealCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT) {
 
 
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
@@ -54,7 +51,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminBookDealService.getAllBookDeals(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.adminBookDealPromise = adminBookDealService.getAllBookDeals(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.bookDeals = response.data.success.successData.books.totalBooks;
                     $scope.bookDeals= $filter('orderBy')($scope.bookDeals, params.orderBy());
                     $defer.resolve($scope.bookDeals);
@@ -65,7 +62,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.adminBookDealPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getData($defer, params);
                         });

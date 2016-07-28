@@ -1,7 +1,7 @@
 
         <div class="row">
             <form name="newsForm" submit-validate ng-submit="addNews(newsForm.$valid,'Student')" role="form" novalidate>
-            <div class="col-md-6 reg-page-col-div">
+            <div class="col-md-12 reg-page-col-div">
 
                 <div class="add-new-quote-form">
 
@@ -25,11 +25,14 @@
 
                             <div class="form-group" ng-class="{ 'has-error' :  newsForm.newsDescription.$invalid && !newsForm.newsDescription.$pristine, 'has-success' : newsForm.newsDescription.$valid && !newsForm.newsDescription.$pristine}">
                                 <p class="" for="newsTitle">News Details: </p>
-                                <textarea name="newsDescription" id="newsDescription" class="form-control " ng-model="news.newsDescription" required></textarea>
+                                <text-angular name="newsDescription"  ng-model="news.newsDescription" required ng-model="htmlVariable"></text-angular>
                                 <p class="help-block">
                                     <span ng-show="newsForm.newsDescription.$invalid && !newsForm.newsDescription.$pristine">News Description is required.</span>
                                 </p>
                             </div>
+
+
+
 
                             <div class="form-group">
                                 <p>News Images: (Recommended dimension: 780px/490px & Recommended Size : less than 200KB)</p>

@@ -28,7 +28,7 @@ var app = angular
         'oc.lazyLoad',
         'ui.select',
 //        'ui.tree',
-//        'textAngular',
+        'textAngular',
 //        'colorpicker.module',
 //        'angularFileUpload',
 //        'ngImgCrop',

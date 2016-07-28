@@ -25,7 +25,7 @@
 
 <div class="col-md-12">
 
-    <div cg-busy="{promise:campusPromise}">
+    <div cg-busy="{promise:newsPromise}">
 
 
         <div class="button-panel">
@@ -90,15 +90,14 @@
                     </td>
 
                     <td data-title="'Details'" >
-                        <span ng-if="!news.$edit">{{news.newsDescription}}</span>
+
+                        <span  ng-if="!news.$edit" ng-bind-html="news.newsDescription"></span>
 
                         <div ng-if="news.$edit"
                              ng-class="{ 'has-error' : editRowForm.newsDescription.$invalid && !editRowForm.newsDescription.$pristine, 'has-success' : editRowForm.newsDescription.$valid && !editRowForm.newsDescription.$pristine}">
 
+                            <text-angular name="newsDescription"  ng-model="news.newsDescription" required ng-model="htmlVariable"></text-angular>
 
-                            <textarea name="newsDescription" class="input-sm form-control" type="text"
-                                      required
-                                      ng-model="news.newsDescription" >{{news.newsDescription}}</textarea>
 
                             <p class="help-block">
                                 <span ng-show="editRowForm.newsDescription.$invalid && !editRowForm.newsDescription.$pristine">News Description is required.</span>
@@ -107,12 +106,12 @@
 
                     </td>
 
-                    <td data-title="'Date Time'" >
+                    <td data-title="'Date'" style="width: 10%" >
                         <span>{{news.newsDateTime}}</span>
 
                     </td>
 
-                    <td data-title="'Status'" width="100">
+                    <td data-title="'Status'" style="width: 10%">
                         <span ng-if="!news.$edit">{{news.newsStatus}}</span>
 
                         <div ng-if="news.$edit">
@@ -126,7 +125,7 @@
                             </select>
                         </div>
                     </td>
-                    <td data-title="'Actions'" width="200">
+                    <td data-title="'Actions'" style="width: 8%">
                         <a ng-if="!news.$edit" href="" ng-click="editRow(news)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
                         <a ng-if="news.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,news)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
                         <a ng-if="news.$edit" href="" ng-click="cancelEditRow(news)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>

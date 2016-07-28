@@ -9,10 +9,6 @@
 
     function NewsManagementCtrl($state,identityService, adminNewsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
-
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
         $scope.$parent.headerStyle = "dark";
@@ -127,7 +123,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminNewsService.getNews(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.newsPromise= adminNewsService.getNews(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.totalNews = response.data.success.successData.news.totalNews;
                     $scope.totalNews= $filter('orderBy')($scope.totalNews, params.orderBy());
                     $defer.resolve($scope.totalNews);
@@ -138,7 +134,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.newsPromise= identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getNewsData($defer, params);
                         });
@@ -152,64 +148,6 @@
                 });
             }
         }
-
-//        function getUniversityQuotes(){
-//            $scope.universityQuoteTableParams = new ngTableParams(
-//                {
-//                    page: 1,            // show first page
-//                    count: 10,           // count per page
-//                    filter: {
-//                        quoteProvider: ''       // initial filter
-//                    },
-//                    sorting: {
-//                        quoteStatus: 'asc'     // initial sorting
-//                    }
-//                },
-//
-//                {
-//                    total: $scope.universityQuotes.length, // length of data
-//                    getData: getUniversityQuoteData
-//                });
-//
-//
-//
-//            function getUniversityQuoteData($defer, params) {
-//
-//                var queryData =
-//                {
-//                    "searchQuery": params.filter().quoteProvider,
-//                    "pageNumber": params.page(),
-//                    "pageSize": params.count(),
-//                    "sort":params.sorting()
-//                };
-//                adminQuoteService.getUniversityQuotes(identityService.getAccessToken(), queryData).then(function (response) {
-//                    $scope.universityQuotes = response.data.success.successData.quotes.totalQuotes;
-//                    $scope.universityQuotes= $filter('orderBy')($scope.universityQuotes, params.orderBy());
-//                    $defer.resolve($scope.universityQuotes);
-//                    params.total(response.data.success.successData.quotes.totalNumber);
-//
-//                }).catch(function (response) {
-//
-//                    if (response.data.error_description == "The access token provided is invalid.") {
-//
-//                    } else if (response.data.error_description == "The access token provided has expired.") {
-//                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
-//                            identityService.setAccessToken(response.data);
-//                            getUniversityQuoteData($defer, params);
-//                        });
-//                    } else if (response.data.error != undefined) {
-//                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-//
-//                    } else {
-//                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-//                    }
-//
-//                });
-//            }
-//        }
-
-
-
 
         function _editRow(row){
             row.$edit = true;
@@ -229,7 +167,7 @@
             if(valid){
                 row.$edit=false;
 
-                adminNewsService.saveUpdatedNews(identityService.getAccessToken(),row).then(function (response) {
+                ($scope.newsPromise= adminNewsService.saveUpdatedNews(identityService.getAccessToken(),row)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                 }).catch(function (response) {
@@ -238,7 +176,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.newsPromise= identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _saveEditedRow(valid,row);
                         });
@@ -254,9 +192,6 @@
             }
 
         }
-
-
-
     }
 
 

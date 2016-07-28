@@ -2214,7 +2214,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .compare-result-section.user-management-sections{
     background: none;
-
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
 }
 
 /********************************************/
@@ -3304,6 +3305,18 @@ a.share-my-sell-page-url{
 /*.background-orange{
     background: #FF530E;
 }*/
+.message-board-textbook-deal-item .price-text{
+    padding-top: 7px;
+}
+.message-board-btn.myBtn{
+    padding: 5px;
+    font-family: "Lato", "Arial", sans-serif;
+    line-height: 1em;
+    text-transform: none;
+    font-weight: 400;
+    height: 25px;
+    margin-left: 0px;
+}
 .message-board-contacts .panel .panel-heading .panel-title .accordion-toggle span.badge{
     padding: 3px 6px;
     margin-left: 3px;

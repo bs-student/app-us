@@ -81,17 +81,9 @@
                     <div class="col-md-6 text-center">
 
 
-                        <div class="search-page-options">
-                            <!--<span>Select View:</span>
-                                <span class="btn-group">
+                        <div class="search-page-options message-board-search">
 
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'List'"><i
-                                            class="fa fa-th-list"></i></label>
-
-                                    <label class="btn btn-default" ng-model="viewType" uib-btn-radio="'Grid'"><i
-                                            class="fa fa-th-large"></i></label>
-                                </span>-->
-                            <div class="input-group">
+                            <!--<div class="input-group">
                                 <input type="text"
                                        ng-model="searchQuery"
                                        ng-change="search(searchQuery)"
@@ -100,6 +92,21 @@
                             <span class="input-group-btn">
                               <button class="btn btn-default" type="button">Search</button>
                             </span>
+                            </div>-->
+
+                            <div class="input-group">
+
+                        <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+
+                                <input type="text"
+                                       ng-model="searchQuery"
+                                       ng-change="search(searchQuery)"
+                                       ng-model-options="{debounce: 750}"
+                                       placeholder="search your book"
+                                       class="form-control">
+
                             </div>
                         </div>
 
@@ -127,18 +134,18 @@
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
-    <div class="col-md-3">
-        <div class="search-book-image-carousel selling-book-image-carousel">
-            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+<div class="col-md-3">
+    <div class="search-book-image-carousel selling-book-image-carousel">
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
-                <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
-                    <img ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
-                         class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
+            <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
+                <img ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
+                     class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
 
-                </uib-slide>
-            </uib-carousel>
-            <div class="btn-group" ng-show="deal.showThumb">
-                <div class="text-center">
+            </uib-slide>
+        </uib-carousel>
+        <div class="btn-group" ng-show="deal.showThumb">
+            <div class="text-center">
                 <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
 
                                     <span class="search-thumb-image"
@@ -150,186 +157,192 @@
 
                         <span><a class="thumb-control-right" ng-click="nextPage(deal)"><i
                                 class="fa fa-angle-right fa-3x"></i></a></span>
-                    </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-md-9">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="archive-page-headers">
-                    <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
-                    <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
+<div class="col-md-9">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="archive-page-headers">
+                <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
+                <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
 
-                    <p class="book-description grey-text">By
-                        <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
-                        :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                        <br/>ISBN:
-                        <text class="blue-text">{{deal.bookIsbn}}</text>&nbsp;&nbsp;&nbsp;&nbsp;ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text>
-                    </p>
-                </div>
-                <div class="archive-page-deal-information">
-                    <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                        <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View
-                            More Information
-                        </button>
-                    </div>
-                    <div ng-show="deal.viewMoreInfo">
-                        <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
-                        <div class="deal-information-box">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <p>
-                                        <text class="blue-text"><strong>Contact Method</strong></text>
-                                        <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> :
-                                            Seller Contact Buyer
-                                        </text>
-                                        <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer
-                                            Contact Seller
-                                        </text>
-                                        <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> : Use Student2Student Message Board</text>
-                                        <br/>
-                                    </p>
-
-                                    <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
-                                    <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-                                    <p  ng-if="deal.bookContactMethod!=='student2studentBoard'">
-                                        <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
-                                        <text><strong>{{deal.sellerEmail}}</strong></text>
-                                        <br/></p>
-                                    <p>
-                                        <text class="blue-text"><strong>Comment</strong></text>
-                                        <text class="grey-text"> : {{deal.bookComment}}</text>
-                                        <br/></p>
-                                </div>
-                                <div class="col-md-5">
-                                    <p>
-                                        <text class="blue-text"><strong>Payment</strong></text>
-                                        <text class="grey-text"> :
-
-                                            <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                                                Cash
-                                            </text>
-                                            <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                Cheque
-                                            </text>
-                                            <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                Cash, Cheque
-                                            </text>
-
-                                        </text>
-                                        <br/></p>
-                                    <p>
-                                        <text class="blue-text"><strong>Available Date</strong></text>
-                                        <text class="grey-text"> : {{deal.bookAvailableDate}}</text>
-                                        <br/></p>
-                                    <p>
-                                        <text class="blue-text"><strong>Available To Public</strong></text>
-                                        <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text>
-                                        <br/></p>
-                                    <p>
-                                        <text class="blue-text"><strong>Textbook Has Notes</strong></text>
-                                        <text class="grey-text"> : {{deal.bookHasNotes}}</text>
-                                        <br/></p>
-                                    <p>
-                                        <text class="blue-text"><strong>Textbook Is Highlighted</strong></text>
-                                        <text class="grey-text"> : {{deal.bookIsHighlighted}}</text>
-                                        <br/></p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div ng-show="deal.viewMoreInfo">
-                    <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
-                            src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+                <p class="book-description grey-text">By
+                    <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                    :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
+                    <br/>ISBN:
+                    <text class="blue-text">{{deal.bookIsbn}}</text>
+                    &nbsp;&nbsp;&nbsp;&nbsp;ISBN-13:
+                    <text class="blue-text">{{deal.bookIsbn13}}</text>
+                </p>
+            </div>
+            <div class="archive-page-deal-information">
+                <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                    <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View
+                        More Information
                     </button>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="archive-page-side">
-                    <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
+                <div ng-show="deal.viewMoreInfo">
+                    <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
+                    <div class="deal-information-box">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p>
+                                    <text class="blue-text"><strong>Contact Method</strong></text>
+                                    <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> :
+                                        Seller Contact Buyer
+                                    </text>
+                                    <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer
+                                        Contact Seller
+                                    </text>
+                                    <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> :
+                                        Use Student2Student Message Board
+                                    </text>
+                                    <br/>
+                                </p>
 
-                    <!--<div class="share-images">
-                                <span class="dropdown" uib-dropdown on-toggle="toggled(open)">
-                                  <a href class="dropdown-toggle" uib-dropdown-toggle>
-                                      <span><img src="./dist/images/archive_pages/share.png"/></span>
-                                  </a>
-                                  <ul class="dropdown-menu share-ul">
-                                      <li>
-                                          <a href="" socialshare
-                                             socialshare-provider="twitter"
-                                             socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
-                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                             socialshare-url="{{shareUrl}}"><i class="fa fa-twitter fa-2x"></i></a>
-                                      </li>
-                                      <li class="divider"></li>
-                                      <li>
-                                          <a href="" socialshare
-                                             socialshare-provider="linkedin"
-                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                             socialshare-url="{{shareUrl}}"><i class="fa fa-linkedin fa-2x"></i></a>
-                                      </li>
-                                      <li class="divider"></li>
-                                      <li>
-                                          <a href=""  socialshare
-                                             socialshare-provider="google"
-                                             socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                             socialshare-url="{{shareUrl}}"><i class="fa fa-google-plus fa-2x"></i></a>
-                                      </li>
-                                  </ul>
-                                </span>
-                                <span><a href="" socialshare
-                                         socialshare-provider="skype"
-                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                         socialshare-url="{{shareUrl}}"><img src="./dist/images/archive_pages/skype.png"/></a></span>
-                                <span><a href="" socialshare
-                                         socialshare-provider="facebook"
-                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                         socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
-                                         socialshare-url="{{shareUrl}}">
-                                    <img src="./dist/images/archive_pages/fb.png"/></a></span>
+                                <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
+                                <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
+                                <p ng-if="deal.bookContactMethod!=='student2studentBoard'">
+                                    <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
+                                    <text><strong>{{deal.sellerEmail}}</strong></text>
+                                    <br/></p>
+                                <p>
+                                    <text class="blue-text"><strong>Comment</strong></text>
+                                    <text class="grey-text"> : {{deal.bookComment}}</text>
+                                    <br/></p>
+                            </div>
+                            <div class="col-md-5">
+                                <p>
+                                    <text class="blue-text"><strong>Payment</strong></text>
+                                    <text class="grey-text"> :
 
-                    </div>-->
-                    <div class="buttons">
+                                        <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                                            Cash
+                                        </text>
+                                        <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                            Cheque
+                                        </text>
+                                        <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                            Cash, Cheque
+                                        </text>
 
-                        <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn"><i class="fa fa-phone"></i>&nbsp; Contact</a>
-                        <a ng-if="$parent.loggedIn" ui-sref="app.contact({deal:deal})" class="myBtn app-btn orange-btn"><i class="fa fa-phone"></i>&nbsp; Contact</a>
-
-                        <!--<a ng-if="!$parent.loggedIn" ui-sref="app.login"  class="myBtn app-btn orange-btn"><i class="fa fa-heart-o"></i>&nbsp;Add To Wishlist</a>-->
-                        <button ng-click="saveToWishList(deal)"  class="myBtn app-btn orange-btn"><i class="fa fa-heart-o"></i>&nbsp;Add To Wishlist</button>
-
-
+                                    </text>
+                                    <br/></p>
+                                <p>
+                                    <text class="blue-text"><strong>Available Date</strong></text>
+                                    <text class="grey-text"> : {{deal.bookAvailableDate}}</text>
+                                    <br/></p>
+                                <p>
+                                    <text class="blue-text"><strong>Available To Public</strong></text>
+                                    <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text>
+                                    <br/></p>
+                                <p>
+                                    <text class="blue-text"><strong>Textbook Has Notes</strong></text>
+                                    <text class="grey-text"> : {{deal.bookHasNotes}}</text>
+                                    <br/></p>
+                                <p>
+                                    <text class="blue-text"><strong>Textbook Is Highlighted</strong></text>
+                                    <text class="grey-text"> : {{deal.bookIsHighlighted}}</text>
+                                    <br/></p>
+                            </div>
+                        </div>
 
                     </div>
-                    <div class="view-and-contact">
-                        <p>
-                            <text class="blue-text"><img src="./dist/images/archive_pages/view.png"/>
-                                &nbsp;&nbsp;<strong>Views</strong></text>
-                            <text class="grey-text"> : {{deal.bookViewCount}}</text>
-                            <br/></p>
-                        <p>
-                            <text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
-                            </text>
-                            <text class="grey-text"> : {{deal.contacts.length}}</text>
-                            <br/></p>
-                    </div>
-
                 </div>
+
+
+            </div>
+            <div ng-show="deal.viewMoreInfo">
+                <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
+                        src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+                </button>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="archive-page-side">
+                <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
+
+                <!--<div class="share-images">
+                            <span class="dropdown" uib-dropdown on-toggle="toggled(open)">
+                              <a href class="dropdown-toggle" uib-dropdown-toggle>
+                                  <span><img src="./dist/images/archive_pages/share.png"/></span>
+                              </a>
+                              <ul class="dropdown-menu share-ul">
+                                  <li>
+                                      <a href="" socialshare
+                                         socialshare-provider="twitter"
+                                         socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-url="{{shareUrl}}"><i class="fa fa-twitter fa-2x"></i></a>
+                                  </li>
+                                  <li class="divider"></li>
+                                  <li>
+                                      <a href="" socialshare
+                                         socialshare-provider="linkedin"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-url="{{shareUrl}}"><i class="fa fa-linkedin fa-2x"></i></a>
+                                  </li>
+                                  <li class="divider"></li>
+                                  <li>
+                                      <a href=""  socialshare
+                                         socialshare-provider="google"
+                                         socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                         socialshare-url="{{shareUrl}}"><i class="fa fa-google-plus fa-2x"></i></a>
+                                  </li>
+                              </ul>
+                            </span>
+                            <span><a href="" socialshare
+                                     socialshare-provider="skype"
+                                     socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                     socialshare-url="{{shareUrl}}"><img src="./dist/images/archive_pages/skype.png"/></a></span>
+                            <span><a href="" socialshare
+                                     socialshare-provider="facebook"
+                                     socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
+                                     socialshare-hashtags="mySellPage, student2student, Textbook Exchange Made Easy"
+                                     socialshare-url="{{shareUrl}}">
+                                <img src="./dist/images/archive_pages/fb.png"/></a></span>
+
+                </div>-->
+                <div class="buttons">
+
+                    <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn"><i
+                            class="fa fa-phone"></i>&nbsp; Contact</a>
+                    <a ng-if="$parent.loggedIn" ui-sref="app.contact({deal:deal})" class="myBtn app-btn orange-btn"><i
+                            class="fa fa-phone"></i>&nbsp; Contact</a>
+
+                    <!--<a ng-if="!$parent.loggedIn" ui-sref="app.login"  class="myBtn app-btn orange-btn"><i class="fa fa-heart-o"></i>&nbsp;Add To Wishlist</a>-->
+                    <button ng-click="saveToWishList(deal)" class="myBtn app-btn orange-btn"><i
+                            class="fa fa-heart-o"></i>&nbsp;Add To Wishlist
+                    </button>
 
 
+                </div>
+                <div class="view-and-contact">
+                    <p>
+                        <text class="blue-text"><img src="./dist/images/archive_pages/view.png"/>
+                            &nbsp;&nbsp;<strong>Views</strong></text>
+                        <text class="grey-text"> : {{deal.bookViewCount}}</text>
+                        <br/></p>
+                    <p>
+                        <text class="blue-text"><img
+                                src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
+                        </text>
+                        <text class="grey-text"> : {{deal.contacts.length}}</text>
+                        <br/></p>
+                </div>
 
+            </div>
+        </div>
     </div>
 
 
 </div>
 
+
+</div>
 
 
 </div>

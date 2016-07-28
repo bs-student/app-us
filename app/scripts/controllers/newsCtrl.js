@@ -5,9 +5,9 @@
     app
         .controller('NewsCtrl', NewsCtrl);
 
-    NewsCtrl.$inject = ['$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService','SOCIAL_MEDIA_CONSTANT','$location'];
+    NewsCtrl.$inject = ['$state','identityService', 'newsService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','imageModalService','SOCIAL_MEDIA_CONSTANT','$location','$sce'];
 
-    function NewsCtrl($state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService,SOCIAL_MEDIA_CONSTANT,$location) {
+    function NewsCtrl($state,identityService, newsService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService,SOCIAL_MEDIA_CONSTANT,$location,$sce) {
 
 
 

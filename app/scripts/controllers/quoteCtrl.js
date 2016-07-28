@@ -10,9 +10,6 @@
     function QuoteCtrl($state,identityService, adminQuoteService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,imageModalService) {
 
 
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
         $scope.$parent.headerStyle = "dark";
@@ -63,7 +60,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminQuoteService.getStudentQuotes(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.quotePromise = adminQuoteService.getStudentQuotes(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.studentQuotes = response.data.success.successData.quotes.totalQuotes;
                     $scope.studentQuotes= $filter('orderBy')($scope.studentQuotes, params.orderBy());
                     $defer.resolve($scope.studentQuotes);
@@ -74,7 +71,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.quotePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getStudentQuoteData($defer, params);
                         });
@@ -118,7 +115,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminQuoteService.getUniversityQuotes(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.quotePromise = adminQuoteService.getUniversityQuotes(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.universityQuotes = response.data.success.successData.quotes.totalQuotes;
                     $scope.universityQuotes= $filter('orderBy')($scope.universityQuotes, params.orderBy());
                     $defer.resolve($scope.universityQuotes);
@@ -129,7 +126,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.quotePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getUniversityQuoteData($defer, params);
                         });
@@ -165,7 +162,7 @@
             if(valid){
                 row.$edit=false;
 
-                adminQuoteService.saveUpdatedQuote(identityService.getAccessToken(),row).then(function (response) {
+                ($scope.quotePromise = adminQuoteService.saveUpdatedQuote(identityService.getAccessToken(),row)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                 }).catch(function (response) {
@@ -174,7 +171,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.quotePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _saveEditedRow(valid,row);
                         });
@@ -201,7 +198,7 @@
             var json={
                 quoteId:data.quote.quoteId
             };
-            ($scope.sellingBookPromise=adminQuoteService.deleteQuote(identityService.getAccessToken(),json)).then(function(response){
+            ($scope.quotePromise=adminQuoteService.deleteQuote(identityService.getAccessToken(),json)).then(function(response){
                 responseService.showSuccessToast(response.data.success.successTitle);
 
                 if(data.quote.quoteType=="Student"){
@@ -216,7 +213,7 @@
                 if (response.data.error_description == "The access token provided is invalid.") {
 
                 } else if (response.data.error_description == "The access token provided has expired.") {
-                    ($scope.sellingBookPromise=identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                    ($scope.quotePromise=identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                         identityService.setAccessToken(response.data);
                         _deleteQuote(data);
                     });

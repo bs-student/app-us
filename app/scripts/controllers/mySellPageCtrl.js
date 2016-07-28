@@ -5,21 +5,21 @@
     app
         .controller('MySellPageCtrl', MySellPageCtrl);
 
-    MySellPageCtrl.$inject = ['$scope', '$stateParams','$state','identityService','contactService','responseService','bookDealService','imageModalService','SERVER_CONSTANT','wishListService'];
+    MySellPageCtrl.$inject = ['$scope', '$stateParams', '$state', 'identityService', 'contactService', 'responseService', 'bookDealService', 'imageModalService', 'SERVER_CONSTANT', 'wishListService'];
 
-    function MySellPageCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT,wishListService) {
+    function MySellPageCtrl($scope, $stateParams, $state, identityService, contactService, responseService, bookDealService, imageModalService, SERVER_CONSTANT, wishListService) {
 
-        $scope.showPagination=false;
+        $scope.showPagination = false;
 
 //        $scope.shareUrl="http://hello.com/#/"+identityService.getAuthorizedUserData().username;
 
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
-        $scope.resultFound=true;
-        $scope.noUserFound=false;
+        $scope.resultFound = true;
+        $scope.noUserFound = false;
         $scope.username = $stateParams.username;
-        $scope.campusBookDeals=[];
+        $scope.campusBookDeals = [];
         $scope.sortType = "bookTitle";
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
@@ -28,19 +28,19 @@
         $scope.setActive = _setActive;
         $scope.viewImage = _viewImage;
 
-        $scope.search= _search;
-        $scope.saveToWishList=_saveToWishList;
+        $scope.search = _search;
+        $scope.saveToWishList = _saveToWishList;
 
 
         //Pagination
 
-        $scope.changePage=_changePage;
+        $scope.changePage = _changePage;
         $scope.maxSize = 10;
         $scope.totalSearchResults = 0;
         $scope.currentPage = 1;
-        $scope.searchQuery="";
+        $scope.searchQuery = "";
 
-        init($scope.currentPage,$scope.searchQuery);
+        init($scope.currentPage, $scope.searchQuery);
 
         // Set Carousel
         function setCarousel() {
@@ -104,23 +104,30 @@
         }
 
 
-        function init(currentPage,searchQuery){
+        function init(currentPage, searchQuery,type) {
 
-            var data={
+            var data = {
                 "pageNumber": currentPage,
                 "pageSize": $scope.maxSize,
-                "username":$stateParams.username,
-                "keyword":searchQuery
+                "username": $stateParams.username,
+                "keyword": searchQuery
             };
-            ($scope.sellingBookPromise = bookDealService.getActivatedBookDealsOfUser(data)).then(function(response){
-                if(response.data.success.successData.result.length>0){
-                $scope.campusBookDeals = response.data.success.successData.result;
-                $scope.user = response.data.success.successData.userData;
-                $scope.totalSearchResults = response.data.success.successData.totalNumber;
-                $scope.showPagination=true;
-                setCarousel();
-                }else{
-                    $scope.resultFound=false;
+            ($scope.sellingBookPromise = bookDealService.getActivatedBookDealsOfUser(data)).then(function (response) {
+                if (response.data.success.successData.result.length > 0) {
+                    $scope.campusBookDeals = response.data.success.successData.result;
+                    $scope.user = response.data.success.successData.userData;
+                    $scope.totalSearchResults = response.data.success.successData.totalNumber;
+                    $scope.showPagination = true;
+                    $scope.resultFound = true;
+                    setCarousel();
+                } else {
+                    $scope.resultFound = false;
+                    $scope.totalSearchResults =0;
+                    $scope.campusBookDeals=[];
+                }
+                if(type=="search"){
+                    $scope.resultFound = true;
+
                 }
 
             }).catch(function (response) {
@@ -133,7 +140,7 @@
                         init(currentPage);
                     });
                 } else if (response.data.error != undefined) {
-                    $scope.noUserFound=true;
+                    $scope.noUserFound = true;
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
                 } else {
                     responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
@@ -142,17 +149,16 @@
             });
 
 
-
         }
 
         function _changePage(currentPage) {
 
-            var data={
+            var data = {
                 "pageNumber": currentPage,
                 "pageSize": $scope.maxSize
             };
 
-            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(),data)).then(function(response){
+            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(), data)).then(function (response) {
                 $scope.campusBookDeals = response.data.success.successData.result;
                 $scope.totalSearchResults = response.data.success.successData.totalNumber;
                 setCarousel();
@@ -178,14 +184,14 @@
 
         }
 
-        function _search(searchQuery){
-            init(1,searchQuery);
+        function _search(searchQuery) {
+            init(1, searchQuery,"search");
         }
 
-        function _saveToWishList(deal){
-            if($scope.$parent.loggedIn){
-                ($scope.sellingBookPromise = wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:deal.bookId})).then(function(response){
-                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+        function _saveToWishList(deal) {
+            if ($scope.$parent.loggedIn) {
+                ($scope.sellingBookPromise = wishListService.addBookToWishList(identityService.getAccessToken(), {bookId: deal.bookId})).then(function (response) {
+                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided has expired.") {
@@ -200,8 +206,8 @@
                     }
 
                 });
-            }else{
-                $state.go("app.login",{bookId:deal.bookId});
+            } else {
+                $state.go("app.login", {bookId: deal.bookId});
             }
 
         }

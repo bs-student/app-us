@@ -37,7 +37,7 @@
 
                 formData.append("quote",JSON.stringify(quote));
 
-                adminQuoteService.addQuote(identityService.getAccessToken(),formData).then(function (response) {
+                ($scope.$parent.quotePromise = adminQuoteService.addQuote(identityService.getAccessToken(),formData)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                     if(quoteType=="Student"){
@@ -53,7 +53,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.$parent.quotePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _addQuote(valid,quoteType);
                         });

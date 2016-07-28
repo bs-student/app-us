@@ -123,6 +123,8 @@
                 });
             }
 
+            $scope.user._username="";
+            $scope.user._password="";
             $state.go('app.dashboard');
 
         }

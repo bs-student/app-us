@@ -10,9 +10,6 @@
     function UserManagementCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
 
 
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
@@ -69,7 +66,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminUserService.getAllNonApprovedUsers(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.userPromise = adminUserService.getAllNonApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.nonApprovedUsers = response.data.success.successData.users.totalUsers;
                     $scope.nonApprovedUsers= $filter('orderBy')($scope.nonApprovedUsers, params.orderBy());
                     $defer.resolve($scope.nonApprovedUsers);
@@ -80,7 +77,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 //                        $scope.$parent.logout();
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getData($defer, params);
                         });
@@ -124,7 +121,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminUserService.getAllApprovedUsers(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.userPromise = adminUserService.getAllApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.approvedUsers = response.data.success.successData.users.totalUsers;
                     $scope.approvedUsers= $filter('orderBy')($scope.approvedUsers, params.orderBy());
                     $defer.resolve($scope.approvedUsers);
@@ -135,7 +132,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 //                        $scope.$parent.logout();
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getApprovedData($defer, params);
                         });
@@ -179,7 +176,7 @@
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                adminUserService.getAllAdminUsers(identityService.getAccessToken(), queryData).then(function (response) {
+                ($scope.userPromise = adminUserService.getAllAdminUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.adminUsers = response.data.success.successData.users.totalUsers;
                     $scope.adminUsers= $filter('orderBy')($scope.adminUsers, params.orderBy());
                     $defer.resolve($scope.adminUsers);
@@ -190,7 +187,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 //                        $scope.$parent.logout();
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getAdminData($defer, params);
                         });
@@ -226,7 +223,7 @@
                 }else{
                     row.enabled=false;
                 }
-                adminUserService.saveUpdatedUserDataAdmin(identityService.getAccessToken(),row).then(function (response) {
+                ($scope.userPromise = adminUserService.saveUpdatedUserDataAdmin(identityService.getAccessToken(),row)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
                     $scope.nonApprovedUsers.splice($scope.nonApprovedUsers.indexOf(row),1);
 
@@ -236,7 +233,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _saveEditedRow(valid,row);
                         });
@@ -286,7 +283,7 @@
 
             if(selectedUserList.length>0){
 
-                adminUserService.approveUsers(identityService.getAccessToken(),selectedUserList).then(function(response){
+                ($scope.userPromise = adminUserService.approveUsers(identityService.getAccessToken(),selectedUserList)).then(function(response){
 
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
                     init();
@@ -294,7 +291,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _approveSelectedUsers();
                         });

@@ -41,6 +41,10 @@ var assets = {
         "bower_components/ngSlimscroll/src/js/ngSlimscroll.js",
         "bower_components/firebase/firebase.js",
         "bower_components/angularfire/dist/angularfire.js",
+        "bower_components/textAngular/dist/textAngular.js",
+        "bower_components/textAngular/dist/textAngularSetup.js",
+        "bower_components/textAngular/dist/textAngular-sanitize.js",
+        "bower_components/textAngular/dist/textAngular-rangy.min.js",
 
 
         "vendor/superfish/js/superfish.js",
@@ -180,7 +184,9 @@ var assets = {
 
 
         "app/scripts/validators/valEmail.js",
-        "app/scripts/validators/valUsername.js"
+        "app/scripts/validators/valUsername.js",
+
+        "app/scripts/filters/sanitizeHtml.js"
     ],
 
     css_library: [
@@ -203,7 +209,8 @@ var assets = {
         "bower_components/simple-line-icons/css/simple-line-icons.css",
         "bower_components/weather-icons/css/weather-icons.css",
         "bower_components/weather-icons/css/weather-icons-wind.css",
-        "bower_components/angular-busy/dist/angular-busy.css"
+        "bower_components/angular-busy/dist/angular-busy.css",
+        "bower_components/textAngular/dist/textAngular.css"
 
 
     ],

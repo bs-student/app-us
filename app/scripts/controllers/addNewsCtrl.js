@@ -41,7 +41,7 @@
 
                     formData.append("news",JSON.stringify(news));
 
-                    adminNewsService.addNews(identityService.getAccessToken(),formData).then(function (response) {
+                    ($scope.$parent.newsPromise = adminNewsService.addNews(identityService.getAccessToken(),formData)).then(function (response) {
                         responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                         $scope.$parent.totalNews.push(response.data.success.successData);

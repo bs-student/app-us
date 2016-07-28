@@ -51,8 +51,8 @@
                                uncheckable>Unread</label>
                         <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Starred'"
                                uncheckable>Starred</label>
-                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'SellingDeal'" uncheckable>Selling Deals</label>
-                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'ContactedDeal'" uncheckable>Contacted Deals</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'SellingDeal'" uncheckable>I am Selling</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'ContactedDeal'" uncheckable>I am Buying</label>
                         <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Sold'"
                                uncheckable>Sold</label>
                     </div>
@@ -133,7 +133,6 @@
                             <div class="row">
                                 <div class="col-md-12 text-center message-board-check-star-item-column">
                                     <text>No Textbook Deal is found.</text>
-
                                 </div>
 
                             </div>
@@ -161,7 +160,12 @@
                                             </dt>
                                             <dd><text class="convert-to-white-text orange-text lato uppercase">{{deal.bookTitle}}</text> <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
                                                 <text class="grey-text">ISBN:</text> <text class="blue-text convert-to-white-text">{{deal.bookIsbn}}</text><br/>
-                                                <text  class="convert-to-white-text orange-text float-right">${{deal.bookPriceSell}}</text>
+                                                <!--{{deal.dealType}}-->
+
+                                                <button ng-show="deal.dealType=='contactedDeal'" class="myBtn orange-btn message-board-btn" ui-sref="app.contactedBookList">Go to Deal</button>
+                                                <button ng-show="deal.dealType=='sellingDeal'" class="myBtn orange-btn message-board-btn" ui-sref="app.sellingBookList">Go to Deal</button>
+
+                                                <text  class="price-text convert-to-white-text orange-text float-right">${{deal.bookPriceSell}}</text>
                                             </dd>
                                             <!--<dd class=""></dd>-->
                                         </dl>

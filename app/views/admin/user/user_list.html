@@ -31,7 +31,7 @@
         <div class="people-icon-div"></div>
         <text>Pending Users</text>
     </uib-tab-heading>
-    <div cg-busy="{promise:campusPromise}">
+    <div cg-busy="{promise:userPromise}">
 
 
         <div class="button-panel">
@@ -47,13 +47,13 @@
             <form name="userEditForm" submit-validate >
 
                 <tr ng-repeat="user in $data" ng-form="editRowForm">
-                    <td width="30" style="text-align: left" header="'ng-table/headers/checkbox.html'">
+                    <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
                         <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
                     </td>
-                    <td data-title="'Picture'" width="200"  >
+                    <td data-title="'Picture'" style="width: 15%;"  >
                         <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
                     </td>
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
+                    <td data-title="'Username'" style="width: 23%;"  sortable="'username'" filter="{ 'username': 'text' }">
                         <span ng-if="!user.$edit">{{user.username}}</span>
 
 
@@ -68,13 +68,13 @@
                         </div>
 
                     </td>
-                    <td data-title="'Full Name'" width="200" >
+                    <td data-title="'Full Name'" style="width: 25%;" >
                         <span>{{user.fullName}}</span>
                     </td>
-                    <td data-title="'Email'" width="200">
+                    <td data-title="'Email'" style="width: 20%;">
                         <span>{{user.email}}</span>
                     </td>
-                    <td data-title="'Actions'" width="200">
+                    <td data-title="'Actions'" style="width: 15%">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
                         <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
                         <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
@@ -95,7 +95,7 @@
         <div class="book-close-icon-div"></div>
         <text>Approved Users</text>
     </uib-tab-heading>
-    <div cg-busy="{promise:onlinePromise}">
+    <div cg-busy="{promise:userPromise}">
 
 
         <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
@@ -158,7 +158,7 @@
             <div class="book-open-icon-div"></div>
             <text>Admin Users</text>
         </uib-tab-heading>
-        <div cg-busy="{promise:onlinePromise}">
+        <div cg-busy="{promise:userPromise}">
 
             <div class="button-panel">
                 <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>

@@ -23,11 +23,19 @@
 
         function _addUser(valid) {
             if(valid){
-                $scope.user.adminApproved="Yes";
-                $scope.user.new_password=$scope.user.password;
-                $scope.user.confirm_password= $scope.user.passwordConfirm;
-
-                adminUserService.addAdminUser(identityService.getAccessToken(),$scope.user).then(function (response) {
+                var userData = {
+                    email:$scope.user.email,
+                    fullName:$scope.user.fullName,
+                    adminApproved:"Yes",
+                    username:$scope.user.username,
+                    new_password: $scope.user.password,
+                    confirm_password: $scope.user.passwordConfirm
+                };
+//                $scope.user.adminApproved="Yes";
+//                $scope.user.new_password=$scope.user.password;
+//                $scope.user.confirm_password= $scope.user.passwordConfirm;
+//                console.log($scope.user);
+                ($scope.$parent.userPromise = adminUserService.addAdminUser(identityService.getAccessToken(),userData)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 
                     $scope.$parent.adminUsers.push(response.data.success.successData);
@@ -38,7 +46,7 @@
                     if (response.data.error_description == "The access token provided is invalid.") {
 
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        ($scope.$parent.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             _addUser(valid);
                         });
