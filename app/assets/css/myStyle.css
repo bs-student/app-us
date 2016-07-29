@@ -1543,8 +1543,8 @@ a.notification-a.message-board-a i{
 /********************************************/
 /*              Concept Video Page)           */
 /*********************************************/
-.min-height-1037{
-    min-height: 1037px;
+.min-height-1150{
+    min-height: 1150px;
 }
 .margin-top-20{
     margin-top: 20px;
@@ -1574,10 +1574,12 @@ a.notification-a.message-board-a i{
 blockquote.orange-blockquote{
     border-left:8px solid #FF5307;
     padding: 0px 0px 0px 20px;
+    margin-bottom: 10px;
 }
 blockquote.green-blockquote{
     border-left:8px solid #A1BC3B;
     padding: 0px 0px 0px 20px;
+    margin-bottom: 10px;
 }
 
 .tree-section .blue-circle{

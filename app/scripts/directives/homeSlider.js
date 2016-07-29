@@ -150,15 +150,33 @@ app
                                 .animate({opacity:1});
                         });
 
-
-//                            .css('background-image', 'url(' + "assets/images/slider/2.jpg" + ')');
-
-                    }else{
-                        scope.firstSlide = true;
+                    }else if(scope.secondSlide){
                         scope.secondSlide = false;
+                        scope.thirdSlide = true;
+
+                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/3.jpg" + ')'})
+                                .animate({opacity:1});
+                        });
+
+                    }else if(scope.thirdSlide){
+                        scope.thirdSlide = false;
+                        scope.fourthSlide = true;
+
+                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/4.jpg" + ')'})
+                                .animate({opacity:1});
+                        });
+
+                    }
+                    else if(scope.fourthSlide){
+                        scope.firstSlide = true;
+                        scope.fourthSlide = false;
                         $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
                             $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/1.png" + ')'})
+                                .css({'background-image': 'url(' + "assets/images/slider/1.jpg" + ')'})
                                 .animate({opacity: 1});
                         });
 
