@@ -87,7 +87,10 @@
 
 
                                             <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
-                                            <p><text class="blue-text"><strong>Comment</strong></text> <text class="grey-text"> : {{deal.bookComment}}</text><br/></p>
+                                            <p><text class="blue-text"><strong>Comment</strong></text>
+                                                <text ng-show="deal.bookComment!=undefined" class="grey-text"> : {{deal.bookComment}}</text>
+                                                <text ng-show="deal.bookComment==undefined" class="grey-text"> : No Comments</text>
+                                                <br/></p>
                                             <p><text class="blue-text"><strong>Sold To</strong></text> <text class="grey-text"> : {{deal.buyerNickName}}</text><br/></p>
                                         </div>
                                         <div class="col-md-5">

@@ -198,22 +198,12 @@ app
 
                     }else if(scope.fifthSlide){
                         scope.fifthSlide = false;
-                        scope.sixthSlide = true;
+                        scope.firstSlide = true;
 
                         $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
                             $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/6.jpg" + ')'})
-                                .animate({opacity:1});
-                            scope.$apply();
-                        });
-
-                    }else if(scope.sixthSlide){
-                        scope.sixthSlide = false;
-                        scope.firstSlide = true;
-                        $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
-                            $(this)
                                 .css({'background-image': 'url(' + "assets/images/slider/1.jpg" + ')'})
-                                .animate({opacity: 1});
+                                .animate({opacity:1});
                             scope.$apply();
                         });
 

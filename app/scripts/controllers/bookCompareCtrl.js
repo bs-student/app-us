@@ -98,9 +98,17 @@
             };
             $scope.campusPromise = bookService.getCampusDealsByIsbn(onCampusDealsData).then(function (response){
                 $scope.campusBookDeals = response.data.success.successData;
+
                 if($scope.campusBookDeals.buyerToSeller.length==0)$scope.noBuyerToSeller=true;
                 if($scope.campusBookDeals.sellerToBuyer.length==0)$scope.noSellerToBuyer=true;
                 if($scope.campusBookDeals.student2studentBoard.length==0)$scope.noStudent2studentBoard=true;
+
+                if($scope.campusBookDeals.buyerToSeller.length>0 || $scope.campusBookDeals.sellerToBuyer.length>0 || $scope.campusBookDeals.student2studentBoard.length>0){
+                    $scope.noBuyerToSeller = false;
+                    $scope.noSellerToBuyer=false;
+                    $scope.noStudent2studentBoard=false;
+                }
+
 
                 if($scope.campusId==undefined && identityService.getAuthorizedUserData()==undefined){
                     $scope.noUniversitySelected=true;

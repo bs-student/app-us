@@ -906,8 +906,8 @@ a.notification-a.message-board-a i{
     padding-bottom: 0px;
 }
 .search-banner-row{
-    padding-top: 180px;
-    padding-bottom: 180px;
+    padding-top: 280px;
+    padding-bottom: 280px;
 }
 .search-banner-input-col{
     padding-top: 50px;
@@ -918,7 +918,7 @@ a.notification-a.message-board-a i{
     font-size: 40px;
 }
 .search-page-head-banner{
-    background: url("../images/parallax/search-result-banner.png") no-repeat;
+    background: url("../images/parallax/search-result-banner.jpg") no-repeat;
     background-size: cover;
 }
 .search-page-input-div{
@@ -1949,16 +1949,17 @@ blockquote.green-blockquote{
     vertical-align: middle !important;
 }
 .app-btn.view-more-button{
-    height: 34px;
-    width: 34px;
+    height: 20px;
+    width: 20px;
     padding: 0px;
+    line-height: 0;
     border-radius: 50%;
     color: #FF530E;
     margin-left: 10px;
 }
 .app-btn.view-more-button:hover{
-    height: 34px;
-    width: 34px;
+    height: 20px;
+    width: 20px;
     padding: 0px;
     border-radius: 50%;
     color: #FFFFFF;
@@ -2405,6 +2406,13 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /*         Sell Page                        */
 /*********************************************/
 
+.left-contact-methods hr{
+    width: 70%;
+    margin-top: 40px;
+}
+.margin-top-40{
+    margin-top: 40px;
+}
 .margin-top-60{
     margin-top: 60px;
 }
@@ -2770,7 +2778,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     position: absolute;
     right: -354px;
     width: 369px;
-    height: 800px;
+    height: 810px;
     border-right: 2px solid #FF530E;
     border-bottom: 2px solid #FF530E;
     border-top-right-radius: 4px;
@@ -2812,7 +2820,12 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .help-details-text-div p{
     line-height: 1.2em !important;
 }
-
+.help-details-div.custom-sell-page-help-details-div{
+    height: 960px;
+}
+.help-details-div.custom-sell-page-help-details-div .help-details-text-div{
+    max-height: 955px;
+}
 
 /********************************************/
 /*         Contact Us Page                  */
@@ -3307,6 +3320,10 @@ a.share-my-sell-page-url{
 /*.background-orange{
     background: #FF530E;
 }*/
+.checkbox-custom-alt.checkbox-white input:checked + i{
+    border-color: #FFF;
+    color: #FFF;
+}
 .message-board-textbook-deal-item .price-text{
     padding-top: 7px;
 }
@@ -3408,7 +3425,9 @@ a.share-my-sell-page-url{
     border: 1px solid #CBD6DA;
     border-top: none;
 }
-
+.contact-messages{
+    background: #F1F1F1;
+}
 .message-board-contacts .panel .panel-body .contact-messages ul{
     margin-bottom: 0px;
 

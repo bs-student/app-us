@@ -18,7 +18,7 @@
                     <div>
                         <p class="book-subtitle-header">Buying Textbooks directly from other Students can be so simple</p>
                         <p>
-                            The Seller ({{deal.username}}) of this textbook wants <strong>You to contact student him/her</strong>.
+                            The Seller ({{deal.username}}) of this textbook wants <strong>You to contact him/her</strong>.
                             Please provide your Email below so we can send you the Seller's Contact Information.
                             You also have the option to send a message to the Seller.
                         </p>
@@ -27,7 +27,7 @@
 
                 <div ng-if="deal.bookContactMethod=='sellerToBuyer'" class="col-md-10">
                     <div class="book-title-header">
-                        <h1 class="uppercase"><strong>Seller ({{deal.username}}) will contact You ( Buyer )</strong></h1>
+                        <h1 class="uppercase"><strong>Seller ({{deal.username}}) will contact You (Buyer)</strong></h1>
                         <hr/>
                     </div>
                     <div>
@@ -72,7 +72,7 @@
 
             <div class="row specification-row">
 
-                <div cg-busy="{promise:contactPromise}"  class="col-md-offset-3 col-md-6">
+                <div cg-busy="{promise:contactPromise}"  class="col-md-offset-2 col-md-6">
                     <form name="contactForm" submit-validate ng-submit="contactSeller(contactForm.$valid)" role="form" novalidate>
 
 
@@ -159,7 +159,7 @@
 
                     </form>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
 
 
                 </div>

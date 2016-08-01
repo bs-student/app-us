@@ -24,7 +24,7 @@
         <div ng-show="!showHelp" class="help-div">
             <button ng-click="showHelp=true" class="help-button white-text lato myBtn orange-btn"><img src="dist/images/sell_book/help.png"/><br/>Help</button>
         </div>
-        <div ng-show="showHelp" class="help-details-div">
+        <div ng-show="showHelp" class="help-details-div custom-sell-page-help-details-div">
 
             <div class="help-header">
                 <button ng-click="showHelp=false" class="myBtn orange-btn help-back-button"><i class="fa fa-angle-left fa-2x"></i> Close
@@ -464,7 +464,7 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <text class="form-information lato"> Please choose one contact method and provide the necessary information. (Please be aware of who gets/sees which information)</text>
+                                    <text class="form-information lato"> Please choose one contact method and provide the necessary information. (Please be aware of who gets/sees what information)</text>
                                 </div>
 
 
@@ -473,7 +473,7 @@
 
 
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 left-contact-methods">
                                     <div class="left-side-form">
                                         <label class="checkbox checkbox-custom">
                                             <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="sellerToBuyer" required><i></i> <strong><text class="uppercase px-16">Seller Contact Buyer</text></strong>
@@ -485,7 +485,8 @@
 
                                         </text>
                                     </div>
-                                    <div class="left-side-form margin-top-60">
+                                    <hr>
+                                    <div class="left-side-form margin-top-40">
                                         <label class="checkbox checkbox-custom">
                                             <input name="contactMethod" ng-model="book.contactMethod" type="radio" value="student2studentBoard" required><i></i> <strong><text class="uppercase px-16">Use Student2Student Message Board</text></strong>
                                         </label>
@@ -619,8 +620,8 @@
 
                             <div class="row height-48" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
 
-                                <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Text available to public &nbsp;&nbsp;:</strong></text>
+                                <div class="col-md-4 text-right">
+                                    <text class="px-16 lato uppercase"><strong>Text available to public :</strong></text>
                                 </div>
 
                                 <div class="col-md-8">
@@ -642,7 +643,7 @@
 
                             <div class="row" ng-class="{ 'has-error' : step3.availableDate.$invalid && !step3.availableDate.$pristine, 'has-success' : step3.availableDate.$valid && !step3.availableDate.$pristine}">
 
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <text class="px-16 lato uppercase"><strong>Textbook available Date :</strong></text>
                                 </div>
 
@@ -671,8 +672,8 @@
                             </div>
                             <div class="row" ng-class="{ 'has-error' : step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine, 'has-success' : step3.sellingPrice.$valid && !step3.sellingPrice.$pristine}">
 
-                                <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong></text>
+                                <div class="col-md-4 text-right">
+                                    <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) :</strong></text>
                                 </div>
 
                                 <div class="col-md-4">
@@ -690,9 +691,8 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-md-4">
-                                    <text class="px-16 lato uppercase"><strong>Payment Method &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong></text>
+                                <div class="col-md-4 text-right">
+                                    <text class="px-16 lato uppercase"><strong>Payment Method :</strong></text>
                                 </div>
 
                                 <div class="col-md-8">
@@ -780,7 +780,7 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <text class="form-information lato"> You can upload 3 pictures from your textbook to show its condition. (Recommended Picture Size : Less than 200KB. Recommended Picture Dimension: 350px/500px)</text>
+                                    <text class="form-information lato"> You can upload 3 pictures from your textbook to show its condition. <br>(Recommended Picture Size : Less than 300KB. Recommended Picture Dimension: 350px/500px)</text>
                                 </div>
 
 
@@ -929,7 +929,7 @@
                                             <div class="col-md-8 border-left"><text class="grey-text"><strong>Buyer Contact Seller</strong></text></div>
                                         </div>
                                         <br/>
-
+                                        <br/>
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>Home phone</strong></text></div>
                                             <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoHomePhone}}&nbsp;</strong></text></div>

@@ -228,7 +228,7 @@
                         <div class="blue-text lato attribute-name-field text-right">
                             <button ng-click="book.showTotalDescription=!book.showTotalDescription"
                                     class="myBtn app-btn buy-now-button view-more-button"><i
-                                    class="fa fa-2x fa-angle-down"></i></button>
+                                    class="fa fa-angle-down"></i></button>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -294,11 +294,13 @@
                         Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
                         Notes in textbook: {{deal.bookHasNotes}}<br/>
                     </div>
-                    <button class="myBtn app-btn buy-now-button view-more-button"
-                            ng-click="deal.showDetails=!deal.showDetails"><i
-                            class="fa fa-angle-down fa-2x"></i></button>
-                    <div class="transition-view" ng-show="deal.showDetails">
-                        Comment by Seller: {{deal.bookComment}}
+                    <div ng-show="deal.bookComment!=undefined">
+                        <button class="myBtn app-btn buy-now-button view-more-button"
+                                ng-click="deal.showDetails=!deal.showDetails"><i
+                                class="fa fa-angle-down"></i></button>
+                        <div class="transition-view" ng-show="deal.showDetails">
+                            Comment by Seller: {{deal.bookComment}}
+                        </div>
                     </div>
 
                 </td>
@@ -345,11 +347,13 @@
                         Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
                         Notes in textbook: {{deal.bookHasNotes}}<br/>
                     </div>
-                    <button class="myBtn app-btn buy-now-button view-more-button"
-                            ng-click="deal.showDetails=!deal.showDetails"><i
-                            class="fa fa-angle-down fa-2x"></i></button>
-                    <div class="transition-view" ng-show="deal.showDetails">
-                        Comment by Seller: {{deal.bookComment}}
+                    <div ng-show="deal.bookComment!=undefined">
+                        <button class="myBtn app-btn buy-now-button view-more-button"
+                                ng-click="deal.showDetails=!deal.showDetails"><i
+                                class="fa fa-angle-down"></i></button>
+                        <div class="transition-view" ng-show="deal.showDetails">
+                            Comment by Seller: {{deal.bookComment}}
+                        </div>
                     </div>
 
                 </td>
@@ -394,12 +398,16 @@
                         Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
                         Notes in textbook: {{deal.bookHasNotes}}<br/>
                     </div>
-                    <button class="myBtn app-btn buy-now-button view-more-button"
-                            ng-click="deal.showDetails=!deal.showDetails"><i
-                            class="fa fa-angle-down fa-2x"></i></button>
-                    <div class="transition-view" ng-show="deal.showDetails">
-                        Comment by Seller: {{deal.bookComment}}
+
+                    <div ng-show="deal.bookComment!=undefined">
+                        <button class="myBtn app-btn buy-now-button view-more-button"
+                                ng-click="deal.showDetails=!deal.showDetails"><i
+                                class="fa fa-angle-down"></i></button>
+                        <div class="transition-view" ng-show="deal.showDetails">
+                            Comment by Seller: {{deal.bookComment}}
+                        </div>
                     </div>
+
 
                 </td>
                 <td>Contact Through Message Board</td>

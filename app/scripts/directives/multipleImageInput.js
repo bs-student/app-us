@@ -26,10 +26,10 @@ multipleImageInput.$inject=["$parse","responseService","imageStoreService"];
                         var validFiles=[];
                         angular.forEach(element[0].files,function(file){
 
-                            if (file.name.match(/\.(jpg|jpeg|png)$/) && (parseInt(file.size/1024,10)<=200)){
+                            if (file.name.match(/\.(jpg|jpeg|png)$/) && (parseInt(file.size/1024,10)<=300)){
                                 validFiles.push(file);
                             }else{
-                                responseService.showErrorToast("Add Picture File and less than 200KB");
+                                responseService.showErrorToast("Add Picture File and less than 300KB");
                             }
 
 
