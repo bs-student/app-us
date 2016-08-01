@@ -663,7 +663,7 @@ a.notification-a.message-board-a i{
 }
 
 .login-page-parallax{
-    background: url(../images/parallax/login_parallax.png);
+    background: url(../images/parallax/login_parallax.jpg);
 }
 .login-page-col-div{
 
@@ -1595,7 +1595,7 @@ blockquote.green-blockquote{
     color:#9DDAF9;
 }
 .concept-page-head-banner.concept-video-page-head-banner{
-    background: url("../images/concept_video/banner.png") no-repeat;
+    background: url("../images/concept_video/banner.jpg") no-repeat;
     background-size: cover;
 }
 .concept-video-page-text-banner{
@@ -1647,7 +1647,7 @@ blockquote.green-blockquote{
 
 
 .compare-page-head-banner{
-    background: url("../images/compare_page/banner.png") no-repeat;
+    background: url("../images/compare_page/banner.jpg") no-repeat;
     background-size: cover;
     height: 300px;
     border-bottom:10px solid #FF530D;
@@ -2039,7 +2039,7 @@ blockquote.green-blockquote{
 }
 .archive-page-head-banner{
     text-align: center;
-    background: url("../images/archive_pages/banner.png") no-repeat;
+    background: url("../images/archive_pages/banner.jpg") no-repeat;
     background-size: cover;
     height: 300px;
     border-bottom:10px solid #9DB63D;
@@ -2156,7 +2156,7 @@ blockquote.green-blockquote{
     height: 245px;
 }
 .safety-first-page-head-banner{
-    background: url("../images/safety_first/banner.png") no-repeat;
+    background: url("../images/safety_first/banner.jpg") no-repeat;
     background-size: cover;
 }
 .safety-first-section .page-text-side{
@@ -2254,7 +2254,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /*********************************************/
 
 .faq-page-head-banner{
-    background: url("../images/faq/faq_banner.png") no-repeat;
+    background: url("../images/faq/faq_banner.jpg") no-repeat;
     background-size: cover;
 }
 .faq-section .panel .panel-heading .panel-title .accordion-toggle{
@@ -2819,7 +2819,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /*********************************************/
 
 .contact-us-page-head-banner{
-    background: url("../images/contact_us/banner.png") no-repeat;
+    background: url("../images/contact_us/banner.jpg") no-repeat;
     background-size: cover;
     height: 350px;
 }
@@ -2860,11 +2860,11 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     padding: 0px 20px;
 }
 .follow-us-logos-div{
-    padding: 50px 27%;
+    padding: 50px 35%;
     display: flex;
 }
 .follow-us-logos-div-contact-us{
-    padding: 50px 18px;
+    padding: 50px 25%;
     display: flex;
 }
 
@@ -2986,7 +2986,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /*********************************************/
 
 .news-page-head-banner{
-    background: url("../images/news/banner.png") no-repeat;
+    background: url("../images/news/banner.jpg") no-repeat;
     background-size: cover;
     height: 350px;
 }
@@ -3115,7 +3115,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .news-share-hr-div{
     display: flex;
-    margin-left: 19%;
+    margin-left: 26%;
 }
 .news-share-hr-div .social-container{
     border:1px solid #D9D9D7;
@@ -3219,7 +3219,7 @@ a.share-my-sell-page-url{
     text-decoration: underline !important;
 }
 .tell-a-friend-background{
-    background: url("../images/parallax/login_parallax.png") no-repeat;
+    background: url("../images/parallax/login_parallax.jpg") no-repeat;
     background-size: cover;
     padding-top: 70px;
 }
@@ -3532,7 +3532,7 @@ a.share-my-sell-page-url{
     margin-top: 47px;
 }
 .safety-first-page-head-banner.message-board-page-head-banner{
-    background: url("../images/message_board/banner.png") no-repeat;
+    background: url("../images/message_board/banner.jpg") no-repeat;
     background-size: cover;
     height: 350px;
 }

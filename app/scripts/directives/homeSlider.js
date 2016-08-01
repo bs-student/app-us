@@ -141,6 +141,19 @@ app
 
                 scope.rotateSlide=function(){
 
+                    if(localStorage["sliderInterval"]!=undefined){
+                        clearInterval(localStorage["sliderInterval"]);
+                    }
+                    var sliderInterval = setInterval(function(){
+
+                        scope.rotate();
+
+                    }, 5000);
+                    localStorage["sliderInterval"] = sliderInterval;
+
+                };
+
+                scope.rotate = function(){
                     if(scope.firstSlide){
                         scope.secondSlide = true;
                         scope.firstSlide = false;
@@ -148,6 +161,7 @@ app
                             $(this)
                                 .css({'background-image': 'url(' + "assets/images/slider/2.jpg" + ')'})
                                 .animate({opacity:1});
+                            scope.$apply();
                         });
 
                     }else if(scope.secondSlide){
@@ -158,6 +172,7 @@ app
                             $(this)
                                 .css({'background-image': 'url(' + "assets/images/slider/3.jpg" + ')'})
                                 .animate({opacity:1});
+                            scope.$apply();
                         });
 
                     }else if(scope.thirdSlide){
@@ -168,20 +183,45 @@ app
                             $(this)
                                 .css({'background-image': 'url(' + "assets/images/slider/4.jpg" + ')'})
                                 .animate({opacity:1});
+                            scope.$apply();
                         });
 
-                    }
-                    else if(scope.fourthSlide){
-                        scope.firstSlide = true;
+                    }else if(scope.fourthSlide){
                         scope.fourthSlide = false;
+                        scope.fifthSlide = true;
+                        $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/5.jpg" + ')'})
+                                .animate({opacity: 1});
+                            scope.$apply();
+                        });
+
+                    }else if(scope.fifthSlide){
+                        scope.fifthSlide = false;
+                        scope.sixthSlide = true;
+
+                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                            $(this)
+                                .css({'background-image': 'url(' + "assets/images/slider/6.jpg" + ')'})
+                                .animate({opacity:1});
+                            scope.$apply();
+                        });
+
+                    }else if(scope.sixthSlide){
+                        scope.sixthSlide = false;
+                        scope.firstSlide = true;
                         $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
                             $(this)
                                 .css({'background-image': 'url(' + "assets/images/slider/1.jpg" + ')'})
                                 .animate({opacity: 1});
+                            scope.$apply();
                         });
 
                     }
+                    scope.rotateSlide();
                 };
+
+                scope.rotateSlide();
             }
 
 
