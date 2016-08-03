@@ -27,7 +27,7 @@ app
                         navigationStyle: "preview1",
 
                         touchenabled: "off",
-                        onHoverStop: "on",
+                        onHoverStop: "off",
 
                         swipe_velocity: 0.7,
                         swipe_min_touches: 1,
@@ -139,79 +139,84 @@ app
                     return sliderParallaxOffsetTop;
                 }
 
-                scope.rotateSlide=function(){
-
-                    if(localStorage["sliderInterval"]!=undefined){
-                        clearInterval(localStorage["sliderInterval"]);
-                    }
-                    var sliderInterval = setInterval(function(){
-
-                        scope.rotate();
-
-                    }, 5000);
-                    localStorage["sliderInterval"] = sliderInterval;
-
+                scope.rotate = function(slideNum){
+                    var nextSlide=slideNum+1;
+                    apiRevoSlider.revshowslide(slideNum+1);
                 };
 
-                scope.rotate = function(){
-                    if(scope.firstSlide){
-                        scope.secondSlide = true;
-                        scope.firstSlide = false;
-                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
-                            $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/2.jpg" + ')'})
-                                .animate({opacity:1});
-                            scope.$apply();
-                        });
-
-                    }else if(scope.secondSlide){
-                        scope.secondSlide = false;
-                        scope.thirdSlide = true;
-
-                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
-                            $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/3.jpg" + ')'})
-                                .animate({opacity:1});
-                            scope.$apply();
-                        });
-
-                    }else if(scope.thirdSlide){
-                        scope.thirdSlide = false;
-                        scope.fourthSlide = true;
-
-                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
-                            $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/4.jpg" + ')'})
-                                .animate({opacity:1});
-                            scope.$apply();
-                        });
-
-                    }else if(scope.fourthSlide){
-                        scope.fourthSlide = false;
-                        scope.fifthSlide = true;
-                        $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
-                            $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/5.jpg" + ')'})
-                                .animate({opacity: 1});
-                            scope.$apply();
-                        });
-
-                    }else if(scope.fifthSlide){
-                        scope.fifthSlide = false;
-                        scope.firstSlide = true;
-
-                        $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
-                            $(this)
-                                .css({'background-image': 'url(' + "assets/images/slider/1.jpg" + ')'})
-                                .animate({opacity:1});
-                            scope.$apply();
-                        });
-
-                    }
-                    scope.rotateSlide();
-                };
-
-                scope.rotateSlide();
+                // scope.rotateSlide=function(){
+                //
+                //     if(localStorage["sliderInterval"]!=undefined){
+                //         clearInterval(localStorage["sliderInterval"]);
+                //     }
+                //     var sliderInterval = setInterval(function(){
+                //
+                //         scope.rotate();
+                //
+                //     }, 10000);
+                //     localStorage["sliderInterval"] = sliderInterval;
+                //
+                // };
+                //
+                // scope.rotate = function(){
+                //     if(scope.firstSlide){
+                //         scope.secondSlide = true;
+                //         scope.firstSlide = false;
+                //         $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                //             $(this)
+                //                 .css({'background-image': 'url(' + "assets/images/slider/2.jpg" + ')'})
+                //                 .animate({opacity:1});
+                //             scope.$apply();
+                //         });
+                //
+                //     }else if(scope.secondSlide){
+                //         scope.secondSlide = false;
+                //         scope.thirdSlide = true;
+                //
+                //         $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                //             $(this)
+                //                 .css({'background-image': 'url(' + "assets/images/slider/3.jpg" + ')'})
+                //                 .animate({opacity:1});
+                //             scope.$apply();
+                //         });
+                //
+                //     }else if(scope.thirdSlide){
+                //         scope.thirdSlide = false;
+                //         scope.fourthSlide = true;
+                //
+                //         $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                //             $(this)
+                //                 .css({'background-image': 'url(' + "assets/images/slider/4.jpg" + ')'})
+                //                 .animate({opacity:1});
+                //             scope.$apply();
+                //         });
+                //
+                //     }else if(scope.fourthSlide){
+                //         scope.fourthSlide = false;
+                //         scope.fifthSlide = true;
+                //         $('.tp-bgimg').animate({opacity:.7}, 'fast', function() {
+                //             $(this)
+                //                 .css({'background-image': 'url(' + "assets/images/slider/5.jpg" + ')'})
+                //                 .animate({opacity: 1});
+                //             scope.$apply();
+                //         });
+                //
+                //     }else if(scope.fifthSlide){
+                //         scope.fifthSlide = false;
+                //         scope.firstSlide = true;
+                //
+                //         $('.tp-bgimg').animate({opacity:.9}, 'fast', function() {
+                //             $(this)
+                //                 .css({'background-image': 'url(' + "assets/images/slider/1.jpg" + ')'})
+                //                 .animate({opacity:1});
+                //             scope.$apply();
+                //         });
+                //
+                //     }
+                //     scope.rotateSlide();
+                // };
+                //
+                // scope.rotateSlide();
             }
 
 

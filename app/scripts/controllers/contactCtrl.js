@@ -18,6 +18,8 @@
                 $state.go("app.dashboard");
             } else {
                 $scope.deal = $stateParams.deal;
+                $scope.asin = $stateParams.asin;
+                $scope.isbn = $stateParams.isbn;
             }
 
             $scope.contact = {};
@@ -56,8 +58,10 @@
                     });
 
                     $state.go("app.contactedBookList");
+
                 }).catch(function (response) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                    $state.go("app.bookComparePrice",{asin:$scope.asin,isbn:$scope.isbn});
                 });
 
             }

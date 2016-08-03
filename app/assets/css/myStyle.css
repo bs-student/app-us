@@ -119,6 +119,20 @@ a.notification-a.message-board-a i{
     }
 }
 
+.home-slider-form-div{
+    position: absolute;
+    z-index: 21;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 15%;
+}
+.tparrows.preview1{
+    display: none;
+}
+
 
 /********************************************/
 /*              Homepage Banner              */

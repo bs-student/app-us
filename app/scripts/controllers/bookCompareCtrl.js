@@ -152,7 +152,7 @@
             if(deal==undefined){
                 responseService.showErrorToast("No Books were found on campus");
             }else{
-                $state.go("app.contact",{deal:deal});
+                $state.go("app.contact",{deal:deal,asin:$scope.asin,isbn:$scope.isbn});
             }
 
         }

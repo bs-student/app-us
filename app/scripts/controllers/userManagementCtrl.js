@@ -43,7 +43,8 @@
                     page: 1,            // show first page
                     count: 10,           // count per page
                     filter: {
-                        username: ''       // initial filter
+                        username: '',
+                        email: ''           // initial filter
                     },
                     sorting: {
                         username: 'asc'     // initial sorting
@@ -62,6 +63,7 @@
                 var queryData =
                 {
                     "searchQuery": params.filter().username,
+                    "emailQuery": params.filter().email,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()
@@ -98,7 +100,8 @@
                     page: 1,            // show first page
                     count: 10,           // count per page
                     filter: {
-                        username: ''       // initial filter
+                        username: ''  ,
+                        email: ''        // initial filter
                     },
                     sorting: {
                         username: 'asc'     // initial sorting
@@ -117,6 +120,7 @@
                 var queryData =
                 {
                     "searchQuery": params.filter().username,
+                    "emailQuery": params.filter().email,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()
@@ -153,7 +157,8 @@
                     page: 1,            // show first page
                     count: 10,           // count per page
                     filter: {
-                        username: ''       // initial filter
+                        username: '',
+                        email: ''          // initial filter
                     },
                     sorting: {
                         username: 'asc'     // initial sorting
@@ -172,6 +177,7 @@
                 var queryData =
                 {
                     "searchQuery": params.filter().username,
+                    "emailQuery": params.filter().email,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()

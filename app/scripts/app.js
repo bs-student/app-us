@@ -289,7 +289,9 @@ var app = angular
                 controller: 'ContactCtrl',
                 templateUrl: 'views/contact/contact.html',
                 params: {
-                    "deal": null
+                    "deal": null,
+                    "isbn": null,
+                    "asin" :null
                 }
 
             })
