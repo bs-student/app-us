@@ -195,7 +195,7 @@
 
                     <uib-accordion >
 
-                        <uib-accordion-group ng-repeat="contact in deal.contacts" is-open="row.open">
+                        <uib-accordion-group ng-repeat="contact in deal.contacts track by $index" is-open="row.open">
                             <uib-accordion-heading >
 
                                 <div class="row" ng-click="getMessages(contact,row.open)">
@@ -208,7 +208,9 @@
                                         </div>
 
                                         <div class="avatar-image pull-left">
-                                            <span><img class="" data-ng-src="{{imageHostPath}}{{contact.profilePicture}}"/></span> <span class="text-white lato uppercase contact-name">{{contact.contactName}}</span>
+                                            <span><img class="" data-ng-src="{{imageHostPath}}{{contact.profilePicture}}"/></span>
+                                            <span class="text-white lato uppercase contact-name">{{contact.contactName}}</span>
+
                                         </div>
 
                                     </div>
@@ -235,31 +237,54 @@
                                 </div>
                             </uib-accordion-heading>
                             <div cg-busy="{promise:messagePromise}">
-                                <div  ng-slimscroll class="contact-messages" height="600">
-                                    <ul ng-show="contact.messages.length>0"
-                                        class="list-group no-radius no-border">
-                                        <li ng-repeat="message in contact.messages"
-                                            class="list-group-item b-{{mail.label.color}}">
+                                <div class="contact-messages" >
+                                    <ul ng-show="(deal.dealType=='sellingDeal') || (deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller')"  class="list-group no-radius no-border">
+                                        <li  class="list-group-item" style="background: #E9E9E9">
+                                            <span ng-show="deal.dealType=='sellingDeal'" >
+                                                <span ng-show="contact.buyerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{contact.buyerEmail}}</span>
+                                                <span ng-show="contact.buyerHomePhone!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerHomePhone}}</span>
+                                                <span ng-show="contact.buyerCellPhone!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerCellPhone}}</span>
+                                            </span>
 
-                                            <div class="media">
-
-                                                <div class="pull-left"><img class="small-avatar-image" data-ng-src="{{imageHostPath}}{{message.senderProfilePicture}}"/></div>
-                                                <div>
-                                                    <text class="lato orange-text">{{message.sender}}</text><br/>
-                                                    <text class="margin-left-20 lato italic">{{message.messageBody}}</text>
-                                                </div>
-
-                                                <div class="message-date pull-right">
-
-                                                    <text class="lato italic">{{message.messageDateTime}}</text>
-                                                </div>
-
-
-                                            </div>
-
+                                            <span ng-show="deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller'">
+                                                <span ng-show="deal.sellerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{deal.sellerEmail}}</span>
+                                                <span ng-show="deal.sellerHomeNumber!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerHomeNumber}}</span>
+                                                <span ng-show="deal.sellerCellNumber!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerCellNumber}}</span>
+                                            </span>
 
                                         </li>
-                                        <li class="list-group-item">
+                                    </ul>
+                                    <div ng-slimscroll height="440" class="contact-messages" >
+                                        <ul ng-show="contact.messages.length>0"
+                                            class="list-group no-radius no-border">
+
+                                            <li ng-repeat="message in contact.messages"
+                                                class="list-group-item b-{{mail.label.color}}">
+
+                                                <div class="media">
+
+                                                    <div class="pull-left"><img class="small-avatar-image" data-ng-src="{{imageHostPath}}{{message.senderProfilePicture}}"/></div>
+                                                    <div>
+                                                        <text class="lato orange-text">{{message.sender}}</text><br/>
+                                                        <text class="margin-left-20 lato italic">{{message.messageBody}}</text>
+                                                    </div>
+
+                                                    <div class="message-date pull-right">
+
+                                                        <text class="lato italic">{{message.messageDateTime}}</text>
+                                                    </div>
+
+
+                                                </div>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <ul class="list-group no-radius no-border">
+                                        <li class="list-group-item"  style="background: #E9E9E9">
                                             <form name="sendMessageForm" submit-validate
                                                   ng-submit="sendMessage(sendMessageForm.$valid,contact)"
                                                   role="form" novalidate>
@@ -298,136 +323,6 @@
 </div>
 
 
-<!--
-<div class="container clearfix">
-
-    <div class="row">
-
-
-
-        <div cg-busy="{promise:getDealsPromise}" class="col-sm-12 blog-posts contact-us-form-div">
-
-            <div class="contact-page-left-side">
-
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <h3 class="text-center lato">TextBook Deals</h3>
-
-                        <div class="faq-topics-div">
-
-
-                            <ul class="tabs-menu message-board-tabs-menu">
-
-                                <li ng-class="{true:'active'}[deal.active]" data-ng-repeat="deal in bookDeals">
-                                    <a href="" ng-click="active(deal)">
-                                        <dl class="dl-horizontal">
-                                            <dt><img class="" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/>
-                                            </dt>
-                                            <dd>{{deal.bookTitle}} <span ng-show="deal.newMessages>0" class="badge">{{deal.newMessages}}</span><br/>
-                                                ISBN: {{deal.bookIsbn}}
-                                            </dd>
-                                        </dl>
-
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <h3 class="text-center lato">Contacts</h3>
-
-                        <div class="tab-content">
-                            <div class="faq-all-questions">
-
-                                <div ng-show="deal.active" data-ng-repeat="deal in bookDeals">
-
-
-                                    <ul class="list-group no-radius no-border" id="mails-list">
-                                        <li ng-repeat="contact in deal.contacts"
-                                            class="list-group-item b-{{mail.label.color}}">
-
-                                            <div class="media">
-
-                                                <div class="media-body">
-                                                    <div class="media-heading m-0">
-                                                        <a href="" ng-click="getMessages(contact)" class="mr-5">{{contact.contactName}}
-                                                            <span ng-show="contact.newMessages>0" class="badge">{{contact.newMessages}}</span></a>
-
-                                                            <span class="pull-right text-sm text-muted">
-                                                              <span class="hidden-xs">{{contact.contactDateTimeFormatted}}</span>
-
-                                                            </span>
-                                                    </div>
-                                                    <small>{{contact.contactEmail}}</small>
-                                                </div>
-                                            </div>
-
-
-                                            <ul ng-show="contact.messages.length>0"
-                                                class="list-group no-radius no-border">
-                                                <li ng-repeat="message in contact.messages"
-                                                    class="list-group-item b-{{mail.label.color}}">
-
-                                                    <div class="media">
-
-                                                        <div class="media-body">
-                                                            <div class="media-heading m-0">
-                                                                <text class="blue-text">{{message.sender}}</text>
-                                                                : {{message.messageBody}}
-            <span class="pull-right text-sm text-muted">
-              <span class="hidden-xs">{{message.messageDateTime}}</span>
-
-            </span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
-
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <form name="sendMessageForm" submit-validate
-                                                          ng-submit="sendMessage(sendMessageForm.$valid,contact)"
-                                                          role="form" novalidate>
-                                                        <input ng-model="contact.message" name="message"
-                                                               type="text"/>
-                                                        <input type="submit" value="Send"/>
-                                                    </form>
-
-                                                </li>
-                                            </ul>
-
-
-                                        </li>
-                                    </ul>
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-</div>
--->
 
 
 </div>

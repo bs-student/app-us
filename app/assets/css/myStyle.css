@@ -3334,6 +3334,17 @@ a.share-my-sell-page-url{
 /*.background-orange{
     background: #FF530E;
 }*/
+i.contact-details-circle{
+    border: 1px solid #0072AE;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 4px 5px;
+    background: #0072AE;
+    color: #FFFFFF;
+    margin-top: 4px;
+}
+
 .checkbox-custom-alt.checkbox-white input:checked + i{
     border-color: #FFF;
     color: #FFF;

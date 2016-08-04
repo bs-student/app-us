@@ -23,7 +23,10 @@
 
             //for Message
             getAllActivatedSellingAndContactedBookOfUser:_getAllActivatedSellingAndContactedBookOfUser,
-            addBookDealAsStarred:_addBookDealAsStarred
+            addBookDealAsStarred:_addBookDealAsStarred,
+
+            //for Contacts
+            getAllDataForNewContactInMessageBoard:_getAllDataForNewContactInMessageBoard
         };
 
 
@@ -77,6 +80,10 @@
 
         function _addBookDealAsStarred(data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.ADD_BOOK_DEAL_TO_STAR_LIST+"?access_token="+data.accessToken,data);
+        }
+
+        function _getAllDataForNewContactInMessageBoard(data){
+            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_ALL_DATA_FOR_NEW_CONTACT_IN_MESSAGE_BOARD+"?access_token="+data.accessToken,data);
         }
 
 

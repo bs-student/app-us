@@ -50,6 +50,26 @@
 
         });
 
+        //Listen for getting contact notification
+        eventService.on("getNewContacts",function(data,username){
+
+            var ref = firebase.database().ref("/users/"+username+"/contacts");
+
+            $scope.notificationList = $firebaseArray(ref);
+            $scope.notificationList.$watch(function(event) {
+                var record = $scope.notificationList.$getRecord(event.key);
+                if(record!=null){
+                    bookDealService.getAllDataForNewContactInMessageBoard({accessToken:identityService.getAccessToken(),contactId:record.contactId}).then(function(response){
+                        addNewContactIntoBookDeal(response.data.success.successData[0]);
+                    }).catch(function(data){
+                            console.log(data);
+                        });
+
+                }
+            });
+
+        });
+
 
         function init(){
             ($scope.getDealsPromise = bookDealService.getAllActivatedSellingAndContactedBookOfUser(identityService.getAccessToken())).then(function(response){
@@ -59,6 +79,7 @@
                 $scope.totalSearchResults = response.data.success.successData.length;
                 $scope.bookDeals[0].active=true;
                 checkForNewMessage();
+                eventService.trigger("getNewContacts",identityService.getAuthorizedUserData().username);
 
             }).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {
@@ -355,6 +376,37 @@
                     }
 
                 });
+            }
+
+        }
+
+
+        function addNewContactIntoBookDeal(deal){
+
+            var found=false;
+            for(var i=0;i<$scope.totalBookDeals.length;i++){
+                if(deal.bookDealId==$scope.totalBookDeals[i].bookDealId){
+                    found=true;
+                    $scope.totalBookDeals[i].contacts = deal.contacts;
+                    break;
+                }
+
+            }
+            if(!found){
+                $scope.totalBookDeals.unshift(deal);
+            }
+
+            found=false;
+            for(var i=0;i<$scope.bookDeals.length;i++){
+                if(deal.bookDealId==$scope.bookDeals[i].bookDealId){
+                    found=true;
+                    $scope.bookDeals[i].contacts = deal.contacts;
+                    break;
+                }
+
+            }
+            if(!found){
+                $scope.bookDeals.unshift(deal);
             }
 
         }
