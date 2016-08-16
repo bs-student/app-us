@@ -18,7 +18,8 @@
 //            updateFullName:_updateFullName,
 //            updateUserUniversityCampus:_updateUserUniversityCampus,
             updateUserProfile: _updateUserProfile,
-            changePassword: _changePassword
+            changePassword: _changePassword,
+            updateUserEmailNotificationStatus : _updateUserEmailNotificationStatus
         };
 
         function _getAuthorizedUserShortData(accessToken){
@@ -59,6 +60,10 @@
 
         function _changePassword(data){
             return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.CHANGE_PASSWORD,data);
+        }
+
+        function _updateUserEmailNotificationStatus(data){
+            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_USER_EMAIL_NOTIFICATION_STATUS+"?access_token="+data.accessToken,data);
         }
 
 

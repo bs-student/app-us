@@ -3349,6 +3349,15 @@ i.contact-details-circle{
     border-color: #FFF;
     color: #FFF;
 }
+
+.checkbox-custom-alt.checkbox-black input + i{
+    border-color: #444;
+    color: #444;
+}
+.checkbox-custom-alt.checkbox-black input:checked + i{
+    border-color: #444;
+    color: #444;
+}
 .message-board-textbook-deal-item .price-text{
     padding-top: 7px;
 }

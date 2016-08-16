@@ -91,6 +91,15 @@
                 <text class="lato px-18">Email :&nbsp;&nbsp;&nbsp;</text>
                 <text class="blue-text lato px-18">{{user.email}}</text>
                 <br/>
+                <text class="lato px-18">Email Notification:&nbsp;&nbsp;&nbsp;</text>
+                <text class="all-checkbox-text">
+
+                    <label  class="checkbox checkbox-custom-alt checkbox-black">
+                        <input ng-change="changeEmailNotification(emailNotification)" type="checkbox" name="emailNotification" id="emailNotification" ng-model="emailNotification"><i></i>
+                    </label>
+                </text>
+                <text class="lato px-18">( Turned {{user.emailNotification}} )</text>
+                <br/>
                 <text ng-show="updatingProfile" class="lato px-18">University :&nbsp;&nbsp;&nbsp;</text>
                 <text ng-show="updatingProfile" class="blue-text lato px-18">{{user.universityName}}, {{user.campusName}},
                     {{user.stateShortName}}({{user.stateName}}), {{user.countryName}}

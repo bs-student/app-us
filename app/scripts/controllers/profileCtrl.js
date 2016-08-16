@@ -19,6 +19,7 @@
         $scope.editProfile = _editProfile;
         $scope.cancelEditProfile = _cancelEditProfile;
         $scope.updateProfile = _updateProfile;
+        $scope.changeEmailNotification=_changeEmailNotification;
 
         $scope.querySearch = _querySearch;
         $scope.onCampusSelect = _onCampusSelect;
@@ -41,7 +42,11 @@
 
             ($scope.profilePromise = userService.getAuthorizedUserFullData(identityService.getAccessToken())).then(function (response) {
                 $scope.user = response.data.success.successData;
-
+                if($scope.user.emailNotification=="On"){
+                    $scope.emailNotification=true;
+                }else{
+                    $scope.emailNotification=false;
+                }
 
 
             }).catch(function (response) {
@@ -186,6 +191,39 @@
                     }
                 });
             }
+        }
+
+        function _changeEmailNotification(emailNotification){
+
+            var data=
+            {
+                "emailNotification":emailNotification?"On":"Off",
+                "accessToken":identityService.getAccessToken()
+            };
+
+            $scope.profilePromise =  userService.updateUserEmailNotificationStatus(data).then(function (response) {
+
+                $scope.emailNotification = emailNotification;
+                $scope.user.emailNotification= response.data.success.successData.emailNotification;
+                responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
+
+
+            }).catch(function (response) {
+                if (response.data.error_description == "The access token provided is invalid.") {
+                    $scope.emailNotification = !emailNotification;
+                } else if (response.data.error_description == "The access token provided has expired.") {
+                    ($scope.profilePromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        _changeEmailNotification(emailNotification);
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                    $scope.emailNotification = !emailNotification;
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                    $scope.emailNotification = !emailNotification;
+                }
+            });
         }
 
 

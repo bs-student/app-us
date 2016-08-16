@@ -33,7 +33,8 @@
 //            "UPDATE_USER_UNIVERSITY_CAMPUS": "/api/update_user_university_campus",
             "CHANGE_PASSWORD": "/profile/change-password",
             "ADMIN_ALL_USER_DATA" :"/api/admin/all_users",
-            "UPDATE_PROFILE" : "/api/update_user_profile"
+            "UPDATE_PROFILE" : "/api/update_user_profile",
+            "UPDATE_USER_EMAIL_NOTIFICATION_STATUS": "/api/update_user_email_notification_status"
         })
         .constant("ADMIN_CONSTANT", {
             "GET_ALL_NON_APPROVED_USER": "/api/admin/get_all_non_approved_user",
