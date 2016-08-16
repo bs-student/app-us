@@ -226,7 +226,7 @@
                                                 <img class="book-image" data-ng-src="{{imageHostPath}}{{deal.bookImage}}"/>
                                             </div>
                                             <div class="pull-right book-title-and-isbn">
-                                                <text uib-tooltip="{{deal.bookTitle}}" class="white-text lato uppercase">{{deal.bookTitle | limitTo:25}}<text  ng-show="deal.bookTitle.length>25">...</text></text><br/>
+                                                <text uib-tooltip="{{deal.bookTitle}}" class="white-text lato uppercase">{{deal.bookTitle | limitTo:20}}<text  ng-show="deal.bookTitle.length>25">...</text></text><br/>
 
                                                 <text class="white-text">ISBN:</text> <text class="white-text ">{{deal.bookIsbn}}</text><br/>
                                             </div>
