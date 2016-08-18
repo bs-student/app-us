@@ -301,7 +301,7 @@
                     contactId:contact.contactId
                 };
 
-                ($scope.messagePromise = contactService.sendMessagesWithoutMailing(data)).then(function(response){
+                ($scope.messagePromise = contactService.sendMessages(data)).then(function(response){
                     contact.messages.push(response.data.success.successData);
 
                     //Adding Realtime Database
