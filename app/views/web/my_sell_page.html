@@ -205,10 +205,33 @@
 
                                 <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
                                 <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-                                <p ng-if="deal.bookContactMethod!=='student2studentBoard'">
+
+
+
+
+                                <!--<p ng-if="deal.bookContactMethod!=='student2studentBoard'">
                                     <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
                                     <text><strong>{{deal.sellerEmail}}</strong></text>
+                                    <br/></p>-->
+
+                                <p ng-if="deal.bookContactMethod=='buyerToSeller'">
+                                    <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
+                                    <text><strong>{{deal.sellerEmail}}</strong></text>
+                                    <br/>
+                                </p>
+
+                                <p ng-if="deal.bookContactMethod=='buyerToSeller'">
+                                    <text class="icons"><i class="fa fa-phone 2x"></i></text>
+                                    <text ng-show="deal.sellerCellNumber!=null"><strong>{{deal.sellerCellNumber}}</strong></text>
+                                    <text ng-show="deal.sellerCellNumber==null"><strong>Not Provided by Seller</strong></text>
                                     <br/></p>
+                                <p ng-if="deal.bookContactMethod=='buyerToSeller'">
+                                    <text class="icons"><i class="fa fa-phone 2x"></i></text>
+                                    <text ng-show="deal.sellerHomeNumber!=null"><strong>{{deal.sellerHomeNumber}}</strong></text>
+                                    <text ng-show="deal.sellerHomeNumber==null"><strong>Not Provided by Seller</strong></text>
+                                    <br/></p>
+
+
                                 <p>
                                     <text class="blue-text"><strong>Comment</strong></text>
                                     <text ng-show="deal.bookComment!=undefined" class="grey-text"> : {{deal.bookComment}}</text>

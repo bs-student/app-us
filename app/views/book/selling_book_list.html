@@ -2,7 +2,10 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">List of books</text><text class="uppercase orange-text lato"> I am selling</text></h1>
+                <h1 class="header-title">
+                    <text class="uppercase blue-text lato">List of books</text>
+                    <text class="uppercase orange-text lato"> I am selling</text>
+                </h1>
 
             </div>
         </div>
@@ -17,114 +20,168 @@
 
 
 <!--SELLER TO BUYER-->
-<div class="selling-book-promise-div" cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
+<div class="selling-book-promise-div"
+     cg-busy="{promise:sellingBookPromise,templateUrl:'views/template/search_result_loading_template.html'}">
 
 <div class="section m-0 pt-0 archive-page-sections" ng-show="!resultFound">
     <div class="container clearfix quote-container-homepage">
         <div class="row">
             <div class="col-md-12 text-center">
-                <p class="lato px-25 orange-text">You are not selling any textbooks so far. You can start selling your textbooks within seconds <a ui-sref="app.sellBook">here</a></p>
+                <p class="lato px-25 orange-text">You are not selling any textbooks so far. You can start selling your
+                    textbooks within seconds <a ui-sref="app.sellBook">here</a></p>
             </div>
         </div>
     </div>
 </div>
 
-<div  class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
-    <div class="container clearfix quote-container-homepage">
-        <div class="row">
+<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals">
+<div class="container clearfix quote-container-homepage">
+<div class="row">
 
-            <div class="col-md-3">
-                <div class="search-book-image-carousel selling-book-image-carousel">
-                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+    <div class="col-md-3">
+        <div class="search-book-image-carousel selling-book-image-carousel">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
-                        <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
-                            <img  ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
-                                  class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
+                <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
+                    <img ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
+                         class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
 
-                        </uib-slide>
-                    </uib-carousel>
-                    <div class="btn-group" ng-show="deal.showThumb">
-                        <div class="text-center">
-                            <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
+                </uib-slide>
+            </uib-carousel>
+            <div class="btn-group" ng-show="deal.showThumb">
+                <div class="text-center">
+                    <span><a class="thumb-control-left" ng-click="prevPage(deal)"><i class="fa fa-angle-left fa-3x"></i></a></span>
 
                                     <span class="search-thumb-image"
                                           ng-repeat="thumb in deal.showThumbnails"
                                           ng-class="{true:'active',false:'not-active'}[thumb.active]">
-                                        <img ng-src="{{imageHostPath}}{{thumb.image}}" ng-click="setActive(deal,thumb.imageId)"/>
+                                        <img ng-src="{{imageHostPath}}{{thumb.image}}"
+                                             ng-click="setActive(deal,thumb.imageId)"/>
                                     </span>
 
                         <span><a class="thumb-control-right" ng-click="nextPage(deal)"><i
                                 class="fa fa-angle-right fa-3x"></i></a></span>
-                        </div>
-
-                    </div>
                 </div>
+
             </div>
+        </div>
+    </div>
 
+    <div class="col-md-9">
+        <div class="row">
             <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="archive-page-headers">
-                            <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
-                            <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
-                            <p class="book-description grey-text">By <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text> :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
-                                <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text> &nbsp;&nbsp;&nbsp;&nbsp;ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text></p>
-                        </div>
-                        <div class="archive-page-deal-information">
-                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                                <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn">View More Information <span ng-show="deal.newContacts>0" class="badge">{{deal.newContacts}}</span></button>
-                            </div>
-                            <div ng-show="deal.viewMoreInfo">
-                                <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
-                                <div class="deal-information-box">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <p><text class="blue-text"><strong>Contact Method</strong></text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You (Seller) Contact Buyer</text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer Contact You (Seller)</text>
-                                                <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'"> : Use Student2Student Message Board</text>
-                                                <br/>
-                                            </p>
+                <div class="archive-page-headers">
+                    <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
+                    <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
 
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactHomeNumber}}</strong></text><br/></p>-->
-                                            <!--<p><text class="icons"><i class="fa fa-phone 2x"></i></text> <text> <strong>{{deal.bookContactCellNumber}}</strong></text><br/></p>-->
-                                            <p><text class="icons"><i class="fa fa-envelope-o 2x"></i></text> <text> <strong>{{deal.sellerEmail}}</strong></text><br/></p>
-                                            <p><text class="blue-text"><strong>Comment</strong></text>
-                                                <text ng-show="deal.bookComment!=undefined" class="grey-text"> : {{deal.bookComment}}</text>
-                                                <text ng-show="deal.bookComment==undefined" class="grey-text"> : No Comments</text>
-                                                <br/></p>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <p><text class="blue-text"><strong>Payment</strong></text> <text class="grey-text"> :
+                    <p class="book-description grey-text">By
+                        <text class="blue-text">{{deal.bookDirectorAuthorArtist}}</text>
+                        :: Published by {{deal.bookPublisher}} {{deal.bookPublishDate}} :: ({{deal.bookBinding}})
+                        <br/>ISBN:
+                        <text class="blue-text">{{deal.bookIsbn}}</text>
+                        &nbsp;&nbsp;&nbsp;&nbsp;ISBN-13:
+                        <text class="blue-text">{{deal.bookIsbn13}}</text>
+                    </p>
+                </div>
+                <div class="archive-page-deal-information">
+                    <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                        <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn">
+                            View More Information <span ng-show="deal.newContacts>0"
+                                                        class="badge">{{deal.newContacts}}</span></button>
+                    </div>
+                    <div ng-show="deal.viewMoreInfo">
+                        <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
+                        <div class="deal-information-box">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <p>
+                                        <text class="blue-text"><strong>Contact Method</strong></text>
+                                        <text class="grey-text" ng-if="deal.bookContactMethod=='sellerToBuyer'"> : You
+                                            (Seller) Contact Buyer
+                                        </text>
+                                        <text class="grey-text" ng-if="deal.bookContactMethod=='buyerToSeller'"> : Buyer
+                                            Contact You (Seller)
+                                        </text>
+                                        <text class="grey-text" ng-if="deal.bookContactMethod=='student2studentBoard'">
+                                            : Use Student2Student Message Board
+                                        </text>
+                                        <br/>
+                                    </p>
 
-                                                <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
-                                                    Cash
-                                                </text>
-                                                <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                    Cheque
-                                                </text>
-                                                <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
-                                                    Cash, Cheque
-                                                </text>
 
-                                            </text><br/></p>
-                                            <p><text class="blue-text"><strong>Available Date</strong></text> <text class="grey-text"> : {{deal.bookAvailableDate}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Available To Public</strong></text> <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Textbook Has Notes</strong></text> <text class="grey-text"> : {{deal.bookHasNotes}}</text><br/></p>
-                                            <p><text class="blue-text"><strong>Textbook Is Highlighted</strong></text> <text class="grey-text"> : {{deal.bookIsHighlighted}}</text><br/></p>
-                                        </div>
-                                    </div>
+                                    <p ng-if="deal.bookContactMethod!='student2studentBoard'">
+                                        <text class="icons"><i class="fa fa-envelope-o 2x"></i></text>
+                                        <text><strong>{{deal.sellerEmail}}</strong></text>
+                                        <br/>
+                                    </p>
 
+                                    <p ng-if="deal.bookContactMethod=='buyerToSeller'">
+                                        <text class="icons"><i class="fa fa-phone 2x"></i></text>
+                                        <text ng-show="deal.sellerCellNumber!=null"><strong>{{deal.sellerCellNumber}}</strong></text>
+                                        <text ng-show="deal.sellerCellNumber==null"><strong>Not Provided by Seller</strong></text>
+                                        <br/></p>
+                                    <p ng-if="deal.bookContactMethod=='buyerToSeller'">
+                                        <text class="icons"><i class="fa fa-phone 2x"></i></text>
+                                        <text ng-show="deal.sellerHomeNumber!=null"><strong>{{deal.sellerHomeNumber}}</strong></text>
+                                        <text ng-show="deal.sellerHomeNumber==null"><strong>Not Provided by Seller</strong></text>
+                                        <br/></p>
+
+                                    <p>
+                                        <text class="blue-text"><strong>Comment</strong></text>
+                                        <text ng-show="deal.bookComment!=undefined" class="grey-text"> :
+                                            {{deal.bookComment}}
+                                        </text>
+                                        <text ng-show="deal.bookComment==undefined" class="grey-text"> : No Comments
+                                        </text>
+                                        <br/></p>
+                                </div>
+                                <div class="col-md-5">
+                                    <p>
+                                        <text class="blue-text"><strong>Payment</strong></text>
+                                        <text class="grey-text"> :
+
+                                            <text ng-show="deal.bookPaymentMethodCaShOnExchange && !deal.bookPaymentMethodCheque">
+                                                Cash
+                                            </text>
+                                            <text ng-show="!deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                                Cheque
+                                            </text>
+                                            <text ng-show="deal.bookPaymentMethodCaShOnExchange && deal.bookPaymentMethodCheque">
+                                                Cash, Cheque
+                                            </text>
+
+                                        </text>
+                                        <br/></p>
+                                    <p>
+                                        <text class="blue-text"><strong>Available Date</strong></text>
+                                        <text class="grey-text"> : {{deal.bookAvailableDate}}</text>
+                                        <br/></p>
+                                    <p>
+                                        <text class="blue-text"><strong>Available To Public</strong></text>
+                                        <text class="grey-text"> : {{deal.bookIsAvailablePublic}}</text>
+                                        <br/></p>
+                                    <p>
+                                        <text class="blue-text"><strong>Textbook Has Notes</strong></text>
+                                        <text class="grey-text"> : {{deal.bookHasNotes}}</text>
+                                        <br/></p>
+                                    <p>
+                                        <text class="blue-text"><strong>Textbook Is Highlighted</strong></text>
+                                        <text class="grey-text"> : {{deal.bookIsHighlighted}}</text>
+                                        <br/></p>
                                 </div>
                             </div>
 
-
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="archive-page-side">
-                            <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-                            <div class="share-images">
+
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="archive-page-side">
+                    <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
+
+                    <div class="share-images">
                                 <span class="dropdown" uib-dropdown on-toggle="toggled(open)">
                                   <a href class="dropdown-toggle" uib-dropdown-toggle>
                                       <span><img src="./dist/images/archive_pages/share.png"/></span>
@@ -146,7 +203,7 @@
                                       </li>
                                       <li class="divider"></li>
                                       <li>
-                                          <a href=""  socialshare
+                                          <a href="" socialshare
                                              socialshare-provider="google"
                                              socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
                                              socialshare-url="{{shareUrl}}"><i class="fa fa-google-plus fa-2x"></i></a>
@@ -156,7 +213,8 @@
                                 <span><a href="" socialshare
                                          socialshare-provider="skype"
                                          socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
-                                         socialshare-url="{{shareUrl}}"><img src="./dist/images/archive_pages/skype.png"/></a></span>
+                                         socialshare-url="{{shareUrl}}"><img
+                                        src="./dist/images/archive_pages/skype.png"/></a></span>
                                 <span><a href="" socialshare
                                          socialshare-provider="facebook"
                                          socialshare-text="My Sell Page|Student2Student.com|Textbook Exchange made Easy"
@@ -164,139 +222,190 @@
                                          socialshare-url="{{shareUrl}}">
                                     <img src="./dist/images/archive_pages/fb.png"/></a></span>
 
-                            </div>
-                            <div class="buttons">
-                                <a ui-sref="app.editBookDeal({book:deal})"  class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</a>
-
-                                <button ng-show="deal.bookStatus=='Activated'" data-options="splash-2 splash-primary splash-ef-2"
-                                        ng-click="showBookDealChangeStatusModal($event,'deactivateModalContent',{deal:deal})" class="myBtn app-btn orange-btn">
-                                    <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
-
-                                <button ng-show="deal.bookStatus=='Deactivated'" data-options="splash-2 splash-primary splash-ef-2"
-                                        ng-click="showBookDealChangeStatusModal($event,'activateModalContent',{deal:deal})" class="myBtn app-btn orange-btn">
-                                    <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Activate</button>
-
-
-                                <button data-options="splash-2 splash-primary splash-ef-2"
-                                        ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
-                                        class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
-                            </div>
-                            <div class="view-and-contact">
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong></text> <text class="grey-text"> : {{deal.bookViewCount}}</text><br/></p>
-                                <p><text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong></text> <text class="grey-text"> : {{deal.contacts.length}}</text><br/></p>
-                            </div>
-
-                        </div>
                     </div>
-                </div>
+                    <div class="buttons">
+                        <a ui-sref="app.editBookDeal({book:deal})" class="myBtn app-btn orange-btn"><img
+                                src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</a>
+
+                        <button ng-show="deal.bookStatus=='Activated'"
+                                data-options="splash-2 splash-primary splash-ef-2"
+                                ng-click="showBookDealChangeStatusModal($event,'deactivateModalContent',{deal:deal})"
+                                class="myBtn app-btn orange-btn">
+                            <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate
+                        </button>
+
+                        <button ng-show="deal.bookStatus=='Deactivated'"
+                                data-options="splash-2 splash-primary splash-ef-2"
+                                ng-click="showBookDealChangeStatusModal($event,'activateModalContent',{deal:deal})"
+                                class="myBtn app-btn orange-btn">
+                            <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Activate
+                        </button>
 
 
-
-
-            </div>
-
-
-        </div>
-        <div class="row" ng-show="deal.viewMoreInfo">
-            <div class="col-md-12">
-
-                <div ng-show="deal.bookStatus=='Deactivated'" class="alert alert-danger">
-                    Textbook Deal is currently <strong>Deactivated!</strong> Activate it in order for Students to see it again.
-                </div>
-
-                <div class="archive-page-contact-history">
-                    <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong> You (Seller) Contact Buyer <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> Buyer Contact You (Seller) <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide information to you as the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
-                    <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='student2studentBoard'"><strong> Use Student2Student Message Board <text uib-tooltip="You can chat with the buyer on Student2Student Message Board." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
-                    <div class="contact-history-box">
-                        <table cg-busy="{promise:messagePromise}" class="table contact-history-table">
-                            <thead>
-                            <tr>
-                                <th style="width: 13%;">Date</th>
-                                <th style="width: 13%;">Nickname</th>
-                                <th ng-show="deal.bookContactMethod!=='student2studentBoard'" style="width: 15%;">Email</th>
-                                <th style="width: 13%;">CellPhone</th>
-                                <th style="width: 13%;">HomePhone</th>
-                                <th style="width: 33%;">Action</th>
-                            </tr>
-                            </thead>
-
-                            <tbody ng-show="deal.contacts.length==0">
-                            <tr>
-                                <td colspan="6">You have no contact history yet.</td>
-                            </tr>
-                            </tbody>
-
-                            <tbody data-ng-repeat="contact in deal.contacts">
-                            <tr>
-                                <td>{{contact.contactDateTime}}</td>
-                                <td>{{contact.buyerNickName}}</td>
-                                <td  ng-show="deal.bookContactMethod!=='student2studentBoard'">{{contact.buyerEmail}}</td>
-                                <td>{{contact.buyerCellPhone}}</td>
-                                <td>{{contact.buyerHomePhone}}</td>
-                                <td>
-                                    <text ng-show="!contact.showingMessages"><button  ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn"><i class="fa fa-envelope-o"></i> Messages</button><br/></text>
-                                    <text ng-show="contact.showingMessages"><button  ng-click="contact.showingMessages=false" class="myBtn app-btn green-btn contact-btn"><i class="fa fa-envelope-o"></i> Messages</button><br/></text>
-                                    <button  ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true" class="myBtn app-btn  orange-btn contact-btn"><i class="fa fa-paper-plane"></i> Send Messages</button><br/>
-                                    <button data-options="splash-2 splash-primary splash-ef-2" class="myBtn app-btn orange-btn contact-btn"
-                                            ng-click="showMarkAsSoldModal($event,'sellingModalContent',{deal:deal,contact:contact,allDeals:campusBookDeals.buyerToSeller})"><i class="fa fa-check"></i> Sold to {{contact.buyerNickName}}</button>
-                                </td>
-                            </tr>
-
-
-                            <tr ng-show="contact.showingMessages" class="message-header-tr">
-                                <th>Date</th>
-                                <th>Nickname</th>
-                                <th colspan="4">Message</th>
-                            </tr>
-
-                            <tr ng-show="contact.showingMessages" class="message-header-tr" data-ng-repeat="message in contact.messages">
-                                <td class="italic">{{message.messageDateTime}}</td>
-                                <td class="italic">{{message.sender}}</td>
-                                <td colspan="4" class="italic">{{message.messageBody}}</td>
-                            </tr>
-
-                            <tr ng-show="contact.sendingMessages">
-
-                                <td colspan="6" ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
-
-                                    <form  name="messageForm" class="form-horizontal" submit-validate ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
-
-
-
-                                        <textarea name="message" class="form-control" placeholder="Write Your Message" ng-model="contact.message" required></textarea>
-
-                                        <p class="help-block">
-                                            <span  ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
-                                        </p>
-
-
-
-                                        <button type="submit" class="myBtn app-btn orange-btn contact-btn"><i class="fa fa-paper-plane"></i> SEND</button>
-                                        <button type="button" ng-click="contact.sendingMessages=false" class="myBtn app-btn orange-btn contact-btn"><i class="fa fa-times"></i> Cancel</button>
-
-                                    </form>
-
-                                </td>
-                            </tr>
-
-                            </tbody>
-
-
-
-                        </table>
-
+                        <button data-options="splash-2 splash-primary splash-ef-2"
+                                ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
+                                class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp;
+                            Delete
+                        </button>
                     </div>
-                </div>
-                <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>
+                    <div class="view-and-contact">
+                        <p>
+                            <text class="blue-text"><img src="./dist/images/archive_pages/view.png"/>
+                                &nbsp;&nbsp;<strong>Views</strong></text>
+                            <text class="grey-text"> : {{deal.bookViewCount}}</text>
+                            <br/></p>
+                        <p>
+                            <text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
+                            </text>
+                            <text class="grey-text"> : {{deal.contacts.length}}</text>
+                            <br/></p>
+                    </div>
 
+                </div>
             </div>
         </div>
-
 
 
     </div>
+
+
+</div>
+<div class="row" ng-show="deal.viewMoreInfo">
+    <div class="col-md-12">
+
+        <div ng-show="deal.bookStatus=='Deactivated'" class="alert alert-danger">
+            Textbook Deal is currently <strong>Deactivated!</strong> Activate it in order for Students to see it again.
+        </div>
+
+        <div class="archive-page-contact-history">
+            <text class="box-title uppercase orange-text lato"><strong>Contact history - </strong></text>
+            <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='sellerToBuyer'"><strong>
+                You (Seller) Contact Buyer
+                <text uib-tooltip="Buyer is not receiving any of your information. You as the seller have to contact the buyer"
+                      class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text>
+            </strong></text>
+            <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong>
+                Buyer Contact You (Seller)
+                <text uib-tooltip="Buyer will receive your information and will contact you. Buyer can also provide information to you as the seller."
+                      class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text>
+            </strong></text>
+            <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='student2studentBoard'">
+                <strong> Use Student2Student Message Board
+                    <text uib-tooltip="You can chat with the buyer on Student2Student Message Board."
+                          class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text>
+                </strong></text>
+            <div class="contact-history-box">
+                <table cg-busy="{promise:messagePromise}" class="table contact-history-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 13%;">Date</th>
+                        <th style="width: 13%;">Nickname</th>
+                        <th ng-show="deal.bookContactMethod!=='student2studentBoard'" style="width: 15%;">Email</th>
+                        <th style="width: 13%;">CellPhone</th>
+                        <th style="width: 13%;">HomePhone</th>
+                        <th style="width: 33%;">Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody ng-show="deal.contacts.length==0">
+                    <tr>
+                        <td colspan="6">You have no contact history yet.</td>
+                    </tr>
+                    </tbody>
+
+                    <tbody data-ng-repeat="contact in deal.contacts">
+                    <tr>
+                        <td>{{contact.contactDateTime}}</td>
+                        <td>{{contact.buyerNickName}}</td>
+                        <td ng-show="deal.bookContactMethod!=='student2studentBoard'">{{contact.buyerEmail}}</td>
+                        <td>{{contact.buyerCellPhone}}</td>
+                        <td>{{contact.buyerHomePhone}}</td>
+                        <td>
+                            <text ng-show="!contact.showingMessages">
+                                <button ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn"><i
+                                        class="fa fa-envelope-o"></i> Messages
+                                </button>
+                                <br/></text>
+                            <text ng-show="contact.showingMessages">
+                                <button ng-click="contact.showingMessages=false"
+                                        class="myBtn app-btn green-btn contact-btn"><i class="fa fa-envelope-o"></i>
+                                    Messages
+                                </button>
+                                <br/></text>
+                            <button ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true"
+                                    class="myBtn app-btn  orange-btn contact-btn"><i class="fa fa-paper-plane"></i> Send
+                                Messages
+                            </button>
+                            <br/>
+                            <button data-options="splash-2 splash-primary splash-ef-2"
+                                    class="myBtn app-btn orange-btn contact-btn"
+                                    ng-click="showMarkAsSoldModal($event,'sellingModalContent',{deal:deal,contact:contact,allDeals:campusBookDeals.buyerToSeller})">
+                                <i class="fa fa-check"></i> Sold to {{contact.buyerNickName}}
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <tr ng-show="contact.showingMessages" class="message-header-tr">
+                        <th>Date</th>
+                        <th>Nickname</th>
+                        <th colspan="4">Message</th>
+                    </tr>
+
+                    <tr ng-show="contact.showingMessages" class="message-header-tr"
+                        data-ng-repeat="message in contact.messages">
+                        <td class="italic">{{message.messageDateTime}}</td>
+                        <td class="italic">{{message.sender}}</td>
+                        <td colspan="4" class="italic">{{message.messageBody}}</td>
+                    </tr>
+
+                    <tr ng-show="contact.sendingMessages">
+
+                        <td colspan="6"
+                            ng-class="{ 'has-error' : messageForm.message.$invalid && !messageForm.message.$pristine, 'has-success' : messageForm.message.$valid && !contactForm.message.$pristine}">
+
+                            <form name="messageForm" class="form-horizontal" submit-validate
+                                  ng-submit="sendMessage(messageForm.$valid,contact)" role="form" novalidate>
+
+
+                                <textarea name="message" class="form-control" placeholder="Write Your Message"
+                                          ng-model="contact.message" required></textarea>
+
+                                <p class="help-block">
+                                    <span ng-show="messageForm.message.$invalid && !messageForm.message.$pristine">Message is required.</span>
+                                </p>
+
+
+                                <button type="submit" class="myBtn app-btn orange-btn contact-btn"><i
+                                        class="fa fa-paper-plane"></i> SEND
+                                </button>
+                                <button type="button" ng-click="contact.sendingMessages=false"
+                                        class="myBtn app-btn orange-btn contact-btn"><i class="fa fa-times"></i> Cancel
+                                </button>
+
+                            </form>
+
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+        <div>
+            <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
+                    src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+</div>
 </div>
 <!--<div class="section m-0 pt-0 archive-page-sections" data-ng-repeat="deal in campusBookDeals.buyerToSeller">
     <div class="container clearfix quote-container-homepage">
@@ -502,16 +611,7 @@
 </div>
 
 
-
-
-
-
-
-
-
 <!--BUYER TO SELLER-->
-
-
 
 
 </div>
@@ -539,18 +639,20 @@
 </script>
 
 <script type="text/ng-template" id="sellingModalContent">
-     <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
-     </div>
+    <div class="modal-header">
+        <h3 class="modal-title custom-font white-text">You want to Sell Book to "{{src.contact.buyerNickName}}"?</h3>
+    </div>
     <div class="modal-body">
 
         <p>You Sure you want to sell this book to this user ?</p>
+
         <p>Once Sold You can see the book on the Selling Archive Page</p>
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)" >
-            <i class="fa fa-check" ></i> Yes
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c"
+                ng-click="confirmModal(markUserAsBuyerOfThatDeal,src)">
+            <i class="fa fa-check"></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
                 class="fa fa-times"></i> No
@@ -565,13 +667,14 @@
     </div>
     <div class="modal-body">
 
-        <p>Are you sure you want to deactivate the Textbook deal "{{src.deal.bookTitle}}"? No student will be able to see the deal anymore.</p>
+        <p>Are you sure you want to deactivate the Textbook deal "{{src.deal.bookTitle}}"? No student will be able to
+            see the deal anymore.</p>
 
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)" >
-            <i class="fa fa-check" ></i> Yes
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)">
+            <i class="fa fa-check"></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
                 class="fa fa-times"></i> No
@@ -586,13 +689,14 @@
     <div class="modal-body">
 
 
-        <p>Are you sure you want to activate the Textbook deal "{{src.deal.bookTitle}}"? Other students will be able to see the deal and inquire for the textbook.</p>
+        <p>Are you sure you want to activate the Textbook deal "{{src.deal.bookTitle}}"? Other students will be able to
+            see the deal and inquire for the textbook.</p>
 
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)" >
-            <i class="fa fa-check" ></i> Yes
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(changeBookDealStatus,src)">
+            <i class="fa fa-check"></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
                 class="fa fa-times"></i> No
@@ -607,13 +711,15 @@
     <div class="modal-body">
 
         <p>You Sure you want to Delete "{{src.deal.bookTitle}}" ?</p>
-        <p>Once deleted all the content regarding this book deal will be erased. There is no way you can retrieve the data regarding this book deal after that.</p>
+
+        <p>Once deleted all the content regarding this book deal will be erased. There is no way you can retrieve the
+            data regarding this book deal after that.</p>
 
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(deleteBookDeal,src)" >
-            <i class="fa fa-check" ></i> Yes
+        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="confirmModal(deleteBookDeal,src)">
+            <i class="fa fa-check"></i> Yes
         </button>
         <button class="btn btn-danger btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
                 class="fa fa-times"></i> No

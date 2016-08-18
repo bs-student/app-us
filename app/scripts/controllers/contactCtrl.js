@@ -57,7 +57,8 @@
                         "buyerNickName": identityService.getAuthorizedUserData().username
                     });
 
-                    $state.go("app.contactedBookList");
+                    $state.go("app.bookComparePrice",{asin:$scope.asin,isbn:$scope.isbn});
+//                    $state.go("app.contactedBookList");
 
                 }).catch(function (response) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
