@@ -41,13 +41,14 @@
 
                             <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
                                 <!--<label class="white-text" for="username">Username: </label>-->
-                                <p class="white-text" for="fullName">Username: <text uib-tooltip="Username must be minimum length of 3 characters and maximum 20 characters" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
-                                <input data-val-username type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
+                                <p class="white-text" for="fullName">Username: <text uib-tooltip="Username must be minimum length of 3 characters and maximum 20 characters. Username may contain alphanumeric values but no special characters except '-' or '_'" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
+                                <input data-val-username val-username-special-char type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
                                 <p class="help-block">
                                     <span ng-show="userForm.username.$invalid && !userForm.username.$pristine">Username is required.</span>
                                     <span ng-show="userForm.username.$error.minlength">Username is too short.</span>
                                     <span ng-show="userForm.username.$error.maxlength">Username is too long.</span>
                                     <span ng-show="userForm.username.$error.valUsername">Username Already Exist.</span>
+                                    <span ng-show="userForm.username.$error.valUsernameSpecialChar">Username should not contain special characters except '-' or '_'.</span>
                                 </p>
                             </div>
 

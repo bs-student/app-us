@@ -9,7 +9,7 @@
 
     function BookSearchCtrl($scope, bookService, identityService, imageModalService,responseService,$stateParams,$state,storageService) {
 
-
+        $("body").animate({scrollTop: $("#all-search-result").offset().top-100}, "slow");
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";

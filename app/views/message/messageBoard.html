@@ -239,24 +239,59 @@
                             </uib-accordion-heading>
                             <div cg-busy="{promise:messagePromise}">
                                 <div class="contact-messages" >
-                                    <ul ng-show="(deal.dealType=='sellingDeal') || (deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller')"  class="list-group no-radius no-border">
-                                        <li  class="list-group-item" style="background: #E9E9E9">
-                                            <span ng-show="deal.dealType=='sellingDeal'" >
+
+                                    <div ng-show="(deal.dealType=='sellingDeal') || (deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller')">
+
+                                        <ul   class="list-group no-radius no-border">
+
+
+                                            <li  class="list-group-item" style="background: #E9E9E9">
+                                                <h5 class="lato px-18 ">Contact Details</h5>
+                                                <div class="row" ng-show="deal.dealType=='sellingDeal'">
+                                                    <div class="col-md-4">
+                                                        <span ng-show="contact.buyerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{contact.buyerEmail}}</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span ng-show="contact.buyerHomePhone!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerHomePhone}}</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span ng-show="contact.buyerCellPhone!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerCellPhone}}</span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row"ng-show="deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller'">
+                                                    <div class="col-md-4">
+                                                        <span ng-show="deal.sellerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{deal.sellerEmail}}</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span ng-show="deal.sellerHomeNumber!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerHomeNumber}}</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <span ng-show="deal.sellerCellNumber!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerCellNumber}}</span>
+                                                    </div>
+                                                </div>
+
+
+                                           <!-- <span ng-show="deal.dealType=='sellingDeal'" >
                                                 <span ng-show="contact.buyerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{contact.buyerEmail}}</span>
                                                 <span ng-show="contact.buyerHomePhone!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerHomePhone}}</span>
                                                 <span ng-show="contact.buyerCellPhone!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{contact.buyerCellPhone}}</span>
-                                            </span>
+                                            </span>-->
 
-                                            <span ng-show="deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller'">
+                                            <!--<span ng-show="deal.dealType=='contactedDeal' && deal.bookContactMethod=='buyerToSeller'">
                                                 <span ng-show="deal.sellerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{deal.sellerEmail}}</span>
                                                 <span ng-show="deal.sellerHomeNumber!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerHomeNumber}}</span>
                                                 <span ng-show="deal.sellerCellNumber!=undefined"><br/><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerCellNumber}}</span>
-                                            </span>
+                                            </span>-->
 
-                                        </li>
-                                    </ul>
-                                    <div ng-slimscroll height="440" class="contact-messages" >
-                                        <ul ng-show="contact.messages.length>0"
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div slimscroll="{alwaysVisible: 'false',height:440,start:'bottom'}"  class="contact-messages" >
+                                        <ul  ng-show="contact.messages.length>0"
                                             class="list-group no-radius no-border">
 
                                             <li ng-repeat="message in contact.messages"

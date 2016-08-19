@@ -80,7 +80,9 @@
     "font-awesome": "~4.6.3",
     "angular-wamp": "~0.3.1",
     "angular-socialshare": "angularjs-socialshare#~2.1.12",
-    "angularfire": "~2.0.1"
+    "angularfire": "~2.0.1",
+    "ng-scroll-glue": "~2.0.10",
+    "angular-slimscroll": "~1.1.5"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

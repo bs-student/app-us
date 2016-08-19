@@ -68,7 +68,9 @@ var app = angular
         'duScroll',
         '720kb.socialshare',
         'jkuri.slimscroll',
-        'firebase'
+        'firebase',
+        'ngScrollGlue',
+        'ui.slimscroll'
     ])
     .run(['$rootScope', '$state', '$stateParams','imageStoreService' ,function ($rootScope, $state, $stateParams,imageStoreService) {
         $rootScope.$state = $state;
@@ -78,7 +80,10 @@ var app = angular
 
             event.targetScope.$watch('$viewContentLoaded', function () {
 
-                angular.element('html, body, #content').animate({ scrollTop: 0 }, 200);
+                if(toState.name!="app.bookBuy.bookSearch"){
+                    angular.element('html, body, #content').animate({ scrollTop: 0 }, 200);
+                }
+
 
                 setTimeout(function () {
                     angular.element('#wrap').css('visibility', 'visible');

@@ -45,6 +45,8 @@ var assets = {
         "bower_components/textAngular/dist/textAngularSetup.js",
         "bower_components/textAngular/dist/textAngular-sanitize.js",
         "bower_components/textAngular/dist/textAngular-rangy.min.js",
+        "bower_components/ng-scroll-glue/dist/ng-scroll-glue.js",
+        "bower_components/angular-slimscroll/angular-slimscroll.js",
 
 
         "vendor/superfish/js/superfish.js",
@@ -185,6 +187,7 @@ var assets = {
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js",
+        "app/scripts/validators/valUsernameSpecialChar.js",
 
         "app/scripts/filters/sanitizeHtml.js"
     ],

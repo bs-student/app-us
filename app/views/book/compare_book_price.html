@@ -24,7 +24,7 @@
             </div>
             <div cg-busy="{promise:campusPromise}"
                  class="col-md-3 padding-right-none padding-left-none border-right-none">
-                <div class="compare-page-top-button middle-button">
+                <div ng-class="{true:'no-deals'}[noDeals]" class="compare-page-top-button middle-button">
                     <a ng-click="contact(cheapestCampusDeal)" ng-show="$parent.loggedIn">
                         <div class="phone-icon-div"></div>
 

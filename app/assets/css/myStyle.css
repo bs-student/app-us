@@ -1342,6 +1342,8 @@ a.notification-a.message-board-a i{
     color: #BD362F;
 
 }
+
+
 /********************************************/
 /*    Concept Page (How it Works Page)      */
 /*********************************************/
@@ -1691,8 +1693,16 @@ blockquote.green-blockquote{
     background:#FF530D ;
     cursor:pointer ;
 }
+.compare-page-top-button.no-deals a{
+    border: 2px solid #a5a5a5;
 
-
+    background:#a5a5a5;
+}
+.compare-page-top-button.no-deals a:hover,.compare-page-top-button.no-deals a:active{
+    background: #a5a5a5;
+    color: #444;
+    border: 2px solid #a5a5a5;;
+}
 
 
 
@@ -1726,7 +1736,9 @@ blockquote.green-blockquote{
 .compare-page-top-button a:hover .phone-icon-div, .compare-page-top-button a:active .phone-icon-div{
     background: url("../images/compare_page/phone-icon-white.png") no-repeat center;
 }
-
+.compare-page-top-button.no-deals a:hover .phone-icon-div, .compare-page-top-button a:active .phone-icon-div{
+    background: url("../images/compare_page/phone-icon.png") no-repeat center;
+}
 .compare-page-top-button a:hover .amazon-icon-div, .compare-page-top-button a:active .amazon-icon-div{
     background: url("../images/compare_page/amazon-con-white.png") no-repeat center;
 }
@@ -2554,7 +2566,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     border-bottom-left-radius: 4px;
     /*border-bottom-right-radius: 4px;*/
     padding: 40px 30px 60px 30px;
-    min-height: 730px;
+    min-height: 739px;
     /*min-height: 730px;*/
 }
 
@@ -2792,7 +2804,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     position: absolute;
     right: -354px;
     width: 369px;
-    height: 810px;
+    height: 809px;
     border-right: 2px solid #FF530E;
     border-bottom: 2px solid #FF530E;
     border-top-right-radius: 4px;
@@ -2830,15 +2842,22 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .help-details-text-div{
     padding: 20px;
     max-height: 730px;
+    /*max-height: 100%;*/
 }
 .help-details-text-div p{
     line-height: 1.2em !important;
 }
 .help-details-div.custom-sell-page-help-details-div{
-    height: 960px;
+    /*height: 960px;*/
 }
 .help-details-div.custom-sell-page-help-details-div .help-details-text-div{
-    max-height: 955px;
+    /*max-height: 955px;*/
+}
+.padding-top-5{
+    padding-top: 5px;
+}
+.padding-top-20{
+    padding-top: 20px;
 }
 
 /********************************************/
@@ -3348,6 +3367,11 @@ i.contact-details-circle{
 .checkbox-custom-alt.checkbox-white input:checked + i{
     border-color: #FFF;
     color: #FFF;
+}
+
+.checkbox-custom.checkbox-black input + i{
+    border-color: #444;
+    color: #444;
 }
 
 .checkbox-custom-alt.checkbox-black input + i{

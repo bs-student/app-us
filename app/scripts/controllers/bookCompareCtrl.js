@@ -107,6 +107,9 @@
                     $scope.noBuyerToSeller = false;
                     $scope.noSellerToBuyer=false;
                     $scope.noStudent2studentBoard=false;
+                    $scope.noDeals = false;
+                }else{
+                    $scope.noDeals = true;
                 }
 
 

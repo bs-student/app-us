@@ -21,8 +21,8 @@
                                     type="text" class="form-control search-page-input"
                                     placeholder="Principles of Marketing By Philip Kotler...">
 
-                           <span class="input-group-btn">
-                              <button class="btn btn-default" type="submit">
+                           <span class="input-group-btn" >
+                              <button id="search-result-button" class="btn btn-default" type="submit">
                                   go
                               </button>
                            </span>
@@ -105,6 +105,8 @@
 
 
 </div>
+
+<div id="all-search-result">
 
 <section id="content" ng-show="showResult">
 
@@ -208,7 +210,7 @@
     </div>
 
 
-    <div ui-view="searchResultView" ></div>
+    <div ui-view="searchResultView" autoscroll="false" ></div>
 
 
 
@@ -234,7 +236,7 @@
 </section>
 
 
-
+</div>
 
 
 
