@@ -64,6 +64,7 @@ var assets = {
         "vendor/rs-plugin/js/jquery.themepunch.revolution.js",
         "vendor/ng-parallax-master/js/ngParallax.js",
         "vendor/filestyle/bootstrap-filestyle.min.js",
+        "vendor/jquery-simscroll/jquery.slimscroll.js",
 
         "app/assets/js/global.js"
     ],

@@ -289,13 +289,14 @@
                                         </ul>
                                     </div>
 
+                                        <div scroll-glue  ng-class="{'message_box_div_{{contact.contactId}}':true}" class="contact-messages" >
 
-                                    <div slimscroll="{alwaysVisible: 'false',height:440,start:'bottom'}"  class="contact-messages" >
-                                        <ul  ng-show="contact.messages.length>0"
+
+                                        <div  ng-show="contact.messages.length>0"
                                             class="list-group no-radius no-border">
 
-                                            <li ng-repeat="message in contact.messages"
-                                                class="list-group-item b-{{mail.label.color}}">
+                                            <div ng-repeat="message in contact.messages track by message.messageId"
+                                                 class="list-group-item b-{{mail.label.color}}">
 
                                                 <div class="media">
 
@@ -314,9 +315,9 @@
                                                 </div>
 
 
-                                            </li>
+                                            </div>
 
-                                        </ul>
+                                        </div>
                                     </div>
 
                                     <ul class="list-group no-radius no-border">

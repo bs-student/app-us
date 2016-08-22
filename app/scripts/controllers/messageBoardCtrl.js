@@ -5,9 +5,9 @@
     app
         .controller('MessageBoardCtrl', MessageBoardCtrl);
 
-    MessageBoardCtrl.$inject = ['$state','$scope','bookDealService','identityService','responseService','contactService','$firebaseArray','SERVER_CONSTANT','eventService'];
+    MessageBoardCtrl.$inject = ['$state','$scope','bookDealService','identityService','responseService','contactService','$firebaseArray','SERVER_CONSTANT','eventService','$timeout'];
 
-    function MessageBoardCtrl($state,$scope,bookDealService,identityService,responseService,contactService,$firebaseArray,SERVER_CONSTANT,eventService) {
+    function MessageBoardCtrl($state,$scope,bookDealService,identityService,responseService,contactService,$firebaseArray,SERVER_CONSTANT,eventService,$timeout) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "messageBoard";
@@ -40,7 +40,7 @@
                     if(parseInt(messageData.contactId,10)==parseInt(contact.contactId,10)){
                             if(contact.messages!=undefined){
                                 contact.messages.push(messageData);
-
+                                addSlimScroll(messageData.contactId);
                             }
                         bookDeal.newMessages+=1;
                         contact.newMessages+=1;
@@ -303,7 +303,7 @@
 
                 ($scope.messagePromise = contactService.sendMessages(data)).then(function(response){
                     contact.messages.push(response.data.success.successData);
-
+                    addSlimScroll(contact.contactId);
                     //Adding Realtime Database
                     var username = contact.contactName;
                     var ref = firebase.database().ref("/users/" + username + "/messages");
@@ -355,6 +355,7 @@
                 ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
                     contact.messages = response.data.success.successData;
 
+                    addSlimScroll(contact.contactId);
                     decreaseNewMessage(contact);
                     angular.forEach(contact.messages,function(message){
                         eventService.trigger("removeMessageNotification",{message:message,username:identityService.getAuthorizedUserData().username});
@@ -467,6 +468,18 @@
 
                 });
 
+        }
+
+        function addSlimScroll(contactId){
+            $timeout(function(){
+
+                $(".message_box_div_"+contactId).slimScroll({
+                    height: '440px',
+                    alwaysVisible:true,
+                    start:'bottom'
+                });
+
+            }, 200);
         }
 
 
