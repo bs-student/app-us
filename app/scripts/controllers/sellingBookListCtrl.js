@@ -265,7 +265,7 @@
 
             });
         }
-        function _sendMessage(valid,contact){
+        function _sendMessage(valid,contact,form){
 
 
             if(valid){
@@ -282,6 +282,8 @@
                         contact.messages.push({'messageBody':""});
                     }
                     contact.sendingMessages=false;
+                    form.message.$setPristine();
+                    contact.message="";
 
                     //Adding Realtime Database
                     var username = contact.buyerNickName;

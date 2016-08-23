@@ -216,7 +216,7 @@
 
             });
         }
-        function _sendMessage(valid,contact,deal){
+        function _sendMessage(valid,contact,deal,form){
 
             if(valid){
                 var data={
@@ -231,7 +231,8 @@
                         contact.messages.push({'messageBody':""});
                     }
                     contact.sendingMessages=false;
-
+                    form.message.$setPristine();
+                    contact.message="";
                     //Adding Realtime Database
                     var username = deal.sellerUsername;
                     var ref = firebase.database().ref("/users/" + username + "/messages");

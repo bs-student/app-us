@@ -3361,7 +3361,19 @@ i.contact-details-circle{
     padding: 4px 5px;
     background: #0072AE;
     color: #FFFFFF;
-    margin-top: 4px;
+    /*margin-top: 4px;*/
+}
+text.contact-details-circle{
+    border: 1px solid #0072AE;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    padding: 2px 6px;
+    background: #0072AE;
+    color: #FFFFFF;
+    /* margin-top: 4px; */
+    font-size: 17px;
+    line-height: 0em;
 }
 
 .checkbox-custom-alt.checkbox-white input:checked + i{
