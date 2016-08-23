@@ -1641,9 +1641,15 @@ blockquote.green-blockquote{
     border: 2px solid #FFFFFF;
 }
 
+.margin-top-quarter.last-special-div{
+    margin-top: 10px;
+}
+
 /********************************************/
 /*              Compare Page)              */
 /*********************************************/
+
+
 .app-btn.view-less-button{
     height: 34px;
     width: 34px;
@@ -1703,7 +1709,11 @@ blockquote.green-blockquote{
     color: #444;
     border: 2px solid #a5a5a5;;
 }
-
+.compare-page-top-button.alreadyAddedToWishList a{
+    background:#FF530D ;
+    color: #FFFFFF;
+    border: 2px solid #FF530D;
+}
 
 
 
@@ -1743,6 +1753,9 @@ blockquote.green-blockquote{
     background: url("../images/compare_page/amazon-con-white.png") no-repeat center;
 }
 
+.compare-page-top-button.alreadyAddedToWishList .wishlist-icon-div{
+    background: url("../images/compare_page/wishlist-icon-white.png") no-repeat center;
+}
 
 .compare-page-top-button.first-button a{
     border-top-left-radius: 2px;
@@ -1913,6 +1926,7 @@ blockquote.green-blockquote{
 
 .campus-result-table{
     margin-top: 40px;
+    margin-bottom: 12px;
 }
 
 .campus-result-table.table-striped > tbody > tr:nth-of-type(odd){
@@ -2396,7 +2410,10 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 /********************************************/
 /*         Sell Main Page                    */
 /*********************************************/
-
+.search-banner-row.sell-main-page-banner-row{
+    padding-top: 180px;
+    padding-bottom: 160px;
+}
 .sell-book-page-head-banner{
     background: url("../images/sell_book/sell_book.png") no-repeat;
     background-size: cover;
@@ -2731,9 +2748,12 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .contact-method-step-details{
     margin-top: 50px;
 }
+.contact-method-step-details .left-contact-methods{
+    border-right: 1px solid #eee;
+}
 .contact-method-step-details .right-side-form{
     padding-left: 50px;
-    border-left: 1px solid #eee;
+    /*border-left: 1px solid #eee;*/
 }.contact-method-step-details  .left-side-form{
     width: 90%;
  }

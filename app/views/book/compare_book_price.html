@@ -14,7 +14,7 @@
         <div class="row">
 
             <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-right-none">
-                <div class="compare-page-top-button first-button border-right-none">
+                <div ng-class="{true:'alreadyAddedToWishList'}[alreadyAddedToWishList]" class="compare-page-top-button first-button border-right-none">
                     <a ng-click="saveToWishList()">
                         <div class="wishlist-icon-div"></div>
 

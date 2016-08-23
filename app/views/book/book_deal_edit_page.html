@@ -299,22 +299,6 @@
                                     <hr>
                                     <div class="left-side-form margin-top-40">
                                         <label class="checkbox checkbox-custom">
-                                            <input name="contactMethod" ng-model="book.bookContactMethod" type="radio" value="student2studentBoard" required><i></i> <strong><text class="uppercase px-16">Use Student2Student Message Board</text></strong>
-                                        </label>
-
-                                        <text class="lato">
-                                            With this method, <text class="underline">neither buyer nor seller any of contact information of each other</text>. They can send message each other by only using student2student message board.
-
-                                        </text>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-md-6">
-
-                                    <div class="right-side-form" >
-                                        <label class="checkbox checkbox-custom">
                                             <input name="bookContactMethod" ng-model="book.bookContactMethod" type="radio" value="buyerToSeller" required><i></i> <strong><text class="uppercase px-16">Buyer Contact Seller</text></strong>
                                         </label>
 
@@ -372,6 +356,30 @@
                                                 <span class="text-danger"  ng-show="(book.bookContactMethod=='buyerToSeller') && !(book.contactInfoHomePhone.length || book.contactInfoCellPhone.length || book.contactInfoEmail.length)">You have to provide at least one contact information.</span>
                                             </p>
                                         </div>
+
+
+
+
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <div class="right-side-form" >
+
+                                        <label class="checkbox checkbox-custom">
+                                            <input name="contactMethod" ng-model="book.bookContactMethod" type="radio" value="student2studentBoard" required><i></i> <strong><text class="uppercase px-16">Use Student2Student Message Board Only</text></strong>
+                                        </label>
+
+                                        <text class="lato">
+
+                                            With this method, <text class="underline">neither buyer nor seller receive any of the contact information of each other.</text> They can send messages to each other by only using the Student2Student Message Board.
+
+                                        </text>
 
 
                                     </div>
@@ -707,7 +715,7 @@
                                         <h3 class="book-title orange-text lato uppercase">{{book.bookTitle}}</h3>
                                         <h4 class="book-sub-title blue-text lato">{{book.bookSubTitle}}</h4>
                                         <p class="book-description grey-text">By <text class="blue-text">{{book.bookDirectorAuthorArtist}}</text> :: Published by {{book.bookPublisher}} {{book.bookPublishDate}} :: ({{book.bookBinding}})
-                                            ISBN: <text class="blue-text">{{book.bookIsbn}}</text></p>
+                                            :: ISBN: <text class="blue-text">{{book.bookIsbn}}</text> :: <text class="grey-text ">ISBN-13: </text><text class="blue-text">{{book.bookIsbn13}}</text></p>
                                     </div>
                                 </div>
 
@@ -779,7 +787,7 @@
                                             <div class="col-md-4">
                                                 <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Student2Student Message Board</strong></text></div>
+                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Student2Student Message Board Only</strong></text></div>
                                         </div>
 
 

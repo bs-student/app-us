@@ -13,7 +13,8 @@
 
             addBookToWishList:_addBookToWishList,
             getMyWishList: _getMyWishList,
-            removeWishListItem:_removeWishListItem
+            removeWishListItem:_removeWishListItem,
+            checkIfAddedIntoWishList:_checkIfAddedIntoWishList
         }
 
 
@@ -26,6 +27,9 @@
         }
         function _removeWishListItem(data){
             return apiService.post(SERVER_CONSTANT.HOST+WISHLIST_CONSTANT.REMOVE_WISHLIST_ITEM+"?access_token="+data.accessToken,data);
+        }
+        function _checkIfAddedIntoWishList(data){
+            return apiService.post(SERVER_CONSTANT.HOST+WISHLIST_CONSTANT.CHECK_IF_ADDED_INTO_WISHLIST+"?access_token="+data.accessToken,data);
         }
 
 

@@ -50,6 +50,8 @@
             getCampusBooks();
             //Get Book Deals
             getBookDeals();
+            //Get If Wishlisted
+            getIfBookWishListed();
 
 
         }
@@ -89,6 +91,7 @@
             });
 
         }
+
         function getBookDeals(){
 
             var onCampusDealsData={
@@ -150,6 +153,35 @@
 
             });
         }
+
+        function getIfBookWishListed(){
+            var data={
+                isbn: $scope.isbn,
+                accessToken: identityService.getAccessToken()
+            };
+            $scope.wishListPromise = wishListService.checkIfAddedIntoWishList(data).then(function (response){
+                if(response.data.success.successData){
+                    $scope.alreadyAddedToWishList = true;
+                }else{
+                    $scope.alreadyAddedToWishList = false;
+                }
+
+            }).catch(function (response) {
+
+                if (response.data.error_description == "The access token provided has expired.") {
+                    $scope.wishListPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
+                        identityService.setAccessToken(response.data);
+                        getIfBookWishListed();
+                    });
+                } else if (response.data.error != undefined) {
+                    responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                } else {
+                    responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                }
+
+            });
+        }
+
         function _contact(deal){
 
             if(deal==undefined){
@@ -164,6 +196,7 @@
             if($scope.$parent.loggedIn){
                 wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.amazonBook.bookId}).then(function(response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                    $scope.alreadyAddedToWishList = !$scope.alreadyAddedToWishList;
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided has expired.") {

@@ -136,7 +136,8 @@
         .constant("WISHLIST_CONSTANT", {
             "ADD_BOOK_TO_WISH_LIST": "/api/wishlist/add_book_to_wish_list",
             "GET_MY_WISHLIST": "/api/wishlist/get_my_wishlist",
-            "REMOVE_WISHLIST_ITEM": "/api/wishlist/remove_wishlist_item"
+            "REMOVE_WISHLIST_ITEM": "/api/wishlist/remove_wishlist_item",
+            "CHECK_IF_ADDED_INTO_WISHLIST":"/api/wishlist/check_if_added_into_wishlist"
 
         })
         .constant("CONTACT_CONSTANT", {

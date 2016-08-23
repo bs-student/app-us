@@ -237,7 +237,7 @@
                         <button ng-show="deal.bookStatus=='Deactivated'"
                                 data-options="splash-2 splash-primary splash-ef-2"
                                 ng-click="showBookDealChangeStatusModal($event,'activateModalContent',{deal:deal})"
-                                class="myBtn app-btn orange-btn">
+                                class="myBtn app-btn green-btn">
                             <img src="./dist/images/archive_pages/lock.png"/> &nbsp; Activate
                         </button>
 
@@ -325,18 +325,23 @@
                                 <button ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn"><i
                                         class="fa fa-envelope-o"></i> Messages
                                 </button>
-                                <br/></text>
+                                </text>
                             <text ng-show="contact.showingMessages">
                                 <button ng-click="contact.showingMessages=false"
                                         class="myBtn app-btn green-btn contact-btn"><i class="fa fa-envelope-o"></i>
                                     Messages
                                 </button>
-                                <br/></text>
+                                </text>
+
+                            <button ng-show="contact.sendingMessages" ng-click="contact.sendingMessages=false"
+                                    class="myBtn app-btn  green-btn contact-btn"><i class="fa fa-paper-plane"></i> Send
+                                Messages
+                            </button>
                             <button ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true"
                                     class="myBtn app-btn  orange-btn contact-btn"><i class="fa fa-paper-plane"></i> Send
                                 Messages
                             </button>
-                            <br/>
+
                             <button data-options="splash-2 splash-primary splash-ef-2"
                                     class="myBtn app-btn orange-btn contact-btn"
                                     ng-click="showMarkAsSoldModal($event,'sellingModalContent',{deal:deal,contact:contact,allDeals:campusBookDeals.buyerToSeller})">
