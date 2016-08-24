@@ -35,17 +35,31 @@
         eventService.on("addNewMessage",function(data,messageData){
 
             angular.forEach($scope.bookDeals,function(bookDeal){
-                angular.forEach(bookDeal.contacts,function(contact){
 
-                    if(parseInt(messageData.contactId,10)==parseInt(contact.contactId,10)){
+                if(messageData.messageType=="BuyerToSellerMessage" && bookDeal.dealType=="sellingDeal"){
+                    angular.forEach(bookDeal.contacts,function(contact){
+                        if(parseInt(messageData.contactId,10)==parseInt(contact.contactId,10)){
                             if(contact.messages!=undefined){
                                 contact.messages.push(messageData);
                                 addSlimScroll(messageData.contactId);
                             }
-                        bookDeal.newMessages+=1;
-                        contact.newMessages+=1;
-                    }
-                });
+                            bookDeal.newMessages+=1;
+                            contact.newMessages+=1;
+                        }
+                    });
+                }else if(messageData.messageType=="SellerToBuyerMessage" && bookDeal.dealType=="contactedDeal"){
+                    angular.forEach(bookDeal.contacts,function(contact){
+                        if(parseInt(messageData.contactId,10)==parseInt(contact.contactId,10)){
+                            if(contact.messages!=undefined){
+                                contact.messages.push(messageData);
+                                addSlimScroll(messageData.contactId);
+                            }
+                            bookDeal.newMessages+=1;
+                            contact.newMessages+=1;
+                        }
+                    });
+                }
+
             });
 
         });
@@ -292,11 +306,20 @@
             return 0;
         }
 
-        function _sendMessage(valid,contact){
+        function _sendMessage(valid,contact,deal){
+
+
             if(valid){
+
+                if(deal.dealType=="contactedDeal"){
+                    var messageType = "BuyerToSellerMessage";
+                }else if(deal.dealType=="sellingDeal"){
+                    var messageType = "SellerToBuyerMessage";
+                }
 
                 var data={
                     message: contact.message,
+                    messageType:messageType,
                     accessToken:identityService.getAccessToken(),
                     contactId:contact.contactId
                 };
@@ -316,7 +339,8 @@
                         "messageDateTime": new Date().toUTCString().substr(0,new Date().toUTCString().length-7),
                         "messageId":response.data.success.successData.messageId,
                         "sender":identityService.getAuthorizedUserData().username,
-                        "senderProfilePicture":identityService.getAuthorizedUserData().profilePicture
+                        "senderProfilePicture":identityService.getAuthorizedUserData().profilePicture,
+                        "messageType":messageType
 
                     }).then(function(x){
 
@@ -344,7 +368,7 @@
 
             }
         }
-        function _getMessages(contact,open){
+        function _getMessages(contact,open,deal){
 
 
             if(!open){
@@ -356,7 +380,7 @@
                     contact.messages = response.data.success.successData;
 
                     addSlimScroll(contact.contactId);
-                    decreaseNewMessage(contact);
+                    decreaseNewMessage(contact,deal);
                     angular.forEach(contact.messages,function(message){
                         eventService.trigger("removeMessageNotification",{message:message,username:identityService.getAuthorizedUserData().username});
                     });
@@ -417,8 +441,15 @@
                 bookDeal.newMessages = 0;
 
                 angular.forEach($scope.$parent.messageNotifications,function(notification){
-                    if(parseInt(bookDeal.bookDealId,10)==parseInt(notification.bookDealId,10)){
-                        bookDeal.newMessages+=1;
+
+                    if(notification.messageType=="BuyerToSellerMessage" && bookDeal.dealType=="sellingDeal"){
+                        if(parseInt(bookDeal.bookDealId,10)==parseInt(notification.bookDealId,10)){
+                            bookDeal.newMessages+=1;
+                        }
+                    }else if(notification.messageType=="SellerToBuyerMessage" && bookDeal.dealType=="contactedDeal"){
+                        if(parseInt(bookDeal.bookDealId,10)==parseInt(notification.bookDealId,10)){
+                            bookDeal.newMessages+=1;
+                        }
                     }
 
                 });
@@ -435,38 +466,31 @@
 
             angular.forEach($scope.$parent.messageNotifications,function(notification){
                 angular.forEach($scope.bookDeals,function(bookDeal){
-                    angular.forEach(bookDeal.contacts,function(contact){
 
-                        if(parseInt(contact.contactId,10)==parseInt(notification.contactId,10)){
-                            contact.newMessages+=1;
-                        }
-                    })
+                    if(notification.messageType=="BuyerToSellerMessage" && bookDeal.dealType=="sellingDeal"){
+                        angular.forEach(bookDeal.contacts,function(contact){
+
+                            if(parseInt(contact.contactId,10)==parseInt(notification.contactId,10)){
+                                contact.newMessages+=1;
+                            }
+                        })
+                    }else if(notification.messageType=="SellerToBuyerMessage" && bookDeal.dealType=="contactedDeal"){
+                        angular.forEach(bookDeal.contacts,function(contact){
+
+                            if(parseInt(contact.contactId,10)==parseInt(notification.contactId,10)){
+                                contact.newMessages+=1;
+                            }
+                        })
+                    }
 
                 });
             });
 
         }
 
-        function decreaseNewMessage(contact){
-
-            var number=0;
-            angular.forEach($scope.$parent.messageNotifications,function(notification){
-               if(parseInt(notification.contactId,10)==parseInt(contact.contactId,10)){
-                   number++;
-               }
-            });
-
-                angular.forEach($scope.bookDeals,function(bookDeal){
-
-                    angular.forEach(bookDeal.contacts,function(dealContact){
-
-                        if(parseInt(contact.contactId,10)==parseInt(dealContact.contactId,10)){
-                            bookDeal.newMessages-=number;
-                            contact.newMessages-=number;
-                        }
-                    })
-
-                });
+        function decreaseNewMessage(contact,deal){
+            deal.newMessages -= contact.newMessages;
+            contact.newMessages = 0;
 
         }
 

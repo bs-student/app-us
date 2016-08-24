@@ -198,7 +198,7 @@
                         <uib-accordion-group ng-repeat="contact in deal.contacts track by $index" is-open="row.open">
                             <uib-accordion-heading >
 
-                                <div class="row" ng-click="getMessages(contact,row.open)">
+                                <div class="row" ng-click="getMessages(contact,row.open,deal)">
 
                                     <div class="col-md-5 no-right-padding">
                                         <div class="message-icons text-white lato pull-left">
@@ -266,11 +266,12 @@
                                                         <span ng-show="deal.sellerEmail!=undefined"><i class="contact-details-circle fa fa-envelope-o"></i> {{deal.sellerEmail}}</span>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <span ng-show="deal.sellerHomeNumber!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerHomeNumber}}</span>
+                                                        <span ng-show="deal.sellerCellNumber!=undefined"><text class="contact-details-circle">C</text> {{deal.sellerCellNumber}}</span>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <span ng-show="deal.sellerCellNumber!=undefined"><i class="contact-details-circle fa fa-phone"></i> {{deal.sellerCellNumber}}</span>
+                                                        <span ng-show="deal.sellerHomeNumber!=undefined"><text class="contact-details-circle">H</text> {{deal.sellerHomeNumber}}</span>
                                                     </div>
+
                                                 </div>
 
 
@@ -296,7 +297,7 @@
                                         <div  ng-show="contact.messages.length>0"
                                             class="list-group no-radius no-border">
 
-                                            <div ng-repeat="message in contact.messages track by message.messageId"
+                                            <div ng-repeat="message in contact.messages track by $index"
                                                  class="list-group-item b-{{mail.label.color}}">
 
                                                 <div class="media">
@@ -324,7 +325,7 @@
                                     <ul class="list-group no-radius no-border">
                                         <li class="list-group-item"  style="background: #E9E9E9">
                                             <form name="sendMessageForm" submit-validate
-                                                  ng-submit="sendMessage(sendMessageForm.$valid,contact)"
+                                                  ng-submit="sendMessage(sendMessageForm.$valid,contact,deal)"
                                                   role="form" novalidate>
                                                 <div ng-class="{ 'has-error' : sendMessageForm.message.$invalid && !sendMessageForm.message.$pristine, 'has-success' : sendMessageForm.message.$valid && !sendMessageForm.message.$pristine}">
                                                     <textarea rows="5" class="form-control" placeholder="Type your message here.." ng-model="contact.message" name="message" required
