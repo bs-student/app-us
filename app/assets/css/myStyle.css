@@ -2043,6 +2043,9 @@ blockquote.green-blockquote{
 /*              Selling Books Page          */
 /*********************************************/
 
+.no-message.all-messages-tr{
+    background: #444;
+}
 .dropdown-menu.share-ul{
     padding: 0px;
     min-width: 50px;
@@ -3404,6 +3407,7 @@ text.contact-details-circle{
 .checkbox-custom.checkbox-black input + i{
     border-color: #444;
     color: #444;
+    background: #5E5E5E;
 }
 
 .checkbox-custom-alt.checkbox-black input + i{

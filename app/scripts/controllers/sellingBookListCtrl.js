@@ -85,7 +85,7 @@
                             if(contact.messages!=undefined){
                                 contact.messages.pop();
                                 contact.messages.push(messageData);
-                                contact.messages.push({'messageBody':""});
+                                contact.messages.push({'messageBody':"",'noMessage':true});
                             }
 
                         }
@@ -246,7 +246,7 @@
             };
             ($scope.messagePromise=contactService.getMessages(data)).then(function(response){
                 contact.messages = response.data.success.successData;
-                contact.messages.push({'messageBody':" "});
+                contact.messages.push({'messageBody':"",'noMessage':true});
                 contact.showingMessages = true;
             }).catch(function (response) {
 
@@ -279,7 +279,7 @@
                     if(contact.messages!=undefined){
                         contact.messages.pop();
                         contact.messages.push(response.data.success.successData);
-                        contact.messages.push({'messageBody':""});
+                        contact.messages.push({'messageBody':"",'noMessage':true});
                     }
                     contact.sendingMessages=false;
                     form.message.$setPristine();

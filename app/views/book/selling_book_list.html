@@ -89,6 +89,9 @@
                             View More Information <span ng-show="deal.newContacts>0"
                                                         class="badge">{{deal.newContacts}}</span></button>
                     </div>
+                    <div ng-show="deal.bookStatus=='Deactivated' && !deal.viewMoreInfo" class="alert alert-danger margin-top-40">
+                        Textbook Deal is currently <strong>Deactivated!</strong> Activate it in order for Students to see it again.
+                    </div>
                     <div ng-show="deal.viewMoreInfo">
                         <text class="box-title uppercase orange-text lato"><strong>Deal Information</strong></text>
                         <div class="deal-information-box">
@@ -357,7 +360,7 @@
                         <th colspan="4">Message</th>
                     </tr>
 
-                    <tr ng-show="contact.showingMessages" class="message-header-tr"
+                    <tr ng-show="contact.showingMessages" ng-class="{'no-message':message.noMessage}" class="all-messages-tr"
                         data-ng-repeat="message in contact.messages">
                         <td class="italic">{{message.messageDateTime}}</td>
                         <td class="italic">{{message.sender}}</td>

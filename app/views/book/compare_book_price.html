@@ -335,11 +335,11 @@
                     <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->
                 </td>
             </tr>
-            <tr ng-if="noBuyerToSeller">
-                <td class="text text-danger" colspan="7">There is no deal on-campus where Buyer
-                    contacts Seller
-                </td>
-            </tr>
+            <!--<tr ng-if="noBuyerToSeller">-->
+                <!--<td class="text text-danger" colspan="7">There is no deal on-campus where Buyer-->
+                    <!--contacts Seller-->
+                <!--</td>-->
+            <!--</tr>-->
             <tr data-ng-repeat="deal in campusBookDeals.sellerToBuyer">
                 <td>{{deal.username}}</td>
                 <td>{{deal.bookCondition}}
@@ -385,11 +385,11 @@
                     </div>
                 </td>
             </tr>
-            <tr ng-if="noSellerToBuyer">
-                <td class="text text-danger" colspan="7">There is no deal on-campus where Seller
-                    contacts Buyer
-                </td>
-            </tr>
+            <!--<tr ng-if="noSellerToBuyer">-->
+                <!--<td class="text text-danger" colspan="7">There is no deal on-campus where Seller-->
+                    <!--contacts Buyer-->
+                <!--</td>-->
+            <!--</tr>-->
 
             <tr data-ng-repeat="deal in campusBookDeals.student2studentBoard">
                 <td>{{deal.username}}</td>
@@ -442,8 +442,12 @@
                     <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->
                 </td>
             </tr>
-            <tr ng-if="noStudent2studentBoard">
-                <td class="text text-danger" colspan="7">There is no deal on-campus where Contact Method is Message Board
+            <!--<tr ng-if="noStudent2studentBoard">-->
+                <!--<td class="text text-danger" colspan="7">There is no deal on-campus where Contact Method is Message Board-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr ng-if="noDeals">
+                <td class="text text-danger" colspan="7">There is no deal on-campus at the moment.
                 </td>
             </tr>
 
