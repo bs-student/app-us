@@ -173,6 +173,8 @@
                         identityService.setAccessToken(response.data);
                         getIfBookWishListed();
                     });
+                }else if (response.data.error_description == "The access token provided is invalid.") {
+
                 } else if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
                 } else {
@@ -240,6 +242,7 @@
 
             checkAndSetLowestPrice(dealPrices[0]);
 
+
         }
 
         function getCheapestOnlineBook(bookConditions){
@@ -267,7 +270,11 @@
         }
 
         function checkAndSetLowestPrice(price){
-            if($scope.lowestPrice==null ||price<$scope.lowestPrice)$scope.lowestPrice = price;
+            if(price>=0){
+                if($scope.lowestPrice==null ||price<$scope.lowestPrice)$scope.lowestPrice = price;
+                console.log($scope.lowestPrice);
+            }
+
         }
 
 

@@ -3568,6 +3568,7 @@ text.contact-details-circle{
 }
 .message-board-contacts .book-image{
     height: 100px;
+    width:67px ;
 }
 .tabs-menu.message-board-tabs-menu > li.active:after{
     content: none;
