@@ -230,6 +230,10 @@
                 deals.push(deal);
                 dealPrices.push(parseFloat(deal.bookPriceSell));
             });
+            angular.forEach(data.student2studentBoard,function(deal){
+                deals.push(deal);
+                dealPrices.push(parseFloat(deal.bookPriceSell));
+            });
             dealPrices.sort(function(a, b) { return a - b });
 
             angular.forEach(deals,function(deal){
@@ -271,8 +275,7 @@
 
         function checkAndSetLowestPrice(price){
             if(price>=0){
-                if($scope.lowestPrice==null ||price<$scope.lowestPrice)$scope.lowestPrice = price;
-                console.log($scope.lowestPrice);
+                if($scope.lowestPrice==null || price<$scope.lowestPrice)$scope.lowestPrice = price;
             }
 
         }
