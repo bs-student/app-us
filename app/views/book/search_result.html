@@ -80,15 +80,19 @@
                          ng-class="{Grid:'', List:'col-md-4 listing-price'}[viewType]">
                         <p class="orange-text italic lato price-title">Local Campus Prices</p>
 
-                        <h3 ng-show="book.bookPriceStudentLowestFound" class="lato orange-text small-price student-price">{{book.bookPriceStudentLowest}}
-                        </h3>
 
-                        <p ng-show="!book.bookPriceStudentLowestFound" class="lato grey-text no-price-found">
-                            <text ng-show="!noUniversitySelected">'No student at
+                        <p ng-if="!universitySelectedOrLoggedIn" class="lato grey-text no-price-found">
+                            <text>'You have to choice university or login to see local campus prices'</text>
+                        </p>
+                        <p ng-if="universitySelectedOrLoggedIn" class="lato grey-text no-price-found">
+                            <h3 ng-show="universitySelectedOrLoggedIn && book.bookPriceStudentLowestFound" class="lato orange-text small-price student-price">{{book.bookPriceStudentLowest}}
+                            </h3>
+                            <text ng-show="universitySelectedOrLoggedIn && !book.bookPriceStudentLowestFound" class="grey-text">'No student at
                                 "{{university}}" is selling this
                                 textbook on-campus. '</text>
-                            <text ng-show="noUniversitySelected">'No Students is selling that book on Campus'</text>
-                            </p>
+                        </p>
+
+
                     </div>
 
                 </div>

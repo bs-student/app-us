@@ -6,9 +6,9 @@
     app
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth','quoteService','SERVER_CONSTANT','eventService','$firebaseObject','$firebaseArray'];
+    LoginCtrl.$inject = ['$stateParams','$scope', 'identityService', '$state', "securityService", 'userService','responseService','wishListService','$auth','quoteService','SERVER_CONSTANT','eventService','$firebaseObject','$firebaseArray','storageService'];
 
-    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT,eventService,$firebaseObject,$firebaseArray) {
+    function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT,eventService,$firebaseObject,$firebaseArray,storageService) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
@@ -100,6 +100,11 @@
 
         function setAuthorizedUserData(response) {
             identityService.setAuthorizedUserData(response.data.success.successData);
+
+            storageService.setValue('universityCampusDisplay',identityService.getAuthorizedUserData().campusDisplay);
+            storageService.setValue('universityCampusValue',identityService.getAuthorizedUserData().campusId);
+
+
             responseService.showSuccessToast("Login Successful");
 
             //Listen To Real Time Time Notification

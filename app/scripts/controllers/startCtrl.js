@@ -240,6 +240,8 @@
             $scope.loggedIn = true;
             $scope.username = identityService.getAuthorizedUserData().username;
 
+            storageService.setValue('universityCampusDisplay',identityService.getAuthorizedUserData().campusDisplay);
+            storageService.setValue('universityCampusValue',identityService.getAuthorizedUserData().campusId);
 
             eventService.trigger("getContactNotifications",$scope.username);
             eventService.trigger("getViewNumbers");

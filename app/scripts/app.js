@@ -173,6 +173,12 @@ var app = angular
             }
         };
 
+        var authCheckNormal = {
+            authCheckNormal: function() {
+                return authCheckerServiceProvider.$get().checkIfLoggedInNormal();
+            }
+        }
+
 //        $locationProvider.html5Mode(true);
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
@@ -273,7 +279,8 @@ var app = angular
                         templateUrl: 'views/book/search_result.html',
                         controller: 'BookSearchCtrl'
                     }
-                }
+                },
+                resolve:authCheckNormal
 
             })
             //compare page
@@ -281,7 +288,8 @@ var app = angular
                 url: '^/bookComparePrice/:asin?isbn',
                 controller: 'BookCompareCtrl',
 //                templateUrl: 'views/book/compare.html'
-                templateUrl: 'views/book/compare_book_price.html'
+                templateUrl: 'views/book/compare_book_price.html',
+                resolve:authCheckNormal
             })
             //If Buy From Amazon
             .state('app.buyFromAmazon', {

@@ -288,7 +288,17 @@
             <tbody ng-show="!noUniversitySelected || $parent.loggedIn">
 
             <tr data-ng-repeat="deal in campusBookDeals.buyerToSeller">
-                <td>{{deal.username}}</td>
+
+
+
+                <td>
+                    <div ng-show="$parent.loggedIn">
+                        {{deal.username}}
+                    </div>
+                    <div ng-show="!$parent.loggedIn">
+                        Seller(Student)
+                    </div>
+                </td>
                 <td>{{deal.bookCondition}}
                     <div class="transition-view">
                         Highlights in textbook: {{deal.bookIsHighlighted}}<br/>
@@ -325,11 +335,14 @@
                     </div>
                     <div ng-show="!$parent.loggedIn">
 
-                        <a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
+                        <a ui-sref="app.login"
+                           class="myBtn app-btn buy-now-button ">Sign In</a>
+
+                        <!--<a ui-sref="app.login" ng-if="deal.bookIsAvailablePublic=='No'"
                            class="myBtn app-btn buy-now-button ">Sign In</a>
                         <button ng-click="contact(deal)" ng-if="deal.bookIsAvailablePublic=='Yes'"
                                 class="myBtn app-btn buy-now-button ">Contact
-                        </button>
+                        </button>-->
                     </div>
 
                     <!--<a class="myBtn app-btn buy-now-button ">Buy Now</a>-->

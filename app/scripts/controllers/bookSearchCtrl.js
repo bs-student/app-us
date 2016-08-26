@@ -32,6 +32,14 @@
 
         function init(){
             $scope.university = storageService.getValue("universityCampusDisplay");
+
+            if($scope.$parent.loggedIn || $scope.university){
+                $scope.universitySelectedOrLoggedIn = true;
+            }else{
+                $scope.universitySelectedOrLoggedIn = false;
+            }
+
+
             if($stateParams.searchQuery!=undefined && $stateParams.pageNumber!=undefined){
 
                 pageNumber= parseInt($stateParams.pageNumber,10);

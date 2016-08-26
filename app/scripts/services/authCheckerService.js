@@ -12,7 +12,8 @@
 
         return {
             checkIfLoggedIn:_checkIfLoggedIn,
-            checkIfAdminLoggedIn:_checkIfAdminLoggedIn
+            checkIfAdminLoggedIn:_checkIfAdminLoggedIn,
+            checkIfLoggedInNormal:_checkIfLoggedInNormal
         };
 
 
@@ -101,6 +102,45 @@
             return defer.promise;
         }
 
+        function _checkIfLoggedInNormal(){
+            if(!defer){
+                var defer = $q.defer();
+            }
+
+            if (identityService.getAuthorizedUserData() == null) {
+                userService.getAuthorizedUserShortData(identityService.getAccessToken()).then(function(response){
+                    identityService.setAuthorizedUserData(response.data.success.successData);
+                    defer.resolve();
+
+                }).catch(function(response){
+                    if (response.data.error_description == "The access token provided has expired.") {
+                        identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function(response){
+
+                            identityService.setAccessToken(response.data);
+
+                            _checkIfLoggedIn(defer);
+
+                        }).catch(function(response){
+                            defer.resolve();
+
+                        });
+                    }else{
+                        defer.resolve();
+                    }
+                });
+            } else {
+                if (identityService.getAuthorizedUserData().registrationStatus == "incomplete") {
+                    defer.resolve();
+
+                } else if (identityService.getAuthorizedUserData().registrationStatus == "complete") {
+                    defer.resolve();
+                }
+
+            }
+
+
+            return defer.promise;
+        }
 
 
     }
