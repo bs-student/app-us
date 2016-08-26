@@ -3407,9 +3407,11 @@ text.contact-details-circle{
 .checkbox-custom.checkbox-black input + i{
     border-color: #444;
     color: #444;
-    background: #5E5E5E;
+    /*background: #5E5E5E;*/
 }
-
+.final-step-finish-button[disabled]{
+    cursor: not-allowed;
+}
 .checkbox-custom-alt.checkbox-black input + i{
     border-color: #444;
     color: #444;
