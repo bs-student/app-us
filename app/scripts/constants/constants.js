@@ -4,10 +4,10 @@
 
     app
         .constant("SERVER_CONSTANT",{
-            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
-            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
-//            "IMAGE_HOST_PATH":"./api/web"
+//            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
+//            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
+              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
+            "IMAGE_HOST_PATH":"./api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
@@ -160,9 +160,10 @@
             "DELETE_BOOK_DEAL":"/api/book_deal/delete_book_deal",
             "GET_ACTIVATED_BOOK_DEAL_OF_USER":"/book_deal/get_activated_book_deal_of_user",
 
-            "GET_All_ACTIVATED_SELLING_AND_CONTACTED_BOOK_OF_USER":"/api/book_del/get_all_activated_selling_and_contacted_book_of_user",
+            "GET_All_ACTIVATED_DEALS_FOR_MESSAGE_BOARD":"/api/book_del/get_all_activated_deals_for_message_board",
             "ADD_BOOK_DEAL_TO_STAR_LIST":"/api/star/add_book_deal_to_star_list",
-            "GET_ALL_DATA_FOR_NEW_CONTACT_IN_MESSAGE_BOARD":"/api/star/get_all_data_for_new_contact_in_message_board"
+            "GET_ALL_DATA_FOR_NEW_CONTACT_IN_MESSAGE_BOARD":"/api/star/get_all_data_for_new_contact_in_message_board",
+            "GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD_FOR_MESSAGE_BOARD": "/api/book_deal/get_book_deals_i_have_created_and_sold_for_message_board"
         })
         .constant("NEWS_CONSTANT", {
             "GET_ACTIVATED_NEWS": "/news/get_activated_news",

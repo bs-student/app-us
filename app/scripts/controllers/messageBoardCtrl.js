@@ -86,7 +86,7 @@
 
 
         function init(){
-            ($scope.getDealsPromise = bookDealService.getAllActivatedSellingAndContactedBookOfUser(identityService.getAccessToken())).then(function(response){
+            ($scope.getDealsPromise = bookDealService.getAllActivatedDealsForMessageBoard(identityService.getAccessToken())).then(function(response){
 
                 $scope.totalBookDeals=response.data.success.successData;
                 $scope.bookDeals=response.data.success.successData.slice(0,10);
@@ -268,7 +268,45 @@
                     $scope.currentPage=1;
                     $scope.maxSize=$scope.bookDeals.length;
                 }
+            }else if(typeValue=="Sold"){
+                //Sold Deals
+                angular.forEach($scope.totalBookDeals,function(deal){
+                    if(deal.dealType=="soldDeal"){
+                        $scope.bookDeals.push(deal);
+                    }
+                });
+                if($scope.bookDeals.length>0){
+                    angular.forEach($scope.bookDeals, function (deal) {
+                        deal.active = false;
+                    });
+                    $scope.bookDeals[0].active=true;
+                    $scope.totalSearchResults = $scope.bookDeals.length;
+                    $scope.currentPage=1;
+                    $scope.maxSize=$scope.bookDeals.length;
+                }
+
+
+            }else if(typeValue=="Bought"){
+                //Bought Deals
+                angular.forEach($scope.totalBookDeals,function(deal){
+                    if(deal.dealType=="boughtDeal"){
+                        $scope.bookDeals.push(deal);
+                    }
+                });
+                if($scope.bookDeals.length>0){
+                    angular.forEach($scope.bookDeals, function (deal) {
+                        deal.active = false;
+                    });
+                    $scope.bookDeals[0].active=true;
+                    $scope.totalSearchResults = $scope.bookDeals.length;
+                    $scope.currentPage=1;
+                    $scope.maxSize=$scope.bookDeals.length;
+                }
+
             }
+
+
+
         }
         function _changeSortType(){
 

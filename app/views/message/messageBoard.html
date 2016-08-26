@@ -55,6 +55,8 @@
                         <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'ContactedDeal'" uncheckable>I am Buying</label>
                         <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Sold'"
                                uncheckable>Sold</label>
+                        <label class="btn btn-check" ng-change="typeChange(radioModel)" ng-model="radioModel" uib-btn-radio="'Bought'"
+                               uncheckable>Bought</label>
                     </div>
 
                 </div>
@@ -322,7 +324,7 @@
                                         </div>
                                     </div>
 
-                                    <ul class="list-group no-radius no-border">
+                                    <ul ng-show="(deal.dealType=='sellingDeal') || (deal.dealType=='contactedDeal')" class="list-group no-radius no-border">
                                         <li class="list-group-item"  style="background: #E9E9E9">
                                             <form name="sendMessageForm" submit-validate
                                                   ng-submit="sendMessage(sendMessageForm.$valid,contact,deal)"
