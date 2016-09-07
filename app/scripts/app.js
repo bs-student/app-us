@@ -104,15 +104,15 @@ var app = angular
     }])
     .config(function() {
         var config = {
-            apiKey: "AIzaSyDhYGV8b2Zc6zxYThPS9S0N-pxkghBeJI8",               // Your Firebase API key
-            authDomain: "student2student-1205.firebaseapp.com",       // Your Firebase Auth domain ("*.firebaseapp.com")
-            databaseURL: "https://student2student-1205.firebaseio.com",     // Your Firebase Database URL ("https://*.firebaseio.com")
-            storageBucket: "student2student-1205.appspot.com"  // Your Firebase Storage bucket ("*.appspot.com")
+//            apiKey: "AIzaSyDhYGV8b2Zc6zxYThPS9S0N-pxkghBeJI8",               // Your Firebase API key
+//            authDomain: "student2student-1205.firebaseapp.com",       // Your Firebase Auth domain ("*.firebaseapp.com")
+//            databaseURL: "https://student2student-1205.firebaseio.com",     // Your Firebase Database URL ("https://*.firebaseio.com")
+//            storageBucket: "student2student-1205.appspot.com"  // Your Firebase Storage bucket ("*.appspot.com")
 
-//            apiKey: "AIzaSyB_khisCo1mguYbbPKUM6Ugfc_i74kWa50",
-//            authDomain: "student2student-31e72.firebaseapp.com",
-//            databaseURL: "https://student2student-31e72.firebaseio.com",
-//            storageBucket: "student2student-31e72.appspot.com"
+            apiKey: "AIzaSyB_khisCo1mguYbbPKUM6Ugfc_i74kWa50",
+            authDomain: "student2student-31e72.firebaseapp.com",
+            databaseURL: "https://student2student-31e72.firebaseio.com",
+            storageBucket: "student2student-31e72.appspot.com"
         };
         firebase.initializeApp(config);
     })
@@ -126,7 +126,7 @@ var app = angular
         uiSelectConfig.theme = 'bootstrap';
     }])
     .config(['vcRecaptchaServiceProvider',function(vcRecaptchaServiceProvider){
-        vcRecaptchaServiceProvider.setSiteKey('6LfXfBwTAAAAAIvMDpHcvLIK4N7lBCXmM87xrsXw')
+        vcRecaptchaServiceProvider.setSiteKey('6LeMeykTAAAAAHDayXgyff_OX7erYAnPoUKnLrR-')
         vcRecaptchaServiceProvider.setTheme('dark')
     }])
 
