@@ -155,8 +155,8 @@ var app = angular
 
         });
         $authProvider.google({
-            clientId: '799265882325-g4jnl097bbst3popc0ainrstrtelicbk.apps.googleusercontent.com',
-            url:'http://localhost:8080/Student2StudentApi/web/app_dev.php/auth/google'
+            clientId: '19322012790-7i3k71ps5r6cujo4h87j9husfvjombsn.apps.googleusercontent.com',
+            url:'http://test.student2student.com/api/web/auth/google'
             //TODO fix the redirect URL
 //            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/google',
 //            redirectUri: 'http://localhost:8080'
