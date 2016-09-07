@@ -5,13 +5,14 @@
     app
         .controller('FaqCtrl', FaqCtrl);
 
-    FaqCtrl.$inject = ['$scope', '$sce'];
+    FaqCtrl.$inject = ['$scope', '$sce','SERVER_CONSTANT'];
 
-    function FaqCtrl($scope, $sce) {
+    function FaqCtrl($scope, $sce,SERVER_CONSTANT) {
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "helpAndSafety";
 
+        $scope.downloadBookmarkForPrint = _downloadBookmarkForPrint;
         $scope.oneAtATime = false;
 
         $scope.faqList = [
@@ -219,6 +220,15 @@
                 faqL.active = false;
             });
             faq.active = true;
+        }
+
+
+        function _downloadBookmarkForPrint(){
+            var downloadLink = angular.element('<a></a>');
+            var path = SERVER_CONSTANT.IMAGE_HOST_PATH+"/assets/images/bookmark_for_print.png";
+            downloadLink.attr('href',path);
+            downloadLink.attr('download', 'BookmarkForPrint.png');
+            downloadLink[0].click();
         }
     }
 
