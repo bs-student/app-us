@@ -272,7 +272,8 @@
                 var data={
                     message: contact.message,
                     accessToken:identityService.getAccessToken(),
-                    contactId:contact.contactId
+                    contactId:contact.contactId,
+                    messageType:"SellerToBuyerMessage"
                 };
                 ($scope.messagePromise=contactService.sendMessages(data)).then(function(response){
                     responseService.showSuccessToast("Message is Sent");

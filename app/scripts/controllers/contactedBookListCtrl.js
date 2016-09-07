@@ -222,7 +222,8 @@
                 var data={
                     message: contact.message,
                     accessToken:identityService.getAccessToken(),
-                    contactId:contact.contactId
+                    contactId:contact.contactId,
+                    messageType:"BuyerToSellerMessage"
                 };
                 ($scope.messagePromise = contactService.sendMessages(data)).then(function(response){
                     if(contact.messages!=undefined){
