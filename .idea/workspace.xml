@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/university/university.html" afterPath="$PROJECT_DIR$/app/views/university/university.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/university/university_map.html" afterPath="$PROJECT_DIR$/app/views/university/university_map.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
     </list>
     <ignored path="Student2StudentApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,29 +26,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="constants.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="constants.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="30" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3587">
+            <state line="12" column="10" selection-start="462" selection-end="462" vertical-scroll-proportion="0.22125813" vertical-offset="0" max-vertical-offset="3587">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="university.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/university/university.html">
+      <file leaf-file-name="sellingBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="68" selection-start="68" selection-end="68" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="6188">
+            <state line="290" column="0" selection-start="10565" selection-end="10565" vertical-scroll-proportion="0.0" vertical-offset="4342" max-vertical-offset="7956">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="university_map.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/university/university_map.html">
+      <file leaf-file-name="contactedBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.17327294" vertical-offset="0" max-vertical-offset="2312">
+            <state line="233" column="0" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0" vertical-offset="3501" max-vertical-offset="5185">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selling_book_list.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="379" column="60" selection-start="22325" selection-end="22326" vertical-scroll-proportion="-20.307692" vertical-offset="5915" max-vertical-offset="9452">
+              <folding>
+                <marker date="1472114125125" expanded="true" signature="24217:24327" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24358:24487" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24394:24475" placeholder="..." />
+                <marker date="1472114125125" expanded="false" signature="24420:24432" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24518:24690" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24609:24679" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24612:24658" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24790:24919" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="24948:25102" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25133:25498" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25200:25333" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25423:25487" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25426:25466" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25602:25716" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25745:25915" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25758:25902" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="25946:26290" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26063:26125" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26215:26279" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26218:26258" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26391:26503" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26532:26726" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26546:26713" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26757:27101" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="26874:26936" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27026:27090" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27029:27069" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27200:27306" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27335:27596" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27419:27583" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27627:27965" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27738:27800" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27890:27954" placeholder="..." />
+                <marker date="1472114125125" expanded="true" signature="27893:27933" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/scripts/services/wishListService.js" />
         <option value="$PROJECT_DIR$/app/views/book/contacted_book_list.html" />
         <option value="$PROJECT_DIR$/app/views/account/profile.html" />
-        <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/views/web/app.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bookCompareCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/book/search_result.html" />
@@ -121,11 +164,12 @@
         <option value="$PROJECT_DIR$/app/views/web/faq.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/views/university/university.html" />
+        <option value="$PROJECT_DIR$/app/views/university/university_map.html" />
+        <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
-        <option value="$PROJECT_DIR$/app/views/university/university.html" />
-        <option value="$PROJECT_DIR$/app/views/university/university_map.html" />
       </list>
     </option>
   </component>
@@ -296,6 +340,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="book" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="account" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -336,51 +402,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Student2StudentApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Student2StudentApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Student2StudentApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Student2StudentApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constants" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -559,11 +581,6 @@
         <state line="368" column="66" selection-start="14216" selection-end="14216" vertical-scroll-proportion="0.0" vertical-offset="5780" max-vertical-offset="6885" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="360" column="25" selection-start="21187" selection-end="21187" vertical-scroll-proportion="0.0" vertical-offset="5864" max-vertical-offset="9452" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/app.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="72" selection-start="4718" selection-end="4718" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2686" />
@@ -737,27 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="275" column="54" selection-start="9778" selection-end="9834" vertical-scroll-proportion="0.0" vertical-offset="4274" max-vertical-offset="7939">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="48" selection-start="8463" selection-end="8463" vertical-scroll-proportion="0.0" vertical-offset="3399" max-vertical-offset="5151">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="30" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3587">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/university/university.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="68" selection-start="68" selection-end="68" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="6188">
@@ -767,7 +763,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/university/university_map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.17327294" vertical-offset="0" max-vertical-offset="2312">
+        <state line="9" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="15.692307" vertical-offset="561" max-vertical-offset="2312">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/book/selling_book_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="379" column="60" selection-start="22325" selection-end="22326" vertical-scroll-proportion="-20.307692" vertical-offset="5915" max-vertical-offset="9452">
+          <folding>
+            <marker date="1472114125125" expanded="true" signature="24217:24327" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24358:24487" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24394:24475" placeholder="..." />
+            <marker date="1472114125125" expanded="false" signature="24420:24432" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24518:24690" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24609:24679" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24612:24658" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24790:24919" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="24948:25102" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25133:25498" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25200:25333" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25423:25487" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25426:25466" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25602:25716" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25745:25915" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25758:25902" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="25946:26290" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26063:26125" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26215:26279" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26218:26258" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26391:26503" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26532:26726" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26546:26713" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26757:27101" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="26874:26936" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27026:27090" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27029:27069" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27200:27306" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27335:27596" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27419:27583" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27627:27965" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27738:27800" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27890:27954" placeholder="..." />
+            <marker date="1472114125125" expanded="true" signature="27893:27933" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="0" selection-start="10565" selection-end="10565" vertical-scroll-proportion="0.0" vertical-offset="4342" max-vertical-offset="7956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="0" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0" vertical-offset="3501" max-vertical-offset="5185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="10" selection-start="462" selection-end="462" vertical-scroll-proportion="0.22125813" vertical-offset="0" max-vertical-offset="3587">
           <folding />
         </state>
       </provider>

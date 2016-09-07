@@ -231,9 +231,7 @@
                         contact.messages.push(response.data.success.successData);
                         contact.messages.push({'messageBody':""});
                     }
-                    contact.sendingMessages=false;
-                    form.message.$setPristine();
-                    contact.message="";
+
                     //Adding Realtime Database
                     var username = deal.sellerUsername;
                     var ref = firebase.database().ref("/users/" + username + "/messages");
@@ -248,6 +246,10 @@
                         "sender":identityService.getAuthorizedUserData().username
 
                     });
+
+                    contact.sendingMessages=false;
+                    form.message.$setPristine();
+                    contact.message="";
 
                     responseService.showSuccessToast(response.data.success.successTitle);
                 }).catch(function (response) {

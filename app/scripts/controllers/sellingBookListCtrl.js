@@ -282,9 +282,7 @@
                         contact.messages.push(response.data.success.successData);
                         contact.messages.push({'messageBody':"",'noMessage':true});
                     }
-                    contact.sendingMessages=false;
-                    form.message.$setPristine();
-                    contact.message="";
+
 
                     //Adding Realtime Database
                     var username = contact.buyerNickName;
@@ -301,6 +299,9 @@
 
                     });
 
+                    contact.sendingMessages=false;
+                    form.message.$setPristine();
+                    contact.message="";
 
                 }).catch(function (response) {
 
