@@ -165,7 +165,7 @@ var app = angular
     }])
 
 
-    .config(['$stateProvider', '$urlRouterProvider','authCheckerServiceProvider', function ($stateProvider, $urlRouterProvider,authCheckerServiceProvider) {
+    .config(['$stateProvider', '$urlRouterProvider','authCheckerServiceProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,authCheckerServiceProvider,$locationProvider) {
         var authCheck = {
             authCheck: function() {
                 return authCheckerServiceProvider.$get().checkIfLoggedIn();
@@ -607,9 +607,9 @@ var app = angular
                 url: '^/:username',
                 controller: 'MySellPageCtrl',
                 templateUrl: 'views/web/my_sell_page.html'
-            })
+            });
 
-
+        $locationProvider.html5Mode(true);
 
     }]);
 
