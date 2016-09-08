@@ -147,8 +147,8 @@ var app = angular
     .config(['$authProvider',function($authProvider) {
 
         $authProvider.facebook({
-            clientId: '1570785423241368',
-            url:'http://localhost:8080/Student2StudentApi/web/app_dev.php/auth/facebook'
+            clientId: '214816590624',
+            url:'http://test.student2student.com/api/web/auth/facebook'
             //TODO fix the redirect URL
 //            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/facebook',
 //            redirectUri: 'http://localhost:8080/'
