@@ -38,7 +38,7 @@
                     },
                     {
                         question: "Do I need a credit card?",
-                        answer: $sce.trustAsHtml("No! You do not need a credit card for anything on Student 2 Student. Never provide your credit card information to anyone. If someone claims he/she needs the credit card information, please contact Student 2 Student <a href='http://168.61.173.224:8080/student2student/#/contactUs'>here</a>. Never give out your credit card information. Student 2 Student doesn't need it, and neither do members of Student 2 Student.")
+                        answer: $sce.trustAsHtml("No! You do not need a credit card for anything on Student 2 Student. Never provide your credit card information to anyone. If someone claims he/she needs the credit card information, please contact Student 2 Student <a href='http://www.student2student.com/contactUs'>here</a>. Never give out your credit card information. Student 2 Student doesn't need it, and neither do members of Student 2 Student.")
                     }
 
                     ,
@@ -167,7 +167,7 @@
                     {
                         question: "Reset my Password",
                         answer: $sce.trustAsHtml('Did you forget your password? Absolutely no problem.'+
-                        'You can reset your password on the "Sign In - Forgot the Password" page or by <a href="http://168.61.173.224:8080/student2student/#/forgotPassword">Clicking here</a>.<br/><br/>'+
+                        'You can reset your password on the "Sign In - Forgot the Password" page or by <a href="http://www.student2student.com/forgotPassword">Clicking here</a>.<br/><br/>'+
 
                             '<img src="dist/images/faq/forgotPassword.png" width="100%"><br/><br/>' +
 
@@ -189,15 +189,15 @@
                 faqs: [
                     {
                         question: "Privacy",
-                        answer: $sce.trustAsHtml('Read our Privacy Policy <a href="http://168.61.173.224:8080/student2student/#/privacyPolicy">here</a>')
+                        answer: $sce.trustAsHtml('Read our Privacy Policy <a href="http://www.student2student.com/privacyPolicy">here</a>')
                     },
                     {
                         question: "Disclaimer",
-                        answer: $sce.trustAsHtml('Read Disclaimer <a href="http://168.61.173.224:8080/student2student/#/disclaimer">here</a>')
+                        answer: $sce.trustAsHtml('Read Disclaimer <a href="http://www.student2student.com/disclaimer">here</a>')
                     },
                     {
                         question: "Condition of Use",
-                        answer: $sce.trustAsHtml('Read Condition of Use <a href="http://168.61.173.224:8080/student2student/#/conditionOfUse">here</a>')
+                        answer: $sce.trustAsHtml('Read Condition of Use <a href="http://www.student2student.com/conditionOfUse">here</a>')
                     }
                 ]
             },
@@ -207,7 +207,7 @@
                 faqs: [
                     {
                         question: "Still have questions?",
-                        answer: $sce.trustAsHtml('You still have questions? Contact us <a href="http://168.61.173.224:8080/student2student/#/contactUs">here</a>')
+                        answer: $sce.trustAsHtml('You still have questions? Contact us <a href="http://www.student2student.com/contactUs">here</a>')
                     }
                 ]
             }

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/.htaccess" afterPath="$PROJECT_DIR$/app/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/compare_book_price.html" afterPath="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/security/signup.html" afterPath="$PROJECT_DIR$/app/views/security/signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Student2StudentApp.iws" />
@@ -37,28 +38,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="610" column="0" selection-start="20515" selection-end="20515" vertical-scroll-proportion="0.79718006" vertical-offset="9635" max-vertical-offset="10557">
+            <state line="592" column="14" selection-start="19952" selection-end="19952" vertical-scroll-proportion="0.0" vertical-offset="9635" max-vertical-offset="10557">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/security/signup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="51" selection-start="8151" selection-end="8151" vertical-scroll-proportion="-14.384615" vertical-offset="1632" max-vertical-offset="3723">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compare_book_price.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/book/compare_book_price.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="282" column="57" selection-start="12260" selection-end="12260" vertical-scroll-proportion="-5.6862745" vertical-offset="4504" max-vertical-offset="10727">
+              <folding>
+                <marker date="1473401739992" expanded="true" signature="25978:26086" placeholder="..." />
+                <marker date="1473401739992" expanded="true" signature="26117:26246" placeholder="..." />
+                <marker date="1473401739992" expanded="true" signature="26153:26234" placeholder="..." />
+                <marker date="1473401739992" expanded="false" signature="26179:26191" placeholder="..." />
+                <marker date="1473401739992" expanded="true" signature="26277:26449" placeholder="..." />
+                <marker date="1473401739992" expanded="true" signature="26368:26438" placeholder="..." />
+                <marker date="1473401739992" expanded="true" signature="26371:26417" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tellFriendsCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="17" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faqCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="209" column="126" selection-start="14368" selection-end="14368" vertical-scroll-proportion="0.0" vertical-offset="3048" max-vertical-offset="4148">
+              <folding>
+                <marker date="1473402232900" expanded="false" signature="963:1019" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="42" selection-start="335" selection-end="373" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="5831">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/404.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2771">
+            <state line="38" column="44" selection-start="2524" selection-end="2524" vertical-scroll-proportion="0.596829" vertical-offset="119" max-vertical-offset="5831">
               <folding />
             </state>
           </provider>
@@ -100,8 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/web/footer.html" />
-        <option value="$PROJECT_DIR$/app/scripts/services/userService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/profileCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/book/sell_archive.html" />
         <option value="$PROJECT_DIR$/app/views/book/buy_archive.html" />
@@ -114,7 +150,6 @@
         <option value="$PROJECT_DIR$/bower_components/ngSlimscroll/src/js/ngSlimscroll.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/messageSlimScroll.js" />
         <option value="$PROJECT_DIR$/app/scripts/validators/valUsernameSpecialChar.js" />
-        <option value="$PROJECT_DIR$/app/views/security/signup.html" />
         <option value="$PROJECT_DIR$/bower_components/angular-slimscroll/angular-slimscroll.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/messageScroll.js" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
@@ -137,10 +172,8 @@
         <option value="$PROJECT_DIR$/app/scripts/services/bookDealService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/messageBoardCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/message/messageBoard.html" />
-        <option value="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/app/views/web/faq.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/university/university.html" />
         <option value="$PROJECT_DIR$/app/views/university/university_map.html" />
         <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
@@ -151,6 +184,11 @@
         <option value="$PROJECT_DIR$/app/.htaccess" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
         <option value="$PROJECT_DIR$/app/assets/index.html" />
+        <option value="$PROJECT_DIR$/Bladervrij_2016_09_08_1473328862_544ac1a_wpdb.sql" />
+        <option value="$PROJECT_DIR$/app/views/security/signup.html" />
+        <option value="$PROJECT_DIR$/app/views/book/compare_book_price.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" />
       </list>
     </option>
   </component>
@@ -401,6 +439,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="constants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Student2StudentApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -458,15 +518,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -475,10 +536,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -675,29 +735,14 @@
         <state line="86" column="72" selection-start="3304" selection-end="3304" vertical-scroll-proportion="0.0" vertical-offset="1138" max-vertical-offset="2176" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="41" selection-start="15007" selection-end="15007" vertical-scroll-proportion="0.0" vertical-offset="3222" max-vertical-offset="4148" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/faq.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="46" selection-start="3021" selection-end="3021" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2091" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/book/compare_book_price.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="21" selection-start="14049" selection-end="14049" vertical-scroll-proportion="0.26923078" vertical-offset="5515" max-vertical-offset="10727" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/security/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2686" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/security/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="256" selection-start="2496" selection-end="2496" vertical-scroll-proportion="56.23077" vertical-offset="2193" max-vertical-offset="3706" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/university/university.html">
@@ -725,13 +770,6 @@
         <state line="233" column="0" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0" vertical-offset="3501" max-vertical-offset="5185" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2771">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state line="553" column="18" selection-start="24426" selection-end="24426" vertical-scroll-proportion="0.0" vertical-offset="8581" max-vertical-offset="9503">
@@ -753,6 +791,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/book/compare_book_price.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="282" column="57" selection-start="12260" selection-end="12260" vertical-scroll-proportion="-5.6862745" vertical-offset="4504" max-vertical-offset="10727">
+          <folding>
+            <marker date="1473401739992" expanded="true" signature="25978:26086" placeholder="..." />
+            <marker date="1473401739992" expanded="true" signature="26117:26246" placeholder="..." />
+            <marker date="1473401739992" expanded="true" signature="26153:26234" placeholder="..." />
+            <marker date="1473401739992" expanded="false" signature="26179:26191" placeholder="..." />
+            <marker date="1473401739992" expanded="true" signature="26277:26449" placeholder="..." />
+            <marker date="1473401739992" expanded="true" signature="26368:26438" placeholder="..." />
+            <marker date="1473401739992" expanded="true" signature="26371:26417" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="17" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/constants/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="10" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3587">
@@ -762,14 +822,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="610" column="0" selection-start="20515" selection-end="20515" vertical-scroll-proportion="0.79718006" vertical-offset="9635" max-vertical-offset="10557">
+        <state line="592" column="14" selection-start="19952" selection-end="19952" vertical-scroll-proportion="0.0" vertical-offset="9635" max-vertical-offset="10557">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/security/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="51" selection-start="8151" selection-end="8151" vertical-scroll-proportion="-14.384615" vertical-offset="1632" max-vertical-offset="3723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/faqCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="126" selection-start="14368" selection-end="14368" vertical-scroll-proportion="0.0" vertical-offset="3048" max-vertical-offset="4148">
+          <folding>
+            <marker date="1473402232900" expanded="false" signature="963:1019" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2771">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="42" selection-start="335" selection-end="373" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="5831">
+        <state line="38" column="44" selection-start="2524" selection-end="2524" vertical-scroll-proportion="0.596829" vertical-offset="119" max-vertical-offset="5831">
           <folding />
         </state>
       </provider>

@@ -24,7 +24,7 @@
             $scope.user.fullName = identityService.getAuthorizedUserData().fullName;
 
         }else{
-            $scope.shareUrl = "http://168.61.173.224:8080/student2student/#/";
+            $scope.shareUrl = "http://www.student2student.com/";
             $scope.shareText = "Student2Student.com Textbook Exchange made Easy";
             $scope.shareHashtags = "Student2Student, Textbook_Exchange_made_Easy";
         }

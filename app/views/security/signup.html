@@ -115,7 +115,8 @@
                                 uib-typeahead="campus as campus.display for campus in querySearch($viewValue)"
                                 typeahead-loading="loadingCampuses"
                                 typeahead-no-results="noResults"
-                                class="form-control input-style">
+                                class="form-control input-style"
+                                autocomplete="off">
 
                         <text ng-show="loadingCampuses"  class="white-text"><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
                         <div ng-show="noResults" class="text-danger">
