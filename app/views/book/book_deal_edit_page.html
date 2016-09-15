@@ -217,13 +217,13 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <text class="blue-text uppercase"><strong>Comment : </strong></text>
+                                                        <text class="blue-text uppercase"><strong>Comment : </strong><text uib-tooltip="Maximum size 1200 characters allowed" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></text>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div>
-                                                            <textarea class="form-control"
+                                                            <textarea class="form-control"  placeholder="Write comment here... (Maximum 1200 Characters)"
                                                                       rows="5" name="bookComment"  ng-model="book.bookComment"
                                                                        aria-multiline="true"></textarea>
 
@@ -514,31 +514,31 @@
 
                                     <div ng-class="{
 
-                                    'has-error' :   (step3.bookPaymentMethodCaShOnExchange.$invalid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                    'has-error' :   (step3.bookPaymentMethodCashOnExchange.$invalid && !step3.bookPaymentMethodCashOnExchange.$pristine) ||
                                                     (step3.bookPaymentMethodCheque.$invalid && !step3.bookPaymentMethodCheque.$pristine),
 
-                                    'has-success' :   (step3.bookPaymentMethodCaShOnExchange.$valid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                    'has-success' :   (step3.bookPaymentMethodCashOnExchange.$valid && !step3.bookPaymentMethodCashOnExchange.$pristine) ||
                                                       (step3.bookPaymentMethodCheque.$valid && !step3.bookPaymentMethodCheque.$pristine)}">
 
                                         <label class="checkbox checkbox-custom">
                                             <input type="checkbox"
                                                    ng-required="
 
-                                                       !(book.bookPaymentMethodCaShOnExchange || book.bookPaymentMethodCheque)
+                                                       !(book.bookPaymentMethodCashOnExchange || book.bookPaymentMethodCheque)
 
                                                        "
-                                                   name="bookPaymentMethodCaShOnExchange" ng-model="book.bookPaymentMethodCaShOnExchange" ><i></i> Cash on Exchange
+                                                   name="bookPaymentMethodCashOnExchange" ng-model="book.bookPaymentMethodCashOnExchange" ><i></i> Cash on Exchange
                                         </label>
 
                                         <label class="checkbox checkbox-custom">
                                             <input type="checkbox" ng-required="
 
-                                                       !(book.bookPaymentMethodCaShOnExchange || book.bookPaymentMethodCheque)
+                                                       !(book.bookPaymentMethodCashOnExchange || book.bookPaymentMethodCheque)
 
                                                        " name="bookPaymentMethodCheque" ng-model="book.bookPaymentMethodCheque" ><i></i> Cheque
                                         </label>
                                         <p class="help-block">
-                                            <span ng-show=" (step3.bookPaymentMethodCaShOnExchange.$invalid && !step3.bookPaymentMethodCaShOnExchange.$pristine) ||
+                                            <span ng-show=" (step3.bookPaymentMethodCashOnExchange.$invalid && !step3.bookPaymentMethodCashOnExchange.$pristine) ||
                                                     (step3.bookPaymentMethodCheque.$invalid && !step3.bookPaymentMethodCheque.$pristine)">You have to choose at least one payment method.</span>
 
                                         </p>
@@ -814,9 +814,9 @@
                                         <div class="row">
                                             <div class="col-md-4"><text class="blue-text uppercase"><strong>payment method</strong></text></div>
                                             <div class="col-md-8 border-left">
-                                                <text ng-show="book.bookPaymentMethodCaShOnExchange && !book.bookPaymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
-                                                <text ng-show="!book.bookPaymentMethodCaShOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
-                                                <text ng-show="book.bookPaymentMethodCaShOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
+                                                <text ng-show="book.bookPaymentMethodCashOnExchange && !book.bookPaymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
+                                                <text ng-show="!book.bookPaymentMethodCashOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
+                                                <text ng-show="book.bookPaymentMethodCashOnExchange && book.bookPaymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
                                             </div>
                                         </div>
                                     </div>

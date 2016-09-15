@@ -286,7 +286,7 @@
             bookDealData.bookContactCellNumber = $scope.book.contactInfoCellPhone;
             bookDealData.bookContactEmail = $scope.book.contactInfoEmail;
             bookDealData.bookIsAvailablePublic = $scope.book.availablePublic;
-            bookDealData.bookPaymentMethodCaShOnExchange = $scope.book.paymentMethodCashOnExchange;
+            bookDealData.bookPaymentMethodCashOnExchange = $scope.book.paymentMethodCashOnExchange;
             bookDealData.bookPaymentMethodCheque = $scope.book.paymentMethodCheque;
             bookDealData.bookAvailableDate = $scope.book.availableDate;
 
