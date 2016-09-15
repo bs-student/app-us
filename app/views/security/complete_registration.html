@@ -10,7 +10,7 @@
             </div>
 
         </div>
-        <div class="row reg-page-dark-div">
+        <div class="row reg-page-dark-div" cg-busy="{promise:socialRegistrationPromise}">
             <form name="userForm" submit-validate ng-submit="completeRegistration(userForm.$valid)" role="form" novalidate>
             <div class="col-md-6 reg-page-col-div">
 
@@ -26,13 +26,14 @@
                         <div class="tile-body">
 
                             <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
-                                <p class="white-text" for="fullName">Username: </p>
-                                <input type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
+                                <p class="white-text" for="fullName">Username: <text uib-tooltip="Username must be minimum length of 3 characters and maximum 20 characters. Username may contain alphanumeric values but no special characters except '-' or '_'" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
+                                <input data-val-username val-username-special-char type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
                                 <p class="help-block">
                                     <span ng-show="userForm.username.$invalid && !userForm.username.$pristine">Username is required.</span>
                                     <span ng-show="userForm.username.$error.minlength">Username is too short.</span>
                                     <span ng-show="userForm.username.$error.maxlength">Username is too long.</span>
-
+                                    <span ng-show="userForm.username.$error.valUsername">Username Already Exist.</span>
+                                    <span ng-show="userForm.username.$error.valUsernameSpecialChar">Username should not contain special characters except '-' or '_'.</span>
                                 </p>
                             </div>
 
@@ -74,8 +75,8 @@
 
                 <div class=" reg-page-form">
 
-                    <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
-                        <!--<label class="white-text">University: </label> &nbsp;&nbsp;&nbsp; <span>If not found then <a href="" ng-click="showCreateNewUniversity()">Create a new university!</a></span>-->
+                    <!--<div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
+
                         <p class="white-text">University: </p> <p class="white-text">If not found then <a ui-sref="app.addUniversity">Create a new university!</a></p>
 
                         <md-autocomplete required
@@ -109,7 +110,40 @@
                         <p class="help-block">
                             <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
                         </p>
+                    </div>-->
+
+
+
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
+
+                        <p class="white-text">University: </p> <p class="white-text">If not found then <a ui-sref="app.addUniversity">Create a new university!</a></p>
+
+                        <input
+                                placeholder="What is your University Campus?"
+                                ng-change="onCampusChange()"
+                                typeahead-on-select="onCampusSelect($item, $model, $label)"
+                                ng-model-options="modelOptions"
+                                name="campus"
+                                required type="text"
+                                ng-model="campus"
+                                uib-typeahead="campus as campus.display for campus in querySearch($viewValue)"
+                                typeahead-loading="loadingCampuses"
+                                typeahead-no-results="noResults"
+                                class="form-control input-style"
+                                autocomplete="off">
+
+                        <text ng-show="loadingCampuses"  class="white-text"><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
+                        <div ng-show="noResults" class="text-danger">
+                            <i class="fa fa-times"></i> No Results Found
+                        </div>
+
+
+
+                        <p class="help-block">
+                            <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
+                        </p>
                     </div>
+
 
 
 

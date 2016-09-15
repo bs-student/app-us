@@ -6,9 +6,9 @@
     app
         .controller('SocialRegisterCompleteCtrl', SocialRegisterCompleteCtrl);
 
-    SocialRegisterCompleteCtrl.$inject = ['$stateParams',"$state","$scope", '$q', '$log', 'universityService','identityService','userService','referralService','responseService','securityService','wishListService'];
+    SocialRegisterCompleteCtrl.$inject = ['$stateParams',"$state","$scope", '$q', '$log', 'universityService','identityService','userService','referralService','responseService','securityService','wishListService','eventService'];
 
-    function SocialRegisterCompleteCtrl($stateParams,$state,$scope, $q, $log, universityService,identityService,userService,referralService,responseService,securityService,wishListService) {
+    function SocialRegisterCompleteCtrl($stateParams,$state,$scope, $q, $log, universityService,identityService,userService,referralService,responseService,securityService,wishListService,eventService) {
 
         $scope.user = $stateParams.user;
 
@@ -31,32 +31,48 @@
             });
 
             $scope.states        = null;
-            $scope.querySearch   = querySearch;
-            $scope.selectedItemChange = selectedItemChange;
-            $scope.searchTextChange   = searchTextChange;
-            $scope.selectedItem = null;
+            $scope.querySearch   = _querySearch;
+            $scope.onCampusSelect = _onCampusSelect;
+            $scope.onCampusChange = _onCampusChange;
 
 
 
-            function querySearch (query) {
+            $scope.modelOptions = {
+                debounce: {
+                    default: 300,
+                    blur: 250
+                },
+                getterSetter: true
+            };
+            function _onCampusSelect($item, $model, $label){
+                if($scope.campus.value!=undefined){
+                    $scope.userForm.campus.$setValidity("data_error", true);
+                }else{
+                    $scope.userForm.campus.$setValidity("data_error", false);
+                }
+            }
+            function _onCampusChange(){
+                if($scope.campus!=undefined){
+                    if($scope.campus.value!=undefined){
+                        $scope.userForm.campus.$setValidity("data_error", true);
+                    }else{
+                        $scope.userForm.campus.$setValidity("data_error", false);
+                    }
+                }else{
+                    $scope.userForm.campus.$setValidity("data_error", false);
+                }
+
+            }
+            function _querySearch (query) {
 
                 var data ={'query':query};
-                var deferred = $q.defer();
-                universityService.getUniversitiesForAutocomplete(data).then(function(response){
-                    deferred.resolve(response.data.success.successData);
+                return universityService.getUniversitiesForAutocomplete(data).then(function(response){
+                    return response.data.success.successData.map(function(item){
+                        return item;
+                    });
                 }).catch(function(response){
                     responseService.showErrorToast("Something Went Wrong","Please Reload Again");
                 });
-                return deferred.promise;
-
-            }
-
-            function searchTextChange(text) {
-                $log.info('Text changed to ' + text);
-            }
-            function selectedItemChange(item) {
-                $scope.selectedItem = item;
-                $log.info('Item changed to ' + JSON.stringify(item));
             }
 
         }
@@ -64,13 +80,20 @@
         function _completeRegistration(valid){
 
             if(valid){
-                $scope.user.campus = $scope.selectedItem.value;
+
+                if($scope.campus.value!=undefined){
+                    $scope.userForm.campus.$setValidity("data_error", true);
+                    $scope.user.campus = $scope.campus.value;
+                }else{
+                    $scope.userForm.campus.$setValidity("data_error", false);
+                }
+
                 var data =
                 {
                     'user':$scope.user
                 };
                 var json = JSON.stringify(data);
-                securityService.updateSocialUser(json).then(function (response){
+                $scope.socialRegistrationPromise = (securityService.updateSocialUser(json)).then(function (response){
 
                     identityService.getSocialPluginAccessToken(response.data.success.successData.serviceId).then(getAuthorizedUserData).catch(showUnknownError);
 
@@ -88,7 +111,7 @@
 
             identityService.setAccessToken(response.data);
 
-            userService.getAuthorizedUserShortData(response.data.access_token).then(setAuthorizedUserData).catch(function(response){
+            $scope.socialRegistrationPromise = (userService.getAuthorizedUserShortData(response.data.access_token)).then(setAuthorizedUserData).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {
                     $scope.$parent.logout();
                 } else if (response.data.error_description == "The access token provided has expired.") {
@@ -108,6 +131,11 @@
         function setAuthorizedUserData(response) {
             identityService.setAuthorizedUserData(response.data.success.successData);
             responseService.showSuccessToast("Login Successful");
+
+            //Listen To Real Time Time Notification
+            eventService.trigger("getContactNotifications",response.data.success.successData.username);
+            eventService.trigger("getViewNumbers");
+            eventService.trigger("getMessages",response.data.success.successData.username);
 
             if(response.data.success.successData.role.indexOf("ROLE_ADMIN_USER")>=0){
                 $scope.$parent.adminUser=true;

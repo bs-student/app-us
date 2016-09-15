@@ -149,17 +149,13 @@ var app = angular
         $authProvider.facebook({
             clientId: '214816590624',
             url:'http://student2student.com/api/web/auth/facebook'
-            //TODO fix the redirect URL
-//            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/facebook',
-//            redirectUri: 'http://localhost:8080/'
+
 
         });
         $authProvider.google({
             clientId: '19322012790-7i3k71ps5r6cujo4h87j9husfvjombsn.apps.googleusercontent.com',
             url:'http://student2student.com/api/web/auth/google'
-            //TODO fix the redirect URL
-//            url:'http://168.61.173.224:8080/Student2Student/api/web/auth/google',
-//            redirectUri: 'http://localhost:8080'
+
         });
 
     }])
