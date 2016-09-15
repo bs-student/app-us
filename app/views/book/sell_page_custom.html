@@ -405,21 +405,28 @@
                                             </div>
                                             <br/>
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <text class="blue-text uppercase"><strong>Comment : </strong><text uib-tooltip="Maximum size 1200 characters allowed" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></text>
+                                                <div class="col-md-8">
+                                                    <text class="blue-text uppercase"><strong>Comment : </strong> <text uib-tooltip="Maximum size 1200 characters allowed" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></text>
+                                                </div>
+                                                <div class="col-md-4 text-right">
+                                                    <text ng-show="(step1.comment.$valid && !step1.comment.$pristine) || step1.comment.$pristine" class="grey-text"><strong>Remaining : {{1200-book.comment.length}} Characters</strong></text>
+                                                    <text ng-show="step1.comment.$invalid && !step1.comment.$pristine" class="text-danger"><strong>Character Limit Exceeded</strong></text>
                                                 </div>
 
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-12" ng-class="{ 'has-error' : step1.comment.$invalid && !step1.comment.$pristine, 'has-success' : step1.comment.$valid && !step1.comment.$pristine}">
                                                     <div >
 
-                                                        <textarea class="form-control"  placeholder="Write comment here... (Maximum 1200 Characters)"
-                                                                  rows="5" name="comment"  ng-model="book.comment"
+                                                        <textarea class="form-control"
+                                                                  rows="5" name="comment"  ng-model="book.comment" ng-maxlength="1200"
                                                                   aria-multiline="true"></textarea>
 
 
                                                     </div>
+                                                    <p class="help-block">
+                                                        <span ng-show="step1.comment.$error.maxlength">Comment must be less than 1200 characters.</span>
+                                                    </p>
                                                 </div>
 
                                             </div>
@@ -796,7 +803,10 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <text class="form-information lato"> You can upload 3 pictures from your textbook to show its condition. <br>(Recommended Picture Size : Less than 300KB. Recommended Picture Dimension: 350px/500px)</text>
+                                    <text class="form-information lato"> You can upload 3 pictures from your textbook to show its condition. <br>(Recommended Picture Size : Less than 300KB. Recommended Picture Dimension: 350px/500px)
+                                        <br>
+                                        Allowed Image File Extensions : jpg/JPG, jpeg/JPEG, png/PNG
+                                    </text>
                                 </div>
 
 
