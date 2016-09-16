@@ -297,7 +297,8 @@
             ($scope.bookSellPromise =bookService.addSellBook(identityService.getAccessToken(),formData)).then(function(response){
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
-                $state.go('app.sellingBookList');
+//                $state.go('app.sellingBookList');
+                $state.go('app.tellFriends');
 
             }).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {

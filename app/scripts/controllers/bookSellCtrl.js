@@ -328,8 +328,8 @@
 //                        console.log("Error:", error);
 //                    });
 
-
-                $state.go('app.sellingBookList');
+                $state.go('app.tellFriends');
+//                $state.go('app.sellingBookList');
 
             }).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {

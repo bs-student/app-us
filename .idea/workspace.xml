@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77c78e5-5c2a-4472-90c9-3b775da78c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js" />
     </list>
     <ignored path="Student2StudentApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +35,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tellFriendsCtrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tellFriendsCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="54" selection-start="519" selection-end="519" vertical-scroll-proportion="0.22125813" vertical-offset="102" max-vertical-offset="1649">
+            <state line="18" column="54" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1649">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sellingBookListCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="280" column="47" selection-start="10126" selection-end="10126" vertical-scroll-proportion="0.0" vertical-offset="5683" max-vertical-offset="7956">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookSellCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="330" column="16" selection-start="11234" selection-end="11263" vertical-scroll-proportion="0.0" vertical-offset="5198" max-vertical-offset="6171">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookSellCustomCtrl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="300" column="44" selection-start="10048" selection-end="10048" vertical-scroll-proportion="0.6496746" vertical-offset="4501" max-vertical-offset="5593">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="340" column="20" selection-start="11152" selection-end="11167" vertical-scroll-proportion="-11.96" vertical-offset="5481" max-vertical-offset="10489">
               <folding />
             </state>
           </provider>
@@ -137,8 +173,6 @@
         <option value="$PROJECT_DIR$/app/views/book/sell_archive.html" />
         <option value="$PROJECT_DIR$/app/views/book/selling_book_list.html" />
         <option value="$PROJECT_DIR$/app/views/web/my_sell_page.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/book/sell_page.html" />
         <option value="$PROJECT_DIR$/app/views/book/sell_page_custom.html" />
         <option value="$PROJECT_DIR$/app/views/book/book_deal_edit_page.html" />
@@ -151,6 +185,8 @@
         <option value="$PROJECT_DIR$/app/views/admin/user/user_list.html" />
         <option value="$PROJECT_DIR$/app/scripts/constants/constants.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js" />
       </list>
     </option>
   </component>
@@ -692,11 +728,6 @@
         <state line="9" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="15.692307" vertical-offset="561" max-vertical-offset="2312" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="0" selection-start="10565" selection-end="10565" vertical-scroll-proportion="0.0" vertical-offset="4342" max-vertical-offset="7956" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/contactedBookListCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="233" column="0" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0" vertical-offset="3501" max-vertical-offset="5185" />
@@ -764,16 +795,6 @@
         <state line="259" column="35" selection-start="12684" selection-end="12684" vertical-scroll-proportion="-16.961538" vertical-offset="3962" max-vertical-offset="8670" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="56" selection-start="9575" selection-end="9575" vertical-scroll-proportion="0.0" vertical-offset="4693" max-vertical-offset="6171" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="275" column="21" selection-start="8761" selection-end="8761" vertical-scroll-proportion="0.0" vertical-offset="4591" max-vertical-offset="5576" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/book/sell_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="616" column="99" selection-start="36086" selection-end="36190" vertical-scroll-proportion="-22.807692" vertical-offset="9879" max-vertical-offset="16150" />
@@ -823,11 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="0" selection-start="4896" selection-end="4896" vertical-scroll-proportion="0.0" vertical-offset="1640" max-vertical-offset="10489" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="0" selection-start="5056" selection-end="5056" vertical-scroll-proportion="-15.038462" vertical-offset="1003" max-vertical-offset="6018">
@@ -874,7 +890,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/tellFriendsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="519" selection-end="519" vertical-scroll-proportion="0.22125813" vertical-offset="102" max-vertical-offset="1649">
+        <state line="18" column="54" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sellingBookListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="280" column="47" selection-start="10126" selection-end="10126" vertical-scroll-proportion="0.0" vertical-offset="5683" max-vertical-offset="7956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="20" selection-start="11152" selection-end="11167" vertical-scroll-proportion="-11.96" vertical-offset="5481" max-vertical-offset="10489">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="330" column="16" selection-start="11234" selection-end="11263" vertical-scroll-proportion="0.0" vertical-offset="5198" max-vertical-offset="6171">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/bookSellCustomCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="300" column="44" selection-start="10048" selection-end="10048" vertical-scroll-proportion="0.6496746" vertical-offset="4501" max-vertical-offset="5593">
           <folding />
         </state>
       </provider>
