@@ -68,14 +68,18 @@
                         </div>
 
                     </td>
-                    <td data-title="'Full Name'" style="width: 25%;" >
+                    <td data-title="'Full Name'" style="width: 21%;" >
                         <span>{{user.fullName}}</span>
                     </td>
-                    <td data-title="'Email'" style="width: 15%;" filter="{ 'email': 'text' }">
+                    <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
                         <span>{{user.email}}</span>
                     </td>
-                    <td data-title="'Date'" style="width: 13%;">
+                    <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
                         <span>{{user.registrationDateTime}}</span>
+                    </td>
+                    <td data-title="'Verified'" style="width: 8%;">
+                        <span ng-show="user.enabled">Yes</span>
+                        <span ng-show="!user.enabled">No</span>
                     </td>
                     <td data-title="'Actions'" style="width: 15%">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>

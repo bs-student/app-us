@@ -47,7 +47,8 @@
                         email: ''           // initial filter
                     },
                     sorting: {
-                        username: 'asc'     // initial sorting
+
+                        registrationDateTime: 'desc'// initial sorting
                     }
                 },
 
