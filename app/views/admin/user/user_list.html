@@ -53,7 +53,7 @@
                     <td data-title="'Picture'" style="width: 15%;"  >
                         <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
                     </td>
-                    <td data-title="'Username'" style="width: 23%;"  sortable="'username'" filter="{ 'username': 'text' }">
+                    <td data-title="'Username'" style="width: 15%;"  sortable="'username'" filter="{ 'username': 'text' }">
                         <span ng-if="!user.$edit">{{user.username}}</span>
 
 
@@ -71,8 +71,11 @@
                     <td data-title="'Full Name'" style="width: 25%;" >
                         <span>{{user.fullName}}</span>
                     </td>
-                    <td data-title="'Email'" style="width: 20%;" filter="{ 'email': 'text' }">
+                    <td data-title="'Email'" style="width: 15%;" filter="{ 'email': 'text' }">
                         <span>{{user.email}}</span>
+                    </td>
+                    <td data-title="'Date'" style="width: 13%;">
+                        <span>{{user.registrationDateTime}}</span>
                     </td>
                     <td data-title="'Actions'" style="width: 15%">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
