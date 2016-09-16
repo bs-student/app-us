@@ -16,7 +16,7 @@
 
         $scope.user=[];
         if($scope.$parent.loggedIn){
-            $scope.shareUrl = window.location.origin+window.location.pathname+"#/"+identityService.getAuthorizedUserData().username;
+            $scope.shareUrl = window.location.origin+"/"+identityService.getAuthorizedUserData().username;
             $scope.shareText = identityService.getAuthorizedUserData().username+"'s Sell Page | Student2Student.com | Textbook Exchange made Easy";
             $scope.shareHashtags = identityService.getAuthorizedUserData().username+"_Sell_Page, Student2Student, Textbook_Exchange_made_Easy";
 
