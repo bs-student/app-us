@@ -16,7 +16,7 @@
 
 
                             <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
-                                <!--<label class="white-text" for="fullName">Full Name: </label>-->
+
                                 <p class="" for="fullName">Full Name: </p>
                                 <input type="text" name="fullName" id="fullName" class="form-control " ng-model="user.fullName" ng-minlength="3"  required>
                                 <p class="help-block">
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
-                                <!--<label class="white-text" for="username">Username: </label>-->
+
                                 <p class="" for="fullName">Username: </p>
                                 <input data-val-username type="text" name="username" id="username" class="form-control " ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
                                 <p class="help-block">
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine, 'has-success' : userForm.email.$valid && !userForm.email.$pristine}">
-                                <!--<label class="white-text" for="email">Email: </label>-->
+
                                 <p class="" for="fullName">Email: </p>
                                 <input data-val-email type="email" name="email" id="email" class="form-control " ng-model="user.email" required>
                                 <p class="help-block">
@@ -52,7 +52,7 @@
                             <div class="row">
 
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine, 'has-success' : userForm.password.$valid && !userForm.password.$pristine}">
-                                    <!--<label class="white-text" for="password">Password: </label>-->
+
                                     <p class="" for="fullName">Password: </p>
                                     <input type="password" name="password" id="password" class="form-control " ng-model="user.password" ng-minlength="6" required>
                                     <p class="help-block">
@@ -62,7 +62,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine, 'has-success' : userForm.passwordConfirm.$valid && !userForm.passwordConfirm.$pristine}">
-                                    <!--<label class="white-text" for="passwordConfirm">Password confirmation: </label>-->
+
                                     <p class="" for="fullName">Password Confirmation: </p>
                                     <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control " ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required>
                                     <p class="help-block">

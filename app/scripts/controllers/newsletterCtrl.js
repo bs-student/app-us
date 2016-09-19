@@ -10,10 +10,6 @@
     function NewsletterCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
 
 
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
-
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

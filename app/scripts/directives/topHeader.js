@@ -26,9 +26,7 @@ function topHeader() {
             attrs.$observe('headerstyle', function(headerstyle) {
                 shouldBeAddedClass = headerstyle;
             });
-            /*$("#username_li").$observe(function(){
-               console.log($("#username_li").html());
-            });*/
+
 
 
             $(window).on('scroll', function () {

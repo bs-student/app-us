@@ -17,14 +17,12 @@
         $scope.$parent.activePage = "home";
         $scope.firstSlide = true;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
-//        $scope.rotateSlide = _rotateSlide;
+
         $scope.showRegister = _showRegister;
         $scope.searchBook = _searchBook;
         $scope.peopleQuoteItems = [];
         $scope.universityQuoteItems = [];
 
-
-//        $scope.rotateSlide();
 
         setUpPage();
 
@@ -34,19 +32,6 @@
             subtitle: 'Student 2 Student HomePage'
         };
 
-//        function setUpHomeSlider(){
-//
-//            if(localStorage["sliderInterval"]!=undefined){
-//                clearInterval(localStorage["sliderInterval"]);
-//            }
-//            var sliderInterval = setInterval(function(){
-//                $scope.rotateSlide();
-//            }, 5000);
-//            localStorage["sliderInterval"] = sliderInterval;
-//
-//
-//
-//        }
         function setUpPage(){
             quoteService.getActivatedStudentQuotes().then(function(response){
                 $scope.peopleQuoteItems = response.data.success.successData;

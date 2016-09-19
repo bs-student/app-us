@@ -16,7 +16,7 @@
 
 
                             <div class="form-group" ng-class="{ 'has-error' : quoteForm.quoteProvider.$invalid && !quoteForm.quoteProvider.$pristine, 'has-success' : quoteForm.quoteProvider.$valid && !quoteForm.quoteProvider.$pristine}">
-                                <!--<label class="white-text" for="quoteProvider">Full Name: </label>-->
+
                                 <p class="" for="quoteProvider">University Name: </p>
                                 <input type="text" name="quoteProvider" id="quoteProvider" class="form-control " ng-model="quote.quoteProvider"  required>
                                 <p class="help-block">
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' :  quoteForm.quoteDescription.$invalid && !quoteForm.quoteDescription.$pristine, 'has-success' : quoteForm.quoteDescription.$valid && !quoteForm.quoteDescription.$pristine}">
-                                <!--<label class="white-text" for="quoteDescription">quoteDescription: </label>-->
+
                                 <p class="" for="quoteProvider">Quote: </p>
                                 <textarea name="quoteDescription" id="quoteDescription" class="form-control " ng-model="quote.quoteDescription" required></textarea>
                                 <p class="help-block">

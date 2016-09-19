@@ -8,11 +8,6 @@
 
     function AddUserCtrl(identityService, adminUserService, responseService, $scope, $state) {
 
-//
-//        if(!$scope.$parent.adminUser){
-//            $state.go("app.login");
-//        }
-
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
@@ -31,10 +26,7 @@
                     new_password: $scope.user.password,
                     confirm_password: $scope.user.passwordConfirm
                 };
-//                $scope.user.adminApproved="Yes";
-//                $scope.user.new_password=$scope.user.password;
-//                $scope.user.confirm_password= $scope.user.passwordConfirm;
-//                console.log($scope.user);
+
                 ($scope.$parent.userPromise = adminUserService.addAdminUser(identityService.getAccessToken(),userData)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
 

@@ -26,7 +26,6 @@
             clearAccessToken: _clearAccessToken,
             clearAuthorizedUserData: _clearAuthorizedUserData,
             getClientCredentialAccessToken: _getClientCredentialAccessToken,
-//            setClientCredentialAccessToken: _setClientCredentialAccessToken,
             getSocialPluginAccessToken: _getSocialPluginAccessToken
         }
 
@@ -77,13 +76,7 @@
         function _getClientCredentialAccessToken(){
             return tokenService.getClientCredentialAccessToken();
         }
-//        function _setClientCredentialAccessToken(data){
-//
-//            if (typeof data.access_token != "undefined") {
-//                tempAccessToken= data.access_token;
-//                localStorage["bsTempAccessToken"] = tempAccessToken;
-//            }
-//        }
+
         function _getSocialPluginAccessToken(serviceId){
             return tokenService.getSocialPluginAccessToken(serviceId);
         }

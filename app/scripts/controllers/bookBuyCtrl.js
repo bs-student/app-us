@@ -10,8 +10,6 @@
     function BookBuyCtrl($q,$log,$scope, universityService,responseService,identityService,$stateParams,$state,storageService) {
 
 
-
-
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
 

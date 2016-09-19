@@ -25,7 +25,6 @@
                 faqs: [
                     {
                         question: "How does Student2Student work?",
-                        /*answer: '<iframe style="border:3px solid #FF530D !important; border-radius: 4px;" width="560" height="315" src="https://www.youtube.com/embed/lXvwHtAXAXQ" frameborder="0" allowfullscreen></iframe>'*/
                         answer: $sce.trustAsHtml('<iframe style="border:3px solid #FF530D !important; border-radius: 4px;" width="100%" height="315" src="https://www.youtube.com/embed/lXvwHtAXAXQ" frameborder="0" allowfullscreen></iframe>')
                     },
                     {

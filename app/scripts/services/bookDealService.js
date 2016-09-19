@@ -28,8 +28,6 @@
             //for Contacts
             getAllDataForNewContactInMessageBoard:_getAllDataForNewContactInMessageBoard
 
-//            getBookDealsOfMineWhichAreSoldForMessageBoard:_getBookDealsOfMineWhichAreSoldForMessageBoard,
-//            getBookDealsOfMineWhichAreBoughtForMessageBoard:_getBookDealsOfMineWhichAreBoughtForMessageBoard
         };
 
 
@@ -89,13 +87,7 @@
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_ALL_DATA_FOR_NEW_CONTACT_IN_MESSAGE_BOARD+"?access_token="+data.accessToken,data);
         }
 
-//        function _getBookDealsOfMineWhichAreSoldForMessageBoard(accessToken){
-//            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD_FOR_MESSAGE_BOARD+"?access_token="+accessToken);
-//        }
-//
-//        function _getBookDealsOfMineWhichAreBoughtForMessageBoard(data){
-////            return apiService.post(SERVER_CONSTANT.HOST+BOOK_DEAL_CONSTANT.GET_BOOK_DEALS_I_HAVE_CREATED_AND_SOLD_FOR_MESSAGE_BOARD+"?access_token="+data.accessToken,data);
-//        }
+
 
     }
 

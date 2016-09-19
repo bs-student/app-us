@@ -18,11 +18,7 @@
         ($scope.quotePromise = quoteService.getActivatedStudentQuotes()).then(function(response){
             $scope.peopleQuoteItems = response.data.success.successData;
         });
-//        $scope.peopleQuoteItems = [
-//            {id: 1, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
-//            {id: 2, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'},
-//            {id: 3, peopleName: 'John Douey', peopleType: 'Student', peopleImg: 'assets/images/avatars/random-avatar1.jpg', peopleQuote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio'}
-//        ];
+
 
         $scope.bookId = $stateParams.bookId;
         $scope.loginUser = _loginUser;
@@ -119,7 +115,7 @@
             }
             $scope.$parent.loggedIn = true;
             $scope.$parent.username = response.data.success.successData.username;
-//            storageService.setValue("universityCampusValue",response.data.success.successData.campusId);
+
             if($scope.bookId!=undefined){
                 wishListService.addBookToWishList(identityService.getAccessToken(),{bookId:$scope.bookId}).then(function(response){
                     responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);

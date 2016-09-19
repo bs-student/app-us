@@ -185,13 +185,6 @@
                 <div class="archive-page-side">
                     <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
-                    <!--<div class="buttons">
-                        <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</button>
-                        <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/lock.png"/> &nbsp; Deactivate</button>
-                        <button class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
-                    </div>-->
-
-
                 </div>
             </div>
         </div>
@@ -226,9 +219,7 @@
                     <tr>
                         <th style="width: 20%;">Date</th>
                         <th style="width: 20%;">Seller Nickname</th>
-                        <!--<th style="width: 15%;">Email</th>-->
-                        <!--<th style="width: 13%;">CellPhone</th>-->
-                        <!--<th style="width: 13%;">HomePhone</th>-->
+
                         <th style="width: 60%;">Action</th>
                     </tr>
                     </thead>
@@ -237,9 +228,7 @@
                     <tr>
                         <td>{{contact.contactDateTime}}</td>
                         <td>{{deal.sellerUsername}}</td>
-                        <!--<td>{{contact.buyerEmail}}</td>-->
-                        <!--<td>{{contact.buyerCellPhone}}</td>-->
-                        <!--<td>{{contact.buyerHomePhone}}</td>-->
+
                         <td>
 
                             <text ng-show="!contact.showingMessages">
@@ -262,9 +251,7 @@
                                 Messages
                             </button>
                             <br/>
-                            <!--<button ng-show="!contact.showingMessages" ng-click="getMessages(contact)" class="myBtn app-btn orange-btn contact-btn">See Messages</button>
-                            <button ng-show="contact.showingMessages" ng-click="contact.showingMessages=false" class="myBtn app-btn orange-btn contact-btn">Hide Messages</button>
-                            <button  ng-show="!contact.sendingMessages" ng-click="contact.sendingMessages=true" class="myBtn app-btn orange-btn contact-btn">Send Messages</button>-->
+
 
                         </td>
                     </tr>
@@ -356,9 +343,7 @@
 
 
 <script type="text/ng-template" id="myModalContent">
-    <!-- <div class="modal-header">
-         <h3 class="modal-title custom-font white-text">{{title}}</h3>
-     </div>-->
+
     <div class="modal-body">
 
         <div class="modal-images">

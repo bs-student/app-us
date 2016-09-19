@@ -248,9 +248,6 @@
             eventService.trigger("getMessages",$scope.username);
 
 
-
-//            $state.go("app.dashboard");
-
         }
 
 

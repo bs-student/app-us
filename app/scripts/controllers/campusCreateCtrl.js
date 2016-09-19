@@ -13,12 +13,6 @@
         $scope.saveNewCampus = _saveNewCampus;
         $scope.cancelAddingCampus = _cancelAddingCampus;
 
-//        var parentScopeVar = [];
-//        parentScopeVar.universityId = $scope.$parent.universityId;
-//        parentScopeVar.universityName = $scope.$parent.universityId;
-
-//        $scope.universityId = $scope.$parent.universityId;
-//        console.log($scope.$parent);
 
         countryService.getCountryList(identityService.getAccessToken()).then(function(response){
             console.log(response.data);

@@ -14,8 +14,7 @@
         $scope.saveEditedSelectedUniversities = _saveEditedSelectedUniversities;
         $scope.addOrRemoveSelectedUniversities = _addOrRemoveSelectedUniversities;
         $scope.showAddUniversityPage = _showAddUniversityPage;
-        $scope.viewUniversityDetails= _viewUniversityDetails,
-//        $scope.addUniversity = _addUniversity;
+        $scope.viewUniversityDetails= _viewUniversityDetails;
         $scope.activateSelectedUniversities=_activateSelectedUniversities;
         $scope.deleteUniversity = _deleteUniversity;
         var selected_all = false;
@@ -31,15 +30,14 @@
                     universityName: ''       // initial filter
                 },
                 sorting: {
-//                universityName: 'asc',     // initial sorting
-                    universityStatus: 'desc'
+                    universityStatus: 'desc' // initial sorting
                 }
             },
 
             {
                 total: data.length, // length of data
                 getData: function ($defer, params) {
-//                console.log($filter('orderBy')(data, params.orderBy()));
+
                     var queryData =
                     {
                         "searchQuery": params.filter().universityName,

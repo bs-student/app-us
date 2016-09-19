@@ -17,7 +17,6 @@
             getSingleBookByIsbnCampusBooks:_getSingleBookByIsbnCampusBooks,
             getAmazonCartCreateUrl:_getAmazonCartCreateUrl,
             getCampusDealsByIsbn: _getCampusDealsByIsbn,
-//            getOnCampusDealsByIsbn:_getOnCampusDealsByIsbn,
             addSellBook:_addSellBook,
             addCustomSellBook:_addCustomSellBook,
             addBookToWishList:_addBookToWishList

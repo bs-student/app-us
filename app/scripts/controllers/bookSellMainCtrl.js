@@ -9,11 +9,6 @@
 
     function BookSellMainCtrl($state,$scope,bookService,identityService,responseService) {
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//
-//        }
-
 
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
@@ -39,7 +34,6 @@
                             $state.go('app.sellBookByIsbn',{book:response.data.success.successData.books[0]});
                         }else{
                             $state.go('app.sellBookCustom');
-//                            responseService.showErrorToast("No Books Found.","Add Custom Books will be added Soon...")
                         }
 
                     }).catch(function(response){

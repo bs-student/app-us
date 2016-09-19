@@ -8,11 +8,6 @@
 
     function ChangePasswordCtrl(identityService, userService, responseService, $scope, $state) {
 
-
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

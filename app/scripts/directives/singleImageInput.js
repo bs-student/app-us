@@ -15,7 +15,7 @@ app
                         var singleFile = attrs.singleFile;
                         var fileIdModel = attrs.fileIdentifier;
                         var fileDataModel = attrs.fileData;
-//                        scope.model=[];
+
                         if(scope.model==undefined){
                             scope.model=[]
                         }
@@ -30,12 +30,12 @@ app
                                     scope.model.push(file);
                                     scope.singleFile = true;
                                 });
-//                                console.log(scope);
+
                             };
                             reader.readAsDataURL(file);
 
                         });
-//                        console.log(model);
+
                         $parse(model).assign(scope, scope.model);
 
                     });

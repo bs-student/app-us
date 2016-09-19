@@ -9,10 +9,6 @@
 
     function BuyArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
         $scope.resultFound = true;
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
@@ -56,16 +52,6 @@
 
 
             });
-//            angular.forEach($scope.campusBookDeals.sellerToBuyer, function (book) {
-//                if (book.bookImages.length == 1) {
-//                    book.showThumb = false;
-//                } else {
-//                    book.showThumb = true;
-//                }
-//
-//                book.showThumbnails = book.bookImages.slice(($scope.thumbnailPage - 1) * $scope.thumbnailSize, $scope.thumbnailPage * $scope.thumbnailSize);
-//
-//            });
         }
 
         function _prevPage(book) {

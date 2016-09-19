@@ -10,12 +10,6 @@
     function BookDealEditCtrl($stateParams,$state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT,imageModalService,bookDealService,imageStoreService) {
 
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
-
-
         if($stateParams.book!=undefined){
             $scope.book = $stateParams.book;
             $scope.book.contactInfoEmail =$scope.book.sellerEmail;
@@ -24,7 +18,6 @@
             $scope.email = $scope.book.sellerEmail;
             $scope.book.bookAvailableDate = new Date($scope.book.bookAvailableDate);
             $scope.bookPriceSell = $scope.book.bookPriceSell;
-//            $scope.book.agreedOnTermsAndConditions=true;
             $scope.universityName =identityService.getAuthorizedUserData().universityName;
             getLowestCampusDealPrice();
 
@@ -103,18 +96,6 @@
                     $scope.steps.step5=true;
                     $scope.step4Completed=true;
 
-                    /*$scope.imageFiles=data;
-
-                    angular.copy(data,$scope.carouselFiles);
-
-                    var array=[];
-                    angular.forEach($scope.book.bookImages,function(image){
-                        image.fileData=$scope.imageHostPath+image.image;
-                        array.push(image);
-                    });
-                    $scope.carouselFiles = array.concat($scope.carouselFiles);
-                    console.log($scope.carouselFiles);
-                    setCarousel();*/
 
                 }
 
@@ -207,7 +188,6 @@
                 }
                 i++;
             });
-//            $scope.imageFiles = items;
 
         }
 

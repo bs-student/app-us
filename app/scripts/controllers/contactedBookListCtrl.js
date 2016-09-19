@@ -9,9 +9,6 @@
 
     function ContactedBookListCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,SERVER_CONSTANT,imageModalService,$firebaseArray,eventService) {
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
 
         $scope.showPagination=false;
         $scope.resultFound = true;
@@ -271,24 +268,6 @@
             }
 
         }
-
-//        function _contactSeller(valid){
-//            if(valid){
-//                $scope.contact.bookDeal =$scope.deal.bookDealId;
-//                var data={
-//                    contact: $scope.contact,
-//                    access_token : identityService.getAccessToken()
-//                }
-//
-//
-//                contactService.addContact(data).then(function (response){
-//                    responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
-//                }).catch(function (response){
-//                    responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
-//                });
-//
-//            }
-//        }
 
 
     }

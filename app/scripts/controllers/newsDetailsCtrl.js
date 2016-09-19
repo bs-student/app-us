@@ -63,11 +63,8 @@
             newsService.getActivatedNews(queryData).then(function (response) {
 
                 var allNews= response.data.success.successData.news.totalNews;
-//                console.log(allNews);
                 $scope.alsoLikedNews = allNews.slice(0,2);
-//                console.log(allNews);
                 $scope.latestNews = allNews.slice(2,5);
-//                console.log(allNews);
 
             }).catch(function (response) {
 

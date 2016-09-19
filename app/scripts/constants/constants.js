@@ -4,14 +4,12 @@
 
     app
         .constant("SERVER_CONSTANT",{
-//            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
-//            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
-//              "HOST":"http://168.61.173.224:8080/Student2Student/api/web",
-//            "IMAGE_HOST_PATH":"./api/web"
+            "HOST":"http://localhost:8080/Student2StudentApi/web/app_dev.php",
+            "IMAGE_HOST_PATH":"./../../Student2StudentApi/web"
 //            "HOST":"http://test.student2student.com/api/web",
 //            "IMAGE_HOST_PATH":"./api/web"
-            "HOST":"http://student2student.com/api/web",
-            "IMAGE_HOST_PATH":"./api/web"
+//            "HOST":"http://student2student.com/api/web",
+//            "IMAGE_HOST_PATH":"./api/web"
         })
         .constant("API_CLIENT_CONSTANT", {
             "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
@@ -33,8 +31,6 @@
         .constant("USER_CONSTANT", {
             "CURRENT_USER_SHORT_DETAILS": "/api/current_user_short_details",
             "CURRENT_USER_FULL_DETAILS": "/api/current_user_full_details",
-//            "UPDATE_FULL_NAME": "/api/update_user_full_name",
-//            "UPDATE_USER_UNIVERSITY_CAMPUS": "/api/update_user_university_campus",
             "CHANGE_PASSWORD": "/profile/change-password",
             "ADMIN_ALL_USER_DATA" :"/api/admin/all_users",
             "UPDATE_PROFILE" : "/api/update_user_profile",
@@ -114,10 +110,7 @@
         })
 
         .constant("LOGIN_CONSTANT", {
-//            "PAGE": "/login",
             "SUBMIT": "/login_check"
-//            "LOGIN_WITH_SOCIAL_SERVICE_LINK":"/social_register"
-
         })
         .constant("BOOK_CONSTANT", {
             "SEARCH_AMAZON": "/book/search_by_keyword_amazon",

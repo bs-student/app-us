@@ -104,11 +104,6 @@ var app = angular
     }])
     .config(function() {
         var config = {
-//            apiKey: "AIzaSyDhYGV8b2Zc6zxYThPS9S0N-pxkghBeJI8",               // Your Firebase API key
-//            authDomain: "student2student-1205.firebaseapp.com",       // Your Firebase Auth domain ("*.firebaseapp.com")
-//            databaseURL: "https://student2student-1205.firebaseio.com",     // Your Firebase Database URL ("https://*.firebaseio.com")
-//            storageBucket: "student2student-1205.appspot.com"  // Your Firebase Storage bucket ("*.appspot.com")
-
             apiKey: "AIzaSyB_khisCo1mguYbbPKUM6Ugfc_i74kWa50",
             authDomain: "student2student-31e72.firebaseapp.com",
             databaseURL: "https://student2student-31e72.firebaseio.com",
@@ -116,12 +111,7 @@ var app = angular
         };
         firebase.initializeApp(config);
     })
-//    .config(["$locationProvider", function($locationProvider) {
-//        $locationProvider.html5Mode({
-//            enabled: true,
-//            requireBase: false
-//        });
-//    }])
+
     .config(['uiSelectConfig', function (uiSelectConfig) {
         uiSelectConfig.theme = 'bootstrap';
     }])

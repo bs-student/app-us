@@ -184,10 +184,8 @@
                         });
                     } else if (response.data.error != undefined) {
                         responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-//                        $scope.user.fullName = $scope.fullNameOnEdit;
                     } else {
                         responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-//                        $scope.user.fullName = $scope.fullNameOnEdit;
                     }
                 });
             }

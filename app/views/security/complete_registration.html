@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
-                                <!--<label class="white-text" for="fullName">Full Name: </label>-->
+
                                 <p class="white-text" for="fullName">Full Name: </p>
                                 <p class="white-text px-16" for="fullName">{{user.fullName}} </p>
                             </div>
@@ -75,42 +75,7 @@
 
                 <div class=" reg-page-form">
 
-                    <!--<div class="form-group" ng-class="{ 'has-error' : userForm.campus.$invalid && !userForm.campus.$pristine, 'has-success' : userForm.campus.$valid && !userForm.campus.$pristine}">
 
-                        <p class="white-text">University: </p> <p class="white-text">If not found then <a ui-sref="app.addUniversity">Create a new university!</a></p>
-
-                        <md-autocomplete required
-                                         md-input-id="input-style"
-
-                                         md-input-name="campus"
-                                         md-selected-item="selectedItem"
-                                         md-search-text-change="searchTextChange(searchText)"
-                                         md-search-text="searchText"
-                                         md-selected-item-change="selectedItemChange(item)"
-                                         md-items="item in querySearch(searchText)"
-                                         md-item-text="item.display"
-                                         md-min-length="0"
-                                         placeholder="What is your University Campus?">
-                            <md-item-template>
-
-                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                            </md-item-template>
-                            <md-not-found>
-                                No matches found for "{{searchText}}".
-
-                            </md-not-found>
-
-                            <div ng-messages="registrationCompleteForm.autocompleteField.$error" ng-if="registrationCompleteForm.autocompleteField.$touched">
-                                <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                                <div ng-message="minlength">Your entry is not long enough.</div>
-                                <div ng-message="maxlength">Your entry is too long.</div>
-                            </div>
-
-                        </md-autocomplete>
-                        <p class="help-block">
-                            <span ng-show="userForm.campus.$invalid && !userForm.campus.$pristine">Campus is required.</span>
-                        </p>
-                    </div>-->
 
 
 
@@ -148,9 +113,9 @@
 
 
                     <div class="form-group" ng-class="{ 'has-error' : userForm.referral.$invalid && !userForm.referral.$pristine, 'has-success' : userForm.referral.$valid && !userForm.referral.$pristine}">
-                        <!--<label class="white-text" for="referral">Referral: </label>-->
+
                         <p class="white-text" for="fullName">Referral: </p>
-                        <!--<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>-->
+
                         <select name="referral" id="referral"  ng-model="user.referral"  class="form-control mb-10 input-style"
                                 data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
                             <option value="">---Select Referral---</option>
@@ -201,10 +166,6 @@
 </div>
 
 
-<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
-
-
-<!--</div>-->
 
 
 

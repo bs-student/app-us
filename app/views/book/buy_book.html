@@ -1,4 +1,4 @@
-<!--<div  ng-parallax offset="0"  speed="5"  class="parallax-box dark" pattern="'assets/images/parallax/search-result-banner.png'" class="search-page-head-banner">-->
+
 <div class="search-page-head-banner">
     <div class="container clearfix">
 
@@ -39,29 +39,7 @@
                             <p class="grey-text px-18 lato">University: <text ng-show="!noUniversitySelected">{{selectedCampus.display}}</text><text ng-show="noUniversitySelected">You have not selected any university yet.</text> &nbsp; <a href="" ng-click="changeUniversity=!changeUniversity">Choice University</a></p>
                         </div>
 
-                        <!--<div ng-show="!$parent.loggedIn" class="form-group">
-                            <input
-                                    name="campus"
-                                    ng-model="campus"
-                                    id="search-university-search-page"
-                                    placeholder="What is your University Campus?"
-                                    ng-change="onCampusChange()"
-                                    typeahead-on-select="onCampusSelect($item, $model, $label)"
-                                    ng-model-options="modelOptions"
 
-                                    type="text"
-
-                                    uib-typeahead="universityCampus as universityCampus.display for universityCampus in querySearch($viewValue)"
-                                    typeahead-loading="loadingCampuses"
-                                    typeahead-no-results="noResults"
-                                    class="form-control input-style">
-                            <text ng-show="loadingCampuses"  class="white-text"><i class="fa fa-cog fa-spin fa-fw"></i> Getting University Information...</text>
-                            <div ng-show="noResults" class="text-danger">
-                                <i class="fa fa-times"></i> No Results Found
-                            </div>
-
-
-                        </div>-->
 
                         <div ng-show="changeUniversity" class="form-group">
                             <input
@@ -90,7 +68,7 @@
 
 
                     </div>
-                    <!--<code>{{bookSearchForm}}</code>-->
+
 
 
 

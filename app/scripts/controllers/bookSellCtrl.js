@@ -10,10 +10,6 @@
     function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService,$firebaseObject,$firebaseArray) {
 
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 
@@ -210,7 +206,6 @@
             }
 
             if(!error){
-//                responseService.showSuccessToast("All Forms are correct. add the data to Database tomorrow and new custom books too. ")
                 sellBook();
             }
         }
@@ -304,32 +299,7 @@
 
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
 
-
-//                //Realtime Database
-//                var username = identityService.getAuthorizedUserData().username;
-//                var ref = firebase.database().ref("/users/"+username+"/deals");
-//                var list = $firebaseArray(ref);
-//
-//                list.$loaded()
-//                    .then(function(x) {
-//                        list.$add({
-//                           "deal_id":response.data.success.successData.bookDealId,
-//                            "view":0,
-//                            "contacts":0
-//                        });
-////                        console.log(x);
-////                        if(x.length==""){
-////                            var obj = $firebaseObject(ref);
-////                            obj["deals"] = "";
-////                            obj.$save();
-////                        }
-//                    })
-//                    .catch(function(error) {
-//                        console.log("Error:", error);
-//                    });
-
                 $state.go('app.tellFriends');
-//                $state.go('app.sellingBookList');
 
             }).catch(function(response){
                 if (response.data.error_description == "The access token provided is invalid.") {

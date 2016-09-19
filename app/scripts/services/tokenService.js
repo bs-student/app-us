@@ -17,7 +17,6 @@
         };
 
         function _getInitialAccessToken(user){
-//            console.log(SERVER_CONSTANT.HOST+ACCESS_TOKEN_CONSTANT.OAUTH_TOKEN_URL);
             var data={
                 "grant_type": ACCESS_TOKEN_CONSTANT.PASSWORD_GRANT_TYPE,
                 "client_id": API_CLIENT_CONSTANT.CLIENT_ID,
@@ -25,7 +24,6 @@
                 "username":user._username,
                 "password": user._password
             }
-//            console.log(data);
 
             return apiService.post(SERVER_CONSTANT.HOST+ACCESS_TOKEN_CONSTANT.OAUTH_TOKEN_URL,data);
         }

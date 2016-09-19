@@ -10,10 +10,6 @@
     function BookSellCustomCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService) {
 
 
-//        if(!$scope.$parent.loggedIn){
-//            $state.go("app.login");
-//        }
-
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 
@@ -205,7 +201,6 @@
             }
 
             if(!error){
-//                responseService.showSuccessToast("All Forms are correct. add the data to Database tomorrow and new custom books too. ")
                 sellBook();
             }
         }

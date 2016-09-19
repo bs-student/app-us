@@ -30,7 +30,7 @@
 
 
                             <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
-                                <!--<label class="white-text" for="fullName">Full Name: </label>-->
+
                                 <p class="white-text" for="fullName">Full Name: <text uib-tooltip="Full Name must be minimum length of 3 characters" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
                                 <input type="text" name="fullName" id="fullName" class="form-control input-style" ng-model="user.fullName" ng-minlength="3"  required>
                                 <p class="help-block">
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
-                                <!--<label class="white-text" for="username">Username: </label>-->
+
                                 <p class="white-text" for="fullName">Username: <text uib-tooltip="Username must be minimum length of 3 characters and maximum 20 characters. Username may contain alphanumeric values but no special characters except '-' or '_'" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
                                 <input data-val-username val-username-special-char type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
                                 <p class="help-block">
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine, 'has-success' : userForm.email.$valid && !userForm.email.$pristine}">
-                                <!--<label class="white-text" for="email">Email: </label>-->
+
                                 <p class="white-text" for="fullName">Email: </p>
                                 <input data-val-email type="email" name="email" id="email" class="form-control input-style" ng-model="user.email" required>
                                 <p class="help-block">
@@ -65,7 +65,7 @@
                             <div class="row">
 
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine, 'has-success' : userForm.password.$valid && !userForm.password.$pristine}">
-                                    <!--<label class="white-text" for="password">Password: </label>-->
+
                                     <p class="white-text" for="fullName">Password: <text uib-tooltip="Password must be minimum length of 6 characters" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
                                     <input type="password" name="password" id="password" class="form-control input-style" ng-model="user.password" ng-minlength="6" required>
                                     <p class="help-block">
@@ -75,7 +75,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine, 'has-success' : userForm.passwordConfirm.$valid && !userForm.passwordConfirm.$pristine}">
-                                    <!--<label class="white-text" for="passwordConfirm">Password confirmation: </label>-->
+
                                     <p class="white-text" for="fullName">Password Confirmation: </p>
                                     <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-style" ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required>
                                     <p class="help-block">
@@ -133,9 +133,9 @@
 
 
                     <div class="form-group" ng-class="{ 'has-error' : userForm.referral.$invalid && !userForm.referral.$pristine, 'has-success' : userForm.referral.$valid && !userForm.referral.$pristine}">
-                        <!--<label class="white-text" for="referral">Referral: </label>-->
+
                         <p class="white-text" for="fullName">Referral: </p>
-                        <!--<input type="text" name="referral" id="referral" class="form-control" ng-model="user.referral" required>-->
+
                         <select name="referral" id="referral"  ng-model="user.referral"  class="form-control mb-10 input-style"
                                 data-ng-options="referral.id as referral.referral_name for referral in referrals" required>
                             <option value="">---Select Referral---</option>
@@ -154,7 +154,7 @@
                         <label  class="checkbox checkbox-custom white-text">
                             <input type="checkbox" name="agree" id="agree" ng-model="user.agree" required><i></i> I agree to the <a ui-sref="app.privacyPolicy">Privacy Policy :: </a>
                             <a ui-sref="app.disclaimer"> Disclaimer </a>
-                            <a ui-sref="app.conditionOfUse">:: Condition of Use</a><!--<a href class="text-info">Terms of Service</a>-->
+                            <a ui-sref="app.conditionOfUse">:: Condition of Use</a>
                         </label>
                         <p class="help-block">
                             <span ng-show="userForm.agree.$invalid && !userForm.agree.$pristine">You must accept Terms of Service.</span>
@@ -203,10 +203,6 @@
 </div>
 
 
-<!--<div parallax-background  class="login-page-parallax  dark" parallax-ratio="0.3">-->
-
-
-<!--</div>-->
 
 
 
