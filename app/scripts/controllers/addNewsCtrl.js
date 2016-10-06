@@ -8,7 +8,7 @@
 
     function AddNewsCtrl(identityService, adminNewsService, responseService, $scope, $state) {
 
-
+        $scope.$parent.main.title = "Add News";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

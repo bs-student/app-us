@@ -5,11 +5,13 @@
     app
         .controller('BookSellMainCtrl', BookSellMainCtrl);
 
-    BookSellMainCtrl.$inject = ['$state','$scope','bookService','identityService','responseService'];
+    BookSellMainCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','SERVER_CONSTANT'];
 
-    function BookSellMainCtrl($state,$scope,bookService,identityService,responseService) {
+    function BookSellMainCtrl($state,$scope,bookService,identityService,responseService,SERVER_CONSTANT) {
 
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Sell Books";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 

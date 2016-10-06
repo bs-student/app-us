@@ -10,6 +10,7 @@
     function NewsletterCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
 
 
+        $scope.$parent.main.title = "Newsletter";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

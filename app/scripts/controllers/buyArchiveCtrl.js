@@ -9,7 +9,9 @@
 
     function BuyArchiveCtrl($scope,$stateParams,$state, identityService,contactService,responseService,bookDealService,imageModalService,SERVER_CONSTANT) {
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
         $scope.resultFound = true;
+        $scope.$parent.main.title = "Book Buy Archive";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.campusBookDeals=[];

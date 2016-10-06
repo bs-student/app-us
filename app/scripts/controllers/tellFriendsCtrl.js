@@ -5,12 +5,13 @@
     app
         .controller('TellFriendsCtrl', TellFriendsCtrl);
 
-    TellFriendsCtrl.$inject = ['$state', '$scope','responseService','contactUsService','identityService'];
+    TellFriendsCtrl.$inject = ['$state', '$scope','responseService','contactUsService','identityService','SERVER_CONSTANT'];
 
-    function TellFriendsCtrl($state, $scope,responseService,contactUsService,identityService) {
+    function TellFriendsCtrl($state, $scope,responseService,contactUsService,identityService,SERVER_CONSTANT) {
 
 
-
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Tell a Friend";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "howItWorks";
 

@@ -10,7 +10,7 @@
 
     function SignupCtrl($q,$log,$scope, identityService, $state, securityService, userService,referralService,universityService,responseService,$stateParams,$http) {
 
-
+        $scope.$parent.main.title = "Join";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "signup";
         $scope.user=[];

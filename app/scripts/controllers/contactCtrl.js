@@ -9,6 +9,10 @@
 
     function ContactCtrl($scope, $stateParams, $state, identityService, contactService, responseService, $firebaseArray, $firebaseObject) {
 
+        $scope.$parent.main.title = "Contact";
+        $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "user";
+        
         $scope.contactSeller = _contactSeller;
 
         init();

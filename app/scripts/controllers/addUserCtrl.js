@@ -9,6 +9,7 @@
     function AddUserCtrl(identityService, adminUserService, responseService, $scope, $state) {
 
 
+        $scope.$parent.main.title = "Add Users";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

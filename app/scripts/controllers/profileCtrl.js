@@ -9,10 +9,12 @@
 
     function ProfileCtrl($scope, $state,identityService, userService, responseService, universityService, $log, $q,SERVER_CONSTANT) {
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
         $scope.files=[];
         $scope.updatingProfile=false;
 
+        $scope.$parent.main.title = "Profile";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

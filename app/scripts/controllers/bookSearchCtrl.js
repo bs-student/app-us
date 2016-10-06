@@ -11,6 +11,7 @@
 
         $("body").animate({scrollTop: $("#all-search-result").offset().top-100}, "slow");
 
+        $scope.$parent.main.title = "Search Books";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
         $scope.$parent.showResult = true;

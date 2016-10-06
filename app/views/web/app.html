@@ -16,9 +16,9 @@
             <div id="branding">
 
                 <a ui-sref="app.dashboard" class="brand-normal" data-light-logo="assets/images/logo.png"><img
-                        src="assets/images/logo-dark.png" alt="Student2Student"></a>
+                        src="{{appHostPath}}/dist/images/logo-dark.png" alt="Student2Student"></a>
                 <a ui-sref="app.dashboard" class="brand-retina" data-light-logo="assets/images/logo@2x.png"><img
-                        src="assets/images/logo@2x-dark.png" alt="Student2Student"></a>
+                        src="{{appHostPath}}/dist/images/logo@2x-dark.png" alt="Student2Student"></a>
             </div>
             <!-- #branding end -->
 
@@ -99,18 +99,16 @@
                             <li><a ui-sref="app.mySellPage({username:username})"><i class="fa fa-map-o"></i>&nbsp;&nbsp;&nbsp;My Sell Page</a></li>
                             <li><a ui-sref="app.promoteMyStore"><i class="fa fa-bullhorn"></i>&nbsp;&nbsp;&nbsp;Promote My Store</a></li>
                             <li><a ui-sref="app.profile"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a></li>
-
-                            <!--<li><a ui-sref="app.dashboard"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Change University</a></li>-->
                             <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
                             <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>
                         </ul>
 
                         <ul ng-show="loggedIn && adminUser" class="menu-right-position">
                             <li><a ui-sref="app.userList"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;User Management</a></li>
+                            <li><a ui-sref="app.universityManagement"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Manage University</a></li>
                             <li><a ui-sref="app.allBookDeals"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Book Deals</a></li>
                             <li><a ui-sref="app.newsManagement"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;News Management</a></li>
                             <li><a ui-sref="app.quotes"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Quotes</a></li>
-                            <!--<li><a ui-sref="app.buyArchive"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Campus Contents</a></li>-->
                             <li><a ui-sref="app.newsletter"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;&nbsp;Newsletter</a></li>
                             <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
                             <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>

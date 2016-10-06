@@ -8,7 +8,9 @@
 
     function ResetPasswordCtrl($scope, $state, securityService, $stateParams, responseService) {
 
+        $scope.$parent.main.title = "Reset Password";
         $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "reset_password";
 
         $scope.resetLinkAlive = true;
         $scope.resetPassword = _resetPassword;

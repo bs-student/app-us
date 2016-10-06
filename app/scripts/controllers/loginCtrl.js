@@ -10,6 +10,7 @@
 
     function LoginCtrl($stateParams,$scope, identityService, $state, securityService, userService,responseService,wishListService,$auth,quoteService,SERVER_CONSTANT,eventService,$firebaseObject,$firebaseArray,storageService) {
 
+        $scope.$parent.main.title = "Sign In";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "login";
 

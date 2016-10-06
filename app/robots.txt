@@ -1,3 +1,25 @@
 # robotstxt.org
 
 User-agent: *
+
+Disallow: /userList
+Disallow: /addUser
+Disallow: /universityManagement
+Disallow: /universityEdit
+Disallow: /allBookDeals
+Disallow: /newsManagement
+Disallow: /addNews
+Disallow: /quotes
+Disallow: /addStudentQuote
+Disallow: /addUniversityQuote
+Disallow: /newsletter
+Disallow: /changePassword
+Disallow: /messageBoard
+Disallow: /sellingBookList
+Disallow: /contactedBookList
+Disallow: /editBookDeal
+Disallow: /sellArchive
+Disallow: /buyArchive
+Disallow: /wishList
+Disallow: /promoteMyStore
+Disallow: /profile

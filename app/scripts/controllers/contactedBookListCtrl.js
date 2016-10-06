@@ -12,6 +12,8 @@
 
         $scope.showPagination=false;
         $scope.resultFound = true;
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Buying Books List";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "contactedBook";
         $scope.campusBookDeals=[];

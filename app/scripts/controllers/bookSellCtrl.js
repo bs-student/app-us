@@ -5,11 +5,12 @@
     app
         .controller('BookSellCtrl', BookSellCtrl);
 
-    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService','$firebaseObject','$firebaseArray'];
+    BookSellCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService','$firebaseObject','$firebaseArray','SERVER_CONSTANT'];
 
-    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService,$firebaseObject,$firebaseArray) {
+    function BookSellCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService,$firebaseObject,$firebaseArray,SERVER_CONSTANT) {
 
-
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Sell Books";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 

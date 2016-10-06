@@ -12,6 +12,10 @@
 
         $scope.user = $stateParams.user;
 
+        $scope.$parent.main.title = "Join";
+        $scope.$parent.headerStyle = "dark";
+        $scope.$parent.activePage = "signup";
+
         if($scope.user==undefined){
             $state.go('app.login');
         }

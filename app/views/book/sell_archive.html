@@ -194,17 +194,17 @@
                                 <button data-options="splash-2 splash-primary splash-ef-2"
                                         ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
                                         class="myBtn app-btn orange-btn"><img
-                                        src="./dist/images/archive_pages/del.png"/> &nbsp; Delete
+                                        src="{{appHostPath}}/dist/images/archive_pages/del.png"/> &nbsp; Delete
                                 </button>
                             </div>
                             <div class="view-and-contact">
                                 <p>
-                                    <text class="blue-text"><img src="./dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong>
+                                    <text class="blue-text"><img src="{{appHostPath}}/dist/images/archive_pages/view.png"/> &nbsp;&nbsp;<strong>Views</strong>
                                     </text>
                                     <text class="grey-text"> : {{deal.bookViewCount}}</text>
                                     <br/></p>
                                 <p>
-                                    <text class="blue-text"><img src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
+                                    <text class="blue-text"><img src="{{appHostPath}}/dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
                                     </text>
                                     <text class="grey-text"> : {{deal.contacts.length}}</text>
                                     <br/></p>
@@ -304,7 +304,7 @@
                 </div>
                 <div>
                     <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
-                            src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+                            src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
                     </button>
                 </div>
 

@@ -1,4 +1,4 @@
-<div ng-parallax pattern="'assets/images/parallax/login_parallax.jpg'" offset="0" speed="5" class="parallax-box dark">
+<div ng-parallax pattern="'dist/images/parallax/login_parallax.jpg'" offset="0" speed="5" class="parallax-box dark">
 
 <div class="container clearfix">
 
@@ -122,7 +122,6 @@
 
 
 
-
 <div class="col-md-6">
     <p class="green-text">
     <hr/>
@@ -240,10 +239,10 @@
     </p>
 </div>
 
-<div class="col-md-12"
+<div  class="col-md-12"
      ng-class="{ 'has-error' : universityCreateForm.agree.$invalid && !universityCreateForm.agree.$pristine, 'has-success' : universityCreateForm.agree.$valid && !universityCreateForm.agree.$pristine}">
     <br/><label class="checkbox checkbox-custom white-text">
-    <input type="checkbox" name="agree" id="agree" ng-model="university.agree" required><i></i> I agree to the <a href
+    <input type="checkbox" name="agree" id="agree" ng-model="university.agree" required ><i></i> I agree to the <a href
                                                                                                                   class="text-info">Terms
     of Service</a>
 </label>
@@ -272,7 +271,7 @@
 
 
 <div class="col-md-12">
-    <button type="submit" class="myBtn orange-btn max-large-btn save-new-university-button">Add New university</button>
+    <button type="submit" class="myBtn orange-btn max-large-btn save-new-university-button">Add New University</button>
 </div>
 
 

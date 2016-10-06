@@ -11,6 +11,7 @@
 
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
+        $scope.$parent.main.title = "News Management";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

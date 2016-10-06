@@ -11,7 +11,8 @@
 
         $scope.showPagination = false;
 
-
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "My Sell Page";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.resultFound = true;

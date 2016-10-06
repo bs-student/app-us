@@ -8,7 +8,7 @@
 
     function AddQuoteCtrl(identityService, adminQuoteService, responseService, $scope, $state) {
 
-
+        $scope.$parent.main.title = "Add Quotes";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

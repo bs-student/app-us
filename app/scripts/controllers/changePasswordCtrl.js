@@ -8,6 +8,7 @@
 
     function ChangePasswordCtrl(identityService, userService, responseService, $scope, $state) {
 
+        $scope.$parent.main.title = "Change Password";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

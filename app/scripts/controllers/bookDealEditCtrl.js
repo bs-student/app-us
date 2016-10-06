@@ -27,6 +27,8 @@
             $state.go("app.sellingBookList");
         }
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Book Deal Edit";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;

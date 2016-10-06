@@ -10,6 +10,7 @@
     function UniversityCtrl($state,$scope, referralService, countryService, identityService, stateService, universityService,responseService) {
 
 
+        $scope.$parent.main.title = "Add University";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "addUniversity";
 
@@ -96,6 +97,7 @@
         }
 
         function _saveNewUniversity(valid){
+
             if(valid){
 
              var data =angular.copy($scope.universities[0]);
@@ -108,12 +110,38 @@
              });
 
 
-             universityService.saveNewUniversities(data).then(function(response){
-                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
-                 $state.go("app.universityMap");
-             }).catch(function(response){
-                 responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
-             });
+                if($scope.$parent.loggedIn){
+                    data.access_token =identityService.getAccessToken();
+
+                    universityService.saveNewUniversities(data).then(function(response){
+                        responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                        $state.go("app.universityMap");
+                    }).catch(function(response){
+
+                        if (response.data.error_description == "The access token provided is invalid.") {
+
+                        } else if (response.data.error_description == "The access token provided has expired.") {
+                            (identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                                identityService.setAccessToken(response.data);
+                                _saveNewUniversity(valid);
+                            });
+                        } else if (response.data.error != undefined) {
+                            responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
+                        } else {
+                            responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
+                        }
+
+                    });
+
+                }else{
+                    universityService.saveNewUniversities(data).then(function(response){
+                        responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
+                        $state.go("app.universityMap");
+                    }).catch(function(response){
+                        responseService.showErrorToast(response.data.error.errorTitle,response.data.error.errorDescription);
+                    });
+                }
+
             }
 
         }

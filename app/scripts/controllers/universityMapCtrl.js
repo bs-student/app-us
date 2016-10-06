@@ -10,6 +10,7 @@
     function UniversityMapCtrl($q,$log,$scope, universityService,responseService,campusService) {
 
 
+        $scope.$parent.main.title = "University Map";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "universityMap";
 

@@ -161,7 +161,7 @@
 
     <div class="login-page-dark-div login-page-quotation email-template-div">
         <div class="email-template-view">
-            <img width="100%" data-ng-src="dist/images/tell_friend/header.jpg"/>
+            <img alt="tess friends about student2student" width="100%" data-ng-src="{{appHostPath}}/dist/images/tell_friend/header.jpg"/>
 
             <div class="row email-template-text">
                 <div class="col-md-8">
@@ -210,8 +210,8 @@
                         <p class="blue-text">Don't waste money, buy directly from me.</p>
 
                         <p class="blue-text">I am sure there is a textbook for you too!</p>
-                        <a target="_blank" href="{{shareUrl}}"><img style="width: 264px;"
-                                                                    data-ng-src="dist/images/tell_friend/buy_my_textbooks.jpg"/></a><br/><br/>
+                        <a target="_blank" href="{{shareUrl}}"><img alt="student2student textbooks" style="width: 264px;"
+                                                                    data-ng-src="{{appHostPath}}/dist/images/tell_friend/buy_my_textbooks.jpg"/></a><br/><br/>
 
                         <p class="blue-text">Cheers,<br/>
                             {{user.fullName}}</p>
@@ -224,15 +224,15 @@
                 </div>
                 <div class="col-md-4">
                     <div ng-show="!$parent.loggedIn">
-                        <a target="_blank" ui-sref="app.signup"><img width="100%"
-                                                                     data-ng-src="dist/images/tell_friend/joinButton.jpg"/></a><br/><br/>
+                        <a target="_blank" ui-sref="app.signup"><img alt="join student2student" width="100%"
+                                                                     data-ng-src="{{appHostPath}}/dist/images/tell_friend/joinButton.jpg"/></a><br/><br/>
                         <text class="lato italic blue-text">Personal Message for you:</text>
                         <br/>
                         <text class="lato blue-text">{{user.message}}</text>
                     </div>
                     <div ng-show="$parent.loggedIn">
-                        <a target="_blank" href="{{shareUrl}}"><img width="100%"
-                                                                    data-ng-src="dist/images/tell_friend/books_stack.jpg"/></a><br/><br/>
+                        <a target="_blank" href="{{shareUrl}}"><img alt="student2student textbooks" width="100%"
+                                                                    data-ng-src="{{appHostPath}}/dist/images/tell_friend/books_stack.jpg"/></a><br/><br/>
                     </div>
 
                 </div>
@@ -240,8 +240,8 @@
 
             </div>
 
-            <img width="100%" data-ng-src="dist/images/tell_friend/share.jpg"/>
-            <img width="100%" data-ng-src="dist/images/tell_friend/footer.jpg"/>
+            <img alt="share student2student" width="100%" data-ng-src="{{appHostPath}}/dist/images/tell_friend/share.jpg"/>
+            <img alt="tell friends about student2student" width="100%" data-ng-src="{{appHostPath}}/dist/images/tell_friend/footer.jpg"/>
 
             <div class="text-center footer-text">
                 <text>2007-2016 Student 2 Student, All Rights Reserved</text>

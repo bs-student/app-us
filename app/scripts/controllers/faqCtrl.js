@@ -9,6 +9,8 @@
 
     function FaqCtrl($scope, $sce,SERVER_CONSTANT) {
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "FAQ";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "helpAndSafety";
 

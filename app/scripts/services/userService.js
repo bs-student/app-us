@@ -13,7 +13,6 @@
             getAuthorizedUserShortData: _getAuthorizedUserShortData,
             getAuthorizedUserFullData: _getAuthorizedUserFullData,
             setUpdatedSocialUserData:_setUpdatedSocialUserData,
-            getAllUserData: _getAllUserData,
             updateUserProfile: _updateUserProfile,
             changePassword: _changePassword,
             updateUserEmailNotificationStatus : _updateUserEmailNotificationStatus
@@ -31,16 +30,11 @@
             return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_SOCIAL_USER+"?access_token="+accessToken,data);
         }
 
-        function _getAllUserData(accessToken){
-
-            return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.ADMIN_ALL_USER_DATA+"?access_token="+accessToken);
-        }
-
         function _updateUserProfile(accessToken,data){
             var config = {
                 transformRequest: angular.identity,
                 headers: { 'Content-Type': undefined }
-            }
+            };
             return apiService.post(SERVER_CONSTANT.HOST+USER_CONSTANT.UPDATE_PROFILE+"?access_token="+accessToken,data,config);
         }
 

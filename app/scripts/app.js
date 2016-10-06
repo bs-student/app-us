@@ -52,7 +52,7 @@ var app = angular
 //        'ui.calendar',
 //        'ngTagsInput',
         'pascalprecht.translate',
-        'ngMaterial',
+//        'ngMaterial',
 //        'localytics.directives',
 //        'leaflet-directive',
 //        'wu.masonry',
@@ -65,12 +65,12 @@ var app = angular
 //        'noCAPTCHA'
         'vcRecaptcha',
         'cgBusy',
-        'duScroll',
+//        'duScroll',
         '720kb.socialshare',
         'jkuri.slimscroll',
         'firebase',
-        'ngScrollGlue',
-        'ui.slimscroll'
+        'ngScrollGlue'
+//        'ui.slimscroll'
     ])
     .run(['$rootScope', '$state', '$stateParams','imageStoreService' ,function ($rootScope, $state, $stateParams,imageStoreService) {
         $rootScope.$state = $state;
@@ -170,7 +170,7 @@ var app = angular
             }
         }
 
-//        $locationProvider.html5Mode(true);
+
         $urlRouterProvider
 //            .when('/:', '/contacts/:id')
 //            .when('/access_token=:accessToken','')
@@ -192,6 +192,19 @@ var app = angular
                 controller: 'DashboardCtrl',
                 templateUrl: 'views/web/dashboard.html'
             })
+            //dashboard Redirect index.html
+            .state('app.index_html', {
+                url: '^/index.html',
+                templateUrl: 'views/web/dashboard.html',
+                redirectTo: 'app.dashboard'
+            })
+            //dashboard Redirect index.php
+            .state('app.index_php', {
+                url: '^/index.php',
+                templateUrl: 'views/web/dashboard.html',
+                redirectTo: 'app.dashboard'
+            })
+
             //how It Work page
             .state('app.howItWorks', {
                 url: '^/howItWorks',
@@ -508,6 +521,35 @@ var app = angular
                 templateUrl: 'views/admin/user/user_list.html',
                 resolve: adminCheck
             })
+            //Admin University Management
+            .state('app.universityManagement', {
+                url: '^/universityManagement',
+                controller: 'UniversityManagementCtrl',
+                templateUrl: 'views/admin/university/university_management.html',
+                resolve: adminCheck
+            })
+            //Admin Edit University
+            .state('app.universityEdit', {
+                url: '^/universityEdit',
+                controller: 'UniversityEditCtrl',
+                templateUrl: 'views/admin/university/university_edit.html',
+                params: {
+                    "university": null
+                },
+                resolve: adminCheck
+            })
+
+            //Admin Merge University
+            .state('app.universityMerge', {
+                url: '^/universityMerge',
+                controller: 'UniversityMergeCtrl',
+                templateUrl: 'views/admin/university/university_merge.html',
+                params: {
+                    "university": null
+                },
+                resolve: adminCheck
+            })
+
             //Add User
             .state('app.userList.addUser', {
                 url: '^/addUser',

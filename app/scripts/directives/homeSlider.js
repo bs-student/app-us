@@ -13,7 +13,7 @@ app
                 var apiRevoSlider = $('.tp-banner').show().revolution(
                     {
                         dottedOverlay: "none",
-                        delay: 9000,
+                        delay: 6000,
                         startwidth: 1140,
                         startheight: 700,
                         hideThumbs: 200,

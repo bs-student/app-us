@@ -9,8 +9,10 @@
 
     function MessageBoardCtrl($state,$scope,bookDealService,identityService,responseService,contactService,$firebaseArray,SERVER_CONSTANT,eventService,$timeout) {
 
+        $scope.$parent.main.title = "Message Board";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "messageBoard";
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
         $scope.active = _active;
         $scope.getMessages=_getMessages;

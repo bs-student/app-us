@@ -218,10 +218,13 @@
         }
 
         function checkProblem(response) {
-            console.log(response.data.error_description);
-            if (response.data.error_description == "The access token provided has expired.") {
-                identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(setAccessToken);
+            if(response.data!=undefined){
+                console.log(response.data.error_description);
+                if (response.data.error_description == "The access token provided has expired.") {
+                    identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(setAccessToken);
+                }
             }
+
         }
 
         function setAccessToken(response) {

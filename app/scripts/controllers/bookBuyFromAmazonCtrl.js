@@ -9,6 +9,7 @@
 
     function BookBuyFromAmazonCtrl($stateParams,$scope,bookService,identityService) {
 
+        $scope.$parent.main.title = "Buy Book From Amazon";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
 

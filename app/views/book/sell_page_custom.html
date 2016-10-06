@@ -22,13 +22,13 @@
     <div class="container clearfix quote-container-homepage sell-page-container">
         <div class="row">
         <div ng-show="!showHelp" class="help-div">
-            <button ng-click="showHelp=true" class="help-button white-text lato myBtn orange-btn"><img src="dist/images/sell_book/help.png"/><br/>Help</button>
+            <button ng-click="showHelp=true" class="help-button white-text lato myBtn orange-btn"><img src="{{appHostPath}}/dist/images/sell_book/help.png"/><br/>Help</button>
         </div>
         <div ng-show="showHelp" class="help-details-div custom-sell-page-help-details-div">
 
             <div class="help-header">
                 <button ng-click="showHelp=false" class="myBtn orange-btn help-back-button"><i class="fa fa-angle-left fa-2x"></i> Close
-                    <img src="dist/images/sell_book/help.png"/> <text class="white-text lato">Help</text></button>
+                    <img src="{{appHostPath}}/dist/images/sell_book/help.png"/> <text class="white-text lato">Help</text></button>
             </div>
 
             <div ng-slimscroll class="help-details-text-div">

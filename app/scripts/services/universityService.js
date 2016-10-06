@@ -11,30 +11,20 @@
 
         return {
             getUniversitiesForAutocomplete : _getUniversitiesForAutocomplete,
-            getUniversitiesNameForAutocomplete : _getUniversitiesNameForAutocomplete,
-            getSearchUniversities: _getSearchUniversities,
-            saveUpdatedUniversityDataAdmin: _saveUpdatedUniversityDataAdmin,
-            saveNewUniversities: _saveNewUniversities,
-            deleteUniversity: _deleteUniversity
-        }
+            saveNewUniversities: _saveNewUniversities
+        };
 
-        function _getUniversitiesNameForAutocomplete(query){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.AUTOCOMPLETE_NAME_SEARCH_LIST+"?access_token="+query.access_token,query);
-        }
+
         function _getUniversitiesForAutocomplete(query){
             return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.AUTOCOMPLETE_SEARCH_LIST,query);
         }
-        function _saveUpdatedUniversityDataAdmin(access_token,data){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.UPDATE_UNIVERSITY+"?access_token="+access_token,data);
-        }
-        function _getSearchUniversities(access_token, data){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.LIST_BY_SEARCH_UNIVERSITY+"?access_token="+access_token,data);
-        }
         function _saveNewUniversities(data){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY,data);
-        }
-        function _deleteUniversity(access_token,data){
-            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.DELETE_UNIVERSITY+"?access_token="+access_token,data);
+            if(data.access_token==null){
+                return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY,data);
+            }else{
+                return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY_LOGGED_IN_USER+"?access_token="+data.access_token,data);
+            }
+
         }
 
     }

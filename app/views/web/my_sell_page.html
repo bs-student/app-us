@@ -130,7 +130,7 @@
         <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
             <uib-slide ng-repeat="slide in deal.bookImages" active="slide.active">
-                <img ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
+                <img alt="{{book.bookTitle}}" ng-click="viewImage($event,book.bookTitle)" data-options="splash-2 splash-primary splash-ef-2"
                      class="big-images" ng-src="{{imageHostPath}}{{slide.image}}" style="margin:auto;">
 
             </uib-slide>
@@ -263,7 +263,7 @@
             </div>
             <div ng-show="deal.viewMoreInfo">
                 <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
-                        src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+                        src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
                 </button>
             </div>
         </div>
@@ -288,13 +288,13 @@
                 </div>
                 <div class="view-and-contact">
                     <p>
-                        <text class="blue-text"><img src="./dist/images/archive_pages/view.png"/>
+                        <text class="blue-text"><img src="{{appHostPath}}/dist/images/archive_pages/view.png"/>
                             &nbsp;&nbsp;<strong>Views</strong></text>
                         <text class="grey-text"> : {{deal.bookViewCount}}</text>
                         <br/></p>
                     <p>
                         <text class="blue-text"><img
-                                src="./dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
+                                src="{{appHostPath}}/dist/images/archive_pages/contact.png"/>&nbsp;&nbsp;&nbsp;<strong>Contact</strong>
                         </text>
                         <text class="grey-text"> : {{deal.contacts.length}}</text>
                         <br/></p>

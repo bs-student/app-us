@@ -10,7 +10,7 @@
     function ContactUsCtrl($state, $scope,responseService,contactUsService,SOCIAL_MEDIA_CONSTANT) {
 
 
-
+        $scope.$parent.main.title = "Contact Us";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "helpAndSafety";
         $scope.facebookLink = SOCIAL_MEDIA_CONSTANT.FACEBOOK_LINK;

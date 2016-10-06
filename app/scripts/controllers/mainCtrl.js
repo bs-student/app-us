@@ -6,12 +6,14 @@
 app
   .controller('MainCtrl',MainCtrl);
 
-    MainCtrl.$inject=['$scope','$http','$translate'];
+    MainCtrl.$inject=['$scope','$http','$translate','SERVER_CONSTANT'];
 
-    function MainCtrl($scope, $http, $translate) {
+    function MainCtrl($scope, $http, $translate,SERVER_CONSTANT) {
+
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
 
     $scope.main = {
-      title: 'Student2Student',
+      title: 'Textbook Exchange Made Easy',
       settings: {
         navbarHeaderColor: 'scheme-default',
         sidebarColor: 'scheme-default',

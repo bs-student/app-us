@@ -2,13 +2,15 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">University</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title">
+                    <text class="uppercase blue-text lato">Edit</text>
+                    <text class="uppercase orange-text lato"> University</text>
+                </h1>
 
             </div>
         </div>
     </div>
 </div>
-
 
 
 <section class="compare-page" id="content">
@@ -17,218 +19,286 @@
 <div class="content-wrap mid-section">
 
 
-
-
 <div class="section m-0 pt-0 mid-one compare-result-section user-management-sections">
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
-<div class="col-md-12">
 
-<uib-tabset justified="true" type="pills">
-    <uib-tab class="first-tab">
-    <uib-tab-heading>
-        <div class="people-icon-div"></div>
-        <text>Pending University</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:universityPromise}">
-
-
-        <div class="button-panel">
-            <button ng-click="approveSelectedUniversities()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Universities</button>
-
-        </div>
+    <!-- BLOG POSTS -->
+    <div cg-busy="{promise:universityPromise}" class="col-sm-12 blog-posts contact-us-form-div">
 
 
 
+        <form class="addUniversityForm" name="universityCreateForm" submit-validate
+              ng-submit="saveEditedUniversity(universityCreateForm.$valid)" role="form" novalidate>
 
-        <table ng-table="tableParams" class="table table-striped campus-result-table ">
+            <!-- tile -->
+            <section class="tile text-left" fullscreen="isFullscreen01">
 
-            <form name="universityEditForm" submit-validate >
 
-                <tr ng-repeat="university in $data" ng-form="editRowForm">
-                    <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUniversities(university)" ng-model="checkboxes.items[university.universityId]"><i></i></label>
-                    </td>
-                    <td data-title="'Name'" style="width: 20%;"  >
-                        <span ng-if="!university.$edit">{{university.universityName}}</span>
+                <!-- tile body -->
+                <div class="tile-body">
 
-                        <div ng-if="university.$edit"
-                             ng-class="{ 'has-error' : editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine, 'has-success' : editRowForm.universityName.$valid && !editRowForm.universityName.$pristine}">
-                            <input name="universityName" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="university.universityName"/>
+
+                    <div class="row" data-ng-repeat="university in universities">
+                    <h1  class="lato form-page-header">Edit University</h1>
+
+                        <div class="form-group col-md-12"
+                             ng-class="{ 'has-error' : universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine, 'has-success' : universityCreateForm.universityName.$valid && !universityCreateForm.universityName.$pristine}">
+                            <p class="" for="universityName">University Name: </p>
+                            <input type="text" name="universityName" id="universityName" class="form-control "
+                                   ng-model="university.universityName" required>
+
                             <p class="help-block">
-                                <span ng-show="editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine">University Name is required.</span>
+                                <span ng-show="universityCreateForm.universityName.$invalid && !universityCreateForm.universityName.$pristine">University Name is required.</span>
+
                             </p>
                         </div>
 
-                    </td>
-                    <td data-title="'Campuses'" style="width: 30%;"  filter="{ 'campus': 'text' }">
-                        <ol type="1">
-                            <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
-                        </ol>
-                        <div ng-if="university.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="user.username"/>
-                            <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                            </p>
+                        <div class="form-group col-md-12"
+                             ng-class="{ 'has-error' : universityCreateForm.universityUrl.$invalid && !universityCreateForm.universityUrl.$pristine, 'has-success' : universityCreateForm.universityUrl.$valid && !universityCreateForm.universityUrl.$pristine}">
+                            <p class="" for="universityUrl">University Url: </p>
+                            <input type="text" name="universityUrl" id="universityUrl" class="form-control "
+                                   ng-model="university.universityUrl">
+
                         </div>
 
-                    </td>
-                    <td data-title="'Url'" style="width: 16%;" >
-                        <span ng-if="!university.$edit">{{university.universityUrl}}</span>
-                        <div ng-if="university.$edit">
-                            <input name="universityUrl" class="input-sm form-control" type="text"
-                                   ng-model="university.universityUrl"/>
-                        </div>
-                    </td>
+                        <div class="form-group col-md-12">
+                            <p class="">University Status: </p>
+                            <select ng-model="university.universityStatus" class="form-control mb-10">
 
-                    <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
-                        <span>{{university.creationDateTime}}</span>
-                    </td>
-
-                    <td data-title="'Actions'" style="width: 10%">
-                        <a ng-if="!university.$edit" href="" ng-click="editRow(university)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="!university.$edit" href="" ui-sref="app.universityEdit" class="text-primary text-uppercase text-strong text-sm mr-10">Edit Details</a>
-                        <a ng-if="university.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="university.$edit" href="" ng-click="cancelEditRow(university)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-        <script type="text/ng-template" id="ng-table/headers/checkbox.html">
-            <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
-        </script>
-
-
-
-    </div>
-</uib-tab>
-    <uib-tab class="mid-tab">
-    <uib-tab-heading>
-        <div class="book-close-icon-div"></div>
-        <text>Activated University</text>
-    </uib-tab-heading>
-    <div cg-busy="{promise:activatedUniversityPromise}">
-
-
-        <table ng-table="activatedTableParams" class="table table-striped campus-result-table ">
-
-            <form name="universityEditForm" submit-validate >
-
-                <tr ng-repeat="university in $data" ng-form="editRowForm">
-                    <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUniversities(university)" ng-model="checkboxes.items[university.universityId]"><i></i></label>
-                    </td>
-                    <td data-title="'Name'" style="width: 20%;"  >
-                        {{university.universityName}}
-                    </td>
-                    <td data-title="'Campuses'" style="width: 20%;"  filter="{ 'campus': 'text' }">
-                        <ol type="1">
-                            <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
-                        </ol>
-                        <!--<span ng-if="!user.$edit">{{user.username}}</span>-->
-
-
-                        <div ng-if="user.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="user.username"/>
-                            <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                            </p>
+                                <option ng-selected="university.universityStatus=='Activated'"
+                                        value="Activated">Activated
+                                </option>
+                                <option ng-selected="university.universityStatus=='Deactivated'"
+                                        value="Deactivated">Deactivated
+                                </option>
+                            </select>
                         </div>
 
-                    </td>
-                    <td data-title="'Url'" style="width: 16%;" >
-                        <span>{{university.universityUrl}}</span>
-                    </td>
+                        <p class=""><strong>Campus List: </strong></p>
+                        <div data-ng-repeat="campus in university.campuses" ng-form="addRowForm">
 
-                    <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
-                        <span>{{university.creationDateTime}}</span>
-                    </td>
+                            <div class="row">
 
-                    <td data-title="'Actions'" style="width: 20%">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-    </div>
-</uib-tab>
-    <uib-tab class="last-tab">
-        <uib-tab-heading>
-            <div class="book-open-icon-div"></div>
-            <text>Deactivated University</text>
-        </uib-tab-heading>
-        <div cg-busy="{promise:deactivatedUniversityPromise}">
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||
+                                                        (addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.campusName.$valid && !addRowForm.campusName.$pristine}">
+                                    <p class="">Campus Name: </p>
 
-            <div class="button-panel">
-                <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>
+                                    <input type="text" class="form-control " name="campusName"
 
-            </div>
+                                           ng-model="campus.campusName" required>
 
-            <div ui-view="addUserView" ></div>
+                                    <p class="help-block">
+                                        <span ng-show="(universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||(addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine)">Campus name is required.</span>
 
-            <table ng-table="deactivatedTableParams" class="table table-striped campus-result-table ">
-
-                <form name="universityEditForm" submit-validate >
-
-                    <tr ng-repeat="university in $data" ng-form="editRowForm">
-                        <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
-                            <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUniversities(university)" ng-model="checkboxes.items[university.universityId]"><i></i></label>
-                        </td>
-                        <td data-title="'Name'" style="width: 20%;"  >
-                            {{university.universityName}}
-                        </td>
-                        <td data-title="'Campuses'" style="width: 20%;"  filter="{ 'campus': 'text' }">
-                            <ol type="1">
-                                <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
-                            </ol>
-                            <!--<span ng-if="!user.$edit">{{user.username}}</span>-->
+                                    </p>
+                                </div>
 
 
-                            <div ng-if="user.$edit"
-                                 ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                                <input name="username" class="input-sm form-control" type="text"
-                                       required
-                                       ng-model="user.username"/>
-                                <p class="help-block">
-                                    <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                                </p>
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                        (addRowForm.country.$invalid && !addRowForm.country.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.country.$valid && !addRowForm.country.$pristine}">
+                                    <p class="">Country: </p>
+                                    <select name="country" ng-model="campus.country" class="form-control mb-10 "
+                                            required
+                                            ng-change="fetchStates(university,campus)"
+                                            data-ng-options="country.id as country.countryName for country in countries">
+                                        <option value="">-Select Country-</option>
+                                    </select>
+
+                                    <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                    (addRowForm.country.$invalid && !addRowForm.country.$pristine)">Country is required.</span>
+
+                                    </p>
+                                </div>
+
+
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                        (addRowForm.state.$invalid && !addRowForm.state.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.state.$valid && !addRowForm.state.$pristine}">
+                                    <p class="">State: </p>
+
+                                    <select name="state"  ng-model="campus.state" class="form-control mb-10 "
+                                            required
+                                            data-ng-options="state.id as state.stateName for state in campus.stateList">
+                                        <option value="">-Select State-</option>
+                                    </select>
+
+
+                                    <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                    (addRowForm.state.$invalid && !addRowForm.state.$pristine)">State is required.</span>
+
+                                    </p>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <p class="">Campus Status: </p>
+                                    <select ng-model="campus.campusStatus" class="form-control mb-10">
+
+                                        <option ng-selected="campus.campusStatus=='Activated'"
+                                                value="Activated">Activated
+                                        </option>
+                                        <option ng-selected="campus.campusStatus=='Deactivated'"
+                                                value="Deactivated">Deactivated
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div ng-if="university.campusRemove" class="form-group col-md-6 float-right">
+                                    <p class=" text-right" for="state">Press to Remove Campus : </p>
+                                    <button type="button"
+                                            class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                                            ng-click="removeCampus(university,campus)"><i class="fa fa-trash"></i>
+                                        <span>Remove Campus Row</span>
+                                    </button>
+                                </div>
                             </div>
+                            <hr/>
 
-                        </td>
-                        <td data-title="'Url'" style="width: 16%;" >
-                            <span>{{university.universityUrl}}</span>
-                        </td>
 
-                        <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
-                            <span>{{university.creationDateTime}}</span>
-                        </td>
+                        </div>
 
-                        <td data-title="'Actions'" style="width: 20%">
-                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                        </td>
-                    </tr>
-                </form>
-            </table>
-        </div>
-    </uib-tab>
+                        <p ng-show="university.newCampuses.length>0"><strong>New Campuses: </strong></p>
+                        <div data-ng-repeat="campus in university.newCampuses" ng-form="addRowForm">
 
-</uib-tabset>
+                            <div class="row">
+
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||
+                                                        (addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.campusName.$valid && !addRowForm.campusName.$pristine}">
+                                    <p class="">Campus Name: </p>
+
+                                    <input type="text" class="form-control " name="campusName"
+
+                                           ng-model="campus.campusName" required>
+
+                                    <p class="help-block">
+                                        <span ng-show="(universityCreateForm.$submitted && addRowForm.campusName.$invalid && addRowForm.campusName.$pristine)||(addRowForm.campusName.$invalid && !addRowForm.campusName.$pristine)">Campus name is required.</span>
+
+                                    </p>
+                                </div>
+
+
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                        (addRowForm.country.$invalid && !addRowForm.country.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.country.$valid && !addRowForm.country.$pristine}">
+                                    <p class="">Country: </p>
+                                    <select name="country" ng-model="campus.country" class="form-control mb-10 "
+                                            required
+                                            ng-change="fetchStates(university,campus)"
+                                            data-ng-options="country.id as country.countryName for country in countries">
+                                        <option value="">-Select Country-</option>
+                                    </select>
+
+                                    <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.country.$invalid && addRowForm.country.$pristine)||
+                                                    (addRowForm.country.$invalid && !addRowForm.country.$pristine)">Country is required.</span>
+
+                                    </p>
+                                </div>
+
+
+                                <div class="form-group col-md-3"
+                                     ng-class="
+                                                 { 'has-error' :
+                                                        (universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                        (addRowForm.state.$invalid && !addRowForm.state.$pristine),
+                                                   'has-success' :
+                                                        addRowForm.state.$valid && !addRowForm.state.$pristine}">
+                                    <p class="">State: </p>
+
+                                    <select name="state"  ng-model="campus.state" class="form-control mb-10 "
+                                            required
+                                            data-ng-options="state.id as state.stateName for state in campus.stateList">
+                                        <option value="">-Select State-</option>
+                                    </select>
+
+
+                                    <p class="help-block">
+                                                    <span ng-show="(universityCreateForm.$submitted && addRowForm.state.$invalid && addRowForm.state.$pristine)||
+                                                    (addRowForm.state.$invalid && !addRowForm.state.$pristine)">State is required.</span>
+
+                                    </p>
+                                </div>
+
+                                <div class="form-group col-md-3">
+
+                                        <p for="state">Press to Remove Campus : </p>
+                                        <button type="button"
+                                                class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                                                ng-click="removeCampus(university,campus)"><i class="fa fa-trash"></i>
+                                            <span>Remove Campus Row</span>
+                                        </button>
+
+                                </div>
+
+
+                            </div>
+                            <hr/>
+
+
+                        </div>
+
+
+
+                        <div class="form-group col-md-12">
+                            <button type="button"
+                                    class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10 functional-btn"
+                                    ng-click="addNewCampus(university)"><i
+                                    class="fa fa-plus"></i> <span>Add Campus Row</span></button>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <button type="submit" class="myBtn orange-btn max-large-btn save-new-university-button">Save University
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <!-- /tile body -->
+
+
+            </section>
+            <!-- /tile -->
+
+
+        </form>
+
+
+    </div>
+
 </div>
 
-</div>
+
+
 
 </div>
 </div>
@@ -239,19 +309,3 @@
 
 </section>
 
-
-<script type="text/ng-template" id="myModalContent">
-
-    <div class="modal-body">
-
-        <div class="modal-images">
-            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
-        </div>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-arrow-right"></i> Ok
-        </button>
-    </div>
-</script>

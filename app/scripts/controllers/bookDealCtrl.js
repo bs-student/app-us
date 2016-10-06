@@ -10,7 +10,8 @@
     function BookDealCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminBookDealService,SERVER_CONSTANT) {
 
 
-
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "All Book Deals";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;

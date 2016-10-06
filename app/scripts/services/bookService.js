@@ -20,12 +20,7 @@
             addSellBook:_addSellBook,
             addCustomSellBook:_addCustomSellBook,
             addBookToWishList:_addBookToWishList
-//            getUniversitiesForAutocomplete : _getUniversitiesForAutocomplete,
-//            getUniversitiesNameForAutocomplete : _getUniversitiesNameForAutocomplete,
-//            getSearchUniversities: _getSearchUniversities,
-//            saveUpdatedUniversityDataAdmin: _saveUpdatedUniversityDataAdmin,
-//            saveNewUniversities: _saveNewUniversities,
-//            deleteUniversity: _deleteUniversity
+
         }
 
         function _searchBooks(data){
@@ -67,9 +62,7 @@
             }
 
         }
-        /*function _getOnCampusDealsByIsbn(data){
-            return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.GET_ON_CAMPUS_DEALS_BY_ISBN+"?access_token="+data.access_token,data);
-        }*/
+
         function _addSellBook(accessToken,data){
 
             var config = {
@@ -92,25 +85,6 @@
         function _addBookToWishList(accessToken,data){
             return apiService.post(SERVER_CONSTANT.HOST+BOOK_CONSTANT.ADD_BOOK_TO_WISH_LIST+"?access_token="+accessToken,data);
         }
-
-//        function _getUniversitiesNameForAutocomplete(query){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.AUTOCOMPLETE_NAME_SEARCH_LIST+"?access_token="+query.access_token,query);
-//        }
-//        function _getUniversitiesForAutocomplete(query){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.AUTOCOMPLETE_SEARCH_LIST+"?access_token="+query.access_token,query);
-//        }
-//        function _saveUpdatedUniversityDataAdmin(access_token,data){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.UPDATE_UNIVERSITY+"?access_token="+access_token,data);
-//        }
-//        function _getSearchUniversities(access_token, data){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.LIST_BY_SEARCH_UNIVERSITY+"?access_token="+access_token,data);
-//        }
-//        function _saveNewUniversities(access_token,data){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.SAVE_NEW_UNIVERSITY+"?access_token="+access_token,data);
-//        }
-//        function _deleteUniversity(access_token,data){
-//            return apiService.post(SERVER_CONSTANT.HOST+UNIVERSITY_CONSTANT.DELETE_UNIVERSITY+"?access_token="+access_token,data);
-//        }
 
     }
 

@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">University</text><text class="uppercase orange-text lato"> Management</text></h1>
 
             </div>
         </div>
@@ -23,68 +23,83 @@
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
+
+
+
 <div class="col-md-12">
 
 <uib-tabset justified="true" type="pills">
     <uib-tab class="first-tab">
     <uib-tab-heading>
         <div class="people-icon-div"></div>
-        <text>Pending Users</text>
+        <text>Pending University</text>
     </uib-tab-heading>
-    <div cg-busy="{promise:userPromise}">
+    <div cg-busy="{promise:universityPromise}">
 
 
         <div class="button-panel">
-            <button ng-click="approveSelectedUsers()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Users</button>
-
+            <button ng-click="approveSelectedUniversities()" class="myBtn app-btn buy-now-button "><i class="fa fa-check"></i>&nbsp;Approve Checked Universities</button>
+            <a ui-sref="app.addUniversity" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add New University</a>
         </div>
-
-
 
 
         <table ng-table="tableParams" class="table table-striped campus-result-table ">
 
-            <form name="userEditForm" submit-validate >
+            <form name="universityEditForm" submit-validate >
 
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
+                <tr ng-repeat="university in $data" ng-form="editRowForm">
                     <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
+                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUniversities(university)" ng-model="checkboxes.items[university.universityId]"><i></i></label>
                     </td>
-                    <td data-title="'Picture'" style="width: 15%;"  >
-                        <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
-                    </td>
-                    <td data-title="'Username'" style="width: 15%;"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span ng-if="!user.$edit">{{user.username}}</span>
+                    <td data-title="'Name'" style="width: 20%;" filter="{ 'universityName': 'text' }">
+                        <span ng-if="!university.$edit">{{university.universityName}}</span>
 
-
-                        <div ng-if="user.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
+                        <div ng-if="university.$edit"
+                             ng-class="{ 'has-error' : editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine, 'has-success' : editRowForm.universityName.$valid && !editRowForm.universityName.$pristine}">
+                            <input name="universityName" class="input-sm form-control" type="text"
                                    required
-                                   ng-model="user.username"/>
+                                   ng-model="university.universityName"/>
                             <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
+                                <span ng-show="editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine">University Name is required.</span>
                             </p>
                         </div>
 
                     </td>
-                    <td data-title="'Full Name'" style="width: 21%;" >
-                        <span>{{user.fullName}}</span>
+                    <td data-title="'Campuses'" style="width: 20%;"  >
+                        <ol type="1">
+                            <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
+                        </ol>
                     </td>
-                    <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
-                        <span>{{user.email}}</span>
+                    <td data-title="'Url'" style="width: 16%;" >
+                        <span ng-if="!university.$edit">{{university.universityUrl}}</span>
+                        <div ng-if="university.$edit">
+                            <input name="universityUrl" class="input-sm form-control" type="text"
+                                   ng-model="university.universityUrl"/>
+                        </div>
                     </td>
-                    <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
-                        <span>{{user.registrationDateTime}}</span>
+                    <td data-title="'Status'" style="width: 10%;" >
+                        <span ng-if="!university.$edit">{{university.universityStatus}}</span>
+                    <div ng-if="university.$edit">
+                        <select ng-model="university.universityStatus" class="form-control mb-10">
+                            <option ng-selected="university.universityStatus=='Activated'"
+                                    value="Activated">Activated
+                            </option>
+                            <option ng-selected="university.universityStatus=='Deactivated'"
+                                    value="Deactivated">Deactivated
+                            </option>
+                        </select>
+                    </div>
                     </td>
-                    <td data-title="'Verified'" style="width: 8%;">
-                        <span ng-show="user.enabled">Yes</span>
-                        <span ng-show="!user.enabled">No</span>
+                    <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
+                        <span >{{university.creationDateTime}}</span>
                     </td>
-                    <td data-title="'Actions'" style="width: 15%">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    <td data-title="'Actions'" style="width: 10%">
+                        <a ng-if="!university.$edit" href="" ng-click="editRow(university)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit<br/></a>
+                        <a ng-if="!university.$edit" href="" ui-sref="app.universityEdit({university:university})" class="text-warning text-uppercase text-strong text-sm mr-10">Edit in Details<br/></a>
+                        <a ng-if="!university.$edit" href="" ui-sref="app.universityMerge({university:university})" class="text-success text-uppercase text-strong text-sm mr-10">Merge<br/></a>
+                        <a ng-if="university.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,university,false)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save Only<br/></a>
+                        <a ng-if="university.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,university,true)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve<br/></a>
+                        <a ng-if="university.$edit" href="" ng-click="cancelEditRow(university)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel<br/></a>
                     </td>
                 </tr>
             </form>
@@ -100,60 +115,65 @@
     <uib-tab class="mid-tab">
     <uib-tab-heading>
         <div class="book-close-icon-div"></div>
-        <text>Approved Users</text>
+        <text>Activated University</text>
     </uib-tab-heading>
-    <div cg-busy="{promise:userPromise}">
+    <div cg-busy="{promise:activatedUniversityPromise}">
 
 
-        <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
+        <table ng-table="activatedTableParams" class="table table-striped campus-result-table ">
 
-            <form name="userEditForm" submit-validate >
+            <form name="universityEditForm" submit-validate >
 
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
+                <tr ng-repeat="university in $data" ng-form="editRowForm">
 
-                    <td data-title="'Picture'" width="200"  >
-                        <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
-                    </td>
-                    <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span>{{user.username}}</span>
+                    <td data-title="'Name'" style="width: 20%;"  filter="{ 'universityName': 'text' }">
+                        <span ng-if="!university.$edit">{{university.universityName}}</span>
 
-                    </td>
-                    <td data-title="'Full Name'" width="200" >
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" width="200" filter="{ 'email': 'text' }">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'University'" width="200">
-                        <span>{{user.universityName}}</span>
-                    </td>
-                    <td data-title="'Campus'" width="200">
-                        <span>{{user.campusName}}</span>
-                    </td>
-                    <td data-title="'Status'" width="200">
-                        <div ng-if="!user.$edit">
-                            <span ng-if="user.enabled">Activated</span>
-                            <span ng-if="!user.enabled">Deactivated</span>
-
+                        <div ng-if="university.$edit"
+                             ng-class="{ 'has-error' : editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine, 'has-success' : editRowForm.universityName.$valid && !editRowForm.universityName.$pristine}">
+                            <input name="universityName" class="input-sm form-control" type="text"
+                                   required
+                                   ng-model="university.universityName"/>
+                            <p class="help-block">
+                                <span ng-show="editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine">University Name is required.</span>
+                            </p>
                         </div>
 
-                        <div ng-if="user.$edit">
-                            <select ng-model="user.enabled" class="form-control mb-10">
-                                <option ng-selected="user.enabled==true"
-                                        value="true">Activated
+                    </td>
+                    <td data-title="'Campuses'" style="width: 20%;"  >
+                        <ol type="1">
+                            <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
+                        </ol>
+                    </td>
+                    <td data-title="'Url'" style="width: 16%;" >
+                        <span ng-if="!university.$edit">{{university.universityUrl}}</span>
+                        <div ng-if="university.$edit">
+                            <input name="universityUrl" class="input-sm form-control" type="text"
+                                   ng-model="university.universityUrl"/>
+                        </div>
+                    </td>
+                    <td data-title="'Status'" style="width: 10%;" >
+                        <span ng-if="!university.$edit">{{university.universityStatus}}</span>
+                        <div ng-if="university.$edit">
+                            <select ng-model="university.universityStatus" class="form-control mb-10">
+                                <option ng-selected="university.universityStatus=='Activated'"
+                                        value="Activated">Activated
                                 </option>
-                                <option ng-selected="user.enabled==false"
-                                        value="false">Deactivated
+                                <option ng-selected="university.universityStatus=='Deactivated'"
+                                        value="Deactivated">Deactivated
                                 </option>
                             </select>
                         </div>
-
                     </td>
-
-                    <td data-title="'Actions'" width="200">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                    <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
+                        <span >{{university.creationDateTime}}</span>
+                    </td>
+                    <td data-title="'Actions'" style="width: 10%">
+                        <a ng-if="!university.$edit" href="" ng-click="editRow(university)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit<br/></a>
+                        <a ng-if="!university.$edit" href="" ui-sref="app.universityEdit({university:university})" class="text-warning text-uppercase text-strong text-sm mr-10">Edit in Details<br/></a>
+                        <a ng-if="!university.$edit" href="" ui-sref="app.universityMerge({university:university})" class="text-success text-uppercase text-strong text-sm mr-10">Merge<br/></a>
+                        <a ng-if="university.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,university,true)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save<br/></a>
+                        <a ng-if="university.$edit" href="" ng-click="cancelEditRow(university)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel<br/></a>
                     </td>
                 </tr>
             </form>
@@ -163,60 +183,64 @@
     <uib-tab class="last-tab">
         <uib-tab-heading>
             <div class="book-open-icon-div"></div>
-            <text>Admin Users</text>
+            <text>Deactivated University</text>
         </uib-tab-heading>
-        <div cg-busy="{promise:userPromise}">
+        <div cg-busy="{promise:deactivatedUniversityPromise}">
 
-            <div class="button-panel">
-                <a ui-sref="app.userList.addUser" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add Admin User</a>
+            <table ng-table="deactivatedTableParams" class="table table-striped campus-result-table ">
 
-            </div>
+                <form name="universityEditForm" submit-validate >
 
-            <div ui-view="addUserView" ></div>
+                    <tr ng-repeat="university in $data" ng-form="editRowForm">
 
-            <table ng-table="adminTableParams" class="table table-striped campus-result-table ">
+                        <td data-title="'Name'" style="width: 20%;"  filter="{ 'universityName': 'text' }">
+                            <span ng-if="!university.$edit">{{university.universityName}}</span>
 
-                <form name="userEditForm" submit-validate >
-
-                    <tr ng-repeat="user in $data" ng-form="editRowForm">
-                        <td data-title="'Picture'" width="200"  >
-                            <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
-                        </td>
-                        <td data-title="'Username'" width="200"  sortable="'username'" filter="{ 'username': 'text' }">
-                            <span>{{user.username}}</span>
-
-                        </td>
-                        <td data-title="'Full Name'" width="200">
-                            <span>{{user.fullName}}</span>
-                        </td>
-                        <td data-title="'Email'" width="200" filter="{ 'email': 'text' }">
-                            <span>{{user.email}}</span>
-                        </td>
-
-                        <td data-title="'Status'" width="200">
-                            <div ng-if="!user.$edit">
-                                <span ng-if="user.enabled">Activated</span>
-                                <span ng-if="!user.enabled">Deactivated</span>
-
+                            <div ng-if="university.$edit"
+                                 ng-class="{ 'has-error' : editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine, 'has-success' : editRowForm.universityName.$valid && !editRowForm.universityName.$pristine}">
+                                <input name="universityName" class="input-sm form-control" type="text"
+                                       required
+                                       ng-model="university.universityName"/>
+                                <p class="help-block">
+                                    <span ng-show="editRowForm.universityName.$invalid && !editRowForm.universityName.$pristine">University Name is required.</span>
+                                </p>
                             </div>
 
-                            <div ng-if="user.$edit">
-                                <select ng-model="user.enabled" class="form-control mb-10">
-                                    <option ng-selected="user.enabled==true"
-                                            value="true">Activated
+                        </td>
+                        <td data-title="'Campuses'" style="width: 20%;"  >
+                            <ol type="1">
+                                <li data-ng-repeat="campus in university.campuses">{{campus.campusName}}, {{campus.stateName}}({{campus.stateShortName}}), {{campus.countryName}}<br><br></li>
+                            </ol>
+                        </td>
+                        <td data-title="'Url'" style="width: 16%;" >
+                            <span ng-if="!university.$edit">{{university.universityUrl}}</span>
+                            <div ng-if="university.$edit">
+                                <input name="universityUrl" class="input-sm form-control" type="text"
+                                       ng-model="university.universityUrl"/>
+                            </div>
+                        </td>
+                        <td data-title="'Status'" style="width: 10%;" >
+                            <span ng-if="!university.$edit">{{university.universityStatus}}</span>
+                            <div ng-if="university.$edit">
+                                <select ng-model="university.universityStatus" class="form-control mb-10">
+                                    <option ng-selected="university.universityStatus=='Activated'"
+                                            value="Activated">Activated
                                     </option>
-                                    <option ng-selected="user.enabled==false"
-                                            value="false">Deactivated
+                                    <option ng-selected="university.universityStatus=='Deactivated'"
+                                            value="Deactivated">Deactivated
                                     </option>
                                 </select>
                             </div>
-
                         </td>
-
-                        <td data-title="'Actions'" width="200">
-                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
-                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                        <td data-title="'Date'" style="width: 20%;" sortable="'creationDateTime'">
+                            <span >{{university.creationDateTime}}</span>
+                        </td>
+                        <td data-title="'Actions'" style="width: 10%">
+                            <a ng-if="!university.$edit" href="" ng-click="editRow(university)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit<br/></a>
+                            <a ng-if="!university.$edit" href="" ui-sref="app.universityEdit({university:university})" class="text-warning text-uppercase text-strong text-sm mr-10">Edit in Details<br/></a>
+                            <a ng-if="!university.$edit" href="" ui-sref="app.universityMerge({university:university})" class="text-success text-uppercase text-strong text-sm mr-10">Merge<br/></a>
+                            <a ng-if="university.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,university,true)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save<br/></a>
+                            <a ng-if="university.$edit" href="" ng-click="cancelEditRow(university)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel<br/></a>
                         </td>
                     </tr>
                 </form>
@@ -239,18 +263,3 @@
 </section>
 
 
-<script type="text/ng-template" id="myModalContent">
-
-    <div class="modal-body">
-
-        <div class="modal-images">
-            <img style="width: 100%;" data-ng-src="{{src.src}}"/>
-        </div>
-
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success btn-ef btn-ef-3 btn-ef-3c" ng-click="closeModal()"><i
-                class="fa fa-arrow-right"></i> Ok
-        </button>
-    </div>
-</script>

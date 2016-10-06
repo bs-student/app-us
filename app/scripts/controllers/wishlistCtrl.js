@@ -10,11 +10,13 @@
     function WishListCtrl($state,$scope, identityService,responseService,wishListService,imageModalService,SERVER_CONSTANT) {
 
 
+        $scope.$parent.main.title = "Wishlist";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
         $scope.resultFound=true;
         $scope.wishListBooks=[];
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
         $scope.viewImage = _viewImage;
         $scope.showDeleteModal = _showDeleteModal;

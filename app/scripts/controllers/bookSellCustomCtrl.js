@@ -5,11 +5,13 @@
     app
         .controller('BookSellCustomCtrl', BookSellCustomCtrl);
 
-    BookSellCustomCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService'];
+    BookSellCustomCtrl.$inject = ['$state','$scope','bookService','identityService','responseService','$stateParams','imageModalService','imageStoreService','SERVER_CONSTANT'];
 
-    function BookSellCustomCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService) {
+    function BookSellCustomCtrl($state,$scope,bookService,identityService,responseService,$stateParams,imageModalService,imageStoreService,SERVER_CONSTANT) {
 
 
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
+        $scope.$parent.main.title = "Sell Books";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "sellBook";
 

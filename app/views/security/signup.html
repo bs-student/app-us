@@ -1,4 +1,4 @@
-<div ng-parallax pattern="'assets/images/parallax/login_parallax.jpg'" offset="0"  speed="5"  class="parallax-box dark" >
+<div ng-parallax pattern="'dist/images/parallax/login_parallax.jpg'" offset="0"  speed="5"  class="parallax-box dark" >
 
     <div class="container clearfix">
 
@@ -32,7 +32,7 @@
                             <div class="form-group" ng-class="{ 'has-error' : userForm.fullName.$invalid && !userForm.fullName.$pristine, 'has-success' : userForm.fullName.$valid && !userForm.fullName.$pristine}">
 
                                 <p class="white-text" for="fullName">Full Name: <text uib-tooltip="Full Name must be minimum length of 3 characters" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
-                                <input type="text" name="fullName" id="fullName" class="form-control input-style" ng-model="user.fullName" ng-minlength="3"  required>
+                                <input type="text" name="fullName" id="fullName" class="form-control input-style" ng-model="user.fullName" ng-minlength="3"  required autocomplete="off">
                                 <p class="help-block">
                                     <span ng-show="userForm.fullName.$invalid && !userForm.fullName.$pristine">Full Name is required.</span>
                                     <span ng-show="userForm.fullName.$error.minlength">Full Name is too short.</span>
@@ -42,7 +42,7 @@
                             <div class="form-group" ng-class="{ 'has-error' :  userForm.username.$invalid && !userForm.username.$pristine, 'has-success' : userForm.username.$valid && !userForm.username.$pristine}">
 
                                 <p class="white-text" for="fullName">Username: <text uib-tooltip="Username must be minimum length of 3 characters and maximum 20 characters. Username may contain alphanumeric values but no special characters except '-' or '_'" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
-                                <input data-val-username val-username-special-char type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required>
+                                <input data-val-username val-username-special-char type="text" name="username" id="username" class="form-control input-style" ng-model="user.username" ng-minlength="3" ng-maxlength="20" required autocomplete="off">
                                 <p class="help-block">
                                     <span ng-show="userForm.username.$invalid && !userForm.username.$pristine">Username is required.</span>
                                     <span ng-show="userForm.username.$error.minlength">Username is too short.</span>
@@ -55,7 +55,7 @@
                             <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine, 'has-success' : userForm.email.$valid && !userForm.email.$pristine}">
 
                                 <p class="white-text" for="fullName">Email: </p>
-                                <input data-val-email type="email" name="email" id="email" class="form-control input-style" ng-model="user.email" required>
+                                <input data-val-email type="email" name="email" id="email" class="form-control input-style" ng-model="user.email" required autocomplete="off">
                                 <p class="help-block">
                                     <span ng-show="userForm.email.$invalid && !userForm.email.$pristine">Email is required.</span>
                                     <span ng-show="userForm.email.$error.valEmail">Email Already Exist.</span>
@@ -67,7 +67,7 @@
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine, 'has-success' : userForm.password.$valid && !userForm.password.$pristine}">
 
                                     <p class="white-text" for="fullName">Password: <text uib-tooltip="Password must be minimum length of 6 characters" class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></p>
-                                    <input type="password" name="password" id="password" class="form-control input-style" ng-model="user.password" ng-minlength="6" required>
+                                    <input type="password" name="password" id="password" class="form-control input-style" ng-model="user.password" ng-minlength="6" required autocomplete="off">
                                     <p class="help-block">
                                         <span ng-show="userForm.password.$invalid && !userForm.password.$pristine">Password is required.</span>
                                         <span ng-show="userForm.password.$error.minlength">Password is too short.</span>
@@ -77,7 +77,7 @@
                                 <div class="form-group col-md-6" ng-class="{ 'has-error' : userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine, 'has-success' : userForm.passwordConfirm.$valid && !userForm.passwordConfirm.$pristine}">
 
                                     <p class="white-text" for="fullName">Password Confirmation: </p>
-                                    <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-style" ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required>
+                                    <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-style" ng-model="user.passwordConfirm" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' " required autocomplete="off">
                                     <p class="help-block">
                                         <span ng-show='userForm.passwordConfirm.$error.validator'>Passwords do not match!</span>
                                     </p>

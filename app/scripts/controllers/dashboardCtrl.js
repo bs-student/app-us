@@ -13,10 +13,12 @@
 
     function DashboardCtrl($scope, identityService, userService,$state,quoteService,SERVER_CONSTANT,storageService,$firebaseObject,$interval) {
 
+        $scope.$parent.main.title = "Textbook Exchange Made Easy";
         $scope.$parent.headerStyle = "light";
         $scope.$parent.activePage = "home";
         $scope.firstSlide = true;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
+        $scope.appHostPath = SERVER_CONSTANT.HOST_APP;
 
         $scope.showRegister = _showRegister;
         $scope.searchBook = _searchBook;

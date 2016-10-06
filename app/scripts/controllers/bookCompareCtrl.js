@@ -9,6 +9,7 @@
 
     function BookCompareCtrl($state,$stateParams,$scope,bookService,identityService,responseService,storageService, wishListService,SERVER_CONSTANT,imageModalService,$firebaseArray) {
 
+        $scope.$parent.main.title = "Compare Books Prices";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "buyBook";
 

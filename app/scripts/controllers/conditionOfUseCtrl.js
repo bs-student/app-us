@@ -9,6 +9,7 @@
 
     function ConditionOfUseCtrl($scope) {
 
+        $scope.$parent.main.title = "Condition of Use";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 

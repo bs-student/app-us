@@ -7,7 +7,7 @@
                 <div class="col-md-4 text-center-samll-device">
 
                     <div class="widget widget-about">
-                        <img src="assets/images/logo_and_text.png"/>
+                        <img alt="student2student" src="{{appHostPath}}/dist/images/logo_and_text.png"/>
 
 
 
@@ -27,10 +27,10 @@
                     </div>
 
                     <div class="social-div">
-                        <div class="social_icon"><img src="assets/images/footer/facebook_logo.png"/></div>
+                        <div class="social_icon"><img alt="student2student facebook url" src="{{appHostPath}}/dist/images/footer/facebook_logo.png"/></div>
                         <div class="social_connect"><a target="_blank" href="https://www.facebook.com/student2student"><strong>Find Us</strong><br/>
                             on Facebook</a></div>
-                        <div class="social_icon"><img src="assets/images/footer/twitter_logo.png"/></div>
+                        <div class="social_icon"><img alt="student2student twitter url" src="{{appHostPath}}/dist/images/footer/twitter_logo.png"/></div>
                         <div class="social_connect"><a target="_blank" href="https://www.twitter.com/St2StTextbook"><strong>Find Us</strong><br/>
                             on Twitter</a></div>
 
@@ -51,7 +51,7 @@
                                             <div class="slide">
                                                 <ul class="footer-brands-ul">
                                                     <li data-ng-repeat="brand in brandImage.brands">
-                                                        <img ng-src="{{brand.image}}"/>
+                                                        <img alt="{{brand.image}}" ng-src="{{appHostPath}}/{{brand.image}}"/>
                                                     </li>
 
                                                 </ul>

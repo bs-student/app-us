@@ -98,7 +98,7 @@
 
                             <div class="buttons">
 
-                                <button data-options="splash-2 splash-primary splash-ef-2" ng-click="showDeleteModal($event,'deleteModalContent',{book:deal})" class="myBtn app-btn orange-btn"><img src="./dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
+                                <button data-options="splash-2 splash-primary splash-ef-2" ng-click="showDeleteModal($event,'deleteModalContent',{book:deal})" class="myBtn app-btn orange-btn"><img src="{{appHostPath}}/dist/images/archive_pages/del.png"/> &nbsp; Delete</button>
                             </div>
 
 
@@ -109,7 +109,7 @@
                 <div class="row" ng-show="deal.viewMoreInfo">
                     <div class="col-md-12">
 
-                        <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="./dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>
+                        <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>
 
                     </div>
                 </div>

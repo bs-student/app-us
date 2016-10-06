@@ -11,6 +11,7 @@
 
 
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
+        $scope.$parent.main.title = "User Management";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
@@ -227,7 +228,7 @@
                 row.$edit=false;
                 if(row.enabled=="true"){
                     row.enabled=true;
-                }else{
+                }else if(row.enabled=="false"){
                     row.enabled=false;
                 }
                 ($scope.userPromise = adminUserService.saveUpdatedUserDataAdmin(identityService.getAccessToken(),row)).then(function (response) {

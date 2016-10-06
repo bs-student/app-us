@@ -68,7 +68,7 @@
                         </div>
 
                     </td>
-                    <td data-title="'Full Name'" style="width: 21%;" >
+                    <td data-title="'Full Name'" style="width: 16%;" >
                         <span>{{user.fullName}}</span>
                     </td>
                     <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
@@ -77,9 +77,21 @@
                     <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
                         <span>{{user.registrationDateTime}}</span>
                     </td>
-                    <td data-title="'Verified'" style="width: 8%;">
-                        <span ng-show="user.enabled">Yes</span>
-                        <span ng-show="!user.enabled">No</span>
+                    <td data-title="'Verified'" style="width: 13%;">
+                        <span ng-if="!user.$edit && user.enabled">Yes</span>
+                        <span ng-if="!user.$edit && !user.enabled">No</span>
+
+                        <div ng-if="user.$edit">
+                            <select ng-model="user.enabled" class="form-control mb-10">
+                                <option ng-selected="user.enabled==true"
+                                        value="true">Activated
+                                </option>
+                                <option ng-selected="user.enabled==false"
+                                        value="false">Deactivated
+                                </option>
+                            </select>
+                        </div>
+
                     </td>
                     <td data-title="'Actions'" style="width: 15%">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
