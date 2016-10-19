@@ -68,7 +68,7 @@
                         </div>
 
                     </td>
-                    <td data-title="'Full Name'" style="width: 16%;" >
+                    <td data-title="'Full Name'" style="width: 16%;" filter="{ 'fullName': 'text' }">
                         <span>{{user.fullName}}</span>
                     </td>
                     <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
@@ -77,7 +77,7 @@
                     <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
                         <span>{{user.registrationDateTime}}</span>
                     </td>
-                    <td data-title="'Verified'" style="width: 13%;">
+                    <td data-title="'Verified'" style="width: 13%;" filter="{'enabled': 'select'}" filter-data="verifiedStatus">
                         <span ng-if="!user.$edit && user.enabled">Yes</span>
                         <span ng-if="!user.$edit && !user.enabled">No</span>
 
@@ -130,19 +130,19 @@
                         <span>{{user.username}}</span>
 
                     </td>
-                    <td data-title="'Full Name'" width="200" >
+                    <td data-title="'Full Name'" width="200" filter="{ 'fullName': 'text' }">
                         <span>{{user.fullName}}</span>
                     </td>
                     <td data-title="'Email'" width="200" filter="{ 'email': 'text' }">
                         <span>{{user.email}}</span>
                     </td>
-                    <td data-title="'University'" width="200">
+                    <td data-title="'University'" width="200" filter="{ 'universityName': 'text' }">
                         <span>{{user.universityName}}</span>
                     </td>
-                    <td data-title="'Campus'" width="200">
+                    <td data-title="'Campus'" width="200" filter="{ 'campusName': 'text' }">
                         <span>{{user.campusName}}</span>
                     </td>
-                    <td data-title="'Status'" width="200">
+                    <td data-title="'Status'" width="200" filter="{ 'enabled': 'select' }" filter-data="activationStatus">
                         <div ng-if="!user.$edit">
                             <span ng-if="user.enabled">Activated</span>
                             <span ng-if="!user.enabled">Deactivated</span>
@@ -161,6 +161,10 @@
                         </div>
 
                     </td>
+                    <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
+                        <span>{{user.registrationDateTime}}</span>
+                    </td>
+
 
                     <td data-title="'Actions'" width="200">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>

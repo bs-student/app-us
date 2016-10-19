@@ -212,7 +212,7 @@ var assets = {
         "bower_components/angular-ui-select/dist/select.css",
         "bower_components/animate.css/animate.css",
 
-
+        "bower_components/ng-table/dist/ng-table.css",
 
         "bower_components/angular-busy/dist/angular-busy.css",
         "bower_components/textAngular/dist/textAngular.css"
@@ -279,7 +279,7 @@ gulp.task("js_app", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app-2.0.min.js'))
+        .pipe(plugins.concat('app-2.1.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 gulp.task("css_website", function (done) {
@@ -298,7 +298,7 @@ gulp.task("css_library", function (done) {
     return gulp.src(assets.css_library)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app.library-2.0.min.css'))
+        .pipe(plugins.concat('app.library-2.1.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 

@@ -30,6 +30,28 @@
         $scope.approvedUsers=[];
         $scope.adminUsers=[];
 
+        $scope.verifiedStatus = [
+            {
+                'title':"Yes",
+                'id':true
+            },
+            {
+                'title':"No",
+                'id':false
+            }
+        ];
+
+        $scope.activationStatus = [
+            {
+                'title':"Activated",
+                'id':true
+            },
+            {
+                'title':"Deactivated",
+                'id':false
+            }
+        ]
+
         init();
 
         function init(){
@@ -45,10 +67,11 @@
                     count: 10,           // count per page
                     filter: {
                         username: '',
-                        email: ''           // initial filter
+                        email: '',           // initial filter
+                        fullName: '',
+                        enabled: ''
                     },
                     sorting: {
-
                         registrationDateTime: 'desc'// initial sorting
                     }
                 },
@@ -66,13 +89,14 @@
                 {
                     "searchQuery": params.filter().username,
                     "emailQuery": params.filter().email,
+                    "fullNameQuery": params.filter().fullName,
+                    "enabledQuery": params.filter().enabled,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
                 ($scope.userPromise = adminUserService.getAllNonApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.nonApprovedUsers = response.data.success.successData.users.totalUsers;
-                    $scope.nonApprovedUsers= $filter('orderBy')($scope.nonApprovedUsers, params.orderBy());
                     $defer.resolve($scope.nonApprovedUsers);
                     params.total(response.data.success.successData.users.totalNumber);
 
@@ -103,10 +127,14 @@
                     count: 10,           // count per page
                     filter: {
                         username: ''  ,
-                        email: ''        // initial filter
+                        email: '',
+                        fullName:'',
+                        universityName:'',
+                        campusName:'',
+                        enabled:''// initial filter
                     },
                     sorting: {
-                        username: 'asc'     // initial sorting
+                        registrationDateTime: 'desc'     // initial sorting
                     }
                 },
 
@@ -123,13 +151,17 @@
                 {
                     "searchQuery": params.filter().username,
                     "emailQuery": params.filter().email,
+                    "fullNameQuery": params.filter().fullName,
+                    "universityNameQuery": params.filter().universityName,
+                    "campusNameQuery": params.filter().campusName,
+                    "enabledQuery": params.filter().enabled,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
                 ($scope.userPromise = adminUserService.getAllApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.approvedUsers = response.data.success.successData.users.totalUsers;
-                    $scope.approvedUsers= $filter('orderBy')($scope.approvedUsers, params.orderBy());
+//                    $scope.approvedUsers= $filter('orderBy')($scope.approvedUsers, params.orderBy());
                     $defer.resolve($scope.approvedUsers);
                     params.total(response.data.success.successData.users.totalNumber);
 
@@ -186,7 +218,7 @@
                 };
                 ($scope.userPromise = adminUserService.getAllAdminUsers(identityService.getAccessToken(), queryData)).then(function (response) {
                     $scope.adminUsers = response.data.success.successData.users.totalUsers;
-                    $scope.adminUsers= $filter('orderBy')($scope.adminUsers, params.orderBy());
+//                    $scope.adminUsers= $filter('orderBy')($scope.adminUsers, params.orderBy());
                     $defer.resolve($scope.adminUsers);
                     params.total(response.data.success.successData.users.totalNumber);
 
