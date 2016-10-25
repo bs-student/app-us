@@ -14,7 +14,14 @@
     function DashboardCtrl($scope, identityService, userService,$state,quoteService,SERVER_CONSTANT,storageService,$firebaseObject,$interval) {
 
         $scope.$parent.main.title = "Textbook Exchange Made Easy";
-        $scope.$parent.headerStyle = "light";
+        $scope.windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+        if($scope.windowWidth <992){
+            $scope.$parent.headerStyle = "dark";
+        }else{
+            $scope.$parent.headerStyle = "light";
+        }
+
         $scope.$parent.activePage = "home";
         $scope.firstSlide = true;
         $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;

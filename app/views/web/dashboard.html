@@ -1,300 +1,306 @@
 <home-slider>
-    <section id="slider" class="slider-parallax">
+<section id="slider" class="slider-parallax">
 
-        <!--
-        #################################
-            - THEMEPUNCH BANNER -
-        #################################
-        -->
+<!--
+#################################
+    - THEMEPUNCH BANNER -
+#################################
+-->
 
-        <div class="tp-banner-container">
+<div class="tp-banner-container">
 
-            <div class="home-slider-form-div">
-
-
-                <div class="tp-caption big-text text-white skewfromleft fadeout">
-                    Textbook Exchange Made Easy
-                </div>
-
-                <!-- LAYER NR. 2 -->
-
-                <div style="margin-bottom: 10px;"
-                     class="tp-caption light_normal_22 no-middle-man text-center skewfromright fadeout">
-                    NO MIDDLE MAN | ON-CAMPUS | PRICE COMPARISON
-                </div>
-                <div class="tp-caption light_normal_22 skewfromright fadeout slider-form-container"
-                     data-x="50"
-                     data-y="300"
-                     data-speed="800"
-                     data-start="1000"
-                     data-easing="easeOutQuad"
-                     data-endspeed="1000"
-                     data-endeasing="Power4.easeIn" style="white-space: normal;">
-                    <form name="bookSearchForm" submit-validate ng-submit="searchBook(bookSearchForm.$valid)"
-                          role="form" novalidate>
-                        <div ng-class="{ 'has-error' : bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine, 'has-success' : bookSearchForm.searchText.$valid && !bookSearchForm.searchText.$pristine}">
-                            <div class="input-group home-search-bar-input-group m-auto">
+<div class="home-slider-form-div">
 
 
-                                <input ng-model="searchText" name="searchText" type="text"
-                                       class="form-control search-input-homepage slider-form"
-                                       placeholder="Principles of Marketing By Philip Kotler..." required>
+    <div class="tp-caption big-text text-white skewfromleft fadeout">
+        Textbook Exchange Made Easy
+    </div>
+
+    <!-- LAYER NR. 2 -->
+
+    <div style="margin-bottom: 10px;"
+         class="tp-caption light_normal_22 no-middle-man text-center skewfromright fadeout">
+        NO MIDDLE MAN | ON-CAMPUS | PRICE COMPARISON
+    </div>
+    <div class="tp-caption light_normal_22 skewfromright fadeout slider-form-container"
+         data-x="50"
+         data-y="300"
+         data-speed="800"
+         data-start="1000"
+         data-easing="easeOutQuad"
+         data-endspeed="1000"
+         data-endeasing="Power4.easeIn" style="white-space: normal;">
+        <form name="bookSearchForm" submit-validate ng-submit="searchBook(bookSearchForm.$valid)"
+              role="form" novalidate>
+            <div ng-class="{ 'has-error' : bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine, 'has-success' : bookSearchForm.searchText.$valid && !bookSearchForm.searchText.$pristine}">
+                <div class="input-group home-search-bar-input-group m-auto">
+
+
+                    <input ng-model="searchText" name="searchText" type="text"
+                           class="form-control search-input-homepage slider-form"
+                           placeholder="Principles of Marketing By Philip Kotler..." required>
                                         <span class="input-group-btn">
                                               <button class="myBtn myBtn-rounded slider-form-button search-homepage-btn"
                                                       type="submit">FIND
                                                   THE BOOK {{bookSearchForm.bookName}}
                                               </button>
                                         </span>
-                            </div>
-                            <div>
+                </div>
+                <div>
 
-                                <p class="help-block">
-                                    <span ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">Field is Required</span>
-                                </p>
-
-
-                            </div>
-                        </div>
-
-                    </form>
+                    <p class="help-block">
+                        <span ng-show="bookSearchForm.searchText.$invalid && !bookSearchForm.searchText.$pristine">Field is Required</span>
+                    </p>
 
 
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
-                    </div>
-                    <div class="col-md-4"><div>
-
-                    </div></div>
-                </div>
-
-            </div>
-            <div class="tp-banner">
-
-
-                <ul>
-
-                    <!-- SLIDE  -->
-                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
-
-                        <!-- MAIN IMAGE -->
-                        <img alt="student2student banner 1" src="http://student2student.com/dist/images/slider/1.jpg"  data-bgposition="center center"
-                             data-bgfit="cover"
-                             data-bgrepeat="no-repeat">
-
-
-                        <!-- LAYER NR. 4 -->
-                        <div
-                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-                             data-x="0"
-                             data-y="600"
-                             data-speed="800"
-                             data-start="1000"
-                             data-easing="easeOutQuad"
-                             data-endspeed="1000"
-                             data-endeasing="Power4.easeIn"
-                             style="width: 680px; max-width: 680px; white-space: normal;">
-                            Buy and sell textbooks directly with student on-campus.<br/>
-                            No shipping, no credit cards, no hassles... All Free!
-
-                        </div>
-
-
-                        <!-- LAYER NR. 4 -->
-                        <!--<button ng-click="rotate(1)">-->
-                        <a ui-sref="app.conceptVideo">
-                            <div class="tp-caption light_normal_22 circle_on_banner "
-                                 data-x="1050"
-                                 data-y="580"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
-
-                            </div>
-                        </a>
-                        <!--</button>-->
-
-
-                    </li>
-
-                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
-
-                        <!-- MAIN IMAGE -->
-                        <img alt="student2student banner 2" src="http://student2student.com/dist/images/slider/2.jpg"  data-bgposition="center center"
-                             data-bgfit="cover"
-                             data-bgrepeat="no-repeat">
-
-
-                        <div
-                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-                             data-x="0"
-                             data-y="600"
-                             data-speed="800"
-                             data-start="1000"
-                             data-easing="easeOutQuad"
-                             data-endspeed="1000"
-                             data-endeasing="Power4.easeIn"
-                             style="width: 680px; max-width: 680px; white-space: normal;">
-                            When a textbook is not yet available on-campus by another student, <br/>
-                            we show you the cheapest price online amongst many bookstores.
-
-
-                        </div>
-
-
-                        <!-- LAYER NR. 4 -->
-                        <a ui-sref="app.conceptVideo">
-                            <div class="tp-caption light_normal_22 circle_on_banner "
-                                 data-x="1050"
-                                 data-y="580"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
-
-                            </div>
-                        </a>
-
-                    </li>
-
-                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
-
-                        <!-- MAIN IMAGE -->
-                        <img alt="student2student banner 3" src="http://student2student.com/dist/images/slider/3.jpg" data-bgposition="center center"
-                             data-bgfit="cover"
-                             data-bgrepeat="no-repeat">
-
-
-
-                        <div
-                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-                             data-x="0"
-                             data-y="600"
-                             data-speed="800"
-                             data-start="1000"
-                             data-easing="easeOutQuad"
-                             data-endspeed="1000"
-                             data-endeasing="Power4.easeIn"
-                             style="width: 680px; max-width: 680px; white-space: normal;">
-                            We cut out the middleman and let you sell and <br/>buy all your textbooks directly to other
-                            students
-                            on-campus.
-
-                        </div>
-
-
-                        <!-- LAYER NR. 4 -->
-                        <a ui-sref="app.conceptVideo">
-                            <div class="tp-caption light_normal_22 circle_on_banner "
-                                 data-x="1050"
-                                 data-y="580"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
-
-                            </div>
-                        </a>
-
-                    </li>
-                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
-
-                        <!-- MAIN IMAGE -->
-                        <img alt="student2student banner 4" src="http://student2student.com/dist/images/slider/4.jpg"  data-bgposition="center center"
-                             data-bgfit="cover"
-                             data-bgrepeat="no-repeat">
-
-                        <div
-                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-                             data-x="0"
-                             data-y="600"
-                             data-speed="800"
-                             data-start="1000"
-                             data-easing="easeOutQuad"
-                             data-endspeed="1000"
-                             data-endeasing="Power4.easeIn"
-                             style="width: 680px; max-width: 680px; white-space: normal;">
-                            We help you find a new home for all your textbooks and <br/>put money back in your pockets
-                            where it
-                            belongs!
-
-                        </div>
-
-                        <!-- LAYER NR. 4 -->
-                        <a ui-sref="app.conceptVideo">
-                            <div class="tp-caption light_normal_22 circle_on_banner "
-                                 data-x="1050"
-                                 data-y="580"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
-
-                            </div>
-                        </a>
-
-                    </li>
-                    <li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
-                        data-thumb="assets/images/slider/bg-1-thumb.jpg">
-
-                        <!-- MAIN IMAGE -->
-                        <img alt="student2student banner 5" src="http://student2student.com/dist/images/slider/5.jpg"  data-bgposition="center center"
-                             data-bgfit="cover"
-                             data-bgrepeat="no-repeat">
-
-                        <div
-                             class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
-                             data-x="0"
-                             data-y="600"
-                             data-speed="800"
-                             data-start="1000"
-                             data-easing="easeOutQuad"
-                             data-endspeed="1000"
-                             data-endeasing="Power4.easeIn"
-                             style="width: 680px; max-width: 680px; white-space: normal;">
-                            Create an account, post the book, and sell away. <br/>
-                            Meet on-campus to do the deal.
-
-                        </div>
-
-
-                        <!-- LAYER NR. 4 -->
-                        <a ui-sref="app.conceptVideo">
-                            <div class="tp-caption light_normal_22 circle_on_banner "
-                                 data-x="1050"
-                                 data-y="580"
-                                 data-speed="800"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style="white-space: normal;">
-
-                            </div>
-                        </a>
-
-                    </li>
-                </ul>
-
             </div>
 
+        </form>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="tp-banner">
+
+
+<ul>
+
+<!-- SLIDE  -->
+<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+
+    <!-- MAIN IMAGE -->
+    <img alt="student2student banner 1" src="http://student2student.com/dist/images/slider/1.jpg"
+         data-bgposition="center center"
+         data-bgfit="cover"
+         data-bgrepeat="no-repeat">
+
+
+    <!-- LAYER NR. 4 -->
+    <div
+            class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+            data-x="0"
+            data-y="600"
+            data-speed="800"
+            data-start="1000"
+            data-easing="easeOutQuad"
+            data-endspeed="1000"
+            data-endeasing="Power4.easeIn"
+            style="width: 680px; max-width: 680px; white-space: normal;">
+        Buy and sell textbooks directly with student on-campus.<br/>
+        No shipping, no credit cards, no hassles... All Free!
+
+    </div>
+
+
+    <!-- LAYER NR. 4 -->
+    <!--<button ng-click="rotate(1)">-->
+    <a ui-sref="app.conceptVideo">
+        <div class="tp-caption light_normal_22 circle_on_banner "
+             data-x="1050"
+             data-y="580"
+             data-speed="800"
+             data-start="1000"
+             data-easing="easeOutQuad"
+             data-endspeed="1000"
+             data-endeasing="Power4.easeIn" style="white-space: normal;">
 
         </div>
-        <!-- END REVOLUTION SLIDER -->
+    </a>
+    <!--</button>-->
 
 
-    </section>
+</li>
+
+<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+
+    <!-- MAIN IMAGE -->
+    <img alt="student2student banner 2" src="http://student2student.com/dist/images/slider/2.jpg"
+         data-bgposition="center center"
+         data-bgfit="cover"
+         data-bgrepeat="no-repeat">
 
 
-    <!-- #slider end -->
+    <div
+            class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+            data-x="0"
+            data-y="600"
+            data-speed="800"
+            data-start="1000"
+            data-easing="easeOutQuad"
+            data-endspeed="1000"
+            data-endeasing="Power4.easeIn"
+            style="width: 680px; max-width: 680px; white-space: normal;">
+        When a textbook is not yet available on-campus by another student, <br/>
+        we show you the cheapest price online amongst many bookstores.
+
+
+    </div>
+
+
+    <!-- LAYER NR. 4 -->
+    <a ui-sref="app.conceptVideo">
+        <div class="tp-caption light_normal_22 circle_on_banner "
+             data-x="1050"
+             data-y="580"
+             data-speed="800"
+             data-start="1000"
+             data-easing="easeOutQuad"
+             data-endspeed="1000"
+             data-endeasing="Power4.easeIn" style="white-space: normal;">
+
+        </div>
+    </a>
+
+</li>
+
+<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+
+    <!-- MAIN IMAGE -->
+    <img alt="student2student banner 3" src="http://student2student.com/dist/images/slider/3.jpg"
+         data-bgposition="center center"
+         data-bgfit="cover"
+         data-bgrepeat="no-repeat">
+
+
+    <div
+            class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+            data-x="0"
+            data-y="600"
+            data-speed="800"
+            data-start="1000"
+            data-easing="easeOutQuad"
+            data-endspeed="1000"
+            data-endeasing="Power4.easeIn"
+            style="width: 680px; max-width: 680px; white-space: normal;">
+        We cut out the middleman and let you sell and <br/>buy all your textbooks directly to other
+        students
+        on-campus.
+
+    </div>
+
+
+    <!-- LAYER NR. 4 -->
+    <a ui-sref="app.conceptVideo">
+        <div class="tp-caption light_normal_22 circle_on_banner "
+             data-x="1050"
+             data-y="580"
+             data-speed="800"
+             data-start="1000"
+             data-easing="easeOutQuad"
+             data-endspeed="1000"
+             data-endeasing="Power4.easeIn" style="white-space: normal;">
+
+        </div>
+    </a>
+
+</li>
+<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+
+    <!-- MAIN IMAGE -->
+    <img alt="student2student banner 4" src="http://student2student.com/dist/images/slider/4.jpg"
+         data-bgposition="center center"
+         data-bgfit="cover"
+         data-bgrepeat="no-repeat">
+
+    <div
+            class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+            data-x="0"
+            data-y="600"
+            data-speed="800"
+            data-start="1000"
+            data-easing="easeOutQuad"
+            data-endspeed="1000"
+            data-endeasing="Power4.easeIn"
+            style="width: 680px; max-width: 680px; white-space: normal;">
+        We help you find a new home for all your textbooks and <br/>put money back in your pockets
+        where it
+        belongs!
+
+    </div>
+
+    <!-- LAYER NR. 4 -->
+    <a ui-sref="app.conceptVideo">
+        <div class="tp-caption light_normal_22 circle_on_banner "
+             data-x="1050"
+             data-y="580"
+             data-speed="800"
+             data-start="1000"
+             data-easing="easeOutQuad"
+             data-endspeed="1000"
+             data-endeasing="Power4.easeIn" style="white-space: normal;">
+
+        </div>
+    </a>
+
+</li>
+<li class="light" data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+    data-thumb="assets/images/slider/bg-1-thumb.jpg">
+
+    <!-- MAIN IMAGE -->
+    <img alt="student2student banner 5" src="http://student2student.com/dist/images/slider/5.jpg"
+         data-bgposition="center center"
+         data-bgfit="cover"
+         data-bgrepeat="no-repeat">
+
+    <div
+            class="tp-caption light_normal_22 slider-bottom-text light_raleway skewfromright fadeout animate-show"
+            data-x="0"
+            data-y="600"
+            data-speed="800"
+            data-start="1000"
+            data-easing="easeOutQuad"
+            data-endspeed="1000"
+            data-endeasing="Power4.easeIn"
+            style="width: 680px; max-width: 680px; white-space: normal;">
+        Create an account, post the book, and sell away. <br/>
+        Meet on-campus to do the deal.
+
+    </div>
+
+
+    <!-- LAYER NR. 4 -->
+    <a ui-sref="app.conceptVideo">
+        <div class="tp-caption light_normal_22 circle_on_banner "
+             data-x="1050"
+             data-y="580"
+             data-speed="800"
+             data-start="1000"
+             data-easing="easeOutQuad"
+             data-endspeed="1000"
+             data-endeasing="Power4.easeIn" style="white-space: normal;">
+
+        </div>
+    </a>
+
+</li>
+</ul>
+
+</div>
+
+
+</div>
+<!-- END REVOLUTION SLIDER -->
+
+
+</section>
+
+
+<!-- #slider end -->
 </home-slider>
 
 <!-- ============================================
@@ -304,183 +310,187 @@
 <section id="content">
 
 
-    <!-- ============ section ============ -->
+<!-- ============ section ============ -->
 
-    <!-- /section -->
-
-
-    <div class="content-wrap mid-section">
-
-        <div class="section mid-section">
-            <div class="container clearfix">
-
-                <div class="row">
+<!-- /section -->
 
 
-                    <div class="col-md-6 mid-one-col-top border-right">
+<div class="content-wrap mid-section">
 
-                        <p class="mid-one-header">Sell Textbooks</p>
+<div class="section mid-section">
+    <div class="container clearfix">
 
-                        <p class="mid-one-details">There’s no point keeping those old textbooks around to gather dust.
-                            Sell your
-                            textbooks to students
-                            who need them and make some extra cash to spend on the finer things in life. Oh, the
-                            possibilities…
-
-                        </p>
+        <div class="row">
 
 
+            <div class="col-md-6 mid-one-col-top border-right">
+
+                <p class="mid-one-header">Sell Textbooks</p>
+
+                <p class="mid-one-details">There’s no point keeping those old textbooks around to gather dust.
+                    Sell your
+                    textbooks to students
+                    who need them and make some extra cash to spend on the finer things in life. Oh, the
+                    possibilities…
+
+                </p>
+
+
+            </div>
+
+
+            <div class="col-md-4 mid-one-col-top padding-left-none">
+
+
+                <div class="man-image-div">
+                    <div class="man-image-outer-circle">
+                        <img alt="sell textbooks" src="{{appHostPath}}/dist/images/sections/1.jpg" alt=""
+                             class="man-image img-responsive">
                     </div>
-
-
-                    <div class="col-md-4 mid-one-col-top padding-left-none">
-
-
-                        <div class="man-image-div">
-                            <div class="man-image-outer-circle">
-                                <img alt="sell textbooks" src="{{appHostPath}}/dist/images/sections/1.jpg" alt="" class="man-image img-responsive">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-2"></div>
-
-
                 </div>
-                <div class="row">
+
+            </div>
+            <div class="col-md-2"></div>
 
 
-                    <div class="col-md-4 col-md-offset-2 mid-one-col-mid border-right padding-right-none">
-
-                        <div class="man-image-div">
-                            <div class="man-image-outer-circle">
-                                <img alt="cheap college textbooks" src="{{appHostPath}}/dist/images/sections/2.jpg" alt="" class="man-image img-responsive">
-                            </div>
-                        </div>
+        </div>
+        <div class="row">
 
 
+            <div class="col-md-4 col-md-offset-2 mid-one-col-mid border-right padding-right-none">
+
+                <div class="man-image-div">
+                    <div class="man-image-outer-circle">
+                        <img alt="cheap college textbooks" src="{{appHostPath}}/dist/images/sections/2.jpg" alt=""
+                             class="man-image img-responsive">
                     </div>
-
-
-                    <div class="col-md-6">
-
-
-                        <p class="mid-one-header">Cheap College Textbooks</p>
-
-                        <p class="mid-one-details">Why pay full price when you don’t have to? You’re probably tired of
-                            getting
-                            gouged by your campus bookstore at this point, so save some money by buying used books from
-                            other
-                            students just like you.
-
-                        </p>
-
-
-                    </div>
-
-
-                </div>
-                <div class="row">
-
-
-                    <div class="col-md-6 mid-one-col-mid border-right">
-
-                        <p class="mid-one-header">Price Comparison</p>
-
-                        <p class="mid-one-details">If there’s nobody selling the textbook that you’re after on your
-                            campus, use
-                            our handy price comparison tool to find the cheapest prices online amongst 100s of stores so
-                            that
-                            you can order it quickly and avoid spending too much.
-
-                        </p>
-
-
-                    </div>
-
-
-                    <div class="col-md-4 padding-left-none">
-
-
-                        <div class="man-image-div">
-                            <div class="man-image-outer-circle">
-                                <img alt="price comparison" src="{{appHostPath}}/dist/images/sections/3.jpg" alt="" class="man-image img-responsive">
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-2"></div>
-
-
-                </div>
-                <div class="row">
-
-
-                    <div class="col-md-4 col-md-offset-2 mid-one-col-bottom border-right padding-right-none">
-
-                        <div class="man-image-div">
-                            <div class="man-image-outer-circle">
-                                <img alt="Directly On-Campus at your College" src="{{appHostPath}}/dist/images/sections/4.jpg" alt="" class="man-image img-responsive">
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="col-md-6 mid-one-col-bottom">
-
-
-                        <p class="mid-one-header">Directly On-Campus at your College</p>
-
-                        <p class="mid-one-details">Our service makes it easy to find used, cheap textbooks right in your
-                            own
-                            backyard. We’ll connect you with the students on your very own college campus for direct
-                            buying and
-                            selling from people just like you. No middleman, no price gouging!
-
-                        </p>
-
-
-                    </div>
-
-
                 </div>
 
 
             </div>
+
+
+            <div class="col-md-6">
+
+
+                <p class="mid-one-header">Cheap College Textbooks</p>
+
+                <p class="mid-one-details">Why pay full price when you don’t have to? You’re probably tired of
+                    getting
+                    gouged by your campus bookstore at this point, so save some money by buying used books from
+                    other
+                    students just like you.
+
+                </p>
+
+
+            </div>
+
+
         </div>
-        <!-- ============ Features ============ -->
-
-        <!-- ============ Parallax box ============ -->
-
-        <div ng-parallax pattern="'assets/images/parallax/mid2.jpg'" offset="-300" speed="5" page="'home'"
-             class="parallax-box mid-section-two  parallax-1 dark">
-
-            <div class="container clearfix">
+        <div class="row">
 
 
-                <div class="row">
+            <div class="col-md-6 mid-one-col-mid border-right">
 
-                    <div class="col-md-12">
+                <p class="mid-one-header">Price Comparison</p>
+
+                <p class="mid-one-details">If there’s nobody selling the textbook that you’re after on your
+                    campus, use
+                    our handy price comparison tool to find the cheapest prices online amongst 100s of stores so
+                    that
+                    you can order it quickly and avoid spending too much.
+
+                </p>
 
 
-                        <p class="text-white mid-two-header">Sign up free today!</p>
+            </div>
 
-                        <p class="lead text-white mb-60 mid-two-details">When a textbook is not yet available on-campus
-                            by
-                            another student, we show you the cheapest price online amongst many bookstores.
-                        </p>
 
-                        <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form"
-                              novalidate>
-                            <div class="form-group"
-                                 ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
-                                <div class="input-group w-3xl m-auto">
-                                    <input type="email" ng-model="email" name="email"
-                                           class="form-control search-input-homepage sign-up-input-homepage"
-                                           placeholder="Your Email Address" required>
+            <div class="col-md-4 padding-left-none">
+
+
+                <div class="man-image-div">
+                    <div class="man-image-outer-circle">
+                        <img alt="price comparison" src="{{appHostPath}}/dist/images/sections/3.jpg" alt=""
+                             class="man-image img-responsive">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-2"></div>
+
+
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-4 col-md-offset-2 mid-one-col-bottom border-right padding-right-none">
+
+                <div class="man-image-div">
+                    <div class="man-image-outer-circle">
+                        <img alt="Directly On-Campus at your College" src="{{appHostPath}}/dist/images/sections/4.jpg"
+                             alt="" class="man-image img-responsive">
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6 mid-one-col-bottom">
+
+
+                <p class="mid-one-header">Directly On-Campus at your College</p>
+
+                <p class="mid-one-details">Our service makes it easy to find used, cheap textbooks right in your
+                    own
+                    backyard. We’ll connect you with the students on your very own college campus for direct
+                    buying and
+                    selling from people just like you. No middleman, no price gouging!
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+<!-- ============ Features ============ -->
+
+<!-- ============ Parallax box ============ -->
+
+
+<div ng-if="windowWidth<1400" class="parallax-box sign-up-home mid-section-two  parallax-1 dark">
+
+    <div class="container clearfix">
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <p class="text-white mid-two-header">Sign up free today!</p>
+
+                <p class="lead text-white mb-60 mid-two-details">When a textbook is not yet available on-campus
+                    by
+                    another student, we show you the cheapest price online amongst many bookstores.
+                </p>
+
+                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form"
+                      novalidate>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
+                        <div class="input-group w-3xl m-auto">
+                            <input type="email" ng-model="email" name="email"
+                                   class="form-control search-input-homepage sign-up-input-homepage"
+                                   placeholder="Your Email Address" required>
                                         <span class="input-group-btn">
                                               <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button"
                                                       type="submit">
@@ -488,125 +498,181 @@
                                               </button>
                                         </span>
 
-                                </div>
-                                <div class="input-group w-3xl m-auto">
+                        </div>
+                        <div class="input-group w-3xl m-auto">
 
-                                    <p class="help-block" style="width: 660px;">
-                                        <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
-                                    </p>
-
-
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <!-- /parallax box -->
-
-
-        <!-- ============ heading section ============ -->
-        <div class="section m-0 pt-0">
-            <div class="container clearfix quote-container-homepage">
-                <div class="row">
-                    <div class="col-md-6 mid-three-people-quote-col">
-                        <div class="">
-                            <p class="mid-three-header">What Students are saying about us</p>
-
-
-                            <div class="fslider" data-animation="slide" data-arrows="false">
-                                <div class="flexslider reference-slider">
-                                    <div class="slider-wrap">
-                                        <flex-slider slide="item in peopleQuoteItems track by item.id"
-                                                     animation="slide">
-                                            <li>
-                                                <div class="slide">
-                                                    <div class="media">
-
-                                                        <div class="media-body">
-                                                            <p class="mid-three-people-quote">{{item.peopleQuote}}</p>
-
-                                                            <div class="mid-three-people">
-                                                                <div class="media-left">
-                                                                    <img alt="{{item.peopleQuote}}" class="media-object thumb img-circle"
-                                                                         ng-src="{{imageHostPath}}{{item.peopleImg}}">
-
-                                                                </div>
-
-                                                                <div class="mid-three-people-name">
-                                                                    <strong>{{item.peopleName}}</strong>,
-                                                                    <span>{{item.peopleType}}</span>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </flex-slider>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="help-block" style="width: 660px;">
+                                <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
+                            </p>
 
 
                         </div>
                     </div>
-
-                    <div class="col-md-6 mid-three-uni-quote-col">
-                        <div class="">
-                            <p class="mid-three-header">We are everywhere for you!</p>
-
-
-                            <div class="fslider" data-animation="slide" data-arrows="false">
-                                <div class="flexslider reference-slider">
-                                    <div class="slider-wrap">
-                                        <flex-slider slide="item in universityQuoteItems track by item.id"
-                                                     animation="slide">
-                                            <li>
-                                                <div class="slide">
-                                                    <div class="media">
-
-                                                        <div class="media-body">
-                                                            <div class="col-md-5">
-                                                                <div><img alt="{{item.universityQuote}}"
-                                                                          ng-src="{{imageHostPath}}{{item.universityImg}}"/>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-7">
-                                                                <p class="mid-three-uni-name">
-                                                                    {{item.universityName}}</p>
-
-                                                                <p class="mid-three-uni-quote">
-                                                                    {{item.universityQuote}}</p>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </flex-slider>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
+                </form>
 
             </div>
+
+
         </div>
 
 
     </div>
+</div>
+
+<div ng-if="windowWidth>=1400" ng-parallax pattern="'assets/images/parallax/mid2.jpg'" offset="-300" speed="5"
+     page="'home'"
+     class="parallax-box mid-section-two  parallax-1 dark">
+
+    <div class="container clearfix">
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <p class="text-white mid-two-header">Sign up free today!</p>
+
+                <p class="lead text-white mb-60 mid-two-details">When a textbook is not yet available on-campus
+                    by
+                    another student, we show you the cheapest price online amongst many bookstores.
+                </p>
+
+                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form"
+                      novalidate>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
+                        <div class="input-group w-3xl m-auto">
+                            <input type="email" ng-model="email" name="email"
+                                   class="form-control search-input-homepage sign-up-input-homepage"
+                                   placeholder="Your Email Address" required>
+                                        <span class="input-group-btn">
+                                              <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button"
+                                                      type="submit">
+                                                  Sign Up
+                                              </button>
+                                        </span>
+
+                        </div>
+                        <div class="input-group w-3xl m-auto">
+
+                            <p class="help-block" style="width: 660px;">
+                                <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
+                            </p>
+
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- /parallax box -->
+
+
+<!-- ============ heading section ============ -->
+<div class="section m-0 pt-0">
+    <div class="container clearfix quote-container-homepage">
+        <div class="row">
+            <div class="col-md-6 mid-three-people-quote-col">
+                <div class="">
+                    <p class="mid-three-header">What Students are saying about us</p>
+
+
+                    <div class="fslider" data-animation="slide" data-arrows="false">
+                        <div class="flexslider reference-slider">
+                            <div class="slider-wrap">
+                                <flex-slider slide="item in peopleQuoteItems track by item.id"
+                                             animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <p class="mid-three-people-quote">{{item.peopleQuote}}</p>
+
+                                                    <div class="mid-three-people">
+                                                        <div ng-class="{ 'media-left' :  windowWidth>992}">
+                                                            <img alt="{{item.peopleQuote}}"
+                                                                 class="media-object thumb img-circle"
+                                                                 ng-src="{{imageHostPath}}{{item.peopleImg}}">
+
+                                                        </div>
+
+                                                        <div class="mid-three-people-name">
+                                                            <strong>{{item.peopleName}}</strong>,
+                                                            <span>{{item.peopleType}}</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-6 mid-three-uni-quote-col">
+                <div class="">
+                    <p class="mid-three-header">We are everywhere for you!</p>
+
+
+                    <div class="fslider" data-animation="slide" data-arrows="false">
+                        <div class="flexslider reference-slider">
+                            <div class="slider-wrap">
+                                <flex-slider slide="item in universityQuoteItems track by item.id"
+                                             animation="slide">
+                                    <li>
+                                        <div class="slide">
+                                            <div class="media">
+
+                                                <div class="media-body">
+                                                    <div class="col-md-5">
+                                                        <div><img class="img-responsive" alt="{{item.universityQuote}}"
+                                                                  ng-src="{{imageHostPath}}{{item.universityImg}}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <p class="mid-three-uni-name">
+                                                            {{item.universityName}}</p>
+
+                                                        <p class="mid-three-uni-quote">
+                                                            {{item.universityQuote}}</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</div>
 </section>
 <!-- #content end -->
