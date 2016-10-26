@@ -34,7 +34,7 @@ var assets = {
         "bower_components/angular-recaptcha/release/angular-recaptcha.js",
         "bower_components/angular-busy/dist/angular-busy.js",
         "bower_components/angular-sanitize/angular-sanitize.js",
-        "bower_components/satellizer/satellizer.js",
+        "bower_components/satellizer/dist/satellizer.js",
 
         "bower_components/angular-socialshare/dist/angular-socialshare.js",
         "bower_components/ngSlimscroll/src/js/ngSlimscroll.js"
@@ -254,7 +254,7 @@ gulp.task("js_library_1", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app.library1-2.0.min.js'))
+        .pipe(plugins.concat('app.library1-2.1.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 
@@ -266,7 +266,7 @@ gulp.task("js_library_2", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app.library2-2.0.min.js'))
+        .pipe(plugins.concat('app.library2-2.1.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 
