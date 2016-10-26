@@ -466,62 +466,9 @@
 <!-- ============ Parallax box ============ -->
 
 
-<div ng-if="windowWidth<1400" class="parallax-box sign-up-home mid-section-two  parallax-1 dark">
-
-    <div class="container clearfix">
-
-
-        <div class="row">
-
-            <div class="col-md-12">
-
-
-                <p class="text-white mid-two-header">Sign up free today!</p>
-
-                <p class="lead text-white mb-60 mid-two-details">When a textbook is not yet available on-campus
-                    by
-                    another student, we show you the cheapest price online amongst many bookstores.
-                </p>
-
-                <form name="signUpForm" submit-validate ng-submit="showRegister(signUpForm.$valid)" role="form"
-                      novalidate>
-                    <div class="form-group"
-                         ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine, 'has-success' : signUpForm.email.$valid && !signUpForm.email.$pristine}">
-                        <div class="input-group w-3xl m-auto">
-                            <input type="email" ng-model="email" name="email"
-                                   class="form-control search-input-homepage sign-up-input-homepage"
-                                   placeholder="Your Email Address" required>
-                                        <span class="input-group-btn">
-                                              <button class="myBtn myBtn-rounded search-homepage-btn mid-three-button"
-                                                      type="submit">
-                                                  Sign Up
-                                              </button>
-                                        </span>
-
-                        </div>
-                        <div class="input-group w-3xl m-auto">
-
-                            <p class="help-block" style="width: 660px;">
-                                <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">Email is required.</span>
-                            </p>
-
-
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-</div>
-
-<div ng-if="windowWidth>=1400" ng-parallax pattern="'assets/images/parallax/mid2.jpg'" offset="-300" speed="5"
+<div ng-parallax pattern="'assets/images/parallax/mid2.jpg'" offset="-300" speed="5"
      page="'home'"
-     class="parallax-box mid-section-two  parallax-1 dark">
+     class="parallax-box mid-section-two dashboard-sign-up-parallax parallax-1 dark">
 
     <div class="container clearfix">
 

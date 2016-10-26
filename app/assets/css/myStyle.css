@@ -750,7 +750,7 @@ a.notification-a.message-board-a i{
 
 .orange-btn.facebook-btn{
     background-color: #3B5998;
-    width: 48%;
+    width: 45%;
     border-radius: 2px;
     margin-left: 0px;
     font-size: 22px;
@@ -848,7 +848,10 @@ a.notification-a.message-board-a i{
 .login-page-quotation{
     padding: 70px 20px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 479px) {
+    .mid-three-people-quote.login-page-quote{
+        margin: 10px 0px;
+    }
 
     .login-page-form{
         padding: 30px;
@@ -865,6 +868,23 @@ a.notification-a.message-board-a i{
     .login-page-student-img{
      margin-top: 0px;
     }
+}
+@media only screen and (max-width: 992px) {
+    .parallax-box{
+        padding:10px 0px ;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .parallax-box.dark{
+        background: url(../../dist/images/parallax/login_parallax.jpg) no-repeat !important;
+
+        background-size: cover !important;
+    }
+    .parallax-box.dashboard-sign-up-parallax{
+        background: url(../../dist/images/parallax/mid2.jpg) no-repeat !important;
+        background-size: cover !important;
+    }
+
 }
 
 /********************************************/
@@ -911,9 +931,11 @@ a.notification-a.message-board-a i{
     margin-top: 25px;
     margin-bottom: 25px;
 }
-
-
-
+@media only screen and (max-width: 479px) {
+.reg-page-form{
+    padding: 40px 10px;
+}
+}
 /********************************************/
 /*             Forgot Password Page          */
 /*********************************************/
@@ -975,6 +997,18 @@ a.notification-a.message-board-a i{
 .green-text{
     color:#19b698;
 }
+@media only screen and (max-width: 479px) {
+    .login-page-col-div{
+
+        padding: 10px;
+    }
+    .add-university-page-form{
+        padding:20px 30px;
+    }
+
+}
+
+
 /********************************************/
 /*             University map Page          */
 /*********************************************/
@@ -984,6 +1018,11 @@ a.notification-a.message-board-a i{
 .university-map-page-form{
     min-height: 500px;
     padding: 70px 100px;
+}
+@media only screen and (max-width: 479px) {
+    .university-map-page-form{
+        padding:20px 30px;
+    }
 }
 
 /********************************************/
@@ -1856,11 +1895,16 @@ blockquote.green-blockquote{
     .container.video-container{
         width: 100% !important;
     }
+    .concept-page-banner-text p{
+
+        text-align: center;
+    }
 }
 
 @media (min-width: 480px) and (max-width: 992px) {
     .concept-page-banner-text p{
         font-size: 50px;
+        text-align: center;
     }
 }
 @media (min-width: 993px) and (max-width: 1200px) {
@@ -2490,6 +2534,28 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .safety-first-section .page-text-side ul.text-list li span{
     color: #555;
+}
+
+@media only screen and (max-width: 991px) {
+
+    .concept-page-mid-one-odd-image img,.safety-first-section .first-style img,.guard-image img{
+        margin: auto;
+    }
+    .mid-one-header-text{
+        text-align: center;
+    }
+    .center-sm{
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .guard-image{
+        text-align: right;
+    }
+    .guard-image img{
+
+        display: inline-block;
+    }
 }
 
 /********************************************/
@@ -3274,6 +3340,12 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     text-decoration: none !important;
     color:#a5a5a5 !important;
 }
+@media only screen and (max-width: 991px) {
+    .contact-page-left-side{
+        padding: 15px;
+    }
+}
+
 
 /********************************************/
 /*         Books I ma Selling Page           */
@@ -3433,13 +3505,13 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     padding: 40px 20px;
 }
 .news-share-hr-div{
-    display: flex;
-    margin-left: 26%;
+    display: inline-flex;
+    /*margin-left: 26%;*/
 }
 .news-share-hr-div .social-container{
     border:1px solid #D9D9D7;
     padding: 5px;
-    margin-left: 80px;
+    margin-left: 30px;
     background: #FFFFFF;
 
 }
@@ -3483,6 +3555,7 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
     border-bottom:1px solid #D9D9D7;
     height: 22px;
     margin-bottom: 70px;
+    text-align: center;
 }
 .blog-posts .post-entry .entry-image img{
     border-radius: 0px;
