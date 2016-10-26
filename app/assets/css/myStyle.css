@@ -6,7 +6,11 @@
 /********************************************/
 /*              Header                        */
 /*********************************************/
-
+img.header-profile-picture{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
 
 a.notification-a i{
     font-size: 1.5em;
@@ -1476,6 +1480,16 @@ a.notification-a.message-board-a i{
     }
     .search-page-big-text{
         font-size: 30px;
+    }
+
+    .search-page-input-div .input-group-btn:last-child > .btn, .search-page-input-div .input-group-btn:last-child > .btn-group{
+        width: 60px;
+    }
+    .details-view-button{
+        width: 220px;
+    }
+    .myBtn{
+        padding:0px 10px;
     }
 }
 @media (min-width: 480px) and (max-width: 991px) {

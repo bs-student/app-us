@@ -5,10 +5,10 @@
     app
         .controller('StartCtrl', StartCtrl)
 
-    StartCtrl.$inject = ['$state', '$rootScope', '$scope', 'identityService', 'userService', 'securityService', 'responseService', 'storageService', 'newsletterService','$firebaseArray','$firebaseObject','eventService'];
+    StartCtrl.$inject = ['$state', '$rootScope', '$scope', 'identityService', 'userService', 'securityService', 'responseService', 'storageService', 'newsletterService','$firebaseArray','$firebaseObject','eventService','SERVER_CONSTANT'];
 
 
-    function StartCtrl($state, $rootScope, $scope, identityService, userService, securityService, responseService, storageService, newsletterService,$firebaseArray,$firebaseObject,eventService) {
+    function StartCtrl($state, $rootScope, $scope, identityService, userService, securityService, responseService, storageService, newsletterService,$firebaseArray,$firebaseObject,eventService,SERVER_CONSTANT) {
 
 
         $scope.loggedIn = false;
@@ -24,6 +24,7 @@
 
         $scope.addToNewsletter = _addToNewsletter;
         $scope.user = [];
+        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
 
 
         //Footer Carousel
@@ -242,6 +243,7 @@
             }
             $scope.loggedIn = true;
             $scope.username = identityService.getAuthorizedUserData().username;
+            $scope.profilePicture = identityService.getAuthorizedUserData().profilePicture;
 
             storageService.setValue('universityCampusDisplay',identityService.getAuthorizedUserData().campusDisplay);
             storageService.setValue('universityCampusValue',identityService.getAuthorizedUserData().campusId);

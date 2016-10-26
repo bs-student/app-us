@@ -88,8 +88,9 @@
 
                     </li>
 
-                    <li ng-show="loggedIn" ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
-                        <ul ng-show="loggedIn && !adminUser"  class="menu-right-position">
+
+                    <li ng-show="loggedIn && !adminUser" ng-class="{user:'active'}[activePage]"><a href="#">Hi, <img class="header-profile-picture" ng-src="{{imageHostPath}}{{profilePicture}}"/></a>
+                        <ul  class="menu-right-position">
                             <li><a ui-sref="app.messageBoard"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;&nbsp;Message Board <span ng-show="messageNotificationCounter>0" class="badge badge-primary">{{messageNotificationCounter}}</span></a></li>
                             <li><a ui-sref="app.sellingBookList"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Selling Books <span ng-show="notificationCounter>0" class="badge badge-primary">{{notificationCounter}}</span></a></li>
                             <li><a ui-sref="app.contactedBookList"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Buying Books</a></li>
@@ -102,8 +103,9 @@
                             <li><a ui-sref="app.changePassword"><i class="fa fa-cog"></i>&nbsp;&nbsp;&nbsp;Change Password</a></li>
                             <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Log Out</a></li>
                         </ul>
-
-                        <ul ng-show="loggedIn && adminUser" class="menu-right-position">
+                    </li>
+                    <li ng-show="loggedIn && adminUser" ng-class="{user:'active'}[activePage]"><a href="#">Hi, {{username}}</a>
+                        <ul  class="menu-right-position">
                             <li><a ui-sref="app.userList"><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;User Management</a></li>
                             <li><a ui-sref="app.universityManagement"><i class="fa fa-university"></i>&nbsp;&nbsp;&nbsp;Manage University</a></li>
                             <li><a ui-sref="app.allBookDeals"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Book Deals</a></li>
