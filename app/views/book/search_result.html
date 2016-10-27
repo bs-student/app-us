@@ -1,4 +1,4 @@
-<div ng-class="{Grid:'col-md-6', List:'col-md-12'}[viewType]" ng-repeat="book in bookSearchResult | orderBy:sortType">
+<div ng-class="{Grid:'col-md-6 col-sm-6', List:'col-md-12 col-sm-12'}[viewType]" ng-repeat="book in bookSearchResult | orderBy:sortType">
     <div class="item-box" ng-class="{Grid:'grid', List:'list'}[viewType]">
 
         <div ng-show="viewType=='Grid'">
@@ -18,7 +18,7 @@
 
         <div class="row image-and-price-row">
 
-            <div ng-class="{Grid:'col-md-6', List:'col-md-3'}[viewType]">
+            <div ng-class="{Grid:'col-md-6', List:'col-md-3 col-sm-3'}[viewType]">
                 <div class="search-book-image-carousel selling-book-image-carousel">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -46,7 +46,7 @@
 
             </div>
 
-            <div ng-class="{Grid:'col-md-6', List:'col-md-9'}[viewType]">
+            <div ng-class="{Grid:'col-md-6', List:'col-md-9 col-sm-9'}[viewType]">
 
                 <div ng-show="viewType=='List'">
                     <h3 class="orange-text lato uppercase item-box-header">{{book.bookTitle}}</h3>
@@ -65,19 +65,19 @@
 
 
                     <div class="price-details border-right-grey"
-                         ng-class="{Grid:'', List:'col-md-4 listing-price'}[viewType]">
+                         ng-class="{Grid:'', List:'col-md-4 col-sm-4 listing-price'}[viewType]">
                         <p class="orange-text italic lato price-title">New By Amazon</p>
 
                         <h3 class="orange-text small-price lato">{{book.bookPriceAmazon}}</h3>
                     </div>
 
-                    <div class="price-details" ng-class="{Grid:'', List:'col-md-4'}[viewType]">
+                    <div class="price-details" ng-class="{Grid:'', List:'col-md-4 col-sm-4'}[viewType]">
                         <p class="orange-text italic lato price-title">Lowest Price Online</p>
 
                         <h3 cg-busy="{promise:book.lowestOnlinePricePromise}" class="orange-text small-price lato">{{book.bookPriceOnlineLowest}}</h3>
                     </div>
                     <div class="price-details border-left-grey"
-                         ng-class="{Grid:'', List:'col-md-4 listing-price'}[viewType]">
+                         ng-class="{Grid:'', List:'col-md-4 col-sm-4 listing-price'}[viewType]">
                         <p class="orange-text italic lato price-title">Local Campus Prices</p>
 
 

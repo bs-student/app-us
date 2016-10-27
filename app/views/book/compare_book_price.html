@@ -95,25 +95,25 @@
 
         <div class="row specification-row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
                 <div class="row">
 
 
-                    <div class="col-md-offset-3 col-md-6 main-image text-right">
+                    <div class="col-md-offset-3 col-md-6 col-sm-9 col-xs-9 main-image text-right">
                         <div class="search-book-image-carousel book-details-page">
                             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
                                 <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
                                     <img class="main-pic" ng-click="viewImage($event)"
                                          data-options="splash-2 splash-primary splash-ef-2"
-                                         class="big-images" ng-src="{{imageHostPath}}{{slide.image}}">
+                                         class="big-images img-responsive" ng-src="{{imageHostPath}}{{slide.image}}">
 
                                 </uib-slide>
                             </uib-carousel>
 
                         </div>
                     </div>
-                    <div class="col-md-2" ng-show="book.showThumb">
+                    <div class="col-md-2 col-sm-3 col-xs-3" ng-show="book.showThumb">
                         <div class="row text-center thumb-controller">
                             <a class="thumb-control-left" ng-click="prevPage(book)">
                                 <i class="fa fa-angle-up fa-3x"></i>
@@ -136,95 +136,95 @@
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
 
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Edition</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <strong>{{book.bookEdition}}</strong></div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Author</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookDirectorAuthorArtist}}</strong>
                         </div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-10</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookIsbn}}</strong>
                         </div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>ISBN-13</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookEan}}</strong>
                         </div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Publisher</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <strong>{{book.bookPublisher}}</strong></div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Publish Date</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <strong>{{book.bookPublishDate}}</strong></div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Page</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right"><strong>{{book.bookPages}}</strong>
                         </div>
                     </div>
                 </div>
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Binding</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <strong>{{book.bookBinding}}</strong></div>
                     </div>
                 </div>
 
                 <div class="row attribute-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>List Price</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <strong>{{book.bookPriceAmazon}}</strong></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="orange-text lato attribute-name-field text-left"><strong>Details</strong></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="blue-text lato attribute-name-field text-right">
                             <button ng-click="book.showTotalDescription=!book.showTotalDescription"
                                     class="myBtn app-btn buy-now-button view-more-button"><i
@@ -266,6 +266,7 @@
         <text>Student On Campus</text>
     </uib-tab-heading>
     <div cg-busy="{promise:campusPromise}">
+        <div class="table-responsive ">
         <table class="table table-striped campus-result-table">
             <thead>
             <tr>
@@ -449,6 +450,7 @@
 
             </tbody>
         </table>
+        </div>
     </div>
 </uib-tab>
 <uib-tab class="mid-tab">
@@ -457,7 +459,7 @@
         <text>Online Stores: New</text>
     </uib-tab-heading>
     <div cg-busy="{promise:onlinePromise}">
-
+        <div class="table-responsive ">
 
         <table class="table table-striped campus-result-table">
             <thead>
@@ -511,6 +513,7 @@
 
             </tbody>
         </table>
+            </div>
     </div>
 </uib-tab>
 <uib-tab class="last-tab">
@@ -519,6 +522,7 @@
         <text>Online Stores: Used</text>
     </uib-tab-heading>
     <div cg-busy="{promise:onlinePromise}">
+        <div class="table-responsive ">
         <table class="table table-striped campus-result-table">
             <thead>
             <tr>
@@ -570,6 +574,7 @@
 
             </tbody>
         </table>
+        </div>
     </div>
 </uib-tab>
 

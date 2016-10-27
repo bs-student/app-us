@@ -1500,6 +1500,10 @@ a.notification-a.message-board-a i{
     .search-page-big-text{
         font-size: 30px;
     }
+    .details-view-button{
+        width: 220px;
+        padding: 0px;
+    }
 }
 
 
@@ -2366,6 +2370,42 @@ blockquote.green-blockquote{
 /*.specification-row .thumb-control-left,.specification-row .thumb-control-right{*/
     /**/
 /*}*/
+
+@media only screen and (max-width: 767px){
+    .compare-result-section{
+        background: none;
+    }
+    .people-icon-div,.book-close-icon-div,.book-open-icon-div{
+        display: none;
+    }
+    .compare-result-section .nav-pills li a{
+        border: 2px solid #1780B5;
+    }
+}
+@media only screen and (max-width: 991px){
+    .compare-page-top-button.first-button a{
+        border-right: 2px solid #1780B5;
+    }
+    .compare-page-top-button.middle-button.border-left-none a{
+        border-left: 2px solid #1780B5;
+    }
+    .compare-page-top-button.last-button a{
+        border-left: 2px solid #1780B5;
+        border-top: none;
+    }
+    .compare-page-top-button a{
+        border-right: 2px solid #1780B5;
+        border-left: 2px solid #1780B5;
+    }
+
+
+    .compare-page-top-button.alreadyAddedToWishList a{
+        border-right: 2px solid #FF530D;
+    }
+    .big-price-number{
+        text-align: center;
+    }
+}
 
 /********************************************/
 /*              Selling Books Page          */
