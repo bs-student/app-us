@@ -17,7 +17,7 @@
 
             <div class="col-md-5 text-right">
                 <div class="guard-image">
-                    <img src="{{appHostPath}}/dist/images/parallax/conceptpageHeaderLogo.png"/>
+                    <img class="img-responsive" src="{{appHostPath}}/dist/images/parallax/conceptpageHeaderLogo.png"/>
                 </div>
             </div>
 
@@ -40,18 +40,18 @@
 
 
 <!-- BLOG POSTS -->
-<div cg-busy="{promise:profilePromise}" class="col-sm-9 blog-posts contact-us-form-div">
+<div cg-busy="{promise:profilePromise}" class="col-lg-9 col-md-8 col-sm-7 blog-posts contact-us-form-div">
 <form name="updateProfileForm" submit-validate ng-submit="updateProfile(updateProfileForm.$valid)">
     <div class="contact-page-left-side profile-page">
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-md-6">
                 <h1 ng-show="!updatingProfile" class="lato form-page-header">Profile</h1>
 
                 <h1 ng-show="updatingProfile" class="lato form-page-header">Update Profile</h1>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-6">
                 <a ng-show="!updatingProfile" ui-sref="app.changePassword" class="myBtn orange-btn max-large-btn"><i
                         class="fa fa-cog"></i> Change Password</a>
                 <button type="button" ng-show="!updatingProfile" ng-click="editProfile()"
@@ -333,7 +333,7 @@
 <!-- END BLOG POSTS -->
 
 <!-- BLOG SIDEBAR -->
-<div class="col-sm-3 sidebar contact-us-page-right-bar">
+<div class="col-lg-3 col-md-4 col-sm-5 sidebar contact-us-page-right-bar">
 
 
     <div class="white-background right-head-text text-center right-white-div profile-page">

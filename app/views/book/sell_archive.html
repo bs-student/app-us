@@ -38,7 +38,7 @@
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="search-book-image-carousel selling-book-image-carousel">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -68,9 +68,9 @@
                 </div>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9 col-xs-12">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-9">
                         <div class="archive-page-headers">
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
@@ -86,7 +86,7 @@
                             </p>
                         </div>
                         <div class="archive-page-deal-information">
-                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div hidden-xs">
                                 <button ng-click="deal.viewMoreInfo=true"
                                         class="view-more-info-btn myBtn app-btn blue-btn">View More Information
                                 </button>
@@ -185,7 +185,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
@@ -219,6 +219,11 @@
 
 
         </div>
+        <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div visible-xs">
+            <button ng-click="deal.viewMoreInfo=true"
+                    class="view-more-info-btn myBtn app-btn blue-btn">View More Information
+            </button>
+        </div>
         <div class="row" ng-show="deal.viewMoreInfo">
             <div class="col-md-12">
                 <div class="archive-page-contact-history">
@@ -240,6 +245,7 @@
                               class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text>
                     </strong></text>
                     <div class="contact-history-box">
+                        <div class="table-responsive">
                         <table class="table contact-history-table" cg-busy="{promise:messagePromise}">
                             <thead>
                             <tr>
@@ -299,7 +305,7 @@
 
 
                         </table>
-
+                        </div>
                     </div>
                 </div>
                 <div>

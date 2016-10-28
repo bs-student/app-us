@@ -33,7 +33,7 @@
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="search-book-image-carousel">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -60,9 +60,9 @@
                 </div>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9 col-xs-12">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-9">
                         <div class="archive-page-headers">
                             <h3 class="book-title orange-text lato uppercase"><a class="orange-link" ui-sref="app.bookComparePrice({asin:deal.bookIsbn10,isbn:deal.bookIsbn10})">{{deal.bookTitle}}</a></h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
@@ -70,7 +70,7 @@
                                 <br/>ISBN-10: <text class="blue-text">{{deal.bookIsbn10}}</text> :: ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
-                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div hidden-xs">
                                 <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
                             </div>
                             <div ng-show="deal.viewMoreInfo">
@@ -92,7 +92,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">{{deal.bookAmazonPrice}} </h1>
 
@@ -118,6 +118,9 @@
             </div>
 
 
+        </div>
+        <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div visible-xs">
+            <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
         </div>
 
     </div>

@@ -2561,6 +2561,34 @@ blockquote.green-blockquote{
     text-align: center;
     margin-top: 80px;
 }
+
+@media only screen and (max-width: 767px){
+    .archive-page-side .price-header,.archive-page-side .view-and-contact,.archive-page-side .share-images{
+        text-align: center;
+    }
+    .view-more-info-btn-div{
+        margin-top: 5px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .archive-page-head-banner  .header-title{
+        line-height: 1em;
+    }
+    .archive-page-side .share-images span{
+        margin-left: 0px;
+    }
+    .archive-page-side .buttons a{
+        padding: 0px;
+
+    }
+    .archive-page-side .buttons button{
+        padding: 0px;
+    }
+
+
+}
+
+
 /********************************************/
 /*              Safety First Page           */
 /*********************************************/
@@ -3736,7 +3764,9 @@ a.share-my-sell-page-url{
 /********************************************/
 /*                Profile              */
 /*********************************************/
-
+.max-large-btn{
+    text-align: center;
+}
 .contact-page-left-side.profile-page{
     padding: 50px 20px 50px 50px;
     min-height: 481px;

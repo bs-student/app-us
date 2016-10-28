@@ -33,7 +33,7 @@
     <div class="container clearfix quote-container-homepage">
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="search-book-image-carousel selling-book-image-carousel">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -60,9 +60,9 @@
                 </div>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9 col-xs-12">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-9">
                         <div class="archive-page-headers">
                             <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                             <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
@@ -70,7 +70,7 @@
                                 <br/>ISBN: <text class="blue-text">{{deal.bookIsbn}}</text>&nbsp;&nbsp;&nbsp;&nbsp;ISBN-13: <text class="blue-text">{{deal.bookIsbn13}}</text></p>
                         </div>
                         <div class="archive-page-deal-information">
-                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                            <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div hidden-xs">
                                 <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
                             </div>
                             <div ng-show="deal.viewMoreInfo">
@@ -137,12 +137,9 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <div class="archive-page-side">
                             <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -154,6 +151,9 @@
 
 
         </div>
+        <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div visible-xs">
+            <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View More Information</button>
+        </div>
         <div class="row" ng-show="deal.viewMoreInfo">
             <div class="col-md-12">
                 <div class="archive-page-contact-history">
@@ -162,6 +162,9 @@
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='buyerToSeller'"><strong> You (Buyer) Contact Seller <text uib-tooltip="You as Buyer will receive Seller information and will contact Seller. Buyer can also provide information to the seller." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <text class="box-title uppercase blue-text lato" ng-if="deal.bookContactMethod=='student2studentBoard'"><strong> Use Student2Student Message Board <text uib-tooltip="You can chat with the buyer on Student2Student Message Board." class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text></strong></text>
                     <div class="contact-history-box">
+                        <div class="table-responsive">
+
+
                         <table class="table contact-history-table" cg-busy="{promise:messagePromise}">
                             <thead>
                             <tr>
@@ -204,7 +207,7 @@
 
 
                         </table>
-
+                        </div>
                     </div>
                 </div>
                 <div><button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close</button></div>

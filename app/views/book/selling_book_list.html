@@ -38,7 +38,7 @@
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="search-book-image-carousel selling-book-image-carousel">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -67,9 +67,9 @@
         </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 col-sm-9 col-xs-12">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9 ">
                 <div class="archive-page-headers">
                     <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                     <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="archive-page-deal-information">
                     <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
-                        <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn">
+                        <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn hidden-xs">
                             View More Information <span ng-show="deal.newContacts>0"
                                                         class="badge">{{deal.newContacts}}</span></button>
                     </div>
@@ -179,8 +179,9 @@
 
 
                 </div>
+
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3">
                 <div class="archive-page-side">
                     <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
@@ -227,27 +228,27 @@
 
                     </div>
                     <div class="buttons">
-                        <a ui-sref="app.editBookDeal({book:deal})" class="myBtn app-btn orange-btn"><img
+                        <a ui-sref="app.editBookDeal({book:deal})" class="myBtn app-btn orange-btn"><img class="hidden-sm hidden-xs"
                                 src="{{appHostPath}}/dist/images/archive_pages/list.png"/> &nbsp; Edit Deal</a>
 
                         <button ng-show="deal.bookStatus=='Activated'"
                                 data-options="splash-2 splash-primary splash-ef-2"
                                 ng-click="showBookDealChangeStatusModal($event,'deactivateModalContent',{deal:deal})"
                                 class="myBtn app-btn orange-btn">
-                            <img src="{{appHostPath}}/dist/images/archive_pages/lock.png"/> &nbsp; Deactivate
+                            <img class="hidden-sm hidden-xs" src="{{appHostPath}}/dist/images/archive_pages/lock.png"/> &nbsp; Deactivate
                         </button>
 
                         <button ng-show="deal.bookStatus=='Deactivated'"
                                 data-options="splash-2 splash-primary splash-ef-2"
                                 ng-click="showBookDealChangeStatusModal($event,'activateModalContent',{deal:deal})"
                                 class="myBtn app-btn green-btn">
-                            <img src="{{appHostPath}}/dist/images/archive_pages/lock.png"/> &nbsp; Activate
+                            <img class="hidden-sm hidden-xs" src="{{appHostPath}}/dist/images/archive_pages/lock.png"/> &nbsp; Activate
                         </button>
 
 
                         <button data-options="splash-2 splash-primary splash-ef-2"
                                 ng-click="showDeleteBookDealModal($event,'deleteModalContent',{deal:deal})"
-                                class="myBtn app-btn orange-btn"><img src="{{appHostPath}}/dist/images/archive_pages/del.png"/> &nbsp;
+                                class="myBtn app-btn orange-btn"><img class="hidden-sm hidden-xs" src="{{appHostPath}}/dist/images/archive_pages/del.png"/> &nbsp;
                             Delete
                         </button>
                     </div>
@@ -268,6 +269,11 @@
             </div>
         </div>
 
+        <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div visible-xs">
+            <button ng-click="removeNewContacts(deal)" class="view-more-info-btn myBtn app-btn blue-btn">
+                View More Information <span ng-show="deal.newContacts>0"
+                                            class="badge">{{deal.newContacts}}</span></button>
+        </div>
 
     </div>
 
@@ -298,6 +304,9 @@
                           class="orange-text"><i class="fa fa-info-circle" aria-hidden="true"></i></text>
                 </strong></text>
             <div class="contact-history-box">
+                <div class="table-responsive">
+
+
                 <table cg-busy="{promise:messagePromise}" class="table contact-history-table">
                     <thead>
                     <tr>
@@ -400,7 +409,7 @@
 
 
                 </table>
-
+                </div>
             </div>
         </div>
         <div>
