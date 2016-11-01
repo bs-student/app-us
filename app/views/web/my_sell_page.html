@@ -50,24 +50,24 @@
 
                 <div class="search-result-bar-info-div">
 
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                         <text class="orange-text lato">Total Results:</text>
                         <text class="blue-text lato">{{totalSearchResults}}</text>
                         <br/>
 
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                         <text class="orange-text lato">Pages:</text>
                         <text class="blue-text lato">{{numPages}}</text>
                         <br/>
 
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                         <text class="orange-text lato">Showing Page:</text>
                         <text class="blue-text lato">{{currentPage}} of {{numPages}}</text>
                     </div>
 
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-center">
                         <div class="search-page-options">Sort By:
 
                             <select ng-model="sortType">
@@ -78,7 +78,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-center">
 
 
                         <div class="search-page-options message-board-search">
@@ -125,7 +125,7 @@
 <div class="container clearfix quote-container-homepage">
 <div class="row">
 
-<div class="col-md-3">
+<div class="col-md-3 col-sm-3 col-xs-12">
     <div class="search-book-image-carousel selling-book-image-carousel">
         <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
 
@@ -153,9 +153,9 @@
     </div>
 </div>
 
-<div class="col-md-9">
+<div class="col-md-9 col-sm-9 col-xs-12">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9 col-sm-9">
             <div class="archive-page-headers">
                 <h3 class="book-title orange-text lato uppercase">{{deal.bookTitle}}</h3>
                 <h4 class="book-sub-title blue-text lato">{{deal.bookSubTitle}}</h4>
@@ -170,7 +170,7 @@
                 </p>
             </div>
             <div class="archive-page-deal-information">
-                <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div">
+                <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div hidden-xs">
                     <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View
                         More Information
                     </button>
@@ -262,25 +262,31 @@
 
             </div>
             <div ng-show="deal.viewMoreInfo">
-                <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button"><img
+                <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button hidden-xs"><img
                         src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
                 </button>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-3">
             <div class="archive-page-side">
                 <h1 class="orange-text open-sans price-header">${{deal.bookPriceSell}} </h1>
 
 
                 <div class="buttons">
 
-                    <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn"><i
+                    <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn visible-lg"><i
                             class="fa fa-phone"></i>&nbsp; Contact</a>
-                    <a ng-if="$parent.loggedIn" ui-sref="app.contact({deal:deal})" class="myBtn app-btn orange-btn"><i
+                    <a ng-if="$parent.loggedIn" ui-sref="app.contact({deal:deal})" class="myBtn app-btn orange-btn visible-lg"><i
                             class="fa fa-phone"></i>&nbsp; Contact</a>
 
+                    <a ng-if="!$parent.loggedIn" ui-sref="app.login" class="myBtn app-btn orange-btn visible-md visible-sm">
+                        Contact</a>
+                    <a ng-if="$parent.loggedIn" ui-sref="app.contact({deal:deal})" class="myBtn app-btn orange-btn visible-md visible-sm">Contact</a>
 
-                    <button ng-click="saveToWishList(deal)" class="myBtn app-btn orange-btn"><i
+
+                    <button ng-click="saveToWishList(deal)" class="myBtn app-btn orange-btn visible-md visible-sm">Add To Wishlist
+                    </button>
+                    <button ng-click="saveToWishList(deal)" class="myBtn app-btn orange-btn visible-lg"><i
                             class="fa fa-heart-o"></i>&nbsp;Add To Wishlist
                     </button>
 
@@ -303,7 +309,16 @@
             </div>
         </div>
     </div>
-
+    <div ng-show="!deal.viewMoreInfo" class="view-more-info-btn-div visible-xs">
+        <button ng-click="deal.viewMoreInfo=true" class="view-more-info-btn myBtn app-btn blue-btn">View
+            More Information
+        </button>
+    </div>
+    <div ng-show="deal.viewMoreInfo">
+        <button ng-click="deal.viewMoreInfo=false" class="myBtn back-button visible-xs"><img
+                src="{{appHostPath}}/dist/images/archive_pages/back.png"> &nbsp;&nbsp;&nbsp;Close
+        </button>
+    </div>
 
 </div>
 

@@ -21,10 +21,10 @@
 <div class="section m-0 pt-0 sell-book-section">
     <div class="container clearfix quote-container-homepage sell-page-container">
         <div class="row">
-            <div ng-show="!showHelp" class="help-div">
+            <div ng-show="!showHelp" class="help-div visible-lg">
                 <button ng-click="showHelp=true" class="help-button white-text lato myBtn orange-btn"><img src="{{appHostPath}}/dist/images/sell_book/help.png"/><br/>Help</button>
             </div>
-            <div ng-show="showHelp" class="help-details-div">
+            <div ng-show="showHelp" class="help-details-div visible-lg">
 
                 <div class="help-header">
                     <button ng-click="showHelp=false" class="myBtn orange-btn help-back-button"><i class="fa fa-angle-left fa-2x"></i> Close
@@ -96,7 +96,7 @@
 
                 <uib-tab-heading >
                     <div class="tab-head-div" >
-                        <div class="pic-div book-info-icon-div" ></div>
+                        <div class="pic-div book-info-icon-div visible-md visible-lg" ></div>
                         <p class="tab-head-title">Book Information</p>
                     </div>
 
@@ -109,14 +109,14 @@
                     <div class="step1">
                         <div class="row">
 
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3">
                                 <div class="sell-book-image">
                                    <img data-ng-repeat="image in book.bookImages" data-ng-src="{{image.image}}">
 
                                 </div>
                             </div>
 
-                            <div class="col-md-9">
+                            <div class="col-md-9 col-sm-9">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="archive-page-headers">
@@ -129,7 +129,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 amazon-price-show">
                                         <div class="archive-page-side">
                                             <h1 class="orange-text open-sans price-header">{{book.bookPriceAmazon}} </h1>
                                             <text class="lato blue-text">(New Price On Amazon)</text>
@@ -270,7 +270,7 @@
 
                 <uib-tab-heading>
                     <div class="tab-head-div">
-                        <div class="pic-div contact-method-icon-div"></div>
+                        <div class="pic-div contact-method-icon-div visible-md visible-lg"></div>
                         <p class="tab-head-title">Contact Method</p>
                     </div>
 
@@ -376,7 +376,7 @@
 
                                 </div>
 
-
+                                <hr class="contact-method-hr hidden-md hidden-lg">
                                 <div class="col-md-6">
 
                                     <div class="right-side-form" >
@@ -433,34 +433,38 @@
 
                 <uib-tab-heading >
                     <div class="tab-head-div">
-                        <div class="pic-div deal-terms-icon-div"></div>
+                        <div class="pic-div deal-terms-icon-div visible-md visible-lg"></div>
                         <p class="tab-head-title">Deal Terms</p>
                     </div>
 
                 </uib-tab-heading>
 
-                <div class="sell-book-form-div">
+                <div class="sell-book-form-div third-step-big-div">
                     <form name="step3" role="form" ng-submit="nextStep(step3.$valid,'step3')" submit-validate novalidate class="form-validation">
                         <div class="step1">
 
                             <div class="row height-48" ng-class="{ 'has-error' : step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine, 'has-success' : step3.publicAvailable.$valid && !step3.publicAvailable.$pristine}">
 
-                                <div class="col-md-4 text-right">
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right min-height-125">
+                                    <div class="vertical-align-middle">
                                     <text class="px-16 lato uppercase"><strong>Text available to public :</strong></text>
+                                        </div>
                                 </div>
 
-                                <div class="col-md-8">
+                                <div class="col-md-8 col-sm-8 col-xs-8 min-height-125">
+                                    <div class="vertical-align-middle">
+                                        <label class="checkbox-inline checkbox-custom">
+                                            <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="Yes" required><i></i> Yes
+                                        </label>
+                                        <label class="checkbox-inline checkbox-custom">
+                                            <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="No" required><i></i> No
+                                        </label>
+                                        <p class="help-block">
+                                            <span  ng-show="step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine">Set if the book is available for public or not.</span>
 
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="Yes" required><i></i> Yes
-                                    </label>
-                                    <label class="checkbox-inline checkbox-custom">
-                                        <input name="publicAvailable" ng-model="book.availablePublic" type="radio" value="No" required><i></i> No
-                                    </label>
-                                    <p class="help-block">
-                                        <span  ng-show="step3.publicAvailable.$invalid && !step3.publicAvailable.$pristine">Set if the book is available for public or not.</span>
+                                        </p>
+                                    </div>
 
-                                    </p>
 
                                 </div>
 
@@ -468,12 +472,14 @@
 
                             <div class="row" ng-class="{ 'has-error' : step3.availableDate.$invalid && !step3.availableDate.$pristine, 'has-success' : step3.availableDate.$valid && !step3.availableDate.$pristine}">
 
-                                <div class="col-md-4 text-right padding-top-5">
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right padding-top-5 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <text class="px-16 lato uppercase"><strong>Textbook available Date :</strong></text>
+                                        </div>
                                 </div>
 
-                                <div class="col-md-4 date-picker">
-
+                                <div class="col-md-4 col-sm-8 col-xs-8 date-picker min-height-125">
+                                    <div class="vertical-align-middle">
 
                                     <p class="input-group">
                                         <input name="availableDate" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="book.availableDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
@@ -485,38 +491,45 @@
                                         <span  ng-show="step3.availableDate.$invalid && !step3.availableDate.$pristine">You have to set book available date in (11-May-2016) format.</span>
                                     </p>
 
-
+</div>
                                 </div>
 
                             </div>
                             <div class="row" ng-class="{ 'has-error' : step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine, 'has-success' : step3.sellingPrice.$valid && !step3.sellingPrice.$pristine}">
 
-                                <div class="col-md-4 text-right padding-top-5">
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right padding-top-5 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <text class="px-16 lato uppercase"><strong>Selling Price (EX: 15.00) :</strong></text>
+                                        </div>
                                 </div>
 
-                                <div class="col-md-4">
-
+                                <div class="col-md-4 col-sm-4 col-xs-4 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <input type="number" name="sellingPrice" ng-model="book.sellingPrice" class="form-control"  required/>
                                     <p class="help-block">
                                         <span  ng-show="step3.sellingPrice.$invalid && !step3.sellingPrice.$pristine">You have to set the selling price.</span>
                                     </p>
+                                        </div>
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-4 col-xs-4 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <text ng-show="foundCampusLowestPrice"><text  class="px-16 lato uppercase"><strong>In US $</strong></text> &nbsp;&nbsp;&nbsp;&nbsp;<text class="grey-text">Cheapest price on-campus: US {{book.campusLowestPrice}}</text></text>
                                     <text ng-show="!foundCampusLowestPrice" class="px-16 lato grey-text">Remember, on Amazon the book cost is : {{book.bookPriceAmazon}}</text>
+                                        </div>
                                 </div>
 
                             </div>
                             <div class="row">
 
-                                <div class="col-md-4 text-right padding-top-20">
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right padding-top-20 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <text class="px-16 lato uppercase"><strong>Payment Method :</strong></text>
+                                        </div>
                                 </div>
 
-                                <div class="col-md-8">
-
+                                <div class="col-md-8 col-sm-8 col-xs-8 min-height-125">
+                                    <div class="vertical-align-middle">
                                     <div ng-class="{
 
                                     'has-error' :   (step3.cashPaymentMethod.$invalid && !step3.cashPaymentMethod.$pristine) ||
@@ -550,6 +563,7 @@
 
 
                                     </div>
+                                        </div>
                                     <br/>
 
 
@@ -583,8 +597,9 @@
 
                 <uib-tab-heading >
                     <div class="tab-head-div">
-                        <div class="pic-div add-image-icon-div"></div>
-                        <p class="tab-head-title">Personal Book Images</p>
+                        <div class="pic-div add-image-icon-div visible-md visible-lg"></div>
+                        <p class="tab-head-title visible-lg">Personal Book Images</p>
+                        <p class="tab-head-title hidden-lg">Book Images</p>
                     </div>
 
                 </uib-tab-heading>
@@ -629,7 +644,7 @@
 
                                         </div>
 
-                                        <div class="">
+                                        <div class="table-responsive">
 
                                             <table class="table b-a b-solid bg-white image-upload-table">
                                                 <thead>
@@ -689,7 +704,7 @@
 
                 <uib-tab-heading >
                     <div class="tab-head-div">
-                        <div class="pic-div preview-confirm-icon-div"></div>
+                        <div class="pic-div preview-confirm-icon-div visible-md visible-lg"></div>
                         <p class="tab-head-title">Preview & Confirm</p>
                     </div>
 
@@ -712,24 +727,24 @@
 
                             </div>
                             <div class="row preview-div">
-                                <div class="col-md-9">
+                                <div class="col-md-9 col-sm-9 col-xs-12">
 
                                     <div class="step-1-info">
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Condition of book</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.bookCondition}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Condition of book</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.bookCondition}}</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Text highlighted</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.textHighlighted}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Text highlighted</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.textHighlighted}}</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Notes in the textbook</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.notesOnTextbook}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Notes in the textbook</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.notesOnTextbook}}</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Comment</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.comment}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Comment</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.comment}}</strong></text></div>
                                         </div>
                                     </div>
 
@@ -737,25 +752,25 @@
                                     <div ng-show="book.contactMethod=='buyerToSeller'" class="step-2-info">
 
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
                                                 <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Buyer Contact Seller</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>Buyer Contact Seller</strong></text></div>
                                         </div>
                                         <br/>
                                         <br/>
 
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Home phone</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoHomePhone}}&nbsp;</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Home phone</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.contactInfoHomePhone}}&nbsp;</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>cell phone</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoCellPhone}} &nbsp;</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>cell phone</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.contactInfoCellPhone}} &nbsp;</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Email</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.contactInfoEmail}} &nbsp;</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Email</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.contactInfoEmail}} &nbsp;</strong></text></div>
                                         </div>
 
                                     </div>
@@ -763,10 +778,10 @@
                                     <div ng-show="book.contactMethod=='sellerToBuyer'" class="step-2-info">
 
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
                                                 <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Seller Contact Buyer</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>Seller Contact Buyer</strong></text></div>
                                         </div>
 
 
@@ -776,10 +791,10 @@
                                     <div ng-show="book.contactMethod=='student2studentBoard'" class="step-2-info">
 
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
                                                 <text  class="blue-text uppercase"><strong>Contact Method</strong></text>
                                             </div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>Student2Student Message Board Only</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>Student2Student Message Board Only</strong></text></div>
                                         </div>
 
 
@@ -790,21 +805,21 @@
 
                                     <div class="step-last-info">
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available to public</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{book.availablePublic}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>textbook available to public</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{book.availablePublic}}</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>textbook available date</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>{{availableDate  | date:'dd-MMM-yyyy'}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>textbook available date</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>{{availableDate  | date:'dd-MMM-yyyy'}}</strong></text></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>Selling Price</strong></text></div>
-                                            <div class="col-md-8 border-left"><text class="grey-text"><strong>${{book.sellingPrice}}</strong></text></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>Selling Price</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left"><text class="grey-text"><strong>${{book.sellingPrice}}</strong></text></div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-4"><text class="blue-text uppercase"><strong>payment method</strong></text></div>
-                                            <div class="col-md-8 border-left">
+                                            <div class="col-md-4 col-sm-4 col-xs-4"><text class="blue-text uppercase"><strong>payment method</strong></text></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 border-left">
                                                 <text ng-show="book.paymentMethodCashOnExchange && !book.paymentMethodCheque" class="grey-text"><strong>Cash</strong></text>
                                                 <text ng-show="!book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cheque</strong></text>
                                                 <text ng-show="book.paymentMethodCashOnExchange && book.paymentMethodCheque" class="grey-text"><strong>Cash, Cheque</strong></text>
@@ -815,7 +830,7 @@
 
 
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
                                     <div class="">
 
 

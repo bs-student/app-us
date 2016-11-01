@@ -2573,6 +2573,7 @@ blockquote.green-blockquote{
 @media only screen and (max-width: 991px) {
     .archive-page-head-banner  .header-title{
         line-height: 1em;
+        font-size: 48px;
     }
     .archive-page-side .share-images span{
         margin-left: 0px;
@@ -2864,6 +2865,25 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .search-banner-input-col.sell-book-form{
     margin-top: 50px;
     min-height: 155px;
+}
+
+@media only screen and (max-width: 479px) {
+    .search-banner-row.sell-main-page-banner-row{
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+    .archive-page-side{
+        text-align: center;
+    }
+}
+@media (min-width: 480px) and (max-width: 991px) {
+    .search-banner-row.sell-main-page-banner-row{
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+    .archive-page-side{
+        text-align: center;
+    }
 }
 
 /********************************************/
@@ -3300,6 +3320,87 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 .padding-top-20{
     padding-top: 20px;
 }
+@media only screen and (max-width: 479px) {
+    .min-height-125{
+        min-height: 125px;
+        display: table;
+        table-layout: fixed;
+    }
+    .sell-book-form-div{
+        padding: 40px 10px 60px 10px;
+    }
+    .preview-div .border-left{
+        padding-left: 10px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .sell-book-section   .tab-wizard .nav-tabs > li > a:before, .sell-book-section  .tab-wizard .nav-tabs > li:last-child > a:before{
+        border-bottom: 25px solid transparent;
+        border-left: 30px solid #FFFFFF;
+        border-top: 25px solid transparent;
+        right: -28px;
+        position: absolute;
+        top: 2px;
+        display: block;
+    }
+
+    .sell-book-section   .tab-wizard .nav-tabs > li > a:after,  .sell-book-section  .tab-wizard .nav-tabs > li:last-child > a:after{
+        border-bottom: 27px solid transparent;
+        border-left: 32px solid #FF530E;
+        border-top: 27px solid transparent;
+        right: -32px;
+        position: absolute;
+        top: 0px;
+        display: block;
+    }
+    .sell-book-section  .tab-wizard .nav-tabs > li:last-child > a{
+        margin-bottom: 0px;
+    }
+    .sell-book-section .tab-wizard .nav-tabs > li.completed a:before{
+        border-left: 30px solid rgba(255,171,138,1);
+    }
+}
+@media (min-width: 480px) and (max-width: 991px) {
+    .min-height-125{
+        min-height: 89px;
+        display: table;
+        table-layout: fixed;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .sell-book-section  .tab-wizard .nav-tabs > li a .tab-head-div{
+        padding: 17px 10px 17px 40px;
+    }
+    .sell-book-section  .tab-wizard .nav-tabs > li.active > a .tab-head-div, .sell-book-section .tab-wizard .nav-tabs > li.active > a:hover .tab-head-div, .sell-book-section .tab-wizard .nav-tabs > li.active > a:active .tab-head-div, .sell-book-section .tab-wizard .nav-tabs > li.active > a:focus .tab-head-div{
+        padding: 17px 10px 17px 40px;
+    }
+
+    .contact-method-step-details .right-side-form{
+        padding-left: 0px;
+        margin-top: 50px;
+    }
+    .contact-method-hr{
+        width: 70%;
+        margin-top: 40px;
+    }
+    /*.sell-book-form-div.third-step-big-div .row{
+        margin-top: 30px;
+    }*/
+
+
+    .padding-top-20.min-height-125{
+        padding-top: 0px;
+    }
+    /*.vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }*/
+    .vertical-align-middle{
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
 
 /********************************************/
 /*         Contact Us Page                  */
@@ -3706,6 +3807,13 @@ a.simple-continue-reading-button:hover{
 .search-page-options .input-group-btn:last-child > .btn, .search-page-options .input-group-btn:last-child > .btn-group{
     height: 38px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .archive-page-side .buttons button{
+        padding: 0px;
+    }
+}
+
 /********************************************/
 /*                Tell Friends              */
 /*********************************************/
