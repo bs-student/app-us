@@ -4051,6 +4051,7 @@ text.contact-details-circle{
 }
 .message-board-contacts .message-icons i.envelope-icon{
     margin-left: 6px;
+    margin-top: 5px;
 }
 .message-board-contacts .message-icons i.angle-icon{
 
@@ -4222,6 +4223,134 @@ text.contact-details-circle{
     box-shadow: none;
     color: #FF530E;
 }
+/*.message-board-contacts .panel .panel-body .contact-messages .list-group-item .media{*/
+    /*display: flex;*/
+/*}*/
+@media only screen and (max-width: 479px){
+    .message-board-contacts .avatar-image img{
+        width: 50px;
+        height: 50px;
+    }
+    .col-xs-4.user-image-message-board,.col-xs-2.book-price-message-board,.col-xs-6.book-details-div-message-board{
+        width: 100%;
+        display: block;
+    }
+    .message-board-contacts .item-price{
+        border-left:none;
+        margin-top: 10px;
+        padding-top: 0px;
+        height: 20px;
+        padding-left: 0px;
+        text-align: center;
+    }
+    .message-board-contacts .book-details{
+        border: none;
+    }
+    .message-board-contacts .panel .panel-body .contact-messages .list-group-item{
+         padding: 20px 5px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px){
+    .message-board-contacts .book-details{
+        padding: 15px 5px 15px 0px;
+    }
+    .user-image-message-board.col-sm-4.no-right-padding{
+        padding-left: 5px;
+        /*width: 29%;*/
+    }
+    .message-board-contacts .avatar-image img{
+        width: 60px;
+        height: 60px;
+    }
+    .message-board-contacts .book-image{
+        height: 70px;
+        width: 40px;
+    }
+    .message-board-contacts .book-details{
+        height: 100px;
+    }
+    .message-board-contacts .item-price{
+        padding-left: 15px;
+        margin-top: 15px;
+        padding-top: 10px;
+    }
+    .message-board-contacts .panel-heading div{
+        text-align: center;
+    }
+    .message-board-contacts .book-details .book-title-and-isbn{
+        margin-top: 6%;
+        margin-right: 5px;
+    }
+    .message-board-contacts .panel .panel-body .contact-messages .list-group-item{
+        padding: 20px 5px;
+    }
+}
+@media (max-width: 767px) {
+    .search-page-options{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .message-board-pagination ul.search-page-pagination{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .tabs-menu.message-board-tabs-menu .dl-horizontal dt{
+        float: left;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px)  {
+    .tabs-menu.message-board-tabs-menu dl{
+        padding: 5px;
+    }
+    .message-board-contacts .book-details{
+        padding: 15px 5px 15px 0px;
+    }
+    .user-image-message-board.col-sm-4.no-right-padding{
+        padding-left: 5px;
+        /*width: 29%;*/
+    }
+    .message-board-contacts .avatar-image img{
+        width: 60px;
+        height: 60px;
+    }
+    .message-board-contacts .book-image{
+        height: 70px;
+        width: 40px;
+    }
+    .message-board-contacts .book-details{
+        height: 100px;
+    }
+    .message-board-contacts .item-price{
+        padding-left: 15px;
+        margin-top: 15px;
+        padding-top: 10px;
+    }
+    .message-board-contacts .panel-heading div{
+        text-align: center;
+    }
+    .message-board-contacts .book-details .book-title-and-isbn{
+        margin-top: 6%;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 991px) {
+    .safety-first-page-head-banner.message-board-page-head-banner{
+        height: 450px;
+    }
+    .concept-page-banner-text p.text-left{
+        text-align: center !important;
+    }
+    .message-board-type-buttons .btn-group .btn.btn-check{
+        margin-left: 10px;
+    }
+
+}
+
 
 /********************************************/
 /*                Newsletter            */
