@@ -2,7 +2,8 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title hidden-xs"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title visible-xs"><text class="uppercase blue-text lato">User</text><text class="uppercase orange-text lato"> Manage.</text></h1>
 
             </div>
         </div>
@@ -41,66 +42,68 @@
 
 
 
+        <div class="table-responsive">
+            <table ng-table="tableParams" class="table table-striped campus-result-table ">
 
-        <table ng-table="tableParams" class="table table-striped campus-result-table ">
+                <form name="userEditForm" submit-validate >
 
-            <form name="userEditForm" submit-validate >
-
-                <tr ng-repeat="user in $data" ng-form="editRowForm">
-                    <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
-                        <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
-                    </td>
-                    <td data-title="'Picture'" style="width: 15%;"  >
-                        <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
-                    </td>
-                    <td data-title="'Username'" style="width: 15%;"  sortable="'username'" filter="{ 'username': 'text' }">
-                        <span ng-if="!user.$edit">{{user.username}}</span>
+                    <tr ng-repeat="user in $data" ng-form="editRowForm">
+                        <td  style="text-align: left;width: 4%;" header="'ng-table/headers/checkbox.html'">
+                            <label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-click="addOrRemoveSelectedUsers(user)" ng-model="checkboxes.items[user.userId]"><i></i></label>
+                        </td>
+                        <td data-title="'Picture'" style="width: 15%;"  >
+                            <div class="profile-image"><img ng-src="{{imageHostPath}}{{user.profilePicture}}"/></div>
+                        </td>
+                        <td data-title="'Username'" style="width: 15%;"  sortable="'username'" filter="{ 'username': 'text' }">
+                            <span ng-if="!user.$edit">{{user.username}}</span>
 
 
-                        <div ng-if="user.$edit"
-                             ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
-                            <input name="username" class="input-sm form-control" type="text"
-                                   required
-                                   ng-model="user.username"/>
-                            <p class="help-block">
-                                <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
-                            </p>
-                        </div>
+                            <div ng-if="user.$edit"
+                                 ng-class="{ 'has-error' : editRowForm.username.$invalid && !editRowForm.username.$pristine, 'has-success' : editRowForm.username.$valid && !editRowForm.username.$pristine}">
+                                <input name="username" class="input-sm form-control" type="text"
+                                       required
+                                       ng-model="user.username"/>
+                                <p class="help-block">
+                                    <span ng-show="editRowForm.username.$invalid && !editRowForm.username.$pristine">Username is required.</span>
+                                </p>
+                            </div>
 
-                    </td>
-                    <td data-title="'Full Name'" style="width: 16%;" filter="{ 'fullName': 'text' }">
-                        <span>{{user.fullName}}</span>
-                    </td>
-                    <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
-                        <span>{{user.registrationDateTime}}</span>
-                    </td>
-                    <td data-title="'Verified'" style="width: 13%;" filter="{'enabled': 'select'}" filter-data="verifiedStatus">
-                        <span ng-if="!user.$edit && user.enabled">Yes</span>
-                        <span ng-if="!user.$edit && !user.enabled">No</span>
+                        </td>
+                        <td data-title="'Full Name'" style="width: 16%;" filter="{ 'fullName': 'text' }">
+                            <span>{{user.fullName}}</span>
+                        </td>
+                        <td data-title="'Email'" style="width: 12%;" filter="{ 'email': 'text' }">
+                            <span>{{user.email}}</span>
+                        </td>
+                        <td data-title="'Date'" style="width: 10%;" sortable="'registrationDateTime'">
+                            <span>{{user.registrationDateTime}}</span>
+                        </td>
+                        <td data-title="'Verified'" style="width: 13%;" filter="{'enabled': 'select'}" filter-data="verifiedStatus">
+                            <span ng-if="!user.$edit && user.enabled">Yes</span>
+                            <span ng-if="!user.$edit && !user.enabled">No</span>
 
-                        <div ng-if="user.$edit">
-                            <select ng-model="user.enabled" class="form-control mb-10">
-                                <option ng-selected="user.enabled==true"
-                                        value="true">Activated
-                                </option>
-                                <option ng-selected="user.enabled==false"
-                                        value="false">Deactivated
-                                </option>
-                            </select>
-                        </div>
+                            <div ng-if="user.$edit">
+                                <select ng-model="user.enabled" class="form-control mb-10">
+                                    <option ng-selected="user.enabled==true"
+                                            value="true">Activated
+                                    </option>
+                                    <option ng-selected="user.enabled==false"
+                                            value="false">Deactivated
+                                    </option>
+                                </select>
+                            </div>
 
-                    </td>
-                    <td data-title="'Actions'" style="width: 15%">
-                        <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
-                        <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
-                        <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
-                    </td>
-                </tr>
-            </form>
-        </table>
+                        </td>
+                        <td data-title="'Actions'" style="width: 15%">
+                            <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                            <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
+                            <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+
         <script type="text/ng-template" id="ng-table/headers/checkbox.html">
             <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
         </script>
@@ -116,7 +119,7 @@
     </uib-tab-heading>
     <div cg-busy="{promise:userPromise}">
 
-
+        <div class="table-responsive">
         <table ng-table="approvedTableParams" class="table table-striped campus-result-table ">
 
             <form name="userEditForm" submit-validate >
@@ -174,6 +177,7 @@
                 </tr>
             </form>
         </table>
+            </div>
     </div>
 </uib-tab>
     <uib-tab class="last-tab">
@@ -189,7 +193,7 @@
             </div>
 
             <div ui-view="addUserView" ></div>
-
+            <div class="table-responsive">
             <table ng-table="adminTableParams" class="table table-striped campus-result-table ">
 
                 <form name="userEditForm" submit-validate >
@@ -237,6 +241,7 @@
                     </tr>
                 </form>
             </table>
+                </div>
         </div>
     </uib-tab>
 

@@ -2,7 +2,8 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">University</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title hidden-xs"><text class="uppercase blue-text lato">University</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title visible-xs"><text class="uppercase blue-text lato">University</text><text class="uppercase orange-text lato"> Manage.</text></h1>
 
             </div>
         </div>
@@ -42,7 +43,7 @@
             <a ui-sref="app.addUniversity" class="myBtn app-btn buy-now-button "><i class="fa fa-plus"></i>&nbsp;Add New University</a>
         </div>
 
-
+<div class="table-responsive">
         <table ng-table="tableParams" class="table table-striped campus-result-table ">
 
             <form name="universityEditForm" submit-validate >
@@ -104,6 +105,7 @@
                 </tr>
             </form>
         </table>
+</div>
         <script type="text/ng-template" id="ng-table/headers/checkbox.html">
             <label class="checkbox checkbox-custom-alt"><input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""><i></i></label>
         </script>
@@ -119,7 +121,7 @@
     </uib-tab-heading>
     <div cg-busy="{promise:activatedUniversityPromise}">
 
-
+        <div class="table-responsive">
         <table ng-table="activatedTableParams" class="table table-striped campus-result-table ">
 
             <form name="universityEditForm" submit-validate >
@@ -178,6 +180,7 @@
                 </tr>
             </form>
         </table>
+            </div>
     </div>
 </uib-tab>
     <uib-tab class="last-tab">
@@ -186,7 +189,7 @@
             <text>Deactivated University</text>
         </uib-tab-heading>
         <div cg-busy="{promise:deactivatedUniversityPromise}">
-
+            <div class="table-responsive">
             <table ng-table="deactivatedTableParams" class="table table-striped campus-result-table ">
 
                 <form name="universityEditForm" submit-validate >
@@ -245,6 +248,7 @@
                     </tr>
                 </form>
             </table>
+                </div>
         </div>
     </uib-tab>
 

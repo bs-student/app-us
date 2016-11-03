@@ -2,8 +2,8 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">Quote</text><text class="uppercase orange-text lato"> Management</text></h1>
-
+                <h1 class="header-title hidden-xs"><text class="uppercase blue-text lato">Quote</text><text class="uppercase orange-text lato"> Management</text></h1>
+                <h1 class="header-title visible-xs"><text class="uppercase blue-text lato">Quote</text><text class="uppercase orange-text lato"> Manage.</text></h1>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
 
         <div ui-view="addStudentQuoteView" ></div>
-
+        <div class="table-responsive">
         <table ng-table="studentQuoteTableParams" class="table table-striped campus-result-table ">
 
             <form name="userEditForm" submit-validate >
@@ -107,7 +107,7 @@
             </form>
         </table>
 
-
+        </div>
 
 
     </div>
@@ -126,7 +126,7 @@
         </div>
 
         <div ui-view="addUniversityQuoteView" ></div>
-
+        <div class="table-responsive">
 
         <table ng-table="universityQuoteTableParams" class="table table-striped campus-result-table ">
 
@@ -193,6 +193,7 @@
                 </tr>
             </form>
         </table>
+            </div>
     </div>
 </uib-tab>
 
