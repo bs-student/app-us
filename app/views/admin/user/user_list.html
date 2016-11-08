@@ -96,6 +96,7 @@
                         </td>
                         <td data-title="'Actions'" style="width: 15%">
                             <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                            <a ng-if="!user.$edit" target="_blank" ui-sref="app.mySellPage({username:user.username})" class="text-success text-uppercase text-strong text-sm mr-10">Sell Page</a>
                             <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save & Approve</a>
                             <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
                         </td>
@@ -171,6 +172,7 @@
 
                     <td data-title="'Actions'" width="200">
                         <a ng-if="!user.$edit" href="" ng-click="editRow(user)" class="text-primary text-uppercase text-strong text-sm mr-10">Edit</a>
+                        <a ng-if="!user.$edit" target="_blank" ui-sref="app.mySellPage({username:user.username})"  class="text-success text-uppercase text-strong text-sm mr-10">Sell Page</a>
                         <a ng-if="user.$edit" href="" type="submit" ng-click="saveEditedRow(editRowForm.$valid,user)" class="text-success text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Save</a>
                         <a ng-if="user.$edit" href="" ng-click="cancelEditRow(user)" class="text-danger text-uppercase text-strong text-sm mr-10 inline-block" style="margin-top: 7px">Cancel</a>
                     </td>
