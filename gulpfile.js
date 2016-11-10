@@ -132,6 +132,7 @@ var assets = {
         "app/scripts/controllers/messageBoardCtrl.js",
         "app/scripts/controllers/universityEditCtrl.js",
         "app/scripts/controllers/universityMergeCtrl.js",
+        "app/scripts/controllers/logCtrl.js",
 
 
 
@@ -188,7 +189,7 @@ var assets = {
         "app/scripts/services/authCheckerService.js",
         "app/scripts/services/eventService.js",
         "app/scripts/services/adminUniversityService.js",
-
+        "app/scripts/services/adminLogService.js",
 
         "app/scripts/validators/valEmail.js",
         "app/scripts/validators/valUsername.js",
@@ -279,7 +280,7 @@ gulp.task("js_app", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app-2.3.min.js'))
+        .pipe(plugins.concat('app-2.4.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 gulp.task("css_website", function (done) {

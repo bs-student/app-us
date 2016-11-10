@@ -3,19 +3,19 @@
     'use strict';
 
     app
-        .factory('adminBookDealService', adminBookDealService);
+        .factory('adminLogService', adminLogService);
 
-    adminBookDealService.$inject=['SERVER_CONSTANT','ADMIN_CONSTANT','apiService'];
+    adminLogService.$inject=['SERVER_CONSTANT','ADMIN_CONSTANT','apiService'];
 
-    function adminBookDealService(SERVER_CONSTANT,ADMIN_CONSTANT,apiService) {
+    function adminLogService(SERVER_CONSTANT,ADMIN_CONSTANT,apiService) {
 
         return {
-            getAllBookDeals:_getAllBookDeals
+            getLog:_getLog
 
         };
 
-        function _getAllBookDeals(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_BOOK_DEALS+"?access_token="+accessToken,data);
+        function _getLog(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_LOG+"?access_token="+accessToken,data);
         }
     }
 

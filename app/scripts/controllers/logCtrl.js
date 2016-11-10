@@ -3,81 +3,158 @@
     'use strict';
 
     app
-        .controller('UserManagementCtrl', UserManagementCtrl);
+        .controller('LogCtrl', LogCtrl);
 
-    UserManagementCtrl.$inject = ['$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
+    LogCtrl.$inject = ['$state','identityService', 'adminUserService', '$scope', '$filter', '$q', 'ngTableParams','responseService','adminLogService'];
 
-    function UserManagementCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
+    function LogCtrl($state,identityService, adminUserService, $scope, $filter, $q, ngTableParams,responseService,adminLogService) {
 
 
-        $scope.imageHostPath = SERVER_CONSTANT.IMAGE_HOST_PATH;
-        $scope.$parent.main.title = "User Management";
+        $scope.$parent.main.title = "User Log";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
-        $scope.editRow=_editRow;
-        $scope.cancelEditRow=_cancelEditRow;
-        $scope.saveEditedRow = _saveEditedRow;
-        $scope.approveSelectedUsers = _approveSelectedUsers;
 
-        $scope.addOrRemoveSelectedUsers = _addOrRemoveSelectedUsers;
+        $scope.logs=[];
 
-        var selectedUserList = [];
-        var selected_all = false;
-        $scope.checkboxes = { 'checked': false, items: {} };
 
-        $scope.nonApprovedUsers=[];
-        $scope.approvedUsers=[];
-        $scope.adminUsers=[];
-
-        $scope.verifiedStatus = [
+        $scope.logTypes = [
             {
-                'title':"Yes",
-                'id':true
+                'title':"Registration",
+                'id':"Registration"
             },
             {
-                'title':"No",
-                'id':false
+                'title':"Login",
+                'id':"Login"
+            },
+            {
+                'title':"Change Password",
+                'id':"Change Password"
+            },
+            {
+                'title':"Social Login",
+                'id':"Social Login"
+            },
+            {
+                'title':"Email Notification Change",
+                'id':"Email Notification Change"
+            },
+            {
+                'title':"Profile Update",
+                'id':"Profile Update"
+            },
+            {
+                'title':"Promote Sell Page",
+                'id':"Promote Sell Page"
+            },
+            {
+                'title':"Add Book",
+                'id':"Add Book"
+            },
+            {
+                'title':"Add Book Deal",
+                'id':"Add Book Deal"
+            },
+            {
+                'title':"Update Book Deal",
+                'id':"Update Book Deal"
+            },
+            {
+                'title':"Delete Book Deal",
+                'id':"Delete Book Deal"
+            },
+            {
+                'title':"Sold Book",
+                'id':"Sold Book"
+            },
+            {
+                'title':"Buyer Contacted",
+                'id':"Buyer Contacted"
+            },
+            {
+                'title':"Approve User",
+                'id':"Approve User"
+            },
+            {
+                'title':"Update User",
+                'id':"Update User"
+            },
+            {
+                'title':"Add Admin User",
+                'id':"Add Admin User"
+            },
+            {
+                'title':"Add University",
+                'id':"Add University"
+            },
+            {
+                'title':"Approve University",
+                'id':"Approve University"
+            },
+            {
+                'title':"Update University",
+                'id':"Update University"
+            },
+            {
+                'title':"Merge University",
+                'id':"Merge University"
+            },
+            {
+                'title':"Add News",
+                'id':"Add News"
+            },
+            {
+                'title':"Update News",
+                'id':"Update News"
+            },
+            {
+                'title':"Add Quote",
+                'id':"Add Quote"
+            },
+            {
+                'title':"Update Quote",
+                'id':"Update Quote"
+            },
+            {
+                'title':"Delete Quote",
+                'id':"Delete Quote"
+            },
+            {
+                'title':"Newsletter Export",
+                'id':"Newsletter Export"
             }
         ];
 
-        $scope.activationStatus = [
+        $scope.logUserTypes = [
             {
-                'title':"Activated",
-                'id':true
+                'title':"Normal User",
+                'id':"Normal User"
             },
             {
-                'title':"Deactivated",
-                'id':false
+                'title':"Admin User",
+                'id':"Admin User"
             }
-        ]
+        ];
 
         init();
 
         function init(){
-            selectedUserList=[];
-            getPendingUsers();
-            getApprovedUsers();
-            getAdminUsers();
-        }
-        function getPendingUsers(){
             $scope.tableParams = new ngTableParams(
                 {
                     page: 1,            // show first page
                     count: 10,           // count per page
                     filter: {
                         username: '',
-                        email: '',           // initial filter
-                        fullName: '',
-                        enabled: ''
+                        logType: '',
+                        logUserType: ''
                     },
                     sorting: {
-                        registrationDateTime: 'desc'// initial sorting
+                        logDateTime: 'desc'// initial sorting
                     }
                 },
 
                 {
-                    total: $scope.nonApprovedUsers.length, // length of data
+                    total: $scope.logs.length, // length of data
                     getData: getData
                 });
 
@@ -87,25 +164,24 @@
 
                 var queryData =
                 {
-                    "searchQuery": params.filter().username,
-                    "emailQuery": params.filter().email,
-                    "fullNameQuery": params.filter().fullName,
-                    "enabledQuery": params.filter().enabled,
+                    "usernameQuery": params.filter().username,
+                    "logTypeQuery": params.filter().logType,
+                    "logUserTypeQuery": params.filter().logUserType,
                     "pageNumber": params.page(),
                     "pageSize": params.count(),
                     "sort":params.sorting()
                 };
-                ($scope.userPromise = adminUserService.getAllNonApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
-                    $scope.nonApprovedUsers = response.data.success.successData.users.totalUsers;
-                    $defer.resolve($scope.nonApprovedUsers);
-                    params.total(response.data.success.successData.users.totalNumber);
+                ($scope.logPromise = adminLogService.getLog(identityService.getAccessToken(), queryData)).then(function (response) {
+                    $scope.logs = response.data.success.successData.logs.totalLogs;
+                    $defer.resolve($scope.logs);
+                    params.total(response.data.success.successData.logs.totalNumber);
 
                 }).catch(function (response) {
 
                     if (response.data.error_description == "The access token provided is invalid.") {
 //                        $scope.$parent.logout();
                     } else if (response.data.error_description == "The access token provided has expired.") {
-                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
+                        ($scope.logPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
                             identityService.setAccessToken(response.data);
                             getData($defer, params);
                         });
@@ -120,232 +196,6 @@
             }
         }
 
-        function getApprovedUsers(){
-            $scope.approvedTableParams = new ngTableParams(
-                {
-                    page: 1,            // show first page
-                    count: 10,           // count per page
-                    filter: {
-                        username: ''  ,
-                        email: '',
-                        fullName:'',
-                        universityName:'',
-                        campusName:'',
-                        enabled:''// initial filter
-                    },
-                    sorting: {
-                        registrationDateTime: 'desc'     // initial sorting
-                    }
-                },
-
-                {
-                    total: $scope.approvedUsers.length, // length of data
-                    getData: getApprovedData
-                });
-
-
-
-            function getApprovedData($defer, params) {
-
-                var queryData =
-                {
-                    "searchQuery": params.filter().username,
-                    "emailQuery": params.filter().email,
-                    "fullNameQuery": params.filter().fullName,
-                    "universityNameQuery": params.filter().universityName,
-                    "campusNameQuery": params.filter().campusName,
-                    "enabledQuery": params.filter().enabled,
-                    "pageNumber": params.page(),
-                    "pageSize": params.count(),
-                    "sort":params.sorting()
-                };
-                ($scope.userPromise = adminUserService.getAllApprovedUsers(identityService.getAccessToken(), queryData)).then(function (response) {
-                    $scope.approvedUsers = response.data.success.successData.users.totalUsers;
-//                    $scope.approvedUsers= $filter('orderBy')($scope.approvedUsers, params.orderBy());
-                    $defer.resolve($scope.approvedUsers);
-                    params.total(response.data.success.successData.users.totalNumber);
-
-                }).catch(function (response) {
-
-                    if (response.data.error_description == "The access token provided is invalid.") {
-//                        $scope.$parent.logout();
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            getApprovedData($defer, params);
-                        });
-                    } else if (response.data.error != undefined) {
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-
-                });
-            }
-        }
-
-        function getAdminUsers(){
-            $scope.adminTableParams = new ngTableParams(
-                {
-                    page: 1,            // show first page
-                    count: 10,           // count per page
-                    filter: {
-                        username: '',
-                        email: ''          // initial filter
-                    },
-                    sorting: {
-                        username: 'asc'     // initial sorting
-                    }
-                },
-
-                {
-                    total: $scope.adminUsers.length, // length of data
-                    getData: getAdminData
-                });
-
-
-
-            function getAdminData($defer, params) {
-
-                var queryData =
-                {
-                    "searchQuery": params.filter().username,
-                    "emailQuery": params.filter().email,
-                    "pageNumber": params.page(),
-                    "pageSize": params.count(),
-                    "sort":params.sorting()
-                };
-                ($scope.userPromise = adminUserService.getAllAdminUsers(identityService.getAccessToken(), queryData)).then(function (response) {
-                    $scope.adminUsers = response.data.success.successData.users.totalUsers;
-//                    $scope.adminUsers= $filter('orderBy')($scope.adminUsers, params.orderBy());
-                    $defer.resolve($scope.adminUsers);
-                    params.total(response.data.success.successData.users.totalNumber);
-
-                }).catch(function (response) {
-
-                    if (response.data.error_description == "The access token provided is invalid.") {
-//                        $scope.$parent.logout();
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            getAdminData($defer, params);
-                        });
-                    } else if (response.data.error != undefined) {
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-
-                });
-            }
-        }
-
-
-        function _editRow(row){
-            row.$edit = true;
-            row.usernameOnEdit = row.username ;
-            row.statusOnEdit = row.enabled;
-        }
-        function _cancelEditRow(row){
-            row.$edit = false;
-            row.username =  row.usernameOnEdit;
-            row.enabled = row.statusOnEdit;
-        }
-
-        function _saveEditedRow(valid,row){
-
-            if(valid){
-                row.$edit=false;
-                if(row.enabled=="true"){
-                    row.enabled=true;
-                }else if(row.enabled=="false"){
-                    row.enabled=false;
-                }
-                ($scope.userPromise = adminUserService.saveUpdatedUserDataAdmin(identityService.getAccessToken(),row)).then(function (response) {
-                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-                    $scope.nonApprovedUsers.splice($scope.nonApprovedUsers.indexOf(row),1);
-
-                }).catch(function (response) {
-                    row.username =  row.usernameOnEdit;
-                    row.enabled = row.statusOnEdit;
-                    if (response.data.error_description == "The access token provided is invalid.") {
-
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            _saveEditedRow(valid,row);
-                        });
-                    } else if (response.data.error != undefined) {
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-
-                });
-
-            }
-
-        }
-
-        function _addOrRemoveSelectedUsers(user){
-            if (selectedUserList.indexOf(user) > -1) {
-                selectedUserList.splice(selectedUserList.indexOf(user), 1);
-            } else {
-                selectedUserList.push(user);
-            }
-        }
-        // watch for check all checkbox
-        $scope.$watch('checkboxes.checked', function (value) {
-
-            selected_all = value;
-            angular.forEach($scope.nonApprovedUsers, function (item) {
-                if (angular.isDefined(item.userId)) {
-                    $scope.checkboxes.items[item.userId] = value;
-                }
-            });
-
-            if(value){
-                selectedUserList=[];
-                angular.forEach($scope.nonApprovedUsers, function (item) {
-                    selectedUserList.push(item);
-                });
-            }else{
-                selectedUserList=[];
-            }
-
-        });
-
-
-        function _approveSelectedUsers(){
-
-            if(selectedUserList.length>0){
-
-                ($scope.userPromise = adminUserService.approveUsers(identityService.getAccessToken(),selectedUserList)).then(function(response){
-
-                    responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
-                    init();
-                }).catch(function(response){
-                    if (response.data.error_description == "The access token provided is invalid.") {
-
-                    } else if (response.data.error_description == "The access token provided has expired.") {
-                        ($scope.userPromise = identityService.getRefreshAccessToken(identityService.getRefreshToken())).then(function (response) {
-                            identityService.setAccessToken(response.data);
-                            _approveSelectedUsers();
-                        });
-                    } else if (response.data.error != undefined) {
-                        responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);
-
-                    } else {
-                        responseService.showErrorToast("Something Went Wrong", "Please Refresh the page again.")
-                    }
-                });
-            }
-
-
-        }
 
 
 

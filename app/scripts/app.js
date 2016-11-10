@@ -626,6 +626,12 @@ var app = angular
                 templateUrl: 'views/admin/newsletter/newsletter.html',
                 resolve: authCheck
             })
+            .state('app.log', {
+                url: '^/log',
+                controller: 'LogCtrl',
+                templateUrl: 'views/admin/log/log.html',
+                resolve: authCheck
+            })
 
 
             //////////////////// My Sell Page //////////////

@@ -18,7 +18,12 @@
 
         function _changePassword(valid) {
             if(valid){
-                userService.changePassword($scope.user).then(function (response) {
+                var userData = {
+                    oldPassword:$scope.oldPassword,
+                    newPassword:$scope.newPassword,
+                    newPasswordConfirm:$scope.newPasswordConfirm
+                };
+                $scope.changePasswordPromise = (userService.changePassword(userData)).then(function (response) {
                     responseService.showSuccessToast(response.data.success.successTitle, response.data.success.successDescription);
                     $state.go('app.dashboard');
                 }).catch(function(response){
