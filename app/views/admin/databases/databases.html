@@ -1,0 +1,68 @@
+<div class="archive-page-head-banner">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="header-title"><text class="uppercase blue-text lato">Newsletter</text><text class="uppercase orange-text lato"> Emails</text></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="compare-page" id="content">
+
+
+<div class="content-wrap mid-section">
+
+
+
+
+<div class="section m-0 pt-0 mid-one compare-result-section user-management-sections newsletter-sections">
+<div class="container clearfix quote-container-homepage">
+<div class="row">
+
+<div class="col-md-12">
+
+    <button class="myBtn app-btn buy-now-button" ng-click="exportNewsletterDataIntoCSV()"><b><i class="fa fa-file-text-o"></i></b>&nbsp;Export All Data into CSV</button>
+
+    <div cg-busy="{promise:newsletterPromise}">
+        <div class="table-responsive">
+        <table ng-table="tableParams" class="table table-striped campus-result-table ">
+
+            <form name="userEditForm" submit-validate >
+
+                <tr ng-repeat="newsletter in $data" ng-form="editRowForm">
+
+                    <td data-title="'Email'" width="200"  sortable="'email'" filter="{ 'email': 'text' }">
+                        <span>{{newsletter.email}}</span>
+                    </td>
+                    <td data-title="'Date Time'" width="200" sortable="'lastUpdateDateTime'">
+                        <span>{{newsletter.lastUpdateDateTime}}</span>
+                    </td>
+                    <td data-title="'Status'" width="200" sortable="'activationStatus'">
+                        <span>{{newsletter.activationStatus}}</span>
+                    </td>
+
+                </tr>
+            </form>
+        </table>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+
