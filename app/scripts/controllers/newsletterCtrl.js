@@ -83,6 +83,7 @@
         function _exportNewsletterDataIntoCSV(){
             ($scope.newsletterPromise = newsletterService.adminExportAllDataIntoCSV(identityService.getAccessToken())).then(function (response) {
 
+                console.log(SERVER_CONSTANT.IMAGE_HOST_PATH+response.data.success.successData.link);
                 var downloadLink = angular.element('<a></a>');
                 downloadLink.attr('href',SERVER_CONSTANT.IMAGE_HOST_PATH+response.data.success.successData.link);
                 downloadLink.attr('download', 'newsletterEmails.csv');

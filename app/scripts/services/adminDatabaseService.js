@@ -3,19 +3,23 @@
     'use strict';
 
     app
-        .factory('adminBookDealService', adminBookDealService);
+        .factory('adminDatabaseService', adminDatabaseService);
 
-    adminBookDealService.$inject=['SERVER_CONSTANT','ADMIN_CONSTANT','apiService'];
+    adminDatabaseService.$inject=['SERVER_CONSTANT','ADMIN_CONSTANT','apiService'];
 
-    function adminBookDealService(SERVER_CONSTANT,ADMIN_CONSTANT,apiService) {
+    function adminDatabaseService(SERVER_CONSTANT,ADMIN_CONSTANT,apiService) {
 
         return {
-            getAllBookDeals:_getAllBookDeals
+            adminGetAllDatabaseList:_adminGetAllDatabaseList,
+            adminDownloadDatabase:_adminDownloadDatabase
 
         };
 
-        function _getAllBookDeals(accessToken,data){
-            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_BOOK_DEALS+"?access_token="+accessToken,data);
+        function _adminGetAllDatabaseList(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.GET_ALL_DATABASE_LIST+"?access_token="+accessToken,data);
+        }
+        function _adminDownloadDatabase(accessToken,data){
+            return apiService.post(SERVER_CONSTANT.HOST+ADMIN_CONSTANT.DOWNLOAD_DATABASE+"?access_token="+accessToken,data);
         }
     }
 

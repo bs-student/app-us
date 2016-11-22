@@ -63,7 +63,9 @@
             "UPDATE_UNIVERSITY_DETAILS": "/api/admin/update_university_details",
             "GET_ALL_SIMILAR_UNIVERSITIES": "/api/admin/get_all_similar_universities",
             "MERGE_UNIVERSITIES": "/api/admin/merge_universities",
-            "GET_LOG":"/api/admin/get_log"
+            "GET_LOG":"/api/admin/get_log",
+            "GET_ALL_DATABASE_LIST":"/api/admin/get_all_databases",
+            "DOWNLOAD_DATABASE":"/api/admin/download_database"
         })
         .constant("QUOTE_CONSTANT", {
             "GET_ACTIVATED_STUDENT_QUOTE": "/quote/get_activated_student_quote",

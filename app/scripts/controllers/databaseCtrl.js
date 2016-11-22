@@ -3,43 +3,37 @@
     'use strict';
 
     app
-        .controller('NewsletterCtrl', NewsletterCtrl);
+        .controller('DatabaseCtrl', DatabaseCtrl);
 
-    NewsletterCtrl.$inject = ['$state','identityService', 'newsletterService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT'];
+    DatabaseCtrl.$inject = ['$state','identityService', 'newsletterService', '$scope', '$filter', '$q', 'ngTableParams','responseService','SERVER_CONSTANT','adminDatabaseService'];
 
-    function NewsletterCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT) {
+    function DatabaseCtrl($state,identityService, newsletterService, $scope, $filter, $q, ngTableParams,responseService,SERVER_CONSTANT,adminDatabaseService) {
 
 
-        $scope.$parent.main.title = "Newsletter";
+        $scope.$parent.main.title = "Database";
         $scope.$parent.headerStyle = "dark";
         $scope.$parent.activePage = "user";
 
-        $scope.subscribedEmails=[];
+        $scope.databaseList=[];
 
-        $scope.exportNewsletterDataIntoCSV = _exportNewsletterDataIntoCSV;
+        $scope.downloadDatabase = _downloadDatabase;
 
         init();
 
         function init(){
 
-            getSubscribedEmails();
+            getDatabaseList();
         }
 
-        function getSubscribedEmails(){
+        function getDatabaseList(){
             $scope.tableParams = new ngTableParams(
                 {
                     page: 1,            // show first page
-                    count: 10,           // count per page
-                    filter: {
-                        email: ''       // initial filter
-                    },
-                    sorting: {
-                        lastUpdateDateTime: 'desc'     // initial sorting
-                    }
+                    count: 10           // count per page
                 },
 
                 {
-                    total: $scope.subscribedEmails.length, // length of data
+                    total: $scope.databaseList.length, // length of data
                     getData: getData
                 });
 
@@ -49,15 +43,15 @@
 
                 var queryData =
                 {
-                    "searchQuery": params.filter().email,
+
                     "pageNumber": params.page(),
-                    "pageSize": params.count(),
-                    "sort":params.sorting()
+                    "pageSize": params.count()
+
                 };
-                ($scope.newsletterPromise = newsletterService.adminGetAllNewsletterEmails(identityService.getAccessToken(), queryData)).then(function (response) {
-                    $scope.subscribedEmails = response.data.success.successData.newsletterEmails.totalNewsletterEmails;
-                    $defer.resolve($scope.subscribedEmails);
-                    params.total(response.data.success.successData.newsletterEmails.totalNumber);
+                ($scope.databasePromise = adminDatabaseService.adminGetAllDatabaseList(identityService.getAccessToken(), queryData)).then(function (response) {
+                    $scope.databaseList = response.data.success.successData.databaseList.totalDatabaseList;
+                    $defer.resolve($scope.databaseList);
+                    params.total(response.data.success.successData.databaseList.totalNumber);
 
                 }).catch(function (response) {
 
@@ -80,15 +74,19 @@
         }
 
 
-        function _exportNewsletterDataIntoCSV(){
-            ($scope.newsletterPromise = newsletterService.adminExportAllDataIntoCSV(identityService.getAccessToken())).then(function (response) {
+        function _downloadDatabase(databaseName){
+
+            var queryData =
+            {
+                "databaseName": databaseName
+            };
+
+            ($scope.databasePromise = adminDatabaseService.adminDownloadDatabase(identityService.getAccessToken(),queryData)).then(function (response) {
 
                 var downloadLink = angular.element('<a></a>');
                 downloadLink.attr('href',SERVER_CONSTANT.IMAGE_HOST_PATH+response.data.success.successData.link);
-                downloadLink.attr('download', 'newsletterEmails.csv');
+                downloadLink.attr('download', databaseName);
                 downloadLink[0].click();
-
-
                 responseService.showSuccessToast(response.data.success.successTitle,response.data.success.successDescription);
 
             }).catch(function (response) {
@@ -98,7 +96,7 @@
                 } else if (response.data.error_description == "The access token provided has expired.") {
                     identityService.getRefreshAccessToken(identityService.getRefreshToken()).then(function (response) {
                         identityService.setAccessToken(response.data);
-                        _exportNewsletterDataIntoCSV();
+                        _downloadDatabase(databaseName);
                     });
                 } else if (response.data.error != undefined) {
                     responseService.showErrorToast(response.data.error.errorTitle, response.data.error.errorDescription);

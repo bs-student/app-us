@@ -2,7 +2,7 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title"><text class="uppercase blue-text lato">Newsletter</text><text class="uppercase orange-text lato"> Emails</text></h1>
+                <h1 class="header-title"><text class="uppercase blue-text lato">Database</text><text class="uppercase orange-text lato"> Backups</text></h1>
 
             </div>
         </div>
@@ -25,24 +25,26 @@
 
 <div class="col-md-12">
 
-    <button class="myBtn app-btn buy-now-button" ng-click="exportNewsletterDataIntoCSV()"><b><i class="fa fa-file-text-o"></i></b>&nbsp;Export All Data into CSV</button>
 
-    <div cg-busy="{promise:newsletterPromise}">
+    <div cg-busy="{promise:databasePromise}">
         <div class="table-responsive">
         <table ng-table="tableParams" class="table table-striped campus-result-table ">
 
             <form name="userEditForm" submit-validate >
 
-                <tr ng-repeat="newsletter in $data" ng-form="editRowForm">
+                <tr ng-repeat="database in $data" ng-form="editRowForm">
 
-                    <td data-title="'Email'" width="200"  sortable="'email'" filter="{ 'email': 'text' }">
-                        <span>{{newsletter.email}}</span>
+                    <td data-title="'File Name'" width="200">
+                        <span>{{database.fileName}}</span>
                     </td>
-                    <td data-title="'Date Time'" width="200" sortable="'lastUpdateDateTime'">
-                        <span>{{newsletter.lastUpdateDateTime}}</span>
+                    <td data-title="'Date Time'" width="200" >
+                        <span>{{database.fileTime}}</span>
                     </td>
-                    <td data-title="'Status'" width="200" sortable="'activationStatus'">
-                        <span>{{newsletter.activationStatus}}</span>
+                    <td data-title="'Size'" width="200" >
+                        <span>{{database.fileSize}}</span>
+                    </td>
+                    <td data-title="'Action'" width="200" >
+                        <span><button ng-click="downloadDatabase(database.fileName)" class="myBtn orange-btn">Download</button></span>
                     </td>
 
                 </tr>

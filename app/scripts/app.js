@@ -559,7 +559,7 @@ var app = angular
                         controller: 'AddUserCtrl'
                     }
                 },
-                resolve: authCheck
+                resolve: adminCheck
 
             })
             //Admin All Book Deals
@@ -567,14 +567,14 @@ var app = angular
                 url: '^/allBookDeals',
                 controller: 'BookDealCtrl',
                 templateUrl: 'views/admin/book/book_deals.html',
-                resolve: authCheck
+                resolve: adminCheck
             })
             //Admin Quotes
             .state('app.quotes', {
                 url: '^/quotes',
                 controller: 'QuoteCtrl',
                 templateUrl: 'views/admin/content/quotes.html',
-                resolve: authCheck
+                resolve: adminCheck
             })
             //Add Student Quote
             .state('app.quotes.addStudentQuote', {
@@ -585,7 +585,7 @@ var app = angular
                         controller: 'AddQuoteCtrl'
                     }
                 },
-                resolve: authCheck
+                resolve: adminCheck
 
             })
             //Add University Quote
@@ -597,7 +597,7 @@ var app = angular
                         controller: 'AddQuoteCtrl'
                     }
                 },
-                resolve: authCheck
+                resolve: adminCheck
 
             })
             //Admin News
@@ -605,7 +605,7 @@ var app = angular
                 url: '^/newsManagement',
                 controller: 'NewsManagementCtrl',
                 templateUrl: 'views/admin/content/news.html',
-                resolve: authCheck
+                resolve: adminCheck
             })
             //Add Student Quote
             .state('app.newsManagement.addNews', {
@@ -616,7 +616,7 @@ var app = angular
                         controller: 'AddNewsCtrl'
                     }
                 },
-                resolve: authCheck
+                resolve: adminCheck
 
             })
             //Admin Newsletter
@@ -624,15 +624,24 @@ var app = angular
                 url: '^/newsletter',
                 controller: 'NewsletterCtrl',
                 templateUrl: 'views/admin/newsletter/newsletter.html',
-                resolve: authCheck
+                resolve: adminCheck
             })
+
+            //Admin Log
             .state('app.log', {
                 url: '^/log',
                 controller: 'LogCtrl',
                 templateUrl: 'views/admin/log/log.html',
-                resolve: authCheck
+                resolve: adminCheck
             })
 
+            //Admin Databases
+            .state('app.databases', {
+                url: '^/databases',
+                controller: 'DatabaseCtrl',
+                templateUrl: 'views/admin/databases/databases.html',
+                resolve: adminCheck
+            })
 
             //////////////////// My Sell Page //////////////
 
