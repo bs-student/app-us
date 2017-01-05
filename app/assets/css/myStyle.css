@@ -3765,7 +3765,8 @@ a.orange-link:hover,a.orange-link:active,a.orange-link:focus{
 }
 .other-news-post{
     background: #FFFFFF;
-    padding: 40px 20px;
+    padding: 20px 20px;
+    min-height: 241px;
 }
 a.simple-continue-reading-button{
     color: #555;

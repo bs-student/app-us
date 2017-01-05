@@ -48,8 +48,8 @@
 
                             <div class="entry-content">
 
-                                <text ng-bind-html="news.newsDescription | limitTo:250 | sanitizeHtml "></text>
-
+                                <!--<text ng-bind-html="news.newsDescription | limitTo:250 | sanitizeHtml "></text>-->
+                                <div ta-bind="text" ng-model="news.newsDescription" ta-readonly='disabled'></div>
 
                             </div>
 
@@ -120,11 +120,12 @@
                                 </div>
 
 
-                                <div class="entry-content">
-                                    <text ng-bind-html="news.newsDescription | limitTo:250 | sanitizeHtml "></text>
-                                </div>
+                                <!--<div class="entry-content">-->
+                                    <!--&lt;!&ndash;<text ng-bind-html="news.newsDescription | limitTo:250 | sanitizeHtml "></text>&ndash;&gt;-->
+                                    <!--<div ta-bind="text" ng-model="news.newsDescription" ta-readonly='disabled'></div>-->
+                                <!--</div>-->
 
-                                <div class="text-left continue-reading-button">
+                                <div class="text-center continue-reading-button">
                                     <a ui-sref="app.newsDetails({newsId:news.newsId})" class="simple-continue-reading-button lato px-16"><strong>Continue Reading</strong></a>
                                 </div>
 

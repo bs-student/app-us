@@ -90,7 +90,8 @@
 
                     <td data-title="'Details'" >
 
-                        <span  ng-if="!news.$edit" ng-bind-html="news.newsDescription"></span>
+                        <!--<span  ng-if="!news.$edit" ng-bind-html="news.newsDescription"></span>-->
+                        <div ng-if="!news.$edit" ta-bind="text" ng-model="news.newsDescription" ta-readonly='disabled'></div>
 
                         <div ng-if="news.$edit"
                              ng-class="{ 'has-error' : editRowForm.newsDescription.$invalid && !editRowForm.newsDescription.$pristine, 'has-success' : editRowForm.newsDescription.$valid && !editRowForm.newsDescription.$pristine}">
