@@ -134,6 +134,7 @@ var assets = {
         "app/scripts/controllers/universityMergeCtrl.js",
         "app/scripts/controllers/logCtrl.js",
         "app/scripts/controllers/databaseCtrl.js",
+        "app/scripts/controllers/conceptVideoSpanishCtrl.js",
 
 
 
@@ -281,7 +282,7 @@ gulp.task("js_app", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app-2.5.min.js'))
+        .pipe(plugins.concat('app-2.7.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 gulp.task("css_website", function (done) {
@@ -290,7 +291,7 @@ gulp.task("css_website", function (done) {
     return gulp.src(assets.css_website)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app-2.9.min.css'))
+        .pipe(plugins.concat('app-2.12.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 
