@@ -151,13 +151,14 @@
         }
 
         function _changePage(currentPage) {
-
             var data = {
                 "pageNumber": currentPage,
-                "pageSize": $scope.maxSize
+                "pageSize": $scope.maxSize,
+                "username": $stateParams.username,
+                "keyword": $scope.searchQuery
             };
 
-            ($scope.sellingBookPromise = bookDealService.getBookDealsOfMine(identityService.getAccessToken(), data)).then(function (response) {
+            ($scope.sellingBookPromise = bookDealService.getActivatedBookDealsOfUser(data)).then(function (response) {
                 $scope.campusBookDeals = response.data.success.successData.result;
                 $scope.totalSearchResults = response.data.success.successData.totalNumber;
                 setCarousel();
