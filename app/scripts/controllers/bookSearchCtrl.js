@@ -46,6 +46,10 @@
                 pageNumber= parseInt($stateParams.pageNumber,10);
                 if(typeof $stateParams.searchQuery == "string" && (pageNumber<100 || 0>pageNumber)){
 
+                    var onlyIsbn =($stateParams.searchQuery.replace(/[^A-Z0-9]/ig, "").match(/^\d+$/));
+                    if(onlyIsbn){
+                        $stateParams.searchQuery = onlyIsbn[0];
+                    }
                     var data={
                         'keyword': $stateParams.searchQuery,
                         'page': pageNumber,
