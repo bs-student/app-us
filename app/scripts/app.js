@@ -1,34 +1,41 @@
 'use strict';
 
 
-
 /*jshint -W079 */
 
 var app = angular
     .module('student2studentApp', [
-
         'satellizer',
-
         'ngAnimate',
         'ngCookies',
         'ngResource',
         'ngSanitize',
-//        'ngTouch',
-//        'ngMessages',
         'picardy.fontawesome',
         'ui.bootstrap',
         'ui.router',
         'ui.utils',
         'angular-loading-bar',
-//        'angular-momentjs',
-//        'FBAngular',
-//        'lazyModel',
+        'angular-momentjs',
         'toastr',
-//        'angularBootstrapNavTree',
         'oc.lazyLoad',
         'ui.select',
-//        'ui.tree',
         'textAngular',
+        'ngTable',
+        'pascalprecht.translate',
+        'ngParallax',
+        'vcRecaptcha',
+        'cgBusy',
+        '720kb.socialshare',
+        'jkuri.slimscroll',
+        'firebase',
+        'ngScrollGlue',
+        'chart.js'
+//        'ngTouch',
+//        'ngMessages',
+//        'FBAngular',
+//        'lazyModel',
+//        'angularBootstrapNavTree',
+//        'ui.tree',
 //        'colorpicker.module',
 //        'angularFileUpload',
 //        'ngImgCrop',
@@ -43,7 +50,6 @@ var app = angular
 //        'ui.grid.resizeColumns',
 //        'ui.grid.edit',
 //        'ui.grid.moveColumns',
-        'ngTable',
 //        'smart-table',
 //        'angular-flot',
 //        'angular-rickshaw',
@@ -51,7 +57,6 @@ var app = angular
 //        'uiGmapgoogle-maps',
 //        'ui.calendar',
 //        'ngTagsInput',
-        'pascalprecht.translate',
 //        'ngMaterial',
 //        'localytics.directives',
 //        'leaflet-directive',
@@ -59,32 +64,19 @@ var app = angular
 //        'ipsum',
 //        'angular-intro',
 //        'dragularModule'
-
 //        'angular-parallax'
-        'ngParallax',
 //        'noCAPTCHA'
-        'vcRecaptcha',
-        'cgBusy',
 //        'duScroll',
-        '720kb.socialshare',
-        'jkuri.slimscroll',
-        'firebase',
-        'ngScrollGlue'
 //        'ui.slimscroll'
     ])
-    .run(['$rootScope', '$state', '$stateParams','imageStoreService' ,function ($rootScope, $state, $stateParams,imageStoreService) {
+    .run(['$rootScope', '$state', '$stateParams', 'imageStoreService' , function ($rootScope, $state, $stateParams, imageStoreService) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-
         $rootScope.$on('$stateChangeSuccess', function (event, toState) {
-
             event.targetScope.$watch('$viewContentLoaded', function () {
-
-                if(toState.name!="app.bookBuy.bookSearch"){
+                if (toState.name != "app.bookBuy.bookSearch") {
                     angular.element('html, body, #content').animate({ scrollTop: 0 }, 200);
                 }
-
-
                 setTimeout(function () {
                     angular.element('#wrap').css('visibility', 'visible');
 
@@ -94,33 +86,14 @@ var app = angular
                 }, 200);
             });
             $rootScope.containerClass = toState.containerClass;
-
             imageStoreService.removeAllStoredImages();
         });
-
-
-
-
     }])
-    .config(function() {
-        var config = {
-            apiKey: "AIzaSyB_khisCo1mguYbbPKUM6Ugfc_i74kWa50",
-            authDomain: "student2student-31e72.firebaseapp.com",
-            databaseURL: "https://student2student-31e72.firebaseio.com",
-            storageBucket: "student2student-31e72.appspot.com"
-        };
-        firebase.initializeApp(config);
-    })
+
 
     .config(['uiSelectConfig', function (uiSelectConfig) {
         uiSelectConfig.theme = 'bootstrap';
     }])
-    .config(['vcRecaptchaServiceProvider',function(vcRecaptchaServiceProvider){
-        vcRecaptchaServiceProvider.setSiteKey('6LeMeykTAAAAAHDayXgyff_OX7erYAnPoUKnLrR-')
-        vcRecaptchaServiceProvider.setTheme('dark')
-    }])
-
-
 
     //angular-language
     .config(['$translateProvider', function ($translateProvider) {
@@ -133,42 +106,50 @@ var app = angular
         $translateProvider.useSanitizeValueStrategy(null);
     }])
 
-
-    .config(['$authProvider',function($authProvider) {
-
-        $authProvider.facebook({
-            clientId: '214816590624',
-            url:'http://student2student.com/api/web/auth/facebook'
-
-
-        });
-        $authProvider.google({
-            clientId: '19322012790-7i3k71ps5r6cujo4h87j9husfvjombsn.apps.googleusercontent.com',
-            url:'http://student2student.com/api/web/auth/google'
-
-        });
-
+    .config(['FIREBASE_CONSTANT',function (FIREBASE_CONSTANT) {
+        var config = {
+            apiKey: FIREBASE_CONSTANT.API_KEY,
+            authDomain: FIREBASE_CONSTANT.AUTH_DOMAIN,
+            databaseURL: FIREBASE_CONSTANT.DATABASE_URL,
+            storageBucket: FIREBASE_CONSTANT.STORAGE_BUCKET
+        };
+        firebase.initializeApp(config);
     }])
 
+    .config(['vcRecaptchaServiceProvider', 'VC_RECAPTCHA_CONSTANT', function (vcRecaptchaServiceProvider, VC_RECAPTCHA_CONSTANT) {
+        vcRecaptchaServiceProvider.setSiteKey(VC_RECAPTCHA_CONSTANT.SITE_KEY);
+        vcRecaptchaServiceProvider.setTheme(VC_RECAPTCHA_CONSTANT.THEME_STYLE);
+    }])
 
-    .config(['$stateProvider', '$urlRouterProvider','authCheckerServiceProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,authCheckerServiceProvider,$locationProvider) {
+    .config(['$authProvider', 'SOCIAL_MEDIA_INTEGRATION_CONSTANT', function ($authProvider, SOCIAL_MEDIA_INTEGRATION_CONSTANT) {
+        $authProvider.facebook({
+            clientId: SOCIAL_MEDIA_INTEGRATION_CONSTANT.FACEBOOK_CLIENT_ID,
+            url: SOCIAL_MEDIA_INTEGRATION_CONSTANT.FACEBOOK_REDIRECT_URL
+        });
+        $authProvider.google({
+            clientId: SOCIAL_MEDIA_INTEGRATION_CONSTANT.GOOGLE_CLIENT_ID,
+            url: SOCIAL_MEDIA_INTEGRATION_CONSTANT.GOOGLE_REDIRECT_URL
+        });
+    }])
+
+    .config(['$stateProvider', '$urlRouterProvider', 'authCheckerServiceProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, authCheckerServiceProvider, $locationProvider) {
         var authCheck = {
-            authCheck: function() {
+            authCheck: function () {
                 return authCheckerServiceProvider.$get().checkIfLoggedIn();
             }
         };
 
         var adminCheck = {
-            adminCheck: function() {
+            adminCheck: function () {
                 return authCheckerServiceProvider.$get().checkIfAdminLoggedIn();
             }
         };
 
         var authCheckNormal = {
-            authCheckNormal: function() {
+            authCheckNormal: function () {
                 return authCheckerServiceProvider.$get().checkIfLoggedInNormal();
             }
-        }
+        };
 
 
         $urlRouterProvider
@@ -225,8 +206,6 @@ var app = angular
                 controller: 'ConceptVideoCtrl',
                 templateUrl: 'views/web/conceptVideo.html'
             })
-
-
 
 
             //login
@@ -288,13 +267,13 @@ var app = angular
             //book Search
             .state('app.bookBuy.bookSearch', {
                 url: '^/bookSearch/:searchQuery?pageNumber&campus',
-                views:{
-                    'searchResultView@app.bookBuy':{
+                views: {
+                    'searchResultView@app.bookBuy': {
                         templateUrl: 'views/book/search_result.html',
                         controller: 'BookSearchCtrl'
                     }
                 },
-                resolve:authCheckNormal
+                resolve: authCheckNormal
 
             })
             //compare page
@@ -303,7 +282,7 @@ var app = angular
                 controller: 'BookCompareCtrl',
 //                templateUrl: 'views/book/compare.html'
                 templateUrl: 'views/book/compare_book_price.html',
-                resolve:authCheckNormal
+                resolve: authCheckNormal
             })
             //If Buy From Amazon
             .state('app.buyFromAmazon', {
@@ -318,7 +297,7 @@ var app = angular
                 params: {
                     "deal": null,
                     "isbn": null,
-                    "asin" :null
+                    "asin": null
                 }
 
             })
@@ -356,7 +335,6 @@ var app = angular
                 controller: 'TellFriendsCtrl',
                 templateUrl: 'views/web/tell_friends.html'
             })
-
 
 
             //Privacy Policy
@@ -498,7 +476,6 @@ var app = angular
             })
 
 
-
             //Edit Book Deal
             .state('app.editBookDeal', {
                 url: '^/editBookDeal',
@@ -519,10 +496,6 @@ var app = angular
             })
 
 
-
-
-
-
             //////////////////////// ADMIN Routes ////////////////
             //AdminUserList
             .state('app.userList', {
@@ -531,6 +504,35 @@ var app = angular
                 templateUrl: 'views/admin/user/user_list.html',
                 resolve: adminCheck
             })
+            //AdminUserReport
+            .state('app.adminUserReport', {
+                url: '^/adminUserReport',
+                controller: 'AdminUserReportCtrl',
+                templateUrl: 'views/admin/report/adminUserReport.html',
+                resolve: adminCheck
+            })
+            //AdminUniversityReport
+            .state('app.adminUniversityReport', {
+                url: '^/adminUniversityReport',
+                controller: 'AdminUniversityReportCtrl',
+                templateUrl: 'views/admin/report/adminUniversityReport.html',
+                resolve: adminCheck
+            })
+            //AdminBookReport
+            .state('app.adminBookDealReport', {
+                url: '^/adminBookDealReport',
+                controller: 'AdminBookDealReportCtrl',
+                templateUrl: 'views/admin/report/adminBookDealReport.html',
+                resolve: adminCheck
+            })
+            //GoogleAnalyticsReport
+            .state('app.googleAnalyticsReport', {
+                url: '^/googleAnalyticsReport',
+                controller: 'GoogleAnalyticsReportCtrl',
+                templateUrl: 'views/admin/report/googleAnalyticsReport.html',
+                resolve: adminCheck
+            })
+
             //Admin University Management
             .state('app.universityManagement', {
                 url: '^/universityManagement',
@@ -563,8 +565,8 @@ var app = angular
             //Add User
             .state('app.userList.addUser', {
                 url: '^/addUser',
-                views:{
-                    'addUserView@app.userList':{
+                views: {
+                    'addUserView@app.userList': {
                         templateUrl: 'views/admin/user/add_user.html',
                         controller: 'AddUserCtrl'
                     }
@@ -589,8 +591,8 @@ var app = angular
             //Add Student Quote
             .state('app.quotes.addStudentQuote', {
                 url: '^/addStudentQuote',
-                views:{
-                    'addStudentQuoteView@app.quotes':{
+                views: {
+                    'addStudentQuoteView@app.quotes': {
                         templateUrl: 'views/admin/content/add_student_quote.html',
                         controller: 'AddQuoteCtrl'
                     }
@@ -601,8 +603,8 @@ var app = angular
             //Add University Quote
             .state('app.quotes.addUniversityQuote', {
                 url: '^/addUniversityQuote',
-                views:{
-                    'addUniversityQuoteView@app.quotes':{
+                views: {
+                    'addUniversityQuoteView@app.quotes': {
                         templateUrl: 'views/admin/content/add_university_quote.html',
                         controller: 'AddQuoteCtrl'
                     }
@@ -620,8 +622,8 @@ var app = angular
             //Add Student Quote
             .state('app.newsManagement.addNews', {
                 url: '^/addNews',
-                views:{
-                    'addNewsView@app.newsManagement':{
+                views: {
+                    'addNewsView@app.newsManagement': {
                         templateUrl: 'views/admin/content/add_news.html',
                         controller: 'AddNewsCtrl'
                     }

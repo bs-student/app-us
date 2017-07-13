@@ -3,28 +3,6 @@
     'use strict';
 
     app
-        .constant("SERVER_CONSTANT", {
-            "HOST": "http://localhost:8080/Student2StudentApi/web/app_dev.php",
-            "HOST_APP": "http://localhost:8080/Student2StudentApp/app",
-            "IMAGE_HOST_PATH": "./../../Student2StudentApi/web"
-//            "HOST":"http://test.student2student.com/api/web",
-//            "HOST_APP" : "http://test.student2student.com",
-//            "IMAGE_HOST_PATH":"./api/web"
-//            "HOST":"http://student2student.com/api/web",
-//            "HOST_APP" : "http://student2student.com",
-//            "IMAGE_HOST_PATH":"./api/web"
-        })
-        .constant("API_CLIENT_CONSTANT", {
-            "CLIENT_ID": "1_1t8rtqj36wkgcw4k8wko4wo808ksok0w8wssow4k8sgw08osw8",
-            "CLIENT_SECRET": "3pcvjgjoqekgwgkoc0gss4cggkoo000o40ggc8ok44ksc4ckk0"
-        })
-        .constant("ACCESS_TOKEN_CONSTANT", {
-            "PASSWORD_GRANT_TYPE": "password",
-            "REFRESH_TOKEN_GRANT_TYPE": "refresh_token",
-            "CLIENT_CREDENTIALS_GRANT_TYPE": "client_credentials",
-            "SOCIAL_PLUGIN_GRANT_TYPE": "http://platform.local/grants/social_plugin",
-            "OAUTH_TOKEN_URL": "/oauth/v2/token"
-        })
         .constant("SOCIAL_MEDIA_CONSTANT", {
             "FACEBOOK_LINK": "https://www.facebook.com/student2student",
             "TWITTER_LINK": "https://twitter.com/St2StTextbook",

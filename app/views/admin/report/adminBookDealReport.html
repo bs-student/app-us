@@ -2,14 +2,11 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title hidden-xs">
-                    <text class="uppercase blue-text lato">Dash</text>
-                    <text class="uppercase orange-text lato">board</text>
+                <h1 class="header-title">
+                    <text class="uppercase blue-text lato">Book Deal</text>
+                    <text class="uppercase orange-text lato">Report</text>
                 </h1>
-                <h1 class="header-title visible-xs">
-                    <text class="uppercase blue-text lato">Dash</text>
-                    <text class="uppercase orange-text lato">board</text>
-                </h1>
+
 
             </div>
         </div>
@@ -30,11 +27,11 @@
                     <div class="col-md-12">
 
 
-                        <h1>User Report</h1>
+                        <h1>Book Deal Report</h1>
 
-                        <p>Total User Count: <b>{{totalUserCount}}</b></p>
+                        <p>Total Book Deal Count: <b>{{createdBookDeals}}</b>&nbsp;&nbsp;&nbsp;<a ui-sref="app.allBookDeals" class="btn btn-primary"><i class="fa fa-book"></i> See Book Deals</a></p>
+                        <p>Total Sold Book Deal Count: <b>{{soldBookDeals}}</b></p>
 
-                        <p>Total Social User Count: <b>{{totalSocialUserCount}}</b></p>
 
                         <h5>
 
@@ -54,20 +51,9 @@
 
                     </div>
 
-                    <div class="col-md-6"  cg-busy="{promise:socialUserPiePromise}">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">New User vs Social User</div>
-                            <div class="panel-body">
-                                <text ng-show="pieChartUsers==0" class="text-center">No Data Found</text>
-                                <canvas style="height: 261px;" id="pie" class="chart chart-pie"
-                                        chart-data="socialUsersPieChartData" chart-labels="socialUsersPieChartLabels">
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-6"  cg-busy="{promise:bookDealMthodPiePromise}">
+                    <div class="col-md-12"  cg-busy="{promise:bookDealMthodPiePromise}">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">Book Deal Method Types</div>
@@ -94,18 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12"  cg-busy="{promise:loggedInAndRegisteredUserLinePromise}">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">New User vs Logged In User</div>
-                            <div class="panel-body">
-                                <canvas style="height: 261px;" id="line" class="chart chart-line" chart-data="loggedInAndRegisteredLineData"
-                                        chart-labels="loggedInAndRegisteredLineLabels" chart-series="loggedInAndRegisteredLineSeries" chart-options="loggedInAndRegisteredLineOptions"
-                                        chart-dataset-override="loggedInAndRegisteredLineDatasetOverride" chart-click="loggedInAndRegisteredLineOnClick">
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
 
 
 

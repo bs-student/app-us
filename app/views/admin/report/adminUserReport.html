@@ -2,13 +2,9 @@
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="header-title hidden-xs">
-                    <text class="uppercase blue-text lato">Dash</text>
-                    <text class="uppercase orange-text lato">board</text>
-                </h1>
-                <h1 class="header-title visible-xs">
-                    <text class="uppercase blue-text lato">Dash</text>
-                    <text class="uppercase orange-text lato">board</text>
+                <h1 class="header-title">
+                    <text class="uppercase blue-text lato">User</text>
+                    <text class="uppercase orange-text lato">Report</text>
                 </h1>
 
             </div>
@@ -32,7 +28,7 @@
 
                         <h1>User Report</h1>
 
-                        <p>Total User Count: <b>{{totalUserCount}}</b></p>
+                        <p>Total User Count: <b>{{totalUserCount}}</b> &nbsp;&nbsp;&nbsp;<a ui-sref="app.userList" class="btn btn-primary"><i class="fa fa-users"></i> Manage Users</a></p></p>
 
                         <p>Total Social User Count: <b>{{totalSocialUserCount}}</b></p>
 
@@ -54,7 +50,7 @@
 
                     </div>
 
-                    <div class="col-md-6"  cg-busy="{promise:socialUserPiePromise}">
+                    <div class="col-md-12"  cg-busy="{promise:socialUserPiePromise}">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">New User vs Social User</div>
@@ -67,33 +63,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6"  cg-busy="{promise:bookDealMthodPiePromise}">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Book Deal Method Types</div>
-                            <div class="panel-body">
-                                <text ng-show="bookDealMethodRows==0" class="text-center">No Data Found</text>
-                                <canvas style="height: 261px;"  class="chart chart-pie"
-                                        chart-data="bookDealMethodPieChartData" chart-labels="bookDealMethodPieChartLabels">
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
 
 
-
-                    <div class="col-md-12"  cg-busy="{promise:bookDealAndContactLinePromise}">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Book Deal Creation vs Contact</div>
-                            <div class="panel-body">
-                                <canvas style="height: 261px;"  class="chart chart-line" chart-data="bookDealAndContactLineData"
-                                        chart-labels="bookDealAndContactLineLabels" chart-series="bookDealAndContactLineSeries" chart-options="loggedInAndRegisteredLineOptions"
-                                        chart-dataset-override="loggedInAndRegisteredLineDatasetOverride" chart-click="loggedInAndRegisteredLineOnClick">
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-12"  cg-busy="{promise:loggedInAndRegisteredUserLinePromise}">
 
                         <div class="panel panel-default">

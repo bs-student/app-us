@@ -93,7 +93,9 @@
                 $scope.totalBookDeals=response.data.success.successData;
                 $scope.bookDeals=response.data.success.successData.slice(0,10);
                 $scope.totalSearchResults = response.data.success.successData.length;
-                $scope.bookDeals[0].active=true;
+                if($scope.bookDeals.length>0){
+                    $scope.bookDeals[0].active=true;
+                }
                 checkForNewMessage();
                 eventService.trigger("getNewContacts",identityService.getAuthorizedUserData().username);
 
@@ -127,7 +129,9 @@
             angular.forEach($scope.bookDeals, function (deal) {
                 deal.active = false;
             });
-            $scope.bookDeals[0].active=true;
+            if($scope.bookDeals.length>0){
+                $scope.bookDeals[0].active=true;
+            }
         }
 
         function _search(searchQuery){
@@ -140,7 +144,9 @@
                 angular.forEach($scope.bookDeals, function (deal) {
                     deal.active = false;
                 });
-                $scope.bookDeals[0].active=true;
+                if($scope.bookDeals.length>0){
+                    $scope.bookDeals[0].active=true;
+                }
 
             }else{
                 $scope.bookDeals=[];
@@ -205,7 +211,9 @@
                 angular.forEach($scope.bookDeals, function (deal) {
                     deal.active = false;
                 });
-                $scope.bookDeals[0].active=true;
+                if($scope.bookDeals.length>0){
+                    $scope.bookDeals[0].active=true;
+                }
             }else if(typeValue=="Starred"){
                 //Getting Starred Deals
                 angular.forEach($scope.totalBookDeals,function(deal){
@@ -324,7 +332,9 @@
             angular.forEach($scope.bookDeals, function (deal) {
                 deal.active = false;
             });
-            $scope.bookDeals[0].active=true;
+            if($scope.bookDeals.length>0){
+                $scope.bookDeals[0].active=true;
+            }
         }
 
 

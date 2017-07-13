@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="header-title">
-                    <text class="uppercase blue-text lato">Book Deal</text>
-                    <text class="uppercase orange-text lato">Report</text>
+                    <text class="uppercase blue-text lato">Google</text>
+                    <text class="uppercase orange-text lato">Analytics Report</text>
                 </h1>
 
 
@@ -25,16 +25,8 @@
                 <div class="row">
 
                     <div class="col-md-12">
-
-
-                        <h1>Book Deal Report</h1>
-
-                        <p>Total Book Deal Count: <b>{{createdBookDeals}}</b>&nbsp;&nbsp;&nbsp;<a ui-sref="app.allBookDeals" class="btn btn-primary"><i class="fa fa-book"></i> See Book Deals</a></p>
-                        <p>Total Sold Book Deal Count: <b>{{soldBookDeals}}</b></p>
-
-
+                        <h1>Google Analytics Report</h1>
                         <h5>
-
                             <div class="text-right page-toolbar">
                                 Filter With Date Range:
                                 <a ng-click="alert('eeee')" class="btn btn-lightred no-border"
@@ -46,54 +38,59 @@
                                         class="btn btn btn-success btn-rounded-20 btn-ef btn-ef-5 btn-ef-5a ">
                                     <i class="fa fa-search"></i><span> Search</span></button>
                             </div>
-                            Result Showing on Date Range: <b>{{startDate}} - {{endDate}}</b>
+
+                            Google Analytics Result Showing on Date Range: <b>{{startDate}} - {{endDate}}</b>
                         </h5>
-
                     </div>
 
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <div id="active-users-container"></div>
+                        <br/>
+                        <br/>
+                    </div>
 
-
-                    <div class="col-md-12"  cg-busy="{promise:bookDealMthodPiePromise}">
-
+                    <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Book Deal Method Types</div>
-                            <div class="panel-body">
-                                <text ng-show="bookDealMethodRows==0" class="text-center">No Data Found</text>
-                                <canvas style="height: 261px;"  class="chart chart-pie"
-                                        chart-data="bookDealMethodPieChartData" chart-labels="bookDealMethodPieChartLabels">
-                                </canvas>
+                            <div class="panel-heading">
+                               <b>Visited Users Per Day</b>
+                            </div>
+                            <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
+                                <div class="Chartjs">
+                                    <figure class="Chartjs-figure" id="user-line-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-line-chart-legend-container"></ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-
-                    <div class="col-md-12"  cg-busy="{promise:bookDealAndContactLinePromise}">
-
+                    <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Book Deal Creation vs Contact</div>
-                            <div class="panel-body">
-                                <canvas style="height: 261px;"  class="chart chart-line" chart-data="bookDealAndContactLineData"
-                                        chart-labels="bookDealAndContactLineLabels" chart-series="bookDealAndContactLineSeries" chart-options="loggedInAndRegisteredLineOptions"
-                                        chart-dataset-override="loggedInAndRegisteredLineDatasetOverride" chart-click="loggedInAndRegisteredLineOnClick">
-                                </canvas>
+                            <div class="panel-heading">
+                                <b>Geographical User Data (USA)</b>
+                            </div>
+                            <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
+                                <div id="usa_regions_div" style="height: 500px;"></div>
                             </div>
                         </div>
                     </div>
-
-
-
-
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <b>Geographical User Data (Canada)</b>
+                            </div>
+                            <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
+                                <div id="canada_regions_div" style="height: 500px;"></div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
+
         </div>
-
-
     </div>
-    </div>
+
 
 </section>
 
