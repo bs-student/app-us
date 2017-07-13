@@ -45,6 +45,7 @@
             "APPROVE_USERS": "/api/admin/approve_users",
             "ADD_ADMIN_USER": "/api/admin/add_admin_user",
             "GET_ALL_BOOK_DEALS": "/api/admin/get_all_book_deals",
+            "GET_ALL_SOLD_BOOK_DEALS":"/api/admin/get_all_sold_book_deals",
             "GET_STUDENT_QUOTES": "/api/admin/get_student_quotes",
             "GET_UNIVERSITY_QUOTES": "/api/admin/get_university_quotes",
             "UPDATE_QUOTE": "/api/admin/update_quote",
@@ -65,7 +66,14 @@
             "MERGE_UNIVERSITIES": "/api/admin/merge_universities",
             "GET_LOG":"/api/admin/get_log",
             "GET_ALL_DATABASE_LIST":"/api/admin/get_all_databases",
-            "DOWNLOAD_DATABASE":"/api/admin/download_database"
+            "DOWNLOAD_DATABASE":"/api/admin/download_database",
+
+            "GET_NORMAL_AND_SOCIAL_USER_DATA":"/api/admin/get_all_normal_and_social_user_data",
+            "GET_LOGIN_AND_REGISTRATION_USER_DATA":"/api/admin/get_login_and_registration_user_data",
+            "GET_BOOK_DEAL_AND_CONTACT_DATA":"/api/admin/get_book_deal_and_contact_data",
+            "GET_BOOK_DEAL_METHOD_DATA":"/api/admin/get_book_deal_method_data",
+            "GET_UNIVERSITIES_USER_DATA":"/api/admin/get_universities_user_data",
+            "GET_GOOGLE_ACCESS_TOKEN":"/api/admin/get_google_access_token"
         })
         .constant("QUOTE_CONSTANT", {
             "GET_ACTIVATED_STUDENT_QUOTE": "/quote/get_activated_student_quote",
