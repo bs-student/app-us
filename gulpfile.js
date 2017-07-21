@@ -148,6 +148,7 @@ var assets = {
         "app/scripts/controllers/adminUniversityReportCtrl.js",
         "app/scripts/controllers/adminBookDealReportCtrl.js",
         "app/scripts/controllers/googleAnalyticsReportCtrl.js",
+        "app/scripts/controllers/adminUserBrowsingReportCtrl.js",
 
 
 
@@ -298,7 +299,7 @@ gulp.task("js_app", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app-2.19.min.js'))
+        .pipe(plugins.concat('app-2.20.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 gulp.task("css_website", function (done) {
@@ -307,7 +308,7 @@ gulp.task("css_website", function (done) {
     return gulp.src(assets.css_website)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app-2.15.min.css'))
+        .pipe(plugins.concat('app-2.16.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 

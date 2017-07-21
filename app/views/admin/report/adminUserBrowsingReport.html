@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="header-title">
-                    <text class="uppercase blue-text lato">Google</text>
-                    <text class="uppercase orange-text lato">Analytics Report</text>
+                    <text class="uppercase blue-text lato">User Browsing Report</text>
+                    <text class="uppercase orange-text lato"> (Google Analytics)</text>
                 </h1>
 
 
@@ -25,7 +25,7 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <h1>Google Analytics Report</h1>
+                        <h1>User Browsing Report</h1>
                         <h5>
                             <div class="text-right page-toolbar">
                                 Filter With Date Range:
@@ -53,36 +53,74 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                               <b>Visited Users Per Day</b>
+                                <b>Users using which Device Category?</b>
                             </div>
                             <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
                                 <div class="Chartjs">
-                                    <figure class="Chartjs-figure" id="user-line-chart-container"></figure>
-                                    <ol class="Chartjs-legend" id="user-line-chart-legend-container"></ol>
+                                    <figure class="Chartjs-figure" id="user-device-category-pie-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-device-category-pie-chart-legend-container"></ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <b>Geographical User Data (USA)</b>
+                                <b>Users using which Operating Systems?</b>
                             </div>
                             <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
-                                <div id="usa_regions_div" style="height: 500px;"></div>
+                                <div class="Chartjs">
+                                    <figure class="Chartjs-figure" id="user-os-bar-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-os-bar-chart-legend-container"></ol>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <b>Geographical User Data (Canada)</b>
+                               <b>Users using which Browsers?</b>
                             </div>
                             <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
-                                <div id="canada_regions_div" style="height: 500px;"></div>
+                                <div class="Chartjs">
+                                    <figure class="Chartjs-figure" id="user-browser-bar-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-browser-bar-chart-legend-container"></ol>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <b>Users using which Mobile Brand?</b>
+                            </div>
+                            <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
+                                <div class="Chartjs">
+                                    <figure class="Chartjs-figure" id="user-device-brand-bar-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-device-brand-bar-chart-legend-container"></ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <b>Users using which Mobile Devices?</b>
+                            </div>
+                            <div cg-busy="{promise:googleAccessTokenPromise}" class="panel-body">
+                                <div class="Chartjs">
+                                    <figure class="Chartjs-figure" id="user-device-bar-chart-container"></figure>
+                                    <ol class="Chartjs-legend" id="user-device-bar-chart-legend-container"></ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
 
