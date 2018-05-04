@@ -5,9 +5,9 @@
     app
         .factory('apiService', apiService);
 
-    apiService.$inject = ['$http','$q'];
+    apiService.$inject = ['$http','$q','headerTokenService'];
 
-    function apiService($http,$q) {
+    function apiService($http,$q,headerTokenService) {
 
         return {
             get: _get,
@@ -26,7 +26,7 @@
             }else{
                 config={timeout:defer.promise}
             }
-
+            config.headers = headerTokenService.generateHeaderToken();
             var promise = $http.get(url, config);
 
             promise.abort = function(reason){
@@ -44,7 +44,7 @@
             }else{
                 config={timeout:defer.promise}
             }
-
+            config.headers = headerTokenService.generateHeaderToken();
             var promise= $http.post(url, data, config);
 
             promise.abort = function(reason){
