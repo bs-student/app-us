@@ -310,7 +310,7 @@ gulp.task("css_website", function (done) {
     return gulp.src(assets.css_website)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app-2.18.min.css'))
+        .pipe(plugins.concat('app-2.19.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 
