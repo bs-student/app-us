@@ -101,9 +101,9 @@ var app = angular
             prefix: 'languages/',
             suffix: '.json'
         });
-        $translateProvider.useLocalStorage();
-        $translateProvider.preferredLanguage('en');
-        $translateProvider.useSanitizeValueStrategy(null);
+       // $translateProvider.useLocalStorage();
+        $translateProvider.preferredLanguage('es');
+        $translateProvider.useSanitizeValueStrategy('escape');
     }])
 
     .config(['FIREBASE_CONSTANT',function (FIREBASE_CONSTANT) {
