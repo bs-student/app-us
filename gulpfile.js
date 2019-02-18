@@ -40,7 +40,8 @@ var assets = {
         "bower_components/ngSlimscroll/src/js/ngSlimscroll.js",
         "bower_components/chart.js/dist/Chart.js",
         "bower_components/angular-chart.js/dist/angular-chart.js",
-        "bower_components/crypto-js/crypto-js.js"
+        "bower_components/crypto-js/crypto-js.js",
+        "bower_components/smart-app-banner/smart-app-banner.js"
 
 
 
@@ -215,7 +216,8 @@ var assets = {
         "app/scripts/validators/valUsername.js",
         "app/scripts/validators/valUsernameSpecialChar.js",
 
-        "app/scripts/filters/sanitizeHtml.js"
+        "app/scripts/filters/sanitizeHtml.js",
+        "app/scripts/filters/smart-banner.js"
     ],
 
     css_library: [
@@ -237,7 +239,8 @@ var assets = {
 
         "bower_components/angular-busy/dist/angular-busy.css",
         "bower_components/textAngular/dist/textAngular.css",
-        "bower_components/bootstrap-daterangepicker/daterangepicker.css"
+        "bower_components/bootstrap-daterangepicker/daterangepicker.css",
+        "bower_components/smart-app-banner/smart-app-banner.css"
 
 
     ],

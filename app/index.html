@@ -26,6 +26,8 @@
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Start SmartBanner configuration -->
     <meta name="apple-itunes-app" content="app-id=1398580072">
@@ -200,6 +202,7 @@
 <script src="../bower_components/angular-momentjs/angular-momentjs.js"></script>
 <script src="../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="../bower_components/crypto-js/crypto-js.js"></script>
+<script src="../bower_components/smart-app-banner/smart-app-banner.js"></script>
 
 <script src="../vendor/superfish/js/superfish.js"></script>
 <script src="../vendor/jRespond/jRespond.js"></script>
@@ -345,30 +348,7 @@
 <script src="scripts/validators/valUsernameSpecialChar.js"></script>
 
 <script src="scripts/filters/sanitizeHtml.js"></script>
-<script src="../bower_components/smart-app-banner/smart-app-banner.js"></script>
-<script type="text/javascript">
-    new SmartBanner({
-        daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
-        daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
-        appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
-        title: 'Student2Student',
-        author: 'WEB care GmbH',
-        button: 'View',
-        store: {
-            ios: 'On the App Store',
-            android: 'In Google Play',
-            windows: 'In Windows store'
-        },
-        price: {
-            ios: 'FREE',
-            android: 'FREE',
-            windows: 'FREE'
-        }
-        // , theme: '' // put platform type ('ios', 'android', etc.) here to force single theme on all device
-        // , icon: '' // full path to icon image if not using website icon image
-        // , force: 'ios' // Uncomment for platform emulation
-    });
-</script>
+<script src="scripts/filters/smart-banner.js"></script>
 
 </body>
 </html>
