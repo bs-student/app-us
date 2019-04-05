@@ -40,6 +40,8 @@ app
       $scope.currentLanguage = langKey;
     };
     $scope.currentLanguage = $translate.proposedLanguage() || $translate.use();
+    $scope.currentYear = new Date().getFullYear();
   }
+
 
 })();
