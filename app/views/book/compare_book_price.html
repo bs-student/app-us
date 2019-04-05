@@ -48,7 +48,7 @@
             </div>
             <div cg-busy="{promise:amazonPromise}" class="col-md-3 padding-left-none">
                 <div class="compare-page-top-button last-button">
-                    <a target="_blank" ui-sref="app.buy_from_amazon({bookOfferId: amazonBook.bookOfferId })">
+                    <a target="_blank" ui-sref= "app.buy_from_amazon({bookOfferId: amazonBook.bookOfferId })">
                         <div class="amazon-icon-div"></div>
                         Buy From Amazon
                     </a>
@@ -106,7 +106,7 @@
                                 <uib-slide ng-repeat="slide in book.bookImages" active="slide.active">
                                     <img class="main-pic" ng-click="viewImage($event)"
                                          data-options="splash-2 splash-primary splash-ef-2"
-                                         class="big-images img-responsive" ng-src="{{imageHostPath}}{{slide.image}}">
+                                         class="big-images img-responsive" ng-src="{{setImageUrl(slide.image,imageHostPath)}}">
 
                                 </uib-slide>
                             </uib-carousel>
