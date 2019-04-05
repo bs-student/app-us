@@ -279,7 +279,7 @@ gulp.task("js_library_1", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app.library1-2.5.min.js'))
+        .pipe(plugins.concat('app.library1-2.6.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 
@@ -291,7 +291,7 @@ gulp.task("js_library_2", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app.library2-2.5.min.js'))
+        .pipe(plugins.concat('app.library2-2.6.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 
@@ -304,7 +304,7 @@ gulp.task("js_app", function (done) {
         .pipe(plugins.uglify({
             mangle: true
         }))
-        .pipe(plugins.concat('app-2.24.min.js'))
+        .pipe(plugins.concat('app-2.26.min.js'))
         .pipe(gulp.dest('app/dist/js'));
 });
 gulp.task("css_website", function (done) {
@@ -313,7 +313,7 @@ gulp.task("css_website", function (done) {
     return gulp.src(assets.css_website)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app-2.19.min.css'))
+        .pipe(plugins.concat('app-2.20.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 
@@ -323,7 +323,7 @@ gulp.task("css_library", function (done) {
     return gulp.src(assets.css_library)
         .pipe(plugins.print())
         .pipe(plugins.cssmin())
-        .pipe(plugins.concat('app.library-2.4.min.css'))
+        .pipe(plugins.concat('app.library-2.5.min.css'))
         .pipe(gulp.dest('app/dist/css'));
 });
 

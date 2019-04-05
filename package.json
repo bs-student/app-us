@@ -1,7 +1,9 @@
 {
   "name": "student2student",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "natives": "^1.1.6"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
